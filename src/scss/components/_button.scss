@@ -1,0 +1,332 @@
+.btn {
+	display: block;
+	border: 0;
+	border-radius: 4px;
+	padding: 13px 24px 11px;
+	font-size: rem(15);
+	line-height: 1.2;
+	letter-spacing: -0.3px;
+	color: $text-color !important;
+	text-decoration: none;
+	text-align: center;
+	transition: all $transition-default;
+	word-break: break-word;
+	user-select: none;
+
+	span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		// transition: all $transition-default;
+	}
+
+	@include on-event {
+		text-shadow: none;
+	}
+
+	// .btn_disabled
+	&_disabled {
+		cursor: default !important;
+		pointer-events: none;
+
+		span::after {
+			opacity: 0.5;
+		}
+	}
+
+	@include on-disabled {
+		@extend .btn_disabled;
+	}
+
+	// .btn_gray-dark
+	&_gray-dark {
+		background: $gray-dark;
+
+		@include on-hover {
+			background: $gray;
+			box-shadow: 0 0 0 1px $black10 inset;
+		}
+		@include on-active {
+			box-shadow: 0 0 0 1px $black60 inset;
+			color: $black60 !important;
+			span::after {
+				opacity: 0.5;
+			}
+		}
+		@include on-focus {
+			// box-shadow: 0 0 0 1px $black60 inset, 0 0 0 6px #f7e9c7;
+		}
+		@include on-disabled {
+		}
+	}
+
+	// .btn_gray
+	&_gray {
+		background: $gray;
+
+		@include on-hover {
+			background: $white;
+			box-shadow: 0 0 0 1px $black10 inset;
+		}
+		@include on-active {
+			background: $gray;
+			box-shadow: 0 0 0 1px $black60 inset;
+			color: $black60 !important;
+			span::after {
+				opacity: 0.5;
+			}
+		}
+		@include on-focus {
+			// box-shadow: 0 0 0 1px $black60 inset, 0 0 0 6px #f7e9c7;
+		}
+		@include on-disabled {
+		}
+	}
+
+	// .btn_yellow
+	&_yellow {
+		background: $yellow;
+
+		@include on-hover {
+			background: $yellow-dark;
+			box-shadow: 0 0 0 1px $black10 inset;
+		}
+		@include on-active {
+			background: $yellow-dark;
+			box-shadow: 0 0 0 1px $black60 inset;
+			color: $black60 !important;
+			span::after {
+				opacity: 0.5;
+			}
+		}
+		@include on-focus {
+			// box-shadow: 0 0 0 1px $black60 inset, 0 0 0 6px #f7e9c7;
+		}
+		@include on-disabled {
+		}
+	}
+
+	// .btn_yellow-dark
+	&_yellow-dark {
+		background: $yellow-dark;
+
+		@include on-hover {
+			background: $yellow;
+			box-shadow: 0 0 0 1px $black10 inset;
+		}
+		@include on-active {
+			background: $yellow;
+			box-shadow: 0 0 0 1px $black60 inset;
+			color: $black60 !important;
+			span::after {
+				opacity: 0.5;
+			}
+		}
+		@include on-focus {
+			// box-shadow: 0 0 0 1px $black60 inset, 0 0 0 6px #f7e9c7;
+		}
+		@include on-disabled {
+		}
+	}
+
+	// .btn_white
+	&_white {
+		background: $white;
+		box-shadow: 0 0 0 1px $black30 inset;
+
+		@include on-hover {
+			background: $gray;
+			box-shadow: 0 0 0 1px $black30 inset;
+		}
+		@include on-active {
+			box-shadow: 0 0 0 1px $black60 inset;
+			color: $black60 !important;
+			span::after {
+				opacity: 0.6;
+			}
+		}
+		@include on-focus {
+			// box-shadow: 0 0 0 1px $black60 inset, 0 0 0 6px $black10;
+		}
+		@include on-disabled {
+		}
+	}
+
+	// .btn_nav-second
+	&_nav-second {
+		@include respond-to(lg) {
+			padding: 6px 12px 4px;
+			font-size: rem(13);
+			color: $yellow !important;
+			background: $black;
+			box-shadow: none !important;
+
+			span {
+				transition: none;
+			}
+
+			@include on-hover {
+				color: $black !important;
+				background: $white;
+			}
+			@include on-active {
+				span::after {
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	// .btn_arrow
+	&_arrow {
+		span {
+			&::after {
+				content: "";
+				display: block;
+				margin-left: 5px;
+				width: 15px;
+				height: 15px;
+				flex: 0 0 15px;
+				background-image: $arrow-black;
+				background-repeat: no-repeat;
+				transition: all $transition-default;
+				margin-bottom: 1px;
+			}
+		}
+
+		@include on-hover {
+			span {
+				&::after {
+					transform: rotate(45deg);
+				}
+			}
+		}
+
+		@include on-focus {
+			span {
+				&::after {
+					transform: rotate(45deg);
+				}
+			}
+		}
+
+		&.btn_nav-second {
+			@include respond-to(lg) {
+				span {
+					&::after {
+						width: 13px;
+						height: 13px;
+						flex: 0 0 13px;
+						background-image: $arrow-yellow;
+					}
+				}
+
+				@include on-hover {
+					span {
+						&::after {
+							background-image: $arrow-black;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	// .btn_arrow-big
+	&_arrow-big {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 56px;
+		height: 36px;
+		padding: 0 15px;
+
+		&::after {
+			content: "";
+			display: block;
+			margin-left: 5px;
+			width: 17px;
+			height: 17px;
+			flex: 0 0 17px;
+			background-image: $arrow-black;
+			background-repeat: no-repeat;
+			transition: all $transition-default;
+			margin-bottom: 1px;
+		}
+
+		@include on-hover {
+			&::after {
+				transform: rotate(45deg);
+			}
+		}
+
+		@include on-focus {
+			&::after {
+				transform: rotate(45deg);
+			}
+		}
+	}
+
+	// .btn_inset
+	&_inset {
+		position: absolute;
+		right: 2px;
+	}
+
+	// .btn_close
+	&_close {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		right: 17px;
+		width: 24px;
+		height: 24px;
+		padding: 0;
+		background-color: transparent;
+
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			width: 1px;
+			height: 18px;
+			background-color: $black;
+			box-shadow: 0 0 1px 0 $black;
+		}
+
+		&::before {
+			transform: rotate(45deg);
+		}
+		&::after {
+			transform: rotate(-45deg);
+		}
+	}
+}
+
+.close-search {
+	top: 21px;
+	right: 20px;
+
+	@include when-inside(".is-active") {
+		display: flex;
+	}
+
+	@include respond-to(lg, "max") {
+		@include when-inside(".is-active") {
+			&::after,
+			&::before {
+				width: 25px;
+				height: 2px;
+				box-shadow: none;
+			}
+		}
+	}
+}
+
+.btn-inset {
+	display: flex;
+	align-items: center;
+	position: relative;
+}

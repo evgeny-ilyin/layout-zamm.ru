@@ -1,0 +1,138 @@
+.form {
+
+	input[type="text"],
+	input[type="email"],
+	select,
+	textarea {
+		&::placeholder {
+			color: $black60;
+		}
+	}
+
+	// .form__fieldset
+	&__fieldset {
+
+	}
+}
+
+// .form {
+// 	margin-top: 40px;
+
+// 	input[type="text"],
+// 	input[type="email"],
+// 	select,
+// 	textarea {
+// 		&::placeholder {
+// 			color: $placeholder-color;
+// 		}
+// 	}
+
+// 	textarea {
+// 		resize: vertical;
+// 	}
+// }
+
+// .required {
+// 	border-color: $default-color !important;
+// }
+
+// default input (white)
+.input {
+	position: relative;
+	background-color: $white;
+	border: 0;
+	border-radius: 4px;
+	box-shadow: 0 0 0 1px $black30;
+	font-size: rem(15);
+	letter-spacing: -0.28px;
+	padding: 12px;
+	height: 42px;
+	transition: box-shadow $transition-default, border-radius $transition-default, background-color $transition-default;
+
+	@include on-hover {
+		background-color: $gray;
+		box-shadow: 0 0 0 1px $yellow;
+	}
+	@include on-focus {
+		background-color: $white;
+		box-shadow: 0 0 0 2px $yellow;
+	}
+
+	// .input_gray
+	&_gray {
+		background-color: $gray;
+
+		@include on-hover {
+			background-color: $white;
+			box-shadow: 0 0 0 1px $yellow;
+		}
+		@include on-focus {
+			background-color: $gray;
+			box-shadow: 0 0 0 2px $yellow;
+		}
+	}
+
+	// .input_fill
+	&_fill {
+		width: 100%;
+	}
+
+	// поиск в шапке на десктопе
+	// .input_nav-search
+	&_nav-search {
+		background-position: 9px center;
+		background-repeat: no-repeat;
+		background-size: 16px;
+		height: 32px;
+
+		@include respond-to(lg, "max") {
+			width: 100%;
+			background-image: $nav-search-mobile;
+			padding: 12px 12px 12px 32px;
+			height: 42px;
+
+			@include on-focus {
+				background-image: none;
+				padding-left: 12px;
+			}
+		}
+
+		@include respond-to(lg) {
+			width: 190px;
+			border-radius: 32px;
+			border-color: $black10;
+			font-size: rem(13);
+			line-height: 1;
+			padding: 6px 12px 6px 32px;
+			background-color: $white;
+			background-image: $nav-search;
+
+			@include on-hover {
+				border-color: $yellow;
+			}
+			@include on-focus {
+				background-color: $white;
+				border-color: $yellow;
+			}
+			@include on-active {
+				border-color: $yellow-dark;
+			}
+			@include when-inside(".is-active") {
+				width: 485px;
+				height: 40px;
+				font-size: rem(15);
+			}
+		}
+
+		@include when-inside(".is-active") {
+			@include on-focus {
+				background-image: none;
+				padding: 12px;
+			}
+
+			border-radius: 4px;
+			margin-right: 13px;
+			padding: 12px 12px 12px 32px;
+		}
+	}
+}

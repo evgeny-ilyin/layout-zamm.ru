@@ -1,0 +1,100 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+/// Headers (serif) font family
+/// @type List
+// $ff-header: "PT Serif", "Times New Roman", serif !default;
+
+/// Regular font family
+/// @type List
+$ff-text: "Manrope", "Helvetica", "Open Sans", "Arial", sans-serif !default;
+
+/// Code (monospace) font family
+/// @type List
+// $ff-code: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Monaco", monospace !default;
+
+
+/// цвета дублируются в _root-vars-map для первичной генерации переменных root
+/// можно обойтись без дублирования тут, если вызывать через функцию color(color-name) напрямую из _root-vars-map, но так дольше писать xD
+/// Simple colors
+/// @type Color
+$black: var(--black);
+$black10: var(--black10);
+$black30: var(--black30);
+$black60: var(--black60);
+$white: var(--white);
+$yellow: var(--yellow);
+$yellow-dark: var(--yellow-dark);
+$gray: var(--gray);
+$gray-dark: var(--gray-dark);
+$red-coral: var(--red-coral);
+$blue: var(--blue);
+$red-coral-dark: var(--red-coral-dark);
+$blue-dark: var(--blue-dark);
+$bright-blue: var(--bright-blue);
+$gray-dark-second: var(--gray-dark-second);
+$yellow-light: var(--yellow-light);
+$gray-blue: var(--gray-blue);
+$gray-yellow: var(--gray-yellow);
+
+
+$arrow-long: var(--arrow-long);
+$arrow-yellow: var(--arrow-yellow);
+$arrow-black: var(--arrow-black);
+// $arrow-white: var(--arrow-white);
+// $arrow-bright-blue: var(--arrow-bright-blue);
+$angle: var(--angle);
+$close: var(--close);
+$nav-search: var(--nav-search);
+$nav-search-mobile: var(--nav-search-mobile);
+
+
+/// Simple colors
+/// @type Color
+// $white: #fff;
+// $black: #000;
+// $grey: #ccc;
+// $red: #f00;
+$default-color: $black;
+
+/// Text color
+/// @type Color
+$text-color: $black !default;
+$href-color: $black !default;
+$href-color-hover: $black !default;
+
+$shadow-600: 0 0 0;
+$shadow-700: 0 0 0, 0 0 0;
+
+
+/// Form colors
+/// @type Color
+$placeholder-color: $text-color;
+$input-color: $text-color;
+
+/// Transitions
+$transition-default: 0.25s ease-in-out;
+
+/// Container's maximum width + paddings
+/// @type Length
+$min-width: 320px !default;
+$max-width: 1280px !default;
+$min-padding: 12px !default;
+$max-padding: 16px !default; // 768+ (md)
+
+/// Breakpoints map
+/// @prop {String} keys - Keys are identifiers mapped to a given length
+/// @prop {Map} values - Values are actual breakpoints expressed in pixels
+$breakpoints: (
+	"xs": 320px,
+	"sm": 425px,
+	"xm": 577px,
+	"md": 768px,
+	"lg": 1024px, // desktop
+	"xl": 1280px,
+	"xxl": 1440px,
+) !default;
+
+/// Icons base64
+// $menu-arrow-white: "data:image/svg+xml;base64,.....";

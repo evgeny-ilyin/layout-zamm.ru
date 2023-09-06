@@ -1,0 +1,10 @@
+.env
+node_modules
+build
+.vscode
+gulp/version.json
+package-lock.json
+*.zip
+bitrix
+design
+figma

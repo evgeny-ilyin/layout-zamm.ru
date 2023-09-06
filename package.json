@@ -1,0 +1,52 @@
+{
+	"devDependencies": {
+		"browser-sync": "latest",
+		"del": "latest",
+		"dotenv": "latest",
+		"gulp": "latest",
+		"gulp-autoprefixer": "latest",
+		"gulp-clean-css": "latest",
+		"gulp-file-include": "latest",
+		"gulp-gh-pages": "latest",
+		"gulp-group-css-media-queries": "latest",
+		"gulp-html-beautify": "latest",
+		"gulp-if": "latest",
+		"gulp-imagemin": "latest",
+		"gulp-newer": "latest",
+		"gulp-notify": "latest",
+		"gulp-plumber": "latest",
+		"gulp-rename": "latest",
+		"gulp-replace": "latest",
+		"gulp-sass": "latest",
+		"gulp-sourcemaps": "latest",
+		"gulp-svg-sprite": "latest",
+		"gulp-tinypng-compress": "latest",
+		"gulp-version-number": "latest",
+		"gulp-webp": "latest",
+		"gulp-webp-html-nosvg": "latest",
+		"gulp-webpcss": "latest",
+		"gulp-zip": "latest",
+		"node-sass-tilde-importer": "latest",
+		"sass": "latest",
+		"webp-converter": "2.2.3",
+		"webpack": "latest",
+		"webpack-stream": "latest"
+	},
+	"name": "gulp-2023",
+	"version": "1.0.0",
+	"main": "gulpfile.js",
+	"type": "module",
+	"scripts": {
+		"dev": "gulp",
+		"build": "gulp build --build",
+		"svgsprite": "gulp svgsprite",
+		"deploy": "gulp deploy_ghPages --build",
+		"zip": "gulp make_zip --build"
+	},
+	"author": "Evgeny Ilyin",
+	"license": "ISC",
+	"description": "",
+	"dependencies": {
+		"@fancyapps/ui": "^5.0.22"
+	}
+}

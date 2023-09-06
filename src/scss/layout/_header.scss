@@ -1,0 +1,44 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the header of the site/application.
+// -----------------------------------------------------------------------------
+
+.header {
+	display: flex;
+	flex-direction: column;
+	z-index: 1;
+
+	// .header__logo
+	&__logo {
+
+		@include respond-to(md) {
+			margin-left: auto;
+			margin-right: -50px;
+		}
+
+		@include respond-to(lg) {
+			margin: 0;
+		}
+
+		svg {
+			width: 84px;
+			height: 16px;
+
+			@include respond-to(md) {
+				width: 100px;
+				height: 20px;
+			}
+		}
+	}
+	// .header__logo-link
+	&__logo-link {
+		display: block;
+		border: 0;
+		width: 84px;
+		height: 16px;
+
+		@include respond-to(md) {
+			width: 100px;
+			height: 20px;
+		}
+	}
+}

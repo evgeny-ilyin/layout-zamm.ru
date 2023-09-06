@@ -1,0 +1,93 @@
+//*! https://codepen.io/forestdump/pen/LYrMOLa */
+.menu-toggle {
+	opacity: 0 !important;
+	display: none !important;
+	visibility: hidden !important;
+
+	&:checked {
+		@include respond-to(lg, "max") {
+			~ .nav__menu {
+				transform: translateX(0);
+				z-index: 1;
+			}
+
+			~ .nav__menu .hamburger-box .hamburger-inner,
+			~ .hamburger-box .hamburger-inner {
+				transition-delay: 0.12s;
+				transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+				transform: rotate(45deg);
+			}
+
+			~ .nav__menu .hamburger-box .hamburger-inner::before,
+			~ .hamburger-box .hamburger-inner::before {
+				top: 0;
+				transition: top 75ms ease, opacity 75ms ease 0.12s;
+				opacity: 0;
+			}
+
+			~ .nav__menu .hamburger-box .hamburger-inner::after,
+			~ .hamburger-box .hamburger-inner::after {
+				bottom: 0;
+				transition: bottom 75ms ease, transform 75ms cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+				transform: rotate(-90deg);
+			}
+		}
+	}
+}
+
+//* squeeze style from https://jonsuh.com/hamburgers/ */
+.hamburger-box {
+	position: relative;
+	cursor: pointer;
+	display: flex;
+	flex: 0 0 40px;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	// margin-left: -5px;
+	margin-right: 10px;
+	z-index: 0;
+
+	@include respond-to(lg) {
+		display: none;
+	}
+}
+
+.hamburger-inner,
+.hamburger-inner::after,
+.hamburger-inner::before {
+	position: absolute;
+	z-index: 5;
+	width: 25px;
+	height: 2px;
+	transition-timing-function: ease;
+	transition-duration: 0.15s;
+	transition-property: transform;
+	border-radius: 2px;
+	background: $text-color;
+}
+
+.hamburger-inner::after,
+.hamburger-inner::before {
+	display: block;
+	content: "";
+}
+
+.hamburger-inner {
+	top: 50%;
+	// margin-top: -2px;
+	transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	transition-duration: 75ms;
+}
+
+.hamburger-inner::before {
+	top: -8px;
+	transition: top 75ms ease 0.12s, opacity 75ms ease;
+}
+
+.hamburger-inner::after {
+	bottom: -8px;
+	transition: bottom 75ms ease 0.12s, transform 75ms cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
