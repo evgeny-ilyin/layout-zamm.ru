@@ -46,19 +46,21 @@ function deleteCookie(name) {
 }
 
 const cookieForm = document.querySelector(".cookie"),
-	cookieAccept = document.querySelector(".cookie__accept");
+	cookieAccept = document.querySelector(".js-cookie__accept");
 
-let policyCheck = () => {
-	if (!getCookie("policyAccepted")) {
-		cookieForm.classList.remove("hidden");
+	if(cookieForm && cookieAccept) {
+		let policyCheck = () => {
+			if (!getCookie("policyAccepted")) {
+				cookieForm.classList.remove("hidden");
+			}
+		};
+		
+		let policyAccepted = (e) => {
+			e.preventDefault();
+			setCookie("policyAccepted", "1", 7);
+			cookieForm.classList.add("hidden");
+		};
+		
+		cookieAccept.addEventListener("click", policyAccepted);
+		window.addEventListener("load", policyCheck);
 	}
-};
-
-let policyAccepted = (e) => {
-	e.preventDefault();
-	setCookie("policyAccepted", "1", 7);
-	cookieForm.classList.add("hidden");
-};
-
-cookieAccept.addEventListener("click", policyAccepted);
-window.addEventListener("load", policyCheck);

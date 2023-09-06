@@ -32,6 +32,7 @@ export const scss = () => {
 					outputStyle: "expanded",
 				})
 			)
+			// .pipe(app.plugins.if(app.isDev, groupCssMediaQueries())) //! карта некорректна с этим модулем, поэтому только для прода
 			.pipe(app.plugins.if(app.isBuild, groupCssMediaQueries())) //! карта некорректна с этим модулем, поэтому только для прода
 			// .pipe(																											//! isWebp() в /js/modules/functions.js
 			// 	app.plugins.if(
