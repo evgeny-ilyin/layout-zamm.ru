@@ -961,9 +961,6 @@
   -ms-flex-positive: 1;
   flex-grow: 1
 }
-.cookie__accept {
-  display: block
-}
 .svg-sprite {
   display: block;
   width: 0;
