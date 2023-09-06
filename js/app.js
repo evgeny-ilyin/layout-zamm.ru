@@ -445,8 +445,8 @@ function deleteCookie(name) {
 	});
 }
 
-const cookieForm = document.querySelector(".cookie"),
-	cookieAccept = document.querySelector(".cookie__accept");
+const cookieForm = document.querySelector(".cookie");
+	// cookieAccept = document.querySelector(".cookie__accept");
 
 	if(cookieForm) {
 		let policyCheck = () => {
@@ -461,7 +461,7 @@ const cookieForm = document.querySelector(".cookie"),
 			cookieForm.classList.add("hidden");
 		};
 		
-		cookieAccept.addEventListener("click", policyAccepted);
+		// cookieAccept.addEventListener("click", policyAccepted);
 		window.addEventListener("load", policyCheck);
 	}
 
