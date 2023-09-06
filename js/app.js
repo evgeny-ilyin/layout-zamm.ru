@@ -446,7 +446,7 @@ function deleteCookie(name) {
 }
 
 const cookieForm = document.querySelector(".cookie"),
-	cookieAccept = document.querySelector(".js-accept-c");
+	cookieAccept = document.querySelector(".js-cookie__accept");
 
 	if(cookieForm && cookieAccept) {
 		let policyCheck = () => {
