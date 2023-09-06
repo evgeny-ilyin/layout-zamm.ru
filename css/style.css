@@ -770,12 +770,6 @@
   -o-transition: var(--f-button-transition);
   transition: var(--f-button-transition)
 }
-@media (hover:hover) {
-  .f-button:hover:not([disabled]) {
-    color: var(--f-button-hover-color);
-    background-color: var(--f-button-hover-bg)
-  }
-}
 .f-button:active:not([disabled]) {
   background-color: var(--f-button-active-bg)
 }
@@ -926,14 +920,6 @@
   -o-transition: max-height .25s ease-in-out;
   transition: max-height .25s ease-in-out
 }
-@media (max-width:767px) {
-  .f-menu.js-accordion.on::before {
-    top: 10px
-  }
-  .f-menu.js-accordion.on .js-accordion__trigger {
-    padding: 17px 45px 17px 0
-  }
-}
 .cookie {
   position: fixed;
   display: -ms-grid;
@@ -955,20 +941,6 @@
   border-radius: 4px;
   z-index: 1
 }
-@media (min-width:425px) {
-  .cookie {
-    bottom: 24px;
-    max-width: 490px;
-    grid-auto-flow: column;
-    text-align: left;
-    padding: 24px 32px
-  }
-}
-@media (min-width:768px) {
-  .cookie {
-    left: 16px
-  }
-}
 .cookie__buttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -989,8 +961,39 @@
   -ms-flex-positive: 1;
   flex-grow: 1
 }
+.cookie__accept {
+  display: block
+}
 .svg-sprite {
   display: block;
   width: 0;
   height: 0
+}
+@media (min-width:425px) {
+  .cookie {
+    bottom: 24px;
+    max-width: 490px;
+    grid-auto-flow: column;
+    text-align: left;
+    padding: 24px 32px
+  }
+}
+@media (min-width:768px) {
+  .cookie {
+    left: 16px
+  }
+}
+@media (max-width:767px) {
+  .f-menu.js-accordion.on::before {
+    top: 10px
+  }
+  .f-menu.js-accordion.on .js-accordion__trigger {
+    padding: 17px 45px 17px 0
+  }
+}
+@media (hover:hover) {
+  .f-button:hover:not([disabled]) {
+    color: var(--f-button-hover-color);
+    background-color: var(--f-button-hover-bg)
+  }
 }
