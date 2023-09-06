@@ -448,20 +448,22 @@ function deleteCookie(name) {
 const cookieForm = document.querySelector(".cookie"),
 	cookieAccept = document.querySelector(".cookie__accept");
 
-let policyCheck = () => {
-	if (!getCookie("policyAccepted")) {
-		cookieForm.classList.remove("hidden");
+	if(cookieForm) {
+		let policyCheck = () => {
+			if (!getCookie("policyAccepted")) {
+				cookieForm.classList.remove("hidden");
+			}
+		};
+		
+		let policyAccepted = (e) => {
+			e.preventDefault();
+			setCookie("policyAccepted", "1", 7);
+			cookieForm.classList.add("hidden");
+		};
+		
+		cookieAccept.addEventListener("click", policyAccepted);
+		window.addEventListener("load", policyCheck);
 	}
-};
-
-let policyAccepted = (e) => {
-	e.preventDefault();
-	setCookie("policyAccepted", "1", 7);
-	cookieForm.classList.add("hidden");
-};
-
-cookieAccept.addEventListener("click", policyAccepted);
-window.addEventListener("load", policyCheck);
 
 ;// CONCATENATED MODULE: ./src/js/app.js
 
