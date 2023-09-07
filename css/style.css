@@ -865,6 +865,91 @@
   -ms-transform: rotate(90deg);
   transform: rotate(90deg)
 }
+.f-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  -webkit-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  transform-origin: 0;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  -o-transition-property: transform;
+  transition-property: transform;
+  transition-property: transform,-webkit-transform;
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  background: var(--f-progress-color,var(--f-carousel-theme-color,#0091ff));
+  z-index: 30;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none
+}
+.f-carousel {
+  --f-carousel-dot-width: 5px;
+  --f-carousel-dot-height: 5px;
+  --f-carousel-dots-width: 11px
+}
+.f-carousel__dot {
+  background-color: var(--black60)
+}
+.f-carousel__dots li.is-current .f-carousel__dot {
+  background-color: var(--black)
+}
+.infocard {
+  margin-top: 44px;
+  --f-carousel-spacing: 4px;
+  --f-carousel-slide-width: 87%
+}
+.infocard .f-carousel__slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: var(--white);
+  border-radius: 10px;
+  padding: 16px
+}
+.infocard__header {
+  font-size: 1rem;
+  font-weight: 600
+}
+.infocard__header svg {
+  width: 117px;
+  height: 16px
+}
+.infocard__body {
+  color: var(--black60);
+  font-size: .8125rem;
+  line-height: 1.4;
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin: 9px 0 38px
+}
+.infocard__footer {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  gap: 13px 16px;
+  grid-auto-flow: column
+}
+.infocard__footer a {
+  font-size: .875rem
+}
 .js-accordion.on {
   position: relative
 }
@@ -976,11 +1061,29 @@
   }
 }
 @media (min-width:768px) {
+  .infocard.f-carousel {
+    --f-carousel-spacing: 16px;
+    --f-carousel-slide-width: calc((100% - 32px) / 3)
+  }
+  .infocard__footer {
+    grid-auto-flow: row
+  }
   .cookie {
     left: 16px
   }
 }
+@media (min-width:1024px) {
+  .infocard__body {
+    margin: 9px 0 12px
+  }
+  .infocard__footer {
+    grid-auto-flow: column
+  }
+}
 @media (max-width:767px) {
+  .infocard_padding-md-0 .f-carousel__slide:first-child {
+    margin-left: 12px
+  }
   .f-menu.js-accordion.on::before {
     top: 10px
   }
