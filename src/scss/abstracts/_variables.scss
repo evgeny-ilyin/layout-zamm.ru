@@ -9,6 +9,7 @@
 /// Regular font family
 /// @type List
 $ff-text: "Manrope", "Helvetica", "Open Sans", "Arial", sans-serif !default;
+$browser-context: 16;
 
 /// Code (monospace) font family
 /// @type List
@@ -43,7 +44,7 @@ $arrow-long: var(--arrow-long);
 $arrow-yellow: var(--arrow-yellow);
 $arrow-black: var(--arrow-black);
 // $arrow-white: var(--arrow-white);
-// $arrow-bright-blue: var(--arrow-bright-blue);
+$arrow-bright-blue: var(--arrow-bright-blue);
 $angle: var(--angle);
 $close: var(--close);
 $nav-search: var(--nav-search);

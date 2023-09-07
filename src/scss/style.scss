@@ -10,6 +10,8 @@
 // @import "vendors/normalize";
 // @import "vendors/reset";
 @import "~@fancyapps/ui/dist/carousel/carousel";
+@import "~@fancyapps/ui/dist/carousel/carousel.autoplay";
+@import "abstracts/fancyapps-vars-overrides";
 
 // 3. Base stuff
 // @import "base/base";
@@ -30,6 +32,7 @@
 // @import "components/button";
 // @import "components/form";
 // @import "components/checkbox";
+@import "components/carousel";
 @import "components/accordion";
 @import "components/cookies";
 @import "components/svg-sprite";

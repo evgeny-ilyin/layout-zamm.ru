@@ -1,0 +1,59 @@
+// carousel overrides
+.f-carousel {
+  --f-carousel-dot-width: 5px;
+  --f-carousel-dot-height: 5px;
+	--f-carousel-dots-width: 11px;
+	// --f-carousel-theme-color: #{$cyan};
+	// --f-carousel-dot-color: transparent;
+	// --f-carousel-dot-opacity: 1;
+	// --f-carousel-dot-hover-opacity: 1;
+	// --f-button-svg-width: 31px;
+	// --f-button-svg-height: 31px;
+	// --f-button-hover-color: #{$red};
+	// --f-button-next-pos: -45px;
+	// --f-button-prev-pos: -45px;
+}
+
+
+// .modal_carousel .f-carousel {
+// 	--f-button-next-pos: 10px;
+// 	--f-button-prev-pos: 10px;
+// }
+
+.f-carousel__dot {
+	background-color: $black60;
+}
+
+.f-carousel__dots li.is-current {
+	.f-carousel__dot {
+		background-color: $black;
+	}
+}
+
+// .f-carousel__slide {
+// 	img {
+// 		margin: 0 auto !important;
+// 	}
+// }
+
+// // fancybox overrides
+// .fancybox__container {
+// 	--fancybox-bg: rgba(39, 39, 41, 0.9);
+// 	--fancybox-color: #{$cyan};
+// 	--fancybox-hover-color: #{$red};
+// }
+
+// .fancybox__caption {
+// 	max-width: 80%;
+// }
+// .is-compact .fancybox__content > .f-button.is-close-btn,
+// .fancybox__content > .f-button.is-close-btn {
+// 	--f-button-color: #{$red};
+// 	--f-button-hover-color: #{$hover-red};
+// 	--f-button-svg-width: 30px;
+// 	--f-button-svg-height: 30px;
+// 	--f-button-bg: transparent;
+// 	top: 15px;
+// 	right: 18px;
+// 	opacity: 1;
+// }

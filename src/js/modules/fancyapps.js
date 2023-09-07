@@ -1,21 +1,24 @@
 import { Carousel } from "@fancyapps/ui/dist/carousel/carousel.esm.js";
+import { Autoplay } from "@fancyapps/ui/dist/carousel/carousel.autoplay.esm.js";
 
 addEventListener("DOMContentLoaded", () => {
 	// Карусели
 	Carousel.defaults = {
 		...Carousel.defaults,
 		infinite: false,
-		adaptiveHeight: true,
+		// adaptiveHeight: true,
 	};
 
-	// // Карусели в модальных окнах
-	// const modalCarousels = document.querySelectorAll(".modal_carousel .f-carousel");
-	// modalCarousels.forEach((el) => {
-	// 	let carousel = document.getElementById(el.id);
-	// 	if (carousel) {
-	// 		new Carousel(carousel);
-	// 	}
-	// });
+	// Карусели
+	const carousels = document.querySelectorAll('[data-carousel="carousel"]');
+	carousels.forEach((el) => {
+		if (el) {
+			// console.log(Object.keys( el.dataset ));
+			let options = JSON.parse(el.dataset.options);
+			console.log(options);
+			new Carousel(el, options);
+		}
+	});
 
 	// // Карусель в детальной новости
 	// const newsElementContainer = document.getElementById("newsElementCarousel");

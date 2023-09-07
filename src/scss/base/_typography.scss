@@ -14,7 +14,8 @@ vmax – наибольшее из (vw, vh)
 */
 
 /// Default font size for rem() function (body font-size 100%)
-$browser-context: 16;
+/// перенес в variables
+// $browser-context: 16;
 
 body {
 	color: $text-color;

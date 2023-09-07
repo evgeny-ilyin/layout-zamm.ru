@@ -35,4 +35,11 @@
 	&_wide {
 		max-width: 100%;
 	}
+
+	&_padding-md-0 {
+		@include respond-to(md, 'max') {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
 }
