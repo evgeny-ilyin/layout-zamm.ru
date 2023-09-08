@@ -5,7 +5,7 @@ import "./modules/cookies.js";
 import "./modules/fancyapps.js";
 
 addEventListener("DOMContentLoaded", () => {
-	// functions.stickyHeader();
+	functions.stickyHeader();
 	// functions.isTouchEnabled();
 	// functions.dropdownByTouch();
 	functions.mobileCatalog();

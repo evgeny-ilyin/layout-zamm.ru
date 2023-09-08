@@ -9,7 +9,6 @@
 
 	// .header__logo
 	&__logo {
-
 		@include respond-to(md) {
 			margin-left: auto;
 			margin-right: -50px;
@@ -40,5 +39,25 @@
 			width: 100px;
 			height: 20px;
 		}
+	}
+
+	&.is-ontop {
+		transform: translateY(0) !important;
+	}
+
+	&.is-sticky {
+		transform: translateY(0);
+		position: sticky;
+		top: 0;
+		transition: transform $transition-default;
+
+		@include respond-to(lg) {
+			transform: translateY(-35px);
+		}
+	}
+
+	&.is-hidden {
+		transform: translateY(-100%) !important;
+		transition: transform $transition-default;
 	}
 }

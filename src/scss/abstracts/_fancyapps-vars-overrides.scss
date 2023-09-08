@@ -1,7 +1,7 @@
 // carousel overrides
 .f-carousel {
-  --f-carousel-dot-width: 5px;
-  --f-carousel-dot-height: 5px;
+	--f-carousel-dot-width: 5px;
+	--f-carousel-dot-height: 5px;
 	--f-carousel-dots-width: 11px;
 	// --f-carousel-theme-color: #{$cyan};
 	// --f-carousel-dot-color: transparent;
@@ -12,8 +12,21 @@
 	// --f-button-hover-color: #{$red};
 	// --f-button-next-pos: -45px;
 	// --f-button-prev-pos: -45px;
-}
 
+	// .f-carousel_out-viewport-less-md
+	&_out-viewport-less-md {
+		// .f-carousel__slide:last-child {
+		// 	@include respond-to(md, "max") {
+		// 		margin-right: $min-padding;
+		// 	}
+		// }
+		.f-carousel__slide:first-child {
+			@include respond-to(md, "max") {
+				margin-left: $min-padding;
+			}
+		}
+	}
+}
 
 // .modal_carousel .f-carousel {
 // 	--f-button-next-pos: 10px;

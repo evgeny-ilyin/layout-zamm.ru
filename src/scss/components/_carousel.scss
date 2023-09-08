@@ -3,16 +3,6 @@
 	--f-carousel-spacing: 4px;
 	--f-carousel-slide-width: 87%;
 
-	// .infocard_padding-md-0
-	&_padding-md-0 {
-		.f-carousel__slide:first-child {
-			@include respond-to(md, "max") {
-				margin-left: $min-padding;
-			}
-		}
-
-	}
-
 	@include respond-to(md) {
 		&.f-carousel {
 			--f-carousel-spacing: 16px;

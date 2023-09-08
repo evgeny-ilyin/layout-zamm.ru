@@ -36,7 +36,12 @@
 			background: $gray;
 			overflow: hidden;
 			overflow-y: auto;
+
+			@include when-inside('.is-hidden') {
+				top: 57px;
+			}
 		}
+
 		@include respond-to(lg) {
 			flex-direction: row;
 			align-items: center;
