@@ -1,6 +1,5 @@
 export function stickyHeader() {
-	const header = document.querySelector(".header"),
-		headerH = header.offsetHeight,
+	const header = document.querySelector("header"),
 		isOntopClass = "is-ontop",
 		isStickyClass = "is-sticky",
 		isHiddenClass = "is-hidden";
@@ -9,7 +8,7 @@ export function stickyHeader() {
 		if (window.scrollY == 0) {
 			header.classList.add(isOntopClass);
 		}
-		if (window.scrollY > headerH) {
+		if (window.scrollY > 56) {
 			if (window.scrollY > this.lastScrollTop || 0) {
 				header.classList.remove(isOntopClass);
 				header.classList.add(isHiddenClass);
@@ -18,7 +17,6 @@ export function stickyHeader() {
 				header.classList.remove(isHiddenClass);
 			}
 		}
-
 		this.lastScrollTop = window.scrollY;
 	}
 
@@ -119,7 +117,7 @@ export function searchForm() {
 		menuToggler = document.getElementById("menu-toggle"),
 		searchForm = document.querySelector(".nav__search"),
 		searchInput = document.querySelector(".input_nav-search"),
-		closeSearchBtn = document.querySelector(".close-search"),
+		closeSearchBtn = document.querySelector(".js-close-search"),
 		isActiveClass = "is-active",
 		hideNavClass = "hide-nav";
 

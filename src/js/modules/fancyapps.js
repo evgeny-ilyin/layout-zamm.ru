@@ -15,7 +15,7 @@ addEventListener("DOMContentLoaded", () => {
 		if (el) {
 			// console.log(Object.keys( el.dataset ));
 			let options = JSON.parse(el.dataset.options);
-			console.log(options);
+			// console.log(options);
 			new Carousel(el, options);
 		}
 	});

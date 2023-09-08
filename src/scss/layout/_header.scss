@@ -1,6 +1,57 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+.header-alert {
+	font-size: rem(13);
+	padding: 12px 0;
+
+	@include respond-to(md) {
+		padding: 7px 0;
+	}
+
+	@include respond-to(lg) {
+		font-size: rem(15);
+		padding: 4px 0;
+	}
+
+	// .header-alert_black
+	&_black {
+		color: $white;
+		background: $black;
+
+		a {
+			color: $white;
+		}
+	}
+
+	// .header-alert__wrapper
+	&__wrapper {
+		display: grid;
+		grid-auto-flow: row;
+		align-items: center;
+		justify-content: start;
+		justify-items: center;
+		gap: 8px 18px;
+		position: relative;
+		padding-right: 50px !important;
+
+		@include respond-to(xm) {
+			grid-auto-flow: column;
+		}
+	}
+
+	// .header-alert__left
+	&__left {
+		text-align: center;
+		@include respond-to(xm) {
+			text-align: left;
+		}
+	}
+
+	// .header-alert__right
+	&__right {
+	}
+}
 
 .header {
 	display: flex;

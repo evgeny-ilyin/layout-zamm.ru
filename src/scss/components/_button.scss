@@ -152,6 +152,23 @@
 		}
 	}
 
+	// .btn_white-transp
+	&_white-transp {
+		color: $white !important;
+		background: rgba(255, 255, 255, 0.2);
+		box-shadow: none;
+
+		@include on-hover {
+			background: rgba(255, 255, 255, 0.4);
+		}
+	}
+
+	// .btn_small
+	&_small {
+		font-size: rem(13);
+		padding: 5px 15px 4px;
+	}
+
 	// .btn_nav-second
 	&_nav-second {
 		@include respond-to(lg) {
@@ -305,8 +322,20 @@
 	}
 }
 
-.close-search {
-	top: 21px;
+.js-close-header-alert {
+	right: 11px;
+
+	@include when-inside(".header-alert_black") {
+		&::before,
+		&::after {
+			background-color: $white;
+			box-shadow: 0 0 1px 0 $white;
+		}
+	}
+}
+
+.js-close-search {
+	// top: 21px;
 	right: 20px;
 
 	@include when-inside(".is-active") {

@@ -64,3 +64,23 @@ const cookieForm = document.querySelector(".cookie"),
 		cookieAccept.addEventListener("click", policyAccepted);
 		window.addEventListener("load", policyCheck);
 	}
+
+const headerAlert = document.querySelector(".header-alert"),
+	closeAlert = document.querySelector(".js-close-header-alert");
+
+	if(headerAlert && closeAlert) {
+		let alertCheck = () => {
+			if (!getCookie("alertHidden")) {
+				headerAlert.classList.remove("hidden");
+			}
+		};
+		
+		let alertHide = (e) => {
+			e.preventDefault();
+			setCookie("alertHidden", "1", 1);
+			headerAlert.classList.add("hidden");
+		};
+		
+		closeAlert.addEventListener("click", alertHide);
+		window.addEventListener("load", alertCheck);
+	}

@@ -37,7 +37,7 @@
 			overflow: hidden;
 			overflow-y: auto;
 
-			@include when-inside('.is-hidden') {
+			@include when-inside(".is-hidden") {
 				top: 57px;
 			}
 		}
@@ -276,8 +276,8 @@
 					display: block;
 					position: absolute;
 					top: -20px;
-					left: 0;
-					width: 100%;
+					left: 50%;
+					width: 50%;
 					height: 20px;
 				}
 			}
