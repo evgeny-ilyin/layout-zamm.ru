@@ -4,17 +4,30 @@ var __webpack_exports__ = {};
 
 ;// CONCATENATED MODULE: ./src/js/modules/functions.js
 function stickyHeader() {
-	const header = document.querySelector("header");
+	const header = document.querySelector(".header"),
+		headerH = header.offsetHeight,
+		isOntopClass = "is-ontop",
+		isStickyClass = "is-sticky",
+		isHiddenClass = "is-hidden";
 
-	let handleScroll = () => {
-		if (window.scrollY > 0) {
-			header.classList.add("header_fixed");
-		} else {
-			header.classList.remove("header_fixed");
+	function handleScroll() {
+		if (window.scrollY == 0) {
+			header.classList.add(isOntopClass);
 		}
-	};
+		if (window.scrollY > headerH) {
+			if (window.scrollY > this.lastScrollTop || 0) {
+				header.classList.remove(isOntopClass);
+				header.classList.add(isHiddenClass);
+			} else if (window.scrollY < this.lastScrollTop) {
+				header.classList.add(isStickyClass);
+				header.classList.remove(isHiddenClass);
+			}
+		}
+
+		this.lastScrollTop = window.scrollY;
+	}
+
 	window.addEventListener("scroll", handleScroll);
-	handleScroll();
 }
 
 function mobileCatalog() {
@@ -509,7 +522,7 @@ addEventListener("DOMContentLoaded", () => {
 
 
 addEventListener("DOMContentLoaded", () => {
-	// functions.stickyHeader();
+	stickyHeader();
 	// functions.isTouchEnabled();
 	// functions.dropdownByTouch();
 	mobileCatalog();

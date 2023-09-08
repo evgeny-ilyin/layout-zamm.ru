@@ -1081,7 +1081,7 @@
   }
 }
 @media (max-width:767px) {
-  .infocard_padding-md-0 .f-carousel__slide:first-child {
+  .f-carousel_out-viewport-less-md .f-carousel__slide:first-child {
     margin-left: 12px
   }
   .f-menu.js-accordion.on::before {

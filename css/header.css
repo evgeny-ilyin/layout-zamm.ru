@@ -445,6 +445,33 @@ ol {
   width: 84px;
   height: 16px
 }
+.header.is-ontop {
+  -webkit-transform: translateY(0)!important;
+  -ms-transform: translateY(0)!important;
+  transform: translateY(0)!important
+}
+.header.is-sticky {
+  -webkit-transform: translateY(0);
+  -ms-transform: translateY(0);
+  transform: translateY(0);
+  position: sticky;
+  top: 0;
+  -webkit-transition: -webkit-transform .25s ease-in-out;
+  transition: -webkit-transform .25s ease-in-out;
+  -o-transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
+}
+.header.is-hidden {
+  -webkit-transform: translateY(-100%)!important;
+  -ms-transform: translateY(-100%)!important;
+  transform: translateY(-100%)!important;
+  -webkit-transition: -webkit-transform .25s ease-in-out;
+  transition: -webkit-transform .25s ease-in-out;
+  -o-transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
+}
 .footer {
   background: var(--gray)
 }
@@ -1677,6 +1704,11 @@ input[type=checkbox]:disabled {
   .header__logo {
     margin: 0
   }
+  .header.is-sticky {
+    -webkit-transform: translateY(-35px);
+    -ms-transform: translateY(-35px);
+    transform: translateY(-35px)
+  }
   .footer__menu {
     -ms-grid-columns: (1fr)[5];
     grid-template-columns: repeat(5,1fr)
@@ -2038,6 +2070,9 @@ input[type=checkbox]:disabled {
     background: var(--gray);
     overflow: hidden;
     overflow-y: auto
+  }
+  .is-hidden .nav__menu {
+    top: 57px
   }
   .nav__catalog {
     -webkit-box-ordinal-group: 3;
