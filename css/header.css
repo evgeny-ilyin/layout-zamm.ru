@@ -425,6 +425,35 @@ ol {
     opacity: 1
   }
 }
+.header-alert {
+  font-size: .8125rem;
+  padding: 12px 0
+}
+.header-alert_black {
+  color: var(--white);
+  background: var(--black)
+}
+.header-alert_black a {
+  color: var(--white)
+}
+.header-alert__wrapper {
+  display: -ms-grid;
+  display: grid;
+  grid-auto-flow: row;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: start;
+  justify-items: center;
+  gap: 8px 18px;
+  position: relative;
+  padding-right: 50px!important
+}
+.header-alert__left {
+  text-align: center
+}
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -704,8 +733,8 @@ ol {
   display: block;
   position: absolute;
   top: -20px;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  width: 50%;
   height: 20px
 }
 .nav__icon-link {
@@ -1355,6 +1384,19 @@ ol {
 .btn_white:active span::after {
   opacity: .6
 }
+.btn_white-transp {
+  color: var(--white)!important;
+  background: rgba(255,255,255,.2);
+  -webkit-box-shadow: none;
+  box-shadow: none
+}
+.btn_white-transp:hover {
+  background: rgba(255,255,255,.4)
+}
+.btn_small {
+  font-size: .8125rem;
+  padding: 5px 15px 4px
+}
 .btn_arrow span::after {
   content: "";
   display: block;
@@ -1462,11 +1504,19 @@ ol {
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg)
 }
-.close-search {
-  top: 21px;
+.js-close-header-alert {
+  right: 11px
+}
+.header-alert_black .js-close-header-alert::after,
+.header-alert_black .js-close-header-alert::before {
+  background-color: var(--white);
+  -webkit-box-shadow: 0 0 1px 0 var(--white);
+  box-shadow: 0 0 1px 0 var(--white)
+}
+.js-close-search {
   right: 20px
 }
-.is-active .close-search {
+.is-active .js-close-search {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex
@@ -1637,10 +1687,21 @@ input[type=checkbox]:disabled {
     width: 213px
   }
 }
+@media (min-width:577px) {
+  .header-alert__wrapper {
+    grid-auto-flow: column
+  }
+  .header-alert__left {
+    text-align: left
+  }
+}
 @media (min-width:768px) {
   .content {
     padding-left: 16px;
     padding-right: 16px
+  }
+  .header-alert {
+    padding: 7px 0
   }
   .header__logo {
     margin-left: auto;
@@ -1700,6 +1761,10 @@ input[type=checkbox]:disabled {
   }
   .visible-lg {
     display: block!important
+  }
+  .header-alert {
+    font-size: .9375rem;
+    padding: 4px 0
   }
   .header__logo {
     margin: 0
@@ -2282,8 +2347,8 @@ input[type=checkbox]:disabled {
     display: flex;
     font-size: .8125rem
   }
-  .is-active .close-search::after,
-  .is-active .close-search::before {
+  .is-active .js-close-search::after,
+  .is-active .js-close-search::before {
     width: 25px;
     height: 2px;
     -webkit-box-shadow: none;

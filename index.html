@@ -8,16 +8,29 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap&v=20230908082825" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap&v=20230908195714" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20230908082825">
-	<link rel="stylesheet" href="css/header.css?v=20230908082825">
-	<link rel="stylesheet" href="css/style.css?v=20230908082825">
+	<link rel="stylesheet" href="css/root-vars.css?v=20230908195714">
+	<link rel="stylesheet" href="css/header.css?v=20230908195714">
+	<link rel="stylesheet" href="css/style.css?v=20230908195714">
 	<title>Home</title>
 </head>
 
 <body>
-	<header class="header">
+	<div class="header-alert header-alert_black hidden">
+		<div class="container">
+			<div class="content header-alert__wrapper">
+				<div class="header-alert__left">
+					Предупреждение или информация об Акции. При закрытии ставится кука о прочтении на сутки. <a href="javascript:void(0)">пример ссылки</a>
+				</div>
+				<div class="header-alert__right">
+					<a href="javascript:void(0)" class="btn btn_white-transp btn_small">Посмотреть товары</a>
+				</div>
+				<button type="button" class="btn btn_close js-close-header-alert"></button>
+			</div>
+		</div>
+	</div>
+	<header class="header is-sticky is-ontop">
 		<div class="container nav-second">
 			<div class="content">
 				<div class="nav-second__wrapper" data-da=".nav__menu,1023,last">
@@ -198,7 +211,7 @@
 									<meta itemprop="target" content="https://zamm.ru/catalog/?q={q}" />
 									<input itemprop="query-input" type="text" name="q" placeholder="Введите запрос" autocomplete="off" class="input input_nav-search" />
 									<button type="submit" class="btn btn_yellow-dark">Найти</button>
-									<button type="button" class="btn btn_close close-search"></button>
+									<button type="button" class="btn btn_close js-close-search"></button>
 								</form>
 							</div>
 							<div class="nav__search-prompt hidden">
@@ -564,7 +577,7 @@
 			<path fill-rule="evenodd" d="M15.542 14.784a8.889 8.889 0 1 0-1.884 1.608l4.235 4.234a1.235 1.235 0 1 0 1.745-1.746l-4.096-4.096Z" clip-rule="evenodd" />
 		</symbol>
 	</svg>
-	<script src="js/app.js?v=20230908082825"></script>
+	<script src="js/app.js?v=20230908195714"></script>
 
 </body>
 
