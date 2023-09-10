@@ -1,6 +1,7 @@
 /*! Блок "Главная карусель" */
 .main-carousel {
 	--f-carousel-dots-width: 22px;
+	--f-carousel-theme-color: #{$yellow};
 
 	--f-button-width: 44px;
 	--f-button-height: 40px;
@@ -20,6 +21,11 @@
 
 	@include respond-to(xl) {
 		min-height: 600px;
+	}
+
+	.f-progress {
+		bottom: 0;
+		top: auto;
 	}
 
 	.f-carousel__dot {
