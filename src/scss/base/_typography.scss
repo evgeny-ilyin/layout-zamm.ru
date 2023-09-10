@@ -87,7 +87,7 @@ body {
 	text-underline-offset: 5px;
 	// padding-bottom: 1px;
 	// border-bottom: 1px solid transparent;
-	text-shadow:none;
+	text-shadow: none;
 	// transition: color 0.15s ease, text-shadow 0.15s ease, text-decoration-color 0.15s ease;
 	transition: all 0.15s ease;
 
@@ -184,4 +184,23 @@ ol {
 
 .text-white {
 	color: $white !important;
+}
+
+/**
+ * Common headers
+ */
+.block-header {
+	font-weight: 700;
+	margin-bottom: 29px;
+	text-align: center;
+	font-size: rem(20);
+
+	@include respond-to(md) {
+		margin-bottom: 32px;
+		text-align: left;
+		font-size: rem(24);
+	}
+	@include respond-to(lg) {
+		font-size: rem(34);
+	}
 }
