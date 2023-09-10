@@ -1,6 +1,7 @@
 @charset "UTF-8";
 .main-carousel {
   --f-carousel-dots-width: 22px;
+  --f-carousel-theme-color: var(--yellow);
   --f-button-width: 44px;
   --f-button-height: 40px;
   --f-button-svg-width: 18px;
@@ -12,6 +13,10 @@
   --f-button-bg: var(--white);
   --f-button-hover-bg: var(--gray);
   --f-button-active-bg: var(--white)
+}
+.main-carousel .f-progress {
+  bottom: 0;
+  top: auto
 }
 .main-carousel .f-carousel__dot {
   width: 16px;
