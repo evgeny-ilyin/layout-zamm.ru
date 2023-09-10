@@ -8,6 +8,7 @@
   --f-button-svg-height: 18px;
   --f-button-svg-stroke-width: 2;
   --f-button-color: var(--black);
+  --f-button-hover-color: var(--black);
   --f-button-border-radius: 4px;
   --f-button-shadow: 0 0 0 1px var(--black10);
   --f-button-bg: var(--white);
