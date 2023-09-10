@@ -506,30 +506,44 @@ const carousel_autoplay_esm_e=(t,...s)=>{const n=s.length;for(let i=0;i<n;i++){c
 
 
 
-addEventListener("DOMContentLoaded", () => {
-	// Карусели
-	V.defaults = {
-		...V.defaults,
-		infinite: false,
-		// adaptiveHeight: true,
-	};
+const fRU = {
+	NEXT: " ",
+	PREV: " ",
+	GOTO: "Перейти к слайду #%d",
+};
 
-	// Карусели
+V.defaults = {
+	...V.defaults,
+	infinite: false,
+	l10n: fRU,
+	// adaptiveHeight: true,
+};
+
+addEventListener("DOMContentLoaded", () => {
 	const carousels = document.querySelectorAll('[data-carousel="carousel"]');
 	carousels.forEach((el) => {
 		if (el) {
+			let options = {};
+			let autoplay = {};
 			// console.log(Object.keys( el.dataset ));
-			let options = JSON.parse(el.dataset.options);
-			// console.log(options);
-			new V(el, options);
+
+			if (el.dataset.options) {
+				options = JSON.parse(el.dataset.options);
+			}
+
+			if (el.dataset.autoplay) {
+				autoplay = Object.assign(autoplay, { Autoplay: { timeout: parseInt(el.dataset.autoplay) } });
+			}
+
+			let opt = Object.assign(options, autoplay);
+
+			if (Object.keys(autoplay).length > 0 && autoplay.constructor === Object) {
+				new V(el, opt, { Autoplay: carousel_autoplay_esm_c });
+			} else {
+				new V(el, opt);
+			}
 		}
 	});
-
-	// // Карусель в детальной новости
-	// const newsElementContainer = document.getElementById("newsElementCarousel");
-	// if (newsElementContainer) {
-	// 	new Carousel(newsElementContainer);
-	// }
 });
 
 ;// CONCATENATED MODULE: ./src/js/app.js
