@@ -349,6 +349,12 @@ ol {
 .text-white {
   color: var(--white)!important
 }
+.block-header {
+  font-weight: 700;
+  margin-bottom: 29px;
+  text-align: center;
+  font-size: 1.25rem
+}
 .hidden {
   display: none!important
 }
@@ -1553,6 +1559,9 @@ input[type=checkbox]:disabled {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   height: 28px;
   padding: 8px;
   border-radius: 30px;
@@ -1608,6 +1617,11 @@ input[type=checkbox]:disabled {
     padding-left: 16px;
     padding-right: 16px
   }
+  .block-header {
+    margin-bottom: 32px;
+    text-align: left;
+    font-size: 1.5rem
+  }
   .header-alert {
     padding: 7px 0
   }
@@ -1628,6 +1642,9 @@ input[type=checkbox]:disabled {
   }
 }
 @media (min-width:1024px) {
+  .block-header {
+    font-size: 2.125rem
+  }
   .hidden-lg {
     display: none!important
   }
