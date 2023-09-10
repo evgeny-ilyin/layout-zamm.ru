@@ -1,0 +1,36 @@
+.label {
+	display: flex;
+	align-items: center;
+	height: 28px;
+	padding: 8px;
+	border-radius: 30px;
+	font-size: rem(13);
+	font-weight: 600;
+	background: $white;
+	color: $black;
+
+	// .label_yellow-light
+	&_yellow-light {
+		background: $yellow-light;
+		color: #4e3700;
+	}
+
+	// .label_green
+	&_green {
+		background: #d2f8cc;
+		color: #159400;
+	}
+
+	// .label_big
+	&_big {
+		font-size: rem(15);
+		font-weight: 500;
+		height: 34px;
+		padding: 5px 13px;
+	}
+
+	// .label_rotate
+	&_rotate {
+		transform: rotate(-5deg);
+	}
+}

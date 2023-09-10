@@ -20,7 +20,7 @@
 
 // 4. Layout-related sections
 @import "layout/header";
-@import "layout/footer";
+// @import "layout/footer";
 
 // 5. Components
 @import "components/nav";
@@ -30,6 +30,7 @@
 @import "components/button";
 @import "components/form";
 @import "components/checkbox";
+@import "components/labels";
 // @import "components/accordion";
 // @import "components/cookies";
 // @import "components/svg-sprite";

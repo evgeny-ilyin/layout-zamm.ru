@@ -5,39 +5,39 @@
 /**
  * Clear inner floats
  */
-.clearfix::after {
-	clear: both;
-	content: "";
-	display: table;
-}
+// .clearfix::after {
+// 	clear: both;
+// 	content: "";
+// 	display: table;
+// }
 
 /**
  * Hide text while making it readable for screen readers
  * 1. Needed in WebKit-based browsers because of an implementation bug;
  *    See: https://code.google.com/p/chromium/issues/detail?id=457146
  */
-.hide-text {
-	overflow: hidden;
-	padding: 0; /* 1 */
-	text-indent: 101%;
-	white-space: nowrap;
-}
+// .hide-text {
+// 	overflow: hidden;
+// 	padding: 0; /* 1 */
+// 	text-indent: 101%;
+// 	white-space: nowrap;
+// }
 
 /**
  * Hide element while making it readable for screen readers
  * Shamelessly borrowed from HTML5Boilerplate:
  * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
  */
-.visually-hidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
-}
+// .visually-hidden {
+// 	border: 0;
+// 	clip: rect(0 0 0 0);
+// 	height: 1px;
+// 	margin: -1px;
+// 	overflow: hidden;
+// 	padding: 0;
+// 	position: absolute;
+// 	width: 1px;
+// }
 
 /**
  * Visibility
@@ -53,37 +53,37 @@
 	}
 }
 
-.hidden-img-lg {
-	@include respond-to(lg) {
-		img {
-			display: none !important;
-		}
-	}
-}
+// .hidden-img-lg {
+// 	@include respond-to(lg) {
+// 		img {
+// 			display: none !important;
+// 		}
+// 	}
+// }
 
 // .visible-lg
-.visible-lg {
-	display: none !important;
-	@include respond-to(lg) {
-		display: block !important;
-	}
-}
+// .visible-lg {
+// 	display: none !important;
+// 	@include respond-to(lg) {
+// 		display: block !important;
+// 	}
+// }
 
 /**
  * Other
  */
-.nowrap {
-	white-space: nowrap;
-}
+// .nowrap {
+// 	white-space: nowrap;
+// }
 
-.noscroll {
-	height: 100vh;
-	overflow: hidden;
-}
+// .noscroll {
+// 	height: 100vh;
+// 	overflow: hidden;
+// }
 
-.relative {
-	position: relative;
-}
+// .relative {
+// 	position: relative;
+// }
 
 /**
  * Scrollbar
@@ -101,7 +101,7 @@
 	&::-webkit-scrollbar {
 		width: 4px;
 	}
-	
+
 	&::-webkit-scrollbar-track,
 	&::-webkit-scrollbar-thumb {
 		border-radius: 4px;
@@ -123,15 +123,24 @@
 /**
  * Animations
  */
-.blink {
-	animation: fadeEffect 0.8s;
-}
+// .blink {
+// 	animation: fadeEffect 0.8s;
+// }
 
-@keyframes fadeEffect {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
+// @keyframes fadeEffect {
+// 	from {
+// 		opacity: 0;
+// 	}
+// 	to {
+// 		opacity: 1;
+// 	}
+// }
+
+/**
+ * Backgrounds
+ */
+.bg-gray-xxl {
+	@include respond-to(xxl) {
+		background-color: $gray;
 	}
 }

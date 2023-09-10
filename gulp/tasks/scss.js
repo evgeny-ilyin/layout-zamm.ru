@@ -32,8 +32,9 @@ export const scss = () => {
 					outputStyle: "expanded",
 				})
 			)
-			// .pipe(app.plugins.if(app.isDev, groupCssMediaQueries())) //! карта некорректна с этим модулем, поэтому только для прода
-			.pipe(app.plugins.if(app.isBuild, groupCssMediaQueries())) //! карта некорректна с этим модулем, поэтому только для прода
+			//**! для финальной генерации zamm.ru нужно стили с именем -blocks.scss сгененрировать без группировки медиа (закомментить опцию и запустить билд) */
+			// .pipe(app.plugins.if(app.isDev, groupCssMediaQueries()))		//! карта некорректна с этим модулем, поэтому только для прода
+			.pipe(app.plugins.if(app.isBuild, groupCssMediaQueries()))		//! карта некорректна с этим модулем, поэтому только для прода
 			// .pipe(																											//! isWebp() в /js/modules/functions.js
 			// 	app.plugins.if(
 			// 		app.isBuild,

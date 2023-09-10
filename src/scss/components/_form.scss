@@ -100,12 +100,13 @@
 		@include respond-to(lg) {
 			width: 190px;
 			border-radius: 32px;
-			border-color: $black10;
+			// border-color: $black10;
 			font-size: rem(13);
 			line-height: 1;
 			padding: 6px 12px 6px 32px;
 			background-color: $white;
 			background-image: $nav-search;
+			box-shadow: 0 0 0 1px $black10;
 
 			@include on-hover {
 				border-color: $yellow;

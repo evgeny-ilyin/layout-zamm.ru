@@ -4,6 +4,7 @@
 
 .footer {
 	background: $gray;
+	margin-top: 110px;
 
 	// .footer__logo
 	&__logo {
@@ -113,7 +114,21 @@
 
 		li {
 			padding: 0;
-			margin-bottom: 19px;
+			margin-bottom: 12px;
+
+			@include respond-to(lg) {
+				margin-bottom: 16px;
+			}
+
+			&:first-child {
+				margin-top: 2px;
+			}
+
+			@include respond-to(lg, "max") {
+				&:last-child {
+					margin-bottom: 27px;
+				}
+			}
 		}
 
 		a {

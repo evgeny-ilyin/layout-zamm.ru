@@ -1,0 +1,238 @@
+/*! Блок "Главная карусель" */
+.main-carousel {
+	--f-carousel-dots-width: 22px;
+
+	--f-button-width: 44px;
+	--f-button-height: 40px;
+	--f-button-svg-width: 18px;
+	--f-button-svg-height: 18px;
+	--f-button-svg-stroke-width: 2;
+	--f-button-color: #{$black};
+	--f-button-border-radius: 4px;
+	--f-button-shadow: 0 0 0 1px #{$black10};
+	--f-button-bg: #{$white};
+	--f-button-hover-bg: #{$gray};
+	--f-button-active-bg: #{$white};
+
+	@include respond-to(lg) {
+		min-height: 450px;
+	}
+
+	@include respond-to(xl) {
+		min-height: 600px;
+	}
+
+	.f-carousel__dot {
+		width: 16px;
+		height: 5px;
+		border-radius: 24px;
+	}
+
+	li.is-current {
+		.f-carousel__dot {
+			background-color: $black60;
+		}
+	}
+
+	.f-carousel__nav {
+		opacity: 0;
+		transition: all $transition-default;
+
+		@include respond-to(lg, "max") {
+			display: none;
+		}
+	}
+
+	@include on-hover {
+		.f-carousel__nav {
+			opacity: 1;
+		}
+	}
+}
+
+.main-slide {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: $gray;
+
+	@include respond-to(md) {
+		flex-direction: row;
+	}
+
+	// .main-slide_col-1
+	&_col-1 {
+		position: relative;
+		height: 100%;
+	}
+	// .main-slide_col-2
+	&_col-2 {
+	}
+
+	// .main-slide__text
+	&__text {
+		@include when-inside(".main-slide_col-1") {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			padding: 12px 12px 110px;
+			text-align: center;
+			margin-top: 35px;
+			z-index: 2;
+
+			@include respond-to(md) {
+				position: relative;
+				align-items: flex-start;
+				justify-content: flex-end;
+				padding: 12px;
+				text-align: left;
+				width: 60%;
+				margin: 35px 0 57px 64px;
+			}
+		}
+
+		@include when-inside(".main-slide_col-2") {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 12px;
+			text-align: center;
+			min-height: 333px;
+			order: 1;
+
+			@include respond-to(md) {
+				padding: 40px 60px;
+				width: 50%;
+				height: auto;
+				order: 0;
+			}
+
+			.label {
+				@include respond-to(md, "max") {
+					position: absolute;
+					top: -15px;
+				}
+			}
+		}
+	}
+
+	// .main-slide__img
+	&__img {
+		@include when-inside(".main-slide_col-1") {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		@include when-inside(".main-slide_col-2") {
+			height: 280px;
+
+			@include respond-to(md) {
+				// width: calc(50% - 1px);
+				width: 50%;
+				height: auto;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
+	// .main-slide__wrapper
+	&__wrapper {
+		display: grid;
+		gap: 31px;
+		margin: 14px 0;
+
+		@include when-inside(".main-slide_col-1") {
+			@include respond-to(md, "max") {
+				justify-items: center;
+			}
+		}
+
+		@include when-inside(".main-slide_col-2") {
+			justify-items: center;
+		}
+	}
+
+	// .main-slide__header
+	&__header {
+		font-size: rem(40);
+		font-weight: 700;
+		line-height: 0.9;
+
+		@include respond-to(lg) {
+			font-size: rem(50);
+		}
+
+		@include respond-to(xl) {
+			font-size: rem(64);
+		}
+	}
+
+	// .main-slide__body
+	&__body {
+		display: grid;
+		gap: 7px;
+
+		@include when-inside(".main-slide_col-2") {
+			justify-items: center;
+		}
+	}
+
+	// .main-slide__subheader
+	&__subheader {
+		font-size: rem(17);
+		@include respond-to(xl) {
+			font-size: rem(18);
+		}
+	}
+	// .main-slide__note
+	&__note {
+		font-size: rem(15);
+		opacity: 0.6;
+	}
+	// .main-slide__button
+	&__button {
+		@include when-inside(".main-slide_col-1") {
+			@include respond-to(md, "max") {
+				position: absolute;
+				bottom: 35px;
+			}
+		}
+	}
+
+	&.text-white {
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 65%;
+			opacity: 0.6;
+			background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #211e18 100%);
+			z-index: 1;
+
+			@include respond-to(md) {
+				top: auto;
+				bottom: 0;
+				background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #211e18 100%);
+			}
+		}
+	}
+}
+
+/*! Блок "Популярные столы" */
+/*! Блок "Карточки разных размеров" */
+/*! Блок "Идеи для перестановки" */
+/*! Блок "О компании" */
+/*! Блок "Адреса шоурумов" */

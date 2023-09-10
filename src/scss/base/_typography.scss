@@ -174,3 +174,14 @@ ol {
 .text-uppercase {
 	text-transform: uppercase;
 }
+
+/**
+ * Text colors
+ */
+.text-black {
+	color: $black;
+}
+
+.text-white {
+	color: $white !important;
+}

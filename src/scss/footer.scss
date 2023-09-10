@@ -9,9 +9,9 @@
 // 2. Vendors
 // @import "vendors/normalize";
 // @import "vendors/reset";
-@import "~@fancyapps/ui/dist/carousel/carousel";
-@import "~@fancyapps/ui/dist/carousel/carousel.autoplay";
-@import "abstracts/fancyapps-vars-overrides";
+// @import "~@fancyapps/ui/dist/carousel/carousel";
+// @import "~@fancyapps/ui/dist/carousel/carousel.autoplay";
+// @import "abstracts/fancyapps-vars-overrides";
 
 // 3. Base stuff
 // @import "base/base";
@@ -22,7 +22,7 @@
 
 // 4. Layout-related sections
 // @import "layout/header";
-// @import "layout/footer";
+@import "layout/footer";
 
 // 5. Components
 // @import "components/nav";
@@ -32,13 +32,13 @@
 // @import "components/button";
 // @import "components/form";
 // @import "components/checkbox";
-@import "components/carousel";
+@import "components/carousel-footer";
 @import "components/accordion";
 @import "components/cookies";
 @import "components/svg-sprite";
 
 // 6. Page-specific styles
-@import "pages/home";
+// @import "pages/home";
 
 // 7. Themes
-@import "themes/default";
+// @import "themes/default";
