@@ -214,7 +214,7 @@
   -webkit-box-shadow: 0 28px 76px 0 rgba(37,52,50,.2);
   box-shadow: 0 28px 76px 0 rgba(37,52,50,.2);
   border-radius: 4px;
-  z-index: 1
+  z-index: 10
 }
 .cookie__buttons {
   display: -webkit-box;
