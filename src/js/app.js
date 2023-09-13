@@ -5,6 +5,7 @@ import "./modules/cookies.js";
 import "./modules/fancyapps.js";
 
 addEventListener("DOMContentLoaded", () => {
+	functions.mobileCheck();
 	functions.stickyHeader();
 	// functions.isTouchEnabled();
 	// functions.dropdownByTouch();
@@ -12,5 +13,7 @@ addEventListener("DOMContentLoaded", () => {
 	functions.searchForm();
 	functions.closeModal();
 	functions.accordion();
+	functions.ideaMarkerShow();
+	functions.ideaPopupPlace();
 	useDynamicAdapt();
 });

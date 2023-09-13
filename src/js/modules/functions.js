@@ -144,7 +144,7 @@ export function searchForm() {
 }
 
 export function closeModal() {
-	const closeButtons = document.querySelectorAll(".btn_close"),
+	const closeButtons = document.querySelectorAll(".js-close"),
 		isActiveClass = "is-active";
 	closeButtons.forEach((btn) => {
 		btn.addEventListener("click", () => {
@@ -154,6 +154,12 @@ export function closeModal() {
 			}
 		});
 	});
+}
+
+export function mobileCheck(w) {
+	if (!w) return;
+	let mq = window.matchMedia(`(max-width: ${w}px)`);
+	return mq.matches ? true : false;
 }
 
 export function accordion() {
@@ -190,15 +196,6 @@ export function accordion() {
 		});
 	};
 
-	let mobileCheck = (mq) => {
-		if (mq.matches) {
-			return true;
-		} else {
-			return false;
-		}
-	};
-
-	const mq = window.matchMedia("(max-width: 767px)");
 	let timeout;
 
 	["load", "resize"].forEach((evt) =>
@@ -207,14 +204,90 @@ export function accordion() {
 				timeout = setTimeout(function () {
 					// Reset timeout
 					timeout = null;
-					const isMobile = mobileCheck(mq);
-					if (isMobile) {
-						accordionBuildFooter();
-					} else if (!isMobile) {
-						accordionDestroyFooter();
-					}
+					const isMobile = mobileCheck("767");
+					isMobile ? accordionBuildFooter() : accordionDestroyFooter();
 				}, 200);
 			}
 		})
 	);
 }
+
+// в шаблоне пишем сразу инлайн стиль, без js
+// export function ideaMarkerPlace() {
+// 	const markers = document.querySelectorAll(".idea-marker");
+// 	if (!markers) return;
+// 	markers.forEach((m) => {
+// 		const x = m.dataset.x,
+// 			y = m.dataset.y;
+// 		m.style.left = `${x}%`;
+// 		m.style.top = `${y}%`;
+// 	});
+// }
+
+export function ideaMarkerShow() {
+	const markers = document.querySelectorAll(".idea-marker__btn"),
+		isActiveClass = "is-active";
+
+	if (!markers) return;
+
+	markers.forEach((m) => {
+		m.addEventListener("click", () => {
+			m.parentElement.classList.toggle(isActiveClass);
+
+			const isMobile = mobileCheck("576");
+			if (isMobile) {
+				const ideaMobile = document.querySelector(".idea-mobile-content div");
+
+				if (ideaMobile) {
+					const cloneContent = m.nextElementSibling.cloneNode(true);
+					ideaMobile.innerHTML = "";
+					ideaMobile.parentElement.classList.add(isActiveClass);
+					ideaMobile.append(cloneContent);
+				}
+			}
+		});
+	});
+
+	document.addEventListener("click", (e) => {
+		const openedIdeas = document.querySelectorAll(".idea-marker.is-active");
+		openedIdeas.forEach((i) => {
+			if (!i.contains(e.target)) {
+				i.classList.remove(isActiveClass);
+			}
+		});
+	});
+}
+
+export function ideaPopupPlace() {
+	const iPopups = document.querySelectorAll(".idea-marker__content"),
+		leftClass = "marker-l",
+		rightClass = "marker-r";
+
+	["load", "resize"].forEach((evt) =>
+		window.addEventListener(evt, () => {
+			iPopups.forEach((box) => {
+				const canvas = box.closest(".idea"),
+					canvasL = canvas.offsetLeft,
+					marker = box.parentElement,
+					markerW = marker.offsetWidth,
+					markerL = marker.offsetLeft,
+					markerR = marker.getBoundingClientRect().right,
+					minL = markerW / 2 + markerL + canvasL - 16,
+					minR = window.innerWidth - markerR + markerW / 2 - 32,
+					boxW = box.offsetWidth,
+					overL = minL < boxW / 2,
+					overR = minR < boxW / 2;
+
+				box.classList[overL ? "add" : "remove"](leftClass);
+				box.classList[overR ? "add" : "remove"](rightClass);
+			});
+		})
+	);
+}
+
+// canvas.offsetLeft		-- родитель от левого края браузера
+// canvas.offsetWidth		-- длина родителя
+
+// marker.offsetLeft		-- маркер до левого края
+// marker.offsetWidth		-- длина маркера
+// box.offsetWidth			-- длина попапа
