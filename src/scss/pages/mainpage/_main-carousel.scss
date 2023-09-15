@@ -16,7 +16,7 @@
 	--f-button-hover-bg: #{$gray};
 	--f-button-active-bg: #{$white};
 
-	margin-bottom: 50px;
+	margin-bottom: 90px;
 
 	@include respond-to(lg) {
 		min-height: 450px;

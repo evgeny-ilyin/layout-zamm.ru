@@ -7,9 +7,6 @@
 @import "abstracts/mixins";
 
 
+@import "pages/blocks/block-product-carousel";
 
-
-@import "pages/mainpage/main-carousel";
-@import "pages/mainpage/main-popular";
-@import "pages/mainpage/main-cards";
-@import "pages/mainpage/main-ideas";
+@import "pages/blocks/block-cards";

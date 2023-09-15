@@ -191,11 +191,13 @@ ol {
  */
 .block-header {
 	font-weight: 700;
+	margin-top: 40px;
 	margin-bottom: 29px;
 	text-align: center;
 	font-size: rem(20);
 
 	@include respond-to(md) {
+		margin-top: 50px;
 		margin-bottom: 32px;
 		text-align: left;
 		font-size: rem(24);

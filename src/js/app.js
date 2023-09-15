@@ -15,5 +15,6 @@ addEventListener("DOMContentLoaded", () => {
 	functions.accordion();
 	functions.ideaMarkerShow();
 	functions.ideaPopupPlace();
+	functions.productGallery();
 	useDynamicAdapt();
 });

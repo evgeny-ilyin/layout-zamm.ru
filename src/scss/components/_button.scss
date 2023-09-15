@@ -183,7 +183,7 @@
 	// .btn_nav-second
 	&_nav-second {
 		width: 100%;
-		
+
 		@include respond-to(lg) {
 			padding: 6px 12px 4px;
 			font-size: rem(13);

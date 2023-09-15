@@ -1,5 +1,5 @@
 /*! Блок "Карточки разных размеров" */
-.main-cards {
+.block-cards {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	grid-template-rows: repeat(4, 1fr);
@@ -11,29 +11,6 @@
 	@include respond-to(md) {
 		grid-template-rows: repeat(3, 1fr);
 		gap: 16px;
-	}
-
-	// .main-cards__card
-	&__card {
-		// ._card-yellow
-		&._card-yellow {
-			background: $yellow;
-		}
-
-		// ._card-gray
-		&._card-gray {
-			background: $gray;
-		}
-
-		// ._card-red-coral
-		&._card-red-coral {
-			background: $red-coral;
-		}
-
-		// ._card-blue
-		&._card-blue {
-			background: $blue;
-		}
 	}
 }
 

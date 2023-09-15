@@ -1,12 +1,22 @@
-.infocard {
+/*! Карусель в футере */
+.footer-carousel {
 	margin-top: 44px;
-	--f-carousel-spacing: 4px;
-	--f-carousel-slide-width: 87%;
+
+	@include respond-to(md, "max") {
+		--f-carousel-spacing: #{$min-padding};
+		--f-carousel-slide-width: 87%;
+		margin-left: -$min-padding;
+		margin-right: -$min-padding;
+	}
 
 	@include respond-to(md) {
-		&.f-carousel {
-			--f-carousel-spacing: 16px;
-			--f-carousel-slide-width: calc((100% - 32px) / 3);
+		--f-carousel-spacing: 16px;
+		--f-carousel-slide-width: calc((100% - 32px) / 3);
+	}
+
+	@include respond-to(md, "max") {
+		.f-carousel__slide:first-child {
+			margin-left: $min-padding;
 		}
 	}
 
@@ -17,7 +27,9 @@
 		border-radius: 10px;
 		padding: 16px;
 	}
+}
 
+.infocard {
 	// .infocard__header
 	&__header {
 		font-size: rem(16);

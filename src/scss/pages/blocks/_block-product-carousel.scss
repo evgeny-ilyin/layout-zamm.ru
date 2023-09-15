@@ -1,0 +1,30 @@
+/*! Блок "Популярные столы" */
+.product-carousel {
+	--f-carousel-spacing: 12px;
+	--f-carousel-slide-width: 300px;
+	margin-left: -16px;
+	margin-right: -16px;
+	margin-bottom: 90px;
+
+	@include respond-to(md) {
+		--f-carousel-spacing: 16px;
+	}
+
+	// для полного показа последнего слайда при выключенном infinite
+	.f-carousel__viewport {
+		padding-right: 32px;
+	}
+
+	.f-carousel__slide:first-child {
+		margin-left: 16px;
+	}
+
+	.f-carousel__slide {
+		display: flex;
+		flex-direction: column;
+
+		.item {
+			flex: 1;
+		}
+	}
+}
