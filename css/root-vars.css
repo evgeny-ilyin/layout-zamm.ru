@@ -17,6 +17,7 @@
   --yellow-light: #fff0ca;
   --gray-blue: #dde5ef;
   --gray-yellow: #fdf5e6;
+  --red: #ff2e00;
   --arrow-long: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M7.161 2 1.5 8m0 0 5.661 6M1.5 8H15'/%3E%3C/svg%3E");
   --arrow-yellow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath stroke='%23ffc845' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.2' d='M2 3h7.001m0 0v7m0-7L2 10'/%3E%3C/svg%3E");
   --arrow-black: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.2' d='M2 3h7.001m0 0v7m0-7L2 10'/%3E%3C/svg%3E");

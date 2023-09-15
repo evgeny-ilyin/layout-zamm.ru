@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .footer {
   background: var(--gray);
   margin-top: 110px
@@ -94,12 +95,10 @@
 .subscription__form {
   margin-top: 23px
 }
-.infocard {
-  margin-top: 44px;
-  --f-carousel-spacing: 4px;
-  --f-carousel-slide-width: 87%
+.footer-carousel {
+  margin-top: 44px
 }
-.infocard .f-carousel__slide {
+.footer-carousel .f-carousel__slide {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -284,7 +283,7 @@
   .policy__text {
     margin-top: 20px
   }
-  .infocard.f-carousel {
+  .footer-carousel {
     --f-carousel-spacing: 16px;
     --f-carousel-slide-width: calc((100% - 32px) / 3)
   }
@@ -396,6 +395,15 @@
     justify-content: start;
     gap: 10px 0;
     margin: 42px 0 34px
+  }
+  .footer-carousel {
+    --f-carousel-spacing: 12px;
+    --f-carousel-slide-width: 87%;
+    margin-left: -12px;
+    margin-right: -12px
+  }
+  .footer-carousel .f-carousel__slide:first-child {
+    margin-left: 12px
   }
   .f-menu.js-accordion.on::before {
     top: 10px

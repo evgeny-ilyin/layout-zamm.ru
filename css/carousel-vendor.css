@@ -904,9 +904,54 @@
 .f-carousel__dots li.is-current .f-carousel__dot {
   background-color: var(--black)
 }
-@media (max-width:767px) {
-  .f-carousel_out-viewport-less-md .f-carousel__slide:first-child {
-    margin-left: 12px
+.carousel-top-nav {
+  --f-button-width: 44px;
+  --f-button-height: 40px;
+  --f-button-svg-width: 18px;
+  --f-button-svg-height: 16px;
+  --f-button-next-pos: 0;
+  --f-button-prev-pos: 0;
+  --f-button-bg: var(--gray)
+}
+.carousel-top-nav .f-carousel__nav {
+  display: none
+}
+@media (min-width:1280px) {
+  .carousel-top-nav .f-carousel__nav {
+    display: block;
+    position: absolute;
+    right: 16px;
+    top: 0;
+    width: 96px
+  }
+  .carousel-top-nav .f-carousel__nav .f-button {
+    top: -73px!important;
+    -webkit-transform: none!important;
+    -ms-transform: none!important;
+    transform: none!important;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+  }
+  .carousel-top-nav .f-carousel__nav .f-button svg {
+    stroke: var(--black);
+    stroke-width: 1.5px
+  }
+  .carousel-top-nav .f-carousel__nav .f-button:hover {
+    background: var(--white);
+    border: 1px solid var(--black10)
+  }
+  .carousel-top-nav .f-carousel__nav .f-button:active {
+    background: var(--gray);
+    border: 1px solid var(--black60);
+    color: var(--black60)!important
+  }
+  .carousel-top-nav .f-carousel__nav .f-button:active svg {
+    opacity: .5
+  }
+  .carousel-top-nav .f-carousel__nav .f-button:disabled {
+    pointer-events: none
   }
 }
 @media (hover:hover) {

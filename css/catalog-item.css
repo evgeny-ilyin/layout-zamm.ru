@@ -1,0 +1,212 @@
+.product-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%
+}
+.item {
+  width: 100%;
+  min-width: 300px;
+  height: auto;
+  padding: 8px;
+  background: var(--white);
+  border-radius: 4px;
+  -webkit-transition: background .25s ease-in-out;
+  -o-transition: background .25s ease-in-out;
+  transition: background .25s ease-in-out
+}
+.item:hover {
+  background: #f3f7fa
+}
+.item:hover .article {
+  opacity: 1
+}
+.item__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  vertical-align: top;
+  height: 100%
+}
+.item__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  height: 100%
+}
+.item__image-wrapper {
+  position: relative;
+  padding-top: 120%
+}
+.item__image-wrapper > a {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat
+}
+.item__gallery-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  position: absolute;
+  padding: 0 8px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border-radius: 4px;
+  z-index: 2
+}
+.item__gallery-item {
+  -webkit-box-flex: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  margin-bottom: -8px
+}
+.item__gallery-item.is-active img {
+  opacity: 1
+}
+.item__gallery-item img {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 0;
+  opacity: 0;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
+  vertical-align: middle;
+  max-width: 100%;
+  max-height: 100%;
+  pointer-events: none
+}
+.item__gallery-nav {
+  display: block;
+  position: relative;
+  margin: 0 3px 0 0;
+  height: 100%
+}
+.item__gallery-nav::before {
+  content: "";
+  cursor: pointer;
+  display: block;
+  height: 1px;
+  background: #cdd2d6;
+  -webkit-transition: background .2s ease-in-out;
+  -o-transition: background .2s ease-in-out;
+  transition: background .2s ease-in-out;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0
+}
+.is-active .item__gallery-nav::before {
+  background: var(--black)
+}
+.item__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  padding: 21px 8px 8px
+}
+.item__title {
+  white-space: normal;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  -o-text-overflow: -o-ellipsis-lastline;
+  text-overflow: -o-ellipsis-lastline;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 8px
+}
+.item__title a {
+  display: block;
+  text-decoration: none
+}
+.item__prices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.item__price {
+  font-size: 1.125rem;
+  font-weight: 700
+}
+.item__price._discount {
+  color: var(--red)
+}
+.item__oldprice {
+  font-size: .9375rem;
+  color: var(--black60);
+  text-decoration: line-through;
+  margin-left: 8px
+}
+.item .article {
+  opacity: 0;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  z-index: 5;
+  font-size: .8125rem;
+  height: 32px;
+  padding: 7px 8px 6px;
+  border-radius: 2px;
+  border: 1px solid var(--black10)
+}
+.item .labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 2px;
+  bottom: 0;
+  z-index: 5
+}
+.item .labels .label {
+  margin: 4px 2px
+}

@@ -351,6 +351,7 @@ ol {
 }
 .block-header {
   font-weight: 700;
+  margin-top: 40px;
   margin-bottom: 29px;
   text-align: center;
   font-size: 1.25rem
@@ -1349,6 +1350,7 @@ ol {
 }
 .btn_close {
   position: absolute;
+  z-index: 10;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1358,6 +1360,7 @@ ol {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
+  top: 15px;
   right: 17px;
   width: 24px;
   height: 24px;
@@ -1385,6 +1388,7 @@ ol {
   transform: rotate(-45deg)
 }
 .js-close-header-alert {
+  top: auto;
   right: 11px
 }
 .header-alert_black .js-close-header-alert::after,
@@ -1394,6 +1398,7 @@ ol {
   box-shadow: 0 0 1px 0 var(--white)
 }
 .js-close-search {
+  top: 21px;
   right: 20px
 }
 .is-active .js-close-search {
@@ -1563,6 +1568,7 @@ input[type=checkbox]:disabled {
   width: -moz-fit-content;
   width: fit-content;
   height: 28px;
+  margin: 4px 2px;
   padding: 8px;
   border-radius: 30px;
   font-size: .8125rem;
@@ -1573,6 +1579,14 @@ input[type=checkbox]:disabled {
 .label_yellow-light {
   background: var(--yellow-light);
   color: #4e3700
+}
+.label_yellow {
+  background: var(--yellow);
+  color: #78622e
+}
+.label_red {
+  background: #ffddc5;
+  color: var(--red)
 }
 .label_green {
   background: #d2f8cc;
@@ -1618,6 +1632,7 @@ input[type=checkbox]:disabled {
     padding-right: 16px
   }
   .block-header {
+    margin-top: 50px;
     margin-bottom: 32px;
     text-align: left;
     font-size: 1.5rem
