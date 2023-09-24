@@ -427,7 +427,7 @@
 	&__geo {
 		display: flex;
 		align-items: center;
-		text-decoration-color: transparent !important;
+		text-decoration: none;
 
 		@include respond-to(lg, "max") {
 			width: fit-content;
@@ -476,7 +476,7 @@
 
 	// .nav-second__contact
 	&__contact {
-		text-decoration-color: transparent !important;
+		text-decoration: none;
 
 		@include respond-to(lg, "max") {
 			font-size: rem(18);
@@ -606,7 +606,7 @@
 			display: flex;
 			align-items: center;
 			height: 50px;
-			text-decoration-color: transparent !important;
+			text-decoration: none;
 			text-shadow: none !important;
 
 			&::after {
@@ -812,10 +812,7 @@
 		min-height: 60px;
 		font-size: rem(14);
 		background: $gray;
-
-		@include on-event {
-			text-decoration-color: transparent;
-		}
+		text-decoration: none;
 
 		img {
 			display: block;
@@ -883,7 +880,7 @@
 			border-radius: 4px;
 			padding: 0 7px;
 			transition: background 0.1s;
-			text-decoration-color: transparent;
+			text-decoration: none;
 
 			svg {
 				width: 20px;
@@ -914,7 +911,7 @@
 			height: 100%;
 			padding: 0 16px;
 			border: 0;
-			text-decoration-color: transparent;
+			text-decoration: none;
 		}
 	}
 }

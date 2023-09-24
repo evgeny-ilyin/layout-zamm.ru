@@ -1,8 +1,10 @@
 import * as functions from "./modules/functions.js";
+import * as product from "./modules/product.js";
 
 import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 import "./modules/cookies.js";
 import "./modules/fancyapps.js";
+
 
 addEventListener("DOMContentLoaded", () => {
 	functions.mobileCheck();
@@ -15,6 +17,17 @@ addEventListener("DOMContentLoaded", () => {
 	functions.accordion();
 	functions.ideaMarkerShow();
 	functions.ideaPopupPlace();
-	functions.productGallery();
 	useDynamicAdapt();
+	
+
+	product.productGallery();
+	product.productFavourite();
+	product.productLoadProps();
+	product.productProps();
+	// product helpers
+	product.setGalleryActive();
+	product.isPropOverflowX();
+	product.productPropCollapseHandler();
 });
+
+

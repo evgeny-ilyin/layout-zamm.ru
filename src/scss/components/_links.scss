@@ -36,7 +36,7 @@
 	display: flex;
 	align-items: center;
 	width: fit-content;
-	// transition: text-shadow $transition-default;
+	text-decoration: none;
 
 	&::after {
 		content: "";
@@ -48,17 +48,6 @@
 		width: 20px;
 		height: 10px;
 		background: $angle right center no-repeat;
-		// transition: transform $transition-default;
-	}
-
-	@include on-event {
-		text-decoration-color: transparent;
-		// text-shadow: $shadow-700;
-		// font-weight: 700;
-
-		&::after {
-			// transform: translateX(2px);
-		}
 	}
 }
 
@@ -67,6 +56,7 @@
 	align-items: center;
 	width: fit-content;
 	padding-left: 25px;
+	text-decoration: none;
 
 	&::before {
 		content: "";
@@ -79,18 +69,8 @@
 		height: 16px;
 		background: $arrow-long left center no-repeat;
 	}
-
-	@include on-event {
-		text-decoration-color: transparent;
-	}
 }
 
 .link-classic {
-	text-decoration: underline;
-	text-decoration-color: $black30;
-	text-underline-offset: 1px;
-
-	@include on-hover {
-		text-decoration-color: $black60;
-	}
+	@extend %link-classic;
 }

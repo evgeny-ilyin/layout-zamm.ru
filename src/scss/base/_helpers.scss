@@ -28,16 +28,17 @@
  * Shamelessly borrowed from HTML5Boilerplate:
  * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
  */
-// .visually-hidden {
-// 	border: 0;
-// 	clip: rect(0 0 0 0);
-// 	height: 1px;
-// 	margin: -1px;
-// 	overflow: hidden;
-// 	padding: 0;
-// 	position: absolute;
-// 	width: 1px;
-// }
+.visually-hidden {
+	appearance: none;
+	clip: rect(0 0 0 0);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	border: 0;
+	padding: 0;
+	overflow: hidden;
+	position: absolute;
+}
 
 /**
  * Visibility
@@ -95,11 +96,12 @@
 
 	/* Firefox */
 	scrollbar-width: thin;
-	scrollbar-color: $black10 $white;
+	scrollbar-color: $black10 rgba(0, 0, 0, 0);
 
 	/* Chrome, Edge and Safari */
 	&::-webkit-scrollbar {
 		width: 4px;
+		height: 4px;
 	}
 
 	&::-webkit-scrollbar-track,
@@ -110,13 +112,16 @@
 	&::-webkit-scrollbar-track,
 	&::-webkit-scrollbar-track:hover,
 	&::-webkit-scrollbar-track:active {
-		background-color: $white;
+		background-color: rgba(0, 0, 0, 0);
 	}
 
-	&::-webkit-scrollbar-thumb,
+	&::-webkit-scrollbar-thumb {
+		background-color: $black10;
+	}
+
 	&::-webkit-scrollbar-thumb:hover,
 	&::-webkit-scrollbar-thumb:active {
-		background-color: $black10;
+		background-color: $black30;
 	}
 }
 

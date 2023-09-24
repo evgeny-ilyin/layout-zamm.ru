@@ -1,4 +1,22 @@
 // carousel overrides
+
+///
+/// carousel-overflow скрывает карусель за пределами блока content и отменяет стандартное поведение overflow карусели
+/// устанавливается для блока .content
+/// нужен для показа по наведению выпадающего блока с деталями о товаре (position: absolute)
+/// НО для корректного отображения блок .content.carousel-overflow должен быть большим по высоте, иначе произойдёт обрезка снизу
+/// решение — следующий за каруселью блок должен располагаться в этом же блоке content
+/// может быть неудобно для настройки шаблона в битре
+/// 
+// .carousel-overflow {
+// 	overflow: hidden;
+
+// 	.f-carousel__slide,
+// 	.f-carousel__viewport {
+// 		overflow: visible;
+// 	}
+// }
+
 .f-carousel {
 	--f-carousel-dot-width: 5px;
 	--f-carousel-dot-height: 5px;

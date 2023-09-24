@@ -164,7 +164,7 @@ export function searchForm() {
 export function accordion() {
 	const accordionFooter = document.querySelectorAll(".f-menu.js-accordion"),
 		accordionTriggers = document.querySelectorAll(".js-accordion__trigger"),
-		isActiveClass = "is-active",
+		isOpenedClass = "is-opened",
 		isEnabledClass = "on";
 
 	accordionTriggers.forEach((trigger) => {
@@ -173,7 +173,7 @@ export function accordion() {
 				accordionContent = trigger.nextElementSibling;
 
 			if (accordionParent.classList.contains(isEnabledClass)) {
-				trigger.classList.toggle(isActiveClass);
+				trigger.classList.toggle(isOpenedClass);
 				if (accordionContent.style.maxHeight) {
 					accordionContent.style.maxHeight = null;
 				} else {
@@ -257,6 +257,11 @@ export function ideaMarkerShow() {
 	});
 }
 
+// canvas.offsetLeft		-- родитель от левого края браузера
+// canvas.offsetWidth		-- длина родителя
+// marker.offsetLeft		-- маркер до левого края
+// marker.offsetWidth		-- длина маркера
+// box.offsetWidth			-- длина попапа
 export function ideaPopupPlace() {
 	const iPopups = document.querySelectorAll(".idea-marker__content"),
 		leftClass = "marker-l",
@@ -282,37 +287,4 @@ export function ideaPopupPlace() {
 			});
 		})
 	);
-}
-
-// canvas.offsetLeft		-- родитель от левого края браузера
-// canvas.offsetWidth		-- длина родителя
-
-// marker.offsetLeft		-- маркер до левого края
-// marker.offsetWidth		-- длина маркера
-// box.offsetWidth			-- длина попапа
-
-export function productGallery() {
-	const gBlocks = document.querySelectorAll(".item__gallery-wrapper"),
-		gItems = document.querySelectorAll(".item__gallery-wrapper .item__gallery-item"),
-		isActiveClass = "is-active";
-
-	if (!gBlocks) return;
-
-	gItems.forEach((i) => {
-		i.addEventListener("mouseenter", () => {
-			i.parentElement.querySelectorAll(`.${isActiveClass}`).forEach((e) => e.classList.remove(isActiveClass));
-			i.classList.add(isActiveClass);
-		});
-	});
-
-	gBlocks.forEach((b) => {
-		window.addEventListener("load", () => {
-			b.querySelector(".item__gallery-item").classList.add(isActiveClass);
-		});
-
-		b.addEventListener("mouseleave", () => {
-			b.querySelectorAll(`.${isActiveClass}`).forEach((e) => e.classList.remove(isActiveClass));
-			b.querySelector(".item__gallery-item").classList.add(isActiveClass);
-		});
-	});
 }

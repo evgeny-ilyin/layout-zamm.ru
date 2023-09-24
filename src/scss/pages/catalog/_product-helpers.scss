@@ -1,0 +1,28 @@
+.available {
+	margin-bottom: 7px;
+	display: flex;
+	align-items: flex-end;
+	font-size: rem(13);
+	line-height: 1;
+	color: $black60;
+
+	&::before {
+		content: "";
+		display: block;
+		width: 16px;
+		height: 16px;
+		margin-right: 4px;
+		background: var(--delivery) no-repeat;
+		opacity: 0.3;
+	}
+
+	// .available _instock
+	&._instock {
+		color: #159400;
+
+		&::before {
+			background: var(--instock) no-repeat;
+			opacity: 1;
+		}
+	}
+}

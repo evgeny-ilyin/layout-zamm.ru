@@ -20,17 +20,17 @@ export const img = () => {
 			// .pipe(app.plugins.if(app.isBuild, app.gulp.src(app.path.src.img)))
 			// оптимизировать (прод)
 			.pipe(app.plugins.newer(app.path.build.img))
-			.pipe(
-				app.plugins.if(
-					app.isBuild,
-					imagemin({
-						progressive: true,
-						svgoPlugins: [{ removeViewBox: false }],
-						interlaced: true,
-						optimizationLevel: 3, // 0-7
-					})
-				)
-			)
+			// .pipe(
+			// 	app.plugins.if(
+			// 		app.isBuild,
+			// 		imagemin({
+			// 			progressive: true,
+			// 			svgoPlugins: [{ removeViewBox: false }],
+			// 			interlaced: true,
+			// 			optimizationLevel: 3, // 0-7
+			// 		})
+			// 	)
+			// )
 			.pipe(app.gulp.dest(app.path.build.img))
 			// перенести svg
 			.pipe(app.gulp.src(app.path.src.svg))
