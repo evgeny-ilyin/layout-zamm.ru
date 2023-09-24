@@ -59,6 +59,7 @@ export function productFavourite() {
 
 export function productLoadProps() {
 	const catalogItems = document.querySelector(".catalog-items");
+	if (!catalogItems) return;
 
 	catalogItems.addEventListener("mouseover", (e) => {
 		const item = e.target.closest(".item");
@@ -90,7 +91,7 @@ export function productProps() {
 			item = prop.closest(".item"),
 			form = prop.closest("form");
 
-		if (!form) return;
+		if (!form || !item) return;
 
 		let formData = new FormData(form),
 			data = {},
