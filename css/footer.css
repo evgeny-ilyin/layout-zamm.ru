@@ -182,7 +182,7 @@
   width: 14px;
   border-top: 2px solid #858585
 }
-.js-accordion.on .js-accordion__trigger.is-active::before {
+.js-accordion.on .js-accordion__trigger.is-opened::before {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg)

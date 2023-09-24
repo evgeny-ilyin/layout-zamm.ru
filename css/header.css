@@ -254,11 +254,6 @@ svg {
 .content_wide {
   max-width: 100%
 }
-body {
-  color: var(--black);
-  font: normal .9375rem/1.2 Manrope,Helvetica,"Open Sans",Arial,sans-serif;
-  font-weight: 500
-}
 h1 {
   font-size: 4rem;
   line-height: .9;
@@ -312,6 +307,19 @@ a:hover {
   text-shadow: 0 0 0;
   text-decoration-color: inherit
 }
+.link-classic {
+  text-decoration: underline;
+  text-decoration-color: var(--black30);
+  text-underline-offset: 1px
+}
+.link-classic:hover {
+  text-decoration-color: var(--black60)
+}
+body {
+  color: var(--black);
+  font: normal .9375rem/1.2 Manrope,Helvetica,"Open Sans",Arial,sans-serif;
+  font-weight: 500
+}
 p {
   letter-spacing: -.3px;
   margin-bottom: 16px
@@ -356,6 +364,19 @@ ol {
   text-align: center;
   font-size: 1.25rem
 }
+.visually-hidden {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  position: absolute
+}
 .hidden {
   display: none!important
 }
@@ -365,10 +386,11 @@ ol {
   -ms-scroll-chaining: none;
   overscroll-behavior: contain;
   scrollbar-width: thin;
-  scrollbar-color: var(--black10) var(--white)
+  scrollbar-color: var(--black10) transparent
 }
 .scrollblock::-webkit-scrollbar {
-  width: 4px
+  width: 4px;
+  height: 4px
 }
 .scrollblock::-webkit-scrollbar-thumb,
 .scrollblock::-webkit-scrollbar-track {
@@ -377,12 +399,14 @@ ol {
 .scrollblock::-webkit-scrollbar-track,
 .scrollblock::-webkit-scrollbar-track:active,
 .scrollblock::-webkit-scrollbar-track:hover {
-  background-color: var(--white)
+  background-color: rgba(0,0,0,0)
 }
-.scrollblock::-webkit-scrollbar-thumb,
+.scrollblock::-webkit-scrollbar-thumb {
+  background-color: var(--black10)
+}
 .scrollblock::-webkit-scrollbar-thumb:active,
 .scrollblock::-webkit-scrollbar-thumb:hover {
-  background-color: var(--black10)
+  background-color: var(--black30)
 }
 .header-alert {
   font-size: .8125rem;
@@ -677,7 +701,7 @@ ol {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  text-decoration-color: transparent!important
+  text-decoration: none
 }
 .nav-second__geo::after {
   content: "";
@@ -693,7 +717,7 @@ ol {
   transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
 }
 .nav-second__contact {
-  text-decoration-color: transparent!important
+  text-decoration: none
 }
 .nav-second__chat-btn {
   display: -ms-grid;
@@ -801,12 +825,8 @@ ol {
   transition: none;
   min-height: 60px;
   font-size: .875rem;
-  background: var(--gray)
-}
-.category__link:active,
-.category__link:focus,
-.category__link:hover {
-  text-decoration-color: transparent
+  background: var(--gray);
+  text-decoration: none
 }
 .category__link img {
   display: block;
@@ -858,7 +878,7 @@ ol {
   -webkit-transition: background .1s;
   -o-transition: background .1s;
   transition: background .1s;
-  text-decoration-color: transparent
+  text-decoration: none
 }
 .menu-personal__body a svg {
   width: 20px;
@@ -894,7 +914,7 @@ ol {
   height: 100%;
   padding: 0 16px;
   border: 0;
-  text-decoration-color: transparent
+  text-decoration: none
 }
 .menu-toggle {
   opacity: 0!important;
@@ -982,12 +1002,8 @@ ol {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  margin-bottom: 14px
-}
-.r-item:active,
-.r-item:focus,
-.r-item:hover {
-  text-decoration-color: transparent
+  margin-bottom: 14px;
+  text-decoration: none
 }
 .r-item__img {
   -webkit-box-flex: 0;
@@ -1010,12 +1026,14 @@ ol {
   white-space: nowrap
 }
 .r-item__price {
-  font-weight: 700
+  font-weight: 700;
+  white-space: nowrap
 }
 .r-item__oldprice {
   color: var(--black60);
   text-decoration: line-through;
-  margin-left: 10px
+  margin-left: 10px;
+  white-space: nowrap
 }
 .link-arrow {
   display: -webkit-box;
@@ -1067,7 +1085,8 @@ ol {
   align-items: center;
   width: -webkit-fit-content;
   width: -moz-fit-content;
-  width: fit-content
+  width: fit-content;
+  text-decoration: none
 }
 .link-angle::after {
   content: "";
@@ -1080,11 +1099,6 @@ ol {
   height: 10px;
   background: var(--angle) right center no-repeat
 }
-.link-angle:active,
-.link-angle:focus,
-.link-angle:hover {
-  text-decoration-color: transparent
-}
 .link-back {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1095,7 +1109,8 @@ ol {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  padding-left: 25px
+  padding-left: 25px;
+  text-decoration: none
 }
 .link-back::before {
   content: "";
@@ -1107,19 +1122,6 @@ ol {
   width: 16px;
   height: 16px;
   background: var(--arrow-long) left center no-repeat
-}
-.link-back:active,
-.link-back:focus,
-.link-back:hover {
-  text-decoration-color: transparent
-}
-.link-classic {
-  text-decoration: underline;
-  text-decoration-color: var(--black30);
-  text-underline-offset: 1px
-}
-.link-classic:hover {
-  text-decoration-color: var(--black60)
 }
 .btn {
   display: block;
@@ -1572,6 +1574,7 @@ input[type=checkbox]:disabled {
   padding: 8px;
   border-radius: 30px;
   font-size: .8125rem;
+  white-space: nowrap;
   font-weight: 600;
   background: var(--white);
   color: var(--black)
@@ -2090,7 +2093,7 @@ input[type=checkbox]:disabled {
     -ms-flex-align: center;
     align-items: center;
     height: 50px;
-    text-decoration-color: transparent!important;
+    text-decoration: none;
     text-shadow: none!important
   }
   .catalog__link::after {
