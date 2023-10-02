@@ -1,5 +1,267 @@
 <div class="content">
-	<div class="catalog-items">
-		@@include('template-5-product-items.html')
+	<div class="breadcrumbs">
+		<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a href="/" title="Главная" class="breadcrumbs__link" itemprop="item">
+					<span itemprop="name">Главная</span>
+				</a>
+				<meta itemprop="position" content="1" />
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a href="/catalog/" title="Каталог" class="breadcrumbs__link" itemprop="item">
+					<span itemprop="name">Каталог</span>
+				</a>
+				<meta itemprop="position" content="2" />
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<span itemprop="name">Столы</span>
+				<meta itemprop="position" content="3" />
+			</li>
+		</ul>
 	</div>
+</div>
+
+<div class="content">
+	<div class="catalog-head">
+		<div class="catalog-head__root">
+			<h1 class="catalog-head__name">Столы</h1>
+			<div class="catalog-head__slider">
+				<div
+					class="f-carousel catalog-head-carousel scrollblock"
+					data-carousel="carousel"
+					data-options='{"Navigation": false,"Dots": false}'
+					data-disabled="max-width: 1023px"
+				>
+					<!-- mix-blend-mode убрать в проде. это для тестовой картинки без прозрачного фона -->
+					<div class="f-carousel__slide">
+						<a href="javascript:void(0)">
+							<img src="@img/dev/catalog/img-1.png" alt="" style="mix-blend-mode: multiply" />
+							<div>Для дома</div>
+						</a>
+					</div>
+					<div class="f-carousel__slide">
+						<a href="javascript:void(0)">
+							<img src="@img/dev/catalog/img-2.png" alt="" style="mix-blend-mode: multiply" />
+							<div>Дизайнерские</div>
+						</a>
+					</div>
+					<div class="f-carousel__slide">
+						<a href="javascript:void(0)">
+							<img src="@img/dev/catalog/img-3.png" alt="" style="mix-blend-mode: multiply" />
+							<div>Письменные</div>
+						</a>
+					</div>
+					<div class="f-carousel__slide">
+						<a href="javascript:void(0)">
+							<img src="@img/dev/catalog/img-4.png" alt="" style="mix-blend-mode: multiply" />
+							<div>Офисные</div>
+						</a>
+					</div>
+					<div class="f-carousel__slide">
+						<a href="javascript:void(0)">
+							<img src="@img/dev/catalog/img-5.png" alt="" style="mix-blend-mode: multiply" />
+							<div>С подвесной тумбой</div>
+						</a>
+					</div>
+
+					<div class="f-carousel__slide">
+						<a href="javascript:void(0)">
+							<img src="@img/dev/catalog/img-1.png" alt="" style="mix-blend-mode: multiply" />
+							<div>Для дома 2</div>
+						</a>
+					</div>
+					<div class="f-carousel__slide">
+						<a href="javascript:void(0)">
+							<img src="@img/dev/catalog/img-2.png" alt="" style="mix-blend-mode: multiply" />
+							<div>Дизайнерские 3</div>
+						</a>
+					</div>
+					<div class="f-carousel__slide">
+						<a href="javascript:void(0)">
+							<img src="@img/dev/catalog/img-3.png" alt="" style="mix-blend-mode: multiply" />
+							<div>Письменные 4</div>
+						</a>
+					</div>
+					<div class="f-carousel__slide">
+						<a href="javascript:void(0)">
+							<img src="@img/dev/catalog/img-4.png" alt="" style="mix-blend-mode: multiply" />
+							<div>Офисные 5</div>
+						</a>
+					</div>
+					<div class="f-carousel__slide">
+						<a href="javascript:void(0)">
+							<img src="@img/dev/catalog/img-5.png" alt="" style="mix-blend-mode: multiply" />
+							<div>С подвесной тумбой 6</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="content content_columns">
+	<div class="content__main">
+		<div class="catalog-bar">
+			<div class="catalog-bar__controls">
+				<div class="catalog-bar__sort drop-down js-drop-down">
+					<div class="drop-down__head">По популярности</div>
+					<div class="drop-down__box">
+						<label class="option">
+							<input type="radio" name="sorting" value="1" checked />
+							<span>По популярности</span>
+						</label>
+						<label class="option">
+							<input type="radio" name="sorting" value="3" />
+							<span>Сначала дешевле</span>
+						</label>
+						<label class="option">
+							<input type="radio" name="sorting" value="4" />
+							<span>Сначала дороже</span>
+						</label>
+						<label class="option">
+							<input type="radio" name="sorting" value="5" />
+							<span>По размеру скидки</span>
+						</label>
+					</div>
+				</div>
+
+				<div class="catalog-bar__btn">
+					<button type="button" class="btn btn_yellow btn_filter js-show" data-show="js-filter"><span>Все фильтры</span></button>
+				</div>
+			</div>
+			<div class="catalog-bar__filter"></div>
+		</div>
+
+		<div class="catalog-items">@@include('../../templates/template-5-product-items.html') @@include('../../templates/template-5-product-items.html')</div>
+
+		<div class="pagination">
+			<div class="pagination__more">
+				<button class="btn btn_yellow btn_long js-load-more" data-url="https://deviart.ru/zamm/fetch-more-products.php" data-target="catalog-items">
+					Показать ещё
+				</button>
+			</div>
+
+			<div class="pagination__pages">
+				<div class="pagination__arrow">
+					<a class="pagination__link" href="javascript:void(0)">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18"><path d="M8.548 1 1 9m0 0 7.548 8M1 9h18"></path></svg>
+					</a>
+				</div>
+				<ul class="pagination__list">
+					<li><a class="pagination__link" href="javascript:void(0)">1</a></li>
+					<li><a class="pagination__link is-active" href="javascript:void(0)">2</a></li>
+				</ul>
+				<div class="pagination__arrow">
+					<a class="pagination__link" href="javascript:void(0)">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18"><path d="M10.452 1 18 9m0 0-7.548 8M18 9H0"></path></svg>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="content__sidebar">
+		<div class="filter js-filter scrollblock">
+			<form action="" method="post">
+				<div class="filter__head">
+					<div class="filter__header">Фильтры</div>
+					<div class="filter__close">
+						<button type="button" class="btn btn_close btn_close-xl js-close"></button>
+					</div>
+				</div>
+				<div class="filter__body">
+					<div class="filter-group">
+						<div class="filter-group__header">Цена</div>
+						<div class="filter-group__list rangeslider">
+							<div class="rangeslider__wrapper">
+								<div class="rangeslider__inputs">
+									<div>
+										<span>от</span>
+										<input class="input-min" value="10 000" type="text" readonly />
+									</div>
+									<div>
+										<span>до</span>
+										<input class="input-max" value="100 500" type="text" readonly />
+									</div>
+								</div>
+								<div data-range="rangeslider" data-min="10000" data-max="100500" data-step="500"></div>
+							</div>
+						</div>
+					</div>
+
+					<div class="filter-group">
+						<div class="filter-group__header js-collapse">Цвет столешницы</div>
+						<div class="filter-group__list --scrollblock --collapsed">
+							<label title="Свойство 1">
+								<input type="checkbox" name="arrFilter_220-1" value="Y" />
+								<picture>
+									<source srcset="img/dev/props/color-1.png" type="image/webp" />
+									<img src="img/dev/props/color-1.png" width="40" height="40" alt="" loading="lazy" />
+								</picture>
+							</label>
+							<label title="Свойство 2">
+								<input type="checkbox" name="arrFilter_220-2" value="Y" />
+								<picture>
+									<source srcset="img/dev/props/color-2.png" type="image/webp" />
+									<img src="img/dev/props/color-2.png" width="40" height="40" alt="" loading="lazy" />
+								</picture>
+							</label>
+						</div>
+					</div>
+
+					<div class="filter-group">
+						<div class="filter-group__header js-collapse">Цвет металлокаркаса</div>
+						<div class="filter-group__list">
+							<label title="Свойство 3">
+								<input type="checkbox" name="arrFilter_221-1" value="Y" />
+								<picture>
+									<source srcset="img/dev/props/color-3.png" type="image/webp" />
+									<img src="img/dev/props/color-3.png" width="40" height="40" alt="" loading="lazy" />
+								</picture>
+							</label>
+							<label title="Свойство 4">
+								<input type="checkbox" name="arrFilter_221-2" value="Y" />
+								<picture>
+									<source srcset="img/dev/props/color-4.png" type="image/webp" />
+									<img src="img/dev/props/color-4.png" width="40" height="40" alt="" loading="lazy" />
+								</picture>
+							</label>
+							<label title="Свойство 5">
+								<input type="checkbox" name="arrFilter_221-3" value="Y" />
+								<picture>
+									<source srcset="img/dev/props/color-5.png" type="image/webp" />
+									<img src="img/dev/props/color-5.png" width="40" height="40" alt="" loading="lazy" />
+								</picture>
+							</label>
+						</div>
+					</div>
+
+					<div class="filter-group">
+						<div class="filter-group__header js-collapse">Глубина</div>
+						<div class="filter-group__list _column">
+							<label title="Свойство 4">
+								<input type="checkbox" name="arrFilter_222-1" value="Y" />
+								<span>100 см</span>
+							</label>
+							<label title="Свойство 4">
+								<input type="checkbox" name="arrFilter_222-2" value="Y" />
+								<span>120 см</span>
+							</label>
+							<label title="Свойство 4">
+								<input type="checkbox" name="arrFilter_222-3" value="Y" />
+								<span>150 см</span>
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="filter__buttons">
+					<button type="submit" class="btn btn_yellow btn_wide">Применить</button>
+					<button type="reset" class="btn btn_reset invisible js-reset-form">Сбросить фильтры</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+	@@include('../../templates/template-skeleton-props.html')
 </div>

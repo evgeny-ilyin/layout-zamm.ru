@@ -1,0 +1,48 @@
+.breadcrumbs {
+	margin: 32px 0 26px;
+
+	// .breadcrumbs__list
+	&__list {
+		display: flex;
+		flex-flow: row wrap;
+	}
+
+	// .breadcrumbs__item
+	&__item {
+		font-size: rem(13);
+		padding: 0 6px 0 0;
+		margin: 0;
+		display: flex;
+		align-items: center;
+
+		&::after {
+			content: "";
+			display: block;
+			width: 8px;
+			height: 8px;
+			margin-left: 5px;
+			background: $svg-angle center no-repeat;
+			opacity: 0.5;
+		}
+
+		&:last-child {
+			&::after {
+				display: none;
+			}
+		}
+
+		& > span {
+			color: $black60;
+		}
+	}
+
+	// .breadcrumbs__link
+	&__link {
+		text-decoration: none;
+		color: $black60;
+
+		@include on-hover {
+			color: $black;
+		}
+	}
+}

@@ -12,7 +12,7 @@
 		width: 16px;
 		height: 16px;
 		margin-right: 4px;
-		background: var(--delivery) no-repeat;
+		background: $svg-delivery no-repeat;
 		opacity: 0.3;
 	}
 
@@ -21,7 +21,7 @@
 		color: #159400;
 
 		&::before {
-			background: var(--instock) no-repeat;
+			background: $svg-instock no-repeat;
 			opacity: 1;
 		}
 	}

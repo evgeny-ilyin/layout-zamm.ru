@@ -37,9 +37,34 @@
 	}
 
 	&_padding-md-0 {
-		@include respond-to(md, 'max') {
+		@include respond-to(md, "max") {
 			padding-left: 0;
 			padding-right: 0;
+		}
+	}
+
+	// .content_columns
+	&_columns {
+		display: flex;
+		flex-flow: row nowrap;
+	}
+
+	// .content__sidebar
+	&__sidebar {
+		@include respond-to(xl) {
+			order: 0;
+			width: 260px;
+		}
+	}
+
+	// .content__main
+	&__main {
+		width: 100%;
+
+		@include respond-to(xl) {
+			order: 1;
+			width: calc(100% - 260px - 56px);
+			margin-left: 56px;
 		}
 	}
 }

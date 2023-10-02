@@ -87,7 +87,7 @@
 
 		@include respond-to(lg, "max") {
 			width: 100%;
-			background-image: $nav-search-mobile;
+			background-image: $svg-nav-search-mobile;
 			padding: 12px 12px 12px 32px;
 			height: 42px;
 
@@ -105,7 +105,7 @@
 			line-height: 1;
 			padding: 6px 12px 6px 32px;
 			background-color: $white;
-			background-image: $nav-search;
+			background-image: $svg-nav-search;
 			box-shadow: 0 0 0 1px $black10;
 
 			@include on-hover {

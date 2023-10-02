@@ -1,4 +1,5 @@
 .btn {
+	cursor: pointer;
 	display: block;
 	width: fit-content;
 	border: 0;
@@ -170,6 +171,12 @@
 		padding: 5px 15px 4px;
 	}
 
+	// .btn_long
+	&_long {
+		padding-left: 72px;
+		padding-right: 72px;
+	}
+
 	// .btn_fit
 	&_fit {
 		width: fit-content;
@@ -217,7 +224,7 @@
 				width: 15px;
 				height: 15px;
 				flex: 0 0 15px;
-				background-image: $arrow-black;
+				background-image: $svg-arrow-black;
 				background-repeat: no-repeat;
 				transition: all $transition-default;
 				margin-bottom: 1px;
@@ -247,14 +254,14 @@
 						width: 13px;
 						height: 13px;
 						flex: 0 0 13px;
-						background-image: $arrow-yellow;
+						background-image: $svg-arrow-yellow;
 					}
 				}
 
 				@include on-hover {
 					span {
 						&::after {
-							background-image: $arrow-black;
+							background-image: $svg-arrow-black;
 						}
 					}
 				}
@@ -278,7 +285,7 @@
 			width: 17px;
 			height: 17px;
 			flex: 0 0 17px;
-			background-image: $arrow-black;
+			background-image: $svg-arrow-black;
 			background-repeat: no-repeat;
 			transition: all $transition-default;
 			margin-bottom: 1px;
@@ -293,6 +300,24 @@
 		@include on-focus {
 			&::after {
 				transform: rotate(45deg);
+			}
+		}
+	}
+
+	// .btn_filter
+	&_filter {
+		span {
+			&::after {
+				content: "";
+				display: block;
+				margin-left: 5px;
+				width: 16px;
+				height: 16px;
+				flex: 0 0 16px;
+				background-image: $svg-filter;
+				background-repeat: no-repeat;
+				transition: all $transition-default;
+				margin-bottom: 2px;
 			}
 		}
 	}
@@ -332,6 +357,46 @@
 		}
 		&::after {
 			transform: rotate(-45deg);
+		}
+	}
+
+	// .btn_close-xl
+	&_close-xl {
+		width: 40px;
+		height: 40px;
+
+		&::before,
+		&::after {
+			height: 25px;
+		}
+	}
+
+	// .btn_reset
+	&_reset {
+		background: transparent;
+		font-size: rem(13);
+		color: $black60 !important;
+		padding: 0;
+		display: flex;
+		align-items: center;
+
+		&::after {
+			content: '';
+			display: block;
+			width: 18px;
+			height: 18px;
+			margin-left: 4px;
+			background: $svg-close center no-repeat;
+			opacity: 0.6;
+			transition: all $transition-default;
+		}
+
+		@include on-hover {
+			color: $black !important;
+
+			&::after {
+			opacity: 1;
+			}
 		}
 	}
 }

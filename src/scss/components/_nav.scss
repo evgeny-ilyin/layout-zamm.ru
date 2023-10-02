@@ -444,7 +444,7 @@
 			margin-left: 5px;
 			width: 11px;
 			height: 11px;
-			background: $angle center no-repeat;
+			background: $svg-angle center no-repeat;
 			transition: transform $transition-default;
 
 			@include respond-to(lg) {
@@ -614,7 +614,7 @@
 				display: block;
 				width: 12px;
 				height: 12px;
-				background: $angle no-repeat center;
+				background: $svg-angle no-repeat center;
 				position: absolute;
 				right: 0;
 			}

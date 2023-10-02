@@ -28,17 +28,17 @@
  * Shamelessly borrowed from HTML5Boilerplate:
  * https://github.com/h5bp/html5-boilerplate/blob/master/src/css/main.css#L119-L133
  */
-.visually-hidden {
-	appearance: none;
-	clip: rect(0 0 0 0);
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	border: 0;
-	padding: 0;
-	overflow: hidden;
-	position: absolute;
-}
+// .visually-hidden {
+// 	appearance: none;
+// 	clip: rect(0 0 0 0);
+// 	width: 1px;
+// 	height: 1px;
+// 	margin: -1px;
+// 	border: 0;
+// 	padding: 0;
+// 	overflow: hidden;
+// 	position: absolute;
+// }
 
 /**
  * Visibility
@@ -52,6 +52,12 @@
 	@include respond-to(lg) {
 		display: none !important;
 	}
+}
+
+.invisible {
+	opacity: 0;
+	z-index: -1;
+	transition: all $transition-default;
 }
 
 // .hidden-img-lg {
@@ -77,10 +83,12 @@
 // 	white-space: nowrap;
 // }
 
-// .noscroll {
-// 	height: 100vh;
-// 	overflow: hidden;
-// }
+.noscroll {
+	// height: 100vh;
+	overflow: hidden;
+	position: fixed;
+	width: 100vw;
+}
 
 // .relative {
 // 	position: relative;
@@ -96,7 +104,7 @@
 
 	/* Firefox */
 	scrollbar-width: thin;
-	scrollbar-color: $black10 rgba(0, 0, 0, 0);
+	scrollbar-color: $gray-dark-second $gray-light;
 
 	/* Chrome, Edge and Safari */
 	&::-webkit-scrollbar {
@@ -112,17 +120,21 @@
 	&::-webkit-scrollbar-track,
 	&::-webkit-scrollbar-track:hover,
 	&::-webkit-scrollbar-track:active {
-		background-color: rgba(0, 0, 0, 0);
+		background-color: $gray-light;
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: $black10;
+		background-color: $gray-dark-second;
 	}
 
 	&::-webkit-scrollbar-thumb:hover,
 	&::-webkit-scrollbar-thumb:active {
-		background-color: $black30;
+		background-color: #b8c3ca;
 	}
+}
+
+.collapsed {
+	height: 0 !important;
 }
 
 /**
@@ -147,5 +159,27 @@
 .bg-gray-xxl {
 	@include respond-to(xxl) {
 		background-color: $gray;
+	}
+}
+
+// black overlay
+.overlay {
+	&::before {
+		content: "";
+		display: block;
+		position: fixed;
+		z-index: 11;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		background-color: rgba(51, 51, 51, 0.1);
+		opacity: 0;
+		transition: opacity $transition-default;
+	}
+	&.is-active {
+		&::before {
+			opacity: 1;
+		}
 	}
 }

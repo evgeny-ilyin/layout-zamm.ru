@@ -2,15 +2,7 @@
 export function productGallery() {
 	const catalogItems = document.querySelector(".catalog-items"),
 		carouselItems = document.querySelector(".product-carousel"),
-		gBlocks = document.querySelectorAll(".item__gallery-wrapper"),
 		isActiveClass = "is-active";
-
-	if (!gBlocks) return;
-	gBlocks.forEach((b) => {
-		window.addEventListener("load", () => {
-			setGalleryActive(b);
-		});
-	});
 
 	[catalogItems, carouselItems].forEach((el) => {
 		if (!el) return;
@@ -67,18 +59,23 @@ export function productLoadProps() {
 
 		item.addEventListener("mouseenter", () => {
 			const url = item.dataset.url,
-				details = item.querySelector(".item__details");
+				details = item.querySelector(".item__details"),
+				skeleton = item.querySelector(".skeleton");
 
-			if (details.innerHTML.trim().length > 0) return;
+			if (details.innerHTML.trim().length > 0 && !skeleton) return;
+
+			showSkeleton(details, "tpl-props");
 
 			(async () => {
-				let response = await fetch(url);
-				let result = await response.text();
-
-				details.innerHTML = result;
-
-				if (!result) return;
-
+				try {
+					let response = await fetch(url);
+					let result = await response.text();
+					if (!result) return;
+					details.innerHTML = "";
+					details.innerHTML = result;
+				} catch (err) {
+					return;
+				}
 				productPropCollapseHandler(item);
 			})();
 		});
@@ -126,18 +123,36 @@ export function productProps() {
 					if (value.length > 0) item.querySelector(`[data-id=${key}]`).innerHTML = value;
 				});
 			}
-			setGalleryActive(item);
+			productGallerySetActive(item);
 			productPropCollapseHandler(item);
 		})();
 	});
 }
 
-export function setGalleryActive(item) {
-	if (!item) return;
+export function productGallerySetActive(item = false) {
 	const isActiveClass = "is-active";
-	item.querySelector(".item__gallery-item").classList.add(isActiveClass);
+
+	if (item) {
+		item.querySelector(".item__gallery-item").classList.add(isActiveClass);
+		return;
+	}
+
+	// for onload and fetchMoreProducts
+	const catalogItems = document.querySelector(".catalog-items"),
+		carouselItems = document.querySelector(".product-carousel");
+
+	[catalogItems, carouselItems].forEach((el) => {
+		if (!el) return;
+
+		let items = el.querySelectorAll(".item");
+		if (!items) return;
+		items.forEach((i) => {
+			i.querySelector(".item__gallery-item").classList.add(isActiveClass);
+		});
+	});
 }
 
+// product helpers
 export function isPropOverflowX(el) {
 	return el ? el.scrollWidth > el.clientWidth : false;
 }
@@ -159,5 +174,73 @@ export function productPropCollapseHandler(item) {
 				flag.value = flag.value == 1 ? 0 : 1;
 			});
 		}
+	});
+}
+
+export function showSkeleton(where, tpl) {
+	if (!where || !tpl) return;
+	const template = document.getElementById(tpl);
+	where.innerHTML = "";
+	where.append(template.content.cloneNode(true));
+}
+
+export function showLoader(where) {
+	if (!where) return;
+	let loader = document.createElement("div");
+	loader.classList.add("loader");
+	where.innerHTML = "";
+	where.append(loader);
+}
+
+export function showFilterReset() {
+	const form = document.querySelector(".filter form");
+
+	if (!form) return;
+
+	const resetBtn = form.querySelector('button[type="reset"]');
+	form.addEventListener("change", () => {
+		resetBtn.classList.remove("invisible");
+	});
+}
+
+
+//? нужен ли fetch при ресете фильтра
+export function resetFilter() {
+	const resetBtn = document.querySelector(".js-reset-form"),
+		hiddenClass = "invisible";
+
+	if (!resetBtn) return;
+
+	resetBtn.addEventListener("click", () => {
+		resetBtn.classList.add(hiddenClass);
+	});
+}
+
+//? нужна ли функция для дозагрузки списка товаров на битре?
+export function fetchMoreProducts() {
+	const btn = document.querySelector(".js-load-more");
+	if (!btn) return;
+
+	btn.addEventListener("click", () => {
+		const url = btn.dataset.url,
+			target = document.querySelector(`.${btn.dataset.target}`);
+
+		if (!target) return;
+
+		(async () => {
+			let response = await fetch(url);
+			let result = await response.text();
+			if (!result) return;
+
+			// target.innerHTML += result; -- bad solution (target div flickering)
+			let div = document.createElement("div");
+			div.innerHTML = result;
+
+			div.childNodes.forEach((i) => {
+				target.appendChild(i);
+			});
+
+			productGallerySetActive();
+		})();
 	});
 }

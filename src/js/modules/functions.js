@@ -23,17 +23,100 @@ export function stickyHeader() {
 	window.addEventListener("scroll", handleScroll);
 }
 
-export function closeModal() {
-	const closeButtons = document.querySelectorAll(".js-close"),
+export function sectionShow() {
+	document.addEventListener("click", (e) => {
+		const el = e.target.closest(".js-show"),
+			isActiveClass = "is-active";
+		if (!el) return;
+		const target = el.dataset.show;
+		if (target) {
+			overlay(1, target);
+			document.querySelector(`.${target}`).classList.add(isActiveClass);
+		}
+	});
+}
+
+export function sectionClose() {
+	document.addEventListener("click", (e) => {
+		const el = e.target.closest(".js-close"),
+			isActiveClass = "is-active";
+		if (!el) return;
+		const target = el.closest(`.${isActiveClass}`);
+		if (target) {
+			overlay(0);
+			target.classList.remove(isActiveClass);
+		}
+	});
+}
+
+export function dropdownShow() {
+	const dds = document.querySelectorAll(".js-drop-down"),
 		isActiveClass = "is-active";
-	closeButtons.forEach((btn) => {
-		btn.addEventListener("click", () => {
-			const modal = btn.closest(`.${isActiveClass}`);
-			if (modal) {
-				modal.classList.remove(isActiveClass);
+	dds.forEach((dd) => {
+		dd.addEventListener("click", (e) => {
+			e.stopPropagation();
+			dd.classList.toggle(isActiveClass);
+		});
+	});
+}
+
+export function dropdownClose() {
+	window.addEventListener("click", (e) => {
+		const dds = document.querySelectorAll(".drop-down__box"),
+			isActiveClass = "is-active";
+		dds.forEach((dd) => {
+			if (!dd.contains(e.target)) {
+				dd.parentNode.classList.remove(isActiveClass);
 			}
 		});
 	});
+}
+
+export function overlayClick() {
+	document.addEventListener("click", (e) => {
+		const o = e.target,
+			isActiveClass = "is-active";
+		if (o.classList.contains("overlay")) {
+			const origin = o.dataset.origin;
+			document.querySelector(`.${origin}`).classList.remove(isActiveClass);
+			overlay(0);
+		}
+	});
+}
+
+function overlay(action, origin = false) {
+	const body = document.body,
+		isActiveClass = "is-active";
+	if (action) {
+		const o = document.createElement("div"),
+			scrollY = window.scrollY;
+		o.classList.add("overlay");
+
+		origin ? (o.dataset.origin = origin) : "";
+		body.prepend(o);
+		body.style.top = `-${scrollY}px`;
+		body.classList.add("noscroll");
+
+		setTimeout(() => {
+			o.classList.add(isActiveClass);
+		}, 0);
+	} else {
+		const o = document.querySelector(".overlay"),
+			scrollY = body.style.top;
+		o.classList.remove(isActiveClass);
+		body.classList.remove("noscroll");
+		body.style.top = "";
+
+		window.scrollTo({
+			left: 0,
+			top: parseInt(scrollY || "0") * -1,
+			behavior: "instant",
+		});
+
+		setTimeout(() => {
+			o.remove();
+		}, 250);
+	}
 }
 
 export function mobileCheck(w) {
@@ -161,17 +244,110 @@ export function searchForm() {
 		}
 	});
 }
+
+// collapse через data
+// export function collapse() {
+// 	const triggers = document.querySelectorAll(".js-collapse"),
+// 		collapsed = document.querySelectorAll(".collapsed");
+
+// 	// set collapsed on load
+// 	collapsed.forEach((el) => {
+// 		el.dataset.collapsed = "true";
+// 	});
+
+// 	triggers.forEach((trigger) => {
+// 		trigger.addEventListener("click", () => {
+// 			const section = trigger.nextElementSibling,
+// 				isCollapsed = section.dataset.collapsed === "true";
+
+// 			if (isCollapsed) {
+// 				expandSection(section);
+// 				section.dataset.collapsed = "false";
+// 			} else {
+// 				collapseSection(section);
+// 			}
+// 		});
+// 	});
+// }
+
+// function collapseSection(el) {
+// 	const sectionH = el.scrollHeight,
+// 		elTransition = el.style.transition;
+// 	el.style.transition = "";
+// 	requestAnimationFrame(function () {
+// 		el.style.height = sectionH + "px";
+// 		el.style.transition = elTransition;
+// 		requestAnimationFrame(function () {
+// 			el.style.height = 0 + "px";
+// 		});
+// 	});
+// 	el.dataset.collapsed = "true";
+// }
+
+// function expandSection(el) {
+// 	const sectionH = el.scrollHeight;
+// 	el.style.height = sectionH + "px";
+// 	el.dataset.collapsed = "false";
+// }
+
+export function collapse() {
+	const triggers = document.querySelectorAll(".js-collapse"),
+		collapsed = document.querySelectorAll(".collapsed"),
+		isClosedClass = "is-closed",
+		isCollapsedClass = "collapsed";
+
+	// set closed state on load
+	collapsed.forEach((el) => {
+		el.previousElementSibling.classList.add(isClosedClass);
+	});
+
+	triggers.forEach((trigger) => {
+		trigger.addEventListener("click", () => {
+			const section = trigger.nextElementSibling,
+				isCollapsed = section.classList.contains(isCollapsedClass);
+
+			if (isCollapsed) {
+				expandSection(section);
+				trigger.classList.remove(isClosedClass);
+				section.classList.remove(isCollapsedClass);
+			} else {
+				collapseSection(section);
+				trigger.classList.add(isClosedClass);
+			}
+		});
+	});
+}
+
+function collapseSection(el) {
+	const sectionH = el.scrollHeight,
+		elTransition = el.style.transition,
+		isCollapsedClass = "collapsed";
+	el.style.transition = "";
+	requestAnimationFrame(function () {
+		el.style.height = sectionH + "px";
+		el.style.transition = elTransition;
+		requestAnimationFrame(function () {
+			el.style.height = 0 + "px";
+			el.classList.add(isCollapsedClass);
+		});
+	});
+}
+
+function expandSection(el) {
+	const sectionH = el.scrollHeight,
+		isCollapsedClass = "collapsed";
+	el.style.height = sectionH + "px";
+	el.classList.remove(isCollapsedClass);
+}
+
 export function accordion() {
-	const accordionFooter = document.querySelectorAll(".f-menu.js-accordion"),
-		accordionTriggers = document.querySelectorAll(".js-accordion__trigger"),
+	const triggers = document.querySelectorAll(".js-accordion__trigger"),
 		isOpenedClass = "is-opened",
 		isEnabledClass = "on";
-
-	accordionTriggers.forEach((trigger) => {
+	triggers.forEach((trigger) => {
 		trigger.addEventListener("click", () => {
 			const accordionParent = trigger.parentElement,
 				accordionContent = trigger.nextElementSibling;
-
 			if (accordionParent.classList.contains(isEnabledClass)) {
 				trigger.classList.toggle(isOpenedClass);
 				if (accordionContent.style.maxHeight) {
@@ -182,6 +358,11 @@ export function accordion() {
 			}
 		});
 	});
+}
+
+export function accordionFooter() {
+	const accordionFooter = document.querySelectorAll(".f-menu.js-accordion"),
+		isEnabledClass = "on";
 
 	let accordionBuildFooter = () => {
 		accordionFooter.forEach((el) => {

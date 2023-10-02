@@ -12,11 +12,9 @@
 			right: 0;
 			border-radius: 50%;
 		}
-	}
 
-	// .js-accordion__trigger
-	&__trigger {
-		@include when-inside(".js-accordion.on") {
+		// .js-accordion__trigger
+		.js-accordion__trigger {
 			display: flex;
 			align-items: center;
 			position: relative;
@@ -57,7 +55,6 @@
 	}
 }
 
-// footer accordion
 @include respond-to(md, "max") {
 	.f-menu.js-accordion.on::before {
 		top: 10px;
