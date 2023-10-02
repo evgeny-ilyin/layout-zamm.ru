@@ -24,22 +24,189 @@
   width: 16px;
   height: 16px;
   margin-right: 4px;
-  background: var(--delivery) no-repeat;
+  background: var(--svg-delivery) no-repeat;
   opacity: .3
 }
 .available._instock {
   color: #159400
 }
 .available._instock::before {
-  background: var(--instock) no-repeat;
+  background: var(--svg-instock) no-repeat;
   opacity: 1
 }
+.catalog-head {
+  margin-bottom: 58px
+}
+.catalog-head__root {
+  padding: 24px 0;
+  position: relative
+}
+.catalog-head__slider {
+  margin-top: 42px
+}
+.catalog-head-carousel {
+  padding-bottom: 20px
+}
+.catalog-head-carousel .f-carousel__slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex
+}
+.catalog-head-carousel .f-carousel__slide a {
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  text-align: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: var(--gray);
+  text-decoration: none;
+  text-shadow: none;
+  border-radius: 4px;
+  -webkit-transition: all .1s;
+  -o-transition: all .1s;
+  transition: all .1s
+}
+.catalog-head-carousel .f-carousel__slide a:hover {
+  background-color: var(--white)
+}
+.catalog-head-carousel .f-carousel__slide img {
+  border-radius: 4px;
+  width: 100%
+}
+.catalog-head-carousel .f-carousel__slide div {
+  padding: 4px 10px 10px;
+  font-size: .8125rem;
+  -webkit-transition: opacity .1s;
+  -o-transition: opacity .1s;
+  transition: opacity .1s
+}
+.drop-down {
+  position: relative
+}
+.drop-down__head {
+  cursor: pointer;
+  font-weight: 600;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-right: 16px
+}
+.drop-down__head::after {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  background: var(--svg-angle) center no-repeat;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  position: absolute;
+  right: 0
+}
+.drop-down.is-active .drop-down__head::after {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg)
+}
+.drop-down__box {
+  position: absolute;
+  top: 100%;
+  white-space: nowrap;
+  min-width: 200px;
+  background: var(--white);
+  margin-top: 8px;
+  padding: 16px 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 12px 1px rgba(0,0,0,.12);
+  box-shadow: 0 1px 12px 1px rgba(0,0,0,.12);
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out
+}
+.drop-down.is-active .drop-down__box {
+  opacity: 1;
+  visibility: visible
+}
+label.option {
+  padding: 8px 32px 8px 16px;
+  position: relative;
+  width: 100%;
+  cursor: pointer
+}
+label.option input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -1
+}
+label.option input:checked ~ span {
+  color: var(--black)
+}
+label.option input:checked ~ span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  background: var(--svg-checked) center no-repeat
+}
+label.option span {
+  color: var(--black60);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.catalog-bar {
+  margin: 8px 0 16px
+}
+.catalog-bar__controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin-bottom: 20px
+}
 .catalog-items {
-  width: 962px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[3];
-  grid-template-columns: repeat(3,1fr);
+  -ms-grid-columns: (1fr)[2];
+  grid-template-columns: repeat(2,1fr);
   gap: 16px
 }
 .item {
@@ -56,7 +223,7 @@
   background: var(--gray-light)
 }
 .item:hover .item__details {
-  max-height: 500px;
+  max-height: 900px;
   -webkit-transition: max-height .2s ease-in-out .1s;
   -o-transition: max-height .2s ease-in-out .1s;
   transition: max-height .2s ease-in-out .1s
@@ -88,7 +255,7 @@
 }
 .item__image-wrapper {
   position: relative;
-  padding-top: 120%
+  padding-top: 320px
 }
 .item__gallery-wrapper {
   display: -webkit-box;
@@ -117,6 +284,7 @@
   opacity: 1
 }
 .item__gallery-item img {
+  background: var(--gray);
   position: absolute;
   margin: auto;
   top: 0;
@@ -128,9 +296,10 @@
   -webkit-transition: opacity .25s ease-in-out;
   -o-transition: opacity .25s ease-in-out;
   transition: opacity .25s ease-in-out;
-  vertical-align: middle;
   max-width: 100%;
-  max-height: 100%;
+  height: auto;
+  -o-object-fit: contain;
+  object-fit: contain;
   pointer-events: none
 }
 .item__gallery-nav {
@@ -319,7 +488,7 @@
   top: 3px;
   width: 16px;
   height: 16px;
-  background: var(--geo) no-repeat;
+  background: var(--svg-geo) no-repeat;
   opacity: .3;
   margin-right: 4px
 }
@@ -358,8 +527,17 @@
   white-space: nowrap
 }
 .prop__list input {
-  top: 0;
-  left: 0
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  overflow: hidden;
+  position: absolute
 }
 .prop__list input:checked + picture > img,
 .prop__list input:checked + span {
@@ -437,7 +615,7 @@
   display: block;
   width: 7px;
   height: 10px;
-  background: var(--angle) center no-repeat;
+  background: var(--svg-angle) center no-repeat;
   -webkit-transform: translateY(2px);
   -ms-transform: translateY(2px);
   transform: translateY(2px);
@@ -447,7 +625,116 @@
   transition: transform .25s ease-in-out;
   transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
 }
+.pagination {
+  margin: 56px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.pagination__more {
+  margin-bottom: 40px
+}
+.pagination__pages {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex
+}
+.pagination__arrow svg {
+  width: 20px;
+  height: 18px;
+  stroke: var(--black60);
+  stroke-width: 1.5px
+}
+.pagination__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex
+}
+.pagination__list * {
+  margin: 0;
+  padding: 0
+}
+.pagination__link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40px;
+  height: 40px;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: var(--black60);
+  text-decoration: none;
+  border-radius: 8px;
+  border: 1px solid var(--white)
+}
+.pagination__link:active,
+.pagination__link:focus,
+.pagination__link:hover {
+  color: var(--black);
+  text-shadow: none;
+  background: var(--gray)
+}
+.pagination__link:active svg,
+.pagination__link:focus svg,
+.pagination__link:hover svg {
+  stroke: var(--black)
+}
+.pagination__arrow .pagination__link {
+  width: 44px
+}
+.pagination__link.is-active {
+  color: var(--black);
+  text-shadow: none;
+  background: var(--gray)
+}
 @media (min-width:1024px) {
+  .catalog-head__root {
+    background: var(--gray)
+  }
+  .catalog-head__root::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 85px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: .7;
+    background: -webkit-gradient(linear,right top,left top,from(#f6f8f9),to(rgba(246,248,249,0)));
+    background: -o-linear-gradient(right,#f6f8f9 0,rgba(246,248,249,0) 100%);
+    background: linear-gradient(270deg,#f6f8f9 0,rgba(246,248,249,0) 100%)
+  }
+  .catalog-head__name {
+    padding: 0 32px
+  }
+  .catalog-head-carousel .f-carousel__slide div {
+    font-size: .9375rem;
+    font-weight: 600
+  }
+  .catalog-head-carousel {
+    min-height: 200px;
+    overflow: hidden;
+    --f-carousel-spacing: 12px;
+    --f-carousel-slide-width: 152px
+  }
+  .catalog-head-carousel .f-carousel__viewport {
+    padding: 0 85px 0 32px
+  }
+  .catalog-items {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3,1fr)
+  }
   .item__gallery-wrapper {
     padding: 0 8px
   }
@@ -458,8 +745,59 @@
     background: var(--black)
   }
 }
+@media (min-width:1280px) {
+  .catalog-bar__btn {
+    display: none
+  }
+}
+@media (max-width:1279px) {
+  .drop-down__box {
+    right: 0
+  }
+  .catalog-bar__sort {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1
+  }
+}
 @media (max-width:1023px) {
+  .catalog-head-carousel .f-carousel__slide {
+    min-width: 120px
+  }
+  .catalog-head-carousel .f-carousel__slide a {
+    width: 120px;
+    padding: 5px 0 0;
+    border: 1px solid transparent
+  }
+  .catalog-head-carousel .f-carousel__slide a:hover {
+    border-color: var(--black30)
+  }
+  .catalog-head-carousel .f-carousel__slide a:hover div {
+    opacity: .5
+  }
+  .catalog-head-carousel .f-carousel__slide img {
+    width: 72px;
+    height: 72px;
+    -o-object-fit: cover;
+    object-fit: cover
+  }
+  .catalog-head-carousel {
+    display: -ms-grid;
+    display: grid;
+    gap: 8px;
+    grid-auto-flow: column;
+    -ms-grid-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    overflow-x: auto
+  }
   .item__gallery-item:not(:first-child) {
     display: none
+  }
+}
+@media (min-width:1024px) and (max-width:1023px) {
+  .catalog-head-carousel .f-carousel__slide {
+    border: 1px solid #000;
+    padding: 10px;
+    margin-bottom: 5px
   }
 }
