@@ -235,29 +235,50 @@
   -ms-flex-positive: 1;
   flex-grow: 1
 }
-.loader {
+.fetch {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+  opacity: 0;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
+  background: rgba(255,255,255,.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.fetch__ring {
+  position: sticky!important;
+  top: 30vh;
+  height: 30vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  width: 100%
+  align-items: center
 }
-.loader::before {
+.fetch__ring::before {
   content: "";
   display: block;
-  width: 16px;
-  height: 16px;
+  width: 32px;
+  height: 32px;
   margin: 30px 0;
-  background: var(--svg-loader) no-repeat;
-  -webkit-animation: loaderRotate 1s infinite linear;
-  animation: loaderRotate 1s infinite linear
+  background: var(--svg-fetch-ring) no-repeat;
+  -webkit-animation: fetchRingRotate 1s infinite linear;
+  animation: fetchRingRotate 1s infinite linear
 }
-@-webkit-keyframes loaderRotate {
+.item .fetch__ring {
+  display: none
+}
+@-webkit-keyframes fetchRingRotate {
   from {
     -webkit-transform: rotate(0);
     transform: rotate(0)
@@ -267,7 +288,7 @@
     transform: rotate(360deg)
   }
 }
-@keyframes loaderRotate {
+@keyframes fetchRingRotate {
   from {
     -webkit-transform: rotate(0);
     transform: rotate(0)
@@ -326,6 +347,28 @@
   100% {
     background-color: hsl(200deg,20%,95%)
   }
+}
+.btn-loader {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.btn-loader::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: var(--svg-fetch-ring) no-repeat;
+  -webkit-animation: fetchRingRotate 1s infinite linear;
+  animation: fetchRingRotate 1s infinite linear
 }
 .svg-sprite {
   display: block;

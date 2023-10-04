@@ -249,7 +249,8 @@ svg {
   margin-left: auto;
   margin-right: auto;
   padding-left: 12px;
-  padding-right: 12px
+  padding-right: 12px;
+  position: relative
 }
 .content_wide {
   max-width: 100%
@@ -1742,6 +1743,110 @@ input[type=checkbox]:disabled {
   margin-left: 10px;
   white-space: nowrap
 }
+.drop-down {
+  position: relative
+}
+.drop-down__head {
+  cursor: pointer;
+  font-weight: 600;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-right: 16px
+}
+.drop-down__head::after {
+  content: "";
+  display: block;
+  width: 11px;
+  height: 11px;
+  background: var(--svg-angle) center no-repeat;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  position: absolute;
+  right: 0
+}
+.drop-down.is-active .drop-down__head::after {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg)
+}
+.drop-down__box {
+  position: absolute;
+  top: 100%;
+  white-space: nowrap;
+  min-width: 200px;
+  background: var(--white);
+  margin-top: 8px;
+  padding: 16px 0;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 12px 1px rgba(0,0,0,.12);
+  box-shadow: 0 1px 12px 1px rgba(0,0,0,.12);
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out
+}
+.drop-down.is-active .drop-down__box {
+  opacity: 1;
+  visibility: visible
+}
+.drop-down .option {
+  padding: 8px 32px 8px 16px;
+  position: relative;
+  width: 100%;
+  cursor: pointer
+}
+.drop-down .option input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  z-index: -1
+}
+.drop-down .option input:checked ~ span {
+  color: var(--black)
+}
+.drop-down .option input:checked ~ span::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 16px;
+  width: 12px;
+  height: 12px;
+  background: var(--svg-checked) center no-repeat
+}
+.drop-down .option span {
+  color: var(--black60);
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.drop-down .option:hover span {
+  color: var(--black)
+}
 @media (min-width:425px) {
   .nav__icon {
     position: relative
@@ -2109,6 +2214,11 @@ input[type=checkbox]:disabled {
 @media (min-width:1440px) {
   .bg-gray-xxl {
     background-color: var(--gray)
+  }
+}
+@media (max-width:1279px) {
+  .drop-down__box {
+    right: 0
   }
 }
 @media (max-width:1023px) {

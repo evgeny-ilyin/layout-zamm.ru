@@ -8,16 +8,16 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap&v=20231002110409" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap&v=20231004215334" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231002110409">
-	<link rel="stylesheet" href="css/header.css?v=20231002110409">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231002110409">
-	<link rel="stylesheet" href="css/mainpage.css?v=20231002110409">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231002110409">
-	<link rel="stylesheet" href="css/catalog-category.css?v=20231002110409">
-	<link rel="stylesheet" href="css/catalog.css?v=20231002110409">
-	<link rel="stylesheet" href="css/footer.css?v=20231002110409">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231004215334">
+	<link rel="stylesheet" href="css/header.css?v=20231004215334">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231004215334">
+	<link rel="stylesheet" href="css/mainpage.css?v=20231004215334">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231004215334">
+	<link rel="stylesheet" href="css/catalog-category.css?v=20231004215334">
+	<link rel="stylesheet" href="css/catalog.css?v=20231004215334">
+	<link rel="stylesheet" href="css/footer.css?v=20231004215334">
 	<title>Каталог</title>
 </head>
 
@@ -501,19 +501,19 @@
 							<div class="drop-down__head">По популярности</div>
 							<div class="drop-down__box">
 								<label class="option">
-									<input type="radio" name="sorting" value="1" checked />
+									<input type="radio" name="sort" value="1" checked />
 									<span>По популярности</span>
 								</label>
 								<label class="option">
-									<input type="radio" name="sorting" value="3" />
+									<input type="radio" name="sort" value="3" />
 									<span>Сначала дешевле</span>
 								</label>
 								<label class="option">
-									<input type="radio" name="sorting" value="4" />
+									<input type="radio" name="sort" value="4" />
 									<span>Сначала дороже</span>
 								</label>
 								<label class="option">
-									<input type="radio" name="sorting" value="5" />
+									<input type="radio" name="sort" value="5" />
 									<span>По размеру скидки</span>
 								</label>
 							</div>
@@ -526,7 +526,7 @@
 					<div class="catalog-bar__filter"></div>
 				</div>
 
-				<div class="catalog-items">
+				<div class="catalog-items" data-id="filter-products">
 					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=11111">
 						<div class="item__wrapper">
 							<div class="item__content">
@@ -600,7 +600,7 @@
 									<div class="available _instock">Есть в наличии</div>
 								</div>
 
-								<div class="item__details scrollblock">
+								<div class="item__details">
 
 								</div>
 							</div>
@@ -661,7 +661,7 @@
 									<div class="available">Доставим за 3 недели</div>
 								</div>
 
-								<div class="item__details scrollblock">
+								<div class="item__details">
 
 								</div>
 							</div>
@@ -734,7 +734,7 @@
 									<div class="available _instock">Есть в наличии</div>
 								</div>
 
-								<div class="item__details scrollblock">
+								<div class="item__details">
 
 								</div>
 							</div>
@@ -795,7 +795,7 @@
 									<div class="available">Доставим за 3 недели</div>
 								</div>
 
-								<div class="item__details scrollblock">
+								<div class="item__details">
 
 								</div>
 							</div>
@@ -874,7 +874,7 @@
 									<div class="available _instock">Есть в наличии</div>
 								</div>
 
-								<div class="item__details scrollblock">
+								<div class="item__details">
 
 								</div>
 							</div>
@@ -935,7 +935,7 @@
 									<div class="available">Доставим за 3 недели</div>
 								</div>
 
-								<div class="item__details scrollblock">
+								<div class="item__details">
 
 								</div>
 							</div>
@@ -1008,7 +1008,7 @@
 									<div class="available _instock">Есть в наличии</div>
 								</div>
 
-								<div class="item__details scrollblock">
+								<div class="item__details">
 
 								</div>
 							</div>
@@ -1069,7 +1069,7 @@
 									<div class="available">Доставим за 3 недели</div>
 								</div>
 
-								<div class="item__details scrollblock">
+								<div class="item__details">
 
 								</div>
 							</div>
@@ -1077,10 +1077,10 @@
 					</div>
 				</div>
 
-				<div class="pagination">
+				<div class="pagination" data-id="filter-pagination">
 					<div class="pagination__more">
 						<button class="btn btn_yellow btn_long js-load-more" data-url="https://deviart.ru/zamm/fetch-more-products.php" data-target="catalog-items">
-							Показать ещё
+							<span>Показать ещё</span>
 						</button>
 					</div>
 
@@ -1091,10 +1091,12 @@
 									<path d="M8.548 1 1 9m0 0 7.548 8M1 9h18"></path>
 								</svg>
 							</a>
+							<!-- если стрелку надо задизейблить, а не удалить — добавить к pagination__link класс is-disabled или заменить <a></a> на <span></span> -->
 						</div>
 						<ul class="pagination__list">
 							<li><a class="pagination__link" href="javascript:void(0)">1</a></li>
 							<li><a class="pagination__link is-active" href="javascript:void(0)">2</a></li>
+							<li><a class="pagination__link" href="javascript:void(0)">3</a></li>
 						</ul>
 						<div class="pagination__arrow">
 							<a class="pagination__link" href="javascript:void(0)">
@@ -1109,14 +1111,15 @@
 
 			<div class="content__sidebar">
 				<div class="filter js-filter scrollblock">
-					<form action="" method="post">
+					<form id="filter-form" action="https://deviart.ru/zamm/fetch-filter-chunks.php" method="post">
 						<div class="filter__head">
 							<div class="filter__header">Фильтры</div>
 							<div class="filter__close">
 								<button type="button" class="btn btn_close btn_close-xl js-close"></button>
 							</div>
 						</div>
-						<div class="filter__body">
+
+						<div class="filter__body" data-id="filter-body">
 							<div class="filter-group">
 								<div class="filter-group__header">Цена</div>
 								<div class="filter-group__list rangeslider">
@@ -1124,14 +1127,19 @@
 										<div class="rangeslider__inputs">
 											<div>
 												<span>от</span>
-												<input class="input-min" value="10 000" type="text" readonly />
+												<input class="input-min" name="arrFilter_141_MIN" value="10 000" type="text" readonly />
+												<!-- value по умолчанию заполнять крайними значениями диапазона (форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
 											</div>
 											<div>
 												<span>до</span>
-												<input class="input-max" value="100 500" type="text" readonly />
+												<input class="input-max" name="arrFilter_142_MAX" value="100 500" type="text" readonly />
+												<!-- value по умолчанию заполнять крайними значениями диапазона(форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
 											</div>
 										</div>
-										<div data-range="rangeslider" data-min="10000" data-max="100500" data-step="500"></div>
+										<div data-range="rangeslider" data-min="10000" data-max="100500" data-from="10000" data-to="100500" data-step="1000"></div>
+										<!-- min-max: крайние значения диапазона, обязательные -->
+										<!-- from-to: стартовые значения в рамках диапазона, необязательные. можно использовать по одному или не использовать вообще (применится min/max) -->
+										<!-- step: шаг изменения, необязательное — дефолт: 500 -->
 									</div>
 								</div>
 							</div>
@@ -1140,14 +1148,14 @@
 								<div class="filter-group__header js-collapse">Цвет столешницы</div>
 								<div class="filter-group__list --scrollblock --collapsed">
 									<label title="Свойство 1">
-										<input type="checkbox" name="arrFilter_220-1" value="Y" />
+										<input type="checkbox" name="arrFilter_220_1" value="Y" />
 										<picture>
 											<source srcset="img/dev/props/color-1.png" type="image/webp" />
 											<img src="img/dev/props/color-1.png" width="40" height="40" alt="" loading="lazy" />
 										</picture>
 									</label>
 									<label title="Свойство 2">
-										<input type="checkbox" name="arrFilter_220-2" value="Y" />
+										<input type="checkbox" name="arrFilter_220_2" value="Y" />
 										<picture>
 											<source srcset="img/dev/props/color-2.png" type="image/webp" />
 											<img src="img/dev/props/color-2.png" width="40" height="40" alt="" loading="lazy" />
@@ -1160,21 +1168,21 @@
 								<div class="filter-group__header js-collapse">Цвет металлокаркаса</div>
 								<div class="filter-group__list">
 									<label title="Свойство 3">
-										<input type="checkbox" name="arrFilter_221-1" value="Y" />
+										<input type="checkbox" name="arrFilter_221_1" value="Y" />
 										<picture>
 											<source srcset="img/dev/props/color-3.png" type="image/webp" />
 											<img src="img/dev/props/color-3.png" width="40" height="40" alt="" loading="lazy" />
 										</picture>
 									</label>
 									<label title="Свойство 4">
-										<input type="checkbox" name="arrFilter_221-2" value="Y" />
+										<input type="checkbox" name="arrFilter_221_2" value="Y" />
 										<picture>
 											<source srcset="img/dev/props/color-4.png" type="image/webp" />
 											<img src="img/dev/props/color-4.png" width="40" height="40" alt="" loading="lazy" />
 										</picture>
 									</label>
 									<label title="Свойство 5">
-										<input type="checkbox" name="arrFilter_221-3" value="Y" />
+										<input type="checkbox" name="arrFilter_221_3" value="Y" />
 										<picture>
 											<source srcset="img/dev/props/color-5.png" type="image/webp" />
 											<img src="img/dev/props/color-5.png" width="40" height="40" alt="" loading="lazy" />
@@ -1184,26 +1192,47 @@
 							</div>
 
 							<div class="filter-group">
-								<div class="filter-group__header js-collapse">Глубина</div>
-								<div class="filter-group__list _column">
-									<label title="Свойство 4">
-										<input type="checkbox" name="arrFilter_222-1" value="Y" />
+								<div class="filter-group__header js-collapse is-closed">Ширина</div>
+								<div class="filter-group__list _column collapsed">
+									<label title="Свойство 6">
+										<input type="checkbox" name="arrFilter_222_1" value="Y" />
 										<span>100 см</span>
 									</label>
-									<label title="Свойство 4">
-										<input type="checkbox" name="arrFilter_222-2" value="Y" />
+									<label title="Свойство 7">
+										<input type="checkbox" name="arrFilter_222_2" value="Y" />
 										<span>120 см</span>
 									</label>
-									<label title="Свойство 4">
-										<input type="checkbox" name="arrFilter_222-3" value="Y" />
+									<label title="Свойство 8">
+										<input type="checkbox" name="arrFilter_222_3" value="Y" />
 										<span>150 см</span>
 									</label>
 								</div>
 							</div>
+
+							<div class="filter-group">
+								<div class="filter-group__header js-collapse">Глубина</div>
+								<div class="filter-group__list _column">
+									<label title="Свойство 9">
+										<input type="checkbox" name="arrFilter_223_1" value="Y" />
+										<span>10 см</span>
+									</label>
+									<label title="Свойство 10">
+										<input type="checkbox" name="arrFilter_223_2" value="Y" />
+										<span>12 см</span>
+									</label>
+									<label title="Свойство 11">
+										<input type="checkbox" name="arrFilter_223_3" value="Y" />
+										<span>15 см</span>
+									</label>
+								</div>
+							</div>
 						</div>
+
 						<div class="filter__buttons">
 							<button type="submit" class="btn btn_yellow btn_wide">Применить</button>
-							<button type="reset" class="btn btn_reset invisible js-reset-form">Сбросить фильтры</button>
+							<button type="reset" class="btn btn_reset invisible js-filter-reset">Сбросить фильтры</button>
+							<input type="hidden" id="filter-reset" name="filter-reset" value="N" />
+							<input type="hidden" id="filter-sort" name="filter-sort" value="" />
 						</div>
 					</form>
 				</div>
@@ -1805,7 +1834,7 @@
 			<path fill="#333" d="M70.39 1.232h21.995C85.058 11.71 81.212 17.492 80.85 18.58h11.537V24h-22.92L81.005 6.653H70.39v-5.42Zm31.841 18.276c-.052.406-1.557 4.392-1.693 4.492h-7.075v-.31l9.998-22.457h7.537L120.996 24h-7.075c-.098-.421-1.547-4.385-1.693-4.492h-9.997Zm8.306-4.026v-.31a873.965 873.965 0 0 0-3.23-7.9h-.154l-3.077 8.21h6.461Zm13.229-14.25h6.307l6.922 8.519 6.921-8.519h6.306V24H143.3V10.99l-6.153 7.59-6.614-7.59V24h-6.768l.001-22.767Zm38.455 0 6.922 8.519 6.767-8.519h6.307V24h-6.923V10.99l-6.152 7.59-6.614-7.59V24h-6.768V1.233h6.461Zm23.48 5.344a2.758 2.758 0 0 1-1.957-.818 2.802 2.802 0 0 1 .897-4.545 2.748 2.748 0 0 1 3.017.605 2.79 2.79 0 0 1 .809 1.97 2.79 2.79 0 0 1-1.707 2.575c-.335.14-.695.213-1.059.213Zm0-.62a2.142 2.142 0 0 0 1.522-.636 2.166 2.166 0 0 0 .63-1.532 2.182 2.182 0 0 0-.629-1.532 2.16 2.16 0 0 0-1.523-.637 2.148 2.148 0 0 0-1.522.637c-.403.407-.63.958-.629 1.532 0 .574.226 1.125.629 1.531.403.407.951.636 1.522.637Zm-.032-1.901h-.356v.972h-.659V2.274h1.075c.324 0 .577.072.76.217.182.145.273.35.273.615a.91.91 0 0 1-.114.476.821.821 0 0 1-.362.307l.57 1.11v.028h-.705l-.482-.972Zm-.356-.512h.416c.125 0 .219-.033.282-.1a.384.384 0 0 0 .095-.277.388.388 0 0 0-.095-.278c-.065-.068-.158-.101-.282-.101h-.416v.756Z" />
 		</symbol>
 	</svg>
-	<script src="js/app.js?v=20231002110409"></script>
+	<script src="js/app.js?v=20231004215334"></script>
 
 </body>
 

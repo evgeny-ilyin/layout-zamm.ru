@@ -89,104 +89,6 @@
   -o-transition: opacity .1s;
   transition: opacity .1s
 }
-.drop-down {
-  position: relative
-}
-.drop-down__head {
-  cursor: pointer;
-  font-weight: 600;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding-right: 16px
-}
-.drop-down__head::after {
-  content: "";
-  display: block;
-  width: 11px;
-  height: 11px;
-  background: var(--svg-angle) center no-repeat;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg);
-  -webkit-transition: all .25s ease-in-out;
-  -o-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out;
-  position: absolute;
-  right: 0
-}
-.drop-down.is-active .drop-down__head::after {
-  -webkit-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  transform: rotate(-90deg)
-}
-.drop-down__box {
-  position: absolute;
-  top: 100%;
-  white-space: nowrap;
-  min-width: 200px;
-  background: var(--white);
-  margin-top: 8px;
-  padding: 16px 0;
-  opacity: 0;
-  visibility: hidden;
-  z-index: 10;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  border-radius: 4px;
-  -webkit-box-shadow: 0 1px 12px 1px rgba(0,0,0,.12);
-  box-shadow: 0 1px 12px 1px rgba(0,0,0,.12);
-  -webkit-transition: all .25s ease-in-out;
-  -o-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out
-}
-.drop-down.is-active .drop-down__box {
-  opacity: 1;
-  visibility: visible
-}
-label.option {
-  padding: 8px 32px 8px 16px;
-  position: relative;
-  width: 100%;
-  cursor: pointer
-}
-label.option input {
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-  z-index: -1
-}
-label.option input:checked ~ span {
-  color: var(--black)
-}
-label.option input:checked ~ span::after {
-  content: "";
-  display: block;
-  position: absolute;
-  right: 16px;
-  width: 12px;
-  height: 12px;
-  background: var(--svg-checked) center no-repeat
-}
-label.option span {
-  color: var(--black60);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center
-}
 .catalog-bar {
   margin: 8px 0 16px
 }
@@ -439,17 +341,16 @@ label.option span {
   right: 0;
   top: 100%;
   max-height: 0;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  margin-top: -5px;
-  background: var(--gray-light);
-  border-radius: 0 0 6px 6px;
   -webkit-transition: max-height .1s ease-in-out 0s;
   -o-transition: max-height .1s ease-in-out 0s;
-  transition: max-height .1s ease-in-out 0s
+  transition: max-height .1s ease-in-out 0s;
+  overflow: hidden;
+  margin-top: -5px;
+  background: var(--gray-light);
+  border-radius: 0 0 6px 6px
 }
 .props {
-  margin: -3px 16px 16px
+  margin: 0 16px 16px
 }
 .props__buttons {
   display: -webkit-box;
@@ -698,6 +599,12 @@ label.option span {
   text-shadow: none;
   background: var(--gray)
 }
+.pagination__link.is-disabled {
+  pointer-events: none
+}
+.pagination span.pagination__link {
+  pointer-events: none
+}
 @media (min-width:1024px) {
   .catalog-head__root {
     background: var(--gray)
@@ -717,6 +624,10 @@ label.option span {
   }
   .catalog-head__name {
     padding: 0 32px
+  }
+  .catalog-head__slider {
+    max-height: 300px;
+    overflow-y: hidden
   }
   .catalog-head-carousel .f-carousel__slide div {
     font-size: .9375rem;
@@ -751,9 +662,6 @@ label.option span {
   }
 }
 @media (max-width:1279px) {
-  .drop-down__box {
-    right: 0
-  }
   .catalog-bar__sort {
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
