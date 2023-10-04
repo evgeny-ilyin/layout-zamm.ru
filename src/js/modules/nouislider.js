@@ -1,19 +1,23 @@
 import noUiSlider from "nouislider";
 import wNumb from "wnumb";
 
-addEventListener("DOMContentLoaded", () => {
+export function rangeSlidersInit() {
 	const rangeSliders = document.querySelectorAll('[data-range="rangeslider"]');
+	if(!rangeSliders) return;
 	rangeSliders.forEach((el) => {
 		if (el) {
-			let min = parseInt(el.dataset.min);
-			let max = parseInt(el.dataset.max);
-			let step = parseInt(el.dataset.step);
+			let min = parseInt(el.dataset.min),
+				max = parseInt(el.dataset.max),
+				from = parseInt(el.dataset.from),
+				to = parseInt(el.dataset.to),
+				step = parseInt(el.dataset.step);
 
 			noUiSlider.create(el, {
-				start: [min, max],
+				start: [from ? from : min, to ? to : max],
 				range: { min: min, max: max },
-				step: step,
+				step: step ? step : 500,
 				connect: true,
+				behaviour: "none",
 				format: wNumb({
 					decimals: 0,
 					thousand: " ",
@@ -22,9 +26,12 @@ addEventListener("DOMContentLoaded", () => {
 
 			let inputs = [el.parentNode.querySelector(".input-min"), el.parentNode.querySelector(".input-max")];
 
-			el.noUiSlider.on("update", function (values, handle) {
+			el.noUiSlider.on("update", (values, handle) => {
 				inputs[handle].value = values[handle];
-				// change event for reset btn
+			});
+
+			// fire change event for form after value set
+			el.noUiSlider.on("end", () => {
 				const evt = new Event("change"),
 					form = el.closest("form");
 				form.dispatchEvent(evt);
@@ -33,7 +40,7 @@ addEventListener("DOMContentLoaded", () => {
 	});
 
 	// reset on filter clear
-	const resetBtn = document.querySelector(".js-reset-form");
+	const resetBtn = document.querySelector(".js-filter-reset");
 	if (!resetBtn) return;
 
 	resetBtn.addEventListener("click", () => {
@@ -45,4 +52,4 @@ addEventListener("DOMContentLoaded", () => {
 			}
 		});
 	});
-});
+}

@@ -4,7 +4,9 @@ export function stickyHeader() {
 		isStickyClass = "is-sticky",
 		isHiddenClass = "is-hidden";
 
-	function handleScroll() {
+	if (!header) return;
+
+	const handleScroll = () => {
 		if (window.scrollY == 0) {
 			header.classList.add(isOntopClass);
 		}
@@ -18,7 +20,7 @@ export function stickyHeader() {
 			}
 		}
 		this.lastScrollTop = window.scrollY;
-	}
+	};
 
 	window.addEventListener("scroll", handleScroll);
 }
@@ -290,7 +292,7 @@ export function searchForm() {
 // 	el.dataset.collapsed = "false";
 // }
 
-export function collapse() {
+export function collapseHandler() {
 	const triggers = document.querySelectorAll(".js-collapse"),
 		collapsed = document.querySelectorAll(".collapsed"),
 		isClosedClass = "is-closed",
@@ -468,4 +470,67 @@ export function ideaPopupPlace() {
 			});
 		})
 	);
+}
+
+export function showSkeleton(where, tpl) {
+	if (!where || !tpl) return;
+	const template = document.getElementById(tpl);
+	where.innerHTML = "";
+	where.appendChild(template.content.cloneNode(true));
+}
+
+export function useLoader(where, action = false) {
+	if (!where) return;
+	let whereArr = [];
+
+	if (!Array.isArray(where)) {
+		whereArr = [where];
+	} else {
+		whereArr = where;
+	}
+
+	if (action == "stop") {
+		whereArr.forEach((ww) => {
+			let loaders = ww.querySelectorAll(".fetch");
+			if (!loaders) return;
+			loaders.forEach((loader) => {
+				setTimeout(() => {
+					loader.style.opacity = 0;
+					setTimeout(() => {
+						loader.remove();
+					}, 250);
+				}, 0);
+			});
+		});
+		return;
+	}
+
+	whereArr.forEach((w) => {
+		let loader = document.createElement("div");
+		loader.classList.add("fetch");
+		let child = document.createElement("div");
+		child.classList.add("fetch__ring");
+		loader.appendChild(child);
+
+		w.appendChild(loader);
+
+		setTimeout(() => {
+			loader.style.opacity = 1;
+		}, 0);
+	});
+}
+
+export function btnLoader(where, action = false) {
+	if (!where) return;
+	const btnLoaderClass = "btn-loader",
+		label = where.querySelector('span');
+
+	if (action == "stop") {
+	where.classList.remove(btnLoaderClass);
+	label.style.opacity = 1;
+		return;
+	}
+
+	where.classList.add(btnLoaderClass);
+	label.style.opacity = 0;
 }

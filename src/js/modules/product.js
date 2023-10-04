@@ -1,4 +1,30 @@
-/** product item at catalog list */
+import { collapseHandler, showSkeleton, useLoader, btnLoader } from "./functions.js";
+import { rangeSlidersInit } from "./nouislider.js";
+
+/** products at catalog list */
+export function productGalleryInit(item = false) {
+	const isActiveClass = "is-active";
+
+	if (item) {
+		item.querySelector(".item__gallery-item").classList.add(isActiveClass);
+		return;
+	}
+
+	// onload
+	const catalogItems = document.querySelector(".catalog-items"),
+		carouselItems = document.querySelector(".product-carousel");
+
+	[catalogItems, carouselItems].forEach((el) => {
+		if (!el) return;
+
+		let items = el.querySelectorAll(".item");
+		if (!items) return;
+		items.forEach((i) => {
+			i.querySelector(".item__gallery-item").classList.add(isActiveClass);
+		});
+	});
+}
+
 export function productGallery() {
 	const catalogItems = document.querySelector(".catalog-items"),
 		carouselItems = document.querySelector(".product-carousel"),
@@ -32,24 +58,25 @@ export function productGallery() {
 
 export function productFavourite() {
 	document.body.addEventListener("click", (e) => {
-		const fav = e.target.closest(".js-fav"),
+		const btn = e.target.closest(".js-fav"),
 			isActiveClass = "is-active";
-		if (!fav) return;
+		if (!btn) return;
 
-		const url = fav.dataset.url;
+		const url = btn.dataset.url;
 
 		(async () => {
 			let response = await fetch(url);
 			let result = await response.json();
+			if (!result) return;
 
 			if (result.status === true) {
-				fav.parentElement.classList.toggle(isActiveClass);
+				btn.parentElement.classList.toggle(isActiveClass);
 			}
 		})();
 	});
 }
 
-export function productLoadProps() {
+export function productPropsHover() {
 	const catalogItems = document.querySelector(".catalog-items");
 	if (!catalogItems) return;
 
@@ -67,15 +94,11 @@ export function productLoadProps() {
 			showSkeleton(details, "tpl-props");
 
 			(async () => {
-				try {
-					let response = await fetch(url);
-					let result = await response.text();
-					if (!result) return;
-					details.innerHTML = "";
-					details.innerHTML = result;
-				} catch (err) {
-					return;
-				}
+				let response = await fetch(url);
+				let result = await response.text();
+				if (!result) return;
+				details.innerHTML = "";
+				details.innerHTML = result;
 				productPropCollapseHandler(item);
 			})();
 		});
@@ -83,10 +106,11 @@ export function productLoadProps() {
 }
 
 export function productProps() {
-	document.body.addEventListener("change", (e) => {
+	document.addEventListener("change", (e) => {
 		const prop = e.target,
 			item = prop.closest(".item"),
-			form = prop.closest("form");
+			details = prop.closest(".item__details"),
+			form = prop.closest(".props form");
 
 		if (!form || !item) return;
 
@@ -106,6 +130,8 @@ export function productProps() {
 		let body = Object.assign(data, params, formDataObject);
 
 		(async () => {
+			useLoader([item, details]);
+
 			let response = await fetch(url, {
 				method: "POST",
 				headers: {
@@ -114,50 +140,193 @@ export function productProps() {
 				body: JSON.stringify(body),
 			});
 
+			useLoader([item, details], "stop");
+
 			let result = await response.json();
 
 			if (result.status === true) {
 				if (Object.keys(result.chunks).length == 0) return;
 
 				Object.entries(result.chunks).forEach(([key, value]) => {
-					if (value.length > 0) item.querySelector(`[data-id=${key}]`).innerHTML = value;
+					if (value.length > 0) {
+						let target = item.querySelector(`[data-id=${key}]`);
+						if (!target) {
+							console.log(`data-id ${key} not found`);
+							return;
+						}
+						target.innerHTML = value;
+					}
 				});
 			}
-			productGallerySetActive(item);
+			productGalleryInit(item);
 			productPropCollapseHandler(item);
 		})();
 	});
 }
 
-export function productGallerySetActive(item = false) {
-	const isActiveClass = "is-active";
+export function productFilter() {
+	const filterForm = document.getElementById("filter-form"),
+		filterReset = document.querySelector(".js-filter-reset"),
+		sortBtns = document.querySelectorAll("input[name='sort']"),
+		itemsContainer = document.querySelector(".content_columns");
 
-	if (item) {
-		item.querySelector(".item__gallery-item").classList.add(isActiveClass);
-		return;
-	}
+	if (!filterForm) return;
 
-	// for onload and fetchMoreProducts
-	const catalogItems = document.querySelector(".catalog-items"),
-		carouselItems = document.querySelector(".product-carousel");
+	let fetchByFilter = async () => {
+		let formData = new FormData(filterForm),
+			url = filterForm.action;
 
-	[catalogItems, carouselItems].forEach((el) => {
-		if (!el) return;
+		let formDataObject = Object.fromEntries(formData.entries());
 
-		let items = el.querySelectorAll(".item");
-		if (!items) return;
-		items.forEach((i) => {
-			i.querySelector(".item__gallery-item").classList.add(isActiveClass);
+		// loader start +++ filter @mobile
+		useLoader(itemsContainer);
+
+		// step 1: get filter url based on filter selected
+		let response = await fetch(url, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json;charset=utf-8",
+			},
+			body: JSON.stringify(formDataObject),
+		});
+
+		// break if new url not recieved
+		let result = await response.json();
+		if (Object.keys(result.url).length == 0) return;
+		filterForm.action = result.url;
+
+		// step 2: get page chunks
+		response = await fetch(result.url);
+		result = await response.json();
+
+		// step 3: update page chunks
+		if (result.status === true) {
+			if (Object.keys(result.chunks).length == 0) return;
+			updateChunks(result.chunks);
+		}
+
+		// loader finish
+		useLoader(itemsContainer, "stop");
+	};
+
+	let fetchByUrl = async (obj) => {
+		if (!obj) return;
+
+		let amp = filterForm.action.includes("?") ? "&" : "?",
+			query = amp + new URLSearchParams(obj).toString(),
+			url = filterForm.action + query;
+
+		// loader start +++ filter @mobile
+		useLoader(itemsContainer);
+
+		// step 1: fetch get
+		let response = await fetch(url);
+		let result = await response.json();
+
+		// step 2: update page chunks
+		if (result.status === true) {
+			// update action if new url recieved
+			if (result.hasOwnProperty("url")) {
+				filterForm.action = result.url;
+			}
+
+			if (Object.keys(result.chunks).length == 0) return;
+			updateChunks(result.chunks);
+		}
+
+		// loader finish
+		useLoader(itemsContainer, "stop");
+	};
+
+	let updateChunks = (obj) => {
+		if (!obj) return;
+
+		Object.entries(obj).forEach(([key, value]) => {
+			if (value.length > 0) {
+				let target = itemsContainer.querySelector(`[data-id=${key}]`);
+				if (!target) {
+					console.log(`data-id ${key} not found`);
+					return;
+				}
+				target.innerHTML = value;
+			}
+		});
+
+		productGalleryInit();
+		rangeSlidersInit();
+		collapseHandler();
+	};
+
+	filterReset.addEventListener("click", () => {
+		const resetFlag = document.getElementById("filter-reset");
+		filterForm.reset();
+		resetFlag.value = "Y";
+		fetchByFilter();
+		resetFlag.value = "N";
+		filterReset.classList.add("invisible");
+	});
+
+	filterForm.addEventListener("submit", (e) => {
+		e.preventDefault();
+		fetchByFilter();
+	});
+
+	filterForm.addEventListener("change", () => {
+		filterReset.classList.remove("invisible");
+		fetchByFilter();
+	});
+
+	sortBtns.forEach((btn) => {
+		btn.addEventListener("change", () => {
+			const sortFlag = document.getElementById("filter-sort"),
+				sortBlock = btn.closest(".js-drop-down.is-active"),
+				sortLabel = sortBlock.querySelector(".drop-down__head"),
+				object = {};
+			sortFlag.value = btn.value;
+			sortLabel.textContent = btn.nextElementSibling.textContent;
+			sortBlock.classList.remove("is-active");
+			object[btn.name] = parseInt(btn.value);
+			fetchByUrl(object);
 		});
 	});
 }
 
+export function productLoadMore() {
+	document.body.addEventListener("click", (e) => {
+		const btn = e.target.closest(".js-load-more");
+		if (!btn) return;
+
+		const url = btn.dataset.url,
+			target = document.querySelector(`.${btn.dataset.target}`);
+		if (!target) return;
+
+		(async () => {
+			btnLoader(btn);
+
+			let response = await fetch(url);
+			let result = await response.text();
+			if (!result) return;
+
+			// target.innerHTML += result; -- bad solution (target div flickering)
+			let div = document.createElement("div");
+			div.innerHTML = result;
+
+			div.childNodes.forEach((i) => {
+				target.appendChild(i);
+			});
+
+			productGalleryInit();
+			btnLoader(btn, "stop");
+		})();
+	});
+}
+
 // product helpers
-export function isPropOverflowX(el) {
+function isPropOverflowX(el) {
 	return el ? el.scrollWidth > el.clientWidth : false;
 }
 
-export function productPropCollapseHandler(item) {
+function productPropCollapseHandler(item) {
 	if (!item) return;
 	const propsBtns = item.querySelectorAll(".js-prop-collapse"),
 		isOpenedClass = "is-opened";
@@ -174,73 +343,5 @@ export function productPropCollapseHandler(item) {
 				flag.value = flag.value == 1 ? 0 : 1;
 			});
 		}
-	});
-}
-
-export function showSkeleton(where, tpl) {
-	if (!where || !tpl) return;
-	const template = document.getElementById(tpl);
-	where.innerHTML = "";
-	where.append(template.content.cloneNode(true));
-}
-
-export function showLoader(where) {
-	if (!where) return;
-	let loader = document.createElement("div");
-	loader.classList.add("loader");
-	where.innerHTML = "";
-	where.append(loader);
-}
-
-export function showFilterReset() {
-	const form = document.querySelector(".filter form");
-
-	if (!form) return;
-
-	const resetBtn = form.querySelector('button[type="reset"]');
-	form.addEventListener("change", () => {
-		resetBtn.classList.remove("invisible");
-	});
-}
-
-
-//? нужен ли fetch при ресете фильтра
-export function resetFilter() {
-	const resetBtn = document.querySelector(".js-reset-form"),
-		hiddenClass = "invisible";
-
-	if (!resetBtn) return;
-
-	resetBtn.addEventListener("click", () => {
-		resetBtn.classList.add(hiddenClass);
-	});
-}
-
-//? нужна ли функция для дозагрузки списка товаров на битре?
-export function fetchMoreProducts() {
-	const btn = document.querySelector(".js-load-more");
-	if (!btn) return;
-
-	btn.addEventListener("click", () => {
-		const url = btn.dataset.url,
-			target = document.querySelector(`.${btn.dataset.target}`);
-
-		if (!target) return;
-
-		(async () => {
-			let response = await fetch(url);
-			let result = await response.text();
-			if (!result) return;
-
-			// target.innerHTML += result; -- bad solution (target div flickering)
-			let div = document.createElement("div");
-			div.innerHTML = result;
-
-			div.childNodes.forEach((i) => {
-				target.appendChild(i);
-			});
-
-			productGallerySetActive();
-		})();
 	});
 }

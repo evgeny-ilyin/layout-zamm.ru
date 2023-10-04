@@ -1,0 +1,103 @@
+.drop-down {
+	position: relative;
+
+	// .drop-down__head
+	&__head {
+		cursor: pointer;
+		font-weight: 600;
+		position: relative;
+		display: flex;
+		align-items: center;
+		padding-right: 16px;
+
+		&::after {
+			content: "";
+			display: block;
+			width: 11px;
+			height: 11px;
+			background: $svg-angle center no-repeat;
+			transform: rotate(90deg);
+			transition: all $transition-default;
+			position: absolute;
+			right: 0;
+		}
+
+		@include when-inside(".drop-down.is-active") {
+			&::after {
+				transform: rotate(-90deg);
+			}
+		}
+	}
+
+	// .drop-down__box
+	&__box {
+		position: absolute;
+		top: 100%;
+		white-space: nowrap;
+		min-width: 200px;
+		background: $white;
+		margin-top: 8px;
+		padding: 16px 0;
+		opacity: 0;
+		visibility: hidden;
+		z-index: 10;
+		display: flex;
+		flex-flow: row wrap;
+		border-radius: 4px;
+		box-shadow: 0 1px 12px 1px rgba(0, 0, 0, 0.12);
+		transition: all $transition-default;
+
+		@include respond-to(xl, "max") {
+			right: 0;
+		}
+
+		@include when-inside(".drop-down.is-active") {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	.option {
+		padding: 8px 32px 8px 16px;
+		position: relative;
+		width: 100%;
+		cursor: pointer;
+
+		input {
+			position: absolute;
+			width: 0;
+			height: 0;
+			opacity: 0;
+			z-index: -1;
+
+			&:checked {
+				& ~ span {
+					color: $black;
+
+					&::after {
+						content: "";
+						display: block;
+						position: absolute;
+						right: 16px;
+						width: 12px;
+						height: 12px;
+						background: $svg-checked center no-repeat;
+					}
+				}
+			}
+		}
+
+		span {
+			color: $black60;
+			transition: all $transition-default;
+			display: flex;
+			align-items: center;
+		}
+
+		@include on-hover {
+			span {
+				color: $black;
+			}
+		}
+	}
+}

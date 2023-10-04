@@ -1,21 +1,44 @@
-.loader {
+.fetch {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 9;
+	opacity: 0;
+	transition: opacity $transition-default;
+	background: rgba($color: #fff, $alpha: 0.5);
 	display: flex;
-	align-items: center;
 	justify-content: center;
-	width: 100%;
 
-	&::before {
-		content: "";
-		display: block;
-		width: 16px;
-		height: 16px;
-		margin: 30px 0;
-		background: $svg-loader no-repeat;
-		animation: loaderRotate 1s infinite linear;
+	&__ring {
+		position: sticky !important;
+		top: 30vh;
+		height: 30vh;
+		display: flex;
+		align-items: center;
+
+		&::before {
+			content: "";
+			display: block;
+			width: 32px;
+			height: 32px;
+			margin: 30px 0;
+			background: $svg-fetch-ring no-repeat;
+			animation: fetchRingRotate 1s infinite linear;
+		}
+	}
+
+	@include when-inside(".item") {
+		// backdrop-filter: blur(1px);
+
+		&__ring {
+			display: none;
+		}
 	}
 }
 
-@keyframes loaderRotate {
+@keyframes fetchRingRotate {
 	from {
 		transform: rotate(0deg);
 	}
@@ -65,5 +88,22 @@
 	}
 	100% {
 		background-color: hsl(200, 20%, 95%);
+	}
+}
+
+.btn-loader {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&::before {
+		position: absolute;
+		content: "";
+		display: block;
+		width: 24px;
+		height: 24px;
+		background: $svg-fetch-ring no-repeat;
+		animation: fetchRingRotate 1s infinite linear;
 	}
 }

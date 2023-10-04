@@ -1,7 +1,6 @@
 import * as functions from "./modules/functions.js";
 import * as product from "./modules/product.js";
-
-
+import * as rangeslider from "./modules/nouislider.js";
 
 addEventListener("DOMContentLoaded", () => {
 	functions.stickyHeader();
@@ -15,29 +14,22 @@ addEventListener("DOMContentLoaded", () => {
 	functions.dropdownClose();
 	functions.dropdownShow();
 	functions.overlayClick();
-	functions.collapse();
+	functions.collapseHandler();
 	functions.accordion();
 	functions.accordionFooter();
 	functions.ideaMarkerShow();
 	functions.ideaPopupPlace();
 	useDynamicAdapt();
 
+	product.productGalleryInit();
 	product.productGallery();
 	product.productFavourite();
-	product.productLoadProps();
+	product.productPropsHover();
 	product.productProps();
-	product.showFilterReset();
-	product.resetFilter();
+	product.productFilter();
+	product.productLoadMore();
 
-	// product helpers
-	product.productGallerySetActive();
-	// присутствуют в билде и не требуют импорта?
-	// product.isPropOverflowX();
-	// product.productPropCollapseHandler();
-	// product.showLoader();
-
-	// temp? нужна ли функция для дозагрузки списка товаров на битре?
-	product.fetchMoreProducts();
+	rangeslider.rangeSlidersInit();
 });
 
 import { useDynamicAdapt } from "./modules/dynamicAdapt.js";

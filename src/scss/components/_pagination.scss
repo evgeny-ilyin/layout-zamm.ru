@@ -61,5 +61,12 @@
 			text-shadow: none;
 			background: $gray;
 		}
+
+		&.is-disabled {
+			pointer-events: none;
+		}
+	}
+	span.pagination__link {
+		pointer-events: none;
 	}
 }
