@@ -1,5 +1,6 @@
 <?
 try {
+	usleep(150000);
 	$json = file_get_contents('php://input');
 	$data = json_decode($json, true);
 	$skuValue = $data[$data[name]];

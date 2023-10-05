@@ -1,8 +1,9 @@
-import { collapseHandler, showSkeleton, useLoader, btnLoader } from "./functions.js";
+import { showSkeleton, useLoader, btnLoader } from "./functions.js";
+import { carouselsInit } from "./fancyapps.js";
 import { rangeSlidersInit } from "./nouislider.js";
 
 /** products at catalog list */
-export function productGalleryInit(item = false) {
+export function productGalleriesInit(item = false) {
 	const isActiveClass = "is-active";
 
 	if (item) {
@@ -145,8 +146,6 @@ export function productProps() {
 			let result = await response.json();
 
 			if (result.status === true) {
-				if (Object.keys(result.chunks).length == 0) return;
-
 				Object.entries(result.chunks).forEach(([key, value]) => {
 					if (value.length > 0) {
 						let target = item.querySelector(`[data-id=${key}]`);
@@ -158,13 +157,14 @@ export function productProps() {
 					}
 				});
 			}
-			productGalleryInit(item);
+
+			productGalleriesInit(item);
 			productPropCollapseHandler(item);
 		})();
 	});
 }
 
-export function productFilter() {
+export function productFetches() {
 	const filterForm = document.getElementById("filter-form"),
 		filterReset = document.querySelector(".js-filter-reset"),
 		sortBtns = document.querySelectorAll("input[name='sort']"),
@@ -201,9 +201,11 @@ export function productFilter() {
 
 		// step 3: update page chunks
 		if (result.status === true) {
-			if (Object.keys(result.chunks).length == 0) return;
+			// if (Object.keys(result.chunks).length == 0) return;
 			updateChunks(result.chunks);
 		}
+
+		reinitFetchesResults();
 
 		// loader finish
 		useLoader(itemsContainer, "stop");
@@ -230,12 +232,51 @@ export function productFilter() {
 				filterForm.action = result.url;
 			}
 
-			if (Object.keys(result.chunks).length == 0) return;
+			// if (Object.keys(result.chunks).length == 0) return;
 			updateChunks(result.chunks);
 		}
 
+		reinitFetchesResults();
+
 		// loader finish
 		useLoader(itemsContainer, "stop");
+	};
+
+	let fetchByMoreBtn = async (btn) => {
+		if (!btn) return;
+		const url = btn.dataset.url,
+			target = document.querySelector(`.${btn.dataset.target}`);
+		if (!target || !url) return;
+
+		btnLoader(btn);
+
+		// step 1: fetch get
+		let response = await fetch(url);
+		let result = await response.json();
+
+		// step 2: update page chunks
+		if (result.status === true) {
+			// update action if new url recieved
+			if (result.hasOwnProperty("url")) {
+				filterForm.action = result.url;
+			}
+
+			if (result.hasOwnProperty("products")) {
+				// target.innerHTML += result; -- bad solution (target div flickering)
+				let div = document.createElement("div");
+				div.innerHTML = result.products;
+
+				div.childNodes.forEach((i) => {
+					target.appendChild(i);
+				});
+			}
+			// if (Object.keys(result.chunks).length == 0) return;
+			updateChunks(result.chunks);
+		}
+
+		reinitFetchesResults();
+
+		btnLoader(btn, "stop");
 	};
 
 	let updateChunks = (obj) => {
@@ -243,7 +284,7 @@ export function productFilter() {
 
 		Object.entries(obj).forEach(([key, value]) => {
 			if (value.length > 0) {
-				let target = itemsContainer.querySelector(`[data-id=${key}]`);
+				let target = document.querySelector(`[data-id=${key}]`);
 				if (!target) {
 					console.log(`data-id ${key} not found`);
 					return;
@@ -251,31 +292,38 @@ export function productFilter() {
 				target.innerHTML = value;
 			}
 		});
-
-		productGalleryInit();
-		rangeSlidersInit();
-		collapseHandler();
 	};
 
-	filterReset.addEventListener("click", () => {
-		const resetFlag = document.getElementById("filter-reset");
-		filterForm.reset();
-		resetFlag.value = "Y";
-		fetchByFilter();
-		resetFlag.value = "N";
-		filterReset.classList.add("invisible");
-	});
+	let reinitFetchesResults = () => {
+		carouselsInit();
+		productGalleriesInit();
+		rangeSlidersInit();
+	};
 
-	filterForm.addEventListener("submit", (e) => {
-		e.preventDefault();
-		fetchByFilter();
-	});
-
+	// filter on change
 	filterForm.addEventListener("change", () => {
 		filterReset.classList.remove("invisible");
 		fetchByFilter();
 	});
 
+	// filter on reset
+	filterReset.addEventListener("click", () => {
+		const resetFlag = document.getElementById("filter-reset");
+		filterForm.reset();
+		resetFlag.value = "Y";
+		fetchByFilter();
+
+		resetFlag.value = "N";
+		filterReset.classList.add("invisible");
+	});
+
+	// filter on submit
+	filterForm.addEventListener("submit", (e) => {
+		e.preventDefault();
+		fetchByFilter();
+	});
+
+	// dropdown sorter
 	sortBtns.forEach((btn) => {
 		btn.addEventListener("change", () => {
 			const sortFlag = document.getElementById("filter-sort"),
@@ -289,35 +337,12 @@ export function productFilter() {
 			fetchByUrl(object);
 		});
 	});
-}
 
-export function productLoadMore() {
+	// btn "load more"
 	document.body.addEventListener("click", (e) => {
 		const btn = e.target.closest(".js-load-more");
 		if (!btn) return;
-
-		const url = btn.dataset.url,
-			target = document.querySelector(`.${btn.dataset.target}`);
-		if (!target) return;
-
-		(async () => {
-			btnLoader(btn);
-
-			let response = await fetch(url);
-			let result = await response.text();
-			if (!result) return;
-
-			// target.innerHTML += result; -- bad solution (target div flickering)
-			let div = document.createElement("div");
-			div.innerHTML = result;
-
-			div.childNodes.forEach((i) => {
-				target.appendChild(i);
-			});
-
-			productGalleryInit();
-			btnLoader(btn, "stop");
-		})();
+		fetchByMoreBtn(btn);
 	});
 }
 

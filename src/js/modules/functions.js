@@ -6,20 +6,22 @@ export function stickyHeader() {
 
 	if (!header) return;
 
+	let lastScrollTop = 0;
+
 	const handleScroll = () => {
 		if (window.scrollY == 0) {
 			header.classList.add(isOntopClass);
 		}
 		if (window.scrollY > 56) {
-			if (window.scrollY > this.lastScrollTop || 0) {
+			if (window.scrollY > lastScrollTop || 0) {
 				header.classList.remove(isOntopClass);
 				header.classList.add(isHiddenClass);
-			} else if (window.scrollY < this.lastScrollTop) {
+			} else if (window.scrollY < lastScrollTop) {
 				header.classList.add(isStickyClass);
 				header.classList.remove(isHiddenClass);
 			}
 		}
-		this.lastScrollTop = window.scrollY;
+		lastScrollTop = window.scrollY;
 	};
 
 	window.addEventListener("scroll", handleScroll);
@@ -48,29 +50,6 @@ export function sectionClose() {
 			overlay(0);
 			target.classList.remove(isActiveClass);
 		}
-	});
-}
-
-export function dropdownShow() {
-	const dds = document.querySelectorAll(".js-drop-down"),
-		isActiveClass = "is-active";
-	dds.forEach((dd) => {
-		dd.addEventListener("click", (e) => {
-			e.stopPropagation();
-			dd.classList.toggle(isActiveClass);
-		});
-	});
-}
-
-export function dropdownClose() {
-	window.addEventListener("click", (e) => {
-		const dds = document.querySelectorAll(".drop-down__box"),
-			isActiveClass = "is-active";
-		dds.forEach((dd) => {
-			if (!dd.contains(e.target)) {
-				dd.parentNode.classList.remove(isActiveClass);
-			}
-		});
 	});
 }
 
@@ -119,6 +98,29 @@ function overlay(action, origin = false) {
 			o.remove();
 		}, 250);
 	}
+}
+
+export function dropdownShow() {
+	const dds = document.querySelectorAll(".js-drop-down"),
+		isActiveClass = "is-active";
+	dds.forEach((dd) => {
+		dd.addEventListener("click", (e) => {
+			e.stopPropagation();
+			dd.classList.toggle(isActiveClass);
+		});
+	});
+}
+
+export function dropdownClose() {
+	window.addEventListener("click", (e) => {
+		const dds = document.querySelectorAll(".drop-down__box"),
+			isActiveClass = "is-active";
+		dds.forEach((dd) => {
+			if (!dd.contains(e.target)) {
+				dd.parentNode.classList.remove(isActiveClass);
+			}
+		});
+	});
 }
 
 export function mobileCheck(w) {
@@ -175,47 +177,6 @@ export function mobileCatalog() {
 	});
 }
 
-// не используются >
-// export function isTouchEnabled() {
-// 	return "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
-// }
-
-// export function dropdownByTouch() {
-// 	if (!isTouchEnabled()) {
-// 		return;
-// 	}
-
-// 	const dropdownTouch = document.querySelectorAll(".dropdown-touch"),
-// 		isActiveClass = "is-active";
-
-// 	dropdownTouch.forEach((link) => {
-// 		link.addEventListener("click", (e) => {
-// 			e.stopPropagation();
-// 			const dropdown = link.nextElementSibling;
-// 			if (!dropdown.classList.contains(isActiveClass)) {
-// 				dropdownClose(e);
-// 			}
-// 			dropdown.classList.toggle(isActiveClass);
-// 		});
-// 	});
-
-// 	document.addEventListener("click", (e) => {
-// 		dropdownClose(e);
-// 	});
-
-// 	let dropdownClose = (e) => {
-// 		const dropdownTouchActive = document.querySelectorAll(`.dropdown-touch + .${isActiveClass}`);
-// 		if (dropdownTouchActive) {
-// 			dropdownTouchActive.forEach((dropdown) => {
-// 				if (!dropdown.contains(e.target)) {
-// 					dropdown.classList.remove(isActiveClass);
-// 				}
-// 			});
-// 		}
-// 	};
-// }
-// не используются <
-
 export function searchForm() {
 	const navMenu = document.querySelector(".nav__menu"),
 		menuToggler = document.getElementById("menu-toggle"),
@@ -247,99 +208,46 @@ export function searchForm() {
 	});
 }
 
-// collapse через data
-// export function collapse() {
-// 	const triggers = document.querySelectorAll(".js-collapse"),
-// 		collapsed = document.querySelectorAll(".collapsed");
-
-// 	// set collapsed on load
-// 	collapsed.forEach((el) => {
-// 		el.dataset.collapsed = "true";
-// 	});
-
-// 	triggers.forEach((trigger) => {
-// 		trigger.addEventListener("click", () => {
-// 			const section = trigger.nextElementSibling,
-// 				isCollapsed = section.dataset.collapsed === "true";
-
-// 			if (isCollapsed) {
-// 				expandSection(section);
-// 				section.dataset.collapsed = "false";
-// 			} else {
-// 				collapseSection(section);
-// 			}
-// 		});
-// 	});
-// }
-
-// function collapseSection(el) {
-// 	const sectionH = el.scrollHeight,
-// 		elTransition = el.style.transition;
-// 	el.style.transition = "";
-// 	requestAnimationFrame(function () {
-// 		el.style.height = sectionH + "px";
-// 		el.style.transition = elTransition;
-// 		requestAnimationFrame(function () {
-// 			el.style.height = 0 + "px";
-// 		});
-// 	});
-// 	el.dataset.collapsed = "true";
-// }
-
-// function expandSection(el) {
-// 	const sectionH = el.scrollHeight;
-// 	el.style.height = sectionH + "px";
-// 	el.dataset.collapsed = "false";
-// }
-
 export function collapseHandler() {
-	const triggers = document.querySelectorAll(".js-collapse"),
-		collapsed = document.querySelectorAll(".collapsed"),
-		isClosedClass = "is-closed",
-		isCollapsedClass = "collapsed";
+	const isCollapsedClass = "is-collapsed";
 
-	// set closed state on load
-	collapsed.forEach((el) => {
-		el.previousElementSibling.classList.add(isClosedClass);
+	document.body.addEventListener("click", (e) => {
+		const trigger = e.target.closest(".js-collapse");
+		if (!trigger) return;
+
+		const isCollapsed = trigger.classList.contains(isCollapsedClass);
+
+		if (isCollapsed) {
+			expandSection(trigger);
+			trigger.classList.remove(isCollapsedClass);
+		} else {
+			collapseSection(trigger);
+		}
 	});
 
-	triggers.forEach((trigger) => {
-		trigger.addEventListener("click", () => {
-			const section = trigger.nextElementSibling,
-				isCollapsed = section.classList.contains(isCollapsedClass);
-
-			if (isCollapsed) {
-				expandSection(section);
-				trigger.classList.remove(isClosedClass);
-				section.classList.remove(isCollapsedClass);
-			} else {
-				collapseSection(section);
-				trigger.classList.add(isClosedClass);
-			}
-		});
-	});
-}
-
-function collapseSection(el) {
-	const sectionH = el.scrollHeight,
-		elTransition = el.style.transition,
-		isCollapsedClass = "collapsed";
-	el.style.transition = "";
-	requestAnimationFrame(function () {
-		el.style.height = sectionH + "px";
-		el.style.transition = elTransition;
+	let collapseSection = (trigger) => {
+		const section = trigger.nextElementSibling,
+			sectionH = section.scrollHeight,
+			elTransition = section.style.transition,
+			isCollapsedClass = "is-collapsed";
+		section.style.transition = "";
 		requestAnimationFrame(function () {
-			el.style.height = 0 + "px";
-			el.classList.add(isCollapsedClass);
+			section.style.height = sectionH + "px";
+			section.style.transition = elTransition;
+			requestAnimationFrame(function () {
+				section.style.height = 0 + "px";
+				trigger.classList.add(isCollapsedClass);
+			});
 		});
-	});
-}
+	};
 
-function expandSection(el) {
-	const sectionH = el.scrollHeight,
-		isCollapsedClass = "collapsed";
-	el.style.height = sectionH + "px";
-	el.classList.remove(isCollapsedClass);
+	let expandSection = (trigger) => {
+		const section = trigger.nextElementSibling,
+			sectionH = section.scrollHeight,
+			isCollapsedClass = "is-collapsed";
+		section.style.height = sectionH + "px";
+		trigger.classList.remove(isCollapsedClass);
+	};
 }
 
 export function accordion() {
@@ -490,8 +398,8 @@ export function useLoader(where, action = false) {
 	}
 
 	if (action == "stop") {
-		whereArr.forEach((ww) => {
-			let loaders = ww.querySelectorAll(".fetch");
+		whereArr.forEach((el) => {
+			let loaders = el.querySelectorAll(".fetch");
 			if (!loaders) return;
 			loaders.forEach((loader) => {
 				setTimeout(() => {
@@ -505,14 +413,14 @@ export function useLoader(where, action = false) {
 		return;
 	}
 
-	whereArr.forEach((w) => {
+	whereArr.forEach((el) => {
 		let loader = document.createElement("div");
 		loader.classList.add("fetch");
 		let child = document.createElement("div");
 		child.classList.add("fetch__ring");
 		loader.appendChild(child);
 
-		w.appendChild(loader);
+		el.appendChild(loader);
 
 		setTimeout(() => {
 			loader.style.opacity = 1;
@@ -523,11 +431,11 @@ export function useLoader(where, action = false) {
 export function btnLoader(where, action = false) {
 	if (!where) return;
 	const btnLoaderClass = "btn-loader",
-		label = where.querySelector('span');
+		label = where.querySelector("span");
 
 	if (action == "stop") {
-	where.classList.remove(btnLoaderClass);
-	label.style.opacity = 1;
+		where.classList.remove(btnLoaderClass);
+		label.style.opacity = "";
 		return;
 	}
 

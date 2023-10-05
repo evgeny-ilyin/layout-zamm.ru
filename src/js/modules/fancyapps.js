@@ -16,7 +16,7 @@ Carousel.defaults = {
 	// adaptiveHeight: true,
 };
 
-addEventListener("DOMContentLoaded", () => {
+export function carouselsInit() {
 	const carousels = document.querySelectorAll('[data-carousel="carousel"]');
 	carousels.forEach((el) => {
 		if (el) {
@@ -53,4 +53,4 @@ addEventListener("DOMContentLoaded", () => {
 			}
 		}
 	});
-});
+}

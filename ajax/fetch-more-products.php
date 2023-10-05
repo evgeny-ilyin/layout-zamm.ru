@@ -1,11 +1,7 @@
 <?
 try {
-	usleep(300000);
-	$pid = $_GET['pid'];
-	$prop = file_get_contents('template-prop-hover.html');
-	$prop = strtr($prop, array(
-		'$pid' => $pid,
-	));
+	usleep(350000);
+	$prop = file_get_contents('template-more-products.html');
 
 	header('Content-Type: application/json; charset=UTF-8');
 	header('HTTP/1.1 200');

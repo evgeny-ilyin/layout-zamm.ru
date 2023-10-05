@@ -1,5 +1,6 @@
 import * as functions from "./modules/functions.js";
 import * as product from "./modules/product.js";
+import * as fancyapps from "./modules/fancyapps.js";
 import * as rangeslider from "./modules/nouislider.js";
 
 addEventListener("DOMContentLoaded", () => {
@@ -21,14 +22,14 @@ addEventListener("DOMContentLoaded", () => {
 	functions.ideaPopupPlace();
 	useDynamicAdapt();
 
-	product.productGalleryInit();
+	product.productGalleriesInit();
 	product.productGallery();
 	product.productFavourite();
 	product.productPropsHover();
 	product.productProps();
-	product.productFilter();
-	product.productLoadMore();
+	product.productFetches();
 
+	fancyapps.carouselsInit();
 	rangeslider.rangeSlidersInit();
 });
 

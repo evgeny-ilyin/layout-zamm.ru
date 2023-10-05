@@ -133,7 +133,13 @@
 				transition: transform 0.25s ease-in-out;
 			}
 
-			&.is-closed {
+			&.is-collapsed {
+				& + div {
+					height: 0;
+					margin-top: 0;
+					margin-bottom: 0;
+				}
+
 				&::after {
 					transform: translateY(1px) rotate(90deg);
 				}
@@ -159,7 +165,7 @@
 			}
 		}
 
-		&.collapsed {
+		&.is-collapsed {
 			margin-top: 0;
 			margin-bottom: 0;
 		}

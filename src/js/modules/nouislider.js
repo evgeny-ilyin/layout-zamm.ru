@@ -5,6 +5,12 @@ export function rangeSlidersInit() {
 	const rangeSliders = document.querySelectorAll('[data-range="rangeslider"]');
 	if(!rangeSliders) return;
 	rangeSliders.forEach((el) => {
+
+		if(el.noUiSlider) {
+			// already initialized
+			return;
+		}
+
 		if (el) {
 			let min = parseInt(el.dataset.min),
 				max = parseInt(el.dataset.max),
