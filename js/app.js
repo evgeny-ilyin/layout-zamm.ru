@@ -427,21 +427,22 @@ function stickyHeader() {
 
 	if (!header) return;
 
+	let lastScrollTop = 0
+
 	const handleScroll = () => {
-		console.log(this);
 		if (window.scrollY == 0) {
 			header.classList.add(isOntopClass);
 		}
 		if (window.scrollY > 56) {
-			if (window.scrollY > this.lastScrollTop || 0) {
+			if (window.scrollY > lastScrollTop || 0) {
 				header.classList.remove(isOntopClass);
 				header.classList.add(isHiddenClass);
-			} else if (window.scrollY < this.lastScrollTop) {
+			} else if (window.scrollY < lastScrollTop) {
 				header.classList.add(isStickyClass);
 				header.classList.remove(isHiddenClass);
 			}
 		}
-		this.lastScrollTop = window.scrollY;
+		lastScrollTop = window.scrollY;
 	};
 
 	window.addEventListener("scroll", handleScroll);
