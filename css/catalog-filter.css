@@ -354,7 +354,12 @@
   transition: transform .25s ease-in-out;
   transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
 }
-.filter-group__header.js-collapse.is-closed::after {
+.filter-group__header.js-collapse.is-collapsed + div {
+  height: 0;
+  margin-top: 0;
+  margin-bottom: 0
+}
+.filter-group__header.js-collapse.is-collapsed::after {
   -webkit-transform: translateY(1px) rotate(90deg);
   -ms-transform: translateY(1px) rotate(90deg);
   transform: translateY(1px) rotate(90deg)
@@ -384,7 +389,7 @@
 .filter-group__list._column label {
   margin: 0 0 10px
 }
-.filter-group__list.collapsed {
+.filter-group__list.is-collapsed {
   margin-top: 0;
   margin-bottom: 0
 }

@@ -420,9 +420,6 @@ ol {
 .scrollblock::-webkit-scrollbar-thumb:hover {
   background-color: #b8c3ca
 }
-.collapsed {
-  height: 0!important
-}
 .overlay::before {
   content: "";
   display: block;
