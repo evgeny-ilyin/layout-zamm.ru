@@ -428,6 +428,7 @@ function stickyHeader() {
 	if (!header) return;
 
 	const handleScroll = () => {
+		console.log(this);
 		if (window.scrollY == 0) {
 			header.classList.add(isOntopClass);
 		}
@@ -944,11 +945,11 @@ function useLoader(where, action = false) {
 function btnLoader(where, action = false) {
 	if (!where) return;
 	const btnLoaderClass = "btn-loader",
-		label = where.querySelector('span');
+		label = where.querySelector("span");
 
 	if (action == "stop") {
-	where.classList.remove(btnLoaderClass);
-	label.style.opacity = 1;
+		where.classList.remove(btnLoaderClass);
+		label.style.opacity = "";
 		return;
 	}
 
