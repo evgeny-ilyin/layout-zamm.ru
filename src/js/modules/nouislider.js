@@ -3,10 +3,9 @@ import wNumb from "wnumb";
 
 export function rangeSlidersInit() {
 	const rangeSliders = document.querySelectorAll('[data-range="rangeslider"]');
-	if(!rangeSliders) return;
+	if (!rangeSliders) return;
 	rangeSliders.forEach((el) => {
-
-		if(el.noUiSlider) {
+		if (el.noUiSlider) {
 			// already initialized
 			return;
 		}
@@ -37,10 +36,13 @@ export function rangeSlidersInit() {
 			});
 
 			// fire change event for form after value set
-			el.noUiSlider.on("end", () => {
-				const evt = new Event("change"),
-					form = el.closest("form");
-				form.dispatchEvent(evt);
+			el.noUiSlider.on("end", (values, handle) => {
+				const evt = new Event("input", { bubbles: true }),
+					input = inputs[handle];
+				input.dispatchEvent(evt);
+				// const evt = new Event("change"),
+				// 	form = el.closest("form");
+				// form.dispatchEvent(evt);
 			});
 		}
 	});
@@ -54,7 +56,8 @@ export function rangeSlidersInit() {
 			rangeSliders = form.querySelectorAll('[data-range="rangeslider"]');
 		rangeSliders.forEach((el) => {
 			if (el) {
-				el.noUiSlider.reset();
+				el.noUiSlider.set([0,999999999]);
+				// el.noUiSlider.reset();
 			}
 		});
 	});

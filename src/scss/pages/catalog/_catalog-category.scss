@@ -159,7 +159,7 @@
 }
 
 .catalog-bar {
-	margin: 8px 0 16px;
+	margin: 8px 0 9px;
 
 	// .catalog-bar__controls
 	&__controls {
@@ -183,8 +183,11 @@
 		}
 	}
 
-	// .catalog-bar__filter
-	&__filter {
+	// .catalog-bar__tags
+	&__tags {
+		display: flex;
+		flex-wrap: wrap;
+		min-height: 26px;
 	}
 }
 

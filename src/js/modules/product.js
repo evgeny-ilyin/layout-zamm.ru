@@ -128,7 +128,7 @@ export function productProps() {
 			params = JSON.parse(prop.dataset.params);
 		}
 
-		let body = Object.assign(data, params, formDataObject);
+		Object.assign(data, params, formDataObject);
 
 		(async () => {
 			useLoader([item, details]);
@@ -138,7 +138,7 @@ export function productProps() {
 				headers: {
 					"Content-Type": "application/json;charset=utf-8",
 				},
-				body: JSON.stringify(body),
+				body: JSON.stringify(data),
 			});
 
 			useLoader([item, details], "stop");
@@ -192,7 +192,8 @@ export function productFetches() {
 
 		// break if new url not recieved
 		let result = await response.json();
-		if (Object.keys(result.url).length == 0) return;
+
+		if (!result.hasOwnProperty("url")) return;
 		filterForm.action = result.url;
 
 		// step 2: get page chunks
@@ -201,8 +202,9 @@ export function productFetches() {
 
 		// step 3: update page chunks
 		if (result.status === true) {
-			// if (Object.keys(result.chunks).length == 0) return;
-			updateChunks(result.chunks);
+			if (result.hasOwnProperty("chunks")) {
+				updateChunks(result.chunks);
+			}
 		}
 
 		reinitFetchesResults();
@@ -232,8 +234,9 @@ export function productFetches() {
 				filterForm.action = result.url;
 			}
 
-			// if (Object.keys(result.chunks).length == 0) return;
-			updateChunks(result.chunks);
+			if (result.hasOwnProperty("chunks")) {
+				updateChunks(result.chunks);
+			}
 		}
 
 		reinitFetchesResults();
@@ -270,8 +273,10 @@ export function productFetches() {
 					target.appendChild(i);
 				});
 			}
-			// if (Object.keys(result.chunks).length == 0) return;
-			updateChunks(result.chunks);
+
+			if (result.hasOwnProperty("chunks")) {
+				updateChunks(result.chunks);
+			}
 		}
 
 		reinitFetchesResults();
@@ -301,18 +306,22 @@ export function productFetches() {
 	};
 
 	// filter on change
-	filterForm.addEventListener("change", () => {
+	filterForm.addEventListener("input", () => {
 		filterReset.classList.remove("invisible");
 		fetchByFilter();
+		filterTagsSet();
 	});
 
 	// filter on reset
 	filterReset.addEventListener("click", () => {
-		const resetFlag = document.getElementById("filter-reset");
-		filterForm.reset();
+		const resetFlag = document.getElementById("filter-reset"),
+			checked = document.querySelectorAll(`input[type='checkbox']:checked`);
+		if (checked.length > 0) {
+			checked.forEach((el) => (el.checked = false));
+		}
 		resetFlag.value = "Y";
 		fetchByFilter();
-
+		filterTagsSet();
 		resetFlag.value = "N";
 		filterReset.classList.add("invisible");
 	});
@@ -321,6 +330,7 @@ export function productFetches() {
 	filterForm.addEventListener("submit", (e) => {
 		e.preventDefault();
 		fetchByFilter();
+		filterTagsSet();
 	});
 
 	// dropdown sorter
@@ -346,14 +356,90 @@ export function productFetches() {
 	});
 }
 
+export function filterTagsSet() {
+	const filterForm = document.getElementById("filter-form"),
+		fGroups = filterForm.querySelectorAll(".filter-group"),
+		tagsContainer = document.querySelector(".catalog-bar__tags"),
+		tagsObj = {};
+
+	fGroups.forEach((gr) => {
+		const header = gr.querySelector(".filter-group__header").textContent,
+			checkboxes = gr.querySelectorAll("input[type='checkbox']:checked"),
+			rangesliders = gr.querySelectorAll(".rangeslider"),
+			rangeArr = [],
+			checkedArr = [];
+
+		if (checkboxes.length + rangesliders.length == 0) return;
+
+		rangesliders.forEach((el) => {
+			const slider = el.querySelector("[data-range='rangeslider']"),
+				elGroup = el.closest(".filter-group").dataset.propId,
+				iMin = el.querySelector(".input-min"),
+				iMax = el.querySelector(".input-max"),
+				rangeMin = parseInt(slider.dataset.min),
+				rangeMax = parseInt(slider.dataset.max),
+				valueMin = iMin.value,
+				valueMax = iMax.value,
+				labelMin = iMin.previousElementSibling.textContent,
+				labelMax = iMax.previousElementSibling.textContent;
+
+			if (rangeMin == parseInt(valueMin.replace(/[^0-9]+/g, "")) && rangeMax == parseInt(valueMax.replace(/[^0-9]+/g, ""))) return;
+
+			rangeArr.push({ title: `${labelMin} ${valueMin} ${labelMax} ${valueMax}`, group: elGroup, name: "" });
+			if (rangeArr.length > 0) Object.assign(tagsObj, { [header]: rangeArr });
+		});
+
+		checkboxes.forEach((el) => {
+			const elGroup = el.closest(".filter-group").dataset.propId,
+				elName = el.name,
+				elTitle = el.parentNode.title;
+			checkedArr.push({ title: elTitle, group: elGroup, name: elName });
+		});
+
+		if (checkedArr.length > 0) Object.assign(tagsObj, { [header]: checkedArr });
+	});
+
+	tagsContainer.innerHTML = createTagsList(tagsObj);
+}
+
+export function filterTagsRemove() {
+	document.body.addEventListener("click", (e) => {
+		const btn = e.target.closest(".js-remove-tag");
+		if (!btn) return;
+
+		if (btn.dataset.name) {
+			document.querySelector(`[name=${btn.dataset.name}]`).click();
+		}
+
+		if (btn.dataset.group) {
+			const filterForm = document.getElementById("filter-form"),
+				group = document.querySelector(`[data-prop-id=${btn.dataset.group}]`),
+				checked = group.querySelectorAll(`input[type='checkbox']:checked`),
+				rangeSlider = group.querySelector('[data-range="rangeslider"]');
+
+			if (checked.length > 0) {
+				checked.forEach((el) => (el.checked = false));
+			}
+
+			if (rangeSlider) {
+				rangeSlider.noUiSlider.set([0, 999999999]);
+			}
+
+			filterTagsSet();
+			filterForm.dispatchEvent(new Event("submit"));
+			filterForm.requestSubmit();
+		}
+	});
+}
+
 // product helpers
 function isPropOverflowX(el) {
 	return el ? el.scrollWidth > el.clientWidth : false;
 }
 
-function productPropCollapseHandler(item) {
-	if (!item) return;
-	const propsBtns = item.querySelectorAll(".js-prop-collapse"),
+function productPropCollapseHandler(el) {
+	if (!el) return;
+	const propsBtns = el.querySelectorAll(".js-prop-collapse"),
 		isOpenedClass = "is-opened";
 
 	propsBtns.forEach((btn) => {
@@ -369,4 +455,26 @@ function productPropCollapseHandler(item) {
 			});
 		}
 	});
+}
+
+function createTagsList(obj) {
+	let tagItems = "";
+
+	Object.entries(obj).forEach(([key, value]) => {
+		if (typeof value === "object" && value !== null) {
+			let count = Object.keys(value).length;
+			if (count == 1) {
+				tagItems += `<div class="tag"><div class="tag__head"><div class="tag__val">${key}: ${value[0].title}</div><div class="tag__remove js-remove-tag" data-group="${value[0].group}"></div></div></div>`;
+			} else {
+				tagItems += `<div class="tag"><div class="tag__head"><div class="tag__val">${key}: ${count} знач.</div><div class="tag__remove js-remove-tag" data-group="${value[0].group}"></div></div>`;
+				tagItems += `<div class="tag__list">`;
+				Object.values(value).forEach((v) => {
+					tagItems += `<div class="tag__item"><div class="tag__val">${v.title}</div><div class="tag__remove js-remove-tag" data-name="${v.name}"></div></div>`;
+				});
+				tagItems += `</div></div>`;
+			}
+		}
+	});
+
+	return tagItems;
 }

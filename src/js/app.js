@@ -22,6 +22,9 @@ addEventListener("DOMContentLoaded", () => {
 	functions.ideaPopupPlace();
 	useDynamicAdapt();
 
+	fancyapps.carouselsInit();
+	rangeslider.rangeSlidersInit();
+
 	product.productGalleriesInit();
 	product.productGallery();
 	product.productFavourite();
@@ -29,8 +32,9 @@ addEventListener("DOMContentLoaded", () => {
 	product.productProps();
 	product.productFetches();
 
-	fancyapps.carouselsInit();
-	rangeslider.rangeSlidersInit();
+	product.filterTagsSet();
+	product.filterTagsRemove();
+
 });
 
 import { useDynamicAdapt } from "./modules/dynamicAdapt.js";

@@ -5,18 +5,18 @@
 			<div class="rangeslider__inputs">
 				<div>
 					<span>от</span>
-					<input type="text" class="input-min" name="arrFilter_141_MIN" value="15 000" readonly />
+					<input type="text" class="input-min" name="arrFilter_141_MIN" value="10 000" readonly />
 					<!-- value по умолчанию заполнять крайними значениями диапазона (форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
 				</div>
 				<div>
 					<span>до</span>
-					<input type="text" class="input-max" name="arrFilter_142_MAX" value="90 000" readonly />
+					<input type="text" class="input-max" name="arrFilter_142_MAX" value="100 500" readonly />
 					<!-- value по умолчанию заполнять крайними значениями диапазона(форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
 				</div>
 			</div>
-			<div data-range="rangeslider" data-min="15000" data-max="90000" data-from="25000" data-to="60000" data-step="1000" data-name="group-price"></div>
+			<div data-range="rangeslider" data-min="10000" data-max="100500" data-from="10000" data-to="100500" data-step="1000"></div>
 			<!-- min-max: крайние значения диапазона, обязательные -->
-			<!-- from-to: стартовые значения в рамках диапазона, необязательные. можно использовать по одному или не использовать вообще (применится min/max) -->
+			<!-- from-to: стартовые значения в рамках диапазона (напр., для сео страниц), необязательные. можно использовать по одному или не использовать вообще (применится min/max) -->
 			<!-- step: шаг изменения, необязательное — дефолт: 500 -->
 		</div>
 	</div>
@@ -25,25 +25,18 @@
 <div class="filter-group" data-prop-id="group-220">
 	<div class="filter-group__header js-collapse">Цвет столешницы</div>
 	<div class="filter-group__list">
-		<label title="Свойство 1">
-			<input type="checkbox" name="arrFilter_220_1" value="Y" checked />
+		<label title="Берёза">
+			<input type="checkbox" name="arrFilter_220_1" value="Y" />
 			<picture>
 				<source srcset="img/dev/props/color-1.png" type="image/webp" />
 				<img src="img/dev/props/color-1.png" width="40" height="40" alt="" loading="lazy" />
 			</picture>
 		</label>
-		<label title="Свойство 2">
-			<input type="checkbox" name="arrFilter_220_2" value="Y" checked />
+		<label title="Дуб">
+			<input type="checkbox" name="arrFilter_220_2" value="Y" />
 			<picture>
 				<source srcset="img/dev/props/color-2.png" type="image/webp" />
 				<img src="img/dev/props/color-2.png" width="40" height="40" alt="" loading="lazy" />
-			</picture>
-		</label>
-		<label title="Свойство 220-3">
-			<input type="checkbox" name="arrFilter_220_3" value="Y" />
-			<picture>
-				<source srcset="img/dev/props/color-1.png" type="image/webp" />
-				<img src="img/dev/props/color-1.png" width="40" height="40" alt="" loading="lazy" />
 			</picture>
 		</label>
 	</div>
@@ -52,21 +45,21 @@
 <div class="filter-group" data-prop-id="group-221">
 	<div class="filter-group__header js-collapse">Цвет металлокаркаса</div>
 	<div class="filter-group__list">
-		<label title="Свойство 3">
+		<label title="Металлик">
 			<input type="checkbox" name="arrFilter_221_1" value="Y" />
 			<picture>
 				<source srcset="img/dev/props/color-3.png" type="image/webp" />
 				<img src="img/dev/props/color-3.png" width="40" height="40" alt="" loading="lazy" />
 			</picture>
 		</label>
-		<label title="Свойство 4">
+		<label title="Чёрный">
 			<input type="checkbox" name="arrFilter_221_2" value="Y" />
 			<picture>
 				<source srcset="img/dev/props/color-4.png" type="image/webp" />
 				<img src="img/dev/props/color-4.png" width="40" height="40" alt="" loading="lazy" />
 			</picture>
 		</label>
-		<label title="Свойство 5">
+		<label title="Серый">
 			<input type="checkbox" name="arrFilter_221_3" value="Y" />
 			<picture>
 				<source srcset="img/dev/props/color-5.png" type="image/webp" />
@@ -79,15 +72,15 @@
 <div class="filter-group" data-prop-id="group-222">
 	<div class="filter-group__header js-collapse is-collapsed">Ширина</div>
 	<div class="filter-group__list _column">
-		<label title="Свойство 6">
+		<label title="100 см">
 			<input type="checkbox" name="arrFilter_222_1" value="Y" />
 			<span>100 см</span>
 		</label>
-		<label title="Свойство 7">
+		<label title="120 см">
 			<input type="checkbox" name="arrFilter_222_2" value="Y" />
 			<span>120 см</span>
 		</label>
-		<label title="Свойство 8">
+		<label title="150 см">
 			<input type="checkbox" name="arrFilter_222_3" value="Y" />
 			<span>150 см</span>
 		</label>
@@ -97,13 +90,17 @@
 <div class="filter-group" data-prop-id="group-223">
 	<div class="filter-group__header js-collapse">Глубина</div>
 	<div class="filter-group__list _column">
-		<label title="Свойство 9">
-			<input type="checkbox" name="arrFilter_223_1" value="Y" checked />
+		<label title="10 см">
+			<input type="checkbox" name="arrFilter_223_1" value="Y" />
 			<span>10 см</span>
 		</label>
-		<label title="Свойство 10">
+		<label title="12 см">
 			<input type="checkbox" name="arrFilter_223_2" value="Y" />
 			<span>12 см</span>
+		</label>
+		<label title="15 см">
+			<input type="checkbox" name="arrFilter_223_3" value="Y" />
+			<span>15 см</span>
 		</label>
 	</div>
 </div>
