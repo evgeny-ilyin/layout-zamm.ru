@@ -193,18 +193,27 @@ export function productFetches() {
 		// break if new url not recieved
 		let result = await response.json();
 
-		if (!result.hasOwnProperty("url")) return;
-		filterForm.action = result.url;
+		try {
+			if (result.url) filterForm.action = result.url;
+			else throw new Error("url is empty");
+		} catch (e) {
+			console.log(e);
+			useLoader(itemsContainer, "stop");
+			return;
+		}
 
 		// step 2: get page chunks
 		response = await fetch(result.url);
 		result = await response.json();
 
 		// step 3: update page chunks
-		if (result.status === true) {
-			if (result.hasOwnProperty("chunks")) {
-				updateChunks(result.chunks);
-			}
+		try {
+			if (result.status === true && result.chunks) updateChunks(result.chunks);
+			else throw new Error("chunks response is incorrect");
+		} catch (e) {
+			console.log(e);
+			useLoader(itemsContainer, "stop");
+			return;
 		}
 
 		reinitFetchesResults();
@@ -230,11 +239,11 @@ export function productFetches() {
 		// step 2: update page chunks
 		if (result.status === true) {
 			// update action if new url recieved
-			if (result.hasOwnProperty("url")) {
+			if (result.url) {
 				filterForm.action = result.url;
 			}
 
-			if (result.hasOwnProperty("chunks")) {
+			if (result.chunks) {
 				updateChunks(result.chunks);
 			}
 		}
@@ -260,11 +269,11 @@ export function productFetches() {
 		// step 2: update page chunks
 		if (result.status === true) {
 			// update action if new url recieved
-			if (result.hasOwnProperty("url")) {
+			if (result.url) {
 				filterForm.action = result.url;
 			}
 
-			if (result.hasOwnProperty("products")) {
+			if (result.products) {
 				// target.innerHTML += result; -- bad solution (target div flickering)
 				let div = document.createElement("div");
 				div.innerHTML = result.products;
@@ -274,7 +283,7 @@ export function productFetches() {
 				});
 			}
 
-			if (result.hasOwnProperty("chunks")) {
+			if (result.chunks) {
 				updateChunks(result.chunks);
 			}
 		}
@@ -319,9 +328,9 @@ export function productFetches() {
 		if (checked.length > 0) {
 			checked.forEach((el) => (el.checked = false));
 		}
+		filterTagsSet();
 		resetFlag.value = "Y";
 		fetchByFilter();
-		filterTagsSet();
 		resetFlag.value = "N";
 		filterReset.classList.add("invisible");
 	});
