@@ -37,16 +37,22 @@ try {
 
 			$chunks['filter-body'] = $filterBody;
 			$chunks['filter-products'] = $filterItems;
+			$chunks['catalog-bottom'] = '';
+
 		} else {
 			$filterBody = file_get_contents('template-filter-body.html');
 			$filterItems = file_get_contents('template-filter-products.html');
 			$filterPages = file_get_contents('template-filter-pagination.html');
 			$catalogHead = file_get_contents('template-filter-catalog-head.html');
+			$catalogBottom = file_get_contents('template-filter-catalog-bottom.html');
+			$catalogCarousel = file_get_contents('template-filter-catalog-carousel.html');
 
 			$chunks['filter-body'] = $filterBody;
 			$chunks['filter-products'] = $filterItems;
 			$chunks['filter-pagination'] = $filterPages;
 			$chunks['catalog-head'] = $catalogHead;
+			$chunks['catalog-bottom'] = $catalogBottom;
+			$chunks['catalog-carousel'] = $catalogCarousel;
 		}
 
 		$resp = array('status' => true, 'chunks' => $chunks);
