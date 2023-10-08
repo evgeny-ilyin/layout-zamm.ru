@@ -1,6 +1,16 @@
 import webpack from "webpack-stream";
 
 export const js = () => {
+	// https://qna.habr.com/q/985023
+	// convert Gulp array into entry property for Webpack
+	let fileName = null;
+	let entryObj = {};
+	app.path.src.js.map((filePath) => {
+		fileName = filePath.split("/").pop().split(".").slice(0, -1).join(".");
+		entryObj[fileName] = filePath;
+	});
+	//
+
 	return app.gulp
 		.src(app.path.src.js)
 		.pipe(
@@ -13,9 +23,10 @@ export const js = () => {
 		)
 		.pipe(
 			webpack({
+				entry: entryObj,
 				mode: app.isBuild ? "production" : "development",
 				output: {
-					filename: "app.js",
+					filename: "[name].js",
 				},
 				optimization: {
 					minimize: false,
@@ -27,9 +38,10 @@ export const js = () => {
 			app.plugins.if(
 				app.isBuild,
 				webpack({
+					entry: entryObj,
 					mode: app.isBuild ? "production" : "development",
 					output: {
-						filename: "app.min.js",
+						filename: "[name].min.js",
 					},
 				})
 			)
