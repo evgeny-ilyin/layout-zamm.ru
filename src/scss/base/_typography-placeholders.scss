@@ -2,10 +2,20 @@
 /// Basic styles for headings
 ///
 %h1-heading {
-	font-size: rem(64);
+	font-size: rem(32);
 	line-height: 0.9;
-	font-weight: 700;
+	font-weight: 600;
 	letter-spacing: -1.28px;
+	margin-bottom: 16px;
+
+	@include respond-to(md) {
+		font-size: rem(40);
+	}
+
+	@include respond-to(lg) {
+		font-size: rem(64);
+		font-weight: 700;
+	}
 }
 
 %h2-heading {
@@ -13,6 +23,7 @@
 	line-height: 1;
 	font-weight: 700;
 	letter-spacing: -0.68px;
+	margin-bottom: 16px;
 }
 
 %h3-heading {
@@ -20,6 +31,7 @@
 	line-height: 1;
 	font-weight: 700;
 	letter-spacing: -0.48px;
+	margin-bottom: 16px;
 }
 
 %h4-heading {
@@ -27,6 +39,7 @@
 	line-height: 1;
 	font-weight: 700;
 	letter-spacing: -0.4px;
+	margin-bottom: 16px;
 }
 
 %h5-heading {
@@ -34,6 +47,7 @@
 	line-height: 1.2;
 	font-weight: 700;
 	letter-spacing: -0.3px;
+	margin-bottom: 16px;
 }
 
 %h6-heading {
@@ -41,10 +55,12 @@
 	line-height: 1.2;
 	font-weight: 700;
 	letter-spacing: -0.3px;
+	margin-bottom: 16px;
 }
+
 ///
 /// Basic styles for links
-/// 
+///
 %text-links {
 	color: $href-color;
 

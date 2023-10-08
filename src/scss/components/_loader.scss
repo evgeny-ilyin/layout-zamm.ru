@@ -29,6 +29,14 @@
 		}
 	}
 
+	@include when-inside(".filter.is-active") {
+		// backdrop-filter: blur(1px);
+
+		&__ring {
+			display: none;
+		}
+	}
+
 	@include when-inside(".item") {
 		// backdrop-filter: blur(1px);
 

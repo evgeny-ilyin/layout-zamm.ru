@@ -1,10 +1,9 @@
 .catalog-head {
-	margin-bottom: 58px;
-
 	// .catalog-head__root
 	&__root {
 		padding: 24px 0;
 		position: relative;
+		margin-bottom: 58px;
 
 		@include respond-to(lg) {
 			background: $gray;
@@ -23,10 +22,31 @@
 		}
 	}
 
+	// .catalog-head__sub
+	&__sub {
+		padding: 24px 0;
+		margin-bottom: 10px;
+	}
+
+	// .catalog-head__tags
+	&__tags {
+		display: flex;
+		flex-flow: row wrap;
+		margin-top: 31px;
+		padding-bottom: 24px;
+		border-bottom: 2px solid $black10;
+
+		@include respond-to(lg) {
+			margin-top: 47px;
+		}
+	}
+
 	// .catalog-head__name
 	&__name {
 		@include respond-to(lg) {
-			padding: 0 32px;
+			@include when-inside(".catalog-head__root") {
+				padding: 0 32px;
+			}
 		}
 	}
 
@@ -158,6 +178,27 @@
 	}
 }
 
+.tag-category {
+	padding: 11px 16px 10px;
+	margin: 0 8px 8px 0;
+	border-radius: 60px;
+	background: $gray;
+	border: 1px solid transparent;
+	text-decoration: none;
+	white-space: nowrap;
+	transition: all $transition-default;
+
+	@include on-hover {
+		background: #e9ebec;
+		text-shadow: none;
+	}
+
+	&.is-active {
+		border-color: #000;
+		font-weight: 700;
+	}
+}
+
 .catalog-bar {
 	margin: 8px 0 9px;
 
@@ -171,6 +212,10 @@
 
 	// .catalog-bar__sort
 	&__sort {
+		@include respond-to(sm, "max") {
+			margin-right: 16px;
+		}
+
 		@include respond-to(xl, "max") {
 			order: 1;
 		}

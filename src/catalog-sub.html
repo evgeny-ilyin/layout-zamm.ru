@@ -1,14 +1,13 @@
 @@include('html/head.html', {
-"title": "Главная"
+"title": "Каталог"
 })
 <body>
 	@@include('html/header.html', {})
 
 	<main class="container">
-		@@include('html/pages/mainpage/main-carousel.html')
+		@@include('html/pages/blocks/block-product-catalog-sub.html')
 		@@include('html/pages/blocks/block-product-carousel.html')
 		@@include('html/pages/blocks/block-cards.html')
-		@@include('html/pages/blocks/block-ideas.html')
 	</main>
 
 	@@include('html/footer.html', {
@@ -19,5 +18,6 @@
 	@@include('html/cookies.html', {})
 	@@include('html/svg-sprite.html', {})
 	@@include('html/scripts-main.html', {})
+	@@include('html/scripts-catalog.html', {})
 </body>
 </html>
