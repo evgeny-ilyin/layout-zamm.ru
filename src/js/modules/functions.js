@@ -84,6 +84,7 @@ function overlay(action, origin = false) {
 	} else {
 		const o = document.querySelector(".overlay"),
 			scrollY = body.style.top;
+		if (!o) return;
 		o.classList.remove(isActiveClass);
 		body.classList.remove("noscroll");
 		body.style.top = "";
@@ -162,7 +163,7 @@ export function mobileCatalog() {
 	});
 
 	menuToggler.addEventListener("change", () => {
-		if (!this.checked) {
+		if (!menuToggler.checked) {
 			backBtn.classList.remove(isActiveClass);
 			subMenuWrapper.classList.remove(isActiveClass);
 			navMenu.classList.remove(hideNavClass);
@@ -333,6 +334,7 @@ export function ideaMarkerShow() {
 					ideaMobile.innerHTML = "";
 					ideaMobile.parentElement.classList.add(isActiveClass);
 					ideaMobile.append(cloneContent);
+					// overlay(1);
 				}
 			}
 		});
@@ -399,6 +401,7 @@ export function useLoader(where, action = false) {
 
 	if (action == "stop") {
 		whereArr.forEach((el) => {
+			if (!el) return;
 			let loaders = el.querySelectorAll(".fetch");
 			if (!loaders) return;
 			loaders.forEach((loader) => {
@@ -414,6 +417,7 @@ export function useLoader(where, action = false) {
 	}
 
 	whereArr.forEach((el) => {
+		if (!el) return;
 		let loader = document.createElement("div");
 		loader.classList.add("fetch");
 		let child = document.createElement("div");

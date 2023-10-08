@@ -173,13 +173,14 @@ export function productFetches() {
 	if (!filterForm) return;
 
 	let fetchByFilter = async () => {
-		let formData = new FormData(filterForm),
+		let filterMobile = document.querySelector(".filter.is-active"),
+			formData = new FormData(filterForm),
 			url = filterForm.action;
 
 		let formDataObject = Object.fromEntries(formData.entries());
 
 		// loader start +++ filter @mobile
-		useLoader(itemsContainer);
+		useLoader([itemsContainer, filterMobile]);
 
 		// step 1: get filter url based on filter selected
 		let response = await fetch(url, {
@@ -201,6 +202,8 @@ export function productFetches() {
 			useLoader(itemsContainer, "stop");
 			return;
 		}
+
+		setWindowLocation(result.url);
 
 		// step 2: get page chunks
 		response = await fetch(result.url);
@@ -241,6 +244,7 @@ export function productFetches() {
 			// update action if new url recieved
 			if (result.url) {
 				filterForm.action = result.url;
+				setWindowLocation(result.url);
 			}
 
 			if (result.chunks) {
@@ -271,6 +275,7 @@ export function productFetches() {
 			// update action if new url recieved
 			if (result.url) {
 				filterForm.action = result.url;
+				setWindowLocation(result.url);
 			}
 
 			if (result.products) {
@@ -297,14 +302,12 @@ export function productFetches() {
 		if (!obj) return;
 
 		Object.entries(obj).forEach(([key, value]) => {
-			if (value.length > 0) {
-				let target = document.querySelector(`[data-id=${key}]`);
-				if (!target) {
-					console.log(`data-id ${key} not found`);
-					return;
-				}
-				target.innerHTML = value;
+			let target = document.querySelector(`[data-id=${key}]`);
+			if (!target) {
+				console.log(`data-id ${key} not found`);
+				return;
 			}
+			target.innerHTML = value;
 		});
 	};
 
@@ -312,6 +315,10 @@ export function productFetches() {
 		carouselsInit();
 		productGalleriesInit();
 		rangeSlidersInit();
+	};
+
+	let setWindowLocation = (url) => {
+		window.history.pushState("", "", url.replace("https://deviart.ru/zamm/", ""));
 	};
 
 	// filter on change
@@ -367,9 +374,11 @@ export function productFetches() {
 
 export function filterTagsSet() {
 	const filterForm = document.getElementById("filter-form"),
-		fGroups = filterForm.querySelectorAll(".filter-group"),
+		fGroups = document.querySelectorAll(".filter-group"),
 		tagsContainer = document.querySelector(".catalog-bar__tags"),
 		tagsObj = {};
+
+	if (!filterForm) return;
 
 	fGroups.forEach((gr) => {
 		const header = gr.querySelector(".filter-group__header").textContent,
@@ -436,7 +445,7 @@ export function filterTagsRemove() {
 
 			filterTagsSet();
 			filterForm.dispatchEvent(new Event("submit"));
-			filterForm.requestSubmit();
+			// filterForm.requestSubmit(); 90.46% supported
 		}
 	});
 }
