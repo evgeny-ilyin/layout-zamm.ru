@@ -35,17 +35,16 @@ export const js = () => {
 		)
 		.pipe(app.gulp.dest(app.path.build.js))
 		.pipe(
-			app.plugins.if(
-				app.isBuild,
-				webpack({
-					entry: entryObj,
-					mode: app.isBuild ? "production" : "development",
-					output: {
-						filename: "[name].min.js",
-					},
-				})
-			)
+			webpack({
+				entry: entryObj,
+				// mode: app.isBuild ? "production" : "development",
+				mode: "production",
+				output: {
+					filename: "[name].min.js",
+				},
+			})
 		)
-		.pipe(app.plugins.if(app.isBuild, app.gulp.dest(app.path.build.js)))
+		.pipe(app.gulp.dest(app.path.build.js))
+		// .pipe(app.plugins.if(app.isBuild, app.gulp.dest(app.path.build.js)))
 		.pipe(app.plugins.browsersync.stream());
 };
