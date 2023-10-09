@@ -275,6 +275,9 @@
   -webkit-animation: fetchRingRotate 1s infinite linear;
   animation: fetchRingRotate 1s infinite linear
 }
+.filter.is-active .fetch__ring {
+  display: none
+}
 .item .fetch__ring {
   display: none
 }

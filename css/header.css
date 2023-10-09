@@ -268,40 +268,46 @@ svg {
   width: 100%
 }
 h1 {
-  font-size: 4rem;
+  font-size: 2rem;
   line-height: .9;
-  font-weight: 700;
-  letter-spacing: -1.28px
+  font-weight: 600;
+  letter-spacing: -1.28px;
+  margin-bottom: 16px
 }
 h2 {
   font-size: 2.125rem;
   line-height: 1;
   font-weight: 700;
-  letter-spacing: -.68px
+  letter-spacing: -.68px;
+  margin-bottom: 16px
 }
 h3 {
   font-size: 1.5rem;
   line-height: 1;
   font-weight: 700;
-  letter-spacing: -.48px
+  letter-spacing: -.48px;
+  margin-bottom: 16px
 }
 h4 {
   font-size: 1.25rem;
   line-height: 1;
   font-weight: 700;
-  letter-spacing: -.4px
+  letter-spacing: -.4px;
+  margin-bottom: 16px
 }
 h5 {
   font-size: 1.125rem;
   line-height: 1.2;
   font-weight: 700;
-  letter-spacing: -.3px
+  letter-spacing: -.3px;
+  margin-bottom: 16px
 }
 h6 {
   font-size: 1rem;
   line-height: 1.2;
   font-weight: 700;
-  letter-spacing: -.3px
+  letter-spacing: -.3px;
+  margin-bottom: 16px
 }
 a {
   position: relative;
@@ -335,7 +341,8 @@ body {
 }
 p {
   letter-spacing: -.3px;
-  margin-bottom: 16px
+  margin-bottom: 16px;
+  line-height: 1.4
 }
 ol,
 ul {
@@ -1302,6 +1309,7 @@ ol {
 }
 .btn_small {
   font-size: .8125rem;
+  line-height: 1.1;
   padding: 5px 15px 4px
 }
 .btn_long {
@@ -1946,6 +1954,9 @@ input[type=checkbox]:disabled {
     padding-left: 16px;
     padding-right: 16px
   }
+  h1 {
+    font-size: 2.5rem
+  }
   .block-header {
     margin-top: 50px;
     margin-bottom: 32px;
@@ -1972,6 +1983,10 @@ input[type=checkbox]:disabled {
   }
 }
 @media (min-width:1024px) {
+  h1 {
+    font-size: 4rem;
+    font-weight: 700
+  }
   .block-header {
     font-size: 2.125rem
   }

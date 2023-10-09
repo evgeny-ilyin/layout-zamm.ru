@@ -803,14 +803,14 @@ function ideaPopupPlace() {
 	);
 }
 
-function showSkeleton(where, tpl) {
+function functions_showSkeleton(where, tpl) {
 	if (!where || !tpl) return;
 	const template = document.getElementById(tpl);
 	where.innerHTML = "";
 	where.appendChild(template.content.cloneNode(true));
 }
 
-function useLoader(where, action = false) {
+function functions_useLoader(where, action = false) {
 	if (!where) return;
 	let whereArr = [];
 
@@ -853,7 +853,7 @@ function useLoader(where, action = false) {
 	});
 }
 
-function btnLoader(where, action = false) {
+function functions_btnLoader(where, action = false) {
 	if (!where) return;
 	const btnLoaderClass = "btn-loader",
 		label = where.querySelector("span");
@@ -893,7 +893,7 @@ V.defaults = {
 	// adaptiveHeight: true,
 };
 
-function carouselsInit() {
+function fancyapps_carouselsInit() {
 	const carousels = document.querySelectorAll('[data-carousel="carousel"]');
 	carousels.forEach((el) => {
 		if (el) {
@@ -3206,12 +3206,12 @@ function initialize(target, originalOptions) {
 });
 
 // EXTERNAL MODULE: ./node_modules/wnumb/wNumb.js
-var wNumb = __webpack_require__(18);
+var wnumb_wNumb = __webpack_require__(18);
 ;// CONCATENATED MODULE: ./src/js/modules/nouislider.js
 
 
 
-function rangeSlidersInit() {
+function nouislider_rangeSlidersInit() {
 	const rangeSliders = document.querySelectorAll('[data-range="rangeslider"]');
 	if (!rangeSliders) return;
 	rangeSliders.forEach((el) => {
@@ -3227,7 +3227,7 @@ function rangeSlidersInit() {
 				to = parseInt(el.dataset.to),
 				step = parseInt(el.dataset.step);
 
-			nouislider.create(el, {
+			noUiSlider.create(el, {
 				start: [from ? from : min, to ? to : max],
 				range: { min: min, max: max },
 				step: step ? step : 500,
@@ -4045,8 +4045,7 @@ const headerAlert = document.querySelector(".header-alert"),
 		window.addEventListener("load", alertCheck);
 	}
 
-;// CONCATENATED MODULE: ./src/js/app.js
-
+;// CONCATENATED MODULE: ./src/js/main.js
 
 
 
@@ -4055,7 +4054,7 @@ const headerAlert = document.querySelector(".header-alert"),
 
 addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
-
+	
 	stickyHeader();
 	mobileCatalog();
 	searchForm();
@@ -4070,18 +4069,11 @@ addEventListener("DOMContentLoaded", () => {
 	ideaMarkerShow();
 	ideaPopupPlace();
 
-	carouselsInit();
-	rangeSlidersInit();
+	fancyapps_carouselsInit();
 
 	productGalleriesInit();
 	productGallery();
 	productFavourite();
-	productPropsHover();
-	productProps();
-	productFetches();
-
-	filterTagsSet();
-	filterTagsRemove();
 });
 
 })();

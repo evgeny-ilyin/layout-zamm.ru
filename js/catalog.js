@@ -4045,17 +4045,20 @@ const headerAlert = document.querySelector(".header-alert"),
 		window.addEventListener("load", alertCheck);
 	}
 
-;// CONCATENATED MODULE: ./src/js/app.js
+;// CONCATENATED MODULE: ./src/js/catalog.js
 
 
 
 
+
+
+// catalog
 
 
 
 addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
-
+	
 	stickyHeader();
 	mobileCatalog();
 	searchForm();
@@ -4071,15 +4074,17 @@ addEventListener("DOMContentLoaded", () => {
 	ideaPopupPlace();
 
 	carouselsInit();
-	rangeSlidersInit();
 
 	productGalleriesInit();
 	productGallery();
 	productFavourite();
+
+
+	// catalog
+	rangeSlidersInit();
 	productPropsHover();
 	productProps();
 	productFetches();
-
 	filterTagsSet();
 	filterTagsRemove();
 });
