@@ -1,7 +1,6 @@
 @charset "UTF-8";
 .main-carousel {
   --f-carousel-dots-width: 22px;
-  --f-carousel-theme-color: var(--yellow);
   --f-button-width: 44px;
   --f-button-height: 40px;
   --f-button-svg-width: 18px;

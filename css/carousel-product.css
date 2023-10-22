@@ -2,8 +2,8 @@
 .product-carousel {
   --f-carousel-spacing: 12px;
   --f-carousel-slide-width: 300px;
-  margin-left: -16px;
-  margin-right: -16px;
+  margin-left: -12px;
+  margin-right: -12px;
   margin-bottom: 80px
 }
 .product-carousel .f-carousel__viewport {
@@ -28,6 +28,8 @@
 }
 @media (min-width:768px) {
   .product-carousel {
-    --f-carousel-spacing: 16px
+    --f-carousel-spacing: 16px;
+    margin-left: -16px;
+    margin-right: -16px
   }
 }

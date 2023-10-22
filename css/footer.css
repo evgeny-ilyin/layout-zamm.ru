@@ -7,6 +7,7 @@
   margin-top: -25px
 }
 .footer__logo svg {
+  fill: var(--black);
   width: 175px;
   height: 36px
 }
@@ -254,6 +255,20 @@
   -ms-flex-pack: center;
   justify-content: center
 }
+.fetch._sm {
+  position: relative
+}
+.fetch._sm .fetch__ring {
+  top: auto;
+  height: 32px;
+  margin: 20px
+}
+.product__options .fetch {
+  background: rgba(246,248,249,.5)
+}
+.product__details .fetch {
+  background: inherit
+}
 .fetch__ring {
   position: sticky!important;
   top: 30vh;
@@ -300,6 +315,9 @@
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg)
   }
+}
+.skeleton {
+  margin: 0 16px 16px
 }
 .skeleton .s-grid {
   display: -ms-grid;
@@ -424,6 +442,9 @@
   .footer-carousel {
     --f-carousel-spacing: 16px;
     --f-carousel-slide-width: calc((100% - 32px) / 3)
+  }
+  .footer-carousel .f-carousel__dots {
+    display: none
   }
   .infocard__footer {
     grid-auto-flow: row

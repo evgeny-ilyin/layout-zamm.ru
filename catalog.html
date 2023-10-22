@@ -8,23 +8,26 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap&v=20231009105051" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231009105051">
-	<link rel="stylesheet" href="css/header.css?v=20231009105051">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231009105051">
-	<link rel="stylesheet" href="css/carousel-big.css?v=20231009105051">
-	<link rel="stylesheet" href="css/carousel-product.css?v=20231009105051">
-	<link rel="stylesheet" href="css/popular-categories.css?v=20231009105051">
-	<link rel="stylesheet" href="css/ideas.css?v=20231009105051">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231009105051">
-	<link rel="stylesheet" href="css/catalog-category.css?v=20231009105051">
-	<link rel="stylesheet" href="css/footer.css?v=20231009105051">
+	<link rel="stylesheet" href="css/root-vars.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/carousel-vendor.css">
+	<link rel="stylesheet" href="css/carousel-big.css">
+	<link rel="stylesheet" href="css/carousel-product.css">
+	<link rel="stylesheet" href="css/carousel-product.css">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css">
+	<link rel="stylesheet" href="css/popular-categories.css">
+	<link rel="stylesheet" href="css/ideas.css">
+	<link rel="stylesheet" href="css/catalog-filter.css">
+	<link rel="stylesheet" href="css/catalog-category.css">
+	<link rel="stylesheet" href="css/product-card.css">
+	<link rel="stylesheet" href="css/footer.css">
 	<title>Каталог</title>
 </head>
 
 <body>
-	<div class="header-alert header-alert_black hidden">
+	<div class="header-alert _black hidden">
 		<div class="container">
 			<div class="content header-alert__wrapper">
 				<div class="header-alert__left">
@@ -383,8 +386,7 @@
 							</a>
 						</div>
 						<div class="nav__icon">
-							<a href="javascript:void(0)" class="nav__icon-link">
-								<span class="count">1</span>
+							<a href="javascript:void(0)" class="nav__icon-link" data-id="amount">
 								<svg>
 									<use xlink:href="#lk_cart"></use>
 								</svg>
@@ -397,7 +399,7 @@
 	</header>
 
 
-	<main class="container">
+	<div class="container">
 		<div class="content">
 			<div class="breadcrumbs">
 				<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
@@ -420,7 +422,6 @@
 				</ul>
 			</div>
 		</div>
-
 		<div class="content">
 			<div class="catalog-head" data-id="catalog-head">
 				<div class="catalog-head__root">
@@ -582,7 +583,7 @@
 									</div>
 
 									<div class="fav is-active">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=11111">
+										<a href="javascript:void(0)" class="js-fav" data-id="11111" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -596,6 +597,12 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price">29 620 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
@@ -642,7 +649,7 @@
 									</div>
 
 									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=22222">
+										<a href="javascript:void(0)" class="js-fav" data-id="22222" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -656,12 +663,18 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price _discount">29 620 ₽</div>
-										<div class="item__oldprice">29 620 ₽</div>
+										<div class="item__oldprice">49 990 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
 								<div data-id="item-id-22222-more" class="item__more">
-									<div class="available">Доставим за 3 недели</div>
+									<div class="available _delay">Доставим за 3 недели</div>
 								</div>
 
 								<div class="item__details">
@@ -716,7 +729,7 @@
 									</div>
 
 									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=33333">
+										<a href="javascript:void(0)" class="js-fav" data-id="33333" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -730,6 +743,12 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price">29 620 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
@@ -776,7 +795,7 @@
 									</div>
 
 									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=44444">
+										<a href="javascript:void(0)" class="js-fav" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -790,12 +809,18 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price _discount">29 620 ₽</div>
-										<div class="item__oldprice">29 620 ₽</div>
+										<div class="item__oldprice">49 990 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
 								<div data-id="item-id-44444-more" class="item__more">
-									<div class="available">Доставим за 3 недели</div>
+									<div class="available _delay">Доставим за 3 недели</div>
 								</div>
 
 								<div class="item__details">
@@ -856,7 +881,7 @@
 									</div>
 
 									<div class="fav is-active">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=11111">
+										<a href="javascript:void(0)" class="js-fav" data-id="11111" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -870,6 +895,12 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price">29 620 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
@@ -916,7 +947,7 @@
 									</div>
 
 									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=22222">
+										<a href="javascript:void(0)" class="js-fav" data-id="22222" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -930,12 +961,18 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price _discount">29 620 ₽</div>
-										<div class="item__oldprice">29 620 ₽</div>
+										<div class="item__oldprice">49 990 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
 								<div data-id="item-id-22222-more" class="item__more">
-									<div class="available">Доставим за 3 недели</div>
+									<div class="available _delay">Доставим за 3 недели</div>
 								</div>
 
 								<div class="item__details">
@@ -990,7 +1027,7 @@
 									</div>
 
 									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=33333">
+										<a href="javascript:void(0)" class="js-fav" data-id="33333" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -1004,6 +1041,12 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price">29 620 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
@@ -1050,7 +1093,7 @@
 									</div>
 
 									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=44444">
+										<a href="javascript:void(0)" class="js-fav" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -1064,12 +1107,18 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price _discount">29 620 ₽</div>
-										<div class="item__oldprice">29 620 ₽</div>
+										<div class="item__oldprice">49 990 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
 								<div data-id="item-id-44444-more" class="item__more">
-									<div class="available">Доставим за 3 недели</div>
+									<div class="available _delay">Доставим за 3 недели</div>
 								</div>
 
 								<div class="item__details">
@@ -1330,7 +1379,7 @@
 									</div>
 
 									<div class="fav is-active">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=11111">
+										<a href="javascript:void(0)" class="js-fav" data-id="11111" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -1344,6 +1393,12 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price">29 620 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
@@ -1388,7 +1443,7 @@
 									</div>
 
 									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=22222">
+										<a href="javascript:void(0)" class="js-fav" data-id="22222" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -1402,12 +1457,18 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price _discount">29 620 ₽</div>
-										<div class="item__oldprice">29 620 ₽</div>
+										<div class="item__oldprice">39 620 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
 								<div class="item__more">
-									<div class="available">Доставим за 3 недели</div>
+									<div class="available _delay">Доставим за 3 недели</div>
 								</div>
 							</div>
 						</div>
@@ -1460,7 +1521,7 @@
 									</div>
 
 									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=33333">
+										<a href="javascript:void(0)" class="js-fav" data-id="33333" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -1474,6 +1535,12 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price">29 620 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
@@ -1518,7 +1585,7 @@
 									</div>
 
 									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=44444">
+										<a href="javascript:void(0)" class="js-fav" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -1532,12 +1599,18 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price _discount">29 620 ₽</div>
-										<div class="item__oldprice">29 620 ₽</div>
+										<div class="item__oldprice">39 620 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
 								<div class="item__more">
-									<div class="available">Доставим за 3 недели</div>
+									<div class="available _delay">Доставим за 3 недели</div>
 								</div>
 							</div>
 						</div>
@@ -1597,7 +1670,7 @@
 									</div>
 
 									<div class="fav is-active">
-										<a href="javascript:void(0)" class="js-fav" data-url="https://deviart.ru/zamm/fetch-fav.php?pid=55555">
+										<a href="javascript:void(0)" class="js-fav" data-id="55555" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -1611,6 +1684,12 @@
 									</div>
 									<div class="item__prices">
 										<div class="item__price">29 620 ₽</div>
+										<link itemprop="availability" href="http://schema.org/InStock" />
+										<meta itemprop="price" content="29620" />
+										<meta itemprop="priceCurrency" content="RUB" />
+										<meta itemprop="name" content="" />
+										<meta itemprop="priceValidUntil" content="2031-01-01" />
+										<meta itemprop="url" content="" />
 									</div>
 								</div>
 
@@ -1664,7 +1743,7 @@
 			</div>
 		</div>
 
-	</main>
+	</div>
 
 	<footer class="footer">
 		<div class="container">
@@ -1684,27 +1763,27 @@
 						<div class="infocard__header">Напишите или позвоните нам</div>
 						<div class="infocard__body">Консультанты Zamm готовы ответить на любой ваш вопрос. Тел.: +7 495 191-98-71</div>
 						<div class="infocard__footer">
-							<a href="javascript:void(0)" class="link-arrow link-arrow_blue">Контакты</a>
-							<a href="javascript:void(0)" class="link-arrow link-arrow_blue">FAQ</a>
+							<a href="javascript:void(0)" class="link-arrow _blue">Контакты</a>
+							<a href="javascript:void(0)" class="link-arrow _blue">FAQ</a>
 						</div>
 					</div>
 					<div class="f-carousel__slide">
 						<div class="infocard__header">Доставка и оплата</div>
 						<div class="infocard__body">Доставляем компание СДЭК в москве и области. Оплату принимаем от физ и юр лиц.</div>
 						<div class="infocard__footer">
-							<a href="javascript:void(0)" class="link-arrow link-arrow_blue">Доставка</a>
-							<a href="javascript:void(0)" class="link-arrow link-arrow_blue">Условия оплаты</a>
+							<a href="javascript:void(0)" class="link-arrow _blue">Доставка</a>
+							<a href="javascript:void(0)" class="link-arrow _blue">Условия оплаты</a>
 						</div>
 					</div>
 					<div class="f-carousel__slide">
 						<div class="infocard__header">
-							<svg class="">
+							<svg>
 								<use xlink:href="#pro-zamm"></use>
 							</svg>
 						</div>
 						<div class="infocard__body">Zamm.pro — для бизнеса и организаций, спроектировать офис, мебель под заказ в школу или доставить в Калининград.</div>
 						<div class="infocard__footer">
-							<a href="javascript:void(0)" class="link-arrow link-arrow_blue">Для бизнеса и организаций</a>
+							<a href="javascript:void(0)" class="link-arrow _blue">Для бизнеса и организаций</a>
 						</div>
 					</div>
 				</div>
@@ -1803,6 +1882,14 @@
 	</div>
 
 	<svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+		<symbol viewBox="0 0 20 20" id="3d" xmlns="http://www.w3.org/2000/svg">
+			<path d="M9.994 1.799 4.922 4.465 9.994 7.37l5.115-2.904L9.994 1.8Zm-.521 6.527L4.497 5.482v5.69l4.976 2.845v-5.69Zm6.982 1.58c1.426.7 2.094 1.54 2.094 2.3 0 .732-.615 1.54-1.961 2.234-1.313.677-3.18 1.16-5.322 1.298a.5.5 0 1 0 .064.998c2.24-.145 4.25-.652 5.716-1.407 1.434-.738 2.503-1.803 2.503-3.122 0-1.444-1.276-2.584-2.945-3.335a9.735 9.735 0 0 0-.15-.066v1.1Z" />
+			<path d="m3.547 8.806-.149.066c-1.669.75-2.945 1.891-2.945 3.335 0 .996.617 1.85 1.512 2.512.744.552 1.727 1.01 2.863 1.352l-.273 1.565a.417.417 0 0 0 .586.45l3.227-1.492a.417.417 0 0 0 .117-.675l-2.53-2.497a.417.417 0 0 0-.704.225l-.25 1.431c-1.004-.313-1.835-.713-2.441-1.162-.767-.568-1.107-1.16-1.107-1.71 0-.76.668-1.6 2.094-2.3v-1.1Zm11.957-3.324-4.976 2.844v5.69l4.976-2.845v-5.69Z" />
+		</symbol>
+		<symbol viewBox="0 0 15 16" id="download" xmlns="http://www.w3.org/2000/svg">
+			<circle cx="7.5" cy="8" r="7.5" fill="#333" />
+			<path stroke="#F6F8F9" stroke-linecap="round" stroke-linejoin="round" d="m11 8.5-3.537 3.537m0 0L3.928 8.5m3.535 3.536.002-7.072" />
+		</symbol>
 		<symbol viewBox="0 0 24 22" id="fav" xmlns="http://www.w3.org/2000/svg">
 			<path d="M14.77 19.918c2.614-2.073 6.388-5.319 7.96-7.914 1.177-1.939 1.56-4.341 1.048-6.575-1.093-5.088-7.148-7.167-10.92-3.757-.212.19-.407.402-.608.619l-.25.267-.25-.268a9.436 9.436 0 0 0-.608-.618C7.37-1.738 1.315.342.222 5.429-.29 7.663.093 10.065 1.27 12.004c1.572 2.595 5.346 5.84 7.96 7.914C9.96 20.495 12 22 12 22s2.041-1.505 2.77-2.082Z" />
 		</symbol>
@@ -1838,16 +1925,36 @@
 			<path fill-rule="evenodd" d="M14.713 4.63a2.476 2.476 0 0 1-2.489 2.464A2.476 2.476 0 0 1 9.736 4.63a2.476 2.476 0 0 1 2.488-2.463 2.476 2.476 0 0 1 2.489 2.463Zm1.666 0a4.12 4.12 0 0 1-1.854 3.44c-.659.437-1.45.69-2.3.69a4.149 4.149 0 0 1-2.302-.69A4.12 4.12 0 0 1 8.07 4.63C8.07 2.35 9.93.5 12.225.5s4.155 1.85 4.155 4.13Zm-4.155 4.82c.87 0 1.712.146 2.498.418a7.573 7.573 0 0 1 4.957 5.657l.035.17a.535.535 0 0 1-.527.638h-1.038a7.686 7.686 0 0 0-.481-1.676 5.939 5.939 0 0 0-5.444-3.541 5.938 5.938 0 0 0-5.448 3.55h6.087l.173 1.667H5.262a.535.535 0 0 1-.527-.638l.034-.17a7.573 7.573 0 0 1 4.957-5.657 7.631 7.631 0 0 1 2.498-.419Z" clip-rule="evenodd" />
 			<path d="M11.655 4.63c0 2.282-1.86 4.13-4.155 4.13S3.345 6.913 3.345 4.63C3.345 2.35 5.205.5 7.5.5s4.155 1.85 4.155 4.13ZM.045 15.525c.71-3.533 3.83-6.076 7.455-6.076 3.624 0 6.745 2.543 7.455 6.076l.034.17a.535.535 0 0 1-.527.638H.537a.535.535 0 0 1-.526-.638l.034-.17Z" />
 		</symbol>
-		<symbol fill="none" viewBox="0 0 119 24" id="logo" xmlns="http://www.w3.org/2000/svg">
-			<path fill="#333" d="M.923 1.232H22.92C15.59 11.71 11.746 17.492 11.383 18.58h11.536V24H0L11.537 6.653H.923v-5.42Zm31.841 18.276c-.052.406-1.557 4.392-1.693 4.492h-7.075v-.31l9.998-22.457h7.537L51.53 24h-7.075c-.098-.421-1.547-4.385-1.693-4.492h-9.997Zm8.306-4.026v-.31a857.518 857.518 0 0 0-3.23-7.9h-.154l-3.077 8.21h6.461Zm13.229-14.25h6.307l6.922 8.519 6.92-8.519h6.307V24h-6.922V10.99l-6.153 7.59-6.614-7.59V24h-6.768L54.3 1.232Zm38.455 0 6.923 8.519 6.766-8.519h6.307V24h-6.922V10.99l-6.153 7.59-6.614-7.59V24h-6.768V1.233h6.461Zm23.48 5.344a2.758 2.758 0 0 1-1.957-.818 2.787 2.787 0 0 1-.808-1.97A2.782 2.782 0 0 1 116.234 1a2.757 2.757 0 0 1 1.958.818 2.803 2.803 0 0 1 0 3.94 2.769 2.769 0 0 1-1.958.818Zm0-.62a2.142 2.142 0 0 0 1.523-.636 2.18 2.18 0 0 0 0-3.064 2.15 2.15 0 0 0-1.523-.637 2.148 2.148 0 0 0-1.522.637 2.176 2.176 0 0 0 0 3.063 2.15 2.15 0 0 0 1.522.637Zm-.032-1.901h-.356v.972h-.659V2.274h1.076c.323 0 .576.072.759.217.183.145.274.35.274.615a.9.9 0 0 1-.115.476.821.821 0 0 1-.362.307l.571 1.11v.028h-.706l-.482-.972Zm-.356-.512h.416c.125 0 .219-.033.283-.1a.388.388 0 0 0 .094-.277.388.388 0 0 0-.095-.278c-.065-.068-.158-.101-.281-.101h-.416l-.001.756Z" />
+		<symbol viewBox="0 0 119 24" id="logo" xmlns="http://www.w3.org/2000/svg">
+			<path d="M.923 1.232H22.92C15.59 11.71 11.746 17.492 11.383 18.58h11.536V24H0L11.537 6.653H.923v-5.42Zm31.841 18.276c-.052.406-1.557 4.392-1.693 4.492h-7.075v-.31l9.998-22.457h7.537L51.53 24h-7.075c-.098-.421-1.547-4.385-1.693-4.492h-9.997Zm8.306-4.026v-.31a857.518 857.518 0 0 0-3.23-7.9h-.154l-3.077 8.21h6.461Zm13.229-14.25h6.307l6.922 8.519 6.92-8.519h6.307V24h-6.922V10.99l-6.153 7.59-6.614-7.59V24h-6.768L54.3 1.232Zm38.455 0 6.923 8.519 6.766-8.519h6.307V24h-6.922V10.99l-6.153 7.59-6.614-7.59V24h-6.768V1.233h6.461Zm23.48 5.344a2.758 2.758 0 0 1-1.957-.818 2.787 2.787 0 0 1-.808-1.97A2.782 2.782 0 0 1 116.234 1a2.757 2.757 0 0 1 1.958.818 2.803 2.803 0 0 1 0 3.94 2.769 2.769 0 0 1-1.958.818Zm0-.62a2.142 2.142 0 0 0 1.523-.636 2.18 2.18 0 0 0 0-3.064 2.15 2.15 0 0 0-1.523-.637 2.148 2.148 0 0 0-1.522.637 2.176 2.176 0 0 0 0 3.063 2.15 2.15 0 0 0 1.522.637Zm-.032-1.901h-.356v.972h-.659V2.274h1.076c.323 0 .576.072.759.217.183.145.274.35.274.615a.9.9 0 0 1-.115.476.821.821 0 0 1-.362.307l.571 1.11v.028h-.706l-.482-.972Zm-.356-.512h.416c.125 0 .219-.033.283-.1a.388.388 0 0 0 .094-.277.388.388 0 0 0-.095-.278c-.065-.068-.158-.101-.281-.101h-.416l-.001.756Z" />
+		</symbol>
+		<symbol viewBox="0 0 15 16" id="play" xmlns="http://www.w3.org/2000/svg">
+			<path fill="#333" fill-rule="evenodd" d="M7.5 15.5a7.5 7.5 0 1 0 0-15 7.5 7.5 0 0 0 0 15Zm3.235-6.8a.57.57 0 0 0 0-.968L6.289 5.07c-.36-.215-.809.054-.809.484v5.324c0 .43.45.7.809.484L10.735 8.7Z" clip-rule="evenodd" />
 		</symbol>
 		<symbol fill="none" viewBox="0 0 189 25" id="pro-zamm" xmlns="http://www.w3.org/2000/svg">
 			<path fill="#B7C2CA" fill-rule="evenodd" d="M69.467 12.492c0 2.147-.498 4.122-1.494 5.927-.985 1.803-2.457 3.237-4.416 4.3-1.959 1.062-4.344 1.593-7.155 1.593-2.845 0-5.252-.553-7.222-1.66-1.97-1.107-3.437-2.562-4.4-4.366a12.234 12.234 0 0 1-1.427-5.794c0-2.07.476-4.001 1.428-5.794.951-1.804 2.412-3.254 4.382-4.35 1.982-1.107 4.394-1.66 7.239-1.66 2.125 0 4.017.315 5.678.946 1.67.631 3.043 1.489 4.117 2.574a10.698 10.698 0 0 1 2.44 3.768c.553 1.428.83 2.933.83 4.516Zm-7.072 0c0-.864-.127-1.65-.382-2.358a4.905 4.905 0 0 0-1.162-1.86 5.123 5.123 0 0 0-1.876-1.228c-.742-.298-1.6-.448-2.573-.448-1.86 0-3.32.542-4.383 1.627-1.063 1.085-1.594 2.507-1.594 4.267 0 1.76.531 3.187 1.594 4.283 1.074 1.085 2.534 1.627 4.383 1.627 1.273 0 2.357-.25 3.254-.747a5.089 5.089 0 0 0 2.042-2.092c.465-.897.697-1.92.697-3.071Zm-42.473-4.25a7.26 7.26 0 0 1-.448 2.506c-.288.809-.759 1.567-1.412 2.275-.652.697-1.538 1.267-2.656 1.71-1.107.432-2.413.647-3.918.647H6.94v8.633H0V1.003h11.488c1.505 0 2.812.222 3.918.664 1.118.443 2.004 1.019 2.656 1.727.653.708 1.124 1.478 1.412 2.308.299.83.448 1.676.448 2.54Zm-7.072.033c0-1.096-.327-1.843-.98-2.241-.642-.41-1.798-.615-3.47-.615H6.94v5.545h1.494c1.15 0 2.036-.072 2.656-.216.62-.143 1.068-.409 1.345-.796.276-.388.415-.947.415-1.677Zm28.235 2.473a7.262 7.262 0 0 0 .448-2.506c0-.864-.15-1.71-.448-2.54-.288-.83-.758-1.6-1.411-2.308-.653-.708-1.539-1.284-2.656-1.727-1.107-.442-2.413-.664-3.918-.664H21.61v23.01h6.94V15.38h2.556l4.709 8.633h7.637l-6.018-9.456c.923-.415 1.67-.926 2.239-1.534.653-.708 1.123-1.466 1.411-2.274Zm-7.604-4.714c.653.398.98 1.145.98 2.24 0 .731-.138 1.29-.415 1.678-.277.387-.725.653-1.345.796-.62.144-1.505.216-2.656.216H28.55V5.42h1.46c1.672 0 2.829.205 3.47.615Z" clip-rule="evenodd" />
 			<path fill="#333" d="M70.39 1.232h21.995C85.058 11.71 81.212 17.492 80.85 18.58h11.537V24h-22.92L81.005 6.653H70.39v-5.42Zm31.841 18.276c-.052.406-1.557 4.392-1.693 4.492h-7.075v-.31l9.998-22.457h7.537L120.996 24h-7.075c-.098-.421-1.547-4.385-1.693-4.492h-9.997Zm8.306-4.026v-.31a873.965 873.965 0 0 0-3.23-7.9h-.154l-3.077 8.21h6.461Zm13.229-14.25h6.307l6.922 8.519 6.921-8.519h6.306V24H143.3V10.99l-6.153 7.59-6.614-7.59V24h-6.768l.001-22.767Zm38.455 0 6.922 8.519 6.767-8.519h6.307V24h-6.923V10.99l-6.152 7.59-6.614-7.59V24h-6.768V1.233h6.461Zm23.48 5.344a2.758 2.758 0 0 1-1.957-.818 2.802 2.802 0 0 1 .897-4.545 2.748 2.748 0 0 1 3.017.605 2.79 2.79 0 0 1 .809 1.97 2.79 2.79 0 0 1-1.707 2.575c-.335.14-.695.213-1.059.213Zm0-.62a2.142 2.142 0 0 0 1.522-.636 2.166 2.166 0 0 0 .63-1.532 2.182 2.182 0 0 0-.629-1.532 2.16 2.16 0 0 0-1.523-.637 2.148 2.148 0 0 0-1.522.637c-.403.407-.63.958-.629 1.532 0 .574.226 1.125.629 1.531.403.407.951.636 1.522.637Zm-.032-1.901h-.356v.972h-.659V2.274h1.075c.324 0 .577.072.76.217.182.145.273.35.273.615a.91.91 0 0 1-.114.476.821.821 0 0 1-.362.307l.57 1.11v.028h-.705l-.482-.972Zm-.356-.512h.416c.125 0 .219-.033.282-.1a.384.384 0 0 0 .095-.277.388.388 0 0 0-.095-.278c-.065-.068-.158-.101-.282-.101h-.416v.756Z" />
 		</symbol>
+		<symbol viewBox="0 0 16 15" id="star" xmlns="http://www.w3.org/2000/svg">
+			<path fill="#FFC845" d="m8 0 2.398 4.7 5.21.828L11.88 9.26l.822 5.211L8 12.08l-4.702 2.392.822-5.211L.392 5.528l5.21-.829L8 0Z" />
+		</symbol>
+		<symbol fill="none" viewBox="0 0 92 92" id="warranty-stamp" xmlns="http://www.w3.org/2000/svg">
+			<g clip-path="url(#pa)">
+				<path fill="#FFF0CA" d="M45.997 91.255c-12.087 0-23.452-4.708-32-13.255C5.45 69.453.743 58.088.743 46c0-12.087 4.708-23.452 13.256-32 8.547-8.547 19.91-13.255 32-13.255 12.089 0 23.452 4.708 32 13.255 8.547 8.548 13.254 19.913 13.254 32 0 12.088-4.707 23.452-13.255 32-8.547 8.548-19.912 13.255-32 13.255v-.001Z" />
+				<path fill="#333" d="M45.997 1.491A44.379 44.379 0 0 1 77.47 14.527a44.34 44.34 0 0 1 9.54 14.149A44.233 44.233 0 0 1 90.505 46a44.24 44.24 0 0 1-3.496 17.325 44.381 44.381 0 0 1-9.54 14.148 44.34 44.34 0 0 1-14.148 9.54 44.233 44.233 0 0 1-17.325 3.496 44.233 44.233 0 0 1-17.325-3.497 44.382 44.382 0 0 1-14.149-9.539 44.34 44.34 0 0 1-9.539-14.148A44.233 44.233 0 0 1 1.487 46a44.38 44.38 0 0 1 13.036-31.473 44.34 44.34 0 0 1 14.149-9.54A44.233 44.233 0 0 1 45.997 1.49Zm0-1.491c-25.406 0-46 20.595-46 46 0 25.406 20.594 46.001 46 46.001s46-20.595 46-46C91.998 20.595 71.402 0 45.998 0Z" />
+				<path fill="#333" fill-opacity=".6" d="M45.997 5.534c5.464 0 10.764 1.07 15.75 3.18a40.34 40.34 0 0 1 12.863 8.672A40.34 40.34 0 0 1 86.463 46c0 5.462-1.07 10.763-3.18 15.75a40.34 40.34 0 0 1-8.673 12.863 40.349 40.349 0 0 1-28.613 11.852 40.201 40.201 0 0 1-15.75-3.18 40.34 40.34 0 0 1-12.863-8.672A40.348 40.348 0 0 1 5.532 46a40.197 40.197 0 0 1 3.179-15.75 40.34 40.34 0 0 1 8.673-12.864A40.34 40.34 0 0 1 45.997 5.534Zm0-1.491C22.824 4.043 4.04 22.828 4.04 46.001s18.785 41.957 41.957 41.957S87.952 69.173 87.952 46 69.17 4.043 45.997 4.043Z" />
+				<path fill="#333" fill-opacity=".6" d="M45.998 22.327a23.517 23.517 0 0 1 16.74 6.934 23.52 23.52 0 0 1 6.934 16.74 23.517 23.517 0 0 1-6.934 16.74 23.518 23.518 0 0 1-16.74 6.935 23.517 23.517 0 0 1-16.74-6.934c-4.471-4.472-6.935-10.416-6.935-16.74a23.517 23.517 0 0 1 6.934-16.74 23.517 23.517 0 0 1 16.74-6.935Zm0-1.491c-13.898 0-25.166 11.266-25.166 25.166s11.266 25.165 25.166 25.165 25.165-11.266 25.165-25.166c0-13.899-11.266-25.165-25.165-25.165Z" />
+				<path fill="#333" d="M38.344 30.262c0 3.118-2.521 3.773-4.637 3.773h-.82v1.879h.82c2.111 0 3.656-.622 4.608-1.85v17h1.79V29.74h-1.76v.522Zm18.599 2.229c-1.391-1.937-3.371-2.96-5.729-2.96-4.773 0-7.858 4.244-7.858 10.812 0 6.567 3.073 10.93 7.828 10.93 4.756 0 7.859-4.29 7.859-10.93 0-3.223-.726-5.939-2.1-7.852Zm-5.759 17.082c-3.614 0-5.95-3.624-5.95-9.23 0-5.607 2.336-9.112 5.95-9.112 3.615 0 5.98 3.576 5.98 9.111 0 5.536-2.347 9.231-5.98 9.231ZM35.902 62.222v-1.27c.248.047.438.041.573-.015a.573.573 0 0 0 .302-.323c.068-.159.126-.371.176-.635.068-.373.128-.803.18-1.288.052-.486.099-1.007.137-1.56.041-.554.078-1.119.11-1.697h5.001v6.792h-1.51v-5.37h-2.157a115.819 115.819 0 0 1-.17 1.937c-.033.345-.07.67-.11.977-.041.308-.082.571-.122.79-.097.491-.234.878-.412 1.163a1.202 1.202 0 0 1-.746.55c-.319.08-.735.065-1.252-.047v-.004Zm11.33.188c-.687 0-1.291-.149-1.812-.447a3.16 3.16 0 0 1-1.217-1.238c-.292-.529-.437-1.136-.437-1.825 0-.742.143-1.388.427-1.934a3.122 3.122 0 0 1 1.189-1.273c.507-.302 1.093-.453 1.76-.453.705 0 1.303.165 1.796.494.494.329.86.793 1.098 1.393.238.6.329 1.306.27 2.12h-1.503v-.554c-.004-.738-.134-1.278-.389-1.616-.256-.339-.658-.51-1.208-.51-.62 0-1.081.192-1.383.575-.302.384-.453.945-.453 1.682 0 .687.15 1.22.453 1.597.302.377.74.565 1.322.565.373 0 .694-.083.965-.248.271-.166.48-.406.625-.72l1.496.453a3.05 3.05 0 0 1-1.204 1.428 3.309 3.309 0 0 1-1.795.51v.001Zm-2.34-3.164V58.1h4.673v1.146h-4.673Zm8.319 2.976v-5.445h-2.27V55.43H57v1.347h-2.27v5.445h-1.52ZM20.852 35.284l-8.985-5.052 3.193-5.677 1.054.593-2.568 4.568 7.93 4.459-.624 1.11v-.001Zm2.83-5.345-4.842-9.732 1.255-1.254 9.725 4.855-.937.936-9.041-4.486.283-.283 4.493 9.027-.936.935v.002Zm-.53-2.881-.844-.846 3.79-3.783.844.846-3.79 3.783Zm7.228-3.486-4.774-9.134 3.608-1.886c.088-.046.196-.099.322-.157.126-.058.252-.106.378-.144.533-.182 1.037-.232 1.512-.145.472.086.899.285 1.276.596.379.312.695.71.949 1.196.252.482.396.968.433 1.457.038.49-.043.955-.24 1.395-.198.44-.522.826-.973 1.158a5.976 5.976 0 0 1-.646.403l-2.48 1.297 1.764 3.375-1.129.59v-.001Zm-1.196-5.037 2.443-1.277c.08-.042.17-.094.27-.157.1-.062.19-.128.271-.198.257-.22.43-.468.52-.744.089-.276.112-.558.07-.845a2.55 2.55 0 0 0-.778-1.49 1.858 1.858 0 0 0-.736-.427 1.604 1.604 0 0 0-.907.006 1.673 1.673 0 0 0-.32.106 4.707 4.707 0 0 0-.28.134l-2.442 1.277 1.89 3.616v-.002Zm7.368 1.688 1.436-10.774 1.743-.336 5.339 9.468-1.3.25-4.98-8.778.393-.076-1.332 9.995-1.3.25h.001Zm1.174-2.683-.227-1.174 5.257-1.014.226 1.174-5.256 1.014Zm7.907 1.083 1.343-10.219 1.263.166-.592 4.506 5.38.707.591-4.506 1.263.165-1.343 10.22-1.263-.166.593-4.514-5.379-.708-.593 4.514-1.263-.166v.002Zm11.5 2.65 3.914-8.212-3.172-1.512.52-1.092 7.496 3.573-.52 1.091-3.173-1.512-3.914 8.213-1.15-.55h-.001Zm9.517 6.908 5.532-5.86-9.44 2.17-.937-.883 7.074-7.497.936.885-5.528 5.856 9.437-2.167.936.884-7.074 7.496-.936-.884Zm1.456 1.551 5.092-.202.256 1.293-4.657.196-.691-1.285v-.002ZM71.1 35.3l3.354-1.804-1.502-2.793-.161-.466c-.25-.775-.215-1.485.103-2.128.317-.642.827-1.152 1.53-1.53a3.797 3.797 0 0 1 1.457-.457 2.75 2.75 0 0 1 1.39.222c.44.194.832.516 1.171.968.083.103.16.211.232.33.071.119.13.223.179.31l1.93 3.587-9.078 4.882-.604-1.122-.001.001Zm8.012-4.31-1.305-2.427a5.05 5.05 0 0 0-.156-.269c-.061-.1-.13-.189-.206-.268a1.604 1.604 0 0 0-.747-.513 1.838 1.838 0 0 0-.849-.06 2.55 2.55 0 0 0-1.48.798c-.197.215-.336.46-.415.74-.08.279-.076.581.012.908.028.104.067.209.113.316.047.107.093.201.135.28l1.304 2.428 3.594-1.932ZM23.57 76.112l.12-.195 9.259-4.754-4.473-2.715.628-1.034 6.308 3.83-.127.207-9.226 4.757 4.57 2.775-.627 1.033-6.43-3.904h-.002Zm9.184 5.158 5.868-9.15 1.72.433.824 10.838-1.284-.323-.79-10.063.389.098-5.443 8.49-1.284-.324Zm2.2-1.933.293-1.16 5.191 1.312-.292 1.158-5.191-1.31Zm9.744 4.435-.995-10.26 1.154-.11 4.668 7.795 3.061-8.544 1.168-.114.995 10.252-1.204.117-.723-7.467-2.759 7.811-.677.066-4.208-7.136.725 7.474-1.204.116h-.001ZM59.17 81.46l-4.865-9.085 1.021-.547 7.309 5.4-.463-9.066 1.035-.555 4.863 9.08-1.066.572-3.542-6.612.46 8.271-.6.32-6.63-4.966 3.545 6.62-1.067.57v-.001Z" />
+			</g>
+			<defs>
+				<clipPath id="pa">
+					<path fill="#fff" d="M0 0h92v92H0z" />
+				</clipPath>
+			</defs>
+		</symbol>
 	</svg>
 
-	<script src="js/catalog.min.js?v=20231009105051"></script>
+	<script src="js/catalog.min.js"></script>
 </body>
 
 </html>

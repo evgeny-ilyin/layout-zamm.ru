@@ -1,6 +1,7 @@
 @charset "UTF-8";
 .block-ideas {
-  margin-bottom: 80px
+  margin-bottom: 80px;
+  overflow: hidden
 }
 .idea {
   width: 100%;
@@ -14,6 +15,11 @@
   -o-object-fit: cover;
   object-fit: cover;
   border-radius: 4px
+}
+.idea__link:hover .link-arrow::after {
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg)
 }
 .idea-all {
   display: -webkit-box;
@@ -116,7 +122,8 @@
 }
 .idea-marker__price {
   font-weight: 600;
-  margin: 2px 0
+  margin: 2px 0;
+  white-space: nowrap
 }
 .idea-mobile-content .idea-marker__price {
   margin: 6px 0 22px
@@ -200,7 +207,8 @@
 @media (min-width:1024px) {
   .block-ideas {
     margin-right: -8px;
-    margin-left: -8px
+    margin-left: -8px;
+    overflow: visible
   }
   .idea {
     margin: 8px

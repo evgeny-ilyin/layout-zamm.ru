@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="css/catalog-category.css">
 	<link rel="stylesheet" href="css/product-card.css">
 	<link rel="stylesheet" href="css/footer.css">
-	<title>Главная</title>
+	<title>Карточка товара</title>
 </head>
 
 <body>
@@ -399,99 +399,438 @@
 	</header>
 
 
-	<div class="container">
-		<div class="bg-gray-xxl">
-			<div class="content">
-				<div class="f-carousel main-carousel" data-carousel="carousel" data-options='{"infinite": true}' data-autoplay="6000">
-					<div class="f-carousel__slide">
-						<div class="main-slide main-slide_col-2">
-							<div class="main-slide__text">
-								<div class="label label_yellow-light label_big label_rotate">Всё в наличии</div>
-								<div class="main-slide__wrapper">
-									<div class="main-slide__header">Столы, кресла и&nbsp;корпусная мебель</div>
-									<div class="main-slide__body">
-										<div class="main-slide__subheader">Отправим не позднее 3-5 дней</div>
-										<div class="main-slide__note">Zamm — Мебель для дома</div>
-									</div>
-									<div class="main-slide__button">
-										<a href="javascript:void(0)" class="btn btn_yellow btn_arrow"><span>Посмотреть мебель</span></a>
-									</div>
-								</div>
-							</div>
-							<div class="main-slide__img">
-								<img src="img/dev/carousels/carousel-main-1.png" width="" height="" alt="" />
-							</div>
+	<div class="container _gray">
+		<div class="content">
+			<div class="breadcrumbs">
+				<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<a href="/" title="Главная" class="breadcrumbs__link" itemprop="item">
+							<span itemprop="name">Главная</span>
+						</a>
+						<meta itemprop="position" content="1" />
+					</li>
+					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<a href="catalog.html" title="Каталог" class="breadcrumbs__link" itemprop="item">
+							<span itemprop="name">Каталог</span>
+						</a>
+						<meta itemprop="position" content="2" />
+					</li>
+					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<span itemprop="name">Столы</span>
+						<meta itemprop="position" content="3" />
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="content content_columns product">
+			<div class="product__details">
+				<div class="product__name">Стол формат PRO ЛДСП 2 ящика без аксессуаров лес черный/черный</div>
+
+				<div class="product__photos"></div>
+
+				<div class="product__3d">
+					<div>
+						<div class="h3">
+							<a href="javascript:void(0)" class="link-angle _lg">3D конструктор</a>
+						</div>
+						<div>
+							<p>Посмотрите мебель со всех сторон и конструируйте сами!</p>
 						</div>
 					</div>
+					<div>
+						<img src="img/dev/product/3d.png" width="137" height="96" alt="" />
+					</div>
+				</div>
 
-					<div class="f-carousel__slide">
-						<div class="main-slide main-slide_col-1 text-white">
-							<div class="main-slide__text">
-								<div class="label label_green label_big label_rotate">Всё в наличии</div>
-								<div class="main-slide__wrapper">
-									<div class="main-slide__header">Столы, кресла и&nbsp;корпусная мебель</div>
-									<div class="main-slide__body">
-										<div class="main-slide__subheader">Отправим не позднее 3-5 дней</div>
-										<div class="main-slide__note"></div>
+				<div class="product__features block-collapsible" id="features" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=features"></div>
+
+				<div class="product__equip"></div>
+
+				<div class="product__tabs" --data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=tab">
+					<div class="tabs">
+						<div class="tabs__header scrollblock">
+							<button class="tab-nav js-tab-nav" data-tab="size">Размеры стола</button>
+							<button class="tab-nav js-tab-nav" data-tab="pack">Упаковка</button>
+							<button class="tab-nav js-tab-nav" data-tab="benefits">Преимущества</button>
+							<button class="tab-nav js-tab-nav" data-tab="materials">Материалы и уход</button>
+						</div>
+						<div class="tabs__content">
+							<div class="tab-block" data-tab-content="size">
+								<picture>
+									<source srcset="img/dev/product/tab-1.png" type="image/webp" loading="lazy" />
+									<img src="img/dev/product/tab-1.png" class="center" width="615" height="455" alt="" loading="lazy" />
+								</picture>
+							</div>
+							<div class="tab-block pack" data-tab-content="pack">
+								<div class="pack__row">
+									<div class="pack__col-1">
+										<div class="pack__group">Стол</div>
 									</div>
-									<div class="main-slide__button">
-										<a href="javascript:void(0)" class="btn btn_yellow btn_arrow"><span>Посмотреть мебель</span></a>
+									<div class="pack__col-2">
+										<div class="pack__header">
+											<div>Ширина</div>
+											<div>Длина</div>
+											<div>Коробки</div>
+											<div>Объём</div>
+											<div>Вес</div>
+										</div>
+										<div class="pack__body">
+											<div>300 см</div>
+											<div>500 см</div>
+											<div>3 шт</div>
+											<div>0.12 м<sup>3</sup></div>
+											<div>21 кг</div>
+										</div>
+									</div>
+								</div>
+								<div class="pack__row">
+									<div class="pack__col-1">
+										<div class="pack__group">Коробки <span>3 шт</span></div>
+									</div>
+									<div class="pack__col-2">
+										<div class="pack__header">
+											<div>Ширина</div>
+											<div>Длина</div>
+											<div>Коробки</div>
+											<div>Объём</div>
+											<div>Вес</div>
+										</div>
+									</div>
+								</div>
+								<div class="pack__row">
+									<div class="pack__col-1">
+										<div class="pack__name"><i>1</i> Траверсы — элементы жёсткости</div>
+									</div>
+									<div class="pack__col-2">
+										<div class="pack__header">
+											<div>Ширина</div>
+											<div>Длина</div>
+											<div>Коробки</div>
+											<div>Объём</div>
+											<div>Вес</div>
+										</div>
+										<div class="pack__body">
+											<div>1 300 см</div>
+											<div>500 см</div>
+											<div>3 шт</div>
+											<div>0.12 м<sup>3</sup></div>
+											<div>21 кг</div>
+										</div>
+									</div>
+								</div>
+								<div class="pack__row">
+									<div class="pack__col-1">
+										<div class="pack__name"><i>2</i> Боковые опоры</div>
+									</div>
+									<div class="pack__col-2">
+										<div class="pack__header">
+											<div>Ширина</div>
+											<div>Длина</div>
+											<div>Коробки</div>
+											<div>Объём</div>
+											<div>Вес</div>
+										</div>
+										<div class="pack__body">
+											<div>300 см</div>
+											<div>500 см</div>
+											<div>1 шт</div>
+											<div>0.5 м<sup>3</sup></div>
+											<div>2 кг</div>
+										</div>
+									</div>
+								</div>
+								<div class="pack__row">
+									<div class="pack__col-1">
+										<div class="pack__name"><i>3</i> Столешница</div>
+									</div>
+									<div class="pack__col-2">
+										<div class="pack__header">
+											<div>Ширина</div>
+											<div>Длина</div>
+											<div>Коробки</div>
+											<div>Объём</div>
+											<div>Вес</div>
+										</div>
+										<div class="pack__body">
+											<div>300 см</div>
+											<div>500 см</div>
+											<div>3 шт</div>
+											<div>0.12 м<sup>3</sup></div>
+											<div>21 кг</div>
+										</div>
 									</div>
 								</div>
 							</div>
-							<div class="main-slide__img">
-								<img src="img/dev/carousels/carousel-main-2.png" width="" height="" alt="" />
-							</div>
+							<div class="tab-block" data-tab-content="benefits" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php"></div>
+							<div class="tab-block" data-tab-content="materials" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php"></div>
 						</div>
 					</div>
+				</div>
 
-					<div class="f-carousel__slide">
-						<div class="main-slide main-slide_col-1 text-white">
-							<div class="main-slide__text">
-								<div class="label label_green label_big label_rotate">Не всё в наличии</div>
-								<div class="main-slide__wrapper">
-									<div class="main-slide__header">Lorem ipsum dolor sit amet.</div>
-									<div class="main-slide__body">
-										<div class="main-slide__subheader">Девушка в комплект не входит!</div>
-										<div class="main-slide__note"></div>
+				<div class="product__tabs">
+					<div class="h3">Качество и технологии</div>
+					<div class="tabs">
+						<div class="tabs__header scrollblock">
+							<button class="tab-nav js-tab-nav" data-tab="paint">Покраска</button>
+							<button class="tab-nav js-tab-nav" data-tab="egger">ЛДСП Egger</button>
+							<button class="tab-nav js-tab-nav" data-tab="durability">Долговечность</button>
+							<button class="tab-nav js-tab-nav" data-tab="surface">Идеальная поверхность</button>
+							<button class="tab-nav js-tab-nav" data-tab="stock">Склад</button>
+						</div>
+						<div class="tabs__content">
+							<div class="tab-block" data-tab-content="paint">
+								<div class="tab-block__cols">
+									<div class="tab-block__col _cons">
+										<div class="tab-block__img">
+											<picture>
+												<source srcset="img/dev/product/tab-cons.jpg" type="image/webp" loading="lazy" />
+												<img src="img/dev/product/tab-cons.jpg" width="" height="" alt="" loading="lazy" />
+											</picture>
+											<div class="label label_red label_big">Другие производители</div>
+										</div>
+										<p>Поверхность грубо зашкурена и сразу покрашена. Краска начала отходить на торцевой стороне.</p>
 									</div>
-									<div class="main-slide__button">
-										<a href="javascript:void(0)" class="btn btn_yellow btn_arrow"><span>Посмотреть мебель</span></a>
+									<div class="tab-block__col _pros">
+										<div class="tab-block__img">
+											<picture>
+												<source srcset="img/dev/product/tab-pros.webp" type="image/webp" loading="lazy" />
+												<img src="img/dev/product/tab-pros.webp" width="" height="" alt="" loading="lazy" />
+											</picture>
+											<div class="label label_green label_big">
+												Мебель <svg class="label-logo">
+													<use xlink:href="#logo"></use>
+												</svg>
+											</div>
+										</div>
+										<p>Идеальное ровное покрытие. Достигается за счёт отработанной технологии и использования импортной краски и современного оборудования</p>
 									</div>
 								</div>
 							</div>
-							<div class="main-slide__img">
-								<img src="img/dev/carousels/carousel-main-1.png" width="" height="" alt="" />
-							</div>
+							<div class="tab-block" data-tab-content="egger">2</div>
+							<div class="tab-block" data-tab-content="durability">3</div>
+							<div class="tab-block" data-tab-content="surface">4</div>
+							<div class="tab-block" data-tab-content="stock" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php"></div>
 						</div>
 					</div>
-
-					<div class="f-carousel__slide">
-						<div class="main-slide main-slide_col-2">
-							<div class="main-slide__text">
-								<div class="label label_green label_big label_rotate">Всё в наличии</div>
-								<div class="main-slide__wrapper">
-									<div class="main-slide__header">Столы, кресла и&nbsp;корпусная мебель</div>
-									<div class="main-slide__body">
-										<div class="main-slide__subheader">Отправим не позднее 3-5 дней</div>
-										<div class="main-slide__note"></div>
-									</div>
-									<div class="main-slide__button">
-										<a href="javascript:void(0)" class="btn btn_yellow btn_arrow"><span>Посмотреть мебель</span></a>
-									</div>
-								</div>
-							</div>
-							<div class="main-slide__img">
-								<img src="img/dev/carousels/carousel-main-2.png" width="" height="" alt="" />
-							</div>
+				</div>
+				<div class="product__reviews block-collapsible" id="reviews" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=reviews" data-params='{"productId": 12345}'></div>
+				<div class="product__gallery">
+					<div class="h3">Галерея</div>
+					<div class="f-carousel carousel-gallery-thumbs _md-2 _md-no-thumbs" data-carousel="carousel" data-options='{"Navigation": false, "Thumbs": false}' data-thumbs-on="min-width: 768px" data-thumbs-type="classic">
+						<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?office&v15">
+							<img src="https://source.unsplash.com/random/800x500/?office&v15" alt="">
+							<a href="javascript:void(0)" class="item-note link-arrow _white">Домашний интерьер WOODER</a>
+						</div>
+						<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?office&v10">
+							<img src="https://source.unsplash.com/random/800x500/?office&v10" alt="">
+							<a href="javascript:void(0)" class="item-note link-arrow _white">Домашний интерьер WOODER 1</a>
+						</div>
+						<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?office&v5">
+							<img src="https://source.unsplash.com/random/800x500/?office&v5" alt="">
+							<a href="javascript:void(0)" class="item-note link-arrow _white">Домашний интерьер WOODER 2</a>
+						</div>
+						<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?office&v25">
+							<img src="https://source.unsplash.com/random/800x500/?office&v25" alt="">
+							<a href="javascript:void(0)" class="item-note link-arrow _white">Домашний интерьер WOODER 3</a>
+						</div>
+						<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?office&v35">
+							<img src="https://source.unsplash.com/random/800x500/?office&v35" alt="">
+							<a href="javascript:void(0)" class="item-note link-arrow _white">Домашний интерьер WOODER 4</a>
 						</div>
 					</div>
 				</div>
 			</div>
+
+			<div class="product__options">
+				<form>
+					<div class="product__top" data-id="product-top">
+						<div class="available _instock">Есть в наличии</div>
+						<div class="article">Артикул: <span itemprop="sku">L-25220</span></div>
+						<div itemprop="brand" itemtype="https://schema.org/Brand" itemscope="">
+							<meta itemprop="name" content="ZAMM" />
+						</div>
+					</div>
+
+					<div class="product__prices" data-id="product-price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
+						<div class="product__price">29 620 ₽</div>
+						<div class="product__oldprice">39 620 ₽</div>
+						<link itemprop="availability" href="http://schema.org/InStock" />
+						<meta itemprop="price" content="29620" />
+						<meta itemprop="priceCurrency" content="RUB" />
+						<meta itemprop="name" content="" />
+						<meta itemprop="priceValidUntil" content="2031-01-01" />
+						<meta itemprop="url" content="" />
+					</div>
+
+					<div class="product__fav" data-id="product-fav">
+						<div class="fav">
+							<a href="javascript:void(0)" class="js-fav" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
+								<svg>
+									<use xlink:href="#fav"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+
+					<div class="product__loan">
+						<a href="javascript:void(0)" class="link-angle _bg-white js-modal" data-url="" data-box-width="800"><span>Рассрочка от</span> 8450 ₽ в мес.</a>
+					</div>
+
+					<div class="product__props" data-id="product-props">
+						<div class="props-wrapper">
+							<div class="prop">
+								<div class="prop__label">Цвет столешницы</div>
+								<div class="prop__list">
+									<label title="Свойство 0">
+										<input checked type="radio" name="select[129]" value="129-1" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+										<picture>
+											<source srcset="img/dev/props/color-1.png" type="image/webp" />
+											<img src="img/dev/props/color-1.png" width="42" height="42" alt="" />
+										</picture>
+									</label>
+									<label title="Свойство 1">
+										<input type="radio" name="select[129]" value="129-2" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+										<picture>
+											<source srcset="img/dev/props/color-2.png" type="image/webp" />
+											<img src="img/dev/props/color-2.png" width="42" height="42" alt="" />
+										</picture>
+									</label>
+								</div>
+							</div>
+
+							<div class="prop">
+								<div class="prop__label">Металлокаркас</div>
+								<div class="prop__list">
+									<label title="Свойство 2">
+										<input checked type="radio" name="select[130]" value="130-1" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+										<picture>
+											<source srcset="img/dev/props/color-1.png" type="image/webp" />
+											<img src="img/dev/props/color-1.png" width="42" height="42" alt="" loading="lazy" />
+										</picture>
+									</label>
+									<label title="Свойство 3">
+										<input type="radio" name="select[130]" value="130-2" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+										<picture>
+											<source srcset="img/dev/props/color-2.png" type="image/webp" />
+											<img src="img/dev/props/color-2.png" width="42" height="42" alt="" loading="lazy" />
+										</picture>
+									</label>
+									<label title="Свойство 4">
+										<input type="radio" name="select[130]" value="130-3" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+										<picture>
+											<source srcset="img/dev/props/color-1.png" type="image/webp" />
+											<img src="img/dev/props/color-1.png" width="42" height="42" alt="" loading="lazy" />
+										</picture>
+									</label>
+									<label title="Свойство 5">
+										<input type="radio" name="select[130]" value="130-4" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+										<picture>
+											<source srcset="img/dev/props/color-1.png" type="image/webp" />
+											<img src="img/dev/props/color-1.png" width="42" height="42" alt="" loading="lazy" />
+										</picture>
+									</label>
+								</div>
+							</div>
+						</div>
+
+						<div class="prop">
+							<div class="prop__label">Длина</div>
+							<div class="prop__list">
+								<label title="Свойство 6">
+									<input checked type="radio" name="select[131]" value="131-1" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+									<span>50 см</span>
+								</label>
+								<label title="Свойство 7">
+									<input type="radio" name="select[131]" value="131-2" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+									<span>60 см</span>
+								</label>
+								<label title="Свойство 8">
+									<input type="radio" name="select[131]" value="131-3" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+									<span>70 см</span>
+								</label>
+								<label title="Свойство 9">
+									<input type="radio" name="select[131]" value="131-4" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+									<span>80 см</span>
+								</label>
+								<label title="Свойство 10">
+									<input type="radio" name="select[131]" value="131-5" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+									<span>90 см</span>
+								</label>
+								<label title="Свойство 11">
+									<input type="radio" name="select[131]" value="131-6" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+									<span>100 см</span>
+								</label>
+							</div>
+						</div>
+
+						<div class="prop">
+							<div class="prop__label">Ширина</div>
+							<div class="prop__list">
+								<label title="Свойство 12">
+									<input checked type="radio" name="select[132]" value="132-1" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+									<span>50 см</span>
+								</label>
+								<label title="Свойство 13">
+									<input type="radio" name="select[132]" value="132-2" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+									<span>100 см</span>
+								</label>
+								<label title="Свойство 14">
+									<input type="radio" name="select[132]" value="132-3" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+									<span>150 см</span>
+								</label>
+							</div>
+						</div>
+					</div>
+
+					<div class="product__purchase" data-id="product-purchase">
+						<div class="product__buy">
+							<button type="button" class="btn btn_yellow btn_wide js-add-to-cart" data-id="702736" data-url="https://deviart.ru/zamm/add-to-cart.php" data-cart="/cart/">
+								<span>В корзину</span>
+								<span>Товар в корзине</span>
+							</button>
+						</div>
+						<div class="product__amount">
+							<div class="amount-element">
+								<button type="button" class="js-btn-minus"></button>
+								<input type="number" name="amount" readonly min="1" max="20" step="1" value="1" />
+								<button type="button" class="js-btn-plus"></button>
+							</div>
+						</div>
+					</div>
+
+					<div class="product__delivery" data-id="product-delivery">
+						<div class="available _delivery"><a href="javascript:void(0)" class="link-angle _gray">Доставка в Санкт-Петербург 3-5 дней. 1 200 ₽</a></div>
+					</div>
+
+					<div class="product__showroom" data-id="product-showroom">
+						Есть в шоуруме:
+						<a href="javascript:void(0)">ТЦ Авиапарк</a>
+						<a href="javascript:void(0)">Петербург, Бармалеева 1</a>
+						<a href="javascript:void(0)">Покровка 44</a>
+						<a href="javascript:void(0)" class="link-angle _gray">и ещё 5</a>
+					</div>
+
+					<div class="product__more">
+						<div class="product__more-item">
+							<a href="javascript:void(0)" class="link-angle _gray"><svg>
+									<use xlink:href="#3d"></use>
+								</svg>Посмотреть в 3D</a>
+						</div>
+						<div class="product__more-item"><a href="#features" class="link-angle _gray">Характеристики и инструкции</a></div>
+						<div class="product__more-item"><a href="#product-accessory" class="link-angle _gray">Аксессуары к этому столу</a></div>
+						<div class="product__more-item"><a href="#reviews" class="link-angle _gray">Отзывы</a></div>
+					</div>
+				</form>
+			</div>
 		</div>
 
+	</div>
+
+	<div class="container">
+		<div class="content carousel-overflow" id="product-accessory" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=carousel"></div>
+
 		<div class="content carousel-overflow">
-			<div class="block-header">Самые популярные столы</div>
+			<div class="block-header">С этим столом часто покупают</div>
 			<div class="f-carousel product-carousel carousel-top-nav" data-carousel="carousel" data-options='{"Dots": false}'>
 				<div class="f-carousel__slide">
 					<div class="item">
@@ -871,173 +1210,6 @@
 			</div>
 		</div>
 
-		<div class="content">
-			<div class="block-header">Популярные категории</div>
-			<div class="block-cards">
-				<a href="javascript:void(0)" class="card card_1 card_yellow">
-					<div class="card__text">
-						<div class="card__header">Стеллажи</div>
-						<div class="card__subheader">на металокаркасе</div>
-						<div class="card__amount">88 моделей</div>
-					</div>
-					<img src="img/dev/cards/card-1.png" width="" height="" alt="" class="card__image" />
-				</a>
-				<a href="javascript:void(0)" class="card card_2 card_gray">
-					<div class="card__text">
-						<div class="card__header">Рабочие столы <span class="label label_green label_rotate">От 4990₽</span></div>
-						<div class="card__subheader">для дома и офиса</div>
-						<div class="card__amount">188 моделей</div>
-					</div>
-					<img src="img/dev/cards/card-2.png" width="" height="" alt="" class="card__image" style="mix-blend-mode: multiply" />
-					<!-- mix-blend-mode убрать в проде. это для тестовой картинки без прозрачного фона -->
-				</a>
-				<a href="javascript:void(0)" class="card card_3 card_smalltext card_red-coral">
-					<div class="card__text">
-						<div class="card__header">Шкафы и тумбочки</div>
-						<div class="card__subheader"></div>
-						<div class="card__amount">42 модели</div>
-					</div>
-					<img src="img/dev/cards/card-3.png" width="" height="" alt="" class="card__image" />
-				</a>
-				<a href="javascript:void(0)" class="card card_4 card_smalltext card_blue">
-					<div class="card__text">
-						<div class="card__header">Кресла для кабинета</div>
-						<div class="card__subheader"></div>
-						<div class="card__amount">4 модели</div>
-					</div>
-					<img src="img/dev/cards/card-4.png" width="" height="" alt="" class="card__image" />
-				</a>
-			</div>
-		</div>
-
-		<div class="content">
-			<div class="block-header">Идеи для перестановки</div>
-			<div class="block-ideas">
-				<div class="idea">
-					<a href="javascript:void(0)" class="idea__link">
-						<picture>
-							<source srcset="img/dev/ideas/idea-1.png" type="image/webp" loading="lazy" />
-							<img src="img/dev/ideas/idea-1.png" width="" height="" alt="" loading="lazy" />
-						</picture>
-						<span class="item-note link-arrow _white">Домашний интерьер WOODER</span>
-					</a>
-
-					<div class="idea-marker" style="left: 13%; top: 25%">
-						<button class="idea-marker__btn" type="button"></button>
-						<div class="idea-marker__content">
-							<picture>
-								<source srcset="img/dev/menu/table-1.png" type="image/webp" loading="lazy" />
-								<img src="img/dev/menu/table-1.png" width="" height="" alt="" loading="lazy" />
-							</picture>
-							<div>
-								<div>Стол формат PRO с экраном ЛДСП 1</div>
-								<div class="idea-marker__price">18 350₽</div>
-								<a href="javascript:void(0)" class="idea-marker__link">Посмотреть</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="idea-marker" style="left: 50%; top: 33%">
-						<button class="idea-marker__btn" type="button"></button>
-						<div class="idea-marker__content">
-							<picture>
-								<source srcset="img/dev/menu/table-1.png" type="image/webp" loading="lazy" />
-								<img src="img/dev/menu/table-1.png" width="" height="" alt="" loading="lazy" />
-							</picture>
-							<div>
-								<div>Стол формат PRO с экраном ЛДСП 2</div>
-								<div class="idea-marker__price">18 350₽</div>
-								<a href="javascript:void(0)" class="idea-marker__link">Посмотреть</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="idea-marker" style="left: 80%; top: 70%">
-						<button class="idea-marker__btn" type="button"></button>
-						<div class="idea-marker__content">
-							<picture>
-								<source srcset="img/dev/menu/table-1.png" type="image/webp" loading="lazy" />
-								<img src="img/dev/menu/table-1.png" width="" height="" alt="" loading="lazy" />
-							</picture>
-							<div>
-								<div>Стол формат PRO с экраном ЛДСП 3</div>
-								<div class="idea-marker__price">18 350₽</div>
-								<a href="javascript:void(0)" class="idea-marker__link">Посмотреть</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="idea">
-					<a href="javascript:void(0)" class="idea__link">
-						<picture>
-							<source srcset="img/dev/ideas/idea-2.png" type="image/webp" loading="lazy" />
-							<img src="img/dev/ideas/idea-2.png" width="" height="" alt="" loading="lazy" />
-						</picture>
-						<span class="item-note link-arrow _white">Домашний интерьер WOODER</span>
-					</a>
-
-					<div class="idea-marker" style="left: 80%; top: 50%">
-						<button class="idea-marker__btn" type="button"></button>
-						<div class="idea-marker__content">
-							<picture>
-								<source srcset="img/dev/menu/table-1.png" type="image/webp" loading="lazy" />
-								<img src="img/dev/menu/table-1.png" width="" height="" alt="" loading="lazy" />
-							</picture>
-							<div>
-								<div>Стол формат PRO с экраном ЛДСП 4</div>
-								<div class="idea-marker__price">18 350₽</div>
-								<a href="javascript:void(0)" class="idea-marker__link">Посмотреть</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="idea">
-					<a href="javascript:void(0)" class="idea__link">
-						<picture>
-							<source srcset="img/dev/ideas/idea-3.png" type="image/webp" loading="lazy" />
-							<img src="img/dev/ideas/idea-3.png" width="" height="" alt="" loading="lazy" />
-						</picture>
-					</a>
-				</div>
-
-				<div class="idea">
-					<a href="javascript:void(0)" class="idea__link">
-						<picture>
-							<source srcset="img/dev/ideas/idea-4.png" type="image/webp" loading="lazy" />
-							<img src="img/dev/ideas/idea-4.png" width="" height="" alt="" loading="lazy" />
-						</picture>
-					</a>
-				</div>
-
-				<div class="idea">
-					<a href="javascript:void(0)" class="idea__link">
-						<picture>
-							<source srcset="img/dev/ideas/idea-5.png" type="image/webp" loading="lazy" />
-							<img src="img/dev/ideas/idea-5.png" width="" height="" alt="" loading="lazy" />
-						</picture>
-					</a>
-				</div>
-
-				<div class="idea idea-all">
-					<div class="idea-all__wrapper">
-						<div class="idea-all__header">Смотрите все идеи в&nbsp;нашем разделе</div>
-						<a href="javascript:void(0)" class="btn btn_white">Посмотреть</a>
-					</div>
-					<picture>
-						<source srcset="img/dev/ideas/idea-all.png" type="image/webp" loading="lazy" />
-						<img src="img/dev/ideas/idea-all.png" width="" height="" alt="" loading="lazy" />
-					</picture>
-				</div>
-
-				<div class="idea-mobile-content">
-					<button type="button" class="btn btn_close js-close"></button>
-					<div></div>
-				</div>
-			</div>
-		</div>
-
 	</div>
 
 	<footer class="footer">
@@ -1249,7 +1421,7 @@
 		</symbol>
 	</svg>
 
-	<script src="js/main.min.js"></script>
+	<script src="js/catalog.min.js"></script>
 </body>
 
 </html>
