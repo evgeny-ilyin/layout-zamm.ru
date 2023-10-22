@@ -11,6 +11,24 @@
 	display: flex;
 	justify-content: center;
 
+	&._sm {
+		position: relative;
+
+		.fetch__ring {
+			top: auto;
+			height: 32px;
+			margin: 20px;
+		}
+	}
+
+	@include when-inside(".product__options") {
+		background: rgba($color: #f6f8f9, $alpha: 0.5);
+	}
+
+	@include when-inside(".product__details") {
+		background: inherit;
+	}
+
 	&__ring {
 		position: sticky !important;
 		top: 30vh;
@@ -56,6 +74,8 @@
 }
 
 .skeleton {
+	margin: 0 16px 16px;
+
 	.s-grid {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);

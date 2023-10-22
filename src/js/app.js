@@ -4,6 +4,7 @@ import * as fancyapps from "./modules/fancyapps.js";
 import * as rangeslider from "./modules/nouislider.js";
 import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 import "./modules/cookies.js";
+import "./modules/modal.js";
 
 addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
@@ -19,8 +20,11 @@ addEventListener("DOMContentLoaded", () => {
 	functions.collapseHandler();
 	functions.accordion();
 	functions.accordionFooter();
+	functions.tabsInit();
+	functions.tabsHandler();
 	functions.ideaMarkerShow();
 	functions.ideaPopupPlace();
+	functions.blockObserver();
 
 	fancyapps.carouselsInit();
 	rangeslider.rangeSlidersInit();

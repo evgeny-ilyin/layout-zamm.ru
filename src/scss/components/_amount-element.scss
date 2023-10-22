@@ -1,0 +1,59 @@
+.amount-element {
+	--svg-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 2'%3E%3Cpath fill='%23333' fill-rule='evenodd' d='M14 1a.75.75 0 0 1-.75.75h-12a.75.75 0 0 1 0-1.5h12A.75.75 0 0 1 14 1Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+	--svg-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath fill='%23333' fill-rule='evenodd' d='M8 1a.75.75 0 0 0-1.5 0v5.25H1.25a.75.75 0 1 0 0 1.5H6.5V13A.75.75 0 0 0 8 13V7.75h5.25a.75.75 0 0 0 0-1.5H8V1Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+
+	position: relative;
+	border: 1px solid $black10;
+	border-radius: 4px;
+	background: $gray;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	input[type="number"] {
+		cursor: default;
+		background: $gray;
+		width: 25px;
+		height: 20px;
+		padding: 0;
+		text-align: center;
+		border: 0;
+		-webkit-appearance: textfield !important;
+		-moz-appearance: textfield !important;
+		appearance: textfield !important;
+	}
+	input[type="number"]::-webkit-inner-spin-button,
+	input[type="number"]::-webkit-outer-spin-button {
+		-webkit-appearance: none;
+	}
+
+	button {
+		width: 32px;
+		height: 32px;
+		padding: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background: $gray;
+		border: 0 !important;
+
+		&::before {
+			content: "";
+			display: block;
+			width: 14px;
+			height: 14px;
+		}
+
+		&.js-btn-minus {
+			&::before {
+				background: var(--svg-minus) no-repeat center;
+			}
+		}
+		&.js-btn-plus {
+			&::before {
+				background: var(--svg-plus) no-repeat center;
+			}
+		}
+	}
+}

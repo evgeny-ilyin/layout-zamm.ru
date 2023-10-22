@@ -81,10 +81,16 @@
 	// transition: color 0.15s ease, text-shadow 0.15s ease, text-decoration-color 0.15s ease;
 	transition: all 0.15s ease;
 
-	@include on-event {
+	@include on-hover {
 		text-shadow: $shadow-600;
 		text-decoration-color: inherit;
 		// border-bottom-color: $href-color;
+	}
+
+	@include on-active {
+		color: $black60;
+		text-shadow: $shadow-600;
+		transition: all $transition-default;
 	}
 }
 

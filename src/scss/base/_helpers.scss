@@ -90,6 +90,10 @@
 	width: 100vw;
 }
 
+.center {
+	margin: 0 auto;
+}
+
 // .relative {
 // 	position: relative;
 // }
@@ -178,4 +182,14 @@
 			opacity: 1;
 		}
 	}
+}
+
+// frame/slide signature @ left corner
+.item-note {
+	position: absolute;
+	right: 17px;
+	bottom: 12px;
+	left: 17px;
+	text-decoration: none;
+	text-shadow: none !important;
 }

@@ -12,7 +12,8 @@
 	text-decoration: none;
 	text-align: center;
 	transition: all $transition-default;
-	word-break: break-word;
+	overflow-wrap: anywhere;
+	word-break: break-word; // deprecated
 	user-select: none;
 
 	span {
@@ -20,6 +21,10 @@
 		align-items: center;
 		justify-content: center;
 		// transition: all $transition-default;
+
+		&::after {
+			transition: opacity $transition-default;
+		}
 	}
 
 	@include on-event {
@@ -382,7 +387,7 @@
 		align-items: center;
 
 		&::after {
-			content: '';
+			content: "";
 			display: block;
 			width: 18px;
 			height: 18px;
@@ -396,7 +401,7 @@
 			color: $black !important;
 
 			&::after {
-			opacity: 1;
+				opacity: 1;
 			}
 		}
 	}
@@ -406,7 +411,7 @@
 	top: auto;
 	right: 11px;
 
-	@include when-inside(".header-alert_black") {
+	@include when-inside(".header-alert._black") {
 		&::before,
 		&::after {
 			background-color: $white;
@@ -430,6 +435,49 @@
 				width: 25px;
 				height: 2px;
 				box-shadow: none;
+			}
+		}
+	}
+}
+
+.js-add-to-cart {
+	span {
+		display: inline;
+		position: relative;
+		white-space: nowrap;
+
+		& ~ span {
+			display: none;
+			@include when-inside(".product") {
+				margin-right: 16px;
+			}
+
+			&::after {
+				@include when-inside(".product") {
+					content: "";
+					display: block;
+					position: absolute;
+					top: 4px;
+					right: -20px;
+					width: 14px;
+					height: 12px;
+					background: var(--svg-checked) center no-repeat;
+					background-size: contain;
+				}
+			}
+		}
+	}
+
+	&.in-cart {
+		@include when-inside(".product") {
+			width: calc(50% - 9px);
+		}
+
+		span {
+			display: none;
+
+			& ~ span {
+				display: inline;
 			}
 		}
 	}

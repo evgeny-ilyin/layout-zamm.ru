@@ -28,7 +28,8 @@
 @import "components/nav-hamburger";
 @import "components/breadcrumbs";
 @import "components/links";
-@import "components/button";
+@import "components/buttons";
+@import "components/tabs";
 @import "components/form";
 @import "components/checkbox";
 @import "components/labels";
@@ -39,6 +40,7 @@
 // @import "components/svg-sprite";
 
 // 6. Page-specific styles
+@import "pages/product-helpers";
 // @import "pages/home";
 
 // 7. Themes

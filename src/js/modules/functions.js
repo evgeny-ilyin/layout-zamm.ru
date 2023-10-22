@@ -1,3 +1,6 @@
+import { productBlockCollapseHandler, productGalleriesInit, productGallery, productTabsInit } from "./product.js";
+import { carouselsInit } from "./fancyapps.js";
+
 export function stickyHeader() {
 	const header = document.querySelector("header"),
 		isOntopClass = "is-ontop",
@@ -212,7 +215,7 @@ export function searchForm() {
 export function collapseHandler() {
 	const isCollapsedClass = "is-collapsed";
 
-	document.body.addEventListener("click", (e) => {
+	document.addEventListener("click", (e) => {
 		const trigger = e.target.closest(".js-collapse");
 		if (!trigger) return;
 
@@ -303,6 +306,44 @@ export function accordionFooter() {
 	);
 }
 
+export function tabsInit() {
+	const isActiveClass = "is-active",
+		tabsItems = document.querySelectorAll(".tabs");
+	if (!tabsItems) return;
+
+	tabsItems.forEach((el) => {
+		const currentActive = el.querySelector(`.${isActiveClass}`);
+		if (currentActive) return;
+
+		let items = el.querySelectorAll(".tabs__header, .tabs__content");
+		if (!items) return;
+
+		items.forEach((i) => {
+			i.querySelector(".tab-nav, .tab-block").classList.add(isActiveClass);
+		});
+	});
+}
+
+export function tabsHandler(observe) {
+	const isActiveClass = "is-active";
+
+	if (observe) blockObserver(observe);
+
+	document.addEventListener("click", (e) => {
+		const trigger = e.target.closest(".js-tab-nav");
+		if (!trigger || trigger.classList.contains(isActiveClass)) return;
+
+		const currentActive = trigger.closest(".tabs").querySelectorAll(`.${isActiveClass}`),
+			targetTab = trigger.dataset.tab,
+			tabContent = trigger.closest(".tabs").querySelector(`[data-tab-content=${targetTab}]`);
+
+		currentActive.forEach((el) => el.classList.remove(isActiveClass));
+
+		trigger.classList.add(isActiveClass);
+		tabContent.classList.add(isActiveClass);
+	});
+}
+
 // в шаблоне пишем сразу инлайн стиль, без js
 // export function ideaMarkerPlace() {
 // 	const markers = document.querySelectorAll(".idea-marker");
@@ -389,7 +430,7 @@ export function showSkeleton(where, tpl) {
 	where.appendChild(template.content.cloneNode(true));
 }
 
-export function useLoader(where, action = false) {
+export function useLoader(where, action, options = {}) {
 	if (!where) return;
 	let whereArr = [];
 
@@ -399,7 +440,27 @@ export function useLoader(where, action = false) {
 		whereArr = where;
 	}
 
-	if (action == "stop") {
+	if (action == "start") {
+		whereArr.forEach((el) => {
+			if (!el) return;
+			let loader = document.createElement("div");
+			loader.classList.add("fetch");
+			let child = document.createElement("div");
+			child.classList.add("fetch__ring");
+
+			if (options.class) {
+				loader.classList.add(options.class);
+			}
+
+			loader.appendChild(child);
+
+			el.appendChild(loader);
+
+			setTimeout(() => {
+				loader.style.opacity = 1;
+			}, 0);
+		});
+	} else if (action == "stop") {
 		whereArr.forEach((el) => {
 			if (!el) return;
 			let loaders = el.querySelectorAll(".fetch");
@@ -415,34 +476,81 @@ export function useLoader(where, action = false) {
 		});
 		return;
 	}
-
-	whereArr.forEach((el) => {
-		if (!el) return;
-		let loader = document.createElement("div");
-		loader.classList.add("fetch");
-		let child = document.createElement("div");
-		child.classList.add("fetch__ring");
-		loader.appendChild(child);
-
-		el.appendChild(loader);
-
-		setTimeout(() => {
-			loader.style.opacity = 1;
-		}, 0);
-	});
 }
 
 export function btnLoader(where, action = false) {
 	if (!where) return;
 	const btnLoaderClass = "btn-loader",
-		label = where.querySelector("span");
+		labels = where.querySelectorAll("span");
 
 	if (action == "stop") {
 		where.classList.remove(btnLoaderClass);
-		label.style.opacity = "";
+		labels.forEach((l) => {
+			l.style.opacity = "";
+		});
 		return;
 	}
 
 	where.classList.add(btnLoaderClass);
-	label.style.opacity = 0;
+	labels.forEach((l) => {
+		l.style.opacity = 0;
+	});
+}
+
+// fetch observer
+export function blockObserver(el = false) {
+	const fetchObserver = new IntersectionObserver((entries, observer) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				let target = entry.target,
+					url = target.dataset.url,
+					data = {},
+					params = {};
+
+				if (!url) return;
+
+				if (target.dataset.params) {
+					params = JSON.parse(target.dataset.params);
+				}
+
+				Object.assign(data, params);
+
+				(async () => {
+					useLoader(target, "start", { class: "_sm" });
+
+					let response = await fetch(url, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json;charset=utf-8",
+						},
+						body: JSON.stringify(data),
+					});
+
+					let result = await response.json();
+
+					if (result.status === true) {
+						target.innerHTML = result.content;
+					}
+
+					reinitObserverResults(target);
+
+					useLoader(target, "stop");
+				})();
+
+				observer.unobserve(entry.target);
+			}
+		});
+	}, {});
+
+	const blocks = el ? el.querySelectorAll("[data-fetch='true']") : document.querySelectorAll("[data-fetch='true']");
+	blocks.forEach((block) => fetchObserver.observe(block));
+
+	let reinitObserverResults = (target) => {
+		productBlockCollapseHandler();
+		carouselsInit(target);
+		productGalleriesInit();
+		productGallery();
+		tabsInit();
+		tabsHandler(target);
+	};
 }

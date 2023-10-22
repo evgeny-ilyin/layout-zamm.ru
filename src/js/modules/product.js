@@ -12,14 +12,13 @@ export function productGalleriesInit(item = false) {
 	}
 
 	// onload
-	const catalogItems = document.querySelector(".catalog-items"),
-		carouselItems = document.querySelector(".product-carousel");
+	const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel");
 
-	[catalogItems, carouselItems].forEach((el) => {
+	galleryItems.forEach((el) => {
 		if (!el) return;
 
 		let items = el.querySelectorAll(".item");
-		if (!items) return;
+		// if (!items) return;
 		items.forEach((i) => {
 			i.querySelector(".item__gallery-item").classList.add(isActiveClass);
 		});
@@ -27,11 +26,10 @@ export function productGalleriesInit(item = false) {
 }
 
 export function productGallery() {
-	const catalogItems = document.querySelector(".catalog-items"),
-		carouselItems = document.querySelector(".product-carousel"),
+	const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel"),
 		isActiveClass = "is-active";
 
-	[catalogItems, carouselItems].forEach((el) => {
+	galleryItems.forEach((el) => {
 		if (!el) return;
 		el.addEventListener("mouseover", (e) => {
 			const item = e.target.closest(".item");
@@ -58,15 +56,24 @@ export function productGallery() {
 }
 
 export function productFavourite() {
-	document.body.addEventListener("click", (e) => {
+	document.addEventListener("click", (e) => {
 		const btn = e.target.closest(".js-fav"),
 			isActiveClass = "is-active";
 		if (!btn) return;
 
-		const url = btn.dataset.url;
+		const id = btn.dataset.id,
+			url = btn.dataset.url,
+			data = { id: id };
 
 		(async () => {
-			let response = await fetch(url);
+			let response = await fetch(url, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json;charset=utf-8",
+				},
+				body: JSON.stringify(data),
+			});
+
 			let result = await response.json();
 			if (!result) return;
 
@@ -108,12 +115,17 @@ export function productPropsHover() {
 
 export function productProps() {
 	document.addEventListener("change", (e) => {
+		if (!e.target.closest(".prop")) {
+			return;
+		}
+
 		const prop = e.target,
 			item = prop.closest(".item"),
 			details = prop.closest(".item__details"),
-			form = prop.closest(".props form");
+			card = prop.closest(".product__options"),
+			form = prop.closest("form");
 
-		if (!form || !item) return;
+		if (!form) return;
 
 		let formData = new FormData(form),
 			data = {},
@@ -130,47 +142,81 @@ export function productProps() {
 
 		Object.assign(data, params, formDataObject);
 
-		(async () => {
-			useLoader([item, details]);
+		// data-id item-id-????-props not found (php):
+		// Object.assign(data, { element: { name: prop.name, checked: true, params: params} }, formDataObject);
 
-			let response = await fetch(url, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json;charset=utf-8",
-				},
-				body: JSON.stringify(data),
-			});
+		// product list
+		if (item) {
+			(async () => {
+				useLoader([item, details], "start");
 
-			useLoader([item, details], "stop");
-
-			let result = await response.json();
-
-			if (result.status === true) {
-				Object.entries(result.chunks).forEach(([key, value]) => {
-					if (value.length > 0) {
-						let target = item.querySelector(`[data-id=${key}]`);
-						if (!target) {
-							console.log(`data-id ${key} not found`);
-							return;
-						}
-						target.innerHTML = value;
-					}
+				let response = await fetch(url, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json;charset=utf-8",
+					},
+					body: JSON.stringify(data),
 				});
-			}
 
-			productGalleriesInit(item);
-			productPropCollapseHandler(item);
-		})();
+				let result = await response.json();
+
+				if (result.status === true) {
+					update(result, item);
+				}
+
+				productGalleriesInit(item);
+				productPropCollapseHandler(item);
+
+				useLoader([item, details], "stop");
+			})();
+		}
+
+		// product card
+		if (card) {
+			//!TODO менять УРЛ!
+			(async () => {
+				useLoader([card], "start");
+				let response = await fetch(url, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json;charset=utf-8",
+					},
+					body: JSON.stringify(data),
+				});
+				let result = await response.json();
+				if (result.status === true) {
+					update(result, card);
+				}
+				// productGalleriesInit(card);
+				// productPropCollapseHandler(card);
+				useLoader([card], "stop");
+			})();
+		}
+
+		let update = (result, where) => {
+			Object.entries(result.chunks).forEach(([key, value]) => {
+				if (value.length > 0) {
+					let target = where.querySelector(`[data-id=${key}]`);
+					if (!target) {
+						console.log(`data-id ${key} not found`);
+						return;
+					}
+					target.innerHTML = value;
+				}
+			});
+		};
 	});
 }
 
 export function productFetches() {
-	const filterForm = document.getElementById("filter-form"),
+	const filter = document.querySelector(".filter"),
+		filterForm = document.getElementById("filter-form"),
 		filterReset = document.querySelector(".js-filter-reset"),
 		sortBtns = document.querySelectorAll("input[name='sort']"),
-		itemsContainer = document.querySelector(".content_columns");
+		itemsContainer = document.querySelector(".content_columns"),
+		productPage = document.querySelector(".product");
 
-	if (!filterForm) return;
+	if (!filter && !productPage) return;
 
 	let fetchByFilter = async () => {
 		let filterMobile = document.querySelector(".filter.is-active"),
@@ -180,7 +226,7 @@ export function productFetches() {
 		let formDataObject = Object.fromEntries(formData.entries());
 
 		// loader start +++ filter @mobile
-		useLoader([itemsContainer, filterMobile]);
+		useLoader([itemsContainer, filterMobile], "start");
 
 		// step 1: get filter url based on filter selected
 		let response = await fetch(url, {
@@ -233,7 +279,7 @@ export function productFetches() {
 			url = filterForm.action + query;
 
 		// loader start +++ filter @mobile
-		useLoader(itemsContainer);
+		useLoader(itemsContainer, "start");
 
 		// step 1: fetch get
 		let response = await fetch(url);
@@ -314,6 +360,7 @@ export function productFetches() {
 	let reinitFetchesResults = () => {
 		carouselsInit();
 		productGalleriesInit();
+		productGallery();
 		rangeSlidersInit();
 	};
 
@@ -321,54 +368,131 @@ export function productFetches() {
 		window.history.pushState("", "", url.replace("https://deviart.ru/zamm/", ""));
 	};
 
-	// filter on change
-	filterForm.addEventListener("input", () => {
-		filterReset.classList.remove("invisible");
-		fetchByFilter();
-		filterTagsSet();
-	});
+	let addToCart = (btn) => {
+		const form = btn.closest("form") || btn.closest(".item__props").querySelector("form"),
+			inCartClass = "in-cart";
 
-	// filter on reset
-	filterReset.addEventListener("click", () => {
-		const resetFlag = document.getElementById("filter-reset"),
-			checked = document.querySelectorAll(`input[type='checkbox']:checked`);
-		if (checked.length > 0) {
-			checked.forEach((el) => (el.checked = false));
+		let formData = new FormData(form),
+			data = {},
+			params = {},
+			url = btn.dataset.url,
+			id = btn.dataset.id;
+
+		let formDataObject = Object.fromEntries(formData.entries());
+
+		data = { id: id };
+
+		if (btn.dataset.params) {
+			params = JSON.parse(btn.dataset.params);
 		}
-		filterTagsSet();
-		resetFlag.value = "Y";
-		fetchByFilter();
-		resetFlag.value = "N";
-		filterReset.classList.add("invisible");
-	});
 
-	// filter on submit
-	filterForm.addEventListener("submit", (e) => {
-		e.preventDefault();
-		fetchByFilter();
-		filterTagsSet();
-	});
+		Object.assign(data, params, formDataObject);
 
-	// dropdown sorter
-	sortBtns.forEach((btn) => {
-		btn.addEventListener("change", () => {
-			const sortFlag = document.getElementById("filter-sort"),
-				sortBlock = btn.closest(".js-drop-down.is-active"),
-				sortLabel = sortBlock.querySelector(".drop-down__head"),
-				object = {};
-			sortFlag.value = btn.value;
-			sortLabel.textContent = btn.nextElementSibling.textContent;
-			sortBlock.classList.remove("is-active");
-			object[btn.name] = parseInt(btn.value);
-			fetchByUrl(object);
+		(async () => {
+			btnLoader(btn);
+
+			let response = await fetch(url, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json;charset=utf-8",
+				},
+				body: JSON.stringify(data),
+			});
+
+			let result = await response.json();
+
+			if (result.status === true) {
+				btn.classList.add(inCartClass);
+
+				let target = document.querySelector(`[data-id="amount"]`);
+				if (!target) {
+					console.log(`data-id amount not found`);
+					return;
+				}
+				target.dataset.amount = result.amount;
+			}
+
+			btnLoader(btn, "stop");
+		})();
+	};
+
+	if (filter) {
+		// filter on change
+		filterForm.addEventListener("input", () => {
+			filterReset.classList.remove("invisible");
+			fetchByFilter();
+			filterTagsSet();
 		});
+
+		// filter on reset
+		filterReset.addEventListener("click", () => {
+			const resetFlag = document.getElementById("filter-reset"),
+				checked = document.querySelectorAll(`input[type='checkbox']:checked`);
+			if (checked.length > 0) {
+				checked.forEach((el) => (el.checked = false));
+			}
+			filterTagsSet();
+			resetFlag.value = "Y";
+			fetchByFilter();
+			resetFlag.value = "N";
+			filterReset.classList.add("invisible");
+		});
+
+		// filter on submit
+		filterForm.addEventListener("submit", (e) => {
+			e.preventDefault();
+			fetchByFilter();
+			filterTagsSet();
+		});
+
+		// dropdown sorter
+		sortBtns.forEach((btn) => {
+			btn.addEventListener("change", () => {
+				const sortFlag = document.getElementById("filter-sort"),
+					sortBlock = btn.closest(".js-drop-down.is-active"),
+					sortLabel = sortBlock.querySelector(".drop-down__head"),
+					object = {};
+				sortFlag.value = btn.value;
+				sortLabel.textContent = btn.nextElementSibling.textContent;
+				sortBlock.classList.remove("is-active");
+				object[btn.name] = parseInt(btn.value);
+				fetchByUrl(object);
+			});
+		});
+
+		// btn "load more"
+		document.addEventListener("click", (e) => {
+			const btn = e.target.closest(".js-load-more");
+			if (!btn) return;
+			fetchByMoreBtn(btn);
+		});
+	}
+
+	// btn "add to cart"
+	document.addEventListener("click", (e) => {
+		if (e.target.closest(".js-add-to-cart")) {
+			let btn = e.target.closest(".js-add-to-cart"),
+				inCartClass = "in-cart";
+			if (!btn) return;
+
+			if (btn.classList.contains(inCartClass)) {
+				if (btn.dataset.cart) {
+					window.location.assign(btn.dataset.cart);
+					return;
+				}
+			}
+
+			addToCart(btn);
+		}
 	});
 
-	// btn "load more"
-	document.body.addEventListener("click", (e) => {
-		const btn = e.target.closest(".js-load-more");
-		if (!btn) return;
-		fetchByMoreBtn(btn);
+	// amount to cart
+	document.addEventListener("change", (e) => {
+		if (e.target.name == "amount") {
+			let btn = e.target.closest(".product__purchase").querySelector(".js-add-to-cart");
+			if (!btn) return;
+			addToCart(btn);
+		}
 	});
 }
 
@@ -421,7 +545,7 @@ export function filterTagsSet() {
 }
 
 export function filterTagsRemove() {
-	document.body.addEventListener("click", (e) => {
+	document.addEventListener("click", (e) => {
 		const btn = e.target.closest(".js-remove-tag");
 		if (!btn) return;
 
@@ -448,6 +572,72 @@ export function filterTagsRemove() {
 			// filterForm.requestSubmit(); 90.46% supported
 		}
 	});
+}
+
+export function productAmount() {
+	const product = document.querySelector(".product");
+	if (!product) return;
+
+	product.addEventListener("click", (e) => {
+		if (e.target.classList.contains("js-btn-minus")) {
+			let inputNumber = e.target.nextElementSibling;
+			if (inputNumber.getAttribute("min") == inputNumber.value) return;
+			inputNumber.stepDown();
+			let change = new Event("change", { bubbles: true });
+			inputNumber.dispatchEvent(change);
+		}
+
+		if (e.target.classList.contains("js-btn-plus")) {
+			let inputNumber = e.target.previousElementSibling;
+			if (inputNumber.getAttribute("max") == inputNumber.value) return;
+			inputNumber.stepUp();
+			let change = new Event("change", { bubbles: true });
+			inputNumber.dispatchEvent(change);
+		}
+	});
+}
+
+export function productBlockCollapseHandler(el) {
+	if (!el) {
+		let blocks = document.querySelectorAll(".block-collapsible");
+		blocks.forEach((block) => productBlockCollapseHandler(block));
+		return;
+	}
+
+	let check = el.querySelector(".block-collapse");
+	if (check) return;
+
+	let elRealHeight = el.scrollHeight,
+		elHeight = el.getBoundingClientRect().height,
+		isClosedClass = "is-closed",
+		isOpenedClass = "is-opened";
+
+	if (elRealHeight > elHeight) {
+		let div = document.createElement("div"),
+			btn = document.createElement("button");
+		btn.innerHTML = "<span>Показать всё</span><span>Свернуть</span>";
+		btn.classList.add("block-collapse__btn", "js-block-collpase", "is-closed");
+		div.classList.add("block-collapse");
+		div.appendChild(btn);
+		el.appendChild(div);
+
+		let collapseBlock = el.querySelector(".block-collapse"),
+			collapseBlockHeight = collapseBlock.getBoundingClientRect().height,
+			collapseBtn = collapseBlock.querySelector(".js-block-collpase");
+
+		if (!collapseBtn) return;
+
+		collapseBtn.addEventListener("click", () => {
+			collapseBtn.classList.toggle(isClosedClass);
+			if (el.style.maxHeight) {
+				el.style.maxHeight = null;
+				el.classList.remove(isOpenedClass);
+			} else {
+				el.style.maxHeight = elRealHeight + collapseBlockHeight + "px";
+				el.classList.add(isOpenedClass);
+			}
+		});
+	}
 }
 
 // product helpers

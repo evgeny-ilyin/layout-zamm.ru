@@ -26,27 +26,27 @@ body {
 /**
  * Text others
  */
-h1 {
+h1, .h1 {
 	@extend %h1-heading;
 }
 
-h2 {
+h2, .h2 {
 	@extend %h2-heading;
 }
 
-h3 {
+h3, .h3 {
 	@extend %h3-heading;
 }
 
-h4 {
+h4, .h4 {
 	@extend %h4-heading;
 }
 
-h5 {
+h5, .h5 {
 	@extend %h5-heading;
 }
 
-h6 {
+h6, .h6 {
 	@extend %h6-heading;
 }
 
@@ -58,6 +58,10 @@ p {
 	letter-spacing: -0.3px;
 	margin-bottom: 16px;
 	line-height: 1.4;
+
+	a {
+		@extend %link-classic;
+	}
 }
 
 ul,

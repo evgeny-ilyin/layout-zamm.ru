@@ -4,11 +4,15 @@
 <body>
 	@@include('html/header.html', {})
 
-	<main class="container">
+	<div class="container">
+		@@include('html/pages/blocks/block-breadcrumbs.html')
 		@@include('html/pages/blocks/block-product-catalog.html')
-		@@include('html/pages/blocks/block-product-carousel.html')
+		@@include('html/pages/blocks/block-product-carousel.html', {
+			"header": "Самые популярные столы",
+			"id":  ' data-id="catalog-carousel"'
+		})
 		@@include('html/pages/blocks/block-cards.html')
-	</main>
+	</div>
 
 	@@include('html/footer.html', {
 		"year_from": 2020,

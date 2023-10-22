@@ -5,8 +5,12 @@ import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 import "./modules/cookies.js";
 
 // catalog
-import { productPropsHover, productProps, productFetches, filterTagsSet, filterTagsRemove } from "./modules/product.js";
 import { rangeSlidersInit } from "./modules/nouislider.js";
+import { productPropsHover, productProps, productFetches, filterTagsSet, filterTagsRemove } from "./modules/product.js";
+
+// card
+import { productAmount, productBlockCollapseHandler } from "./modules/product.js";
+
 
 addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
@@ -22,8 +26,12 @@ addEventListener("DOMContentLoaded", () => {
 	functions.collapseHandler();
 	functions.accordion();
 	functions.accordionFooter();
+	functions.tabsInit();
+	functions.tabsHandler();
 	functions.ideaMarkerShow();
 	functions.ideaPopupPlace();
+	functions.blockObserver();
+	functions.tabsInit();
 
 	fancyapps.carouselsInit();
 
@@ -39,4 +47,8 @@ addEventListener("DOMContentLoaded", () => {
 	productFetches();
 	filterTagsSet();
 	filterTagsRemove();
+
+	// card
+	productAmount();
+	productBlockCollapseHandler();
 });

@@ -49,3 +49,14 @@
 		transform: rotate(-5deg);
 	}
 }
+
+.label-logo {
+	margin-left: 8px;
+	width: 70px;
+	height: 15px;
+	fill: $black;
+
+	@include when-inside('.label_green') {
+		fill: #159400;
+	}
+}

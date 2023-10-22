@@ -1,4 +1,4 @@
-<div class="props">
+<div class="item__props">
 	<form data-id="item-id-$pid-props">
 		<div class="prop prop-showroom">
 			<div class="prop__label _showroom">Есть в шоуруме:</div>
@@ -108,11 +108,15 @@
 				</label>
 			</div>
 		</div>
+		<input type="hidden" name="amount" value="1">
 	</form>
 	<div data-id="item-id-$pid-buttons">
-		<div class="props__buttons">
+		<div class="item__buttons">
 			<a href="javascript:void(0)" class="btn btn_white">Подробнее</a>
-			<button type="button" class="btn btn_yellow js-add-to-cart" data-url="https://deviart.ru/fetch-cart.php?productId=$pid&offerId=$pid000">В корзину</button>
+			<button type="button" class="btn btn_yellow js-add-to-cart" data-id="$pid" data-url="https://deviart.ru/zamm/add-to-cart.php" data-cart="/cart/">
+				<span>В корзину</span>
+				<span>В корзине</span>
+			</button>
 		</div>
 	</div>
 </div>

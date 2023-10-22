@@ -1,6 +1,7 @@
 /*! Блок "Идеи для перестановки" */
 .block-ideas {
 	margin-bottom: 80px;
+	overflow: hidden;
 
 	// 768
 	// @include respond-to(lg, "max") {
@@ -21,6 +22,7 @@
 	@include respond-to(lg) {
 		margin-right: -8px;
 		margin-left: -8px;
+		overflow: visible;
 	}
 }
 
@@ -43,6 +45,16 @@
 		height: 100%;
 		object-fit: cover;
 		border-radius: 4px;
+	}
+
+	&__link {
+		@include on-hover {
+			.link-arrow {
+				&::after {
+					transform: rotate(45deg);
+				}
+			}
+		}
 	}
 }
 
@@ -167,6 +179,7 @@
 	&__price {
 		font-weight: 600;
 		margin: 2px 0;
+		white-space: nowrap;
 
 		@include when-inside(".idea-mobile-content") {
 			margin: 6px 0 22px;

@@ -1,0 +1,60 @@
+/*! Карусель с превью. до 768 2 слайда на экран, без превью (Thumbs) */
+.carousel-gallery-thumbs {
+	margin-top: 36px;
+	position: relative;
+
+	& + .f-thumbs {
+		--f-thumb-width: 114px;
+		--f-thumb-height: 64px;
+		margin-top: 16px;
+
+		.f-thumbs__track {
+			transform: matrix(1, 0, 0, 1, 0, 0);
+		}
+
+		.f-thumbs__slide {
+			padding: 3px;
+			border: 1px solid transparent;
+			border-radius: 6px;
+			transition: border-color 0.2s ease;
+
+			&.is-nav-selected {
+				border-color: $black;
+			}
+
+			@include on-hover {
+				border-color: $black;
+			}
+		}
+
+		.f-thumbs__slide__button {
+			border-radius: 4px;
+		}
+	}
+
+	&._md-2 {
+		@include respond-to(md, "max") {
+			--f-carousel-spacing: 16px;
+			--f-carousel-slide-width: calc((100% - 32px) / 2);
+			--f-carousel-slide-height: 416px;
+			margin-right: calc(var(--f-carousel-spacing) * -1);
+
+			img {
+				height: 100%;
+				object-fit: cover;
+			}
+
+			.f-carousel__dots {
+				padding-right: var(--f-carousel-spacing);
+			}
+		}
+	}
+
+	&._md-no-thumbs {
+		.f-carousel__dots {
+			@include respond-to(md) {
+				display: none;
+			}
+		}
+	}
+}

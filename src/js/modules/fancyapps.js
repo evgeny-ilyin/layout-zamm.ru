@@ -1,5 +1,6 @@
 import { Carousel } from "@fancyapps/ui/dist/carousel/carousel.esm.js";
 import { Autoplay } from "@fancyapps/ui/dist/carousel/carousel.autoplay.esm.js";
+import { Thumbs } from "@fancyapps/ui/dist/carousel/carousel.thumbs.esm.js";
 
 const fRU = {
 	NEXT: " ",
@@ -16,40 +17,56 @@ Carousel.defaults = {
 	// adaptiveHeight: true,
 };
 
-export function carouselsInit() {
-	const carousels = document.querySelectorAll('[data-carousel="carousel"]');
-	carousels.forEach((el) => {
-		if (el) {
+export function carouselsInit(el = false) {
+	const carousels = el ? el.querySelectorAll('[data-carousel="carousel"]') : document.querySelectorAll('[data-carousel="carousel"]');
+
+	carousels.forEach((carousel) => {
+		if (carousel) {
 			let options = {};
 			let autoplay = {};
+			let thumbs = {};
+			let plugins = {};
 			let navigation = {};
 			let breakpoints = {};
-			// console.log(Object.keys( el.dataset ));
+			// console.log(Object.keys( carousel.dataset ));
 
-			if (el.dataset.options) {
-				options = JSON.parse(el.dataset.options);
+			if (carousel.dataset.options) {
+				options = JSON.parse(carousel.dataset.options);
 			}
 
-			if (el.dataset.autoplay) {
-				Object.assign(autoplay, { Autoplay: { timeout: parseInt(el.dataset.autoplay) } });
+			if (carousel.dataset.autoplay) {
+				Object.assign(autoplay, { Autoplay: { timeout: parseInt(carousel.dataset.autoplay) } });
+				Object.assign(plugins, { Autoplay });
 			}
 
-			if (el.dataset.disabled) {
-				Object.assign(breakpoints, { breakpoints: { [`(${el.dataset.disabled})`]: { enabled: false } } });
+			if (carousel.dataset.thumbs) {
+				Object.assign(thumbs, { Thumbs: { type: carousel.dataset.thumbs } });
+				Object.assign(plugins, { Thumbs });
 			}
 
-			if (el.classList.contains("carousel-top-nav")) {
+			if (carousel.dataset.disabled) {
+				Object.assign(breakpoints, { breakpoints: { [`(${carousel.dataset.disabled})`]: { enabled: false } } });
+			}
+
+			if (carousel.dataset.thumbsOn && carousel.dataset.thumbsType) {
+				Object.assign(breakpoints, { breakpoints: { [`(${carousel.dataset.thumbsOn})`]: { Thumbs: { type: carousel.dataset.thumbsType } } } });
+				Object.assign(plugins, { Thumbs });
+			}
+
+			if (carousel.classList.contains("carousel-top-nav")) {
 				const n = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18"><path d="M10.452 1 18 9m0 0-7.548 8M18 9H0"/></svg>`,
 					p = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18"><path d="M8.548 1 1 9m0 0 7.548 8M1 9h18"/></svg>`;
 				Object.assign(navigation, { Navigation: { nextTpl: n, prevTpl: p } });
 			}
 
-			Object.assign(options, autoplay, navigation, breakpoints);
+			Object.assign(options, autoplay, thumbs, navigation, breakpoints);
 
-			if (Object.keys(autoplay).length > 0 && autoplay.constructor === Object) {
-				new Carousel(el, options, { Autoplay });
+			if (Object.keys(plugins).length > 0 && plugins.constructor === Object) {
+				let c = new Carousel(carousel, options, plugins);
+				console.log(c);
+				// document.querySelector(".f-thumbs__track").style.transform = "matrix(1, 0, 0, 1, 1, 0)"
 			} else {
-				new Carousel(el, options);
+				new Carousel(carousel, options);
 			}
 		}
 	});

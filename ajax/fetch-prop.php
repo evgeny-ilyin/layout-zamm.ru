@@ -67,6 +67,7 @@ try {
 
 	$propButtons = file_get_contents('template-prop-section-buttons.html');
 	$propButtons = strtr($propButtons, array(
+		'$pid' => $data['productId'],
 		'$skuValue' => $skuValue,
 	));
 

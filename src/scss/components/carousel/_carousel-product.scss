@@ -2,12 +2,14 @@
 .product-carousel {
 	--f-carousel-spacing: 12px;
 	--f-carousel-slide-width: 300px;
-	margin-left: -16px;
-	margin-right: -16px;
+	margin-left: -12px;
+	margin-right: -12px;
 	margin-bottom: 80px;
 
 	@include respond-to(md) {
 		--f-carousel-spacing: 16px;
+		margin-left: -16px;
+		margin-right: -16px;
 	}
 
 	// для полного показа последнего слайда при выключенном infinite

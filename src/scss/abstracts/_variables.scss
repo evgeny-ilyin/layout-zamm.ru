@@ -20,10 +20,12 @@ $browser-context: 16;
 /// можно обойтись без дублирования тут, если вызывать через функцию color(color-name) напрямую из _root-vars-map, но так дольше писать xD
 /// Simple colors
 /// @type Color
+$black-real: var(--black-real);
 $black: var(--black);
 $black10: var(--black10);
 $black30: var(--black30);
 $black60: var(--black60);
+$black70: var(--black70);
 $white: var(--white);
 $yellow: var(--yellow);
 $yellow-dark: var(--yellow-dark);
@@ -46,14 +48,16 @@ $svg-fetch-ring: var(--svg-fetch-ring);
 $svg-arrow-long: var(--svg-arrow-long);
 $svg-arrow-yellow: var(--svg-arrow-yellow);
 $svg-arrow-black: var(--svg-arrow-black);
-// $svg-arrow-white: var(--svg-arrow-white);
+$svg-arrow-white: var(--svg-arrow-white);
 $svg-arrow-bright-blue: var(--svg-arrow-bright-blue);
 $svg-angle: var(--svg-angle);
+$svg-angle-bright-blue: var(--svg-angle-bright-blue);
 $svg-close: var(--svg-close);
 $svg-nav-search: var(--svg-nav-search);
 $svg-nav-search-mobile: var(--svg-nav-search-mobile);
 $svg-delivery: var(--svg-delivery);
 $svg-instock: var(--svg-instock);
+$svg-preorder: var(--svg-preorder);
 $svg-geo: var(--svg-geo);
 $svg-checked: var(--svg-checked);
 $svg-filter: var(--svg-filter);

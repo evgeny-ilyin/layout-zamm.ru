@@ -194,7 +194,7 @@
 	}
 
 	&.is-active {
-		border-color: #000;
+		border-color: $black-real;
 		font-weight: 700;
 	}
 }
@@ -286,8 +286,12 @@
 	// .item__image-wrapper
 	&__image-wrapper {
 		position: relative;
-		padding-top: 320px;
+		padding-top: 250px;
 		// padding-top: 120%;
+
+		@include respond-to(xm) {
+			padding-top: 320px;
+		}
 
 		.item__gallery-wrapper {
 			// position: absolute;
@@ -430,12 +434,19 @@
 	&__prices {
 		display: flex;
 		align-items: center;
+		flex-wrap: wrap;
+
+		@include respond-to(xm) {
+			flex-wrap: nowrap;
+		}
 	}
 
 	// .item__price
 	&__price {
 		font-size: rem(18);
 		font-weight: 700;
+		margin-right: 8px;
+		white-space: nowrap;
 
 		// ._discount
 		&._discount {
@@ -448,7 +459,6 @@
 		font-size: rem(15);
 		color: $black60;
 		text-decoration: line-through;
-		margin-left: 8px;
 		white-space: nowrap;
 	}
 
@@ -464,47 +474,6 @@
 		transition: opacity $transition-default;
 		position: absolute;
 		z-index: 5;
-	}
-
-	.article {
-		top: 4px;
-		left: 4px;
-		font-size: rem(13);
-		height: 32px;
-		padding: 7px 8px 6px;
-		border-radius: 2px;
-		border: 1px solid $black10;
-	}
-
-	.fav {
-		top: 11px;
-		right: 9px;
-
-		a {
-			display: block;
-			height: 19px;
-
-			@include on-hover {
-				svg {
-					fill: $black;
-				}
-			}
-		}
-
-		svg {
-			width: 21px;
-			height: 19px;
-			fill: $gray-dark-second;
-		}
-
-		// .fav.is-active
-		&.is-active {
-			opacity: 1;
-
-			svg {
-				fill: $black;
-			}
-		}
 	}
 
 	.labels {
@@ -539,17 +508,14 @@
 		background: $gray-light;
 		border-radius: 0 0 6px 6px;
 	}
-}
 
-// fetch-loaded on product hover dropdown for catalog list
-.props {
-	margin: 0 16px 16px;
+	// .item__props
+	&__props {
+		margin: 0 16px 16px;
+	}
 
-	// .props__buttons
+	// .item__buttons
 	&__buttons {
-		// display: grid;
-		// grid-auto-flow: column;
-		// gap: 12px;
 		display: flex;
 		margin-top: 25px;
 
@@ -562,86 +528,6 @@
 
 		.btn:nth-child(1) {
 			margin-right: 12px;
-		}
-	}
-}
-
-.prop {
-	position: relative;
-	font-size: rem(13);
-	margin-bottom: 15px;
-
-	// .prop__label
-	&__label {
-		margin: 0 6px 7px 0;
-		color: $black60;
-
-		&._showroom {
-			margin-bottom: 0;
-			display: inline;
-
-			&::before {
-				content: "";
-				display: inline-block;
-				position: relative;
-				top: 3px;
-				width: 16px;
-				height: 16px;
-				background: $svg-geo no-repeat;
-				opacity: 0.3;
-				margin-right: 4px;
-			}
-		}
-	}
-
-	// .prop__list
-	&__list {
-		display: flex;
-		flex-wrap: nowrap;
-		flex-direction: row;
-
-		label {
-			position: relative;
-			cursor: pointer;
-		}
-
-		img {
-			padding: 4px;
-			border: 1px solid transparent;
-			border-radius: 12px;
-			margin: 0 2px 2px 0;
-		}
-
-		span {
-			font-size: rem(15);
-			line-height: 1;
-			display: inline-block;
-			min-width: 56px;
-			text-align: center;
-			margin: 0 4px 4px 0;
-			padding: 5px 8px 4px;
-			background: $white;
-			border: 1px solid transparent;
-			border-radius: 60px;
-			white-space: nowrap;
-		}
-
-		input {
-			appearance: none;
-			clip: rect(0 0 0 0);
-			width: 1px;
-			height: 1px;
-			margin: -1px;
-			border: 0;
-			padding: 0;
-			overflow: hidden;
-			position: absolute;
-		}
-
-		input:checked + picture > img,
-		input:checked + span {
-			border-color: $black;
-			text-shadow: $shadow-600;
 		}
 	}
 }

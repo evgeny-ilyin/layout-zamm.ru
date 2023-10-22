@@ -1,0 +1,31 @@
+@@include('html/head.html', {
+"title": "Карточка товара"
+})
+<body>
+	@@include('html/header.html', {})
+
+	<div class="container _gray">
+		@@include('html/pages/blocks/block-breadcrumbs.html')
+		@@include('html/pages/blocks/block-product-card-observer.html')
+	</div>
+
+	<div class="container">
+		<div class="content carousel-overflow" id="product-accessory" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=carousel"></div>
+
+		@@include('html/pages/blocks/block-product-carousel.html', {
+			"header": "С этим столом часто покупают",
+			"id": ''
+		})
+	</div>
+
+	@@include('html/footer.html', {
+		"year_from": 2020,
+		"year_to": 2023,
+	})
+
+	@@include('html/cookies.html', {})
+	@@include('html/svg-sprite.html', {})
+
+	<script src="js/catalog.min.js"></script>
+</body>
+</html>
