@@ -1,5 +1,6 @@
 .tabs {
 	margin: 32px 0 64px;
+	position: relative;
 
 	// .tabs__header
 	&__header {
@@ -10,6 +11,18 @@
 		&.scrollblock {
 			flex-flow: row nowrap;
 			overflow-x: scroll;
+
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				right: -5px;
+				top: 0;
+				height: 38px;
+				width: 40px;
+				z-index: 1;
+				background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(243, 247, 250, 1) 75%);
+			}
 		}
 	}
 
@@ -36,6 +49,10 @@
 	user-select: none;
 	white-space: nowrap;
 
+	&:last-child {
+		margin-right: 20px;
+	}
+
 	&.is-active {
 		text-shadow: $shadow-600;
 		border-color: $black;
@@ -55,9 +72,13 @@
 .tab-block {
 	display: none;
 	background: $white;
-	padding: 32px;
+	padding: 24px 12px;
 	border: 1px solid $black10;
 	border-radius: 4px;
+
+	@include respond-to(lg) {
+		padding: 32px;
+	}
 
 	&.is-active {
 		display: block;
@@ -90,6 +111,11 @@
 				width: 100%;
 			}
 		}
+	}
+
+	img {
+		height: auto;
+		object-fit: cover;
 	}
 
 	// .tab-block__img

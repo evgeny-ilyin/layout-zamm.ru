@@ -22,7 +22,7 @@
 	}
 
 	@include when-inside(".product__options") {
-		background: rgba($color: #f6f8f9, $alpha: 0.5);
+		background: rgba($color: #f6f8f9, $alpha: 0.5) !important;
 	}
 
 	@include when-inside(".product__details") {

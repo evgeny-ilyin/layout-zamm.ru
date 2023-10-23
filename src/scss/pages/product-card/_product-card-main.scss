@@ -1,35 +1,80 @@
 .product {
 	justify-content: space-between;
 
-	// .product__details
-	&__details {
-		width: 790px;
+	// .product__header-wrap
+	&__header-wrap {
+		display: flex;
+		flex-flow: column wrap;
+		justify-content: space-between;
+
+		@include respond-to(sm) {
+			flex-flow: row wrap;
+		}
+
+		.article {
+			order: 1;
+			border: 0;
+			margin: 0 0 15px;
+			padding: 0;
+			background: transparent;
+			min-height: auto;
+			font-size: rem(15);
+			color: $black60;
+
+			@include respond-to(sm) {
+				text-align: right;
+				margin: 1px 0 0;
+			}
+
+			@include respond-to(lg) {
+				margin: 4px 0 0;
+			}
+		}
+
+		.h3 {
+			@include respond-to(sm, "max") {
+				margin-bottom: 5px;
+			}
+		}
 	}
 
-	// .product__options
-	&__options {
-		width: 400px;
-		position: relative;
-	}
-}
-
-.product {
-	justify-content: space-between;
-
 	// .product__details
 	&__details {
-		width: 790px;
-		margin-right: 32px;
+		width: 100%;
+
+		@include respond-to(lg) {
+			max-width: 790px;
+			margin-right: 32px;
+		}
 
 		p:last-child {
 			margin-bottom: 0;
 		}
 	}
+	// .product__options
+	&__options {
+		max-width: 518px;
+		margin: 0 auto;
+		position: relative;
+
+		@include respond-to(lg) {
+			max-width: none;
+			width: 400px;
+			margin: 0;
+		}
+	}
+
 	// .product__name
 	&__name {
-		font-size: rem(24);
+		font-size: rem(18);
 		font-weight: 600;
 		line-height: 1;
+		margin: 0 30px 15px 0;
+
+		@include respond-to(lg) {
+			font-size: rem(24);
+			margin-right: 0;
+		}
 	}
 	// .product__photos
 	&__photos {
@@ -38,40 +83,45 @@
 	// .product__3d
 	&__3d {
 		margin-bottom: 64px;
-		padding: 14px 14px 14px 24px;
 		background: $white;
 		display: flex;
-		justify-content: space-between;
-		align-items: center;
+		flex-direction: column;
+		padding: 16px;
+
+		@include respond-to(xl) {
+			padding: 14px 14px 14px 24px;
+		}
 
 		& > div:nth-child(2) {
-			margin-left: 16px;
+			margin: 16px 0 0;
 			flex: 0 0 auto;
 
 			img {
 				object-fit: cover;
 			}
 		}
+
+		@include respond-to(sm) {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+
+			& > div:nth-child(2) {
+				margin: 0 0 0 16px;
+				flex: 0 0 auto;
+			}
+		}
 	}
+
 	// .product__features
 	&__features {
 		margin-bottom: 64px;
 		max-height: 565px;
-		padding: 16px 24px;
 		background: $white;
+		padding: 16px;
 
-		.article {
-			position: absolute;
-			left: auto;
-			right: 24px;
-			top: 15px;
-			border: 0;
-			margin: 0 0 1px;
-			padding: 0;
-			background: transparent;
-			min-height: auto;
-			font-size: rem(15);
-			color: $black60;
+		@include respond-to(xl) {
+			padding: 16px 24px;
 		}
 	}
 	// .product__equip
@@ -89,18 +139,27 @@
 	}
 	// .product__gallery
 	&__gallery {
-		margin-bottom: 175px;
-	}
-	// .product__options
-	&__options {
-		width: 400px;
+		margin-bottom: 125px;
+		padding-bottom: 50px;
+
+		@include respond-to(md) {
+			overflow-x: hidden;
+		}
+
+		@include respond-to(lg) {
+			overflow-x: auto;
+		}
 	}
 	// .product__top
 	&__top {
 		display: flex;
 		flex-flow: row wrap;
 		align-items: flex-end;
-		margin-bottom: 11px;
+		margin-bottom: 5px;
+
+		@include respond-to(lg) {
+			margin-bottom: 11px;
+		}
 
 		.available {
 			margin: 0 12px 0 0;
@@ -124,23 +183,27 @@
 		align-items: baseline;
 		margin-bottom: 12px;
 
-		@include respond-to(xm) {
-			flex-wrap: nowrap;
-		}
+		// @include respond-to(xm) {
+		// 	flex-wrap: nowrap;
+		// }
 	}
 
 	// .product__price
 	&__price {
-		font-size: rem(34);
+		font-size: rem(24);
 		line-height: 1;
 		font-weight: 700;
 		margin-right: 8px;
 		white-space: nowrap;
+
+		@include respond-to(lg) {
+			font-size: rem(34);
+		}
 	}
 
 	// .product__oldprice
 	&__oldprice {
-		font-size: rem(24);
+		font-size: rem(18);
 		line-height: 1;
 		font-weight: 700;
 		color: $black30;
@@ -148,9 +211,12 @@
 		text-decoration-thickness: 1px;
 		white-space: nowrap;
 
-		@include respond-to(lg, "max") {
-			padding-right: 35px;
+		@include respond-to(lg) {
+			font-size: rem(24);
 		}
+		// @include respond-to(lg, "max") {
+		// 	padding-right: 35px;
+		// }
 	}
 
 	// .product__fav
@@ -331,9 +397,13 @@
 	// .features__row
 	&__row {
 		display: flex;
-		flex-flow: row nowrap;
+		flex-flow: column nowrap;
 		padding: 8px 0 22px;
 		border-top: 2px solid $black10;
+
+		@include respond-to(xm) {
+			flex-flow: row nowrap;
+		}
 
 		&:first-child {
 			border: none;
@@ -342,15 +412,19 @@
 }
 
 .f-name {
-	flex: 0 0 165px;
-	margin-right: 24px;
+	flex: 0 0 26px;
 	font-weight: 700;
 	color: $black-real;
+
+	@include respond-to(xm) {
+		flex: 0 0 165px;
+		margin-right: 24px;
+	}
 }
 
 .f-value {
 	color: $black-real;
-	font-weight: 600;
+	// font-weight: 600;
 
 	div {
 		margin-bottom: 8px;
@@ -367,15 +441,56 @@
 	i {
 		font-size: rem(16);
 		font-style: normal;
-		margin: 0 5px;
+		margin: 0 7px;
+	}
+
+	&._sizes {
+		display: flex;
+		align-items: center;
+
+		@include respond-to(md) {
+			align-items: flex-end;
+		}
+
+		div {
+			margin: 0;
+
+			@include respond-to(md, "max") {
+				display: flex;
+				flex-direction: column;
+				text-align: center;
+			}
+		}
+
+		span {
+			@include respond-to(md, "max") {
+				margin-bottom: 5px;
+			}
+		}
+
+		i {
+			margin: 0 12px;
+
+			@include respond-to(sm) {
+				margin: 0 24px;
+			}
+
+			@include respond-to(md) {
+				margin: 0 7px;
+			}
+		}
 	}
 }
 
 .manuals {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: 1fr;
 	gap: 12px;
 	margin-bottom: 64px;
+
+	@include respond-to(md) {
+		grid-template-columns: repeat(2, 1fr);
+	}
 
 	// .manuals__item
 	&__item {
@@ -384,19 +499,29 @@
 		align-items: center;
 		flex-wrap: wrap;
 		background: $gray;
-		padding: 10px 16px 10px 24px;
+		padding: 8px 8px 8px 16px;
+		min-height: 88px;
+
+		@include respond-to(xl) {
+			padding: 10px 16px 10px 24px;
+		}
 
 		.h5 {
-			font-weight: 500;
+			font-size: rem(15);
 			margin-bottom: 12px;
+
+			@include respond-to(xl) {
+				font-weight: 500;
+				font-size: rem(18);
+			}
 		}
 
 		& > div {
-			margin: 6px 0;
+			// margin: 6px 0;
 		}
 
 		& > div:nth-child(1) {
-			margin-right: 8px;
+			margin: 6px 8px 6px 0;
 		}
 
 		& > div:nth-child(2) {
@@ -428,21 +553,40 @@
 .warranty {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	background: $gray;
-	padding: 16px 16px 16px 24px;
+	padding: 16px;
 	margin-bottom: 64px;
+
+	@include respond-to(sm) {
+		align-items: center;
+	}
+
+	@include respond-to(xl) {
+		padding: 10px 16px 16px 24px;
+	}
 
 	// .warranty__stamp
 	&__stamp {
 		position: relative;
+		width: 30%;
+
+		@include respond-to(sm) {
+			width: auto;
+		}
 
 		svg {
 			position: absolute;
-			right: 8px;
-			bottom: -50px;
-			width: 92px;
-			height: 92px;
+			right: -5px;
+			bottom: -30px;
+			width: 72px;
+			height: 72px;
+
+			@include respond-to(sm) {
+				right: 8px;
+				bottom: -50px;
+				width: 92px;
+				height: 92px;
+			}
 		}
 	}
 
@@ -467,7 +611,9 @@
 
 	img {
 		border-radius: 4px;
+		height: 100%;
 		object-fit: cover;
+		object-position: left;
 	}
 }
 
@@ -484,10 +630,14 @@
 	left: 0;
 	right: 0;
 	height: 64px;
-	padding: 0 24px;
+	padding: 0 16px;
 	background: $white;
 	display: flex;
 	flex-flow: row nowrap;
+
+	@include respond-to(xl) {
+		padding: 0 24px;
+	}
 
 	// @include when-inside(".product__reviews") {
 	// 	padding: 0 16px;
@@ -564,10 +714,14 @@
 
 	// .reviews__row
 	&__row {
-		padding: 16px 24px;
+		padding: 12px 16px;
 		margin-bottom: 12px;
 		background: $white;
 		border-radius: 4px;
+
+		@include respond-to(lg) {
+			padding: 16px 24px;
+		}
 
 		&:last-child {
 			margin-bottom: 0;
@@ -655,7 +809,7 @@
 
 		&:nth-child(n + 3) {
 			.pack__header {
-				@include respond-to(md) {
+				@include respond-to(xm) {
 					display: none;
 				}
 			}
@@ -663,41 +817,78 @@
 
 		&:nth-child(2) {
 			.pack__header {
-				@include respond-to(md) {
+				display: none;
+
+				@include respond-to(xm) {
 					margin-bottom: 0;
+					display: flex;
 				}
 			}
 		}
 	}
 	// .pack__col-1
 	&__col-1 {
-		width: 165px;
+		width: 30%;
+		min-width: 130px;
 		margin-right: 16px;
+
+		@include respond-to(sm) {
+			width: 50%;
+		}
+
+		@include respond-to(xm) {
+			width: 165px;
+		}
 	}
 	// .pack__col-2
 	&__col-2 {
 		flex: 1;
+		display: flex;
+
+		@include respond-to(xm) {
+			display: block;
+		}
 	}
 	// .pack__header
 	&__header {
 		display: flex;
-		flex-flow: row nowrap;
+		flex-flow: column nowrap;
 		text-align: left;
 		color: $black60;
-		margin-bottom: 16px;
+		margin-right: 15px;
+		width: 70px;
+
+		@include respond-to(xm) {
+			flex-flow: row nowrap;
+			margin-bottom: 16px;
+			margin-right: 0;
+			width: auto;
+		}
 
 		div {
 			flex: 1;
+			margin-bottom: 4px;
+			@include respond-to(xm) {
+				margin-bottom: 0;
+			}
 		}
 	}
 	// .pack__body
 	&__body {
 		display: flex;
-		flex-flow: row nowrap;
+		flex-flow: column nowrap;
 		text-align: left;
+
+		@include respond-to(xm) {
+			flex-flow: row nowrap;
+		}
 
 		div {
 			flex: 1;
+			margin-bottom: 4px;
+			@include respond-to(xm) {
+				margin-bottom: 0;
+			}
 		}
 	}
 	// .pack__group

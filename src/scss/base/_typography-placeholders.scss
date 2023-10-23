@@ -27,11 +27,16 @@
 }
 
 %h3-heading {
-	font-size: rem(24);
+	font-size: rem(20);
 	line-height: 1;
 	font-weight: 700;
-	letter-spacing: -0.48px;
+	letter-spacing: -0.4px;
 	margin-bottom: 16px;
+
+	@include respond-to(lg) {
+		font-size: rem(24);
+		letter-spacing: -0.48px;
+	}
 }
 
 %h4-heading {

@@ -1,16 +1,19 @@
-/*! Карусель с превью. до 768 2 слайда на экран, без превью (Thumbs) */
+/*! Карусель с превью. до 1024 2 слайда на экран, без превью (Thumbs) */
 .carousel-gallery-thumbs {
+	--f-carousel-slide-width: 100%;
+	--f-carousel-slide-height: 416px;
 	margin-top: 36px;
 	position: relative;
 
-	& + .f-thumbs {
+	img {
+		height: 100%;
+		object-fit: cover;
+	}
+
+	& + .f-thumbs:not(.is-modern) {
 		--f-thumb-width: 114px;
 		--f-thumb-height: 64px;
 		margin-top: 16px;
-
-		.f-thumbs__track {
-			transform: matrix(1, 0, 0, 1, 0, 0);
-		}
 
 		.f-thumbs__slide {
 			padding: 3px;
@@ -32,29 +35,37 @@
 		}
 	}
 
-	&._md-2 {
-		@include respond-to(md, "max") {
-			--f-carousel-spacing: 16px;
-			--f-carousel-slide-width: calc((100% - 32px) / 2);
-			--f-carousel-slide-height: 416px;
-			margin-right: calc(var(--f-carousel-spacing) * -1);
+	// <1024
+	@include respond-to(md) {
+		// --f-carousel-spacing: 16px; // ломает поведение slidesPerPage
+		--f-carousel-slide-width: 50%;
+		--f-carousel-slide-height: 416px;
+		margin: 0 -8px;
 
-			img {
-				height: 100%;
-				object-fit: cover;
-			}
-
-			.f-carousel__dots {
-				padding-right: var(--f-carousel-spacing);
-			}
+		.f-carousel__slide {
+			padding: 0 8px;
 		}
-	}
 
-	&._md-no-thumbs {
 		.f-carousel__dots {
-			@include respond-to(md) {
-				display: none;
-			}
+			padding-left: var(--f-carousel-spacing);
 		}
 	}
+
+	@include respond-to(lg) {
+		--f-carousel-slide-width: 100%;
+		--f-carousel-slide-height: auto;
+		margin: 0;
+
+		.f-carousel__slide {
+			padding: 0;
+		}
+	}
+
+	// >1024
+	.f-carousel__dots {
+		@include respond-to(lg) {
+			display: none;
+		}
+	}
+
 }

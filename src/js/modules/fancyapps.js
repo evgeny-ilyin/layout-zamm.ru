@@ -62,9 +62,8 @@ export function carouselsInit(el = false) {
 			Object.assign(options, autoplay, thumbs, navigation, breakpoints);
 
 			if (Object.keys(plugins).length > 0 && plugins.constructor === Object) {
-				let c = new Carousel(carousel, options, plugins);
-				console.log(c);
-				// document.querySelector(".f-thumbs__track").style.transform = "matrix(1, 0, 0, 1, 1, 0)"
+				console.log(options);
+				new Carousel(carousel, options, plugins);
 			} else {
 				new Carousel(carousel, options);
 			}
