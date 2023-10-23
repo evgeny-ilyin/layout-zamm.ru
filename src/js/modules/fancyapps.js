@@ -62,7 +62,6 @@ export function carouselsInit(el = false) {
 			Object.assign(options, autoplay, thumbs, navigation, breakpoints);
 
 			if (Object.keys(plugins).length > 0 && plugins.constructor === Object) {
-				console.log(options);
 				new Carousel(carousel, options, plugins);
 			} else {
 				new Carousel(carousel, options);
