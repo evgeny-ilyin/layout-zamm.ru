@@ -4,12 +4,14 @@ try {
 	$json = file_get_contents('php://input');
 	$data = json_decode($json, true);
 	$skuValue = $data[$data[name]];
+	$rand = mt_rand(1192335, 9999999);
 
 	$s129 = array('129-1', '129-2', '129-3');
 	$s130 = array('130-1', '130-2','130-3', '130-4');
 	$s131 = array('131-1', '131-2','131-3', '131-4','131-5', '131-6');
 	$s132 = array('132-1', '132-2','132-3');
 
+	$url = 'product.html?rand-' . $rand;
 
 	$propTop = '<div class="available _preorder">На заказ</div>
 	<div class="article">Артикул: <span itemprop="sku">$skuValue</span></div>
@@ -131,7 +133,7 @@ try {
 	// $chunks['item-id-' . $data['productId'] . '-more'] = $propMore;
 	// $chunks['item-id-' . $data['productId'] . '-buttons'] = $propButtons;
 
-	$resp = array('status' => true, 'chunks' => $chunks);
+	$resp = array('status' => true, 'url' => $url, 'chunks' => $chunks);
 
 	header('Content-Type: application/json; charset=UTF-8');
 	header('HTTP/1.1 200');

@@ -173,7 +173,6 @@ export function productProps() {
 
 		// product card
 		if (card) {
-			//!TODO менять УРЛ!
 			(async () => {
 				useLoader([card], "start");
 				let response = await fetch(url, {
@@ -186,6 +185,10 @@ export function productProps() {
 				let result = await response.json();
 				if (result.status === true) {
 					update(result, card);
+				}
+				
+				if (result.url) {
+					setWindowLocation(result.url);
 				}
 				// productGalleriesInit(card);
 				// productPropCollapseHandler(card);
@@ -362,10 +365,6 @@ export function productFetches() {
 		productGalleriesInit();
 		productGallery();
 		rangeSlidersInit();
-	};
-
-	let setWindowLocation = (url) => {
-		window.history.pushState("", "", url.replace("https://deviart.ru/zamm/", ""));
 	};
 
 	let addToCart = (btn) => {
@@ -686,3 +685,9 @@ function createTagsList(obj) {
 
 	return tagItems;
 }
+
+let setWindowLocation = (url) => {
+	// TODO @ prod:
+	// window.history.pushState("", "", url);
+	window.history.pushState("", "", url.replace("https://deviart.ru/zamm/", ""));
+};
