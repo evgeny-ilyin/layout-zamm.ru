@@ -288,10 +288,10 @@ h2 {
 }
 .h3,
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   line-height: 1;
   font-weight: 700;
-  letter-spacing: -.48px;
+  letter-spacing: -.4px;
   margin-bottom: 16px
 }
 .h4,
@@ -1625,7 +1625,8 @@ ol {
   position: relative
 }
 .tabs {
-  margin: 32px 0 64px
+  margin: 32px 0 64px;
+  position: relative
 }
 .tabs__header {
   display: -webkit-box;
@@ -1643,6 +1644,19 @@ ol {
   -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
   overflow-x: scroll
+}
+.tabs__header.scrollblock::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: -5px;
+  top: 0;
+  height: 38px;
+  width: 40px;
+  z-index: 1;
+  background: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),color-stop(75%,#f3f7fa));
+  background: -o-linear-gradient(left,rgba(0,0,0,0) 0,#f3f7fa 75%);
+  background: linear-gradient(90deg,rgba(0,0,0,0) 0,#f3f7fa 75%)
 }
 .tabs__content {
   margin-top: 8px
@@ -1669,6 +1683,9 @@ ol {
   user-select: none;
   white-space: nowrap
 }
+.tab-nav:last-child {
+  margin-right: 20px
+}
 .tab-nav.is-active {
   text-shadow: 0 0 0;
   border-color: var(--black)
@@ -1684,7 +1701,7 @@ ol {
 .tab-block {
   display: none;
   background: var(--white);
-  padding: 32px;
+  padding: 24px 12px;
   border: 1px solid var(--black10);
   border-radius: 4px
 }
@@ -1708,6 +1725,11 @@ ol {
   height: 100%;
   width: 50%;
   margin: 0 8px
+}
+.tab-block img {
+  height: auto;
+  -o-object-fit: cover;
+  object-fit: cover
 }
 .tab-block__img {
   position: relative;
@@ -2380,6 +2402,11 @@ input[type=checkbox]:disabled {
     font-size: 4rem;
     font-weight: 700
   }
+  .h3,
+  h3 {
+    font-size: 1.5rem;
+    letter-spacing: -.48px
+  }
   .block-header {
     font-size: 2.125rem
   }
@@ -2616,6 +2643,9 @@ input[type=checkbox]:disabled {
   }
   .btn_arrow.btn_nav-second:hover span::after {
     background-image: var(--svg-arrow-black)
+  }
+  .tab-block {
+    padding: 32px
   }
   .input_nav-search {
     width: 190px;

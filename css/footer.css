@@ -264,7 +264,7 @@
   margin: 20px
 }
 .product__options .fetch {
-  background: rgba(246,248,249,.5)
+  background: rgba(246,248,249,.5)!important
 }
 .product__details .fetch {
   background: inherit
