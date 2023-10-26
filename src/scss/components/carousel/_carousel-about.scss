@@ -36,7 +36,7 @@
 			width: 100%;
 		}
 
-		@include respond-to(md) {
+		@include respond-to(xm) {
 			display: none;
 		}
 	}
