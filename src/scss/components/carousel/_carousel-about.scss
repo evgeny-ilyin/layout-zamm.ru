@@ -1,0 +1,92 @@
+.about-carousel {
+	margin-top: 48px;
+
+	--f-carousel-slide-width: 319px;
+	--f-carousel-slide-height: 528px;
+	margin-left: -8px;
+	margin-right: -8px;
+
+	@include respond-to(md) {
+		--f-carousel-slide-width: 297px;
+		--f-carousel-slide-height: 490px;
+	}
+
+	@include respond-to(xl) {
+		--f-carousel-slide-width: calc(25%);
+		--f-carousel-slide-height: 432px;
+	}
+
+	.f-carousel__slide {
+		padding: 0 8px;
+	}
+}
+
+.about-card {
+	// .about-card__wrapper
+	&__wrapper {
+		position: relative;
+		overflow: hidden;
+		height: 100%;
+		border-radius: 4px;
+
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
+
+		@include on-hover {
+			cursor: pointer;
+
+			.about-card__info {
+				top: 280px;
+			}
+
+			@include respond-to(xl) {
+				.about-card__header {
+					color: $black;
+					transition: all 0.25s ease 0.15s;
+				}
+				.about-card__info {
+					top: 0;
+				}
+			}
+		}
+	}
+	// .about-card__header
+	&__header {
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		font-size: rem(18);
+		line-height: 1;
+		font-weight: 600;
+		color: $white;
+		position: absolute;
+		margin: 12px;
+		transition: all 0.25s ease 0s;
+
+		svg {
+			width: 24px;
+			height: 24px;
+			margin-right: 8px;
+		}
+	}
+	// .about-card__info
+	&__info {
+		position: absolute;
+		top: 100%;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: $yellow;
+		transition: top $transition-default;
+		padding: 20px 32px 17px 16px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		@include respond-to(xl) {
+			padding-top: 51px;
+		}
+	}
+}

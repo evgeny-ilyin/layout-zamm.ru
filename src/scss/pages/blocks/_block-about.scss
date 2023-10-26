@@ -1,1 +1,67 @@
 /*! Блок "О компании" */
+.block-about {
+	padding: 20px 16px 16px;
+	background: $gray;
+	border-radius: 2px;
+
+	// .block-about__note
+	&__note {
+		font-size: rem(13);
+		color: $black60;
+		margin-bottom: 9px;
+	}
+
+	// .block-about__body
+	&__body {
+		max-width: 790px;
+		font-size: rem(15);
+		// line-height: 1.2;
+
+		@include respond-to(md) {
+			font-size: rem(18);
+		}
+
+		p {
+			// line-height: 1.2;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.about-logo {
+	display: inline-flex;
+
+	svg {
+		fill: $black;
+		width: 75px;
+		height: 15px;
+
+		@include respond-to(md) {
+			width: 86px;
+			height: 17px;
+		}
+
+		@include respond-to(lg) {
+			width: 120px;
+			height: 23px;
+		}
+	}
+
+	&._gray {
+		background: $gray;
+		padding: 7px 9px;
+		border-radius: 8px;
+
+		@include respond-to(md) {
+			padding: 8px 10px;
+			border-radius: 12px;
+		}
+
+		@include respond-to(lg) {
+			padding: 11px 14px;
+			border-radius: 12px;
+		}
+	}
+}
