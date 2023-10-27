@@ -660,6 +660,7 @@
 	// .menu-dropdown_column
 	&_column {
 		@include respond-to(lg) {
+			margin-top: -1px;
 			margin-left: -20px;
 			left: auto !important;
 			right: auto !important;
@@ -791,14 +792,16 @@
 			padding: 34px 12px 0;
 
 			a {
-				padding: 11px 0;
+				padding-top: 11px;
+				padding-bottom: 11px;
 			}
 
 			@include respond-to(lg) {
 				padding: 0 !important;
 
 				a {
-					padding: 9px 0;
+					padding-top: 9px;
+					padding-bottom: 9px;
 				}
 			}
 		}
