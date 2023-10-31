@@ -26,7 +26,7 @@ try {
 	<meta itemprop="priceCurrency" content="RUB" />
 	<meta itemprop="name" content="" />
 	<meta itemprop="priceValidUntil" content="2031-01-01" />
-	<meta itemprop="url" content="" />';
+	<link itemprop="url" content="https://zamm.ru/catalog/item/">';
 
 	$propFav = '<div class="fav">
 	<a href="javascript:void(0)" class="js-fav" data-id="$skuValue" data-url="https://deviart.ru/zamm/fetch-fav.php"><svg><use xlink:href="#fav"></use></svg></a>
