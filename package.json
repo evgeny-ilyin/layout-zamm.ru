@@ -47,7 +47,7 @@
 	"license": "ISC",
 	"description": "",
 	"dependencies": {
-		"@fancyapps/ui": "^5.0.22",
+		"@fancyapps/ui": "^5.0.24",
 		"nouislider": "^15.7.1",
 		"wnumb": "^1.2.0"
 	}
