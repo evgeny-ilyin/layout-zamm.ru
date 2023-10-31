@@ -17,6 +17,12 @@ try {
 		case 'tab':
 			$content = file_get_contents('template-observer-tab.html');
 			break;
+		case 'content-gallery':
+			$content = file_get_contents('template-observer-content-gallery.html');
+			break;
+		case 'photos':
+			$content = file_get_contents('template-observer-photos.html');
+			break;
 		case 'gallery':
 			$content = file_get_contents('template-observer-gallery.html');
 			break;

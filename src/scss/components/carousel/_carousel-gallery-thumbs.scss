@@ -1,9 +1,24 @@
 /*! Карусель с превью. до 1024 2 слайда на экран, без превью (Thumbs) */
+
+// .f-carousel.is-vertical {
+// 	height: 500px;
+// }
+// .f-thumbs.is-vertical {
+//   width: 150px;
+// }
+
 .carousel-gallery-thumbs {
 	--f-carousel-slide-width: 100%;
 	--f-carousel-slide-height: 416px;
 	margin-top: 36px;
 	position: relative;
+
+	.f-spinner {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
 
 	img {
 		height: 100%;
@@ -67,5 +82,4 @@
 			display: none;
 		}
 	}
-
 }

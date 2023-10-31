@@ -9,7 +9,7 @@ import { rangeSlidersInit } from "./modules/nouislider.js";
 import { productPropsHover, productProps, productFetches, filterTagsSet, filterTagsRemove } from "./modules/product.js";
 
 // card
-import { productAmount, productBlockCollapseHandler } from "./modules/product.js";
+import { productAmount, productBlockCollapseHandler, productGalleryShow } from "./modules/product.js";
 
 
 addEventListener("DOMContentLoaded", () => {
@@ -31,7 +31,6 @@ addEventListener("DOMContentLoaded", () => {
 	functions.ideaMarkerShow();
 	functions.ideaPopupPlace();
 	functions.blockObserver();
-	functions.tabsInit();
 
 	fancyapps.carouselsInit();
 
@@ -51,4 +50,5 @@ addEventListener("DOMContentLoaded", () => {
 	// card
 	productAmount();
 	productBlockCollapseHandler();
+	productGalleryShow();
 });

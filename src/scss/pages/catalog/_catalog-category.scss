@@ -476,17 +476,8 @@
 		z-index: 5;
 	}
 
-	.labels {
-		display: flex;
-		flex-wrap: wrap;
-		position: absolute;
-		left: 2px;
-		bottom: 0;
-		z-index: 5;
-
-		.label {
-			margin: 4px 2px;
-		}
+	.label {
+		margin: 4px 2px;
 	}
 
 	/// для работы в карусели смотреть комменты к carousel-overflow

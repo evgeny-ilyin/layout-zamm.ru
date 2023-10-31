@@ -60,7 +60,6 @@
 		transition: opacity $transition-default;
 	}
 
-	
 	@include on-active {
 		&::after {
 			opacity: 0.5;
@@ -82,7 +81,7 @@
 			opacity: 0.5;
 		}
 
-		@include when-inside('.product__options') {
+		@include when-inside(".product__options") {
 			padding-right: 15px;
 
 			&::after {
@@ -91,16 +90,27 @@
 		}
 	}
 
-	&._lg {
-		padding-right: 16px;
-		
+	&._blue {
+		color: $bright-blue;
+
 		&::after {
-			margin-top: 4px;
-			width: 20px;
-			height: 15px;
+			opacity: 0.5;
+			background-image: $svg-angle-bright-blue;
+		}
+
+		@include on-active {
+			color: $bright-blue60;
 		}
 	}
 
+	&._lg {
+		padding-right: 16px;
+
+		&::after {
+			margin-top: 4px;
+			height: 15px;
+		}
+	}
 }
 
 .link-back {

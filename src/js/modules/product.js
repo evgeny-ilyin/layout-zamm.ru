@@ -1,4 +1,4 @@
-import { showSkeleton, useLoader, btnLoader } from "./functions.js";
+import { showSkeleton, useLoader, btnLoader, getScrollbarWidth } from "./functions.js";
 import { carouselsInit } from "./fancyapps.js";
 import { rangeSlidersInit } from "./nouislider.js";
 
@@ -66,19 +66,25 @@ export function productFavourite() {
 			data = { id: id };
 
 		(async () => {
-			let response = await fetch(url, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json;charset=utf-8",
-				},
-				body: JSON.stringify(data),
-			});
+			try {
+				let response = await fetch(url, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json;charset=utf-8",
+					},
+					body: JSON.stringify(data),
+				});
+				if (!response.ok) {
+					return;
+				}
+				let result = await response.json();
 
-			let result = await response.json();
-			if (!result) return;
-
-			if (result.status === true) {
-				btn.parentElement.classList.toggle(isActiveClass);
+				if (result.status === true) {
+					btn.parentElement.classList.toggle(isActiveClass);
+				}
+			} catch (e) {
+				console.log(e);
+				return;
 			}
 		})();
 	});
@@ -102,12 +108,19 @@ export function productPropsHover() {
 			showSkeleton(details, "tpl-props");
 
 			(async () => {
-				let response = await fetch(url);
-				let result = await response.text();
-				if (!result) return;
-				details.innerHTML = "";
-				details.innerHTML = result;
-				productPropCollapseHandler(item);
+				try {
+					let response = await fetch(url);
+					if (!response.ok) {
+						return;
+					}
+					let result = await response.text();
+					details.innerHTML = "";
+					details.innerHTML = result;
+					productPropCollapseHandler(item);
+				} catch (e) {
+					console.log(e);
+					return;
+				}
 			})();
 		});
 	});
@@ -148,51 +161,66 @@ export function productProps() {
 		// product list
 		if (item) {
 			(async () => {
-				useLoader([item, details], "start");
+				try {
+					useLoader([item, details], "start");
 
-				let response = await fetch(url, {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json;charset=utf-8",
-					},
-					body: JSON.stringify(data),
-				});
+					let response = await fetch(url, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json;charset=utf-8",
+						},
+						body: JSON.stringify(data),
+					});
+					if (!response.ok) {
+						return;
+					}
+					let result = await response.json();
 
-				let result = await response.json();
+					if (result.status === true) {
+						update(result, item);
+					}
 
-				if (result.status === true) {
-					update(result, item);
+					productGalleriesInit(item);
+					productPropCollapseHandler(item);
+
+					useLoader([item, details], "stop");
+				} catch (e) {
+					console.log(e);
+					return;
 				}
-
-				productGalleriesInit(item);
-				productPropCollapseHandler(item);
-
-				useLoader([item, details], "stop");
 			})();
 		}
 
 		// product card
 		if (card) {
 			(async () => {
-				useLoader([card], "start");
-				let response = await fetch(url, {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json;charset=utf-8",
-					},
-					body: JSON.stringify(data),
-				});
-				let result = await response.json();
-				if (result.status === true) {
-					update(result, card);
+				try {
+					useLoader([card], "start");
+					let response = await fetch(url, {
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json;charset=utf-8",
+						},
+						body: JSON.stringify(data),
+					});
+					if (!response.ok) {
+						return;
+					}
+					let result = await response.json();
+					if (result.status === true) {
+						update(result, card);
+					}
+
+					if (result.url) {
+						setWindowLocation(result.url);
+					}
+					// productGalleriesInit(card);
+					// productPropCollapseHandler(card);
+					useLoader([card], "stop");
+				} catch (e) {
+					console.log(e);
+					return;
 				}
-				
-				if (result.url) {
-					setWindowLocation(result.url);
-				}
-				// productGalleriesInit(card);
-				// productPropCollapseHandler(card);
-				useLoader([card], "stop");
 			})();
 		}
 
@@ -388,30 +416,37 @@ export function productFetches() {
 		Object.assign(data, params, formDataObject);
 
 		(async () => {
-			btnLoader(btn);
+			try {
+				btnLoader(btn);
 
-			let response = await fetch(url, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json;charset=utf-8",
-				},
-				body: JSON.stringify(data),
-			});
-
-			let result = await response.json();
-
-			if (result.status === true) {
-				btn.classList.add(inCartClass);
-
-				let target = document.querySelector(`[data-id="amount"]`);
-				if (!target) {
-					console.log(`data-id amount not found`);
+				let response = await fetch(url, {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json;charset=utf-8",
+					},
+					body: JSON.stringify(data),
+				});
+				if (!response.ok) {
 					return;
 				}
-				target.dataset.amount = result.amount;
-			}
+				let result = await response.json();
 
-			btnLoader(btn, "stop");
+				if (result.status === true) {
+					btn.classList.add(inCartClass);
+
+					let target = document.querySelector(`[data-id="amount"]`);
+					if (!target) {
+						console.log(`data-id amount not found`);
+						return;
+					}
+					target.dataset.amount = result.amount;
+				}
+
+				btnLoader(btn, "stop");
+			} catch (e) {
+				console.log(e);
+				return;
+			}
 		})();
 	};
 
@@ -639,6 +674,49 @@ export function productBlockCollapseHandler(el) {
 	}
 }
 
+export function productGalleryShow() {
+	const isActiveClass = "is-active";
+
+	document.addEventListener("click", (e) => {
+		const el = e.target.closest(".js-product-gallery");
+		if (!el) return;
+
+		const show = el.dataset.show;
+		if (show) {
+			const body = document.body,
+				header = document.querySelector(".header"),
+				target = document.querySelector(`.${show}`),
+				offsetTop = target.closest(".container").offsetTop,
+				containers = document.querySelectorAll(".container"),
+				sw = getScrollbarWidth();
+
+			body.classList.add("noscroll");
+			header.classList.remove("is-hidden");
+			containers.forEach((c) => {
+				c.style.paddingRight = `${sw}px`;
+			});
+
+			target.classList.add(isActiveClass);
+			target.style.top = `${offsetTop}px`;
+		}
+	});
+
+	window.addEventListener("resize", () => {
+		const galleryBtn = document.querySelector(`.js-product-gallery`);
+		if (!galleryBtn) return;
+		const show = galleryBtn.dataset.show,
+			target = document.querySelector(`.${show}`),
+			containers = document.querySelectorAll(".container");
+		if (target) {
+			target.classList.remove(isActiveClass);
+			document.body.classList.remove("noscroll");
+			containers.forEach((c) => {
+				c.style.paddingRight = "";
+			});
+		}
+	});
+}
+
 // product helpers
 function isPropOverflowX(el) {
 	return el ? el.scrollWidth > el.clientWidth : false;
@@ -686,8 +764,8 @@ function createTagsList(obj) {
 	return tagItems;
 }
 
-let setWindowLocation = (url) => {
+function setWindowLocation(url) {
 	// TODO @ prod:
 	// window.history.pushState("", "", url);
 	window.history.pushState("", "", url.replace("https://deviart.ru/zamm/", ""));
-};
+}

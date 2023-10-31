@@ -344,6 +344,10 @@
 // .nav-second
 .nav-second {
 	background: $yellow;
+	
+	@include respond-to(lg, "max") {
+		display: none;
+	}
 
 	// .nav-second__wrapper
 	&__wrapper {

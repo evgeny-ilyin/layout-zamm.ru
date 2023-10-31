@@ -7,7 +7,7 @@
 /// НО для корректного отображения блок .content.carousel-overflow должен быть большим по высоте, иначе произойдёт обрезка снизу
 /// решение — следующий за каруселью блок должен располагаться в этом же блоке content
 /// может быть неудобно для настройки шаблона в битре
-/// 
+///
 // .carousel-overflow {
 // 	overflow: hidden;
 
@@ -34,7 +34,7 @@
 	}
 }
 
-// серые кнопки навигации в правом верхнем углу
+// серые кнопки навигации в правом верхнем углу для простой галереи
 .carousel-top-nav {
 	--f-button-width: 44px;
 	--f-button-height: 40px;
@@ -43,7 +43,9 @@
 	--f-button-next-pos: 0;
 	--f-button-prev-pos: 0;
 	--f-button-bg: #{$gray};
+}
 
+.carousel-top-nav {
 	.f-carousel__nav {
 		display: none;
 

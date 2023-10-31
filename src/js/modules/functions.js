@@ -70,6 +70,8 @@ export function overlayClick() {
 
 function overlay(action, origin = false) {
 	const body = document.body,
+		sw = getScrollbarWidth(),
+		containers = document.querySelectorAll(".container"),
 		isActiveClass = "is-active";
 	if (action) {
 		const o = document.createElement("div"),
@@ -80,17 +82,24 @@ function overlay(action, origin = false) {
 		body.prepend(o);
 		body.style.top = `-${scrollY}px`;
 		body.classList.add("noscroll");
+		containers.forEach((c) => {
+			c.style.paddingRight = `${sw}px`;
+		});
 
 		setTimeout(() => {
 			o.classList.add(isActiveClass);
 		}, 0);
 	} else {
+		body.classList.remove("noscroll");
+		containers.forEach((c) => {
+			c.style.paddingRight = '';
+		});
+
 		const o = document.querySelector(".overlay"),
 			scrollY = body.style.top;
 		if (!o) return;
-		o.classList.remove(isActiveClass);
-		body.classList.remove("noscroll");
 		body.style.top = "";
+		o.classList.remove(isActiveClass);
 
 		window.scrollTo({
 			left: 0,
@@ -516,25 +525,32 @@ export function blockObserver(el = false) {
 				Object.assign(data, params);
 
 				(async () => {
-					useLoader(target, "start", { class: "_sm" });
+					try {
+						useLoader(target, "start", { class: "_sm" });
 
-					let response = await fetch(url, {
-						method: "POST",
-						headers: {
-							"Content-Type": "application/json;charset=utf-8",
-						},
-						body: JSON.stringify(data),
-					});
+						let response = await fetch(url, {
+							method: "POST",
+							headers: {
+								"Content-Type": "application/json;charset=utf-8",
+							},
+							body: JSON.stringify(data),
+						});
+						if (!response.ok) {
+							return;
+						}
+						let result = await response.json();
 
-					let result = await response.json();
+						if (result.status === true) {
+							target.innerHTML = result.content;
+						}
 
-					if (result.status === true) {
-						target.innerHTML = result.content;
+						reinitObserverResults(target);
+
+						useLoader(target, "stop");
+					} catch (e) {
+						console.log(e);
+						return;
 					}
-
-					reinitObserverResults(target);
-
-					useLoader(target, "stop");
 				})();
 
 				observer.unobserve(entry.target);
@@ -554,3 +570,15 @@ export function blockObserver(el = false) {
 		tabsHandler(target);
 	};
 }
+
+export function getScrollbarWidth() {
+	let div = document.createElement("div");
+	div.style.overflowY = "scroll";
+	div.style.width = "50px";
+	div.style.height = "50px";
+	document.body.append(div);
+	let scrollWidth = div.offsetWidth - div.clientWidth;
+	div.remove();
+	return scrollWidth;
+}
+
