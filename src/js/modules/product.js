@@ -701,20 +701,20 @@ export function productGalleryShow() {
 		}
 	});
 
-	// window.addEventListener("resize", () => {
-	// 	const galleryBtn = document.querySelector(`.js-product-gallery`);
-	// 	if (!galleryBtn) return;
-	// 	const show = galleryBtn.dataset.show,
-	// 		target = document.querySelector(`.${show}`),
-	// 		containers = document.querySelectorAll(".container");
-	// 	if (target) {
-	// 		target.classList.remove(isActiveClass);
-	// 		document.body.classList.remove("noscroll");
-	// 		containers.forEach((c) => {
-	// 			c.style.paddingRight = "";
-	// 		});
-	// 	}
-	// });
+	window.addEventListener("resize", () => {
+		const galleryBtn = document.querySelector(`.js-product-gallery`);
+		if (!galleryBtn) return;
+		const show = galleryBtn.dataset.show,
+			target = document.querySelector(`.${show}`),
+			containers = document.querySelectorAll(".container");
+		if (target) {
+			target.classList.remove(isActiveClass);
+			document.body.classList.remove("noscroll");
+			containers.forEach((c) => {
+				c.style.paddingRight = "";
+			});
+		}
+	});
 }
 
 // product helpers
