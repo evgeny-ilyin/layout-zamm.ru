@@ -5,6 +5,14 @@
   margin-top: 36px;
   position: relative
 }
+.carousel-gallery-thumbs .f-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%)
+}
 .carousel-gallery-thumbs img {
   height: 100%;
   -o-object-fit: cover;

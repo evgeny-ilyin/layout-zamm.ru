@@ -543,18 +543,10 @@
   height: var(--f-carousel-slide-height);
   margin: 0 var(--f-carousel-spacing) 0 0;
   padding: var(--f-carousel-slide-padding);
-  overflow-x: hidden;
-  overflow-y: auto;
-  -ms-scroll-chaining: none;
-  overscroll-behavior: contain;
   outline: 0;
   -webkit-transform-origin: center center;
   -ms-transform-origin: center center;
   transform-origin: center center
-}
-.f-carousel__slide.is-loading {
-  min-height: 88px;
-  min-width: 88px
 }
 .f-carousel.is-vertical {
   --f-carousel-slide-height: 100%
@@ -575,6 +567,9 @@
   --f-carousel-dot-color: var(--f-carousel-theme-color, currentColor);
   --f-carousel-dot-opacity: 0.2;
   --f-carousel-dot-hover-opacity: 0.4
+}
+.f-carousel.has-dots {
+  margin-bottom: var(--f-carousel-dots-height)
 }
 .f-carousel__dots {
   position: absolute;

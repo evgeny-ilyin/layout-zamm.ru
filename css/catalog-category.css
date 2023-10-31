@@ -306,18 +306,7 @@
   position: absolute;
   z-index: 5
 }
-.item .labels {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  position: absolute;
-  left: 2px;
-  bottom: 0;
-  z-index: 5
-}
-.item .labels .label {
+.item .label {
   margin: 4px 2px
 }
 .item__details {

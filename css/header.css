@@ -874,7 +874,8 @@ ol {
   padding: 34px 12px 0
 }
 .category__list_column a {
-  padding: 11px 0
+  padding-top: 11px;
+  padding-bottom: 11px
 }
 .category__link {
   display: -webkit-box;
@@ -1201,12 +1202,21 @@ ol {
 .product__options .link-angle._gray::after {
   margin-top: 0
 }
+.link-angle._blue {
+  color: var(--bright-blue)
+}
+.link-angle._blue::after {
+  opacity: .5;
+  background-image: var(--svg-angle-bright-blue)
+}
+.link-angle._blue:active {
+  color: var(--bright-blue60)
+}
 .link-angle._lg {
   padding-right: 16px
 }
 .link-angle._lg::after {
   margin-top: 4px;
-  width: 20px;
   height: 15px
 }
 .link-back {
@@ -1894,6 +1904,17 @@ input[type=checkbox]:disabled {
   cursor: not-allowed;
   background-color: var(--form-control-disabled-bg)
 }
+.labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  position: absolute;
+  left: 2px;
+  bottom: 0;
+  z-index: 5
+}
 .label {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2563,6 +2584,7 @@ input[type=checkbox]:disabled {
     box-shadow: 0 28px 74px 0 rgba(0,0,0,.05)
   }
   .menu-dropdown_column {
+    margin-top: -1px;
     margin-left: -20px;
     left: auto!important;
     right: auto!important;
@@ -2593,7 +2615,8 @@ input[type=checkbox]:disabled {
     padding: 0!important
   }
   .category__list_column a {
-    padding: 9px 0
+    padding-top: 9px;
+    padding-bottom: 9px
   }
   .category__link {
     height: 68px;
@@ -2777,6 +2800,9 @@ input[type=checkbox]:disabled {
     z-index: 1
   }
   .nav__search-form button[type=submit] {
+    display: none
+  }
+  .nav-second {
     display: none
   }
   .nav-second__wrapper {
