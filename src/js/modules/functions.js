@@ -1,4 +1,4 @@
-import { productBlockCollapseHandler, productGalleriesInit, productGallery, productTabsInit } from "./product.js";
+import { productBlockCollapseHandler, catalogItemGalleriesInit, catalogItemGallery, productTabsInit } from "./product.js";
 import { carouselsInit } from "./fancyapps.js";
 
 export function stickyHeader() {
@@ -61,8 +61,10 @@ export function overlayClick() {
 		const o = e.target,
 			isActiveClass = "is-active";
 		if (o.classList.contains("overlay")) {
-			const origin = o.dataset.origin;
-			document.querySelector(`.${origin}`).classList.remove(isActiveClass);
+			const origin = document.querySelectorAll(`.${o.dataset.origin}`);
+			origin.forEach((el) => {
+				el.classList.remove(isActiveClass);
+			});
 			overlay(0);
 		}
 	});
@@ -353,19 +355,7 @@ export function tabsHandler(observe) {
 	});
 }
 
-// в шаблоне пишем сразу инлайн стиль, без js
-// export function ideaMarkerPlace() {
-// 	const markers = document.querySelectorAll(".idea-marker");
-// 	if (!markers) return;
-// 	markers.forEach((m) => {
-// 		const x = m.dataset.x,
-// 			y = m.dataset.y;
-// 		m.style.left = `${x}%`;
-// 		m.style.top = `${y}%`;
-// 	});
-// }
-
-export function ideaMarkerShow() {
+export function ideaPopupShow() {
 	const markers = document.querySelectorAll(".idea-marker__btn"),
 		isActiveClass = "is-active";
 
@@ -564,8 +554,8 @@ export function blockObserver(el = false) {
 	let reinitObserverResults = (target) => {
 		productBlockCollapseHandler();
 		carouselsInit(target);
-		productGalleriesInit();
-		productGallery();
+		catalogItemGalleriesInit();
+		catalogItemGallery();
 		tabsInit();
 		tabsHandler(target);
 	};

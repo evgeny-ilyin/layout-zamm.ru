@@ -22,17 +22,17 @@ addEventListener("DOMContentLoaded", () => {
 	functions.accordionFooter();
 	functions.tabsInit();
 	functions.tabsHandler();
-	functions.ideaMarkerShow();
+	functions.ideaPopupShow();
 	functions.ideaPopupPlace();
 	functions.blockObserver();
 
 	fancyapps.carouselsInit();
 	rangeslider.rangeSlidersInit();
 
-	product.productGalleriesInit();
-	product.productGallery();
-	product.productFavourite();
-	product.productPropsHover();
+	product.catalogItemGalleriesInit();
+	product.catalogItemGallery();
+	product.addToFavourites();
+	product.catalogItemPropsHover();
 	product.productProps();
 	product.productFetches();
 

@@ -1,6 +1,6 @@
 import * as functions from "./modules/functions.js";
 import * as fancyapps from "./modules/fancyapps.js";
-import { productGalleriesInit, productGallery, productFavourite } from "./modules/product.js";
+import { catalogItemGalleriesInit, catalogItemGallery, addToFavourites } from "./modules/product.js";
 import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 import "./modules/cookies.js";
 import "./modules/modal.js";
@@ -21,13 +21,13 @@ addEventListener("DOMContentLoaded", () => {
 	functions.accordionFooter();
 	functions.tabsInit();
 	functions.tabsHandler();
-	functions.ideaMarkerShow();
+	functions.ideaPopupShow();
 	functions.ideaPopupPlace();
 	functions.blockObserver();
 
 	fancyapps.carouselsInit();
 
-	productGalleriesInit();
-	productGallery();
-	productFavourite();
+	catalogItemGalleriesInit();
+	catalogItemGallery();
+	addToFavourites();
 });

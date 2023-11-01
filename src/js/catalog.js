@@ -1,15 +1,15 @@
 import * as functions from "./modules/functions.js";
 import * as fancyapps from "./modules/fancyapps.js";
-import { productGalleriesInit, productGallery, productFavourite } from "./modules/product.js";
+import { catalogItemGalleriesInit, catalogItemGallery, addToFavourites } from "./modules/product.js";
 import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 import "./modules/cookies.js";
 
 // catalog
 import { rangeSlidersInit } from "./modules/nouislider.js";
-import { productPropsHover, productProps, productFetches, filterTagsSet, filterTagsRemove } from "./modules/product.js";
+import { catalogItemPropsHover, productProps, productFetches, filterTagsSet, filterTagsRemove } from "./modules/product.js";
 
 // card
-import { productAmount, productBlockCollapseHandler, productGalleryShow } from "./modules/product.js";
+import { productAmount, productBlockCollapseHandler, productAllPhotosShow } from "./modules/product.js";
 
 
 addEventListener("DOMContentLoaded", () => {
@@ -28,20 +28,20 @@ addEventListener("DOMContentLoaded", () => {
 	functions.accordionFooter();
 	functions.tabsInit();
 	functions.tabsHandler();
-	functions.ideaMarkerShow();
+	functions.ideaPopupShow();
 	functions.ideaPopupPlace();
 	functions.blockObserver();
 
 	fancyapps.carouselsInit();
 
-	productGalleriesInit();
-	productGallery();
-	productFavourite();
+	catalogItemGalleriesInit();
+	catalogItemGallery();
+	addToFavourites();
 
 
 	// catalog
 	rangeSlidersInit();
-	productPropsHover();
+	catalogItemPropsHover();
 	productProps();
 	productFetches();
 	filterTagsSet();
@@ -50,5 +50,5 @@ addEventListener("DOMContentLoaded", () => {
 	// card
 	productAmount();
 	productBlockCollapseHandler();
-	productGalleryShow();
+	productAllPhotosShow();
 });
