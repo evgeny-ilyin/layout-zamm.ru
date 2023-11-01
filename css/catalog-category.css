@@ -614,8 +614,8 @@
   }
 }
 @media (max-width:424px) {
-  .catalog-bar__sort {
-    margin-right: 16px
+  .catalog-bar__controls {
+    font-size: .875rem
   }
 }
 @media (min-width:1024px) and (max-width:1023px) {

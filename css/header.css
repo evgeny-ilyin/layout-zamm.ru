@@ -1646,14 +1646,15 @@ ol {
   -webkit-box-direction: normal;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  padding-bottom: 5px
+  padding-bottom: 8px
 }
 .tabs__header.scrollblock {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
-  overflow-x: scroll
+  overflow-x: scroll;
+  padding-right: 30px
 }
 .tabs__header.scrollblock::before {
   content: "";
@@ -1692,9 +1693,6 @@ ol {
   -ms-user-select: none;
   user-select: none;
   white-space: nowrap
-}
-.tab-nav:last-child {
-  margin-right: 20px
 }
 .tab-nav.is-active {
   text-shadow: 0 0 0;

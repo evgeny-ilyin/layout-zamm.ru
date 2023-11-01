@@ -2884,59 +2884,7 @@ function rangeSlidersInit() {
 
 
 /** products at catalog list */
-function productGalleriesInit(item = false) {
-	const isActiveClass = "is-active";
-
-	if (item) {
-		item.querySelector(".item__gallery-item").classList.add(isActiveClass);
-		return;
-	}
-
-	// onload
-	const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel");
-
-	galleryItems.forEach((el) => {
-		if (!el) return;
-
-		let items = el.querySelectorAll(".item");
-		// if (!items) return;
-		items.forEach((i) => {
-			i.querySelector(".item__gallery-item").classList.add(isActiveClass);
-		});
-	});
-}
-
-function productGallery() {
-	const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel"),
-		isActiveClass = "is-active";
-
-	galleryItems.forEach((el) => {
-		if (!el) return;
-		el.addEventListener("mouseover", (e) => {
-			const item = e.target.closest(".item");
-			if (!item) return;
-
-			const gallery = item.querySelector(".item__gallery-wrapper"),
-				gItems = gallery.querySelectorAll(".item__gallery-item");
-
-			gallery.addEventListener("mouseenter", () => {
-				gItems.forEach((i) => {
-					i.addEventListener("mouseenter", () => {
-						i.parentElement.querySelectorAll(`.${isActiveClass}`).forEach((e) => e.classList.remove(isActiveClass));
-						i.classList.add(isActiveClass);
-					});
-				});
-			});
-
-			gallery.addEventListener("mouseleave", () => {
-				gallery.querySelectorAll(`.${isActiveClass}`).forEach((e) => e.classList.remove(isActiveClass));
-				gallery.querySelector(".item__gallery-item").classList.add(isActiveClass);
-			});
-		});
-	});
-}
-
-function productFavourite() {
+function addToFavourites() {
 	document.addEventListener("click", (e) => {
 		const btn = e.target.closest(".js-fav"),
 			isActiveClass = "is-active";
@@ -2971,7 +2919,58 @@ function productFavourite() {
 	});
 }
 
-function productPropsHover() {
+function catalogItemGalleriesInit(item = false) {
+	const isActiveClass = "is-active";
+
+	if (item) {
+		item.querySelector(".item__gallery-item").classList.add(isActiveClass);
+		return;
+	}
+
+	const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel");
+
+	galleryItems.forEach((el) => {
+		if (!el) return;
+
+		let items = el.querySelectorAll(".item");
+		// if (!items) return;
+		items.forEach((i) => {
+			i.querySelector(".item__gallery-item").classList.add(isActiveClass);
+		});
+	});
+}
+
+function catalogItemGallery() {
+	const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel"),
+		isActiveClass = "is-active";
+
+	galleryItems.forEach((el) => {
+		if (!el) return;
+		el.addEventListener("mouseover", (e) => {
+			const item = e.target.closest(".item");
+			if (!item) return;
+
+			const gallery = item.querySelector(".item__gallery-wrapper"),
+				gItems = gallery.querySelectorAll(".item__gallery-item");
+
+			gallery.addEventListener("mouseenter", () => {
+				gItems.forEach((i) => {
+					i.addEventListener("mouseenter", () => {
+						i.parentElement.querySelectorAll(`.${isActiveClass}`).forEach((e) => e.classList.remove(isActiveClass));
+						i.classList.add(isActiveClass);
+					});
+				});
+			});
+
+			gallery.addEventListener("mouseleave", () => {
+				gallery.querySelectorAll(`.${isActiveClass}`).forEach((e) => e.classList.remove(isActiveClass));
+				gallery.querySelector(".item__gallery-item").classList.add(isActiveClass);
+			});
+		});
+	});
+}
+
+function catalogItemPropsHover() {
 	const catalogItems = document.querySelector(".catalog-items");
 	if (!catalogItems) return;
 
@@ -3004,6 +3003,106 @@ function productPropsHover() {
 				}
 			})();
 		});
+	});
+}
+
+function filterTagsSet() {
+	const filterForm = document.getElementById("filter-form"),
+		fGroups = document.querySelectorAll(".filter-group"),
+		tagsContainer = document.querySelector(".catalog-bar__tags"),
+		tagsObj = {};
+
+	if (!filterForm) return;
+
+	fGroups.forEach((gr) => {
+		const header = gr.querySelector(".filter-group__header").textContent,
+			checkboxes = gr.querySelectorAll("input[type='checkbox']:checked"),
+			rangesliders = gr.querySelectorAll(".rangeslider"),
+			rangeArr = [],
+			checkedArr = [];
+
+		if (checkboxes.length + rangesliders.length == 0) return;
+
+		rangesliders.forEach((el) => {
+			const slider = el.querySelector("[data-range='rangeslider']"),
+				elGroup = el.closest(".filter-group").dataset.propId,
+				iMin = el.querySelector(".input-min"),
+				iMax = el.querySelector(".input-max"),
+				rangeMin = parseInt(slider.dataset.min),
+				rangeMax = parseInt(slider.dataset.max),
+				valueMin = iMin.value,
+				valueMax = iMax.value,
+				labelMin = iMin.previousElementSibling.textContent,
+				labelMax = iMax.previousElementSibling.textContent;
+
+			if (rangeMin == parseInt(valueMin.replace(/[^0-9]+/g, "")) && rangeMax == parseInt(valueMax.replace(/[^0-9]+/g, ""))) return;
+
+			rangeArr.push({ title: `${labelMin} ${valueMin} ${labelMax} ${valueMax}`, group: elGroup, name: "" });
+			if (rangeArr.length > 0) Object.assign(tagsObj, { [header]: rangeArr });
+		});
+
+		checkboxes.forEach((el) => {
+			const elGroup = el.closest(".filter-group").dataset.propId,
+				elName = el.name,
+				elTitle = el.parentNode.title;
+			checkedArr.push({ title: elTitle, group: elGroup, name: elName });
+		});
+
+		if (checkedArr.length > 0) Object.assign(tagsObj, { [header]: checkedArr });
+	});
+
+	let createTagsList = (obj) => {
+		let tagItems = "";
+	
+		Object.entries(obj).forEach(([key, value]) => {
+			if (typeof value === "object" && value !== null) {
+				let count = Object.keys(value).length;
+				if (count == 1) {
+					tagItems += `<div class="tag"><div class="tag__head"><div class="tag__val">${key}: ${value[0].title}</div><div class="tag__remove js-remove-tag" data-group="${value[0].group}"></div></div></div>`;
+				} else {
+					tagItems += `<div class="tag"><div class="tag__head"><div class="tag__val">${key}: ${count} знач.</div><div class="tag__remove js-remove-tag" data-group="${value[0].group}"></div></div>`;
+					tagItems += `<div class="tag__list">`;
+					Object.values(value).forEach((v) => {
+						tagItems += `<div class="tag__item"><div class="tag__val">${v.title}</div><div class="tag__remove js-remove-tag" data-name="${v.name}"></div></div>`;
+					});
+					tagItems += `</div></div>`;
+				}
+			}
+		});
+	
+		return tagItems;
+	}
+
+	tagsContainer.innerHTML = createTagsList(tagsObj);
+}
+
+function filterTagsRemove() {
+	document.addEventListener("click", (e) => {
+		const btn = e.target.closest(".js-remove-tag");
+		if (!btn) return;
+
+		if (btn.dataset.name) {
+			document.querySelector(`[name=${btn.dataset.name}]`).click();
+		}
+
+		if (btn.dataset.group) {
+			const filterForm = document.getElementById("filter-form"),
+				group = document.querySelector(`[data-prop-id=${btn.dataset.group}]`),
+				checked = group.querySelectorAll(`input[type='checkbox']:checked`),
+				rangeSlider = group.querySelector('[data-range="rangeslider"]');
+
+			if (checked.length > 0) {
+				checked.forEach((el) => (el.checked = false));
+			}
+
+			if (rangeSlider) {
+				rangeSlider.noUiSlider.set([0, 999999999]);
+			}
+
+			filterTagsSet();
+			filterForm.dispatchEvent(new Event("submit"));
+			// filterForm.requestSubmit(); 90.46% supported
+		}
 	});
 }
 
@@ -3061,7 +3160,7 @@ function productProps() {
 						update(result, item);
 					}
 
-					productGalleriesInit(item);
+					catalogItemGalleriesInit(item);
 					productPropCollapseHandler(item);
 
 					useLoader([item, details], "stop");
@@ -3095,7 +3194,7 @@ function productProps() {
 					if (result.url) {
 						setWindowLocation(result.url);
 					}
-					// productGalleriesInit(card);
+					// catalogItemGalleriesInit(card);
 					// productPropCollapseHandler(card);
 					useLoader([card], "stop");
 				} catch (e) {
@@ -3271,8 +3370,8 @@ function productFetches() {
 
 	let reinitFetchesResults = () => {
 		carouselsInit();
-		productGalleriesInit();
-		productGallery();
+		catalogItemGalleriesInit();
+		catalogItemGallery();
 		rangeSlidersInit();
 	};
 
@@ -3411,84 +3510,6 @@ function productFetches() {
 	});
 }
 
-function filterTagsSet() {
-	const filterForm = document.getElementById("filter-form"),
-		fGroups = document.querySelectorAll(".filter-group"),
-		tagsContainer = document.querySelector(".catalog-bar__tags"),
-		tagsObj = {};
-
-	if (!filterForm) return;
-
-	fGroups.forEach((gr) => {
-		const header = gr.querySelector(".filter-group__header").textContent,
-			checkboxes = gr.querySelectorAll("input[type='checkbox']:checked"),
-			rangesliders = gr.querySelectorAll(".rangeslider"),
-			rangeArr = [],
-			checkedArr = [];
-
-		if (checkboxes.length + rangesliders.length == 0) return;
-
-		rangesliders.forEach((el) => {
-			const slider = el.querySelector("[data-range='rangeslider']"),
-				elGroup = el.closest(".filter-group").dataset.propId,
-				iMin = el.querySelector(".input-min"),
-				iMax = el.querySelector(".input-max"),
-				rangeMin = parseInt(slider.dataset.min),
-				rangeMax = parseInt(slider.dataset.max),
-				valueMin = iMin.value,
-				valueMax = iMax.value,
-				labelMin = iMin.previousElementSibling.textContent,
-				labelMax = iMax.previousElementSibling.textContent;
-
-			if (rangeMin == parseInt(valueMin.replace(/[^0-9]+/g, "")) && rangeMax == parseInt(valueMax.replace(/[^0-9]+/g, ""))) return;
-
-			rangeArr.push({ title: `${labelMin} ${valueMin} ${labelMax} ${valueMax}`, group: elGroup, name: "" });
-			if (rangeArr.length > 0) Object.assign(tagsObj, { [header]: rangeArr });
-		});
-
-		checkboxes.forEach((el) => {
-			const elGroup = el.closest(".filter-group").dataset.propId,
-				elName = el.name,
-				elTitle = el.parentNode.title;
-			checkedArr.push({ title: elTitle, group: elGroup, name: elName });
-		});
-
-		if (checkedArr.length > 0) Object.assign(tagsObj, { [header]: checkedArr });
-	});
-
-	tagsContainer.innerHTML = createTagsList(tagsObj);
-}
-
-function filterTagsRemove() {
-	document.addEventListener("click", (e) => {
-		const btn = e.target.closest(".js-remove-tag");
-		if (!btn) return;
-
-		if (btn.dataset.name) {
-			document.querySelector(`[name=${btn.dataset.name}]`).click();
-		}
-
-		if (btn.dataset.group) {
-			const filterForm = document.getElementById("filter-form"),
-				group = document.querySelector(`[data-prop-id=${btn.dataset.group}]`),
-				checked = group.querySelectorAll(`input[type='checkbox']:checked`),
-				rangeSlider = group.querySelector('[data-range="rangeslider"]');
-
-			if (checked.length > 0) {
-				checked.forEach((el) => (el.checked = false));
-			}
-
-			if (rangeSlider) {
-				rangeSlider.noUiSlider.set([0, 999999999]);
-			}
-
-			filterTagsSet();
-			filterForm.dispatchEvent(new Event("submit"));
-			// filterForm.requestSubmit(); 90.46% supported
-		}
-	});
-}
-
 function productAmount() {
 	const product = document.querySelector(".product");
 	if (!product) return;
@@ -3555,7 +3576,7 @@ function productBlockCollapseHandler(el) {
 	}
 }
 
-function productGalleryShow() {
+function productAllPhotosShow() {
 	const isActiveClass = "is-active";
 
 	document.addEventListener("click", (e) => {
@@ -3621,28 +3642,6 @@ function productPropCollapseHandler(el) {
 			});
 		}
 	});
-}
-
-function createTagsList(obj) {
-	let tagItems = "";
-
-	Object.entries(obj).forEach(([key, value]) => {
-		if (typeof value === "object" && value !== null) {
-			let count = Object.keys(value).length;
-			if (count == 1) {
-				tagItems += `<div class="tag"><div class="tag__head"><div class="tag__val">${key}: ${value[0].title}</div><div class="tag__remove js-remove-tag" data-group="${value[0].group}"></div></div></div>`;
-			} else {
-				tagItems += `<div class="tag"><div class="tag__head"><div class="tag__val">${key}: ${count} знач.</div><div class="tag__remove js-remove-tag" data-group="${value[0].group}"></div></div>`;
-				tagItems += `<div class="tag__list">`;
-				Object.values(value).forEach((v) => {
-					tagItems += `<div class="tag__item"><div class="tag__val">${v.title}</div><div class="tag__remove js-remove-tag" data-name="${v.name}"></div></div>`;
-				});
-				tagItems += `</div></div>`;
-			}
-		}
-	});
-
-	return tagItems;
 }
 
 function setWindowLocation(url) {
@@ -3715,8 +3714,10 @@ function overlayClick() {
 		const o = e.target,
 			isActiveClass = "is-active";
 		if (o.classList.contains("overlay")) {
-			const origin = o.dataset.origin;
-			document.querySelector(`.${origin}`).classList.remove(isActiveClass);
+			const origin = document.querySelectorAll(`.${o.dataset.origin}`);
+			origin.forEach((el) => {
+				el.classList.remove(isActiveClass);
+			});
 			overlay(0);
 		}
 	});
@@ -4007,19 +4008,7 @@ function tabsHandler(observe) {
 	});
 }
 
-// в шаблоне пишем сразу инлайн стиль, без js
-// export function ideaMarkerPlace() {
-// 	const markers = document.querySelectorAll(".idea-marker");
-// 	if (!markers) return;
-// 	markers.forEach((m) => {
-// 		const x = m.dataset.x,
-// 			y = m.dataset.y;
-// 		m.style.left = `${x}%`;
-// 		m.style.top = `${y}%`;
-// 	});
-// }
-
-function ideaMarkerShow() {
+function ideaPopupShow() {
 	const markers = document.querySelectorAll(".idea-marker__btn"),
 		isActiveClass = "is-active";
 
@@ -4218,8 +4207,8 @@ function blockObserver(el = false) {
 	let reinitObserverResults = (target) => {
 		productBlockCollapseHandler();
 		carouselsInit(target);
-		productGalleriesInit();
-		productGallery();
+		catalogItemGalleriesInit();
+		catalogItemGallery();
 		tabsInit();
 		tabsHandler(target);
 	};
@@ -4534,17 +4523,17 @@ addEventListener("DOMContentLoaded", () => {
 	accordionFooter();
 	tabsInit();
 	tabsHandler();
-	ideaMarkerShow();
+	ideaPopupShow();
 	ideaPopupPlace();
 	blockObserver();
 
 	carouselsInit();
 	rangeSlidersInit();
 
-	productGalleriesInit();
-	productGallery();
-	productFavourite();
-	productPropsHover();
+	catalogItemGalleriesInit();
+	catalogItemGallery();
+	addToFavourites();
+	catalogItemPropsHover();
 	productProps();
 	productFetches();
 
