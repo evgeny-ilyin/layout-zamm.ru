@@ -6,11 +6,12 @@
 	&__header {
 		display: flex;
 		flex-flow: row wrap;
-		padding-bottom: 5px;
+		padding-bottom: 8px;
 
 		&.scrollblock {
 			flex-flow: row nowrap;
 			overflow-x: scroll;
+			padding-right: 30px;
 
 			&::before {
 				content: "";
@@ -48,10 +49,6 @@
 	transition: all $transition-default;
 	user-select: none;
 	white-space: nowrap;
-
-	&:last-child {
-		margin-right: 20px;
-	}
 
 	&.is-active {
 		text-shadow: $shadow-600;

@@ -208,14 +208,14 @@
 		align-items: center;
 		justify-content: space-between;
 		margin-bottom: 20px;
+
+		@include respond-to(sm, "max") {
+			font-size: rem(14);
+		}
 	}
 
 	// .catalog-bar__sort
 	&__sort {
-		@include respond-to(sm, "max") {
-			margin-right: 16px;
-		}
-
 		@include respond-to(xl, "max") {
 			order: 1;
 		}
