@@ -3747,7 +3747,7 @@ function overlay(action, origin = false) {
 	} else {
 		body.classList.remove("noscroll");
 		containers.forEach((c) => {
-			c.style.paddingRight = '';
+			c.style.paddingRight = "";
 		});
 
 		const o = document.querySelector(".overlay"),
@@ -4009,37 +4009,43 @@ function tabsHandler(observe) {
 }
 
 function ideaPopupShow() {
-	const markers = document.querySelectorAll(".idea-marker__btn"),
-		isActiveClass = "is-active";
+	const isActiveClass = "is-active";
 
-	if (!markers) return;
+	let ideasClose = () => {
+		const active = document.querySelectorAll(`.idea-marker.${isActiveClass}, .idea-mobile-content.${isActiveClass}`);
 
-	markers.forEach((m) => {
-		m.addEventListener("click", () => {
-			m.parentElement.classList.toggle(isActiveClass);
-
-			const isMobile = mobileCheck("576");
-			if (isMobile) {
-				const ideaMobile = document.querySelector(".idea-mobile-content div");
-
-				if (ideaMobile) {
-					const cloneContent = m.nextElementSibling.cloneNode(true);
-					ideaMobile.innerHTML = "";
-					ideaMobile.parentElement.classList.add(isActiveClass);
-					ideaMobile.append(cloneContent);
-					// overlay(1);
-				}
-			}
+		if (!active.length) return;
+		active.forEach((e) => {
+			e.classList.remove(isActiveClass);
 		});
-	});
+	};
+
+	let ideasMobile = (el) => {
+		const ideaMobile = document.querySelector(".idea-mobile-content div");
+		if (ideaMobile) {
+			const cloneContent = el.nextElementSibling.cloneNode(true);
+			ideaMobile.innerHTML = "";
+			ideaMobile.parentElement.classList.add(isActiveClass);
+			ideaMobile.append(cloneContent);
+		}
+	};
 
 	document.addEventListener("click", (e) => {
-		const openedIdeas = document.querySelectorAll(".idea-marker.is-active");
-		openedIdeas.forEach((i) => {
-			if (!i.contains(e.target)) {
-				i.classList.remove(isActiveClass);
+		const el = e.target.closest(".js-idea");
+
+		if (el) {
+			if (el.parentElement.classList.contains(isActiveClass)) {
+				ideasClose();
+			} else {
+				ideasClose();
+				el.parentElement.classList.toggle(isActiveClass);
+				ideasMobile(el);
 			}
-		});
+		} else {
+			if(!e.target.closest(".idea-marker__content")) {
+				ideasClose();
+			}
+		}
 	});
 }
 
@@ -4224,7 +4230,6 @@ function getScrollbarWidth() {
 	div.remove();
 	return scrollWidth;
 }
-
 
 ;// CONCATENATED MODULE: ./src/js/modules/dynamicAdapt.js
 /**
