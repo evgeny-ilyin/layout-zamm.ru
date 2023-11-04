@@ -6,18 +6,18 @@
 
 	<div class="container _gray">
 		@@include('html/pages/blocks/block-breadcrumbs.html')
-		@@include('html/pages/blocks/block-product-card-observer.html')
+		@@include('html/pages/blocks/block-product-card.html')
 	</div>
 
 	<div class="container">
-		<div class="content carousel-overflow" id="product-accessory" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=carousel"></div>
-
+		@@include('html/pages/blocks/block-product-carousel.html', {
+		"header": "Аксессуары к этому столу",
+		"id": 'product-accessory'
+		})
 		@@include('html/pages/blocks/block-product-carousel.html', {
 		"header": "С этим столом часто покупают",
 		"id": ''
 		})
-
-		@@include('html/pages/blocks/block-about.html')
 	</div>
 
 	@@include('html/footer.html', {
