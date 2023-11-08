@@ -509,7 +509,7 @@ ol {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  z-index: 10
+  z-index: 12
 }
 .header__logo svg {
   fill: var(--black);
@@ -608,22 +608,6 @@ ol {
 }
 .nav__search-form button {
   display: none
-}
-.nav__search-prompt {
-  display: none;
-  padding: 24px 0
-}
-.nav__search-prompt ul {
-  list-style-type: none;
-  margin: 16px 0 0;
-  padding: 0
-}
-.nav__search-prompt ul li {
-  padding: 0 0 10px;
-  margin: 0
-}
-.is-active .nav__search-prompt {
-  display: block
 }
 .nav__search-result {
   display: none;
@@ -728,6 +712,18 @@ ol {
   font-weight: 700;
   line-height: 12px;
   padding: 0 2px 0 3px
+}
+.search-prompt {
+  padding-bottom: 24px
+}
+.search-prompt ul {
+  list-style-type: none;
+  margin: 16px 0 0;
+  padding: 0
+}
+.search-prompt ul li {
+  padding: 0 0 10px;
+  margin: 0
 }
 .nav-second {
   background: var(--yellow)
@@ -2188,6 +2184,100 @@ input[type=checkbox]:disabled {
   justify-content: space-between;
   margin: 3px 0
 }
+.modal {
+  --modal-padding-y: 24px;
+  --modal-padding-x: 32px;
+  --modal-max-w: 826px;
+  min-width: 320px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
+  padding: var(--modal-padding-y) var(--modal-padding-x);
+  background: var(--gray);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 4px 132px 0 rgba(54,45,21,.2);
+  box-shadow: 0 4px 132px 0 rgba(54,45,21,.2)
+}
+.modal.is-active {
+  z-index: 12;
+  opacity: 1
+}
+.modal__head {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -.52px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin: 0 40px 32px 0
+}
+.modal__head svg {
+  width: 24px;
+  height: 24px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 24px;
+  flex: 0 0 24px;
+  margin-right: 8px
+}
+.modal__close {
+  position: relative
+}
+.modal__close .btn {
+  position: relative;
+  top: auto;
+  right: auto
+}
+.btn_close-modal {
+  position: absolute;
+  top: var(--modal-padding-y);
+  right: var(--modal-padding-x)
+}
+.geo-selector__form {
+  margin-bottom: 14px
+}
+.geo-selector__fav {
+  font-size: .875rem;
+  color: var(--black60);
+  margin-bottom: 39px
+}
+.geo-selector__fav span {
+  margin-right: 3px
+}
+.geo-selector__fav a {
+  color: var(--black60);
+  text-decoration: underline;
+  display: inline-block;
+  margin: 0 5px 7px 0;
+  white-space: nowrap
+}
+.geo-selector__cities {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap
+}
+.geo-selector__cities a {
+  width: calc(50% - 10px);
+  color: var(--black-real);
+  margin: 0 5px 12px 0
+}
+.geo-selector__cities a.is-current {
+  text-shadow: 0 0 0
+}
 .available {
   margin-bottom: 7px;
   display: -webkit-box;
@@ -2372,6 +2462,10 @@ input[type=checkbox]:disabled {
   .menu-personal {
     width: 213px
   }
+  .geo-selector__cities a {
+    width: 175px;
+    white-space: nowrap
+  }
 }
 @media (min-width:577px) {
   .header-alert__wrapper {
@@ -2379,6 +2473,19 @@ input[type=checkbox]:disabled {
   }
   .header-alert__left {
     text-align: left
+  }
+  .modal {
+    max-width: var(--modal-max-w);
+    top: 143px;
+    right: auto;
+    left: 50%;
+    bottom: auto;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    transform: translateX(-50%)
+  }
+  .geo-selector {
+    min-width: 446px
   }
 }
 @media (min-width:768px) {
@@ -2413,6 +2520,9 @@ input[type=checkbox]:disabled {
   }
   .nav__icons {
     margin-right: 0
+  }
+  .modal__head {
+    font-size: 1.625rem
   }
 }
 @media (min-width:1024px) {
@@ -3008,6 +3118,10 @@ input[type=checkbox]:disabled {
     padding-left: 0;
     padding-right: 0
   }
+  .btn_close-modal::after,
+  .btn_close-modal::before {
+    height: 25px
+  }
 }
 @media (max-width:576px) {
   .tab-block__col._cons {
@@ -3015,6 +3129,9 @@ input[type=checkbox]:disabled {
   }
   .tab-block__col._pros {
     width: 100%
+  }
+  .modal {
+    max-width: 100%!important
   }
 }
 @media (prefers-reduced-motion:reduce) {

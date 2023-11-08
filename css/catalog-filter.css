@@ -586,7 +586,7 @@
     -o-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
     background: var(--white);
-    z-index: 11;
+    z-index: 12;
     top: 0;
     right: 0;
     bottom: 0

@@ -8,22 +8,22 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap&v=20231104153831" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap&v=20231108101018" rel="stylesheet">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231104153831">
-	<link rel="stylesheet" href="css/header.css?v=20231104153831">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231104153831">
-	<link rel="stylesheet" href="css/carousel-big.css?v=20231104153831">
-	<link rel="stylesheet" href="css/carousel-product.css?v=20231104153831">
-	<link rel="stylesheet" href="css/carousel-product.css?v=20231104153831">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231104153831">
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231104153831">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20231104153831">
-	<link rel="stylesheet" href="css/block-about.css?v=20231104153831">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231104153831">
-	<link rel="stylesheet" href="css/catalog-category.css?v=20231104153831">
-	<link rel="stylesheet" href="css/product-card.css?v=20231104153831">
-	<link rel="stylesheet" href="css/footer.css?v=20231104153831">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231108101018">
+	<link rel="stylesheet" href="css/header.css?v=20231108101018">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231108101018">
+	<link rel="stylesheet" href="css/carousel-big.css?v=20231108101018">
+	<link rel="stylesheet" href="css/carousel-product.css?v=20231108101018">
+	<link rel="stylesheet" href="css/carousel-product.css?v=20231108101018">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231108101018">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231108101018">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231108101018">
+	<link rel="stylesheet" href="css/block-about.css?v=20231108101018">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231108101018">
+	<link rel="stylesheet" href="css/catalog-category.css?v=20231108101018">
+	<link rel="stylesheet" href="css/product-card.css?v=20231108101018">
+	<link rel="stylesheet" href="css/footer.css?v=20231108101018">
 	<title>Каталог</title>
 </head>
 
@@ -59,7 +59,7 @@
 					</div>
 					<div class="nav-second__block">
 						<div class="nav-second__col">
-							<a href="javascript:void(0)" class="nav-second__geo">
+							<a href="javascript:void(0)" class="nav-second__geo js-modal-show" data-box-width="510" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=geo">
 								<svg>
 									<use xlink:href="#geo"></use>
 								</svg>
@@ -216,16 +216,19 @@
 							</div>
 						</nav>
 
-						<div class="nav__search">
+						<div class="nav__search js-query-wrapper">
 							<div class="nav__search-form" itemscope itemtype="http://schema.org/WebSite">
 								<form method="get" action="/catalog/" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
 									<meta itemprop="target" content="https://zamm.ru/catalog/?q={q}" />
-									<input itemprop="query-input" type="text" name="q" placeholder="Введите запрос" autocomplete="off" class="input input_nav-search" />
+									<input itemprop="query-input" type="text" name="q" placeholder="Введите запрос" autocomplete="off" class="input input_nav-search" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=search" data-query="true" data-on-focus="true" />
 									<button type="submit" class="btn btn_yellow-dark">Найти</button>
 									<button type="button" class="btn btn_close js-close-search"></button>
 								</form>
 							</div>
-							<div class="nav__search-prompt hidden">
+							<div class="nav__search-result js-query-result scrollblock">
+
+								<!-- пример ajax подсказки -->
+								<!-- <div class="search-prompt">
 								<b>Часто ищут</b>
 								<ul>
 									<li>стол Линда</li>
@@ -233,86 +236,102 @@
 									<li>стеллаж</li>
 									<li>корпусная мебель</li>
 								</ul>
-							</div>
-							<div class="nav__search-result scrollblock">
-								<a href="#" class="r-item">
-									<div class="r-item__img">
-										<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+							</div> -->
+								<!-- пример подсказки -->
+
+
+
+								<!-- пример ajax результатов поиска -->
+								<!-- <a href="#" class="r-item">
+								<div class="r-item__img">
+									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+								</div>
+								<div class="r-item__wrapper">
+									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
+									<div class="r-item__prices">
+										<div class="r-item__price">24 400 ₽</div>
+										<div class="r-item__oldprice">34 500 ₽</div>
 									</div>
-									<div class="r-item__wrapper">
-										<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
-										<div class="r-item__prices">
-											<div class="r-item__price">24 400 ₽</div>
-											<div class="r-item__oldprice">34 500 ₽</div>
-										</div>
-									</div>
-								</a>
+								</div>
+							</a> -->
+								<!-- пример результатов поиска -->
+
+
+
+
+
 
 								<!-- рыба start -->
-								<a href="#" class="r-item">
-									<div class="r-item__img">
-										<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+								<!-- <a href="#" class="r-item">
+								<div class="r-item__img">
+									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+								</div>
+								<div class="r-item__wrapper">
+									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
+									<div class="r-item__prices">
+										<div class="r-item__price">400 ₽</div>
 									</div>
-									<div class="r-item__wrapper">
-										<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
-										<div class="r-item__prices">
-											<div class="r-item__price">400 ₽</div>
-										</div>
+								</div>
+							</a>
+							<a href="#" class="r-item">
+								<div class="r-item__img">
+									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+								</div>
+								<div class="r-item__wrapper">
+									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
+									<div class="r-item__prices">
+										<div class="r-item__price">124 400 ₽</div>
+										<div class="r-item__oldprice">34 500 ₽</div>
 									</div>
-								</a>
-								<a href="#" class="r-item">
-									<div class="r-item__img">
-										<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+								</div>
+							</a>
+							<a href="#" class="r-item">
+								<div class="r-item__img">
+									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+								</div>
+								<div class="r-item__wrapper">
+									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
+									<div class="r-item__prices">
+										<div class="r-item__price">1 124 400 ₽</div>
+										<div class="r-item__oldprice">34 500 ₽</div>
 									</div>
-									<div class="r-item__wrapper">
-										<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
-										<div class="r-item__prices">
-											<div class="r-item__price">124 400 ₽</div>
-											<div class="r-item__oldprice">34 500 ₽</div>
-										</div>
+								</div>
+							</a>
+							<a href="#" class="r-item">
+								<div class="r-item__img">
+									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+								</div>
+								<div class="r-item__wrapper">
+									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
+									<div class="r-item__prices">
+										<div class="r-item__price">24 400 ₽</div>
+										<div class="r-item__oldprice">34 500 ₽</div>
 									</div>
-								</a>
-								<a href="#" class="r-item">
-									<div class="r-item__img">
-										<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+								</div>
+							</a>
+							<a href="#" class="r-item">
+								<div class="r-item__img">
+									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+								</div>
+								<div class="r-item__wrapper">
+									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
+									<div class="r-item__prices">
+										<div class="r-item__price">99 524 400 ₽</div>
+										<div class="r-item__oldprice">139 534 500 ₽</div>
 									</div>
-									<div class="r-item__wrapper">
-										<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
-										<div class="r-item__prices">
-											<div class="r-item__price">1 124 400 ₽</div>
-											<div class="r-item__oldprice">34 500 ₽</div>
-										</div>
-									</div>
-								</a>
-								<a href="#" class="r-item">
-									<div class="r-item__img">
-										<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
-									</div>
-									<div class="r-item__wrapper">
-										<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
-										<div class="r-item__prices">
-											<div class="r-item__price">24 400 ₽</div>
-											<div class="r-item__oldprice">34 500 ₽</div>
-										</div>
-									</div>
-								</a>
-								<a href="#" class="r-item">
-									<div class="r-item__img">
-										<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
-									</div>
-									<div class="r-item__wrapper">
-										<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
-										<div class="r-item__prices">
-											<div class="r-item__price">99 524 400 ₽</div>
-											<div class="r-item__oldprice">139 534 500 ₽</div>
-										</div>
-									</div>
-								</a>
+								</div>
+							</a> -->
 								<!-- рыба end -->
 
-								<div class="nav__search-results-all">
-									<a href="javascript:void(0)" class="btn btn_yellow btn_wide">Все результаты</a>
-								</div>
+
+
+
+
+								<!-- кнопка результатов поиска -->
+								<!-- <div class="nav__search-results-all">
+								<a href="javascript:void(0)" class="btn btn_yellow btn_wide">Все результаты</a>
+							</div> -->
+								<!-- кнопка результатов поиска -->
 							</div>
 						</div>
 					</div>
@@ -523,7 +542,7 @@
 						</div>
 
 						<div class="catalog-bar__btn">
-							<button type="button" class="btn btn_yellow btn_filter js-show" data-show="js-filter"><span>Все фильтры</span></button>
+							<button type="button" class="btn btn_yellow btn_filter js-filter-show"><span>Все фильтры</span></button>
 						</div>
 					</div>
 
@@ -1275,7 +1294,7 @@
 			</div>
 		</div>
 
-		<div class="content carousel-overflow" data-id="catalog-carousel">
+		<div class="content carousel-overflow" id=" data-id=" catalog-carousel"">
 			<div class="block-header">Самые популярные столы</div>
 			<div class="f-carousel product-carousel carousel-top-nav" data-carousel="carousel" data-options='{"Dots": false}'>
 				<div class="f-carousel__slide">
@@ -1909,7 +1928,7 @@
 		</symbol>
 	</svg>
 
-	<script src="js/catalog.min.js?v=20231104153831"></script>
+	<script src="js/catalog.js?v=20231108101018"></script>
 </body>
 
 </html>

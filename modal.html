@@ -24,7 +24,7 @@
 	<link rel="stylesheet" href="css/catalog-category.css?v=20231108101018">
 	<link rel="stylesheet" href="css/product-card.css?v=20231108101018">
 	<link rel="stylesheet" href="css/footer.css?v=20231108101018">
-	<title>Главная</title>
+	<title>UI modal</title>
 </head>
 
 <body>
@@ -419,584 +419,49 @@
 
 
 	<div class="container">
-		<div class="bg-gray-xxl">
-			<div class="content">
-				<div class="f-carousel main-carousel" data-carousel="carousel" data-options='{"infinite": true}' data-autoplay="6000">
-					<div class="f-carousel__slide">
-						<div class="main-slide main-slide_col-2">
-							<div class="main-slide__text">
-								<div class="label label_yellow-light label_big label_rotate">Всё в наличии</div>
-								<div class="main-slide__wrapper">
-									<div class="main-slide__header">Столы, кресла и&nbsp;корпусная мебель</div>
-									<div class="main-slide__body">
-										<div class="main-slide__subheader">Отправим не позднее 3-5 дней</div>
-										<div class="main-slide__note">Zamm — Мебель для дома</div>
-									</div>
-									<div class="main-slide__button">
-										<a href="javascript:void(0)" class="btn btn_yellow btn_arrow"><span>Посмотреть мебель</span></a>
-									</div>
-								</div>
-							</div>
-							<div class="main-slide__img">
-								<img src="img/dev/carousels/carousel-main-1.png" width="" height="" alt="" />
-							</div>
-						</div>
+		<div class="modal is-active" style="max-width: 510px;">
+			<button class="btn btn_close btn_close-modal js-modal-close"></button>
+			<div class="modal__head">
+				<svg>
+					<use xlink:href="#geo"></use>
+				</svg>
+				Выберите город
+			</div>
+			<div class="modal__body">
+				<div class="geo-selector">
+					<div class="geo-selector__form">
+						<input type="text" name="search" placeholder="Город" autocomplete="off" class="input input_fill" data-quick-search="true" data-target="js-quick-search-list">
 					</div>
 
-					<div class="f-carousel__slide">
-						<div class="main-slide main-slide_col-1 text-white">
-							<div class="main-slide__text">
-								<div class="label label_green label_big label_rotate">Всё в наличии</div>
-								<div class="main-slide__wrapper">
-									<div class="main-slide__header">Столы, кресла и&nbsp;корпусная мебель</div>
-									<div class="main-slide__body">
-										<div class="main-slide__subheader">Отправим не позднее 3-5 дней</div>
-										<div class="main-slide__note"></div>
-									</div>
-									<div class="main-slide__button">
-										<a href="javascript:void(0)" class="btn btn_yellow btn_arrow"><span>Посмотреть мебель</span></a>
-									</div>
-								</div>
-							</div>
-							<div class="main-slide__img">
-								<img src="img/dev/carousels/carousel-main-2.png" width="" height="" alt="" />
-							</div>
-						</div>
+					<div class="geo-selector__fav">
+						<span>Например:</span>
+						<a href="javascript:void(0)">Москва</a>
+						<a href="javascript:void(0)">Санкт-Петербург</a>
 					</div>
 
-					<div class="f-carousel__slide">
-						<div class="main-slide main-slide_col-1 text-white">
-							<div class="main-slide__text">
-								<div class="label label_green label_big label_rotate">Не всё в наличии</div>
-								<div class="main-slide__wrapper">
-									<div class="main-slide__header">Lorem ipsum dolor sit amet.</div>
-									<div class="main-slide__body">
-										<div class="main-slide__subheader">Девушка в комплект не входит!</div>
-										<div class="main-slide__note"></div>
-									</div>
-									<div class="main-slide__button">
-										<a href="javascript:void(0)" class="btn btn_yellow btn_arrow"><span>Посмотреть мебель</span></a>
-									</div>
-								</div>
-							</div>
-							<div class="main-slide__img">
-								<img src="img/dev/carousels/carousel-main-1.png" width="" height="" alt="" />
-							</div>
-						</div>
-					</div>
-
-					<div class="f-carousel__slide">
-						<div class="main-slide main-slide_col-2">
-							<div class="main-slide__text">
-								<div class="label label_green label_big label_rotate">Всё в наличии</div>
-								<div class="main-slide__wrapper">
-									<div class="main-slide__header">Столы, кресла и&nbsp;корпусная мебель</div>
-									<div class="main-slide__body">
-										<div class="main-slide__subheader">Отправим не позднее 3-5 дней</div>
-										<div class="main-slide__note"></div>
-									</div>
-									<div class="main-slide__button">
-										<a href="javascript:void(0)" class="btn btn_yellow btn_arrow"><span>Посмотреть мебель</span></a>
-									</div>
-								</div>
-							</div>
-							<div class="main-slide__img">
-								<img src="img/dev/carousels/carousel-main-2.png" width="" height="" alt="" />
-							</div>
-						</div>
+					<div class="geo-selector__cities js-quick-search-list">
+						<a href="javascript:void(0)">Волгоград</a>
+						<a href="javascript:void(0)">Воронеж</a>
+						<a href="javascript:void(0)">Екатеринбург</a>
+						<a href="javascript:void(0)">Казань</a>
+						<a href="javascript:void(0)">Краснодар</a>
+						<a href="javascript:void(0)">Красноярск</a>
+						<a href="javascript:void(0)">Лондон</a>
+						<a href="javascript:void(0)">Майами</a>
+						<a href="javascript:void(0)" class="is-current">Москва</a>
+						<a href="javascript:void(0)">Нижний Новгород</a>
+						<a href="javascript:void(0)">Новосибирск</a>
+						<a href="javascript:void(0)">Нью-Йорк</a>
+						<a href="javascript:void(0)">Ростов-на-Дону</a>
+						<a href="javascript:void(0)">Самара</a>
+						<a href="javascript:void(0)">Санкт-Петербург</a>
+						<a href="javascript:void(0)">Саратов</a>
+						<a href="javascript:void(0)">Челябинск</a>
+						<a href="javascript:void(0)">Ярославль</a>
 					</div>
 				</div>
 			</div>
 		</div>
-
-		<div class="content carousel-overflow" id="">
-			<div class="block-header">Самые популярные столы</div>
-			<div class="f-carousel product-carousel carousel-top-nav" data-carousel="carousel" data-options='{"Dots": false}'>
-				<div class="f-carousel__slide">
-					<div class="item">
-						<div class="item__wrapper">
-							<div class="item__content">
-								<div class="item__image-wrapper">
-									<div>
-										<div class="article">Артикул: L-11111</div>
-										<div class="labels">
-											<div class="label label_green">В наличии</div>
-										</div>
-									</div>
-
-									<div>
-										<a href="javascript:void(0)" class="item__gallery-wrapper">
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-1.webp" type="image/webp" />
-													<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-2.webp" type="image/webp" />
-													<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-3.webp" type="image/webp" />
-													<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-4.webp" type="image/webp" />
-													<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-5.webp" type="image/webp" />
-													<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-										</a>
-									</div>
-
-									<div class="fav is-active">
-										<a href="javascript:void(0)" class="js-fav" data-id="11111" data-url="https://deviart.ru/zamm/fetch-fav.php">
-											<svg>
-												<use xlink:href="#fav"></use>
-											</svg>
-										</a>
-									</div>
-								</div>
-
-								<div class="item__info">
-									<div class="item__title">
-										<a href="javascript:void(0)">Стол Экспо ТР</a>
-									</div>
-									<div class="item__prices">
-										<div class="item__price">29 620 ₽</div>
-									</div>
-								</div>
-
-								<div class="item__more">
-									<div class="available _instock">Есть в наличии</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="f-carousel__slide">
-					<div class="item">
-						<div class="item__wrapper">
-							<div class="item__content">
-								<div class="item__image-wrapper">
-									<div>
-										<div class="article">Артикул: L-22222</div>
-										<div class="labels">
-											<div class="label label_red">-20%</div>
-											<div class="label label_yellow">Акция</div>
-										</div>
-									</div>
-
-									<div>
-										<a href="javascript:void(0)" class="item__gallery-wrapper">
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-4.webp" type="image/webp" />
-													<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-2.webp" type="image/webp" />
-													<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-										</a>
-									</div>
-
-									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-id="22222" data-url="https://deviart.ru/zamm/fetch-fav.php">
-											<svg>
-												<use xlink:href="#fav"></use>
-											</svg>
-										</a>
-									</div>
-								</div>
-
-								<div class="item__info">
-									<div class="item__title">
-										<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
-									</div>
-									<div class="item__prices">
-										<div class="item__price _discount">29 620 ₽</div>
-										<div class="item__oldprice">39 620 ₽</div>
-									</div>
-								</div>
-
-								<div class="item__more">
-									<div class="available _delay">Доставим за 3 недели</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="f-carousel__slide">
-					<div class="item">
-						<div class="item__wrapper">
-							<div class="item__content">
-								<div class="item__image-wrapper">
-									<div>
-										<div class="article">Артикул: L-33333</div>
-										<div class="labels">
-											<div class="label label_green">В наличии</div>
-										</div>
-									</div>
-
-									<div>
-										<a href="javascript:void(0)" class="item__gallery-wrapper">
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-2.webp" type="image/webp" />
-													<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-3.webp" type="image/webp" />
-													<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-4.webp" type="image/webp" />
-													<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-5.webp" type="image/webp" />
-													<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-										</a>
-									</div>
-
-									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-id="33333" data-url="https://deviart.ru/zamm/fetch-fav.php">
-											<svg>
-												<use xlink:href="#fav"></use>
-											</svg>
-										</a>
-									</div>
-								</div>
-
-								<div class="item__info">
-									<div class="item__title">
-										<a href="javascript:void(0)">Стол Экспо ТР</a>
-									</div>
-									<div class="item__prices">
-										<div class="item__price">29 620 ₽</div>
-									</div>
-								</div>
-
-								<div class="item__more">
-									<div class="available _instock">Есть в наличии</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="f-carousel__slide">
-					<div class="item">
-						<div class="item__wrapper">
-							<div class="item__content">
-								<div class="item__image-wrapper">
-									<div>
-										<div class="article">Артикул: L-44444</div>
-										<div class="labels">
-											<div class="label label_red">-20%</div>
-											<div class="label label_yellow">Акция</div>
-										</div>
-									</div>
-
-									<div>
-										<a href="javascript:void(0)" class="item__gallery-wrapper">
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-1.webp" type="image/webp" />
-													<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-4.webp" type="image/webp" />
-													<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-										</a>
-									</div>
-
-									<div class="fav">
-										<a href="javascript:void(0)" class="js-fav" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
-											<svg>
-												<use xlink:href="#fav"></use>
-											</svg>
-										</a>
-									</div>
-								</div>
-
-								<div class="item__info">
-									<div class="item__title">
-										<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
-									</div>
-									<div class="item__prices">
-										<div class="item__price _discount">29 620 ₽</div>
-										<div class="item__oldprice">39 620 ₽</div>
-									</div>
-								</div>
-
-								<div class="item__more">
-									<div class="available _delay">Доставим за 3 недели</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="f-carousel__slide">
-					<div class="item">
-						<div class="item__wrapper">
-							<div class="item__content">
-								<div class="item__image-wrapper">
-									<div>
-										<div class="article">Артикул: L-55555</div>
-										<div class="labels">
-											<div class="label label_green">В наличии</div>
-										</div>
-									</div>
-
-									<div>
-										<a href="javascript:void(0)" class="item__gallery-wrapper">
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-1.webp" type="image/webp" />
-													<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-2.webp" type="image/webp" />
-													<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-3.webp" type="image/webp" />
-													<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-4.webp" type="image/webp" />
-													<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-5.webp" type="image/webp" />
-													<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
-											</div>
-										</a>
-									</div>
-
-									<div class="fav is-active">
-										<a href="javascript:void(0)" class="js-fav" data-id="55555" data-url="https://deviart.ru/zamm/fetch-fav.php">
-											<svg>
-												<use xlink:href="#fav"></use>
-											</svg>
-										</a>
-									</div>
-								</div>
-
-								<div class="item__info">
-									<div class="item__title">
-										<a href="javascript:void(0)">Стол Экспо ТР</a>
-									</div>
-									<div class="item__prices">
-										<div class="item__price">29 620 ₽</div>
-									</div>
-								</div>
-
-								<div class="item__more">
-									<div class="available _instock">Есть в наличии</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-
-		<div class="content">
-			<div class="block-header">Популярные категории</div>
-			<div class="block-cards">
-				<a href="javascript:void(0)" class="card card_1 card_yellow">
-					<div class="card__text">
-						<div class="card__header">Стеллажи</div>
-						<div class="card__subheader">на металокаркасе</div>
-						<div class="card__amount">88 моделей</div>
-					</div>
-					<img src="img/dev/cards/card-1.png" width="" height="" alt="" class="card__image" />
-				</a>
-				<a href="javascript:void(0)" class="card card_2 card_gray">
-					<div class="card__text">
-						<div class="card__header">Рабочие столы <span class="label label_green label_rotate">От 4990₽</span></div>
-						<div class="card__subheader">для дома и офиса</div>
-						<div class="card__amount">188 моделей</div>
-					</div>
-					<img src="img/dev/cards/card-2.png" width="" height="" alt="" class="card__image" style="mix-blend-mode: multiply" />
-					<!-- mix-blend-mode убрать в проде. это для тестовой картинки без прозрачного фона -->
-				</a>
-				<a href="javascript:void(0)" class="card card_3 card_smalltext card_red-coral">
-					<div class="card__text">
-						<div class="card__header">Шкафы и тумбочки</div>
-						<div class="card__subheader"></div>
-						<div class="card__amount">42 модели</div>
-					</div>
-					<img src="img/dev/cards/card-3.png" width="" height="" alt="" class="card__image" />
-				</a>
-				<a href="javascript:void(0)" class="card card_4 card_smalltext card_blue">
-					<div class="card__text">
-						<div class="card__header">Кресла для кабинета</div>
-						<div class="card__subheader"></div>
-						<div class="card__amount">4 модели</div>
-					</div>
-					<img src="img/dev/cards/card-4.png" width="" height="" alt="" class="card__image" />
-				</a>
-			</div>
-		</div>
-
-		<div class="content" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=ideas"></div>
-		<div class="content">
-			<div class="block-header">
-				О компании
-				<span class="about-logo _gray">
-					<svg>
-						<use xlink:href="#logo"></use>
-					</svg>
-				</span>
-			</div>
-
-			<div class="block-about">
-				<div class="block-about__note">Работаем с 2010 года</div>
-				<div class="block-about__body">
-					<p>
-						Мы — компания по производству мебели для дома и офиса, работаем с 2010 года. Проектируем мебель так, чтобы она была удобной и хорошо вписывалась в
-						интерьер. Мы производим мебель на металлокаркасе и можем контролировать каждый этап.
-					</p>
-				</div>
-
-				<div class="f-carousel about-carousel about-card" data-carousel="carousel" data-options='{"Navigation": false}'>
-					<div class="f-carousel__slide">
-						<div class="about-card__wrapper">
-							<div class="about-card__header">
-								<svg>
-									<use xlink:href="#about-eco"></use>
-								</svg>
-								Экологичность
-							</div>
-							<picture>
-								<source srcset="img/dev/ideas/idea-1.png" type="image/webp" />
-								<img src="img/dev/ideas/idea-1.png" width="" height="" alt="" loading="lazy" />
-							</picture>
-							<div class="about-card__info">
-								<div>Мы используем каркас из металла, чтобы сохранить леса и деревья России. Наши столы используют меньше ресурсов, а служат на 5 лет дольше.</div>
-								<a href="javascript:void(0)" class="link-arrow">Больше про экологию</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="f-carousel__slide">
-						<div class="about-card__wrapper">
-							<div class="about-card__header">
-								<svg>
-									<use xlink:href="#about-quality"></use>
-								</svg>
-								Качественный ЛДСП
-							</div>
-							<picture>
-								<source srcset="img/dev/ideas/idea-2.png" type="image/webp" />
-								<img src="img/dev/ideas/idea-2.png" width="" height="" alt="" loading="lazy" />
-							</picture>
-							<div class="about-card__info">
-								<div>Мы используем каркас из металла, чтобы сохранить леса и деревья России. Наши столы используют меньше ресурсов, а служат на 5 лет дольше.</div>
-								<a href="javascript:void(0)" class="link-arrow">Больше про качество</a>
-							</div>
-						</div>
-					</div>
-					<div class="f-carousel__slide">
-						<div class="about-card__wrapper">
-							<div class="about-card__header">
-								<svg>
-									<use xlink:href="#about-tech"></use>
-								</svg>
-								Технологии
-							</div>
-							<picture>
-								<source srcset="img/dev/ideas/idea-3.png" type="image/webp" />
-								<img src="img/dev/ideas/idea-3.png" width="" height="" alt="" loading="lazy" />
-							</picture>
-							<div class="about-card__info">
-								<div>Мы используем каркас из металла, чтобы сохранить леса и деревья России. Наши столы используют меньше ресурсов, а служат на 5 лет дольше.</div>
-								<a href="javascript:void(0)" class="link-arrow">Больше про технологии</a>
-							</div>
-						</div>
-					</div>
-					<div class="f-carousel__slide">
-						<div class="about-card__wrapper">
-							<div class="about-card__header">
-								<svg>
-									<use xlink:href="#about-material"></use>
-								</svg>
-								Материалы
-							</div>
-							<picture>
-								<source srcset="img/dev/ideas/idea-4.png" type="image/webp" />
-								<img src="img/dev/ideas/idea-4.png" width="" height="" alt="" loading="lazy" />
-							</picture>
-							<div class="about-card__info">
-								<div>Мы используем каркас из металла, чтобы сохранить леса и деревья России. Наши столы используют меньше ресурсов, а служат на 5 лет дольше.</div>
-								<a href="javascript:void(0)" class="link-arrow">Больше про материалы</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 	</div>
 
 	<footer class="footer">
@@ -1241,7 +706,7 @@
 		</symbol>
 	</svg>
 
-	<script src="js/main.min.js?v=20231108101018"></script>
+	<script src="js/main.js?v=20231108101018"></script>
 </body>
 
 </html>
