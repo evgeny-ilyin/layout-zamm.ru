@@ -44,14 +44,14 @@ export function carouselsInit(el = false) {
 		}
 
 		// thumbs only for breakpoint
-		if (carousel.dataset.thumbs == "true" && carousel.dataset.thumbsOn) {
+		if (carousel.dataset.thumbs == "true" && carousel.dataset.thumbsMedia) {
 			Object.assign(options, { Thumbs: false });
-			Object.assign(breakpoints, { breakpoints: { [`(${carousel.dataset.thumbsOn})`]: { Thumbs: {} } } });
+			Object.assign(breakpoints, { breakpoints: { [`(${carousel.dataset.thumbsMedia})`]: { Thumbs: {} } } });
 			Object.assign(plugins, { Thumbs });
 		}
 
 		// thumbs when data-thumbs="true"
-		if (carousel.dataset.thumbs == "true" && !carousel.dataset.thumbsOn) {
+		if (carousel.dataset.thumbs == "true" && !carousel.dataset.thumbsMedia) {
 			Object.assign(thumbs, { Thumbs: {} });
 			Object.assign(plugins, { Thumbs });
 		}

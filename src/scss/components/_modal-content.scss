@@ -1,0 +1,50 @@
+.geo-selector {
+	@include respond-to(xm) {
+		min-width: 446px;
+	}
+
+	// .geo-selector__form
+	&__form {
+		margin-bottom: 14px;
+	}
+
+	// .geo-selector__fav
+	&__fav {
+		font-size: rem(14);
+		color: $black60;
+		margin-bottom: 39px;
+
+		span {
+			margin-right: 3px;
+		}
+
+		a {
+			color: $black60;
+			text-decoration: underline;
+			display: inline-block;
+			margin: 0 5px 7px 0;
+			white-space: nowrap;
+		}
+	}
+
+	// .geo-selector__cities
+	&__cities {
+		display: flex;
+		flex-flow: row wrap;
+
+		a {
+			width: calc(50% - 10px);
+			color: $black-real;
+			margin: 0 5px 12px 0;
+
+			@include respond-to(sm) {
+				width: 175px;
+				white-space: nowrap;
+			}
+
+			&.is-current {
+				text-shadow: $shadow-600;
+			}
+		}
+	}
+}

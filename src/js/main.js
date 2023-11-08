@@ -3,19 +3,19 @@ import * as fancyapps from "./modules/fancyapps.js";
 import { catalogItemGalleriesInit, catalogItemGallery, addToFavourites } from "./modules/product.js";
 import { useDynamicAdapt } from "./modules/dynamicAdapt.js";
 import "./modules/cookies.js";
-import "./modules/modal.js";
 
 addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
-	
+
 	functions.stickyHeader();
-	functions.mobileCatalog();
+	functions.hamburgerMenu();
 	functions.searchForm();
+	functions.modalHandler();
+	// functions.sectionShow();
 	functions.sectionClose();
-	functions.sectionShow();
 	functions.dropdownClose();
 	functions.dropdownShow();
-	functions.overlayClick();
+	// functions.overlayClick();
 	functions.collapseHandler();
 	functions.accordion();
 	functions.accordionFooter();
@@ -24,6 +24,8 @@ addEventListener("DOMContentLoaded", () => {
 	functions.ideaPopupShow();
 	functions.ideaPopupPlace();
 	functions.blockObserver();
+	functions.userInputQuery();
+	functions.userInputQuickSearch();
 
 	fancyapps.carouselsInit();
 

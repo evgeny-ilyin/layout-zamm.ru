@@ -10,13 +10,14 @@ addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
 
 	functions.stickyHeader();
-	functions.mobileCatalog();
+	functions.hamburgerMenu();
 	functions.searchForm();
+	functions.modalHandler();
+	// functions.sectionShow();
 	functions.sectionClose();
-	functions.sectionShow();
 	functions.dropdownClose();
 	functions.dropdownShow();
-	functions.overlayClick();
+	// functions.overlayClick();
 	functions.collapseHandler();
 	functions.accordion();
 	functions.accordionFooter();
@@ -25,6 +26,8 @@ addEventListener("DOMContentLoaded", () => {
 	functions.ideaPopupShow();
 	functions.ideaPopupPlace();
 	functions.blockObserver();
+	functions.userInputQuery();
+	functions.userInputQuickSearch();
 
 	fancyapps.carouselsInit();
 	rangeslider.rangeSlidersInit();
@@ -36,6 +39,7 @@ addEventListener("DOMContentLoaded", () => {
 	product.productProps();
 	product.productFetches();
 
+	product.filterShow();
 	product.filterTagsSet();
 	product.filterTagsRemove();
 });

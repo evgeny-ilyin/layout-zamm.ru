@@ -1,4 +1,4 @@
-import { productBlockCollapseHandler, catalogItemGalleriesInit, catalogItemGallery, productTabsInit } from "./product.js";
+import { productBlockCollapseHandler, catalogItemGalleriesInit, catalogItemGallery } from "./product.js";
 import { carouselsInit } from "./fancyapps.js";
 
 export function stickyHeader() {
@@ -30,18 +30,18 @@ export function stickyHeader() {
 	window.addEventListener("scroll", handleScroll);
 }
 
-export function sectionShow() {
-	document.addEventListener("click", (e) => {
-		const el = e.target.closest(".js-show"),
-			isActiveClass = "is-active";
-		if (!el) return;
-		const target = el.dataset.show;
-		if (target) {
-			overlay(1, target);
-			document.querySelector(`.${target}`).classList.add(isActiveClass);
-		}
-	});
-}
+// export function sectionShow() {
+// 	document.addEventListener("click", (e) => {
+// 		const el = e.target.closest(".js-show"),
+// 			isActiveClass = "is-active";
+// 		if (!el) return;
+// 		const target = el.dataset.target;
+// 		if (target) {
+// 			overlay(1, target);
+// 			document.querySelector(`.${target}`).classList.add(isActiveClass);
+// 		}
+// 	});
+// }
 
 export function sectionClose() {
 	document.addEventListener("click", (e) => {
@@ -56,64 +56,115 @@ export function sectionClose() {
 	});
 }
 
-export function overlayClick() {
-	document.addEventListener("click", (e) => {
-		const o = e.target,
+export function modalHandler() {
+	let createModal = () => {
+		const modalClass = "modal",
+			modalExist = document.querySelector(`.${modalClass}`);
+		if (modalExist) modalExist.remove();
+
+		const modal = document.createElement("div"),
+			btn = document.createElement("button");
+
+		modal.classList.add(modalClass, "scrollblock");
+		btn.classList.add("btn", "btn_close", "btn_close-modal", "js-modal-close");
+		modal.appendChild(btn);
+		document.body.appendChild(modal);
+		return modal;
+	};
+
+	let fetchByUrl = async (url, origin) => {
+		if (!url) return;
+
+		let width = origin.dataset.boxWidth || false;
+
+		try {
+			let response = await fetch(url);
+			if (!response.ok) {
+				return;
+			}
+			let result = await response.json();
+			if (result.status === true) {
+				const key = getRandomStr(8);
+				setModalContent(result.content, width, origin, key);
+			} else {
+				console.log(`Error: ${JSON.stringify(result)}`);
+			}
+		} catch (e) {
+			console.log(e);
+			return;
+		}
+	};
+
+	let setModalContent = (content, width = false, origin = false, key = false) => {
+		const modalWrapper = createModal(),
+			menuToggler = document.getElementById("menu-toggle"),
 			isActiveClass = "is-active";
-		if (o.classList.contains("overlay")) {
-			const origin = document.querySelectorAll(`.${o.dataset.origin}`);
-			origin.forEach((el) => {
-				el.classList.remove(isActiveClass);
-			});
+
+		if (width) modalWrapper.style.maxWidth = `${parseInt(width)}px`;
+		modalWrapper.insertAdjacentHTML("beforeend", content);
+
+		reinitModalResults(modalWrapper);
+
+		setTimeout(() => {
+			menuToggler.checked = false;
+			modalWrapper.classList.add(isActiveClass);
+			overlay(1);
+		}, 10);
+
+		if (origin && key) {
+			origin.dataset.storageKey = key;
+			localStorage.setItem(key, content);
+		}
+	};
+
+	let reinitModalResults = (target) => {
+		userInputQuery(target);
+		userInputQuickSearch(target);
+	};
+
+	document.addEventListener("click", (e) => {
+		const modalClass = "modal",
+			modalExist = document.querySelector(`.${modalClass}`),
+			modalShow = e.target.closest(".js-modal-show"),
+			modalClose = e.target.closest([".js-modal-close", ".overlay"]);
+
+		if (modalShow) {
+			const url = modalShow.dataset.url,
+				width = modalShow.dataset.boxWidth,
+				storageKey = modalShow.dataset.storageKey;
+
+			if (!url) return;
+
+			if (storageKey) {
+				const content = localStorage.getItem(storageKey);
+				if (content) {
+					setModalContent(content, width);
+					return;
+				}
+			}
+			fetchByUrl(url, modalShow);
+		}
+
+		if (modalExist && (!modalExist.contains(e.target) || modalClose)) {
+			modalExist.remove();
 			overlay(0);
 		}
 	});
 }
 
-function overlay(action, origin = false) {
-	const body = document.body,
-		sw = getScrollbarWidth(),
-		containers = document.querySelectorAll(".container"),
-		isActiveClass = "is-active";
-	if (action) {
-		const o = document.createElement("div"),
-			scrollY = window.scrollY;
-		o.classList.add("overlay");
-
-		origin ? (o.dataset.origin = origin) : "";
-		body.prepend(o);
-		body.style.top = `-${scrollY}px`;
-		body.classList.add("noscroll");
-		containers.forEach((c) => {
-			c.style.paddingRight = `${sw}px`;
-		});
-
-		setTimeout(() => {
-			o.classList.add(isActiveClass);
-		}, 0);
-	} else {
-		body.classList.remove("noscroll");
-		containers.forEach((c) => {
-			c.style.paddingRight = "";
-		});
-
-		const o = document.querySelector(".overlay"),
-			scrollY = body.style.top;
-		if (!o) return;
-		body.style.top = "";
-		o.classList.remove(isActiveClass);
-
-		window.scrollTo({
-			left: 0,
-			top: parseInt(scrollY || "0") * -1,
-			behavior: "instant",
-		});
-
-		setTimeout(() => {
-			o.remove();
-		}, 250);
-	}
-}
+// export function overlayClick() {
+// 	document.addEventListener("click", (e) => {
+// 		const o = e.target,
+// 			isActiveClass = "is-active";
+// 		if (o.classList.contains("overlay")) {
+// 			const origin = document.querySelectorAll(`.${o.dataset.origin}`);
+// 			origin.forEach((el) => {
+// 				el.classList.remove(isActiveClass);
+// 			});
+// 			overlay(0);
+// 		}
+// 	});
+// }
 
 export function dropdownShow() {
 	const dds = document.querySelectorAll(".js-drop-down"),
@@ -144,7 +195,7 @@ export function mobileCheck(w) {
 	return mq.matches ? true : false;
 }
 
-export function mobileCatalog() {
+export function hamburgerMenu() {
 	const navMenu = document.querySelector(".nav__menu"),
 		menuToggler = document.getElementById("menu-toggle"),
 		subMenuWrapper = document.querySelector(".catalog__submenu"),
@@ -178,15 +229,24 @@ export function mobileCatalog() {
 
 	menuToggler.addEventListener("change", () => {
 		if (!menuToggler.checked) {
+			// overlay(0);
 			backBtn.classList.remove(isActiveClass);
 			subMenuWrapper.classList.remove(isActiveClass);
 			navMenu.classList.remove(hideNavClass);
 			subMenuWrapper.innerHTML = "";
+		} else {
+			// overlay(1);
 		}
 	});
 
 	window.addEventListener("resize", () => {
 		if (menuToggler.checked) {
+			menuToggler.click();
+		}
+	});
+
+	document.addEventListener("click", (e) => {
+		if (!navMenu.contains(e.target) && menuToggler.checked) {
 			menuToggler.click();
 		}
 	});
@@ -360,7 +420,6 @@ export function ideaPopupShow() {
 
 	let ideasClose = () => {
 		const active = document.querySelectorAll(`.idea-marker.${isActiveClass}, .idea-mobile-content.${isActiveClass}`);
-
 		if (!active.length) return;
 		active.forEach((e) => {
 			e.classList.remove(isActiveClass);
@@ -379,7 +438,6 @@ export function ideaPopupShow() {
 
 	document.addEventListener("click", (e) => {
 		const el = e.target.closest(".js-idea");
-
 		if (el) {
 			if (el.parentElement.classList.contains(isActiveClass)) {
 				ideasClose();
@@ -389,7 +447,7 @@ export function ideaPopupShow() {
 				ideasMobile(el);
 			}
 		} else {
-			if(!e.target.closest(".idea-marker__content")) {
+			if (!e.target.closest(".idea-marker__content")) {
 				ideasClose();
 			}
 		}
@@ -567,6 +625,87 @@ export function blockObserver(el = false) {
 	};
 }
 
+// fetch on input
+export function userInputQuery(el = false) {
+	const inputs = el ? el.querySelectorAll("[data-query='true']") : document.querySelectorAll("[data-query='true']"),
+		queryWrapperClass = "js-query-wrapper",
+		queryResultClass = "js-query-result",
+		minQueryLen = 2;
+
+	let fetchByQuery = async (input) => {
+		let url = input.dataset.url,
+			query = { [input.name]: input.value },
+			onFocus = input.dataset.onFocus,
+			results = input.closest(`.${queryWrapperClass}`).querySelector(`.${queryResultClass}`);
+
+		if (!url) return;
+
+		let amp = url.includes("?") ? "&" : "?",
+			queryStr = amp + new URLSearchParams(query).toString();
+
+		url += queryStr;
+
+		if (input.value.length >= minQueryLen || (onFocus && input.value.length == 0)) {
+			try {
+				let response = await fetch(url);
+				if (!response.ok) {
+					return;
+				}
+				let result = await response.json();
+				if (result.status === true) {
+					results.innerHTML = result.content;
+				} else {
+					console.log(`Error: ${JSON.stringify(result)}`);
+				}
+			} catch (e) {
+				console.log(e);
+				return;
+			}
+		}
+	};
+
+	inputs.forEach((input) => {
+		["focus", "input"].forEach((evt) =>
+			input.addEventListener(evt, () => {
+				fetchByQuery(input);
+			})
+		);
+	});
+}
+
+export function userInputQuickSearch(el = false) {
+	const inputs = el ? el.querySelectorAll("[data-quick-search='true']") : document.querySelectorAll("[data-quick-search='true']");
+
+	let quickSearch = (input) => {
+		let target = input.dataset.target,
+			filter = input.value.toUpperCase(),
+			area = document.querySelector(`.${target}`),
+			items = area.querySelectorAll("a", "span"),
+			text = "";
+
+		if (!area) return;
+
+		if (items.length > 0) {
+			for (let i = 0; i < items.length; i++) {
+				text = items[i].textContent || items[i].innerText;
+				if (text.toUpperCase().indexOf(filter) > -1) {
+					items[i].style.display = "";
+				} else {
+					items[i].style.display = "none";
+				}
+			}
+		}
+	};
+
+	inputs.forEach((input) => {
+		["input"].forEach((evt) =>
+			input.addEventListener(evt, () => {
+				quickSearch(input);
+		})
+		);
+	});
+}
+
 export function getScrollbarWidth() {
 	let div = document.createElement("div");
 	div.style.overflowY = "scroll";
@@ -577,3 +716,63 @@ export function getScrollbarWidth() {
 	div.remove();
 	return scrollWidth;
 }
+
+export function overlay(action, origin = false) {
+	const body = document.body,
+		sw = getScrollbarWidth(),
+		containers = document.querySelectorAll(".container"),
+		isActiveClass = "is-active";
+	if (action) {
+		overlay(0);
+		const o = document.createElement("div"),
+			scrollY = window.scrollY;
+		o.classList.add("overlay");
+
+		origin ? (o.dataset.origin = origin) : "";
+		body.prepend(o);
+		body.style.top = `-${scrollY}px`;
+		body.classList.add("noscroll");
+		containers.forEach((c) => {
+			c.style.paddingRight = `${sw}px`;
+		});
+
+		setTimeout(() => {
+			o.classList.add(isActiveClass);
+		}, 0);
+	} else {
+		body.classList.remove("noscroll");
+		containers.forEach((c) => {
+			c.style.paddingRight = "";
+		});
+
+		const o = document.querySelector(".overlay"),
+			scrollY = body.style.top;
+		if (!o) return;
+		body.style.top = "";
+		o.classList.remove(isActiveClass);
+
+		window.scrollTo({
+			left: 0,
+			top: parseInt(scrollY || "0") * -1,
+			behavior: "instant",
+		});
+
+		setTimeout(() => {
+			o.remove();
+		}, 250);
+	}
+}
+
+function getRandomStr(len) {
+	let res = "",
+		symbols = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz".split("");
+	len = len || Math.floor(Math.random() * symbols.length);
+	for (let i = 0; i < len; i++) res += symbols[Math.floor(Math.random() * symbols.length)];
+	return res;
+}
+
+// function removeOverlaps() {
+// 	const modalExist = document.querySelector(".modal.is-active");
+
+// 	if (modalExist) modalExist.remove();
+// }

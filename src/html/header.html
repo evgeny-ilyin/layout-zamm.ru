@@ -29,7 +29,7 @@
 				</div>
 				<div class="nav-second__block">
 					<div class="nav-second__col">
-						<a href="javascript:void(0)" class="nav-second__geo">
+						<a href="javascript:void(0)" class="nav-second__geo js-modal-show" data-box-width="510" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=geo">
 							<svg>
 								<use xlink:href="#geo"></use>
 							</svg>
@@ -186,26 +186,33 @@
 						</div>
 					</nav>
 
-					<div class="nav__search">
+					<div class="nav__search js-query-wrapper">
 						<div class="nav__search-form" itemscope itemtype="http://schema.org/WebSite">
 							<form method="get" action="/catalog/" itemprop="potentialAction" itemscope itemtype="http://schema.org/SearchAction">
 								<meta itemprop="target" content="https://zamm.ru/catalog/?q={q}" />
-								<input itemprop="query-input" type="text" name="q" placeholder="Введите запрос" autocomplete="off" class="input input_nav-search" />
+								<input itemprop="query-input" type="text" name="q" placeholder="Введите запрос" autocomplete="off" class="input input_nav-search" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=search" data-query="true" data-on-focus="true" />
 								<button type="submit" class="btn btn_yellow-dark">Найти</button>
 								<button type="button" class="btn btn_close js-close-search"></button>
 							</form>
 						</div>
-						<div class="nav__search-prompt hidden">
-							<b>Часто ищут</b>
-							<ul>
-								<li>стол Линда</li>
-								<li>офисный стол</li>
-								<li>стеллаж</li>
-								<li>корпусная мебель</li>
-							</ul>
-						</div>
-						<div class="nav__search-result scrollblock">
-							<a href="#" class="r-item">
+						<div class="nav__search-result js-query-result scrollblock">
+
+							<!-- пример ajax подсказки -->
+							<!-- <div class="search-prompt">
+								<b>Часто ищут</b>
+								<ul>
+									<li>стол Линда</li>
+									<li>офисный стол</li>
+									<li>стеллаж</li>
+									<li>корпусная мебель</li>
+								</ul>
+							</div> -->
+							<!-- пример подсказки -->
+
+
+
+							<!-- пример ajax результатов поиска -->
+							<!-- <a href="#" class="r-item">
 								<div class="r-item__img">
 									<img src="@img/dev/menu/table-1.png" width="" height="" alt="" />
 								</div>
@@ -216,10 +223,16 @@
 										<div class="r-item__oldprice">34 500 ₽</div>
 									</div>
 								</div>
-							</a>
+							</a> -->
+							<!-- пример результатов поиска -->
+
+
+
+
+
 
 							<!-- рыба start -->
-							<a href="#" class="r-item">
+							<!-- <a href="#" class="r-item">
 								<div class="r-item__img">
 									<img src="@img/dev/menu/table-1.png" width="" height="" alt="" />
 								</div>
@@ -277,12 +290,18 @@
 										<div class="r-item__oldprice">139 534 500 ₽</div>
 									</div>
 								</div>
-							</a>
+							</a> -->
 							<!-- рыба end -->
 
-							<div class="nav__search-results-all">
+
+
+
+
+							<!-- кнопка результатов поиска -->
+							<!-- <div class="nav__search-results-all">
 								<a href="javascript:void(0)" class="btn btn_yellow btn_wide">Все результаты</a>
-							</div>
+							</div> -->
+							<!-- кнопка результатов поиска -->
 						</div>
 					</div>
 				</div>

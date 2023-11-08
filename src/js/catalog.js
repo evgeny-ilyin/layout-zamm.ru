@@ -6,7 +6,7 @@ import "./modules/cookies.js";
 
 // catalog
 import { rangeSlidersInit } from "./modules/nouislider.js";
-import { catalogItemPropsHover, productProps, productFetches, filterTagsSet, filterTagsRemove } from "./modules/product.js";
+import { catalogItemPropsHover, productProps, productFetches, filterShow, filterTagsSet, filterTagsRemove } from "./modules/product.js";
 
 // card
 import { productAmount, productBlockCollapseHandler, productAllPhotosShow } from "./modules/product.js";
@@ -16,13 +16,14 @@ addEventListener("DOMContentLoaded", () => {
 	useDynamicAdapt();
 	
 	functions.stickyHeader();
-	functions.mobileCatalog();
+	functions.hamburgerMenu();
 	functions.searchForm();
+	functions.modalHandler();
+	// functions.sectionShow();
 	functions.sectionClose();
-	functions.sectionShow();
 	functions.dropdownClose();
 	functions.dropdownShow();
-	functions.overlayClick();
+	// functions.overlayClick();
 	functions.collapseHandler();
 	functions.accordion();
 	functions.accordionFooter();
@@ -31,6 +32,8 @@ addEventListener("DOMContentLoaded", () => {
 	functions.ideaPopupShow();
 	functions.ideaPopupPlace();
 	functions.blockObserver();
+	functions.userInputQuery();
+	functions.userInputQuickSearch();
 
 	fancyapps.carouselsInit();
 
@@ -44,6 +47,7 @@ addEventListener("DOMContentLoaded", () => {
 	catalogItemPropsHover();
 	productProps();
 	productFetches();
+	filterShow();
 	filterTagsSet();
 	filterTagsRemove();
 

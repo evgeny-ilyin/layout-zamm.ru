@@ -1,0 +1,91 @@
+// "xs": 320px,
+// "sm": 425px,
+// "xm": 577px,
+// "md": 768px,
+
+.modal {
+	--modal-padding-y: 24px;
+	--modal-padding-x: 32px;
+	--modal-max-w: 826px;
+	min-width: $min-width;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -1;
+	opacity: 0;
+	transition: opacity $transition-default;
+	padding: var(--modal-padding-y) var(--modal-padding-x);
+	background: $gray;
+	border-radius: 4px;
+	box-shadow: 0 4px 132px 0 rgba(54, 45, 21, 0.2);
+
+	@include respond-to(xm, "max") {
+		max-width: 100% !important;
+	}
+
+	@include respond-to(xm) {
+		max-width: var(--modal-max-w);
+		top: 143px;
+		right: auto;
+		left: 50%;
+		bottom: auto;
+		transform: translateX(-50%);
+	}
+
+	&.is-active {
+		z-index: 12;
+		opacity: 1;
+	}
+
+	// .modal__head
+	&__head {
+		font-size: rem(20);
+		font-weight: 700;
+		line-height: 1;
+		letter-spacing: -0.52px;
+		display: flex;
+		align-items: center;
+		margin: 0 40px 32px 0;
+
+		@include respond-to(md) {
+			font-size: rem(26);
+		}
+
+		svg {
+			width: 24px;
+			height: 24px;
+			flex: 0 0 24px;
+			margin-right: 8px;
+		}
+	}
+
+	// .modal__close
+	&__close {
+		position: relative;
+
+		.btn {
+			position: relative;
+			top: auto;
+			right: auto;
+		}
+	}
+	// .modal__body
+	&__body {
+	}
+}
+
+// .btn_close-modal
+.btn_close-modal {
+	position: absolute;
+	top: var(--modal-padding-y);
+	right: var(--modal-padding-x);
+
+	@include respond-to(md, "max") {
+		&::before,
+		&::after {
+			height: 25px;
+		}
+	}
+}

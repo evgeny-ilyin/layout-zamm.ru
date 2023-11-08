@@ -1,4 +1,4 @@
-import { showSkeleton, useLoader, btnLoader, getScrollbarWidth } from "./functions.js";
+import { showSkeleton, useLoader, btnLoader, getScrollbarWidth, overlay } from "./functions.js";
 import { carouselsInit } from "./fancyapps.js";
 import { rangeSlidersInit } from "./nouislider.js";
 
@@ -125,6 +125,28 @@ export function catalogItemPropsHover() {
 	});
 }
 
+export function filterShow() {
+	document.addEventListener("click", (e) => {
+		const filterClass = "filter",
+			filterBlock = document.querySelector(`.${filterClass}`),
+			filterShow = e.target.closest(".js-filter-show"),
+			isActiveClass = "is-active";
+
+		if (!filterBlock) return;
+
+		if (filterShow) {
+			overlay(1);
+			filterBlock.classList.add(isActiveClass);
+			return;
+		}
+
+		if (filterBlock.classList.contains(isActiveClass) && !filterBlock.contains(e.target)) {
+			filterBlock.classList.remove(isActiveClass);
+			overlay(0);
+		}
+	});
+}
+
 export function filterTagsSet() {
 	const filterForm = document.getElementById("filter-form"),
 		fGroups = document.querySelectorAll(".filter-group"),
@@ -172,7 +194,7 @@ export function filterTagsSet() {
 
 	let createTagsList = (obj) => {
 		let tagItems = "";
-	
+
 		Object.entries(obj).forEach(([key, value]) => {
 			if (typeof value === "object" && value !== null) {
 				let count = Object.keys(value).length;
@@ -188,9 +210,9 @@ export function filterTagsSet() {
 				}
 			}
 		});
-	
+
 		return tagItems;
-	}
+	};
 
 	tagsContainer.innerHTML = createTagsList(tagsObj);
 }
@@ -408,7 +430,7 @@ export function productFetches() {
 			query = amp + new URLSearchParams(obj).toString(),
 			url = filterForm.action + query;
 
-		// loader start +++ filter @mobile
+		// TODO loader start +++ filter @mobile
 		useLoader(itemsContainer, "start");
 
 		// step 1: fetch get
@@ -702,11 +724,11 @@ export function productAllPhotosShow() {
 		const el = e.target.closest(".js-product-gallery");
 		if (!el) return;
 
-		const show = el.dataset.show;
-		if (show) {
+		const galleryShow = el.dataset.target;
+		if (galleryShow) {
 			const body = document.body,
 				header = document.querySelector(".header"),
-				target = document.querySelector(`.${show}`),
+				target = document.querySelector(`.${galleryShow}`),
 				offsetTop = target.closest(".container").offsetTop,
 				containers = document.querySelectorAll(".container"),
 				sw = getScrollbarWidth();
@@ -725,8 +747,8 @@ export function productAllPhotosShow() {
 	window.addEventListener("resize", () => {
 		const galleryBtn = document.querySelector(`.js-product-gallery`);
 		if (!galleryBtn) return;
-		const show = galleryBtn.dataset.show,
-			target = document.querySelector(`.${show}`),
+		const galleryShow = galleryBtn.dataset.target,
+			target = document.querySelector(`.${galleryShow}`),
 			containers = document.querySelectorAll(".container");
 		if (target) {
 			target.classList.remove(isActiveClass);
