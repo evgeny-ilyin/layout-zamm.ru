@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 @font-face {
 	font-family: "Manrope";
-	src: local("Manrope Medium"), local("Manrope-Medium"), url("/fonts/Manrope-Medium.woff2") format("woff2"), url("/fonts/Manrope-Medium.woff") format("woff");
+	src: local("Manrope Medium"), local("Manrope-Medium"), url("../fonts/Manrope-Medium.woff2") format("woff2"), url("../fonts/Manrope-Medium.woff") format("woff");
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -11,8 +11,8 @@
 
 @font-face {
 	font-family: "Manrope";
-	src: local("Manrope SemiBold"), local("Manrope-SemiBold"), url("/fonts/Manrope-SemiBold.woff2") format("woff2"),
-		url("/fonts/Manrope-SemiBold.woff") format("woff");
+	src: local("Manrope SemiBold"), local("Manrope-SemiBold"), url("../fonts/Manrope-SemiBold.woff2") format("woff2"),
+		url("../fonts/Manrope-SemiBold.woff") format("woff");
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
@@ -20,7 +20,7 @@
 
 @font-face {
 	font-family: "Manrope";
-	src: local("Manrope Bold"), local("Manrope-Bold"), url("/fonts/Manrope-Bold.woff2") format("woff2"), url("/fonts/Manrope-Bold.woff") format("woff");
+	src: local("Manrope Bold"), local("Manrope-Bold"), url("../fonts/Manrope-Bold.woff2") format("woff2"), url("../fonts/Manrope-Bold.woff") format("woff");
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
