@@ -67,6 +67,7 @@ export function modalHandler() {
 
 		modal.classList.add(modalClass, "scrollblock");
 		btn.classList.add("btn", "btn_close", "btn_close-modal", "js-modal-close");
+		btn.ariaLabel = "Закрыть";
 		modal.appendChild(btn);
 		document.body.appendChild(modal);
 		return modal;

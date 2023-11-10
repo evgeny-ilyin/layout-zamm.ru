@@ -29,7 +29,7 @@ try {
 	<link itemprop="url" content="https://zamm.ru/catalog/item/">';
 
 	$propFav = '<div class="fav">
-	<a href="javascript:void(0)" class="js-fav" data-id="$skuValue" data-url="https://deviart.ru/zamm/fetch-fav.php"><svg><use xlink:href="#fav"></use></svg></a>
+	<a href="javascript:void(0)" class="js-fav" aria-label="В избранное" data-id="$skuValue" data-url="https://deviart.ru/zamm/fetch-fav.php"><svg><use xlink:href="#fav"></use></svg></a>
 	</div>';
 	$propFav = strtr($propFav, array(
 		'$skuValue' => $skuValue,
@@ -81,9 +81,9 @@ try {
 	</div>
 	<div class="product__amount">
 		<div class="amount-element">
-			<button type="button" class="js-btn-minus"></button>
-			<input type="number" name="amount" readonly min="1" max="20" step="1" value="1" />
-			<button type="button" class="js-btn-plus"></button>
+			<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
+			<input type="number" name="amount" readonly min="1" max="20" step="1" value="1" aria-label="Количество" />
+			<button type="button" class="js-btn-plus" aria-label="Больше"></button>
 		</div>
 	</div>';
 	$propPurchase = strtr($propPurchase, array(

@@ -172,6 +172,7 @@
 
 		label {
 			cursor: pointer;
+			position: relative;
 			margin: 1px;
 			border-radius: 10px;
 			display: flex;
@@ -199,6 +200,7 @@
 			padding: 0;
 			overflow: hidden;
 			position: absolute;
+			left: 50%;
 
 			&:checked + img {
 				border-color: $black;
@@ -269,7 +271,8 @@
 			display: flex;
 			align-items: center;
 
-			span {
+			label {
+				cursor: default;
 				position: absolute;
 				left: 9px;
 				z-index: 1;

@@ -33,7 +33,7 @@
 					<div class="photos__head">
 						<div class="photos__header">Фотографии <span>Стол Linda</span></div>
 						<div class="photos__close">
-							<button type="button" class="btn btn_close btn_close-xl js-close"></button>
+							<button type="button" class="btn btn_close btn_close-xl js-close" aria-label="Закрыть"></button>
 						</div>
 					</div>
 
@@ -526,7 +526,7 @@
 
 			<div class="product__fav" data-id="product-fav">
 				<div class="fav">
-					<a href="javascript:void(0)" class="js-fav" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
+					<a href="javascript:void(0)" class="js-fav" aria-label="В избранное" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
 						<svg>
 							<use xlink:href="#fav"></use>
 						</svg>
@@ -635,9 +635,9 @@
 				</div>
 				<div class="product__amount">
 					<div class="amount-element">
-						<button type="button" class="js-btn-minus"></button>
-						<input type="number" name="amount" readonly min="1" max="20" step="1" value="1" />
-						<button type="button" class="js-btn-plus"></button>
+						<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
+						<input type="number" name="amount" readonly min="1" max="20" step="1" value="1" aria-label="Количество" />
+						<button type="button" class="js-btn-plus" aria-label="Больше"></button>
 					</div>
 				</div>
 			</div>

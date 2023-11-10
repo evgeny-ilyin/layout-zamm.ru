@@ -117,7 +117,7 @@
 				<div class="filter__head">
 					<div class="filter__header">Фильтры</div>
 					<div class="filter__close">
-						<button type="button" class="btn btn_close btn_close-xl js-close"></button>
+						<button type="button" class="btn btn_close btn_close-xl js-close" aria-label="Закрыть"></button>
 					</div>
 				</div>
 
@@ -128,13 +128,13 @@
 							<div class="rangeslider__wrapper">
 								<div class="rangeslider__inputs">
 									<div>
-										<span>от</span>
-										<input type="text" class="input-min" name="arrFilter_141_MIN" value="10 000" readonly />
+										<label for="input-min">от</label>
+										<input type="text" class="input-min" id="input-min" name="arrFilter_141_MIN" value="10 000" readonly />
 										<!-- value по умолчанию заполнять крайними значениями диапазона (форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
 									</div>
 									<div>
-										<span>до</span>
-										<input type="text" class="input-max" name="arrFilter_142_MAX" value="100 500" readonly />
+										<label for="input-max">до</label>
+										<input type="text" class="input-max" id="input-max" name="arrFilter_142_MAX" value="100 500" readonly />
 										<!-- value по умолчанию заполнять крайними значениями диапазона(форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
 									</div>
 								</div>
