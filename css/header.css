@@ -2450,7 +2450,9 @@ input[type=checkbox]:disabled {
   border: 0;
   padding: 0;
   overflow: hidden;
-  position: absolute
+  position: absolute;
+  top: 50%;
+  left: 50%
 }
 .prop__list input:checked + img,
 .prop__list input:checked + span {
