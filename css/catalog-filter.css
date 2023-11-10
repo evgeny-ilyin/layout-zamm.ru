@@ -425,8 +425,8 @@
   overflow: hidden;
   position: absolute
 }
-.filter-group__list input[type=checkbox]:checked + picture > img,
-.filter-group__list input[type=radio]:checked + picture > img {
+.filter-group__list input[type=checkbox]:checked + img,
+.filter-group__list input[type=radio]:checked + img {
   border-color: var(--black)
 }
 .filter-group__list img {

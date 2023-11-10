@@ -898,8 +898,7 @@ ol {
   object-fit: contain;
   width: 40px;
   height: 40px;
-  margin: 0 4px 0 2px;
-  mix-blend-mode: multiply
+  margin: 0 4px 0 2px
 }
 .menu-personal {
   width: 100%;
@@ -1986,6 +1985,10 @@ input[type=checkbox]:disabled {
   border: 1px solid var(--black10);
   border-radius: 4px
 }
+.r-item__img img {
+  width: auto;
+  height: auto
+}
 .r-item__name {
   width: 100%;
   max-width: 380px;
@@ -2407,12 +2410,18 @@ input[type=checkbox]:disabled {
 }
 .prop__list img {
   padding: 4px;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
   border: 1px solid transparent;
   border-radius: 12px;
   margin: 0 2px 2px 0;
   -webkit-transition: border-color .25s ease-in-out;
   -o-transition: border-color .25s ease-in-out;
   transition: border-color .25s ease-in-out
+}
+.product__props .prop__list img {
+  width: 36px;
+  height: 36px
 }
 .prop__list span {
   font-size: .9375rem;
@@ -2443,7 +2452,7 @@ input[type=checkbox]:disabled {
   overflow: hidden;
   position: absolute
 }
-.prop__list input:checked + picture > img,
+.prop__list input:checked + img,
 .prop__list input:checked + span {
   border-color: var(--black);
   text-shadow: 0 0 0
@@ -2828,6 +2837,10 @@ input[type=checkbox]:disabled {
     text-align: right;
     margin-left: auto
   }
+  .product__props .prop__list img {
+    width: 32px;
+    height: 32px
+  }
 }
 @media (min-width:1280px) {
   .content__sidebar {
@@ -3044,8 +3057,8 @@ input[type=checkbox]:disabled {
     position: absolute;
     right: 0;
     bottom: 0;
-    max-height: 176px;
-    mix-blend-mode: multiply
+    width: auto;
+    max-height: 176px
   }
   .menu-toggle:checked ~ .nav__menu {
     -webkit-transform: translateX(0);

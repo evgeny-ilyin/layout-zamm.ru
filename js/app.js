@@ -2940,7 +2940,7 @@ function catalogItemGalleriesInit(item = false) {
 	});
 }
 
-function catalogItemGallery() {
+function product_catalogItemGallery() {
 	const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel"),
 		isActiveClass = "is-active";
 
@@ -3393,7 +3393,7 @@ function productFetches() {
 	let reinitFetchesResults = () => {
 		carouselsInit();
 		catalogItemGalleriesInit();
-		catalogItemGallery();
+		product_catalogItemGallery();
 		rangeSlidersInit();
 	};
 
@@ -4760,7 +4760,7 @@ addEventListener("DOMContentLoaded", () => {
 	rangeSlidersInit();
 
 	catalogItemGalleriesInit();
-	catalogItemGallery();
+	// product.catalogItemGallery();
 	addToFavourites();
 	catalogItemPropsHover();
 	productProps();

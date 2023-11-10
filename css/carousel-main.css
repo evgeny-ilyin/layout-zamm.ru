@@ -220,6 +220,7 @@
     top: -15px
   }
   .main-slide_col-1 .main-slide__wrapper {
+    max-width: 600px;
     justify-items: center
   }
   .main-slide_col-1 .main-slide__button {

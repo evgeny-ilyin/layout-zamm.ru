@@ -6,25 +6,28 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap&v=20231108101018" rel="stylesheet">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231110110002">
+	<link rel="stylesheet" href="css/fonts.css?v=20231110110002">
+	<link rel="stylesheet" href="css/header.css?v=20231110110002">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231110110002">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231108101018">
-	<link rel="stylesheet" href="css/header.css?v=20231108101018">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231108101018">
-	<link rel="stylesheet" href="css/carousel-big.css?v=20231108101018">
-	<link rel="stylesheet" href="css/carousel-product.css?v=20231108101018">
-	<link rel="stylesheet" href="css/carousel-product.css?v=20231108101018">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231108101018">
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231108101018">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20231108101018">
-	<link rel="stylesheet" href="css/block-about.css?v=20231108101018">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231108101018">
-	<link rel="stylesheet" href="css/catalog-category.css?v=20231108101018">
-	<link rel="stylesheet" href="css/product-card.css?v=20231108101018">
-	<link rel="stylesheet" href="css/footer.css?v=20231108101018">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20231110110002">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20231110110002">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231110110002">
+	<link rel="stylesheet" href="css/carousel-card-more-photos.css?v=20231110110002">
+
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231110110002">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231110110002">
+	<link rel="stylesheet" href="css/block-about.css?v=20231110110002">
+
+	<link rel="stylesheet" href="css/catalog.css?v=20231110110002">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231110110002">
+
+	<link rel="stylesheet" href="css/product-card.css?v=20231110110002">
+
+	<link rel="stylesheet" href="css/footer.css?v=20231110110002">
 	<title>Карточка товара</title>
+	<meta name="description" content="Карточка товара">
 </head>
 
 <body>
@@ -111,6 +114,7 @@
 							</label>
 						</div>
 
+						<!-- TODO Игорь: mix-blend-mode убрать в проде. это для тестовой картинки без прозрачного фона -->
 						<nav class="nav__catalog" role="navigation">
 							<div class="catalog">
 								<div class="catalog__submenu"></div>
@@ -120,29 +124,29 @@
 										<div class="menu-dropdown category">
 											<div class="category__header" style="background-color: #f6f8f9">
 												<span>Столы</span>
-												<img src="img/dev/menu/cat-header-1-big.png" width="" height="" alt="" />
+												<img src="img/dev/menu/cat-header-1.webp" width="197" height="176" alt="" style="mix-blend-mode: multiply" />
 												<a href="javascript:void(0)" class="link-angle">Все столы</a>
 											</div>
 											<div class="category__list">
 												<span>По категориям</span>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-1.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Для дома</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-2.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-2.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>С регулируемой высотой</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-3.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-3.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Мобильные складные </span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-2.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-2.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>С подвесной тумбой</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-3.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-3.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Для руководителя</span>
 												</a>
 											</div>
@@ -153,37 +157,37 @@
 										<div class="menu-dropdown category">
 											<div class="category__header" style="background-color: #ffc845">
 												<span>Корпусная мебель</span>
-												<img src="img/dev/menu/cat-header-1.png" width="" height="" alt="" />
+												<img src="img/dev/menu/cat-header-1.webp" width="197" height="176" alt="" style="mix-blend-mode: multiply" />
 												<a href="javascript:void(0)" class="link-angle">Вся корпусная мебель</a>
 											</div>
 											<div class="category__list">
 												<span>По категориям</span>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-1.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Для дома</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-2.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-2.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>С регулируемой высотой</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-3.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-3.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Мобильные складные </span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-2.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-2.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>С подвесной тумбой</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-3.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-3.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Для руководителя</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-2.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-2.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Готовые комплекты</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-3.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-3.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Письменные</span>
 												</a>
 											</div>
@@ -244,7 +248,7 @@
 								<!-- пример ajax результатов поиска -->
 								<!-- <a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -264,7 +268,7 @@
 								<!-- рыба start -->
 								<!-- <a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -275,7 +279,7 @@
 							</a>
 							<a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -287,7 +291,7 @@
 							</a>
 							<a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -299,7 +303,7 @@
 							</a>
 							<a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -311,7 +315,7 @@
 							</a>
 							<a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -508,7 +512,7 @@
 						</div>
 					</div>
 					<div>
-						<img src="img/dev/product/3d.png" width="137" height="96" alt="" />
+						<img src="img/dev/product/3d.webp" width="137" height="96" alt="" />
 					</div>
 				</div>
 
@@ -525,8 +529,11 @@
 						</div>
 						<div class="equip__img">
 							<picture>
-								<source srcset="img/dev/product/equip-1.png" type="image/webp" />
-								<img src="img/dev/product/equip-1.png" width="" height="" alt="" loading="lazy" />
+								<source media="(min-width: 1024px)" srcset="img/dev/product/equip-1-1024.webp" type="image/webp" />
+								<source media="(min-width: 768px)" srcset="img/dev/product/equip-1-768.webp" type="image/webp" />
+								<source media="(min-width: 577px)" srcset="img/dev/product/equip-1-577.webp" type="image/webp" />
+								<source srcset="img/dev/product/equip-1-1024.webp" type="image/webp" />
+								<img src="img/dev/product/equip-1.png" width="395" height="290" alt="" loading="lazy" />
 							</picture>
 						</div>
 					</div>
@@ -540,8 +547,11 @@
 						</div>
 						<div class="equip__img">
 							<picture>
-								<source srcset="img/dev/product/equip-1.png" type="image/webp" />
-								<img src="img/dev/product/equip-1.png" width="" height="" alt="" loading="lazy" />
+								<source media="(min-width: 1024px)" srcset="img/dev/product/equip-1-1024.webp" type="image/webp" />
+								<source media="(min-width: 768px)" srcset="img/dev/product/equip-1-768.webp" type="image/webp" />
+								<source media="(min-width: 577px)" srcset="img/dev/product/equip-1-577.webp" type="image/webp" />
+								<source srcset="img/dev/product/equip-1-1024.webp" type="image/webp" />
+								<img src="img/dev/product/equip-1.png" width="395" height="290" alt="" loading="lazy" />
 							</picture>
 						</div>
 					</div>
@@ -564,20 +574,14 @@
 								<div class="tab-block__cols">
 									<div class="tab-block__col _cons">
 										<div class="tab-block__img">
-											<picture>
-												<source srcset="img/dev/product/tab-cons.jpg" type="image/webp" />
-												<img src="img/dev/product/tab-cons.jpg" width="" height="" alt="" loading="lazy" />
-											</picture>
+											<img src="img/dev/product/tab-cons.webp" width="350" height="350" alt="" loading="lazy" />
 											<div class="label label_red label_big">Другие производители</div>
 										</div>
 										<p>Поверхность грубо зашкурена и сразу покрашена. Краска начала отходить на торцевой стороне.</p>
 									</div>
 									<div class="tab-block__col _pros">
 										<div class="tab-block__img">
-											<picture>
-												<source srcset="img/dev/product/tab-pros.webp" type="image/webp" />
-												<img src="img/dev/product/tab-pros.webp" width="" height="" alt="" loading="lazy" />
-											</picture>
+											<img src="img/dev/product/tab-pros.webp" width="350" height="350" alt="" loading="lazy" />
 											<div class="label label_green label_big">
 												Мебель <svg class="label-logo">
 													<use xlink:href="#logo"></use>
@@ -644,17 +648,11 @@
 								<div class="prop__list">
 									<label title="Свойство 0">
 										<input checked type="radio" name="select[129]" value="129-1" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
-										<picture>
-											<source srcset="img/dev/props/color-1.png" type="image/webp" />
-											<img src="img/dev/props/color-1.png" width="42" height="42" alt="" />
-										</picture>
+										<img src="img/dev/props/color-1.webp" width="32" height="32" alt="" />
 									</label>
 									<label title="Свойство 1">
 										<input type="radio" name="select[129]" value="129-2" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
-										<picture>
-											<source srcset="img/dev/props/color-2.png" type="image/webp" />
-											<img src="img/dev/props/color-2.png" width="42" height="42" alt="" />
-										</picture>
+										<img src="img/dev/props/color-2.webp" width="32" height="32" alt="" />
 									</label>
 								</div>
 							</div>
@@ -664,31 +662,19 @@
 								<div class="prop__list">
 									<label title="Свойство 2">
 										<input checked type="radio" name="select[130]" value="130-1" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
-										<picture>
-											<source srcset="img/dev/props/color-1.png" type="image/webp" />
-											<img src="img/dev/props/color-1.png" width="42" height="42" alt="" loading="lazy" />
-										</picture>
+										<img src="img/dev/props/color-1.webp" width="32" height="32" alt="" loading="lazy" />
 									</label>
 									<label title="Свойство 3">
 										<input type="radio" name="select[130]" value="130-2" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
-										<picture>
-											<source srcset="img/dev/props/color-2.png" type="image/webp" />
-											<img src="img/dev/props/color-2.png" width="42" height="42" alt="" loading="lazy" />
-										</picture>
+										<img src="img/dev/props/color-2.webp" width="32" height="32" alt="" loading="lazy" />
 									</label>
 									<label title="Свойство 4">
 										<input type="radio" name="select[130]" value="130-3" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
-										<picture>
-											<source srcset="img/dev/props/color-1.png" type="image/webp" />
-											<img src="img/dev/props/color-1.png" width="42" height="42" alt="" loading="lazy" />
-										</picture>
+										<img src="img/dev/props/color-1.webp" width="32" height="32" alt="" loading="lazy" />
 									</label>
 									<label title="Свойство 5">
 										<input type="radio" name="select[130]" value="130-4" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
-										<picture>
-											<source srcset="img/dev/props/color-1.png" type="image/webp" />
-											<img src="img/dev/props/color-1.png" width="42" height="42" alt="" loading="lazy" />
-										</picture>
+										<img src="img/dev/props/color-1.webp" width="32" height="32" alt="" loading="lazy" />
 									</label>
 								</div>
 							</div>
@@ -789,7 +775,7 @@
 	<div class="container">
 		<div class="content carousel-overflow" id="product-accessory" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=carousel"></div>
 
-		<div class="content carousel-overflow" id="">
+		<div class="content carousel-overflow">
 			<div class="block-header">С этим столом часто покупают</div>
 			<div class="f-carousel product-carousel carousel-top-nav" data-carousel="carousel" data-options='{"Dots": false}'>
 				<div class="f-carousel__slide">
@@ -804,42 +790,28 @@
 										</div>
 									</div>
 
+									<!-- TODO Игорь: для первой картинки в галерее отключен loading="lazy" для лайтхауса: (Largest Contentful Paint image was lazily loaded) -->
 									<div>
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-1.webp" type="image/webp" />
-													<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-2.webp" type="image/webp" />
-													<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-3.webp" type="image/webp" />
-													<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-4.webp" type="image/webp" />
-													<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-5.webp" type="image/webp" />
-													<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 										</a>
 									</div>
@@ -887,17 +859,11 @@
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-4.webp" type="image/webp" />
-													<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-2.webp" type="image/webp" />
-													<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 										</a>
 									</div>
@@ -945,31 +911,19 @@
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-2.webp" type="image/webp" />
-													<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-3.webp" type="image/webp" />
-													<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-4.webp" type="image/webp" />
-													<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-5.webp" type="image/webp" />
-													<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 										</a>
 									</div>
@@ -1017,17 +971,11 @@
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-1.webp" type="image/webp" />
-													<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-4.webp" type="image/webp" />
-													<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 										</a>
 									</div>
@@ -1075,38 +1023,23 @@
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-1.webp" type="image/webp" />
-													<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-2.webp" type="image/webp" />
-													<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-3.webp" type="image/webp" />
-													<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-4.webp" type="image/webp" />
-													<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<picture>
-													<source srcset="img/dev/product/prod-5.webp" type="image/webp" />
-													<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
-												</picture>
+												<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 										</a>
 									</div>
@@ -1136,7 +1069,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 
@@ -1170,8 +1102,10 @@
 								Экологичность
 							</div>
 							<picture>
-								<source srcset="img/dev/ideas/idea-1.png" type="image/webp" />
-								<img src="img/dev/ideas/idea-1.png" width="" height="" alt="" loading="lazy" />
+								<source media="(min-width: 1280px)" srcset="img/dev/about/about-1-1280.webp" type="image/webp" />
+								<source media="(min-width: 577px)" srcset="img/dev/about/about-1-577.webp" type="image/webp" />
+								<source srcset="img/dev/about/about-1-320.webp" type="image/webp" />
+								<img src="img/dev/about/about-1.png" width="292" height="432" alt="" loading="lazy" />
 							</picture>
 							<div class="about-card__info">
 								<div>Мы используем каркас из металла, чтобы сохранить леса и деревья России. Наши столы используют меньше ресурсов, а служат на 5 лет дольше.</div>
@@ -1189,8 +1123,10 @@
 								Качественный ЛДСП
 							</div>
 							<picture>
-								<source srcset="img/dev/ideas/idea-2.png" type="image/webp" />
-								<img src="img/dev/ideas/idea-2.png" width="" height="" alt="" loading="lazy" />
+								<source media="(min-width: 1280px)" srcset="img/dev/about/about-2-1280.webp" type="image/webp" />
+								<source media="(min-width: 577px)" srcset="img/dev/about/about-2-577.webp" type="image/webp" />
+								<source srcset="img/dev/about/about-2-320.webp" type="image/webp" />
+								<img src="img/dev/about/about-2.png" width="292" height="432" alt="" loading="lazy" />
 							</picture>
 							<div class="about-card__info">
 								<div>Мы используем каркас из металла, чтобы сохранить леса и деревья России. Наши столы используют меньше ресурсов, а служат на 5 лет дольше.</div>
@@ -1207,8 +1143,10 @@
 								Технологии
 							</div>
 							<picture>
-								<source srcset="img/dev/ideas/idea-3.png" type="image/webp" />
-								<img src="img/dev/ideas/idea-3.png" width="" height="" alt="" loading="lazy" />
+								<source media="(min-width: 1280px)" srcset="img/dev/about/about-3-1280.webp" type="image/webp" />
+								<source media="(min-width: 577px)" srcset="img/dev/about/about-3-577.webp" type="image/webp" />
+								<source srcset="img/dev/about/about-3-320.webp" type="image/webp" />
+								<img src="img/dev/about/about-3.png" width="292" height="432" alt="" loading="lazy" />
 							</picture>
 							<div class="about-card__info">
 								<div>Мы используем каркас из металла, чтобы сохранить леса и деревья России. Наши столы используют меньше ресурсов, а служат на 5 лет дольше.</div>
@@ -1225,8 +1163,10 @@
 								Материалы
 							</div>
 							<picture>
-								<source srcset="img/dev/ideas/idea-4.png" type="image/webp" />
-								<img src="img/dev/ideas/idea-4.png" width="" height="" alt="" loading="lazy" />
+								<source media="(min-width: 1280px)" srcset="img/dev/about/about-4-1280.webp" type="image/webp" />
+								<source media="(min-width: 577px)" srcset="img/dev/about/about-4-577.webp" type="image/webp" />
+								<source srcset="img/dev/about/about-4-320.webp" type="image/webp" />
+								<img src="img/dev/about/about-4.png" width="292" height="432" alt="" loading="lazy" />
 							</picture>
 							<div class="about-card__info">
 								<div>Мы используем каркас из металла, чтобы сохранить леса и деревья России. Наши столы используют меньше ресурсов, а служат на 5 лет дольше.</div>
@@ -1482,7 +1422,8 @@
 		</symbol>
 	</svg>
 
-	<script src="js/catalog.min.js?v=20231108101018"></script>
+	<script src="js/catalog.min.js?v=20231110110002"></script>
+	<script src="js/chunk-gallery.min.js?v=20231110110002"></script>
 </body>
 
 </html>

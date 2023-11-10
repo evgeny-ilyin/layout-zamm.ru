@@ -6,25 +6,28 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700&display=swap&v=20231108101018" rel="stylesheet">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231110110002">
+	<link rel="stylesheet" href="css/fonts.css?v=20231110110002">
+	<link rel="stylesheet" href="css/header.css?v=20231110110002">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231110110002">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231108101018">
-	<link rel="stylesheet" href="css/header.css?v=20231108101018">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231108101018">
-	<link rel="stylesheet" href="css/carousel-big.css?v=20231108101018">
-	<link rel="stylesheet" href="css/carousel-product.css?v=20231108101018">
-	<link rel="stylesheet" href="css/carousel-product.css?v=20231108101018">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231108101018">
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231108101018">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20231108101018">
-	<link rel="stylesheet" href="css/block-about.css?v=20231108101018">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231108101018">
-	<link rel="stylesheet" href="css/catalog-category.css?v=20231108101018">
-	<link rel="stylesheet" href="css/product-card.css?v=20231108101018">
-	<link rel="stylesheet" href="css/footer.css?v=20231108101018">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20231110110002">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20231110110002">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231110110002">
+	<link rel="stylesheet" href="css/carousel-card-more-photos.css?v=20231110110002">
+
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231110110002">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231110110002">
+	<link rel="stylesheet" href="css/block-about.css?v=20231110110002">
+
+	<link rel="stylesheet" href="css/catalog.css?v=20231110110002">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231110110002">
+
+	<link rel="stylesheet" href="css/product-card.css?v=20231110110002">
+
+	<link rel="stylesheet" href="css/footer.css?v=20231110110002">
 	<title>UI modal</title>
+	<meta name="description" content="UI modal">
 </head>
 
 <body>
@@ -111,6 +114,7 @@
 							</label>
 						</div>
 
+						<!-- TODO Игорь: mix-blend-mode убрать в проде. это для тестовой картинки без прозрачного фона -->
 						<nav class="nav__catalog" role="navigation">
 							<div class="catalog">
 								<div class="catalog__submenu"></div>
@@ -120,29 +124,29 @@
 										<div class="menu-dropdown category">
 											<div class="category__header" style="background-color: #f6f8f9">
 												<span>Столы</span>
-												<img src="img/dev/menu/cat-header-1-big.png" width="" height="" alt="" />
+												<img src="img/dev/menu/cat-header-1.webp" width="197" height="176" alt="" style="mix-blend-mode: multiply" />
 												<a href="javascript:void(0)" class="link-angle">Все столы</a>
 											</div>
 											<div class="category__list">
 												<span>По категориям</span>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-1.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Для дома</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-2.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-2.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>С регулируемой высотой</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-3.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-3.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Мобильные складные </span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-2.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-2.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>С подвесной тумбой</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-3.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-3.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Для руководителя</span>
 												</a>
 											</div>
@@ -153,37 +157,37 @@
 										<div class="menu-dropdown category">
 											<div class="category__header" style="background-color: #ffc845">
 												<span>Корпусная мебель</span>
-												<img src="img/dev/menu/cat-header-1.png" width="" height="" alt="" />
+												<img src="img/dev/menu/cat-header-1.webp" width="197" height="176" alt="" style="mix-blend-mode: multiply" />
 												<a href="javascript:void(0)" class="link-angle">Вся корпусная мебель</a>
 											</div>
 											<div class="category__list">
 												<span>По категориям</span>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-1.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Для дома</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-2.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-2.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>С регулируемой высотой</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-3.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-3.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Мобильные складные </span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-2.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-2.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>С подвесной тумбой</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-3.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-3.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Для руководителя</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-2.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-2.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Готовые комплекты</span>
 												</a>
 												<a href="javascript:void(0)" class="category__link">
-													<img src="img/dev/menu/table-3.png" width="" height="" alt="" />
+													<img src="img/dev/menu/table-3.webp" width="40" height="40" alt="" style="mix-blend-mode: multiply" />
 													<span>Письменные</span>
 												</a>
 											</div>
@@ -244,7 +248,7 @@
 								<!-- пример ajax результатов поиска -->
 								<!-- <a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -264,7 +268,7 @@
 								<!-- рыба start -->
 								<!-- <a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -275,7 +279,7 @@
 							</a>
 							<a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -287,7 +291,7 @@
 							</a>
 							<a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -299,7 +303,7 @@
 							</a>
 							<a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -311,7 +315,7 @@
 							</a>
 							<a href="#" class="r-item">
 								<div class="r-item__img">
-									<img src="img/dev/menu/table-1.png" width="" height="" alt="" />
+									<img src="img/dev/menu/table-1.webp" width="86" height="86" alt="" />
 								</div>
 								<div class="r-item__wrapper">
 									<div class="r-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
@@ -706,7 +710,7 @@
 		</symbol>
 	</svg>
 
-	<script src="js/main.js?v=20231108101018"></script>
+	<script src="js/main.js?v=20231110110002"></script>
 </body>
 
 </html>

@@ -46,14 +46,15 @@
 }
 .card__image {
   position: absolute;
+  left: auto;
+  top: auto;
   bottom: -16px;
   right: -16px;
   -webkit-transition: all .25s ease-in-out;
   -o-transition: all .25s ease-in-out;
   transition: all .25s ease-in-out;
+  height: auto;
   max-height: 85%;
-  -o-object-fit: contain;
-  object-fit: contain;
   max-width: 85%
 }
 .card:hover .card__image {
