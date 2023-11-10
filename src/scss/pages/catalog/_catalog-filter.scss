@@ -200,7 +200,7 @@
 			overflow: hidden;
 			position: absolute;
 
-			&:checked + picture > img {
+			&:checked + img {
 				border-color: $black;
 			}
 		}

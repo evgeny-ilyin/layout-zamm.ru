@@ -33,7 +33,7 @@ addEventListener("DOMContentLoaded", () => {
 	rangeslider.rangeSlidersInit();
 
 	product.catalogItemGalleriesInit();
-	product.catalogItemGallery();
+	// product.catalogItemGallery();
 	product.addToFavourites();
 	product.catalogItemPropsHover();
 	product.productProps();

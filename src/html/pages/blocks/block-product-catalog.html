@@ -3,71 +3,67 @@
 		<div class="catalog-head__root">
 			<h1 class="catalog-head__name">Столы</h1>
 			<div class="catalog-head__slider">
-				<div
-					class="f-carousel catalog-head-carousel scrollblock"
-					data-carousel="carousel"
-					data-options='{"Navigation": false,"Dots": false}'
-					data-disabled="max-width: 1023px"
-				>
-					<!-- mix-blend-mode убрать в проде. это для тестовой картинки без прозрачного фона -->
+				<div class="f-carousel catalog-head-carousel scrollblock" data-carousel="carousel" data-options='{"Navigation": false,"Dots": false}' data-disabled="max-width: 1023px">
+					<!-- TODO Игорь: mix-blend-mode убрать в проде. это для тестовой картинки без прозрачного фона -->
 					<div class="f-carousel__slide">
 						<a href="javascript:void(0)">
-							<img src="@img/dev/catalog/img-1.png" alt="" style="mix-blend-mode: multiply" />
+							<img src="@img/dev/catalog/img-1.webp" width="152" height="152" alt="" style="mix-blend-mode: multiply" />
 							<div>Для дома</div>
 						</a>
 					</div>
 					<div class="f-carousel__slide">
 						<a href="javascript:void(0)">
-							<img src="@img/dev/catalog/img-2.png" alt="" style="mix-blend-mode: multiply" />
+							<img src="@img/dev/catalog/img-2.webp" width="152" height="152" alt="" style="mix-blend-mode: multiply" />
 							<div>Дизайнерские</div>
 						</a>
 					</div>
 					<div class="f-carousel__slide">
 						<a href="javascript:void(0)">
-							<img src="@img/dev/catalog/img-3.png" alt="" style="mix-blend-mode: multiply" />
+							<img src="@img/dev/catalog/img-3.webp" width="152" height="152" alt="" style="mix-blend-mode: multiply" />
 							<div>Письменные</div>
 						</a>
 					</div>
 					<div class="f-carousel__slide">
 						<a href="javascript:void(0)">
-							<img src="@img/dev/catalog/img-4.png" alt="" style="mix-blend-mode: multiply" />
+							<img src="@img/dev/catalog/img-4.webp" width="152" height="152" alt="" style="mix-blend-mode: multiply" />
 							<div>Офисные</div>
 						</a>
 					</div>
 					<div class="f-carousel__slide">
 						<a href="javascript:void(0)">
-							<img src="@img/dev/catalog/img-5.png" alt="" style="mix-blend-mode: multiply" />
+							<souce srcset="@img/dev/catalog/img-5.webp" type="image/webp" />
+							<img src="@img/dev/catalog/img-5.webp" width="152" height="152" alt="" style="mix-blend-mode: multiply" />
 							<div>С подвесной тумбой</div>
 						</a>
 					</div>
 
 					<div class="f-carousel__slide">
 						<a href="javascript:void(0)">
-							<img src="@img/dev/catalog/img-1.png" alt="" style="mix-blend-mode: multiply" />
+							<img src="@img/dev/catalog/img-1.webp" width="152" height="152" alt="" style="mix-blend-mode: multiply" />
 							<div>Для дома 2</div>
 						</a>
 					</div>
 					<div class="f-carousel__slide">
 						<a href="javascript:void(0)">
-							<img src="@img/dev/catalog/img-2.png" alt="" style="mix-blend-mode: multiply" />
+							<img src="@img/dev/catalog/img-2.webp" width="152" height="152" alt="" style="mix-blend-mode: multiply" />
 							<div>Дизайнерские 3</div>
 						</a>
 					</div>
 					<div class="f-carousel__slide">
 						<a href="javascript:void(0)">
-							<img src="@img/dev/catalog/img-3.png" alt="" style="mix-blend-mode: multiply" />
+							<img src="@img/dev/catalog/img-3.webp" width="152" height="152" alt="" style="mix-blend-mode: multiply" />
 							<div>Письменные 4</div>
 						</a>
 					</div>
 					<div class="f-carousel__slide">
 						<a href="javascript:void(0)">
-							<img src="@img/dev/catalog/img-4.png" alt="" style="mix-blend-mode: multiply" />
+							<img src="@img/dev/catalog/img-4.webp" width="152" height="152" alt="" style="mix-blend-mode: multiply" />
 							<div>Офисные 5</div>
 						</a>
 					</div>
 					<div class="f-carousel__slide">
 						<a href="javascript:void(0)">
-							<img src="@img/dev/catalog/img-5.png" alt="" style="mix-blend-mode: multiply" />
+							<img src="@img/dev/catalog/img-5.webp" width="152" height="152" alt="" style="mix-blend-mode: multiply" />
 							<div>С подвесной тумбой 6</div>
 						</a>
 					</div>
@@ -125,7 +121,9 @@
 			<div class="pagination__pages">
 				<div class="pagination__arrow">
 					<a class="pagination__link" href="javascript:void(0)">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18"><path d="M8.548 1 1 9m0 0 7.548 8M1 9h18"></path></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18">
+							<path d="M8.548 1 1 9m0 0 7.548 8M1 9h18"></path>
+						</svg>
 					</a>
 					<!-- если стрелку надо задизейблить, а не удалить — добавить к pagination__link класс is-disabled или заменить <a></a> на <span></span> -->
 				</div>
@@ -138,7 +136,9 @@
 				</ul>
 				<div class="pagination__arrow">
 					<a class="pagination__link" href="javascript:void(0)">
-						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18"><path d="M10.452 1 18 9m0 0-7.548 8M18 9H0"></path></svg>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18">
+							<path d="M10.452 1 18 9m0 0-7.548 8M18 9H0"></path>
+						</svg>
 					</a>
 				</div>
 			</div>
@@ -169,7 +169,7 @@
 									<div>
 										<span>до</span>
 										<input type="text" class="input-max" name="arrFilter_142_MAX" value="100 500" readonly />
-										<!-- value по умолчанию заполнять крайними значениями диапазона(форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+										<!-- value по умолчанию заполнять крайними значениями диапазона (форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
 									</div>
 								</div>
 								<div data-range="rangeslider" data-min="10000" data-max="100500" data-from="10000" data-to="100500" data-step="1000"></div>
@@ -185,17 +185,11 @@
 						<div class="filter-group__list">
 							<label title="Берёза">
 								<input type="checkbox" name="arrFilter_220_1" value="Y" checked />
-								<picture>
-									<source srcset="img/dev/props/color-1.png" type="image/webp" />
-									<img src="img/dev/props/color-1.png" width="40" height="40" alt="" loading="lazy" />
-								</picture>
+								<img src="img/dev/props/color-1.webp" width="40" height="40" alt="" loading="lazy" />
 							</label>
 							<label title="Дуб">
 								<input type="checkbox" name="arrFilter_220_2" value="Y" />
-								<picture>
-									<source srcset="img/dev/props/color-2.png" type="image/webp" />
-									<img src="img/dev/props/color-2.png" width="40" height="40" alt="" loading="lazy" />
-								</picture>
+								<img src="img/dev/props/color-2.webp" width="40" height="40" alt="" loading="lazy" />
 							</label>
 						</div>
 					</div>
@@ -205,24 +199,15 @@
 						<div class="filter-group__list">
 							<label title="Металлик">
 								<input type="checkbox" name="arrFilter_221_1" value="Y" checked />
-								<picture>
-									<source srcset="img/dev/props/color-3.png" type="image/webp" />
-									<img src="img/dev/props/color-3.png" width="40" height="40" alt="" loading="lazy" />
-								</picture>
+								<img src="img/dev/props/color-3.webp" width="40" height="40" alt="" loading="lazy" />
 							</label>
 							<label title="Чёрный">
 								<input type="checkbox" name="arrFilter_221_2" value="Y" checked />
-								<picture>
-									<source srcset="img/dev/props/color-4.png" type="image/webp" />
-									<img src="img/dev/props/color-4.png" width="40" height="40" alt="" loading="lazy" />
-								</picture>
+								<img src="img/dev/props/color-4.webp" width="40" height="40" alt="" loading="lazy" />
 							</label>
 							<label title="Серый">
 								<input type="checkbox" name="arrFilter_221_3" value="Y" />
-								<picture>
-									<source srcset="img/dev/props/color-5.png" type="image/webp" />
-									<img src="img/dev/props/color-5.png" width="40" height="40" alt="" loading="lazy" />
-								</picture>
+								<img src="img/dev/props/color-5.webp" width="40" height="40" alt="" loading="lazy" />
 							</label>
 						</div>
 					</div>
@@ -279,6 +264,6 @@
 
 <div class="content">
 	<div class="catalog-bottom" data-id="catalog-bottom">
-		
+
 	</div>
 </div>

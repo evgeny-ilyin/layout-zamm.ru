@@ -30,6 +30,6 @@ addEventListener("DOMContentLoaded", () => {
 	fancyapps.carouselsInit();
 
 	catalogItemGalleriesInit();
-	catalogItemGallery();
+	// catalogItemGallery();
 	addToFavourites();
 });

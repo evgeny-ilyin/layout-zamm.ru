@@ -111,14 +111,16 @@
 	// .card__image
 	&__image {
 		position: absolute;
+		left: auto;
+		top: auto;
 		bottom: -16px;
 		right: -16px;
 		transition: all $transition-default;
+		// width: auto;
 		// height: 80%;
-		// object-fit: cover;
-
+		// object-fit: contain;
+		height: auto;
 		max-height: 85%;
-		object-fit: contain;
 		max-width: 85%;
 	}
 

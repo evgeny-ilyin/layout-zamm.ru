@@ -12,11 +12,13 @@
 	<div class="container">
 		@@include('html/pages/blocks/block-product-carousel.html', {
 		"header": "Аксессуары к этому столу",
-		"id": 'product-accessory'
+		"id": ' id="product-accessory"',
+		"data-id": ''
 		})
 		@@include('html/pages/blocks/block-product-carousel.html', {
 		"header": "С этим столом часто покупают",
-		"id": ''
+		"id": '',
+		"data-id": ''
 		})
 	</div>
 
@@ -29,5 +31,6 @@
 	@@include('html/svg-sprite.html', {})
 	
 	<script src="js/catalog.js"></script>
+	<script src="js/chunk-gallery.min.js"></script>
 </body>
 </html>

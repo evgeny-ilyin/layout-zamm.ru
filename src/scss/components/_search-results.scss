@@ -13,6 +13,11 @@
 		border: 1px solid $black10;
 		border-radius: 4px;
 
+		img {
+			width: auto;
+			height: auto;
+		}
+
 		@include respond-to(lg) {
 			flex: 0 0 88px;
 			width: 88px;

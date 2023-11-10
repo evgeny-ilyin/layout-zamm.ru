@@ -750,8 +750,8 @@
 				position: absolute;
 				right: 0;
 				bottom: 0;
+				width: auto;
 				max-height: 176px;
-				mix-blend-mode: multiply;
 			}
 		}
 
@@ -846,7 +846,6 @@
 			width: 40px;
 			height: 40px;
 			margin: 0 4px 0 2px;
-			mix-blend-mode: multiply;
 		}
 
 		@include respond-to(lg) {

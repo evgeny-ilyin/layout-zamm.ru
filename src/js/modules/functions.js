@@ -1,4 +1,4 @@
-import { productBlockCollapseHandler, catalogItemGalleriesInit, catalogItemGallery } from "./product.js";
+import { productBlockCollapseHandler, catalogItemGalleriesInit } from "./product.js";
 import { carouselsInit } from "./fancyapps.js";
 
 export function stickyHeader() {

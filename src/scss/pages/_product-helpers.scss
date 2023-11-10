@@ -19,7 +19,7 @@
 		background-repeat: no-repeat;
 		flex-shrink: 0;
 	}
-	
+
 	// .available _delivery
 	&._delivery {
 		&::before {
@@ -30,11 +30,11 @@
 			opacity: 0.6;
 		}
 	}
-	
+
 	// .available _delay
 	&._delay {
 		color: $black60;
-		
+
 		&::before {
 			background-image: $svg-delivery;
 			background-position-y: -1px;
@@ -155,10 +155,21 @@
 
 		img {
 			padding: 4px;
+			box-sizing: content-box;
 			border: 1px solid transparent;
 			border-radius: 12px;
 			margin: 0 2px 2px 0;
 			transition: border-color $transition-default;
+
+			@include when-inside(".product__props") {
+				width: 36px;
+				height: 36px;
+
+				@include respond-to(lg) {
+					width: 32px;
+					height: 32px;
+				}
+			}
 		}
 
 		span {
@@ -188,7 +199,7 @@
 			position: absolute;
 		}
 
-		input:checked + picture > img,
+		input:checked + img,
 		input:checked + span {
 			border-color: $black;
 			text-shadow: $shadow-600;

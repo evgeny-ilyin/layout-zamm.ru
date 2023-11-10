@@ -9,8 +9,9 @@ export const path = {
 	src: {
 		html: `${srcFolder}/*.html`,
 		scss: `${srcFolder}/scss/*.scss`,
-		js: ['./src/js/app.js', './src/js/main.js', './src/js/catalog.js'],
+		js: ['./src/js/app.js', './src/js/main.js', './src/js/catalog.js', './src/js/chunk-gallery.js'],
 		img: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
+		fonts: `${srcFolder}/fonts/*.*`,
 		svg: `${srcFolder}/img/**/*.svg`,
 		svgspriteIn: `${srcFolder}/svgsprite/*.svg`,
 		svgspriteOut: `${srcFolder}/html/`,
@@ -20,6 +21,7 @@ export const path = {
 		css: `${buildFolder}/css/`,
 		js: `${buildFolder}/js/`,
 		img: `${buildFolder}/img/`,
+		fonts: `${buildFolder}/fonts/`,
 		deploy: `${buildFolder}/**/*.*`,
 	},
 	watch: {
