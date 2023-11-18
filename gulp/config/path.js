@@ -4,12 +4,23 @@ const rootFolder = nodePath.basename(nodePath.resolve());
 
 const srcFolder = "./src";
 const buildFolder = "./build";
+const jsFiles = [
+	"./src/js/carousel-init.js",
+	"./src/js/common.js",
+	"./src/js/block-ideas.js",
+	"./src/js/tabs.js",
+	"./src/js/observer.js",
+	"./src/js/filter.js",
+	"./src/js/product-props.js",
+	"./src/js/product-actions.js",
+	"./src/js/product-card.js",
+];
 
 export const path = {
 	src: {
 		html: `${srcFolder}/*.html`,
 		scss: `${srcFolder}/scss/*.scss`,
-		js: ['./src/js/app.js', './src/js/main.js', './src/js/catalog.js', './src/js/chunk-gallery.js'],
+		js: jsFiles,
 		img: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
 		fonts: `${srcFolder}/fonts/*.*`,
 		svg: `${srcFolder}/img/**/*.svg`,

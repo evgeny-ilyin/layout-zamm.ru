@@ -15,7 +15,7 @@ global.app = {
 };
 
 // Импорт задач
-// import { vendors } from "./gulp/tasks/vendors.js";
+import { vendors } from "./gulp/tasks/vendors.js";
 import { reset } from "./gulp/tasks/reset.js";
 import { server } from "./gulp/tasks/server.js";
 import { html } from "./gulp/tasks/html.js";
@@ -38,7 +38,7 @@ function watcher() {
 }
 
 // Основные задачи
-const mainTasks = gulp.parallel(/*vendors,*/ html, scss, js, img, fonts);
+const mainTasks = gulp.parallel(vendors, html, scss, js, img, fonts);
 
 // Построение сценариев выполнения задач
 const dev = gulp.series(reset, svgsprite, mainTasks, index, gulp.parallel(watcher, server));

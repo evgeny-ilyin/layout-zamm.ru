@@ -737,7 +737,7 @@
 			min-height: 176px;
 			margin-bottom: 39px;
 
-			span {
+			& > span {
 				font-size: rem(32);
 				font-weight: 600;
 				line-height: 1;
@@ -759,7 +759,7 @@
 			margin-bottom: 15px;
 			background-color: $white !important;
 
-			span,
+			& > span,
 			img {
 				display: none;
 			}

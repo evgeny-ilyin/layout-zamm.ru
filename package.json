@@ -28,6 +28,7 @@
 		"gulp-zip": "latest",
 		"node-sass-tilde-importer": "latest",
 		"sass": "latest",
+		"terser-webpack-plugin": "^5.3.9",
 		"webp-converter": "2.2.3",
 		"webpack": "latest",
 		"webpack-stream": "latest"

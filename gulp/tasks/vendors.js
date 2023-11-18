@@ -8,10 +8,14 @@ export const vendors = () => {
 };
 
 function vendorJS() {
-	const modules = [
+	const fancyappsSrc = [
 		// "node_modules/isotope-layout/dist/isotope.pkgd.min.js", // если копировать, то ок, а при импорте в app.js ошибка: Module not found: Error: Can't resolve 'jquery'
-	];
-	return app.gulp.src(modules).pipe(app.gulp.dest(app.path.build.js));
+		"node_modules/@fancyapps/ui/dist/carousel/carousel.umd.js",
+		"node_modules/@fancyapps/ui/dist/carousel/carousel.autoplay.umd.js",
+		"node_modules/@fancyapps/ui/dist/carousel/carousel.thumbs.umd.js",
+	],
+	fancyappsDest = `${app.path.build.js}vendors/fancyapps`;
+	return app.gulp.src(fancyappsSrc).pipe(app.gulp.dest(fancyappsDest));
 }
 
 function vendorCSS() {

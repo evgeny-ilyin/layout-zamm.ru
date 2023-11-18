@@ -24,7 +24,8 @@ export const js = () => {
 		.pipe(
 			webpack({
 				entry: entryObj,
-				mode: app.isBuild ? "production" : "development",
+				// mode: app.isBuild ? "production" : "development",
+				mode: "production",
 				output: {
 					filename: "[name].js",
 				},
