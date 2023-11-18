@@ -6,26 +6,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231110140034">
-	<link rel="stylesheet" href="css/fonts.css?v=20231110140034">
-	<link rel="stylesheet" href="css/header.css?v=20231110140034">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231110140034">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231119005324">
+	<link rel="stylesheet" href="css/fonts.css?v=20231119005324">
+	<link rel="stylesheet" href="css/header.css?v=20231119005324">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231119005324">
 
-	<link rel="stylesheet" href="css/carousel-main.css?v=20231110140034">
-	<link rel="stylesheet" href="css/carousel-products.css?v=20231110140034">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231110140034">
-	<link rel="stylesheet" href="css/carousel-card-more-photos.css?v=20231110140034">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20231119005324">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20231119005324">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231119005324">
+	<link rel="stylesheet" href="css/carousel-card-more-photos.css?v=20231119005324">
 
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231110140034">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20231110140034">
-	<link rel="stylesheet" href="css/block-about.css?v=20231110140034">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231119005324">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231119005324">
+	<link rel="stylesheet" href="css/block-about.css?v=20231119005324">
 
-	<link rel="stylesheet" href="css/catalog.css?v=20231110140034">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231110140034">
+	<link rel="stylesheet" href="css/catalog.css?v=20231119005324">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231119005324">
 
-	<link rel="stylesheet" href="css/product-card.css?v=20231110140034">
+	<link rel="stylesheet" href="css/product-card.css?v=20231119005324">
 
-	<link rel="stylesheet" href="css/footer.css?v=20231110140034">
+	<link rel="stylesheet" href="css/footer.css?v=20231119005324">
 	<title>Карточка товара</title>
 	<meta name="description" content="Карточка товара">
 </head>
@@ -125,7 +125,7 @@
 											<div class="category__header" style="background-color: #f6f8f9">
 												<span>Столы</span>
 												<img src="img/dev/menu/cat-header-1.webp" width="197" height="176" alt="" style="mix-blend-mode: multiply" />
-												<a href="javascript:void(0)" class="link-angle">Все столы</a>
+												<a href="javascript:void(0)" class="link-angle" itemprop="url"><span itemprop="name">Все столы</span></a>
 											</div>
 											<div class="category__list">
 												<span>По категориям</span>
@@ -153,7 +153,7 @@
 										</div>
 									</li>
 									<li class="catalog__item">
-										<a href="#" class="catalog__link">Корпусная мебель</a>
+										<a href="#" class="catalog__link" itemprop="url"><span itemprop="name">Корпусная мебель</span></a>
 										<div class="menu-dropdown category">
 											<div class="category__header" style="background-color: #ffc845">
 												<span>Корпусная мебель</span>
@@ -207,10 +207,10 @@
 										<div class="menu-dropdown menu-dropdown_column category">
 											<div class="category__header category__header_column" style="background-color: #bce6f9">
 												<span>О компании</span>
-												<a href="javascript:void(0)" class="link-angle">О Zamm.ru</a>
+												<a href="javascript:void(0)" class="link-angle" itemprop="url"><span itemprop="name">О Zamm.ru</span></a>
 											</div>
 											<div class="category__list category__list_column">
-												<a href="javascript:void(0)" class="link-angle">Гарантии</a>
+												<a href="javascript:void(0)" class="link-angle" itemprop="url"><span itemprop="name">Гарантии</span></a>
 												<a href="javascript:void(0)" class="link-angle">Обмен и возврат</a>
 												<a href="javascript:void(0)" class="link-angle">FAQ</a>
 											</div>
@@ -1422,8 +1422,18 @@
 		</symbol>
 	</svg>
 
-	<script src="js/catalog.min.js?v=20231110140034"></script>
-	<script src="js/chunk-gallery.min.js?v=20231110140034"></script>
+
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231119005324"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20231119005324"></script>
+	<script src="js/carousel-init.js?v=20231119005324"></script>
+
+	<script src="js/common.js?v=20231119005324"></script>
+	<script src="js/tabs.js?v=20231119005324"></script>
+	<script src="js/observer.js?v=20231119005324"></script>
+	<script src="js/product-actions.js?v=20231119005324"></script>
+	<script src="js/product-props.js?v=20231119005324"></script>
+	<script src="js/product-card.js?v=20231119005324"></script>
+
 </body>
 
 </html>

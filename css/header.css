@@ -2717,8 +2717,8 @@ input[type=checkbox]:disabled {
     margin-bottom: 15px;
     background-color: var(--white)!important
   }
-  .category__header img,
-  .category__header span {
+  .category__header > span,
+  .category__header img {
     display: none
   }
   .category__list {
@@ -3047,7 +3047,7 @@ input[type=checkbox]:disabled {
     min-height: 176px;
     margin-bottom: 39px
   }
-  .category__header span {
+  .category__header > span {
     font-size: 2rem;
     font-weight: 600;
     line-height: 1;

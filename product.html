@@ -6,26 +6,26 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231110140034">
-	<link rel="stylesheet" href="css/fonts.css?v=20231110140034">
-	<link rel="stylesheet" href="css/header.css?v=20231110140034">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231110140034">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231119005324">
+	<link rel="stylesheet" href="css/fonts.css?v=20231119005324">
+	<link rel="stylesheet" href="css/header.css?v=20231119005324">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231119005324">
 
-	<link rel="stylesheet" href="css/carousel-main.css?v=20231110140034">
-	<link rel="stylesheet" href="css/carousel-products.css?v=20231110140034">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231110140034">
-	<link rel="stylesheet" href="css/carousel-card-more-photos.css?v=20231110140034">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20231119005324">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20231119005324">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231119005324">
+	<link rel="stylesheet" href="css/carousel-card-more-photos.css?v=20231119005324">
 
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231110140034">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20231110140034">
-	<link rel="stylesheet" href="css/block-about.css?v=20231110140034">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231119005324">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231119005324">
+	<link rel="stylesheet" href="css/block-about.css?v=20231119005324">
 
-	<link rel="stylesheet" href="css/catalog.css?v=20231110140034">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231110140034">
+	<link rel="stylesheet" href="css/catalog.css?v=20231119005324">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231119005324">
 
-	<link rel="stylesheet" href="css/product-card.css?v=20231110140034">
+	<link rel="stylesheet" href="css/product-card.css?v=20231119005324">
 
-	<link rel="stylesheet" href="css/footer.css?v=20231110140034">
+	<link rel="stylesheet" href="css/footer.css?v=20231119005324">
 	<title>Карточка товара</title>
 	<meta name="description" content="Карточка товара">
 </head>
@@ -125,7 +125,7 @@
 											<div class="category__header" style="background-color: #f6f8f9">
 												<span>Столы</span>
 												<img src="img/dev/menu/cat-header-1.webp" width="197" height="176" alt="" style="mix-blend-mode: multiply" />
-												<a href="javascript:void(0)" class="link-angle">Все столы</a>
+												<a href="javascript:void(0)" class="link-angle" itemprop="url"><span itemprop="name">Все столы</span></a>
 											</div>
 											<div class="category__list">
 												<span>По категориям</span>
@@ -153,7 +153,7 @@
 										</div>
 									</li>
 									<li class="catalog__item">
-										<a href="#" class="catalog__link">Корпусная мебель</a>
+										<a href="#" class="catalog__link" itemprop="url"><span itemprop="name">Корпусная мебель</span></a>
 										<div class="menu-dropdown category">
 											<div class="category__header" style="background-color: #ffc845">
 												<span>Корпусная мебель</span>
@@ -207,10 +207,10 @@
 										<div class="menu-dropdown menu-dropdown_column category">
 											<div class="category__header category__header_column" style="background-color: #bce6f9">
 												<span>О компании</span>
-												<a href="javascript:void(0)" class="link-angle">О Zamm.ru</a>
+												<a href="javascript:void(0)" class="link-angle" itemprop="url"><span itemprop="name">О Zamm.ru</span></a>
 											</div>
 											<div class="category__list category__list_column">
-												<a href="javascript:void(0)" class="link-angle">Гарантии</a>
+												<a href="javascript:void(0)" class="link-angle" itemprop="url"><span itemprop="name">Гарантии</span></a>
 												<a href="javascript:void(0)" class="link-angle">Обмен и возврат</a>
 												<a href="javascript:void(0)" class="link-angle">FAQ</a>
 											</div>
@@ -768,8 +768,13 @@
 									</div>
 								</div>
 							</div>
-							<div class="tab-block" data-tab-content="benefits" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php"></div>
-							<div class="tab-block" data-tab-content="materials" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php"></div>
+							<div class="tab-block" data-tab-content="benefits">
+								<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Numquam, vero. Assumenda culpa debitis sint iure odio, atque consectetur recusandae quis officia facere doloremque hic, quidem unde placeat, labore eveniet neque?</p>
+							</div>
+							<div class="tab-block" data-tab-content="materials">
+								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nulla quam ea non id corrupti quae?</p>
+								<p>Error iure cumque, temporibus ipsam sunt unde harum impedit quas consequuntur illo exercitationem veniam saepe ea tenetur praesentium. Excepturi possimus ex nam, corrupti eveniet beatae praesentium? Tenetur iusto sed officiis laboriosam natus dolore eveniet ducimus suscipit voluptatem debitis ad necessitatibus maxime velit animi, soluta id quam in minima illo dicta tempora rem autem quia quisquam. Illo obcaecati praesentium cumque! Aliquam autem, itaque corrupti sunt eligendi enim! Exercitationem ex saepe laboriosam facere doloribus a fugiat animi, quisquam blanditiis vero dolore tenetur repudiandae distinctio voluptatem! Ratione, illum!</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -810,7 +815,10 @@
 							<div class="tab-block" data-tab-content="egger">2</div>
 							<div class="tab-block" data-tab-content="durability">3</div>
 							<div class="tab-block" data-tab-content="surface">4</div>
-							<div class="tab-block" data-tab-content="stock" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php"></div>
+							<div class="tab-block" data-tab-content="stock">
+								<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti alias quam atque sequi voluptatibus, impedit nisi, perferendis magni tenetur laborum dolore pariatur voluptates beatae dolores expedita in perspiciatis! Quasi dolorum vel eius fugit error cum quisquam aliquid voluptate quia sed id, quibusdam provident veniam doloremque sequi veritatis ducimus inventore voluptates corporis quidem quis commodi quaerat ullam. Cumque delectus optio, labore unde similique veritatis quo at debitis dolorem quod. Maiores voluptate cum dolorem facere recusandae nostrum asperiores fugiat nulla magni inventore sapiente itaque iusto aperiam nesciunt libero, iure eaque non earum sit eveniet, aut ipsam ipsum tempora delectus. Porro quia ad expedita. Placeat optio natus minima dolor molestiae nihil qui, error assumenda rerum, voluptatem, dolores aspernatur enim facere sint. Iste in officia rerum repellendus, architecto voluptate deserunt, doloremque voluptatem exercitationem dolorem praesentium ipsam quasi, mollitia consequuntur. Praesentium quasi officia nemo! Ducimus necessitatibus inventore recusandae sequi exercitationem voluptatem harum id voluptatibus ipsa quia quis, amet esse laboriosam. Voluptates ex non officiis. Doloremque mollitia aliquid voluptas doloribus sunt earum fugit saepe sequi nostrum, minima molestias officiis?</p>
+								<p>Quibusdam eligendi, voluptatum placeat expedita praesentium illo nobis quo reiciendis corporis odit eaque commodi excepturi. Adipisci dolorum maiores sint tempora quasi, nostrum tenetur suscipit! Ipsam maxime ratione earum vitae provident consequatur? Fugiat iusto maxime aut perspiciatis maiores explicabo neque vero voluptas illo itaque, sint non enim cumque quod delectus fuga quas dolor velit accusamus tempora dolorum? Aspernatur ducimus, veniam ad sit nobis dolores, quaerat, aliquid sint minima saepe magnam nostrum provident quam quasi dolorem eligendi aperiam quo vero earum. Consequatur provident exercitationem, esse cum similique natus magni iste, veritatis perferendis at ullam eveniet mollitia sunt veniam?</p>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1955,8 +1963,17 @@
 		</symbol>
 	</svg>
 
-	<script src="js/catalog.min.js?v=20231110140034"></script>
-	<script src="js/chunk-gallery.min.js?v=20231110140034"></script>
+
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231119005324"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20231119005324"></script>
+	<script src="js/carousel-init.js?v=20231119005324"></script>
+
+	<script src="js/common.js?v=20231119005324"></script>
+	<script src="js/tabs.js?v=20231119005324"></script>
+	<script src="js/product-actions.js?v=20231119005324"></script>
+	<script src="js/product-props.js?v=20231119005324"></script>
+	<script src="js/product-card.js?v=20231119005324"></script>
+
 </body>
 
 </html>
