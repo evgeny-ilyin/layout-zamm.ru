@@ -11,41 +11,43 @@ export const js = () => {
 	});
 	//
 
-	return app.gulp
-		.src(app.path.src.js)
-		.pipe(
-			app.plugins.plumber(
-				app.plugins.notify.onError({
-					title: "JS",
-					message: "<%= error.message %>",
+	return (
+		app.gulp
+			.src(app.path.src.js)
+			.pipe(
+				app.plugins.plumber(
+					app.plugins.notify.onError({
+						title: "JS",
+						message: "<%= error.message %>",
+					})
+				)
+			)
+			.pipe(
+				webpack({
+					entry: entryObj,
+					// mode: app.isBuild ? "production" : "development",
+					mode: "production",
+					output: {
+						filename: "[name].js",
+					},
+					optimization: {
+						minimize: false,
+					},
 				})
 			)
-		)
-		.pipe(
-			webpack({
-				entry: entryObj,
-				// mode: app.isBuild ? "production" : "development",
-				mode: "production",
-				output: {
-					filename: "[name].js",
-				},
-				optimization: {
-					minimize: false,
-				},
-			})
-		)
-		.pipe(app.gulp.dest(app.path.build.js))
-		.pipe(
-			webpack({
-				entry: entryObj,
-				// mode: app.isBuild ? "production" : "development",
-				mode: "production",
-				output: {
-					filename: "[name].min.js",
-				},
-			})
-		)
-		.pipe(app.gulp.dest(app.path.build.js))
-		// .pipe(app.plugins.if(app.isBuild, app.gulp.dest(app.path.build.js)))
-		.pipe(app.plugins.browsersync.stream());
+			.pipe(app.gulp.dest(app.path.build.js))
+			.pipe(
+				webpack({
+					entry: entryObj,
+					// mode: app.isBuild ? "production" : "development",
+					mode: "production",
+					output: {
+						filename: "[name].min.js",
+					},
+				})
+			)
+			.pipe(app.gulp.dest(app.path.build.js))
+			// .pipe(app.plugins.if(app.isBuild, app.gulp.dest(app.path.build.js)))
+			.pipe(app.plugins.browsersync.stream())
+	);
 };

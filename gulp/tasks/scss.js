@@ -34,7 +34,7 @@ export const scss = () => {
 			)
 			//**! для финальной генерации zamm.ru нужно стили с именем -blocks.scss сгененрировать без группировки медиа (закомментить опцию и запустить билд) */
 			// .pipe(app.plugins.if(app.isDev, groupCssMediaQueries()))		//! карта некорректна с этим модулем, поэтому только для прода
-			.pipe(app.plugins.if(app.isBuild, groupCssMediaQueries()))		//! карта некорректна с этим модулем, поэтому только для прода
+			.pipe(app.plugins.if(app.isBuild, groupCssMediaQueries())) //! карта некорректна с этим модулем, поэтому только для прода
 			// .pipe(																											//! isWebp() в /js/modules/functions.js
 			// 	app.plugins.if(
 			// 		app.isBuild,
@@ -64,20 +64,20 @@ export const scss = () => {
 			)
 			.pipe(app.plugins.replace(/@img\//g, "../img/"))
 
-			// beautified css (prod)
+			// dev - non-minified with map
+			.pipe(app.plugins.if(app.isDev, app.gulp.dest(app.path.build.css)))
+
+			// prod - beautified
 			.pipe(app.plugins.if(app.isBuild, cleanCss({ level: { 1: { specialComments: 0 } }, format: "beautify" })))
 			.pipe(app.plugins.if(app.isBuild, app.gulp.dest(app.path.build.css)))
 
-			// minified css (prod)
-			.pipe(app.plugins.if(app.isBuild, cleanCss()))
+			// dev and prod - minified css
+			.pipe(cleanCss())
 			.pipe(
-				app.plugins.if(
-					app.isBuild,
-					rename({
-						suffix: ".min",
-						extname: ".css",
-					})
-				)
+				rename({
+					suffix: ".min",
+					extname: ".css",
+				})
 			)
 
 			.pipe(app.gulp.dest(app.path.build.css))
