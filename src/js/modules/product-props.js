@@ -111,39 +111,41 @@ export function productProps() {
 }
 
 export function productPropsHoverHandler() {
-	const catalogItems = document.querySelector(".catalog-items");
-	if (!catalogItems) return;
+	const catalogItems = document.querySelectorAll(".catalog-items, .product-carousel");
+	if (!catalogItems.length) return;
 
-	catalogItems.addEventListener("mouseover", (e) => {
-		const item = e.target.closest(".item");
-		if (!item) return;
-
-		item.addEventListener("mouseenter", () => {
-			const url = item.dataset.url,
-				details = item.querySelector(".item__details"),
-				skeleton = item.querySelector(".skeleton");
-
-			if (details.innerHTML.trim().length && !skeleton) return;
-
-			showSkeleton(details, "tpl-props");
-
-			(async () => {
-				try {
-					let response = await fetch(url);
-					if (!response.ok) {
+	catalogItems.forEach(block => {
+		block.addEventListener("mouseover", (e) => {
+			const item = e.target.closest(".item");
+			if (!item) return;
+	
+			item.addEventListener("mouseenter", () => {
+				const url = item.dataset.url,
+					details = item.querySelector(".item__details"),
+					skeleton = item.querySelector(".skeleton");
+	
+				if (details.innerHTML.trim().length && !skeleton) return;
+	
+				showSkeleton(details, "tpl-props");
+	
+				(async () => {
+					try {
+						let response = await fetch(url);
+						if (!response.ok) {
+							return;
+						}
+						let result = await response.text();
+						details.innerHTML = "";
+						details.innerHTML = result;
+						productPropsCollapseHandler(item);
+					} catch (e) {
+						console.log(e);
 						return;
 					}
-					let result = await response.text();
-					details.innerHTML = "";
-					details.innerHTML = result;
-					productPropsCollapseHandler(item);
-				} catch (e) {
-					console.log(e);
-					return;
-				}
-			})();
+				})();
+			});
 		});
-	});
+	})
 }
 
 function productPropsCollapseHandler(el) {
