@@ -23,6 +23,9 @@
 <link rel="stylesheet" href="css/block-ideas.css">
 <link rel="stylesheet" href="css/block-about.css">
 
+// карточка товара в каталоге и карусели (с показом свойств при наведении)
+<link rel="stylesheet" href="css/catalog-item.css">
+
 // разделы и подразделы каталога
 <link rel="stylesheet" href="css/catalog.css">
 
