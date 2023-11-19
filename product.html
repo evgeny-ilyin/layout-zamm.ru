@@ -6,26 +6,28 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231119005324">
-	<link rel="stylesheet" href="css/fonts.css?v=20231119005324">
-	<link rel="stylesheet" href="css/header.css?v=20231119005324">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231119005324">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231119155433">
+	<link rel="stylesheet" href="css/fonts.css?v=20231119155433">
+	<link rel="stylesheet" href="css/header.css?v=20231119155433">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231119155433">
 
-	<link rel="stylesheet" href="css/carousel-main.css?v=20231119005324">
-	<link rel="stylesheet" href="css/carousel-products.css?v=20231119005324">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231119005324">
-	<link rel="stylesheet" href="css/carousel-card-more-photos.css?v=20231119005324">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20231119155433">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20231119155433">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231119155433">
+	<link rel="stylesheet" href="css/carousel-card-more-photos.css?v=20231119155433">
 
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231119005324">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20231119005324">
-	<link rel="stylesheet" href="css/block-about.css?v=20231119005324">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231119155433">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231119155433">
+	<link rel="stylesheet" href="css/block-about.css?v=20231119155433">
 
-	<link rel="stylesheet" href="css/catalog.css?v=20231119005324">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231119005324">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20231119155433">
 
-	<link rel="stylesheet" href="css/product-card.css?v=20231119005324">
+	<link rel="stylesheet" href="css/catalog.css?v=20231119155433">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231119155433">
 
-	<link rel="stylesheet" href="css/footer.css?v=20231119005324">
+	<link rel="stylesheet" href="css/product-card.css?v=20231119155433">
+
+	<link rel="stylesheet" href="css/footer.css?v=20231119155433">
 	<title>Карточка товара</title>
 	<meta name="description" content="Карточка товара">
 </head>
@@ -1129,11 +1131,11 @@
 			<div class="block-header">Аксессуары к этому столу</div>
 			<div class="f-carousel product-carousel carousel-top-nav" data-carousel="carousel" data-options='{"Dots": false}'>
 				<div class="f-carousel__slide">
-					<div class="item">
+					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=11111">
 						<div class="item__wrapper">
 							<div class="item__content">
 								<div class="item__image-wrapper">
-									<div>
+									<div data-id="item-id-11111-top">
 										<div class="article">Артикул: L-11111</div>
 										<div class="labels">
 											<div class="label label_green">В наличии</div>
@@ -1141,7 +1143,7 @@
 									</div>
 
 									<!-- TODO Игорь: для первой картинки в галерее отключен loading="lazy" для лайтхауса: (Largest Contentful Paint image was lazily loaded) -->
-									<div>
+									<div data-id="item-id-11111-pics">
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
@@ -1175,7 +1177,7 @@
 									</div>
 								</div>
 
-								<div class="item__info">
+								<div data-id="item-id-11111-main" class="item__info">
 									<div class="item__title">
 										<a href="javascript:void(0)">Стол Экспо ТР</a>
 									</div>
@@ -1184,8 +1186,12 @@
 									</div>
 								</div>
 
-								<div class="item__more">
+								<div data-id="item-id-11111-more" class="item__more">
 									<div class="available _instock">Есть в наличии</div>
+								</div>
+
+								<div class="item__details">
+
 								</div>
 							</div>
 						</div>
@@ -1193,11 +1199,11 @@
 				</div>
 
 				<div class="f-carousel__slide">
-					<div class="item">
+					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=22222">
 						<div class="item__wrapper">
 							<div class="item__content">
 								<div class="item__image-wrapper">
-									<div>
+									<div data-id="item-id-22222-top">
 										<div class="article">Артикул: L-22222</div>
 										<div class="labels">
 											<div class="label label_red">-20%</div>
@@ -1205,7 +1211,7 @@
 										</div>
 									</div>
 
-									<div>
+									<div data-id="item-id-22222-pics">
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
@@ -1227,7 +1233,7 @@
 									</div>
 								</div>
 
-								<div class="item__info">
+								<div data-id="item-id-22222-main" class="item__info">
 									<div class="item__title">
 										<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
 									</div>
@@ -1237,8 +1243,12 @@
 									</div>
 								</div>
 
-								<div class="item__more">
+								<div data-id="item-id-22222-more" class="item__more">
 									<div class="available _delay">Доставим за 3 недели</div>
+								</div>
+
+								<div class="item__details">
+
 								</div>
 							</div>
 						</div>
@@ -1246,18 +1256,18 @@
 				</div>
 
 				<div class="f-carousel__slide">
-					<div class="item">
+					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=33333">
 						<div class="item__wrapper">
 							<div class="item__content">
 								<div class="item__image-wrapper">
-									<div>
+									<div data-id="item-id-33333-top">
 										<div class="article">Артикул: L-33333</div>
 										<div class="labels">
 											<div class="label label_green">В наличии</div>
 										</div>
 									</div>
 
-									<div>
+									<div data-id="item-id-33333-pics">
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
@@ -1287,7 +1297,7 @@
 									</div>
 								</div>
 
-								<div class="item__info">
+								<div data-id="item-id-33333-main" class="item__info">
 									<div class="item__title">
 										<a href="javascript:void(0)">Стол Экспо ТР</a>
 									</div>
@@ -1296,8 +1306,12 @@
 									</div>
 								</div>
 
-								<div class="item__more">
+								<div data-id="item-id-33333-more" class="item__more">
 									<div class="available _instock">Есть в наличии</div>
+								</div>
+
+								<div class="item__details">
+
 								</div>
 							</div>
 						</div>
@@ -1305,11 +1319,11 @@
 				</div>
 
 				<div class="f-carousel__slide">
-					<div class="item">
+					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=44444">
 						<div class="item__wrapper">
 							<div class="item__content">
 								<div class="item__image-wrapper">
-									<div>
+									<div data-id="item-id-44444-top">
 										<div class="article">Артикул: L-44444</div>
 										<div class="labels">
 											<div class="label label_red">-20%</div>
@@ -1317,7 +1331,7 @@
 										</div>
 									</div>
 
-									<div>
+									<div data-id="item-id-44444-pics">
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
@@ -1339,7 +1353,7 @@
 									</div>
 								</div>
 
-								<div class="item__info">
+								<div data-id="item-id-44444-main" class="item__info">
 									<div class="item__title">
 										<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
 									</div>
@@ -1349,8 +1363,12 @@
 									</div>
 								</div>
 
-								<div class="item__more">
+								<div data-id="item-id-44444-more" class="item__more">
 									<div class="available _delay">Доставим за 3 недели</div>
+								</div>
+
+								<div class="item__details">
+
 								</div>
 							</div>
 						</div>
@@ -1358,18 +1376,19 @@
 				</div>
 
 				<div class="f-carousel__slide">
-					<div class="item">
+					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=44444">
 						<div class="item__wrapper">
 							<div class="item__content">
 								<div class="item__image-wrapper">
-									<div>
-										<div class="article">Артикул: L-55555</div>
+									<div data-id="item-id-44444-top">
+										<div class="article">Артикул: L-44444</div>
 										<div class="labels">
-											<div class="label label_green">В наличии</div>
+											<div class="label label_red">-20%</div>
+											<div class="label label_yellow">Акция</div>
 										</div>
 									</div>
 
-									<div>
+									<div data-id="item-id-44444-pics">
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
@@ -1377,25 +1396,13 @@
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
 												<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 										</a>
 									</div>
 
-									<div class="fav is-active">
-										<a href="javascript:void(0)" class="js-fav" aria-label="В избранное" data-id="55555" data-url="https://deviart.ru/zamm/fetch-fav.php">
+									<div class="fav">
+										<a href="javascript:void(0)" class="js-fav" aria-label="В избранное" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -1403,17 +1410,22 @@
 									</div>
 								</div>
 
-								<div class="item__info">
+								<div data-id="item-id-44444-main" class="item__info">
 									<div class="item__title">
-										<a href="javascript:void(0)">Стол Экспо ТР</a>
+										<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
 									</div>
 									<div class="item__prices">
-										<div class="item__price">29 620 ₽</div>
+										<div class="item__price _discount">29 620 ₽</div>
+										<div class="item__oldprice">39 620 ₽</div>
 									</div>
 								</div>
 
-								<div class="item__more">
-									<div class="available _instock">Есть в наличии</div>
+								<div data-id="item-id-44444-more" class="item__more">
+									<div class="available _delay">Доставим за 3 недели</div>
+								</div>
+
+								<div class="item__details">
+
 								</div>
 							</div>
 						</div>
@@ -1422,15 +1434,16 @@
 			</div>
 		</div>
 
+
 		<div class="content carousel-overflow">
 			<div class="block-header">С этим столом часто покупают</div>
 			<div class="f-carousel product-carousel carousel-top-nav" data-carousel="carousel" data-options='{"Dots": false}'>
 				<div class="f-carousel__slide">
-					<div class="item">
+					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=11111">
 						<div class="item__wrapper">
 							<div class="item__content">
 								<div class="item__image-wrapper">
-									<div>
+									<div data-id="item-id-11111-top">
 										<div class="article">Артикул: L-11111</div>
 										<div class="labels">
 											<div class="label label_green">В наличии</div>
@@ -1438,7 +1451,7 @@
 									</div>
 
 									<!-- TODO Игорь: для первой картинки в галерее отключен loading="lazy" для лайтхауса: (Largest Contentful Paint image was lazily loaded) -->
-									<div>
+									<div data-id="item-id-11111-pics">
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
@@ -1472,7 +1485,7 @@
 									</div>
 								</div>
 
-								<div class="item__info">
+								<div data-id="item-id-11111-main" class="item__info">
 									<div class="item__title">
 										<a href="javascript:void(0)">Стол Экспо ТР</a>
 									</div>
@@ -1481,8 +1494,12 @@
 									</div>
 								</div>
 
-								<div class="item__more">
+								<div data-id="item-id-11111-more" class="item__more">
 									<div class="available _instock">Есть в наличии</div>
+								</div>
+
+								<div class="item__details">
+
 								</div>
 							</div>
 						</div>
@@ -1490,11 +1507,11 @@
 				</div>
 
 				<div class="f-carousel__slide">
-					<div class="item">
+					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=22222">
 						<div class="item__wrapper">
 							<div class="item__content">
 								<div class="item__image-wrapper">
-									<div>
+									<div data-id="item-id-22222-top">
 										<div class="article">Артикул: L-22222</div>
 										<div class="labels">
 											<div class="label label_red">-20%</div>
@@ -1502,7 +1519,7 @@
 										</div>
 									</div>
 
-									<div>
+									<div data-id="item-id-22222-pics">
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
@@ -1524,7 +1541,7 @@
 									</div>
 								</div>
 
-								<div class="item__info">
+								<div data-id="item-id-22222-main" class="item__info">
 									<div class="item__title">
 										<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
 									</div>
@@ -1534,8 +1551,12 @@
 									</div>
 								</div>
 
-								<div class="item__more">
+								<div data-id="item-id-22222-more" class="item__more">
 									<div class="available _delay">Доставим за 3 недели</div>
+								</div>
+
+								<div class="item__details">
+
 								</div>
 							</div>
 						</div>
@@ -1543,18 +1564,18 @@
 				</div>
 
 				<div class="f-carousel__slide">
-					<div class="item">
+					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=33333">
 						<div class="item__wrapper">
 							<div class="item__content">
 								<div class="item__image-wrapper">
-									<div>
+									<div data-id="item-id-33333-top">
 										<div class="article">Артикул: L-33333</div>
 										<div class="labels">
 											<div class="label label_green">В наличии</div>
 										</div>
 									</div>
 
-									<div>
+									<div data-id="item-id-33333-pics">
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
@@ -1584,7 +1605,7 @@
 									</div>
 								</div>
 
-								<div class="item__info">
+								<div data-id="item-id-33333-main" class="item__info">
 									<div class="item__title">
 										<a href="javascript:void(0)">Стол Экспо ТР</a>
 									</div>
@@ -1593,8 +1614,12 @@
 									</div>
 								</div>
 
-								<div class="item__more">
+								<div data-id="item-id-33333-more" class="item__more">
 									<div class="available _instock">Есть в наличии</div>
+								</div>
+
+								<div class="item__details">
+
 								</div>
 							</div>
 						</div>
@@ -1602,11 +1627,11 @@
 				</div>
 
 				<div class="f-carousel__slide">
-					<div class="item">
+					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=44444">
 						<div class="item__wrapper">
 							<div class="item__content">
 								<div class="item__image-wrapper">
-									<div>
+									<div data-id="item-id-44444-top">
 										<div class="article">Артикул: L-44444</div>
 										<div class="labels">
 											<div class="label label_red">-20%</div>
@@ -1614,7 +1639,7 @@
 										</div>
 									</div>
 
-									<div>
+									<div data-id="item-id-44444-pics">
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
@@ -1636,7 +1661,7 @@
 									</div>
 								</div>
 
-								<div class="item__info">
+								<div data-id="item-id-44444-main" class="item__info">
 									<div class="item__title">
 										<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
 									</div>
@@ -1646,8 +1671,12 @@
 									</div>
 								</div>
 
-								<div class="item__more">
+								<div data-id="item-id-44444-more" class="item__more">
 									<div class="available _delay">Доставим за 3 недели</div>
+								</div>
+
+								<div class="item__details">
+
 								</div>
 							</div>
 						</div>
@@ -1655,18 +1684,19 @@
 				</div>
 
 				<div class="f-carousel__slide">
-					<div class="item">
+					<div class="item" data-url="https://deviart.ru/zamm/fetch-prop-hover.php?pid=44444">
 						<div class="item__wrapper">
 							<div class="item__content">
 								<div class="item__image-wrapper">
-									<div>
-										<div class="article">Артикул: L-55555</div>
+									<div data-id="item-id-44444-top">
+										<div class="article">Артикул: L-44444</div>
 										<div class="labels">
-											<div class="label label_green">В наличии</div>
+											<div class="label label_red">-20%</div>
+											<div class="label label_yellow">Акция</div>
 										</div>
 									</div>
 
-									<div>
+									<div data-id="item-id-44444-pics">
 										<a href="javascript:void(0)" class="item__gallery-wrapper">
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
@@ -1674,25 +1704,13 @@
 											</div>
 											<div class="item__gallery-item">
 												<div class="item__gallery-nav"></div>
-												<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
 												<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-											</div>
-											<div class="item__gallery-item">
-												<div class="item__gallery-nav"></div>
-												<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
 											</div>
 										</a>
 									</div>
 
-									<div class="fav is-active">
-										<a href="javascript:void(0)" class="js-fav" aria-label="В избранное" data-id="55555" data-url="https://deviart.ru/zamm/fetch-fav.php">
+									<div class="fav">
+										<a href="javascript:void(0)" class="js-fav" aria-label="В избранное" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
 											<svg>
 												<use xlink:href="#fav"></use>
 											</svg>
@@ -1700,17 +1718,22 @@
 									</div>
 								</div>
 
-								<div class="item__info">
+								<div data-id="item-id-44444-main" class="item__info">
 									<div class="item__title">
-										<a href="javascript:void(0)">Стол Экспо ТР</a>
+										<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
 									</div>
 									<div class="item__prices">
-										<div class="item__price">29 620 ₽</div>
+										<div class="item__price _discount">29 620 ₽</div>
+										<div class="item__oldprice">39 620 ₽</div>
 									</div>
 								</div>
 
-								<div class="item__more">
-									<div class="available _instock">Есть в наличии</div>
+								<div data-id="item-id-44444-more" class="item__more">
+									<div class="available _delay">Доставим за 3 недели</div>
+								</div>
+
+								<div class="item__details">
+
 								</div>
 							</div>
 						</div>
@@ -1720,6 +1743,30 @@
 		</div>
 
 	</div>
+
+	<!-- TODO Игорь: шаблон tpl-props должен быть включен в DOM 1 раз для всех страниц, где есть показ свойств при наведении (карточки в каталоге и карусели) -->
+	<template id="tpl-props">
+		<div class="props skeleton">
+			<div class="prop s-grid">
+				<div class="s-t"></div>
+				<div class="s-t"></div>
+				<div class="s-t"></div>
+				<div class="s-t"></div>
+				<div class="s-t"></div>
+			</div>
+			<div class="prop">
+				<div class="s-t"></div>
+				<div class="s-b"></div>
+			</div>
+			<div class="prop">
+				<div class="s-t"></div>
+				<div class="s-b"></div>
+			</div>
+			<div class="props-buttons">
+				<div class="s-btn"></div>
+			</div>
+		</div>
+	</template>
 
 	<footer class="footer">
 		<div class="container">
@@ -1964,15 +2011,15 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231119005324"></script>
-	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20231119005324"></script>
-	<script src="js/carousel-init.js?v=20231119005324"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231119155433"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20231119155433"></script>
+	<script src="js/carousel-init.js?v=20231119155433"></script>
 
-	<script src="js/common.js?v=20231119005324"></script>
-	<script src="js/tabs.js?v=20231119005324"></script>
-	<script src="js/product-actions.js?v=20231119005324"></script>
-	<script src="js/product-props.js?v=20231119005324"></script>
-	<script src="js/product-card.js?v=20231119005324"></script>
+	<script src="js/common.js?v=20231119155433"></script>
+	<script src="js/tabs.js?v=20231119155433"></script>
+	<script src="js/product-actions.js?v=20231119155433"></script>
+	<script src="js/product-props.js?v=20231119155433"></script>
+	<script src="js/product-card.js?v=20231119155433"></script>
 
 </body>
 
