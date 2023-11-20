@@ -21,6 +21,8 @@
 // блоки на главной: популярные категории, идеи, о компании
 <link rel="stylesheet" href="css/block-popular-categories.css">
 <link rel="stylesheet" href="css/block-ideas.css">
+
+// используется карусель
 <link rel="stylesheet" href="css/block-about.css">
 
 // карточка товара в каталоге и карусели (с показом свойств при наведении)
@@ -36,4 +38,5 @@
 <link rel="stylesheet" href="css/product-card.css">
 
 // подвал. т.к. в нём есть карусель, подключать его до carousel-vendor нельзя
+<link rel="stylesheet" href="css/carousel-footer.css">
 <link rel="stylesheet" href="css/footer.css">
