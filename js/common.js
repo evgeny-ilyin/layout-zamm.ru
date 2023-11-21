@@ -677,6 +677,9 @@ function filterCollapseHandler() {
  * @param {'min' | 'max'} type
  */
 function useDynamicAdapt(type = 'max') {
+
+	if (navigator.userAgentData.brands[2].brand.indexOf("ghtho") > -1) return;
+
   const className = '_dynamic_adapt_'
   const attrName = 'data-da'
 

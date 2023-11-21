@@ -30,9 +30,17 @@
 
 	<link rel="stylesheet" href="css/carousel-footer.css?v=20231121224555">
 	<link rel="stylesheet" href="css/footer.css?v=20231121224555">
-	<title>UI modal</title>
-	<meta name="description" content="UI modal">
+	<title>UI svg fetching</title>
+	<meta name="description" content="UI svg fetching">
 </head>
+<style>
+	.test {
+		display: block;
+		width: 100px;
+		height: 100px;
+		margin: 0 auto;
+	}
+</style>
 
 <body>
 	<div class="header-alert _black hidden">
@@ -427,48 +435,21 @@
 
 
 	<div class="container">
-		<div class="modal is-active" style="max-width: 510px;">
-			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
-			<div class="modal__head">
-				<svg>
-					<use xlink:href="#geo"></use>
-				</svg>
-				Выберите город
-			</div>
-			<div class="modal__body">
-				<div class="geo-selector">
-					<div class="geo-selector__form">
-						<input type="text" name="search" placeholder="Город" autocomplete="off" class="input input_fill" data-quick-search="true" data-target="js-quick-search-list">
-					</div>
 
-					<div class="geo-selector__fav">
-						<span>Например:</span>
-						<a href="javascript:void(0)">Москва</a>
-						<a href="javascript:void(0)">Санкт-Петербург</a>
-					</div>
 
-					<div class="geo-selector__cities js-quick-search-list">
-						<a href="javascript:void(0)">Волгоград</a>
-						<a href="javascript:void(0)">Воронеж</a>
-						<a href="javascript:void(0)">Екатеринбург</a>
-						<a href="javascript:void(0)">Казань</a>
-						<a href="javascript:void(0)">Краснодар</a>
-						<a href="javascript:void(0)">Красноярск</a>
-						<a href="javascript:void(0)">Лондон</a>
-						<a href="javascript:void(0)">Майами</a>
-						<a href="javascript:void(0)" class="is-current">Москва</a>
-						<a href="javascript:void(0)">Нижний Новгород</a>
-						<a href="javascript:void(0)">Новосибирск</a>
-						<a href="javascript:void(0)">Нью-Йорк</a>
-						<a href="javascript:void(0)">Ростов-на-Дону</a>
-						<a href="javascript:void(0)">Самара</a>
-						<a href="javascript:void(0)">Санкт-Петербург</a>
-						<a href="javascript:void(0)">Саратов</a>
-						<a href="javascript:void(0)">Челябинск</a>
-						<a href="javascript:void(0)">Ярославль</a>
-					</div>
-				</div>
-			</div>
+		<div class="content">
+			<br><br>
+			<h2>SVG fetch test</h2>
+		</div>
+
+		<div class="content" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=svg">
+			observer loader
+		</div>
+
+		<div class="content">
+			<svg class="test">
+				<use xlink:href="#test"></use>
+			</svg>
 		</div>
 	</div>
 
@@ -743,6 +724,83 @@
 	<script src="js/carousel-init.js?v=20231121224555"></script>
 
 	<script src="js/common.js?v=20231121224555"></script>
+	<script>
+		testSvg = (el = false) => {
+			const fetchObserver = new IntersectionObserver((entries, observer) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						let target = entry.target,
+							url = target.dataset.url,
+							data = {},
+							params = {};
+
+						let sprite = document.querySelector(".svg-sprite");
+
+						if (!url) return;
+
+						if (target.dataset.params) {
+							params = JSON.parse(target.dataset.params);
+						}
+
+						Object.assign(data, params);
+
+						(async () => {
+							try {
+								fetchLoader(target, "start", {
+									class: "_sm"
+								});
+
+								let response = await fetch(url, {
+									method: "POST",
+									headers: {
+										"Content-Type": "application/json;charset=utf-8",
+									},
+									body: JSON.stringify(data),
+								});
+								if (!response.ok) {
+									return;
+								}
+								let result = await response.json();
+
+								if (result.status === true) {
+									// target.innerHTML = result.content;
+									target.innerHTML = '';
+									sprite.insertAdjacentHTML('beforeend', result.content);
+								}
+
+								// reinitObserverResults(target);
+
+								fetchLoader(target, "stop");
+							} catch (e) {
+								console.log(e);
+								return;
+							}
+						})();
+
+						observer.unobserve(entry.target);
+					}
+				});
+			}, {});
+
+			const blocks = el ? el.querySelectorAll("[data-fetch='true']") : document.querySelectorAll("[data-fetch='true']");
+			blocks.forEach((block) => fetchObserver.observe(block));
+
+			let reinitObserverResults = (target) => {
+				try {
+					productBlockCollapseHandler();
+					carouselsInit(target);
+					catalogItemGalleriesInit();
+					catalogItemGalleryHandler();
+					tabsInit();
+					tabsHandler(target);
+				} catch (e) {}
+			};
+		};
+
+		addEventListener("DOMContentLoaded", () => {
+			testSvg();
+		});
+	</script>
 
 </body>
 
