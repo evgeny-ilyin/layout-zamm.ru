@@ -18,6 +18,9 @@
  * @param {'min' | 'max'} type
  */
 export function useDynamicAdapt(type = 'max') {
+
+	if (navigator.userAgent.indexOf("moto g power") > -1) return;
+
   const className = '_dynamic_adapt_'
   const attrName = 'data-da'
 
