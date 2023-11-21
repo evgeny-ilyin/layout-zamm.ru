@@ -1,0 +1,121 @@
+@@include('html/head.html', {
+"title": "UI svg fetching"
+})
+<style>
+	.test	{display: block;width: 100px;height: 100px;margin: 0 auto;}
+</style>
+<body>
+	@@include('html/header.html', {})
+
+	<div class="container">
+
+
+		<div class="content">
+			<br><br>
+			<h2>SVG fetch test</h2>
+		</div>
+
+		<div class="content" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=svg">
+			observer loader
+		</div>
+
+		<div class="content">
+			<svg class="test">
+				<use xlink:href="#test"></use>
+			</svg>
+		</div>
+	</div>
+
+	@@include('html/footer.html', {
+	"year_from": 2020,
+	"year_to": 2023,
+	})
+
+	@@include('html/cookies.html', {})
+	@@include('html/svg-sprite.html', {})
+
+	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js"></script>
+	<script src="js/carousel-init.js"></script>
+
+	<script src="js/common.js"></script>
+	<script>
+
+		testSvg = (el = false) => {
+			const fetchObserver = new IntersectionObserver((entries, observer) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						let target = entry.target,
+							url = target.dataset.url,
+							data = {},
+							params = {};
+
+						let sprite = document.querySelector(".svg-sprite");
+
+						if (!url) return;
+
+						if (target.dataset.params) {
+							params = JSON.parse(target.dataset.params);
+						}
+
+						Object.assign(data, params);
+
+						(async () => {
+							try {
+								fetchLoader(target, "start", { class: "_sm" });
+
+								let response = await fetch(url, {
+									method: "POST",
+									headers: {
+										"Content-Type": "application/json;charset=utf-8",
+									},
+									body: JSON.stringify(data),
+								});
+								if (!response.ok) {
+									return;
+								}
+								let result = await response.json();
+
+								if (result.status === true) {
+									// target.innerHTML = result.content;
+									target.innerHTML = '';
+									sprite.insertAdjacentHTML('beforeend', result.content);
+								}
+
+								// reinitObserverResults(target);
+
+								fetchLoader(target, "stop");
+							} catch (e) {
+								console.log(e);
+								return;
+							}
+						})();
+
+						observer.unobserve(entry.target);
+					}
+				});
+			}, {});
+
+			const blocks = el ? el.querySelectorAll("[data-fetch='true']") : document.querySelectorAll("[data-fetch='true']");
+			blocks.forEach((block) => fetchObserver.observe(block));
+
+			let reinitObserverResults = (target) => {
+				try {
+					productBlockCollapseHandler();
+					carouselsInit(target);
+					catalogItemGalleriesInit();
+					catalogItemGalleryHandler();
+					tabsInit();
+					tabsHandler(target);
+				} catch (e) {}
+			};
+		};
+
+		addEventListener("DOMContentLoaded", () => {
+			testSvg();
+		});
+
+	</script>
+
+</body>
+</html>
