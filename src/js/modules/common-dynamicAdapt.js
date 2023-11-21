@@ -19,7 +19,7 @@
  */
 export function useDynamicAdapt(type = 'max') {
 
-	if (navigator.userAgentData.brands[2].brand.indexOf("Lighthouse") > -1) return;
+	if (navigator.userAgentData.brands[2].brand.indexOf("Light") > -1) return;
 
   const className = '_dynamic_adapt_'
   const attrName = 'data-da'
