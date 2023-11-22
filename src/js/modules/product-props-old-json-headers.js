@@ -18,14 +18,18 @@ if (!window.productProps) {
 				params = {},
 				url = prop.dataset.url;
 
+			let formDataObject = Object.fromEntries(formData.entries());
+
 			data = { name: prop.name, checked: true };
 
 			if (prop.dataset.params) {
-				params = {"params": JSON.parse(prop.dataset.params)};
+				params = JSON.parse(prop.dataset.params);
 			}
 
-			Object.assign(data, params);
-			formData.append("element", JSON.stringify(data));
+			Object.assign(data, params, formDataObject);
+
+			// data-id item-id-????-props not found (php):
+			// Object.assign(data, { element: { name: prop.name, checked: true, params: params} }, formDataObject);
 
 			// product list
 			if (item) {
@@ -35,7 +39,10 @@ if (!window.productProps) {
 
 						let response = await fetch(url, {
 							method: "POST",
-							body: formData,
+							headers: {
+								"Content-Type": "application/json;charset=utf-8",
+							},
+							body: JSON.stringify(data),
 						});
 						if (!response.ok) {
 							return;
@@ -64,7 +71,10 @@ if (!window.productProps) {
 						fetchLoader([card], "start");
 						let response = await fetch(url, {
 							method: "POST",
-							body: formData,
+							headers: {
+								"Content-Type": "application/json;charset=utf-8",
+							},
+							body: JSON.stringify(data),
 						});
 						if (!response.ok) {
 							return;
@@ -98,68 +108,6 @@ if (!window.productProps) {
 					}
 				});
 			};
-		});
-	};
-}
-
-if (!window.productPropsHoverHandler) {
-	window.productPropsHoverHandler = () => {
-		const catalogItems = document.querySelectorAll(".catalog-items, .product-carousel");
-		if (!catalogItems.length) return;
-
-		catalogItems.forEach((block) => {
-			block.addEventListener("mouseover", (e) => {
-				const item = e.target.closest(".item");
-				if (!item) return;
-
-				item.addEventListener("mouseenter", () => {
-					const url = item.dataset.url,
-						details = item.querySelector(".item__details"),
-						skeleton = item.querySelector(".skeleton");
-
-					if (details.innerHTML.trim().length && !skeleton) return;
-
-					showSkeleton(details, "tpl-props");
-
-					(async () => {
-						try {
-							let response = await fetch(url);
-							if (!response.ok) {
-								return;
-							}
-							let result = await response.text();
-							details.innerHTML = "";
-							details.innerHTML = result;
-							productPropsCollapseHandler(item);
-						} catch (e) {
-							console.log(e);
-							return;
-						}
-					})();
-				});
-			});
-		});
-	};
-}
-
-if (!window.productPropsCollapseHandler) {
-	window.productPropsCollapseHandler = (el) => {
-		if (!el) return;
-		const propsBtns = el.querySelectorAll(".js-prop-collapse"),
-			isOpenedClass = "is-opened";
-
-		propsBtns.forEach((btn) => {
-			let parent = btn.parentElement,
-				flag = parent.querySelector(`input[type="hidden"]`);
-
-			if (!parent.classList.contains(isOpenedClass) && !isPropOverflowX(parent)) {
-				btn.classList.add("hidden");
-			} else {
-				btn.addEventListener("click", () => {
-					parent.classList.toggle(isOpenedClass);
-					flag.value = flag.value == 1 ? 0 : 1;
-				});
-			}
 		});
 	};
 }
