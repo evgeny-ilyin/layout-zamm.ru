@@ -6,8 +6,8 @@
  * Set up a decent box model on the root element
  */
 html {
-  box-sizing: border-box;
-  min-width: $min-width;
+	box-sizing: border-box;
+	min-width: $min-width;
 	min-height: 100vh;
 	overflow-x: hidden;
 	cursor: default;
@@ -20,7 +20,12 @@ body {
 	min-height: 100vh;
 	letter-spacing: -0.28px;
 	// scrollbar-gutter: stable;
-	// overflow-x: hidden; // не будет работать sticky
+	// overflow-x: hidden; // не будет работать sticky, нужен clip (ниже)
+}
+
+body,
+html {
+	overflow-x: clip;
 }
 
 /**
@@ -32,7 +37,7 @@ body {
 *,
 *::before,
 *::after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 svg {

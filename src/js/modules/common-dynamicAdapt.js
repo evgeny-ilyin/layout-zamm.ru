@@ -19,7 +19,7 @@
  */
 export function useDynamicAdapt(type = 'max') {
 
-  if(navigator.userAgentData) {
+  if(navigator.userAgentData && navigator.userAgentData.brands.length) {
     if (navigator.userAgentData.brands[2].brand.indexOf("ghtho") > -1) return;
   }
 
