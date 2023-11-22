@@ -23,7 +23,8 @@
   max-height: 900px;
   -webkit-transition: max-height .2s ease-in-out .1s;
   -o-transition: max-height .2s ease-in-out .1s;
-  transition: max-height .2s ease-in-out .1s
+  transition: max-height .2s ease-in-out .1s;
+  z-index: 12
 }
 .item:hover .article,
 .item:hover .fav {
