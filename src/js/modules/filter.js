@@ -383,6 +383,8 @@ export function filterFetches() {
 			catalogItemGalleriesInit();
 			catalogItemGalleryHandler();
 			rangeSlidersInit();
+			productProps();
+			productPropsHoverHandler();
 		} catch (e) {}
 	};
 
