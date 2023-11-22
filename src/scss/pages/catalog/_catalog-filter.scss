@@ -1,11 +1,11 @@
 .filter {
 	max-width: 390px;
+	background: $white;
 
 	@include respond-to(xl, "max") {
 		position: fixed;
 		transform: translateX(100%);
 		transition: all $transition-default;
-		background: $white;
 		z-index: 12;
 		top: 0;
 		right: 0;
