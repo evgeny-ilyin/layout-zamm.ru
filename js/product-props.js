@@ -23,18 +23,14 @@ if (!window.productProps) {
 				params = {},
 				url = prop.dataset.url;
 
-			let formDataObject = Object.fromEntries(formData.entries());
-
 			data = { name: prop.name, checked: true };
 
 			if (prop.dataset.params) {
-				params = JSON.parse(prop.dataset.params);
+				params = {"params": JSON.parse(prop.dataset.params)};
 			}
 
-			Object.assign(data, params, formDataObject);
-
-			// data-id item-id-????-props not found (php):
-			// Object.assign(data, { element: { name: prop.name, checked: true, params: params} }, formDataObject);
+			Object.assign(data, params);
+			formData.append("element", JSON.stringify(data));
 
 			// product list
 			if (item) {
@@ -44,10 +40,7 @@ if (!window.productProps) {
 
 						let response = await fetch(url, {
 							method: "POST",
-							headers: {
-								"Content-Type": "application/json;charset=utf-8",
-							},
-							body: JSON.stringify(data),
+							body: formData,
 						});
 						if (!response.ok) {
 							return;
@@ -76,10 +69,7 @@ if (!window.productProps) {
 						fetchLoader([card], "start");
 						let response = await fetch(url, {
 							method: "POST",
-							headers: {
-								"Content-Type": "application/json;charset=utf-8",
-							},
-							body: JSON.stringify(data),
+							body: formData,
 						});
 						if (!response.ok) {
 							return;
