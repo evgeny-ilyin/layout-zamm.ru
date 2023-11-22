@@ -12,6 +12,7 @@
 		.item__details {
 			max-height: 900px;
 			transition: max-height 0.2s ease-in-out 0.1s;
+			z-index: 12;
 		}
 
 		.article,
