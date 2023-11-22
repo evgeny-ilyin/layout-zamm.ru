@@ -223,6 +223,10 @@ body {
   min-height: 100vh;
   letter-spacing: -.28px
 }
+body,
+html {
+  overflow-x: clip
+}
 *,
 ::after,
 ::before {
@@ -242,8 +246,7 @@ svg {
   padding: 0;
   -webkit-box-flex: 1;
   -ms-flex: 1;
-  flex: 1;
-  overflow-x: hidden
+  flex: 1
 }
 .container._gray {
   background: var(--gray)
