@@ -2939,18 +2939,13 @@ function filterFetches() {
 			formData = new FormData(filterForm),
 			url = filterForm.action;
 
-		let formDataObject = Object.fromEntries(formData.entries());
-
 		// loader start +++ filter @mobile
 		fetchLoader([itemsContainer, filterMobile], "start");
 
 		// step 1: get filter url based on filter selected
 		let response = await fetch(url, {
 			method: "POST",
-			headers: {
-				"Content-Type": "application/json;charset=utf-8",
-			},
-			body: JSON.stringify(formDataObject),
+			body: formData,
 		});
 
 		// break if new url not recieved

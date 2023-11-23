@@ -26,7 +26,7 @@ if (!window.productProps) {
 			data = { name: prop.name, checked: true };
 
 			if (prop.dataset.params) {
-				params = {"params": JSON.parse(prop.dataset.params)};
+				params = { params: JSON.parse(prop.dataset.params) };
 			}
 
 			Object.assign(data, params);
@@ -118,6 +118,9 @@ if (!window.productPropsHoverHandler) {
 				if (!item) return;
 
 				item.addEventListener("mouseenter", () => {
+					const isMobile = mobileCheck("1280");
+					if (isMobile) return;
+
 					const url = item.dataset.url,
 						details = item.querySelector(".item__details"),
 						skeleton = item.querySelector(".skeleton");

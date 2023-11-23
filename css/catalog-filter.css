@@ -282,7 +282,8 @@
   right: 28px
 }
 .filter {
-  max-width: 390px
+  max-width: 390px;
+  background: var(--white)
 }
 .filter__head {
   display: -webkit-box;
@@ -588,7 +589,6 @@
     -webkit-transition: all .25s ease-in-out;
     -o-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
-    background: var(--white);
     z-index: 12;
     top: 0;
     right: 0;
