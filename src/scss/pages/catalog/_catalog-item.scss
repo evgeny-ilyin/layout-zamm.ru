@@ -6,8 +6,8 @@
 	border-radius: 6px;
 	transition: background $transition-default;
 
-	@include respond-to(xl) {
-		@include on-hover {
+	@include on-hover {
+		@include when-inside("body:not(.is-touch)") {
 			background: $gray-light;
 
 			.item__details {
@@ -72,7 +72,8 @@
 		border-radius: 4px;
 		z-index: 2;
 
-		@include respond-to(lg) {
+		// @include respond-to(lg) {
+		@include when-inside("body:not(.is-touch)") {
 			padding: 0 8px;
 		}
 	}
@@ -82,7 +83,8 @@
 		flex-grow: 1;
 		margin-bottom: -8px;
 
-		@include respond-to(lg, "max") {
+		// @include respond-to(lg, "max") {
+		@include when-inside("body.is-touch") {
 			&:not(:first-child) {
 				display: none;
 			}
@@ -134,7 +136,8 @@
 		position: relative;
 		height: 100%;
 
-		@include respond-to(lg) {
+		// @include respond-to(lg) {
+		@include when-inside("body:not(.is-touch)") {
 			margin: 0 3px 0 0;
 		}
 
@@ -150,11 +153,12 @@
 			right: 0;
 			bottom: 0;
 
-			@include respond-to(lg) {
-				@include when-inside(".is-active") {
+			// @include respond-to(lg) {
+
+				@include when-inside("body:not(.is-touch) .is-active") {
 					background: $black;
 				}
-			}
+
 		}
 	}
 
@@ -225,13 +229,13 @@
 
 	.article,
 	.fav {
-		opacity: 1;
+		opacity: 0;
 		transition: opacity $transition-default;
 		position: absolute;
 		z-index: 5;
 
-		@include respond-to(xl) {
-			opacity: 0;
+		@include when-inside(".is-touch") {
+			opacity: 1;
 		}
 	}
 

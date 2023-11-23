@@ -349,8 +349,8 @@ export function accordionFooter() {
 				timeout = setTimeout(function () {
 					// Reset timeout
 					timeout = null;
-					const isMobile = mobileCheck("767");
-					isMobile ? accordionBuildFooter() : accordionDestroyFooter();
+					const media = mediaMatch("767");
+					media ? accordionBuildFooter() : accordionDestroyFooter();
 				}, 200);
 			}
 		})

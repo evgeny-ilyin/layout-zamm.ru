@@ -4,6 +4,7 @@ import { useDynamicAdapt } from "./modules/common-dynamicAdapt.js";
 import "./modules/common-cookies.js";
 
 addEventListener("DOMContentLoaded", () => {
+	isTouchDevice();
 	catalogItemGalleriesInit();
 	catalogItemGalleryHandler();
 	useDynamicAdapt();
