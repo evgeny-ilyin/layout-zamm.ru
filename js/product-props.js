@@ -109,18 +109,15 @@ if (!window.productProps) {
 
 if (!window.productPropsHoverHandler) {
 	window.productPropsHoverHandler = () => {
-		const catalogItems = document.querySelectorAll(".catalog-items, .product-carousel");
+		const catalogItems = document.querySelectorAll(".catalog-items, .product-carousel")
 		if (!catalogItems.length) return;
 
 		catalogItems.forEach((block) => {
 			block.addEventListener("mouseover", (e) => {
 				const item = e.target.closest(".item");
-				if (!item) return;
+				if (!item || document.body.classList.contains("is-touch")) return;
 
 				item.addEventListener("mouseenter", () => {
-					const isMobile = mobileCheck("1280");
-					if (isMobile) return;
-
 					const url = item.dataset.url,
 						details = item.querySelector(".item__details"),
 						skeleton = item.querySelector(".skeleton");
