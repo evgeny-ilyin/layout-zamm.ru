@@ -155,10 +155,9 @@
 
 			// @include respond-to(lg) {
 
-				@include when-inside("body:not(.is-touch) .is-active") {
-					background: $black;
-				}
-
+			@include when-inside("body:not(.is-touch) .is-active") {
+				background: $black;
+			}
 		}
 	}
 

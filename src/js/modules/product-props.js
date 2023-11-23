@@ -104,7 +104,7 @@ if (!window.productProps) {
 
 if (!window.productPropsHoverHandler) {
 	window.productPropsHoverHandler = () => {
-		const catalogItems = document.querySelectorAll(".catalog-items, .product-carousel")
+		const catalogItems = document.querySelectorAll(".catalog-items, .product-carousel");
 		if (!catalogItems.length) return;
 
 		catalogItems.forEach((block) => {
