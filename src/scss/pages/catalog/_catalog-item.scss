@@ -6,18 +6,20 @@
 	border-radius: 6px;
 	transition: background $transition-default;
 
-	@include on-hover {
-		background: $gray-light;
+	@include respond-to(xl) {
+		@include on-hover {
+			background: $gray-light;
 
-		.item__details {
-			max-height: 900px;
-			transition: max-height 0.2s ease-in-out 0.1s;
-			z-index: 12;
-		}
+			.item__details {
+				max-height: 900px;
+				transition: max-height 0.2s ease-in-out 0.1s;
+				z-index: 12;
+			}
 
-		.article,
-		.fav {
-			opacity: 1;
+			.article,
+			.fav {
+				opacity: 1;
+			}
 		}
 	}
 
@@ -223,10 +225,14 @@
 
 	.article,
 	.fav {
-		opacity: 0;
+		opacity: 1;
 		transition: opacity $transition-default;
 		position: absolute;
 		z-index: 5;
+
+		@include respond-to(xl) {
+			opacity: 0;
+		}
 	}
 
 	.label {

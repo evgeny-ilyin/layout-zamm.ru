@@ -1,9 +1,15 @@
 <?
+// print_r($_POST);
+// return;
+
 try {
 
-	$json = file_get_contents('php://input');
-	$data = json_decode($json, true);
+	// $json = file_get_contents('php://input');
+	// $data = json_decode($json, true);
 	$rand = mt_rand(1192335, 9999999);
+
+	// post
+	$data = $_POST;
 
 	if ($data) {
 		// если первый шаг (отправлена форма)
@@ -38,7 +44,6 @@ try {
 			$chunks['filter-body'] = $filterBody;
 			$chunks['filter-products'] = $filterItems;
 			$chunks['catalog-bottom'] = '';
-
 		} else {
 			$filterBody = file_get_contents('template-filter-body.html');
 			$filterItems = file_get_contents('template-filter-products.html');
