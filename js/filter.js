@@ -2939,6 +2939,8 @@ function filterFetches() {
 			formData = new FormData(filterForm),
 			url = filterForm.action;
 
+		formData.append("ajax", "Y");
+
 		// loader start +++ filter @mobile
 		fetchLoader([itemsContainer, filterMobile], "start");
 

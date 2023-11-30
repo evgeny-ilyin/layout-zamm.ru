@@ -109,7 +109,7 @@ if (!window.productProps) {
 
 if (!window.productPropsHoverHandler) {
 	window.productPropsHoverHandler = () => {
-		const catalogItems = document.querySelectorAll(".catalog-items, .product-carousel")
+		const catalogItems = document.querySelectorAll(".catalog-items, .product-carousel");
 		if (!catalogItems.length) return;
 
 		catalogItems.forEach((block) => {
@@ -122,8 +122,8 @@ if (!window.productPropsHoverHandler) {
 						details = item.querySelector(".item__details"),
 						skeleton = item.querySelector(".skeleton");
 
-					if (details.innerHTML.trim().length && !skeleton) return;
-
+					if ((details.innerHTML.trim().length && !skeleton) || item.classList.contains("loading")) return;
+					item.classList.add("loading");
 					showSkeleton(details, "tpl-props");
 
 					(async () => {
@@ -135,6 +135,7 @@ if (!window.productPropsHoverHandler) {
 							let result = await response.text();
 							details.innerHTML = "";
 							details.innerHTML = result;
+							item.classList.remove("loading");
 							productPropsCollapseHandler(item);
 						} catch (e) {
 							console.log(e);

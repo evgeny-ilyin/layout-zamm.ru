@@ -32,8 +32,8 @@
 
 	<link rel="stylesheet" href="css/carousel-footer.css?v=20231130090727">
 	<link rel="stylesheet" href="css/footer.css?v=20231130090727">
-	<title>UI modal</title>
-	<meta name="description" content="UI modal">
+	<title>Корзина</title>
+	<meta name="description" content="Корзина">
 </head>
 
 <body>
@@ -429,48 +429,55 @@
 
 
 	<div class="container">
-		<div class="modal is-active" style="max-width: 510px;">
-			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
-			<div class="modal__head">
-				<svg>
-					<use xlink:href="#geo"></use>
-				</svg>
-				Выберите город
-			</div>
-			<div class="modal__body">
-				<div class="geo-selector">
-					<div class="geo-selector__form">
-						<input type="text" name="search" placeholder="Город" autocomplete="off" class="input input_fill" data-quick-search="true" data-target="js-quick-search-list">
+		<div class="content content_columns order">
+			<div class="order__main">
+				<div class="h3">Оформление заказа</div>
+				<div class="order-item">
+					<div class="order-item__body">
+						<div class="order-item__text">
+							<div class="order-item__name">Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный</div>
+							<div class="order-item__props">
+								<ul>
+									<li>Столешница: <span><img src="" width="12" height="12" alt="Дуб Бардлино">Дуб Бардлино</span></li>
+									<li>Металокаркас: <span><img src="" width="12" height="12" alt="Чёрный муар">Чёрный муар</span></li>
+									<li>Размеры: <span>540х800х1200</span></li>
+								</ul>
+							</div>
+							<div class="order-item__props">
+								<ul>
+									<li>Артикул: <span>#123456789</span></li>
+									<li>Основание стола: <span>Металлокаркас Зета PRO с сечением профиля 60х30</span></li>
+									<li>Столешница: <span>ЛДСП EGGER (Австрия) с защитной кромкой 2 мм по периметру столешницы</span></li>
+									<li>Толщина столешницы: <span>25 мм (2,5 см)</span></li>
+									<li>Аксессуары: <span>Без аксессуаров</span></li>
+									<li>Цвета металлических деталей: <span>Цвет основания стола: Черный муар (RAL 9005) (05)</span></li>
+									<li>Цвета деталей ЛДСП: <span>Цвет столешницы: Дуб Бардолино (H1145 ST10) (CC 25)</span></li>
+								</ul>
+							</div>
+							<div class="order-item__descr">
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam sunt expedita eaque aperiam voluptates provident nostrum corporis aliquam commodi nam, dolorum soluta facere ipsum repellat in voluptatum enim omnis numquam.
+							</div>
+						</div>
+						<div class="order-item__img">
+							<img src="" width="168" height="168" alt="Стол Ирис ТР 2 ящика (Тип 4) с проп-ми, кабель-кан., под. сист. блока Дуб Галифакс/Черный">
+						</div>
 					</div>
-
-					<div class="geo-selector__fav">
-						<span>Например:</span>
-						<a href="javascript:void(0)">Москва</a>
-						<a href="javascript:void(0)">Санкт-Петербург</a>
-					</div>
-
-					<div class="geo-selector__cities js-quick-search-list">
-						<a href="javascript:void(0)">Волгоград</a>
-						<a href="javascript:void(0)">Воронеж</a>
-						<a href="javascript:void(0)">Екатеринбург</a>
-						<a href="javascript:void(0)">Казань</a>
-						<a href="javascript:void(0)">Краснодар</a>
-						<a href="javascript:void(0)">Красноярск</a>
-						<a href="javascript:void(0)">Лондон</a>
-						<a href="javascript:void(0)">Майами</a>
-						<a href="javascript:void(0)" class="is-current">Москва</a>
-						<a href="javascript:void(0)">Нижний Новгород</a>
-						<a href="javascript:void(0)">Новосибирск</a>
-						<a href="javascript:void(0)">Нью-Йорк</a>
-						<a href="javascript:void(0)">Ростов-на-Дону</a>
-						<a href="javascript:void(0)">Самара</a>
-						<a href="javascript:void(0)">Санкт-Петербург</a>
-						<a href="javascript:void(0)">Саратов</a>
-						<a href="javascript:void(0)">Челябинск</a>
-						<a href="javascript:void(0)">Ярославль</a>
+					<div class="order-item__bottom">
+						<div class="order-item__actions">
+							<div class="amount-element">
+								<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
+								<input type="number" name="amount" readonly="" min="1" max="20" step="1" value="1" aria-label="Количество">
+								<button type="button" class="js-btn-plus" aria-label="Больше"></button>
+							</div>
+						</div>
+						<div class="order-item__prices">
+							<div class="order-item__price">1 234 ₽/компл.</div>
+							<div class="order-item__oldprice">2 000 ₽</div>
+						</div>
 					</div>
 				</div>
 			</div>
+			<div class="order__sidebar"></div>
 		</div>
 	</div>
 
@@ -740,8 +747,8 @@
 		</symbol>
 	</svg>
 
+
 	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231130090727"></script>
-	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20231130090727"></script>
 	<script src="js/carousel-init.js?v=20231130090727"></script>
 
 	<script src="js/common.js?v=20231130090727"></script>

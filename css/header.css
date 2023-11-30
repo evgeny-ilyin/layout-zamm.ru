@@ -454,7 +454,7 @@ ol {
   content: "";
   display: block;
   position: fixed;
-  z-index: 11;
+  z-index: 12;
   top: 0;
   left: 0;
   width: 100vw;
@@ -478,7 +478,8 @@ ol {
 }
 .header-alert {
   font-size: .8125rem;
-  padding: 12px 0
+  padding: 12px 0;
+  z-index: 12
 }
 .header-alert._black {
   color: var(--white);
