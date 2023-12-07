@@ -41,6 +41,10 @@ if (!window.blockObserver) {
 								target.innerHTML = result.content;
 							}
 
+							if (result.svg) {
+								addToSvgSprite(result.svg);
+							}
+
 							reinitObserverResults(target);
 
 							fetchLoader(target, "stop");

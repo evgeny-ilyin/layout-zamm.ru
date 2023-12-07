@@ -13,7 +13,7 @@ if (!window.productProps) {
 			const prop = e.target,
 				item = prop.closest(".item"),
 				details = prop.closest(".item__details"),
-				card = prop.closest(".product__options"),
+				card = prop.closest(".product"),
 				form = prop.closest("form");
 
 			if (!form) return;
@@ -78,6 +78,9 @@ if (!window.productProps) {
 						if (result.status === true) {
 							update(result, card);
 						}
+
+						tabsInit();
+						carouselsInit();
 
 						if (result.url) {
 							setWindowLocation(result.url);

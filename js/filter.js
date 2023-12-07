@@ -2939,7 +2939,13 @@ function filterFetches() {
 			formData = new FormData(filterForm),
 			url = filterForm.action;
 
-		formData.append("ajax", "Y");
+		let ranges = filterForm.querySelectorAll(".input-min, .input-max");
+
+		ranges.forEach((el) => {
+			if(el.value.replace(/[^0-9]+/g, "") == el.dataset.default) {
+				formData.delete(el.name);
+			}
+		});
 
 		// loader start +++ filter @mobile
 		fetchLoader([itemsContainer, filterMobile], "start");
@@ -2965,7 +2971,12 @@ function filterFetches() {
 		setWindowLocation(result.url);
 
 		// step 2: get page chunks
-		response = await fetch(result.url);
+		let postData = new FormData();
+		postData.append("trigger", "filterGetInfo");
+		response = await fetch(result.url, {
+			method: "POST",
+			body: postData,
+		});
 		result = await response.json();
 
 		// step 3: update page chunks
@@ -2987,15 +2998,26 @@ function filterFetches() {
 	let fetchByUrl = async (obj) => {
 		if (!obj) return;
 
-		let amp = filterForm.action.includes("?") ? "&" : "?",
-			query = amp + new URLSearchParams(obj).toString(),
-			url = filterForm.action + query;
+		// let amp = filterForm.action.includes("?") ? "&" : "?",
+		// 	query = amp + new URLSearchParams(obj).toString(),
+		// 	url = filterForm.action + query;
 
-		// TODO loader start +++ filter @mobile
+		let url = filterForm.action;
+
 		fetchLoader(itemsContainer, "start");
 
 		// step 1: fetch get
-		let response = await fetch(url);
+		let postData = new FormData();
+		postData.append("trigger", "sort");
+
+		Object.keys(obj).forEach((key) => {
+			postData.append(key, obj[key]);
+		});
+
+		let response = await fetch(url, {
+			method: "POST",
+			body: postData,
+		});
 		let result = await response.json();
 
 		// step 2: update page chunks

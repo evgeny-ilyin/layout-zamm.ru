@@ -54,7 +54,7 @@ function productAllPhotosShow() {
 	});
 
 	window.addEventListener("resize", () => {
-		const galleryBtn = document.querySelector(`.js-product-gallery`);
+		const galleryBtn = document.querySelector('.js-product-gallery');
 		if (!galleryBtn) return;
 		const galleryShow = galleryBtn.dataset.target,
 			target = document.querySelector(`.${galleryShow}`),

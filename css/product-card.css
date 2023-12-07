@@ -867,6 +867,22 @@
   -ms-flex-align: center;
   align-items: center
 }
+.amount-element._white {
+  background: var(--white)
+}
+.amount-element._white button,
+.amount-element._white input[type=number] {
+  background: var(--white)
+}
+.amount-element._lg {
+  width: 117px;
+  -ms-flex-pack: distribute;
+  justify-content: space-around
+}
+.amount-element._lg button {
+  height: 40px;
+  opacity: .6
+}
 .amount-element input[type=number] {
   cursor: default;
   background: var(--gray);

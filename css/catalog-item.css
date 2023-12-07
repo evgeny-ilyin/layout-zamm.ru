@@ -239,8 +239,8 @@ body:not(.is-touch) .is-active .item__gallery-nav::before {
   padding-left: 12px;
   padding-right: 12px
 }
-.item__buttons .btn:nth-child(1) {
-  margin-right: 12px
+.item__buttons .btn:nth-child(2) {
+  margin-left: 12px
 }
 .prop-showroom {
   line-height: 1.6
