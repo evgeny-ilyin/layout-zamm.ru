@@ -161,14 +161,16 @@
 							<div class="rangeslider__wrapper">
 								<div class="rangeslider__inputs">
 									<div>
-										<label for="input-min">от</label>
-										<input type="text" class="input-min" id="input-min" name="arrFilter_141_MIN" value="10 000" readonly />
-										<!-- value по умолчанию заполнять крайними значениями диапазона (форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+										<label for="arrFilter_141_MIN">от</label>
+										<input type="text" class="input-min" id="arrFilter_141_MIN" name="arrFilter_141_MIN" data-default="10000" readonly />
+										<!--! не нужно !  value="10 000"  value по умолчанию заполнять крайними значениями диапазона (форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+										<!-- data-default заполняется так же, как data-min / data-max и используется для сравнения со значением из фильтра при сабмите формы. если значения совпадают - поле из формы удаляется, чтобы в битровый урл не попадали ненужные дефолтные значения -->
 									</div>
 									<div>
-										<label for="input-max">до</label>
-										<input type="text" class="input-max" id="input-max" name="arrFilter_142_MAX" value="100 500" readonly />
-										<!-- value по умолчанию заполнять крайними значениями диапазона (форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+										<label for="arrFilter_142_MAX">до</label>
+										<input type="text" class="input-max" id="arrFilter_142_MAX" name="arrFilter_142_MAX" data-default="100500" readonly />
+										<!--! не нужно !  value="100 500"  value по умолчанию заполнять крайними значениями диапазона(форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+										<!-- data-default заполняется так же, как data-min / data-max и используется для сравнения со значением из фильтра при сабмите формы. если значения совпадают - поле из формы удаляется, чтобы в битровый урл не попадали ненужные дефолтные значения -->
 									</div>
 								</div>
 								<div data-range="rangeslider" data-min="10000" data-max="100500" data-from="10000" data-to="100500" data-step="1000"></div>

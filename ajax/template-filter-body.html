@@ -4,14 +4,16 @@
 		<div class="rangeslider__wrapper">
 			<div class="rangeslider__inputs">
 				<div>
-					<label for="input-min">от</label>
-					<input type="text" class="input-min" id="input-min" name="arrFilter_141_MIN" value="15 000" readonly />
-					<!-- value по умолчанию заполнять крайними значениями диапазона (форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+					<label for="arrFilter_141_MIN">от</label>
+					<input type="text" class="input-min" id="arrFilter_141_MIN" name="arrFilter_141_MIN" data-default="15000" readonly />
+					<!--! не нужно !  value="15 000"  value по умолчанию заполнять крайними значениями диапазона (форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+					<!-- data-default заполняется так же, как data-min / data-max и используется для сравнения со значением из фильтра при сабмите формы. если значения совпадают - поле из формы удаляется, чтобы в битровый урл не попадали ненужные дефолтные значения -->
 				</div>
 				<div>
-					<label for="input-max">до</label>
-					<input type="text" class="input-max" id="input-max" name="arrFilter_142_MAX" value="90 000" readonly />
-					<!-- value по умолчанию заполнять крайними значениями диапазона(форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+					<label for="arrFilter_142_MAX">до</label>
+					<input type="text" class="input-max" id="arrFilter_142_MAX" name="arrFilter_142_MAX" data-default="90000" readonly />
+					<!--! не нужно !  value="90 000"  value по умолчанию заполнять крайними значениями диапазона(форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+					<!-- data-default заполняется так же, как data-min / data-max и используется для сравнения со значением из фильтра при сабмите формы. если значения совпадают - поле из формы удаляется, чтобы в битровый урл не попадали ненужные дефолтные значения -->
 				</div>
 			</div>
 			<div data-range="rangeslider" data-min="15000" data-max="90000" data-from="25000" data-to="60000" data-step="1000" data-name="group-price"></div>
