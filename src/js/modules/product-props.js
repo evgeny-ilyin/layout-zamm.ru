@@ -8,7 +8,7 @@ if (!window.productProps) {
 			const prop = e.target,
 				item = prop.closest(".item"),
 				details = prop.closest(".item__details"),
-				card = prop.closest(".product__options"),
+				card = prop.closest(".product"),
 				form = prop.closest("form");
 
 			if (!form) return;
@@ -74,6 +74,9 @@ if (!window.productProps) {
 							update(result, card);
 						}
 
+						tabsInit();
+						carouselsInit();
+
 						if (result.url) {
 							setWindowLocation(result.url);
 						}
@@ -117,8 +120,8 @@ if (!window.productPropsHoverHandler) {
 						details = item.querySelector(".item__details"),
 						skeleton = item.querySelector(".skeleton");
 
-					if (details.innerHTML.trim().length && !skeleton) return;
-
+					if ((details.innerHTML.trim().length && !skeleton) || item.classList.contains("loading")) return;
+					item.classList.add("loading");
 					showSkeleton(details, "tpl-props");
 
 					(async () => {
@@ -130,6 +133,7 @@ if (!window.productPropsHoverHandler) {
 							let result = await response.text();
 							details.innerHTML = "";
 							details.innerHTML = result;
+							item.classList.remove("loading");
 							productPropsCollapseHandler(item);
 						} catch (e) {
 							console.log(e);
