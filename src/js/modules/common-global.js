@@ -252,3 +252,36 @@ if (!window.isPropOverflowX) {
 		return el ? el.scrollWidth > el.clientWidth : false;
 	};
 }
+
+if (!window.addToSvgSprite) {
+	window.addToSvgSprite = (svg) => {
+		let sprite = document.querySelector(".svg-sprite");
+		if (!sprite) return;
+		sprite.insertAdjacentHTML('beforeend', svg);
+	};
+}
+
+if (!window.getContent) {
+	window.getContent = async (url) => {
+		if (!url) return;
+
+		try {
+			let response = await fetch(url);
+			if (!response.ok) {
+				return;
+			}
+
+			let result = await response.json();
+			if (result.status === true) {
+				return result.content;
+			} else {
+				console.log(`Error: ${JSON.stringify(result)}`);
+			}
+		} catch (e) {
+			console.log(e);
+			return;
+		}
+	};
+}
+
+

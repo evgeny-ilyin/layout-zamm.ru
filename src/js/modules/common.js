@@ -115,6 +115,9 @@ export function modalHandler() {
 			if (result.status === true) {
 				const key = getRandomStr(8);
 				setModalContent(result.content, width, origin, key);
+				if (result.svg) {
+					addToSvgSprite(result.svg);
+				}
 			} else {
 				console.log(`Error: ${JSON.stringify(result)}`);
 			}
@@ -378,46 +381,4 @@ export function dropdownClose() {
 			}
 		});
 	});
-}
-
-export function filterCollapseHandler() {
-	const isCollapsedClass = "is-collapsed";
-
-	document.addEventListener("click", (e) => {
-		const trigger = e.target.closest(".js-collapse");
-		if (!trigger) return;
-
-		const isCollapsed = trigger.classList.contains(isCollapsedClass);
-
-		if (isCollapsed) {
-			expandSection(trigger);
-			trigger.classList.remove(isCollapsedClass);
-		} else {
-			collapseSection(trigger);
-		}
-	});
-
-	let collapseSection = (trigger) => {
-		const section = trigger.nextElementSibling,
-			sectionH = section.scrollHeight,
-			elTransition = section.style.transition,
-			isCollapsedClass = "is-collapsed";
-		section.style.transition = "";
-		requestAnimationFrame(function () {
-			section.style.height = sectionH + "px";
-			section.style.transition = elTransition;
-			requestAnimationFrame(function () {
-				section.style.height = 0 + "px";
-				trigger.classList.add(isCollapsedClass);
-			});
-		});
-	};
-
-	let expandSection = (trigger) => {
-		const section = trigger.nextElementSibling,
-			sectionH = section.scrollHeight,
-			isCollapsedClass = "is-collapsed";
-		section.style.height = sectionH + "px";
-		trigger.classList.remove(isCollapsedClass);
-	};
 }

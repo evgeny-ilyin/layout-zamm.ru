@@ -7,6 +7,7 @@ try {
 	switch ($_REQUEST['block']) {
 		case 'reviews':
 			$content = file_get_contents('template-observer-reviews.html');
+			$svg = file_get_contents('template-observer-svg.html');
 			break;
 		case 'features':
 			$content = file_get_contents('template-observer-features.html');
@@ -23,9 +24,9 @@ try {
 		case 'photos':
 			$content = file_get_contents('template-observer-photos.html');
 			break;
-		case 'gallery':
-			$content = file_get_contents('template-observer-gallery.html');
-			break;
+		// case 'gallery':
+		// 	$content = file_get_contents('template-observer-gallery.html');
+		// 	break;
 		case 'ideas':
 			$content = file_get_contents('template-observer-ideas.html');
 			break;
@@ -38,7 +39,7 @@ try {
 			break;
 	}
 
-	$resp = array('status' => true, 'content' => $content);
+	$resp = array('status' => true, 'content' => $content, 'svg' => $svg);
 
 	header('Content-Type: application/json; charset=UTF-8');
 	header('HTTP/1.1 200');

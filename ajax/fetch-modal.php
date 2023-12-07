@@ -47,6 +47,7 @@ try {
 					</div>
 				</div>
 			</div>';
+			$svg = file_get_contents('template-observer-svg.html');
 			break;
 		
 		default:
@@ -54,7 +55,7 @@ try {
 			break;
 	}
 
-	$resp = array('status' => true, 'content' => $content);
+	$resp = array('status' => true, 'content' => $content, 'svg' => $svg);
 
 	header('Content-Type: application/json; charset=UTF-8');
 	header('HTTP/1.1 200');
