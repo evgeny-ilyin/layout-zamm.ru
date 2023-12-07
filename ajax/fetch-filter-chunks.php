@@ -11,7 +11,7 @@ try {
 	// post
 	$data = $_POST;
 
-	if ($data) {
+	if ($data && !$data['trigger']) {
 		// если первый шаг (отправлена форма)
 		// или если сброс формы
 		usleep(0);
