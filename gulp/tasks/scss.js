@@ -71,13 +71,16 @@ export const scss = () => {
 			.pipe(app.plugins.if(app.isBuild, cleanCss({ level: { 1: { specialComments: 0 } }, format: "beautify" })))
 			.pipe(app.plugins.if(app.isBuild, app.gulp.dest(app.path.build.css)))
 
-			// dev and prod - minified css
-			.pipe(cleanCss())
+			// prod - minified
+			.pipe(app.plugins.if(app.isBuild, cleanCss()))
 			.pipe(
-				rename({
-					suffix: ".min",
-					extname: ".css",
-				})
+				app.plugins.if(
+					app.isBuild,
+					rename({
+						suffix: ".min",
+						extname: ".css",
+					})
+				)
 			)
 
 			.pipe(app.gulp.dest(app.path.build.css))
