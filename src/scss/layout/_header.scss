@@ -4,6 +4,7 @@
 .header-alert {
 	font-size: rem(13);
 	padding: 12px 0;
+	z-index: 12;
 
 	@include respond-to(md) {
 		padding: 7px 0;

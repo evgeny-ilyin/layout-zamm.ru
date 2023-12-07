@@ -127,7 +127,12 @@ ol {
 		text-align: left;
 		font-size: rem(24);
 	}
+
 	@include respond-to(lg) {
 		font-size: rem(34);
+	}
+
+	&._left {
+		text-align: left;
 	}
 }

@@ -11,6 +11,25 @@
 	justify-content: center;
 	align-items: center;
 
+	&._white {
+		background: $white;
+
+		input[type="number"],
+		button {
+			background: $white;
+		}
+	}
+
+	&._lg {
+		width: 117px;
+		justify-content: space-around;
+
+		button {
+			height: 40px;
+			opacity: 0.6;
+		}
+	}
+
 	input[type="number"] {
 		cursor: default;
 		background: $gray;
@@ -23,6 +42,7 @@
 		-moz-appearance: textfield !important;
 		appearance: textfield !important;
 	}
+
 	input[type="number"]::-webkit-inner-spin-button,
 	input[type="number"]::-webkit-outer-spin-button {
 		-webkit-appearance: none;

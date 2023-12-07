@@ -136,3 +136,19 @@
 .link-classic {
 	@extend %link-classic;
 }
+
+.link-svg {
+	display: flex;
+	width: fit-content;
+	text-decoration: none;
+
+	&._gray {
+		color: $black60;
+	}
+
+	svg {
+		width: 16px;
+		height: 16px;
+		margin-right: 5px;
+	}
+}
