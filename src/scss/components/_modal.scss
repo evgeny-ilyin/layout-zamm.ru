@@ -71,8 +71,18 @@
 			right: auto;
 		}
 	}
+
 	// .modal__body
 	&__body {
+	}
+
+	// .modal__form
+	&__form {
+		margin-bottom: 14px;
+
+		label > input {
+			margin-top: 7px;
+		}
 	}
 }
 

@@ -15,7 +15,7 @@ try {
 			</div>
 			<div class="modal__body">
 				<div class="geo-selector">
-					<div class="geo-selector__form">
+					<div class="modal__form">
 						<input type="text" name="search" placeholder="Город" autocomplete="off" class="input input_fill" data-quick-search="true" data-target="js-quick-search-list">
 					</div>
 		
@@ -49,13 +49,32 @@ try {
 			</div>';
 			$svg = file_get_contents('template-observer-svg.html');
 			break;
-		
+
+		case 'share':
+			$content = '
+			<div class="modal__head">Поделиться корзиной</div>
+			<div class="modal__body">
+				<div class="modal__form">
+					<label>
+						Вы можете поделиться корзиной с помощью ссылки:
+						<input type="text" id="share-link" value="https://zamm.ru/share/?z=YToyOntpOjY5NDg5NjtkOjI7aTo3MDEyO2Q6Mjt9" class="input input_fill" readonly>
+					</label>
+				</div>
+				<button type="button" class="btn btn_yellow" onclick="copyShareLink(this)">
+					<span>Копировать</span>
+				</button>
+			</div>';
+			break;
+
 		default:
 			$content = '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <b>Corporis</b> soluta ut odit officia repudiandae esse atque cumque iure beatae dicta neque, possimus similique ratione <a href="#">fugit architecto laborum</a> maiores sapiente vero!</p><p>Sapiente animi exercitationem explicabo voluptas ullam eum porro nihil mollitia minima fugiat asperiores quos quae impedit illo, esse consequuntur incidunt soluta numquam suscipit assumenda. Quas in iusto pariatur sit sed eos natus reiciendis quidem, aliquam corrupti sequi nulla nostrum laboriosam aut voluptas?</p>';
 			break;
 	}
 
-	$resp = array('status' => true, 'content' => $content, 'svg' => $svg);
+	$resp = array('status' => true, 'content' => $content);
+
+	if($svg)
+	$resp['svg'] = $svg;
 
 	header('Content-Type: application/json; charset=UTF-8');
 	header('HTTP/1.1 200');
