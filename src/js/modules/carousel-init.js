@@ -23,6 +23,11 @@ if (!window.carouselsInit) {
 		const carousels = el ? el.querySelectorAll('[data-carousel="carousel"]') : document.querySelectorAll('[data-carousel="carousel"]');
 
 		carousels.forEach((carousel) => {
+			if (carousel.classList.contains("is-ltr")) {
+				// already initialized
+				return;
+			}
+
 			let options = {};
 			let autoplay = {};
 			let thumbs = {};
