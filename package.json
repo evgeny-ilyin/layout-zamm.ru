@@ -49,6 +49,7 @@
 	"description": "",
 	"dependencies": {
 		"@fancyapps/ui": "^5.0.24",
+		"lc-select": "^1.1.8",
 		"nouislider": "^15.7.1",
 		"wnumb": "^1.2.0"
 	}
