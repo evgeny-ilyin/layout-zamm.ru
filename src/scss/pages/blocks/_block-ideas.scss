@@ -46,16 +46,6 @@
 		object-fit: cover;
 		border-radius: 4px;
 	}
-
-	&__link {
-		@include on-hover {
-			.link-arrow {
-				&::after {
-					transform: rotate(45deg);
-				}
-			}
-		}
-	}
 }
 
 .idea-all {

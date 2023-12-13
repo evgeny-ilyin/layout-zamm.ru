@@ -5,7 +5,7 @@
 	<div class="product__details">
 		<div class="product__name" data-da=".product__options>form,1023,1">Стол формат PRO ЛДСП 2 ящика без аксессуаров лес черный/черный</div>
 
-		<div class="product__photos">
+		<div class="product__photos" data-id="product-photos">
 			<div class="labels">
 				<div class="label label_yellow-light">Скидка!</div>
 				<div class="label label_green">В наличии</div>
@@ -37,13 +37,14 @@
 						</div>
 					</div>
 
-					<div class="photos__carousel" data-da=".product__details,1023,first">
+					<!-- шаблон для карусели: ajax/template-prop-product-card-gallery.html -->
+					<div class="photos__carousel" data-da=".product__details,1023,first" data-id="photos-carousel">
 						<div id="productPhotos" class="f-carousel carousel-product-card">
+							<div class="labels">
+								<div class="label label_yellow-light">Скидка!</div>
+								<div class="label label_green">В наличии</div>
+							</div>
 							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v15">
-								<div class="labels">
-									<div class="label label_yellow-light">Скидка!</div>
-									<div class="label label_green">В наличии</div>
-								</div>
 								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v15" width="950" height="550" alt="" />
 							</div>
 							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v10">
@@ -209,7 +210,7 @@
 			</div>
 		</div>
 
-		<div class="product__tabs">
+		<div class="product__tabs" data-id="product-tabs-1">
 			<div class="tabs">
 				<div class="tabs__header scrollblock">
 					<button class="tab-nav js-tab-nav" data-tab="size">Размеры стола</button>
@@ -483,28 +484,39 @@
 			</div>
 		</div>
 
-		<div class="product__content-gallery">
+		<div class="product__content-gallery" data-id="product-content-gallery">
 			<div class="h3">Галерея</div>
 			<div class="f-carousel carousel-gallery-thumbs" data-carousel="carousel" data-options='{"Navigation": false, "slidesPerPage": 2}' data-thumbs="true" data-thumbs-media="min-width: 1024px">
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?home&v15">
-					<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v15" width="800" height="500" alt="" />
-					<a href="javascript:void(0)" class="item-note link-arrow _white">Домашний интерьер WOODER</a>
+					<a href="javascript:void(0)" class="link-arrow-span">
+						<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v15" width="800" height="500" alt="" />
+						<span class="item-note link-arrow _white">Домашний интерьер WOODER</span>
+					</a>
 				</div>
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?home&v10">
-					<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v10" width="800" height="500" alt="" />
-					<a href="javascript:void(0)" class="item-note link-arrow _white">Домашний интерьер WOODER 1</a>
+					<a href="javascript:void(0)" class="link-arrow-span">
+
+						<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v10" width="800" height="500" alt="" />
+						<span class="item-note link-arrow _white">Домашний интерьер WOODER 1</span>
+					</a>
 				</div>
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?home&v5">
-					<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v5" width="800" height="500" alt="" />
-					<a href="javascript:void(0)" class="item-note link-arrow _white">Домашний интерьер WOODER 2</a>
+					<a href="javascript:void(0)" class="link-arrow-span">
+						<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v5" width="800" height="500" alt="" />
+						<span class="item-note link-arrow _white">Домашний интерьер WOODER 2</span>
+					</a>
 				</div>
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?home&v25">
-					<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v25" width="800" height="500" alt="" />
-					<a href="javascript:void(0)" class="item-note link-arrow _white">Домашний интерьер WOODER 3</a>
+					<a href="javascript:void(0)" class="link-arrow-span">
+						<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v25" width="800" height="500" alt="" />
+						<span class="item-note link-arrow _white">Домашний интерьер WOODER 3</span>
+					</a>
 				</div>
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?home&v35">
-					<img data-lazy-src="https://source.unsplash.com/random/800x500/?home" width="800" height="500" alt="" />
-					<a href="javascript:void(0)" class="item-note link-arrow _white">Домашний интерьер WOODER 4</a>
+					<a href="javascript:void(0)" class="link-arrow-span">
+						<img data-lazy-src="https://source.unsplash.com/random/800x500/?home" width="800" height="500" alt="" />
+						<span class="item-note link-arrow _white">Домашний интерьер WOODER 4</span>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -578,7 +590,7 @@
 								<img src="@img/dev/props/color-1.webp" width="32" height="32" alt="" loading="lazy" />
 							</label>
 							<label title="Свойство 5">
-								<input type="radio" name="select[130]" value="130-4" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+								<input type="radio" disabled name="select[130]" value="130-4" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
 								<img src="@img/dev/props/color-1.webp" width="32" height="32" alt="" loading="lazy" />
 							</label>
 						</div>
@@ -593,7 +605,7 @@
 							<span>50 см</span>
 						</label>
 						<label title="Свойство 7">
-							<input type="radio" name="select[131]" value="131-2" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
+							<input disabled type="radio" name="select[131]" value="131-2" data-url="https://deviart.ru/zamm/fetch-prop-product-card.php" data-params='{"productId": 22222}' />
 							<span>60 см</span>
 						</label>
 						<label title="Свойство 8">

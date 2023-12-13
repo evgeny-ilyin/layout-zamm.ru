@@ -40,6 +40,16 @@
 	}
 }
 
+.link-arrow-span {
+	@include on-hover {
+		.link-arrow {
+			&::after {
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+
 .link-angle {
 	display: flex;
 	align-items: center;
