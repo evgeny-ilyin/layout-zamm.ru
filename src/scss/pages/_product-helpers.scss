@@ -77,9 +77,12 @@
 	top: 11px;
 	right: 9px;
 
-	a {
+	button {
 		display: block;
 		height: 19px;
+		padding: 0;
+		border: 0;
+		background: transparent;
 
 		@include on-hover {
 			svg {
@@ -145,9 +148,13 @@
 			position: relative;
 			cursor: pointer;
 
+			input:checked ~ span {
+				border-color: $black;
+				text-shadow: $shadow-600;
+			}
+
 			@include on-hover {
-				img,
-				span {
+				input:not(:checked):not(:disabled) ~ span {
 					border-color: $black;
 				}
 			}
@@ -174,37 +181,22 @@
 
 		span {
 			font-size: rem(15);
-			line-height: 1;
+			line-height: 1 !important;
 			display: inline-block;
 			min-width: 56px;
 			text-align: center;
 			margin: 0 4px 4px 0;
-			padding: 5px 8px 4px;
+			padding: 5px 8px 4px !important;
 			background: $white;
 			border: 1px solid transparent;
 			border-radius: 60px;
 			white-space: nowrap;
 			transition: border-color $transition-default;
-		}
 
-		input {
-			appearance: none;
-			clip: rect(0 0 0 0);
-			width: 1px;
-			height: 1px;
-			margin: -1px;
-			border: 0;
-			padding: 0;
-			overflow: hidden;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-		}
-
-		input:checked + img,
-		input:checked + span {
-			border-color: $black;
-			text-shadow: $shadow-600;
+			&::before,
+			&::after {
+				display: none !important;
+			}
 		}
 	}
 }
