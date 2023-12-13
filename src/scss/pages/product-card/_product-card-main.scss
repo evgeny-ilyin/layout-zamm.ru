@@ -69,6 +69,14 @@
 			width: 400px;
 			margin: 0;
 		}
+
+		form {
+			@include respond-to(xl) {
+				position: sticky;
+				top: 100px;
+				margin: 0 0 50px;
+			}
+		}
 	}
 
 	// .product__name
