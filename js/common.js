@@ -32,22 +32,32 @@ if (!window.overlay) {
 				c.style.paddingRight = "";
 			});
 
-			const o = document.querySelector(".overlay"),
-				scrollY = body.style.top;
+			const o = document.querySelector(".overlay");
 			if (!o) return;
-			body.style.top = "";
-			o.classList.remove(isActiveClass);
 
-			window.scrollTo({
-				left: 0,
-				top: parseInt(scrollY || "0") * -1,
-				behavior: "instant",
-			});
+			o.classList.remove(isActiveClass);
+			resetTopOffset();
 
 			setTimeout(() => {
 				o.remove();
 			}, 250);
 		}
+	};
+}
+
+if (!window.resetTopOffset) {
+	window.resetTopOffset = () => {
+		const body = document.body,
+			header = document.querySelector(".header"),
+			scrollY = body.style.top;
+		body.style.top = "";
+		header.style.top = "";
+
+		window.scrollTo({
+			left: 0,
+			top: parseInt(scrollY || "0") * -1,
+			behavior: "instant",
+		});
 	};
 }
 
@@ -106,6 +116,23 @@ if (!window.isTouchDevice) {
 				document.body.classList[isTouch ? "add" : "remove"](touchClass);
 			})
 		);
+	};
+}
+
+if (!window.updateChunks) {
+	window.updateChunks = (obj, where = document) => {
+		if (typeof obj === "object" && obj !== null) {
+			Object.entries(obj).forEach(([key, value]) => {
+				let target = where.querySelector(`[data-id=${key}]`);
+				if (!target) {
+					// console.warn(`data-id "${key}" not found`);
+					return;
+				}
+				target.innerHTML = value;
+			});
+		} else {
+			console.error("Chunk list is not an object");
+		}
 	};
 }
 
@@ -190,6 +217,21 @@ if (!window.showSkeleton) {
 	};
 }
 
+if (!window.showHidden) {
+	window.showHidden = () => {
+		const hiddenClass = "hidden";
+		document.addEventListener("click", (e) => {
+			const el = e.target.closest(".js-show-hidden");
+			if (!el) return;
+			const hiddens = el.parentElement.querySelectorAll(`.${hiddenClass}`);
+			hiddens.forEach((h) => {
+				h.classList.remove(hiddenClass);
+			});
+			el.classList.add(hiddenClass);
+		});
+	};
+}
+
 if (!window.setWindowLocation) {
 	window.setWindowLocation = (url) => {
 		// TODO @ prod:
@@ -262,34 +304,32 @@ if (!window.addToSvgSprite) {
 	window.addToSvgSprite = (svg) => {
 		let sprite = document.querySelector(".svg-sprite");
 		if (!sprite) return;
-		sprite.insertAdjacentHTML('beforeend', svg);
+		sprite.insertAdjacentHTML("beforeend", svg);
 	};
 }
 
-if (!window.getContent) {
-	window.getContent = async (url) => {
-		if (!url) return;
+// if (!window.getContent) {
+// 	window.getContent = async (url) => {
+// 		if (!url) return;
 
-		try {
-			let response = await fetch(url);
-			if (!response.ok) {
-				return;
-			}
+// 		try {
+// 			let response = await fetch(url);
+// 			if (!response.ok) {
+// 				return;
+// 			}
 
-			let result = await response.json();
-			if (result.status === true) {
-				return result.content;
-			} else {
-				console.log(`Error: ${JSON.stringify(result)}`);
-			}
-		} catch (e) {
-			console.log(e);
-			return;
-		}
-	};
-}
-
-
+// 			let result = await response.json();
+// 			if (result.status === true) {
+// 				return result.content;
+// 			} else {
+// 				console.error(`Error: ${JSON.stringify(result)}`);
+// 			}
+// 		} catch (e) {
+// 			console.error(e);
+// 			return;
+// 		}
+// 	};
+// }
 
 ;// CONCATENATED MODULE: ./src/js/modules/common.js
 function stickyHeader() {
@@ -407,16 +447,20 @@ function modalHandler() {
 			}
 			let result = await response.json();
 			if (result.status === true) {
-				const key = getRandomStr(8);
-				setModalContent(result.content, width, origin, key);
+				if (result.nocache === true) {
+					setModalContent(result.content, width);
+				} else {
+					const key = getRandomStr(8);
+					setModalContent(result.content, width, origin, key);
+				}
 				if (result.svg) {
 					addToSvgSprite(result.svg);
 				}
 			} else {
-				console.log(`Error: ${JSON.stringify(result)}`);
+				console.error(`Error: ${JSON.stringify(result)}`);
 			}
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 			return;
 		}
 	};
@@ -486,6 +530,7 @@ function sectionClose() {
 		const target = el.closest(`.${isActiveClass}`);
 		if (target) {
 			overlay(0);
+			resetTopOffset();
 			target.classList.remove(isActiveClass);
 		}
 	});
@@ -551,10 +596,10 @@ function inputFetch(el = false) {
 				if (result.status === true) {
 					results.innerHTML = result.content;
 				} else {
-					console.log(`Error: ${JSON.stringify(result)}`);
+					console.error(`Error: ${JSON.stringify(result)}`);
 				}
 			} catch (e) {
-				console.log(e);
+				console.error(e);
 				return;
 			}
 		}
@@ -674,6 +719,90 @@ function dropdownClose() {
 				dd.parentNode.classList.remove(isActiveClass);
 			}
 		});
+	});
+}
+
+function contentGalleryPopup() {
+	const isActiveClass = "is-active",
+		targetCommonClass = "popup-gallery";
+
+	document.addEventListener("click", (e) => {
+		let el = e.target.closest(".js-popup-gallery"),
+			body = document.body,
+			headerAlert = document.querySelector(".header-alert"),
+			header = document.querySelector(".header"),
+			containers = document.querySelectorAll(".container"),
+			offsetTop = header.getBoundingClientRect().height,
+			scrollY = window.scrollY,
+			sw = getScrollbarWidth(),
+			media = mediaMatch("1023");
+
+			if(headerAlert) offsetTop += headerAlert.getBoundingClientRect().height;
+
+		if (!el || media) return;
+
+		let showGallery = (target) => {
+			body.style.top = `-${scrollY}px`;
+			body.classList.add("noscroll");
+			header.style.top = `${scrollY}px`;
+			header.classList.remove("is-hidden");
+			containers.forEach((c) => {
+				c.style.paddingRight = `${sw}px`;
+			});
+			target.classList.add(isActiveClass);
+			target.style.top = `${offsetTop}px`;
+		};
+
+		const targetClass = el.dataset.target,
+			url = el.dataset.url;
+
+		// загрузить по урлу
+		if (targetClass && url) {
+			const targetExists = document.querySelector(`.${targetClass}`);
+
+			// если такой элемент ещё не создан — создать
+			if (!targetExists) {
+				const target = document.createElement("div");
+				target.classList.add(targetCommonClass, targetClass);
+				body.append(target);
+
+				(async () => {
+					try {
+						let response = await fetch(url);
+						if (!response.ok) {
+							return;
+						}
+						let result = await response.text();
+						target.innerHTML = result;
+						carouselsInit();
+						showGallery(target);
+					} catch (e) {
+						console.error(e);
+						return;
+					}
+				})();
+			} else {
+				showGallery(targetExists);
+			}
+		} else if (targetClass && !url) {
+			const target = document.querySelector(`.${targetClass}`);
+			showGallery(target);
+		}
+	});
+
+	window.addEventListener("resize", () => {
+		const activeGallery = document.querySelector(`.${targetCommonClass}.${isActiveClass}`);
+		if (!activeGallery) return;
+
+		activeGallery.classList.remove(isActiveClass);
+		document.body.classList.remove("noscroll");
+
+		const containers = document.querySelectorAll(".container");
+		containers.forEach((c) => {
+			c.style.paddingRight = "";
+		});
+
+		resetTopOffset();
 	});
 }
 
@@ -962,6 +1091,7 @@ if (headerAlert && closeAlert) {
 
 addEventListener("DOMContentLoaded", () => {
 	isTouchDevice();
+	showHidden();
 	catalogItemGalleriesInit();
 	catalogItemGalleryHandler();
 	useDynamicAdapt();
@@ -977,6 +1107,7 @@ addEventListener("DOMContentLoaded", () => {
 	accordionFooter();
 	dropdownClose();
 	dropdownShow();
+	contentGalleryPopup();
 });
 
 /******/ })()

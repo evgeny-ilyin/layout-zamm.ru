@@ -6,32 +6,31 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231207203328">
-	<link rel="stylesheet" href="css/fonts.css?v=20231207203328">
-	<link rel="stylesheet" href="css/header.css?v=20231207203328">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231207203328">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231214154049">
+	<link rel="stylesheet" href="css/fonts.css?v=20231214154049">
+	<link rel="stylesheet" href="css/header.css?v=20231214154049">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231214154049">
 
-	<link rel="stylesheet" href="css/carousel-main.css?v=20231207203328">
-	<link rel="stylesheet" href="css/carousel-products.css?v=20231207203328">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231207203328">
-	<link rel="stylesheet" href="css/carousel-card-more-photos.css?v=20231207203328">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20231214154049">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20231214154049">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231214154049">
 
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231207203328">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20231207203328">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231214154049">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231214154049">
 
-	<link rel="stylesheet" href="css/block-about.css?v=20231207203328">
+	<link rel="stylesheet" href="css/block-about.css?v=20231214154049">
 
-	<link rel="stylesheet" href="css/catalog-item.css?v=20231207203328">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20231214154049">
 
-	<link rel="stylesheet" href="css/catalog.css?v=20231207203328">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231207203328">
+	<link rel="stylesheet" href="css/catalog.css?v=20231214154049">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231214154049">
 
-	<link rel="stylesheet" href="css/product-card.css?v=20231207203328">
+	<link rel="stylesheet" href="css/product-card.css?v=20231214154049">
 
-	<link rel="stylesheet" href="css/order-cart.css?v=20231207203328">
+	<link rel="stylesheet" href="css/cart.css?v=20231214154049">
 
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20231207203328">
-	<link rel="stylesheet" href="css/footer.css?v=20231207203328">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20231214154049">
+	<link rel="stylesheet" href="css/footer.css?v=20231214154049">
 	<title>UI modal</title>
 	<meta name="description" content="UI modal">
 </head>
@@ -429,7 +428,7 @@
 
 
 	<div class="container">
-		<div class="modal is-active" style="max-width: 510px;">
+		<div class="modal -is-active" style="max-width: 510px;">
 			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
 			<div class="modal__head">
 				<svg>
@@ -439,7 +438,7 @@
 			</div>
 			<div class="modal__body">
 				<div class="geo-selector">
-					<div class="geo-selector__form">
+					<div class="modal__form">
 						<input type="text" name="search" placeholder="Город" autocomplete="off" class="input input_fill" data-quick-search="true" data-target="js-quick-search-list">
 					</div>
 
@@ -472,6 +471,37 @@
 				</div>
 			</div>
 		</div>
+
+		<div class="modal is-active" style="max-width: 510px;">
+			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
+			<div class="modal__head">
+				Поделиться корзиной
+			</div>
+			<div class="modal__body">
+				<div class="modal__form">
+					<label class="block">
+						Вы можете поделиться корзиной с помощью ссылки:
+						<input type="text" id="share-link" value="https://zamm.ru/share/?z=YToyOntpOjY5NDg5NjtkOjI7aTo3MDEyO2Q6Mjt9" class="input input_fill" readonly>
+					</label>
+				</div>
+				<button type="button" class="btn btn_yellow" onclick="copyShareLink(this)">
+					<span>Копировать</span>
+				</button>
+			</div>
+		</div>
+		<script>
+			var copyShareLink = function(b) {
+				navigator.clipboard.writeText(document.querySelector('#share-link').value).then(function() {
+					var html = b.innerHTML;
+					b.innerHTML = 'Скопировано';
+					b.setAttribute('disabled', true);
+					setTimeout(function() {
+						b.innerHTML = html;
+						b.removeAttribute('disabled');
+					}, 2000);
+				});
+			}
+		</script>
 	</div>
 
 	<footer class="footer">
@@ -750,11 +780,11 @@
 		</symbol>
 	</svg>
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231207203328"></script>
-	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20231207203328"></script>
-	<script src="js/carousel-init.js?v=20231207203328"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231214154049"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20231214154049"></script>
+	<script src="js/carousel-init.js?v=20231214154049"></script>
 
-	<script src="js/common.js?v=20231207203328"></script>
+	<script src="js/common.js?v=20231214154049"></script>
 
 </body>
 

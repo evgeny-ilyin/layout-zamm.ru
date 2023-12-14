@@ -58,23 +58,6 @@
   left: 14px;
   bottom: auto
 }
-.product__gallery {
-  display: none;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: var(--gray)
-}
-.product__gallery.is-active {
-  display: block;
-  z-index: 5;
-  padding-top: 15px
-}
-.product__gallery.is-active .container {
-  height: 100%
-}
 .product__gallery-preview {
   display: none
 }
@@ -1146,6 +1129,11 @@
   }
 }
 @media (min-width:1280px) {
+  .product__options form {
+    position: sticky;
+    top: 100px;
+    margin: 0 0 50px
+  }
   .product__3d {
     padding: 14px 14px 14px 24px
   }

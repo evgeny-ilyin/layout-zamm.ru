@@ -26,49 +26,6 @@ function productAmount() {
 	});
 }
 
-function productAllPhotosShow() {
-	const isActiveClass = "is-active";
-
-	document.addEventListener("click", (e) => {
-		const el = e.target.closest(".js-product-gallery");
-		if (!el) return;
-
-		const galleryShow = el.dataset.target;
-		if (galleryShow) {
-			const body = document.body,
-				header = document.querySelector(".header"),
-				target = document.querySelector(`.${galleryShow}`),
-				offsetTop = target.closest(".container").offsetTop,
-				containers = document.querySelectorAll(".container"),
-				sw = getScrollbarWidth();
-
-			body.classList.add("noscroll");
-			header.classList.remove("is-hidden");
-			containers.forEach((c) => {
-				c.style.paddingRight = `${sw}px`;
-			});
-
-			target.classList.add(isActiveClass);
-			target.style.top = `${offsetTop}px`;
-		}
-	});
-
-	window.addEventListener("resize", () => {
-		const galleryBtn = document.querySelector('.js-product-gallery');
-		if (!galleryBtn) return;
-		const galleryShow = galleryBtn.dataset.target,
-			target = document.querySelector(`.${galleryShow}`),
-			containers = document.querySelectorAll(".container");
-		if (target) {
-			target.classList.remove(isActiveClass);
-			document.body.classList.remove("noscroll");
-			containers.forEach((c) => {
-				c.style.paddingRight = "";
-			});
-		}
-	});
-}
-
 ;// CONCATENATED MODULE: ./src/js/modules/product-card-global.js
 if (!window.productBlockCollapseHandler) {
 	window.productBlockCollapseHandler = (el = false) => {
@@ -121,7 +78,6 @@ if (!window.productBlockCollapseHandler) {
 
 addEventListener("DOMContentLoaded", () => {
 	productAmount();
-	productAllPhotosShow();
 	productBlockCollapseHandler();
 });
 

@@ -16,11 +16,6 @@
   object-fit: cover;
   border-radius: 4px
 }
-.idea__link:hover .link-arrow::after {
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg)
-}
 .idea-all {
   display: -webkit-box;
   display: -ms-flexbox;

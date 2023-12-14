@@ -251,9 +251,7 @@ body:not(.is-touch) .is-active .item__gallery-nav::before {
 .prop-collapse {
   width: calc(100% - 15px);
   padding-right: 10px;
-  padding-bottom: 4px;
-  min-height: 35px;
-  height: 35px;
+  padding-bottom: 1px;
   overflow-x: scroll
 }
 .prop-collapse::before {

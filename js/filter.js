@@ -2963,7 +2963,7 @@ function filterFetches() {
 			if (result.url) filterForm.action = result.url;
 			else throw new Error("url is empty");
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 			fetchLoader(itemsContainer, "stop");
 			return;
 		}
@@ -2984,7 +2984,7 @@ function filterFetches() {
 			if (result.status === true && result.chunks) updateChunks(result.chunks);
 			else throw new Error("chunks response is incorrect");
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 			fetchLoader(itemsContainer, "stop");
 			return;
 		}
@@ -3077,19 +3077,6 @@ function filterFetches() {
 		reinitFilterResults();
 
 		btnLoader(btn, "stop");
-	};
-
-	let updateChunks = (obj) => {
-		if (!obj) return;
-
-		Object.entries(obj).forEach(([key, value]) => {
-			let target = document.querySelector(`[data-id=${key}]`);
-			if (!target) {
-				console.log(`data-id ${key} not found`);
-				return;
-			}
-			target.innerHTML = value;
-		});
 	};
 
 	let reinitFilterResults = () => {
