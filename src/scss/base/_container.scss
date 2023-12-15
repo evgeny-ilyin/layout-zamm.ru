@@ -19,6 +19,37 @@
 	&._gray {
 		background: $gray;
 	}
+
+	&._carousels {
+		& > div {
+			z-index: 11;
+			position: relative;
+
+			& + div {
+				z-index: 10;
+
+				& + div {
+					z-index: 9;
+
+					& + div {
+						z-index: 8;
+
+						& + div {
+							z-index: 7;
+
+							& + div {
+								z-index: 6;
+
+								& + div {
+									z-index: 5;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 /**
@@ -31,7 +62,7 @@
 	padding-left: $min-padding; // 12
 	padding-right: $min-padding;
 	position: relative;
-	
+
 	@include respond-to(md) {
 		padding-left: $max-padding; // 16
 		padding-right: $max-padding;
@@ -72,4 +103,12 @@
 			margin-left: 56px;
 		}
 	}
+}
+
+.block {
+	display: block;
+}
+
+.flex {
+	display: flex;
 }

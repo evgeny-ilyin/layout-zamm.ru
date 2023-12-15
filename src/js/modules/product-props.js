@@ -43,7 +43,7 @@ if (!window.productProps) {
 						let result = await response.json();
 
 						if (result.status === true) {
-							update(result, item);
+							updateChunks(result.chunks, item);
 						}
 
 						catalogItemGalleriesInit(item);
@@ -51,7 +51,7 @@ if (!window.productProps) {
 
 						fetchLoader([item, details], "stop");
 					} catch (e) {
-						console.log(e);
+						console.error(e);
 						return;
 					}
 				})();
@@ -71,7 +71,7 @@ if (!window.productProps) {
 						}
 						let result = await response.json();
 						if (result.status === true) {
-							update(result, card);
+							updateChunks(result.chunks, card);
 						}
 
 						tabsInit();
@@ -83,24 +83,11 @@ if (!window.productProps) {
 
 						fetchLoader([card], "stop");
 					} catch (e) {
-						console.log(e);
+						console.error(e);
 						return;
 					}
 				})();
 			}
-
-			let update = (result, where) => {
-				Object.entries(result.chunks).forEach(([key, value]) => {
-					if (value.length) {
-						let target = where.querySelector(`[data-id=${key}]`);
-						if (!target) {
-							console.log(`data-id ${key} not found`);
-							return;
-						}
-						target.innerHTML = value;
-					}
-				});
-			};
 		});
 	};
 }
@@ -120,7 +107,7 @@ if (!window.productPropsHoverHandler) {
 						details = item.querySelector(".item__details"),
 						skeleton = item.querySelector(".skeleton");
 
-					if ((details.innerHTML.trim().length && !skeleton) || item.classList.contains("loading")) return;
+					if (!details || (details.innerHTML.trim().length && !skeleton) || item.classList.contains("loading")) return;
 					item.classList.add("loading");
 					showSkeleton(details, "tpl-props");
 
@@ -136,7 +123,7 @@ if (!window.productPropsHoverHandler) {
 							item.classList.remove("loading");
 							productPropsCollapseHandler(item);
 						} catch (e) {
-							console.log(e);
+							console.error(e);
 							return;
 						}
 					})();

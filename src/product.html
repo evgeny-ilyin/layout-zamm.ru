@@ -9,18 +9,22 @@
 		@@include('html/pages/blocks/block-product-card.html')
 	</div>
 
-	<div class="container">
-		@@include('html/pages/blocks/block-product-carousel.html', {
-		"header": "Аксессуары к этому столу",
-		"id": ' id="product-accessory"',
-		"data-id": ''
-		})
+	<div class="container _carousels">
+		<div>
+			@@include('html/pages/blocks/block-product-carousel.html', {
+			"header": "Аксессуары к этому столу",
+			"id": ' id="product-accessory"',
+			"data-id": ''
+			})
+		</div>
 
-		@@include('html/pages/blocks/block-product-carousel.html', {
-		"header": "С этим столом часто покупают",
-		"id": '',
-		"data-id": ''
-		})
+		<div>
+			@@include('html/pages/blocks/block-product-carousel.html', {
+			"header": "С этим столом часто покупают",
+			"id": '',
+			"data-id": ''
+			})
+		</div>
 	</div>
 
 	@@include('html/footer.html', {
