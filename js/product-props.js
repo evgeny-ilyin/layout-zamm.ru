@@ -112,7 +112,7 @@ if (!window.productPropsHoverHandler) {
 						details = item.querySelector(".item__details"),
 						skeleton = item.querySelector(".skeleton");
 
-					if ((details.innerHTML.trim().length && !skeleton) || item.classList.contains("loading")) return;
+					if (!details || (details.innerHTML.trim().length && !skeleton) || item.classList.contains("loading")) return;
 					item.classList.add("loading");
 					showSkeleton(details, "tpl-props");
 

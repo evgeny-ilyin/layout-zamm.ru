@@ -1115,15 +1115,6 @@
 .f-thumbs.is-vertical .f-thumbs__slide {
   margin: 0 0 var(--f-thumb-gap) 0
 }
-.carousel-overflow {
-  z-index: 11
-}
-.carousel-overflow + .carousel-overflow {
-  z-index: 10
-}
-.carousel-overflow + .carousel-overflow + .carousel-overflow {
-  z-index: 9
-}
 .carousel-overflow .f-carousel__viewport {
   overflow: visible
 }
