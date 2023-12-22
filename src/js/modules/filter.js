@@ -190,45 +190,6 @@ export function filterTagsRemove() {
 	});
 }
 
-export function filterCollapseHandler() {
-	const isCollapsedClass = "is-collapsed";
-
-	let collapseSection = (trigger) => {
-		const section = trigger.nextElementSibling,
-			sectionH = section.scrollHeight,
-			elTransition = section.style.transition;
-		section.style.transition = "";
-		requestAnimationFrame(function () {
-			section.style.height = sectionH + "px";
-			section.style.transition = elTransition;
-			requestAnimationFrame(function () {
-				section.style.height = 0 + "px";
-				trigger.classList.add(isCollapsedClass);
-			});
-		});
-	};
-
-	let expandSection = (trigger) => {
-		const section = trigger.nextElementSibling,
-			sectionH = section.scrollHeight;
-		section.style.height = sectionH + "px";
-		trigger.classList.remove(isCollapsedClass);
-	};
-
-	document.addEventListener("click", (e) => {
-		const trigger = e.target.closest(".js-collapse");
-		if (!trigger) return;
-
-		const isCollapsed = trigger.classList.contains(isCollapsedClass);
-
-		if (isCollapsed) {
-			expandSection(trigger);
-		} else {
-			collapseSection(trigger);
-		}
-	});
-}
-
 export function filterFetches() {
 	const filter = document.querySelector(".filter"),
 		filterForm = document.getElementById("filter-form"),
@@ -267,7 +228,7 @@ export function filterFetches() {
 			if (result.url) filterForm.action = result.url;
 			else throw new Error("url is empty");
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 			fetchLoader(itemsContainer, "stop");
 			return;
 		}
@@ -288,7 +249,7 @@ export function filterFetches() {
 			if (result.status === true && result.chunks) updateChunks(result.chunks);
 			else throw new Error("chunks response is incorrect");
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 			fetchLoader(itemsContainer, "stop");
 			return;
 		}
@@ -383,19 +344,6 @@ export function filterFetches() {
 		btnLoader(btn, "stop");
 	};
 
-	let updateChunks = (obj) => {
-		if (!obj) return;
-
-		Object.entries(obj).forEach(([key, value]) => {
-			let target = document.querySelector(`[data-id=${key}]`);
-			if (!target) {
-				console.log(`data-id ${key} not found`);
-				return;
-			}
-			target.innerHTML = value;
-		});
-	};
-
 	let reinitFilterResults = () => {
 		try {
 			carouselsInit();
@@ -404,6 +352,7 @@ export function filterFetches() {
 			rangeSlidersInit();
 			productProps();
 			productPropsHoverHandler();
+			setFavourites();
 		} catch (e) {}
 	};
 

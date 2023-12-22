@@ -5,6 +5,5 @@ addEventListener("DOMContentLoaded", () => {
 	fn.filterShow();
 	fn.filterTagsSet();
 	fn.filterTagsRemove();
-	fn.filterCollapseHandler();
 	fn.filterFetches();
 });
