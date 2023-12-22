@@ -1,0 +1,431 @@
+.order {
+	// .tabs
+	.tabs {
+		@include respond-to(lg, "max") {
+			margin-bottom: 24px;
+		}
+	}
+
+	// .tabs__header
+	.tabs__header {
+		background: $white;
+		margin: 0 -#{$min-padding}; // 12
+		padding-top: 34px;
+
+		@include respond-to(md) {
+			margin: 0 -#{$max-padding}; // 16
+		}
+
+		@include respond-to(lg) {
+			background: transparent;
+			margin: 0;
+			padding-top: 0;
+		}
+	}
+
+	// .tab-form__left
+	.tab-form__left {
+		&:empty {
+			display: none;
+
+			@include respond-to(lg) {
+				display: block;
+			}
+		}
+	}
+
+	// .tab-form__right
+	.tab-form__right {
+		@include when-inside(".tabs__header") {
+		}
+	}
+}
+
+.order-total {
+	display: flex;
+	flex-direction: column;
+	background: $white;
+
+	@include respond-to(md) {
+		// flex-direction: row;
+	}
+
+	@include respond-to(lg) {
+		max-width: 350px;
+		// flex-direction: column;
+		margin-bottom: 24px;
+		padding: 24px 40px;
+		border-radius: 4px;
+	}
+
+	@include respond-to(xl) {
+		max-width: none;
+	}
+
+	&._dynamic_adapt_ {
+		max-width: 485px;
+		margin: 0 auto;
+		padding: 16px;
+	}
+
+	// .order-total__header
+	&__header {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 25px;
+
+		@include respond-to(lg) {
+			margin-bottom: 15px;
+		}
+
+		// @include respond-to(md) {
+		// 	width: 50%;
+		// 	margin-bottom: 0;
+		// }
+
+		@include respond-to(lg) {
+			// margin-bottom: 22px;
+			// flex-wrap: nowrap;
+			// width: 100%;
+		}
+
+		@include respond-to(xl) {
+		}
+	}
+
+	// .order-total__title
+	&__title {
+		color: $black;
+		font-size: rem(20);
+		line-height: 0.9;
+		font-weight: 700;
+		margin-bottom: 9px;
+
+		@include respond-to(lg) {
+			font-size: rem(28);
+			margin-bottom: 20px;
+		}
+
+		@include respond-to(xl) {
+			font-size: rem(34);
+		}
+	}
+
+	// .order-total__note
+	&__note {
+		font-size: rem(14);
+		color: $black60;
+
+		@include respond-to(xl) {
+			max-width: 240px;
+		}
+	}
+
+	// .order-total__list
+	&__list {
+		margin-bottom: 20px;
+
+		& > div {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: center;
+			justify-content: space-between;
+			border-bottom: 1px dotted $black30;
+			padding: 13px 0 6px;
+
+			@include respond-to(lg) {
+				padding: 17px 0 6px;
+			}
+		}
+	}
+
+	// .order-total__sum
+	&__sum {
+		margin-bottom: 33px;
+
+		& > div {
+			display: flex;
+			flex-wrap: nowrap;
+			align-items: flex-start;
+			justify-content: space-between;
+			font-weight: 700;
+			// padding: 17px 0 6px;
+
+			& > span {
+				line-height: 1;
+
+				@include respond-to(xl) {
+					font-size: rem(20);
+				}
+				& ~ span {
+					font-size: rem(20);
+					line-height: 1;
+
+					@include respond-to(xl) {
+						font-size: rem(34);
+					}
+				}
+			}
+		}
+	}
+
+	// .order-total__button
+	&__button {
+		@include respond-to(md) {
+			width: 50%;
+		}
+
+		@include respond-to(lg) {
+			width: 100%;
+		}
+	}
+
+	// .order-total__approval
+	&__approval {
+		margin-top: 15px;
+
+		label,
+		a {
+			color: $black60;
+		}
+
+		input[type="checkbox"] ~ span {
+			display: block;
+			font-size: rem(13.5);
+		}
+	}
+}
+
+.order-goods-mobile {
+	&:empty {
+		display: none;
+	}
+
+	@include respond-to(lg, "max") {
+		padding: 32px 16px 10px;
+		background: $white;
+	}
+}
+
+.order-goods {
+	padding: 24px 40px;
+	border: 1px solid $black10;
+	border-radius: 4px;
+
+	@include respond-to(lg) {
+		max-width: 350px;
+	}
+
+	@include respond-to(xl) {
+		max-width: none;
+	}
+
+	&._dynamic_adapt_ {
+		padding: 0;
+		// padding-bottom: calc(24px - 15px);
+	}
+
+	// .order-goods__header
+	&__header {
+		font-weight: 700;
+
+		&::after {
+			display: none;
+		}
+
+		@include when-inside("._dynamic_adapt_") {
+			position: relative;
+			font-weight: 500;
+			cursor: pointer;
+			padding: 11px 16px;
+
+			&::after {
+				display: block;
+				right: 18px;
+			}
+		}
+
+		span._dynamic_adapt_ {
+			color: $black60;
+			margin-left: 5px;
+		}
+	}
+
+	// .order-goods__body
+	&__body {
+		@include respond-to(lg, "max") {
+			height: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+			overflow: hidden;
+		}
+
+		@include respond-to(lg) {
+			height: auto !important;
+		}
+	}
+
+	// .order-goods__list
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 8px;
+		font-size: rem(14);
+		padding: 24px 0 22px;
+
+		@include respond-to(sm) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		@include respond-to(md) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		@include respond-to(lg) {
+			display: block;
+			padding: 15px 0 17px;
+		}
+
+		a {
+			display: flex;
+			flex-direction: column;
+			text-decoration: none;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+
+			@include respond-to(lg) {
+				flex-direction: row;
+				width: 100%;
+				margin-bottom: 16px;
+			}
+		}
+
+		span {
+			font-size: rem(15);
+			color: $black60;
+			margin-left: 6px;
+		}
+
+		img {
+			width: 168px;
+			height: auto;
+			object-fit: contain;
+			border-radius: 2px;
+			margin: 0 auto;
+
+			@include respond-to(lg) {
+				width: 72px;
+				height: 72px;
+				margin: 0 12px 0 0;
+			}
+		}
+	}
+
+	// .order-goods__desc
+	&__desc {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		justify-content: space-between;
+
+		@include respond-to(lg) {
+			display: block;
+		}
+	}
+
+	// .order-goods__name
+	&__name {
+		margin-bottom: 8px;
+	}
+
+	// .order-goods__price
+	&__price {
+		text-shadow: none;
+		font-weight: 700;
+
+		span {
+			font-weight: 500;
+		}
+
+		@include respond-to(lg) {
+			font-weight: 500;
+		}
+	}
+}
+
+.order-pack {
+	display: none;
+
+	@include respond-to(lg) {
+		display: block;
+	}
+
+	span {
+		color: $black60;
+		&::after {
+			content: "\2022";
+			color: $black30;
+		}
+		&:last-child {
+			&::after {
+				content: "";
+			}
+		}
+	}
+}
+
+.promocode {
+	margin-top: 16px;
+	line-height: 1;
+
+	// .promocode__item
+	&__item {
+		position: relative;
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 8px;
+		border-bottom: 1px dotted $black10;
+		color: $green;
+		padding: 6px 0;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		// .promocode__item ._error
+		&._error {
+			color: $red;
+		}
+	}
+	// .promocode__code
+	&__code {
+	}
+	// .promocode__status
+	&__status {
+		margin: 0 27px 0 16px;
+		text-align: right;
+		white-space: nowrap;
+
+		small {
+			display: block;
+		}
+	}
+
+	.btn_close {
+		right: 0;
+		top: 50%;
+		transform: translateY(-50%);
+		width: 16px;
+		height: 16px;
+
+		&::before,
+		&::after {
+			height: 14px;
+			opacity: 0.5;
+		}
+	}
+}
