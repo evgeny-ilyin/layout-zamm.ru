@@ -20,7 +20,7 @@ if (!window.carouselsInit) {
 		const next = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18"><path d="M10.452 1 18 9m0 0-7.548 8M18 9H0"/></svg>`,
 			prev = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18"><path d="M8.548 1 1 9m0 0 7.548 8M1 9h18"/></svg>`;
 
-		const carousels = el ? el.querySelectorAll('[data-carousel="carousel"]') : document.querySelectorAll('[data-carousel="carousel"]');
+		let carousels = el ? el.querySelectorAll('[data-carousel="carousel"]') : document.querySelectorAll('[data-carousel="carousel"]');
 
 		carousels.forEach((carousel) => {
 			if (carousel.classList.contains("is-ltr")) {
@@ -75,37 +75,73 @@ if (!window.carouselsInit) {
 			}
 		});
 
-		const productPhotos = document.getElementById("productPhotos");
+		// product main photo gallery
+		let productPhotos = document.getElementById("productPhotos");
 
-		if (!productPhotos || productPhotos.classList.contains("is-ltr")) {
-			// not exist or already initialized
-			return;
-		}
-
-		new Carousel(
-			productPhotos,
-			{
-				transition: "classic",
-				preload: 3,
-				Navigation: false,
-				Thumbs: false,
-				breakpoints: {
-					"(min-width: 1024px)": {
-						Dots: false,
-						Thumbs: {
-							type: "classic",
-							Carousel: {
-								Navigation: {
-									nextTpl: next,
-									prevTpl: prev,
+		if (productPhotos && !productPhotos.classList.contains("is-ltr")) {
+			// exist and not initialized already
+			new Carousel(
+				productPhotos,
+				{
+					transition: "classic",
+					preload: 3,
+					Navigation: false,
+					Thumbs: false,
+					breakpoints: {
+						"(min-width: 1024px)": {
+							Dots: false,
+							Thumbs: {
+								type: "classic",
+								Carousel: {
+									Navigation: {
+										nextTpl: next,
+										prevTpl: prev,
+									},
+									axis: "y",
 								},
-								axis: "y",
 							},
 						},
 					},
 				},
-			},
-			{ Thumbs }
-		);
+				{ Thumbs }
+			);
+		}
+
+
+		// popup galleries like a product main photo gallery
+		let popupGalleries = document.querySelectorAll(".js-popup-gallery-wrap");
+
+		popupGalleries.forEach((gallery) => {
+			if (gallery.classList.contains("is-ltr")) {
+				// already initialized
+				return;
+			}
+
+			new Carousel(
+				gallery,
+				{
+					transition: "classic",
+					preload: 3,
+					Navigation: false,
+					Thumbs: false,
+					breakpoints: {
+						"(min-width: 1024px)": {
+							Dots: false,
+							Thumbs: {
+								type: "classic",
+								Carousel: {
+									Navigation: {
+										nextTpl: next,
+										prevTpl: prev,
+									},
+									axis: "y",
+								},
+							},
+						},
+					},
+				},
+				{ Thumbs }
+			);
+		});
 	};
 }
