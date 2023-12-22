@@ -79,6 +79,9 @@
 		}
 	}
 
+	/**
+	* Catalog columns
+	*/
 	// .content_columns
 	&_columns {
 		display: flex;
@@ -103,12 +106,67 @@
 			margin-left: 56px;
 		}
 	}
+
+	// .col-main
+	// .col-sidebar
 }
 
-.block {
-	display: block;
+/**
+ * Inner pages columns (cart, order)
+ */
+.order {
+	@include respond-to(lg) {
+		margin-top: 36px;
+	}
+
+	// .order__main
+	&__main {
+		width: 100%;
+
+		@include respond-to(lg) {
+			width: calc(100% - 300px - 57px);
+			max-width: 786px;
+			// flex: 1 1 786px;
+			margin-right: 57px;
+		}
+
+		.tabs {
+			margin-top: 0;
+		}
+
+		.h3 {
+			margin-bottom: 32px;
+		}
+	}
+
+	// .order__sidebar
+	&__sidebar {
+	}
+
+	// .order__sticky
+	&__sticky {
+		position: sticky;
+		top: 100px;
+	}
 }
 
-.flex {
-	display: flex;
+.mobile-fixed {
+	@include respond-to(lg, "max") {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 11;
+		background: $white;
+		border-top: 1px solid $black10;
+		padding: 16px 12px 12px;
+	}
+
+	@include respond-to(md) {
+		padding: 24px 16px 29px;
+	}
+
+	@include respond-to(lg) {
+		padding: 0;
+	}
 }
