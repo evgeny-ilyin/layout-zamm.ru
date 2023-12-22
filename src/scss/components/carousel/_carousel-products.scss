@@ -1,4 +1,3 @@
-/*! Блок "Популярные столы" */
 .product-carousel {
 	--f-carousel-spacing: 12px;
 	--f-carousel-slide-width: 300px;
@@ -27,6 +26,111 @@
 
 		.item {
 			flex: 1;
+		}
+	}
+
+	&._extra {
+		--f-carousel-spacing: 12px;
+		--f-carousel-slide-width: 260px;
+
+		@include respond-to(md) {
+			--f-carousel-spacing: 16px;
+			--f-carousel-slide-width: 300px;
+		}
+
+		@include respond-to(lg) {
+			--f-carousel-slide-width: 168px;
+		}
+
+		.f-carousel__slide {
+			.item,
+			.item__gallery-wrapper {
+				background: transparent;
+			}
+
+			.item {
+				padding: 0;
+
+				@include on-hover {
+					@include when-inside("body:not(.is-touch)") {
+						.item__details {
+							opacity: 1;
+						}
+					}
+				}
+
+				&__image-wrapper {
+					padding-top: 260px;
+
+					@include respond-to(md) {
+						padding-top: 300px;
+					}
+
+					@include respond-to(lg) {
+						padding-top: 165px;
+					}
+				}
+
+				&__info {
+					padding-left: 0;
+					padding-right: 0;
+				}
+
+				&__title {
+					margin-bottom: 23px;
+
+					a {
+						font-size: rem(14);
+						line-height: 1.3;
+
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						overflow: hidden;
+					}
+				}
+
+				&__price,
+				&__oldprice {
+					font-size: rem(15);
+				}
+
+				&__details {
+					position: relative;
+					top: 0;
+					max-height: none;
+					padding-bottom: 2px;
+					opacity: 0;
+					transition: all $transition-default !important;
+
+					@include when-inside("body.is-touch") {
+						opacity: 1;
+					}
+				}
+
+				&__buttons {
+					margin-top: 5px;
+					padding: 0 1px;
+				}
+
+				.label {
+					font-size: rem(13);
+					height: 18px;
+					padding: 0 8px;
+				}
+			}
+		}
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			width: 66px;
+			z-index: 1;
+			opacity: 0.8;
+			background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(243, 247, 250) 75%);
 		}
 	}
 }
