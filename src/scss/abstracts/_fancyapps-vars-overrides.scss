@@ -7,15 +7,23 @@
 ///
 
 .carousel-overflow {
-	// z-index: 11;
+	z-index: 11;
 
-	// & + .carousel-overflow {
-	// 	z-index: 10;
+	& + .carousel-overflow {
+		z-index: 10;
 
-	// 	& + .carousel-overflow {
-	// 		z-index: 9;
-	// 	}
-	// }
+		& + .carousel-overflow {
+			z-index: 9;
+
+			& + .carousel-overflow {
+				z-index: 8;
+
+				& + .carousel-overflow {
+					z-index: 7;
+				}
+			}
+		}
+	}
 
 	// .f-carousel__slide,
 	.f-carousel__viewport {
@@ -25,6 +33,7 @@
 	.item {
 		// z-index: 12;
 	}
+	
 	.f-carousel {
 		&::before,
 		&::after {
