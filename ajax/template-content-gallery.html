@@ -1,0 +1,46 @@
+<div class="container">
+	<div class="content photos">
+
+		<div class="photos__head">
+			<div class="photos__header">Заголовок <span>Галерея 1</span></div>
+			<div class="photos__close">
+				<button type="button" class="btn btn_close btn_close-xl js-close" aria-label="Закрыть"></button>
+			</div>
+		</div>
+
+		<!--
+		Отличия от шаблона основной галереи товара:
+		удалено: data-da=".product__details,1023,first" из div class="photos__carousel"
+		удалено: id="productPhotos" из class="f-carousel gallery-thumbs-popup"
+		замена:  "f-carousel carousel-product-card" на "f-carousel gallery-thumbs-popup js-popup-gallery-wrap"
+		-->
+
+		<div class="photos__carousel">
+			<div class="f-carousel gallery-thumbs-popup js-popup-gallery-wrap">
+				<div class="labels">
+					<div class="label label_yellow-light">Скидка!</div>
+					<div class="label label_green">В наличии</div>
+				</div>
+				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?table&v15">
+					<img data-lazy-src="https://source.unsplash.com/random/1000x650/?table&v15" width="1000" height="650" alt="" />
+				</div>
+				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?table&v10">
+					<img data-lazy-src="https://source.unsplash.com/random/1000x650/?table&v10" width="1000" height="650" alt="" />
+				</div>
+				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?table&v5">
+					<img data-lazy-src="https://source.unsplash.com/random/1000x650/?table&v5" width="1000" height="650" alt="" />
+				</div>
+				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?table&v25">
+					<img data-lazy-src="https://source.unsplash.com/random/1000x650/?table&v25" width="1000" height="650" alt="" />
+				</div>
+				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?table&v35">
+					<img data-lazy-src="https://source.unsplash.com/random/1000x650/?table&v35" width="1000" height="650" alt="" />
+				</div>
+				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?table&v45">
+					<img data-lazy-src="https://source.unsplash.com/random/1000x650/?table&v45" width="1000" height="650" alt="" />
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>

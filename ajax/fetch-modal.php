@@ -55,7 +55,7 @@ try {
 			<div class="modal__head">Поделиться корзиной</div>
 			<div class="modal__body">
 				<div class="modal__form">
-					<label>
+					<label class="block">
 						Вы можете поделиться корзиной с помощью ссылки:
 						<input type="text" id="share-link" value="https://zamm.ru/share/?z=YToyOntpOjY5NDg5NjtkOjI7aTo3MDEyO2Q6Mjt9" class="input input_fill" readonly>
 					</label>

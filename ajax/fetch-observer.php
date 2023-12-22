@@ -24,9 +24,9 @@ try {
 		case 'photos':
 			$content = file_get_contents('template-observer-photos.html');
 			break;
-		// case 'gallery':
-		// 	$content = file_get_contents('template-observer-gallery.html');
-		// 	break;
+		case 'gallery':
+			$content = file_get_contents('template-observer-gallery.html');
+			break;
 		case 'ideas':
 			$content = file_get_contents('template-observer-ideas.html');
 			break;
