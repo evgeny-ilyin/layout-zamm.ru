@@ -2,8 +2,10 @@
 /* Outline rules */
 :active,
 :focus,
+:focus-visible,
 a:active,
-a:focus {
+a:focus,
+a:focus-visible {
 	outline: 0
 }
 
