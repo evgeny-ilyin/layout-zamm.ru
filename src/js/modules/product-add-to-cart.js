@@ -1,32 +1,56 @@
-function addToCart(btn) {
+export function addToCart() {
+	// btn "add to cart"
+	document.addEventListener("click", (e) => {
+		if (e.target.closest(".js-add-to-cart")) {
+			let btn = e.target.closest(".js-add-to-cart"),
+				trigger = "",
+				inCartClass = "in-cart";
+			if (!btn) return;
+			if (btn.classList.contains(inCartClass)) {
+				if (btn.dataset.cart) {
+					window.location.assign(btn.dataset.cart);
+					return;
+				}
+			}
+			if (btn.closest(".item")) trigger = "addItemCatalog";
+			if (btn.closest(".product")) trigger = "addItem";
+			toCart(btn, trigger);
+		}
+	});
+
+	// amount to cart
+	document.addEventListener("change", (e) => {
+		if (e.target.name == "amount") {
+			let btn = e.target.closest(".product__purchase").querySelector(".js-add-to-cart"),
+				trigger = "";
+			if (!btn) return;
+			if (btn.closest(".product")) trigger = "changeAmount";
+			toCart(btn, trigger);
+		}
+	});
+}
+
+function toCart(btn, trigger) {
 	const form = btn.closest("form") || btn.closest(".item__props").querySelector("form"),
 		inCartClass = "in-cart";
 
 	let formData = new FormData(form),
-		data = {},
-		params = {},
-		url = btn.dataset.url,
-		id = btn.dataset.id;
+		id = Number(btn.dataset.id),
+		url = btn.dataset.url;
 
-	let formDataObject = Object.fromEntries(formData.entries());
+	formData.append("trigger", trigger);
+	formData.append("id", id);
 
-	data = { id: id };
-
-	if (btn.dataset.params) {
-		params = JSON.parse(btn.dataset.params);
-	}
-
-	Object.assign(data, params, formDataObject);
+	// if (btn.dataset.params) {
+	// 	formData.append("params", btn.dataset.params);
+	// }
 
 	(async () => {
 		try {
 			btnLoader(btn);
 			let response = await fetch(url, {
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json;charset=utf-8",
-				},
-				body: JSON.stringify(data),
+				body: formData,
 			});
 			if (!response.ok) {
 				return;
@@ -35,42 +59,14 @@ function addToCart(btn) {
 			if (result.status === true) {
 				btn.classList.add(inCartClass);
 
-				let target = document.querySelector(`[data-id="amount"]`);
-				if (!target) {
-					console.log(`data-id amount not found`);
-					return;
-				}
-				target.dataset.amount = result.amount;
+				let target = document.querySelector(`[data-id="cart-amount"]`);
+				if (!target) return;
+				target.dataset.amount = isNaN(result.amount) ? 0 : result.amount;
 			}
 			btnLoader(btn, "stop");
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 			return;
 		}
 	})();
 }
-
-// btn "add to cart"
-document.addEventListener("click", (e) => {
-	if (e.target.closest(".js-add-to-cart")) {
-		let btn = e.target.closest(".js-add-to-cart"),
-			inCartClass = "in-cart";
-		if (!btn) return;
-		if (btn.classList.contains(inCartClass)) {
-			if (btn.dataset.cart) {
-				window.location.assign(btn.dataset.cart);
-				return;
-			}
-		}
-		addToCart(btn);
-	}
-});
-
-// amount to cart
-document.addEventListener("change", (e) => {
-	if (e.target.name == "amount") {
-		let btn = e.target.closest(".product__purchase").querySelector(".js-add-to-cart");
-		if (!btn) return;
-		addToCart(btn);
-	}
-});
