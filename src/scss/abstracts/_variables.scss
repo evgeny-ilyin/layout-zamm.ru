@@ -21,6 +21,7 @@ $browser-context: 16;
 /// Simple colors
 /// @type Color
 $black-real: var(--black-real);
+$black-real10: var(--black-real10);
 $black: var(--black);
 $black10: var(--black10);
 $black30: var(--black30);
@@ -43,6 +44,7 @@ $gray-blue: var(--gray-blue);
 $gray-yellow: var(--gray-yellow);
 $red: var(--red);
 $gray-light: var(--gray-light);
+$green: var(--green);
 
 
 $svg-fetch-ring: var(--svg-fetch-ring);
@@ -84,7 +86,7 @@ $shadow-700: 0 0 0, 0 0 0;
 
 /// Form colors
 /// @type Color
-$placeholder-color: $text-color;
+$placeholder-color: $black60;
 $input-color: $text-color;
 
 /// Transitions
