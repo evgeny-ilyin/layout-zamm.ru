@@ -3,6 +3,7 @@
 /// можно обойтись без дублирования, если вызывать через функцию color(color-name) напрямую из map, но так дольше писать xD
 $colors: (
 	"black-real": #000,
+	"black-real10": rgba(0, 0, 0, 0.1),
 	"black": #333,
 	"black10": rgba(51, 51, 51, 0.1),
 	"black30": rgba(51, 51, 51, 0.3),
@@ -25,6 +26,7 @@ $colors: (
 	"gray-yellow": #fdf5e6,
 	"red": #ff2e00,
 	"gray-light": #f3f7fa,
+	"green": #2eb822,
 );
 
 $svgs: (
