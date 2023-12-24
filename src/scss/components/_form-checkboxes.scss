@@ -1,0 +1,101 @@
+input[type="checkbox"],
+input[type="radio"] {
+	position: absolute;
+	appearance: none;
+	clip: rect(0 0 0 0);
+	border: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+input[type="checkbox"] {
+	@include on-focus-visible {
+		& ~ span {
+			&::before {
+				box-shadow: 0 0 0 2px $yellow;
+			}
+		}
+	}
+}
+
+input[type="radio"] {
+	@include on-focus-visible {
+		& ~ span {
+			&::after {
+				box-shadow: 0 0 0 2px $yellow;
+			}
+		}
+	}
+}
+
+input[type="checkbox"] ~ span,
+input[type="radio"] ~ span {
+	position: relative;
+	cursor: pointer;
+	min-height: 18px;
+	line-height: 1.2;
+	padding-left: 30px;
+	display: flex;
+	align-items: center;
+	width: 100%;
+
+	&::before,
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 18px;
+		height: 18px;
+		background: $white;
+	}
+}
+
+input[type="checkbox"] ~ span {
+	&::after {
+		border: 1px solid $black60;
+		border-radius: 3px;
+		transition: border-color $transition-default, background-color $transition-default;
+	}
+}
+
+input[type="checkbox"]:checked ~ span {
+	&::after {
+		content: "";
+		display: block;
+		background: $yellow $svg-checked center no-repeat;
+		background-size: 12px;
+	}
+}
+
+input[type="radio"] ~ span {
+	&::after {
+		border: 1px solid $black60;
+		border-radius: 50%;
+		transition: border-color $transition-default;
+	}
+}
+
+input[type="radio"]:checked ~ span {
+	&::before {
+		border-radius: 50%;
+		width: 10px;
+		height: 10px;
+		margin: 4px;
+		background: $black;
+		z-index: 1;
+	}
+}
+
+input:checked ~ img {
+	border-color: $black !important;
+}
+
+input[type="checkbox"]:disabled ~ span,
+input[type="radio"]:disabled ~ span,
+input[type="checkbox"]:disabled ~ img,
+input[type="radio"]:disabled ~ img {
+	cursor: not-allowed;
+	opacity: 0.6;
+}

@@ -1,10 +1,11 @@
 .btn {
 	cursor: pointer;
 	display: block;
+	white-space: nowrap;
 	width: fit-content;
 	border: 0;
 	border-radius: 4px;
-	padding: 13px 24px 11px;
+	padding: 12px 24px 10px;
 	font-size: rem(15);
 	line-height: 1.2;
 	letter-spacing: -0.3px;
@@ -26,11 +27,13 @@
 			transition: opacity $transition-default;
 		}
 	}
-
-	@include on-event {
-		text-shadow: none;
+	// @include on-event {
+	// 	text-shadow: none;
+	// }
+	@include on-focus-visible {
+		box-shadow: 0 0 0 1px $black60, 0 0 0 7px $black-real10;
 	}
-
+	
 	// .btn_disabled
 	&_disabled {
 		cursor: default !important;
@@ -51,10 +54,10 @@
 
 		@include on-hover {
 			background: $gray;
-			box-shadow: 0 0 0 1px $black10 inset;
+			box-shadow: 0 0 0 1px $black10;
 		}
 		@include on-active {
-			box-shadow: 0 0 0 1px $black60 inset;
+			box-shadow: 0 0 0 1px $black60;
 			color: $black60 !important;
 			span::after {
 				opacity: 0.5;
@@ -70,13 +73,13 @@
 	// .btn_gray
 	&_gray {
 		background: $gray;
-		box-shadow: 0 0 0 1px $black30 inset;
+		box-shadow: 0 0 0 1px $black30;
 
 		@include on-hover {
-			box-shadow: 0 0 0 1px $black70 inset;
+			box-shadow: 0 0 0 1px $black70;
 		}
 		@include on-active {
-			box-shadow: 0 0 0 1px $black inset;
+			box-shadow: 0 0 0 1px $black;
 			color: $black60 !important;
 			span::after {
 				opacity: 0.5;
@@ -92,14 +95,15 @@
 	// .btn_yellow
 	&_yellow {
 		background: $yellow;
+		box-shadow: 0 0 0 1px $yellow;
 
 		@include on-hover {
 			background: $yellow-dark;
-			box-shadow: 0 0 0 1px $black10 inset;
+			box-shadow: 0 0 0 1px $yellow-dark;
 		}
 		@include on-active {
 			background: $yellow-dark;
-			box-shadow: 0 0 0 1px $black60 inset;
+			box-shadow: 0 0 0 1px $black60;
 			color: $black60 !important;
 			span::after {
 				opacity: 0.5;
@@ -115,14 +119,15 @@
 	// .btn_yellow-dark
 	&_yellow-dark {
 		background: $yellow-dark;
+		box-shadow: 0 0 0 1px $yellow-dark;
 
 		@include on-hover {
 			background: $yellow;
-			box-shadow: 0 0 0 1px $black10 inset;
+			box-shadow: 0 0 0 1px $yellow;
 		}
 		@include on-active {
 			background: $yellow;
-			box-shadow: 0 0 0 1px $black60 inset;
+			box-shadow: 0 0 0 1px $black60;
 			color: $black60 !important;
 			span::after {
 				opacity: 0.5;
@@ -138,14 +143,14 @@
 	// .btn_white
 	&_white {
 		background: $white;
-		box-shadow: 0 0 0 1px $black30 inset;
+		box-shadow: 0 0 0 1px $black30;
 
 		@include on-hover {
 			background: $gray;
-			box-shadow: 0 0 0 1px $black30 inset;
+			box-shadow: 0 0 0 1px $black30;
 		}
 		@include on-active {
-			box-shadow: 0 0 0 1px $black60 inset;
+			box-shadow: 0 0 0 1px $black60;
 			color: $black60 !important;
 			span::after {
 				opacity: 0.6;
@@ -478,7 +483,7 @@
 					right: -20px;
 					width: 14px;
 					height: 12px;
-					background: var(--svg-checked) center no-repeat;
+					background: $svg-checked center no-repeat;
 					background-size: contain;
 				}
 			}

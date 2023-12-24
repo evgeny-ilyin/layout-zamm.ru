@@ -63,12 +63,23 @@
 		width: 100%;
 		cursor: pointer;
 
-		input {
+		input[type="radio"] {
 			position: absolute;
 			width: 0;
 			height: 0;
 			opacity: 0;
 			z-index: -1;
+
+			& ~ span {
+				position: initial;
+				padding: 0;
+
+				&::after,
+				&::before {
+					display: none;
+					border: none;
+				}
+			}
 
 			&:checked {
 				& ~ span {
@@ -78,6 +89,8 @@
 						content: "";
 						display: block;
 						position: absolute;
+						top: auto;
+						left: auto;
 						right: 16px;
 						width: 12px;
 						height: 12px;

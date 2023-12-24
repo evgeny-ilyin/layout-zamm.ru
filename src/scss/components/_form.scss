@@ -1,42 +1,167 @@
 .form {
-
 	input[type="text"],
 	input[type="email"],
+	input[type="tel"],
 	select,
 	textarea {
 		&::placeholder {
-			color: $black60;
+			color: $placeholder-color;
 		}
+	}
+
+	textarea {
+		min-height: 82px;
+		resize: vertical;
 	}
 
 	// .form__fieldset
 	&__fieldset {
-
 	}
 }
 
-// .form {
-// 	margin-top: 40px;
+.form-item {
+	margin-bottom: 12px;
 
-// 	input[type="text"],
-// 	input[type="email"],
-// 	select,
-// 	textarea {
-// 		&::placeholder {
-// 			color: $placeholder-color;
-// 		}
-// 	}
+	// .form-item__info
+	&__info {
+		width: 100%;
 
-// 	textarea {
-// 		resize: vertical;
-// 	}
-// }
+		p {
+			line-height: 1.2;
+			margin-bottom: 2px;
+
+			small {
+				display: block;
+			}
+		}
+
+		a,
+		span {
+			color: $black60;
+		}
+	}
+
+	// .form-item__name
+	&__name {
+		display: flex;
+		flex-direction: column;
+
+		@include respond-to(md) {
+			flex-flow: row wrap;
+			justify-content: space-between;
+		}
+
+		p {
+			margin-right: 16px;
+		}
+	}
+
+	// .form-item__body
+	&__body {
+		@include respond-to(lg) {
+			width: 75%;
+		}
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+
+		textarea {
+			margin-top: 14px;
+		}
+	}
+
+	label {
+		width: 100%;
+
+		~ .form-item-flex {
+			margin-top: 12px;
+		}
+	}
+
+	// .form-item__actions
+	&__actions {
+		margin: 9px 0 0 30px;
+	}
+}
+
+.form-item-flex {
+	display: flex;
+	flex-direction: column;
+
+	input[type="text"] {
+		margin: 0 0 8px;
+	}
+
+	.btn {
+		width: 100%;
+	}
+
+	@include respond-to(lg) {
+		flex-direction: row;
+		justify-content: space-between;
+
+		input[type="text"] {
+			width: auto;
+			flex: 1;
+			margin: 0 8px 0;
+		}
+
+		.btn {
+			width: auto;
+		}
+	}
+}
+
+.form-items-row {
+	display: grid;
+	grid-auto-flow: column;
+	// grid-template-columns: repeat(3, 1fr);
+	gap: 12px;
+	margin-bottom: 12px;
+
+	.form-item {
+		margin-bottom: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.form-agreement {
+	margin-top: 26px;
+
+	@include respond-to(lg) {
+		margin-top: 15px;
+	}
+
+	label,
+	a {
+		color: $black60;
+	}
+
+	input[type="checkbox"] ~ span {
+		display: block;
+		font-size: rem(13.5);
+
+		// @include respond-to(xl) {
+		// 	font-size: rem(13.5);
+		// }
+
+		&::before,
+		&::after {
+			margin-top: -2px;
+		}
+	}
+}
 
 // .required {
 // 	border-color: $default-color !important;
 // }
 
-// default input (white)
+// default textarea, input (white)
+.textarea,
 .input {
 	position: relative;
 	background-color: $white;
@@ -46,7 +171,7 @@
 	font-size: rem(15);
 	letter-spacing: -0.28px;
 	padding: 12px;
-	height: 42px;
+	height: 40px;
 	transition: box-shadow $transition-default, border-radius $transition-default, background-color $transition-default;
 
 	@include on-hover {
@@ -58,6 +183,14 @@
 		box-shadow: 0 0 0 2px $yellow;
 	}
 
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.6;
+		background-color: $white;
+		box-shadow: 0 0 0 1px $black30;
+	}
+
+	// .textarea_gray
 	// .input_gray
 	&_gray {
 		background-color: $gray;
@@ -72,6 +205,7 @@
 		}
 	}
 
+	// .textarea_fill
 	// .input_fill
 	&_fill {
 		width: 100%;
@@ -137,3 +271,10 @@
 		}
 	}
 }
+
+.textarea {
+}
+
+@import "form-labels";
+@import "form-checkboxes";
+@import "form-selects";

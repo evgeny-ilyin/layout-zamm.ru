@@ -1,0 +1,24 @@
+label {
+	cursor: pointer;
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: fit-content;
+
+	@include on-hover {
+		input:not(:checked):not(:disabled) ~ span {
+			&::after {
+				background: $black10;
+				border-color: $black;
+			}
+		}
+
+		input:not(:checked):not(:disabled) ~ img {
+			border-color: $black;
+		}
+	}
+
+	input ~ img {
+		transition: border-color $transition-default;
+	}
+}
