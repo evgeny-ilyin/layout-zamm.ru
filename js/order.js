@@ -46,6 +46,7 @@ function formWatcher(node, el) {
 				let result = await response.json();
 				if (result.status === true) {
 					updateChunks(result.chunks);
+					selectsInit();
 				}
 				fetchLoader([node], "stop");
 			} catch (e) {
@@ -67,6 +68,7 @@ function formWatcher(node, el) {
 				let result = await response.json();
 				if (result.status === true) {
 					updateChunks(result.chunks);
+					selectsInit();
 				}
 				fetchLoader([node], "stop");
 			} catch (e) {

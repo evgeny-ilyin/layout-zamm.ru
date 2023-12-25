@@ -406,6 +406,21 @@ if (!window.setFavourites) {
 // 	};
 // }
 
+// EXTERNAL MODULE: ./node_modules/lc-select/lc_select.min.js
+var lc_select_min = __webpack_require__(889);
+;// CONCATENATED MODULE: ./src/js/modules/lc_select.js
+
+
+if (!window.selectsInit) {
+	window.selectsInit = () => {
+		new lc_select('select[data-select="custom"]', {
+			wrap_width: "100%",
+			pre_placeh_opt: true,
+			enable_search: false,
+		});
+	};
+}
+
 ;// CONCATENATED MODULE: ./src/js/modules/common.js
 function stickyHeader() {
 	const header = document.querySelector("header"),
@@ -1244,17 +1259,6 @@ if (headerAlert && closeAlert) {
 	window.addEventListener("load", alertCheck);
 }
 
-// EXTERNAL MODULE: ./node_modules/lc-select/lc_select.min.js
-var lc_select_min = __webpack_require__(889);
-;// CONCATENATED MODULE: ./src/js/modules/lc_select.js
-
-
-const customSelectSimple = new lc_select('select[data-select="custom"]', {
-	wrap_width: "100%",
-	pre_placeh_opt: true,
-	enable_search: false,
-});
-
 ;// CONCATENATED MODULE: ./src/js/common.js
 
 
@@ -1269,6 +1273,7 @@ addEventListener("DOMContentLoaded", () => {
 	catalogItemGalleryHandler();
 	useDynamicAdapt();
 	setFavourites();
+	selectsInit();
 
 	stickyHeader();
 	hamburgerMenu();
