@@ -75,7 +75,8 @@ body.is-touch .product-carousel._extra .f-carousel__slide .item__details {
   opacity: 1
 }
 .product-carousel._extra .f-carousel__slide .item__buttons {
-  margin-top: 5px
+  margin-top: 5px;
+  padding: 0 1px
 }
 .product-carousel._extra .f-carousel__slide .item .label {
   font-size: .8125rem;

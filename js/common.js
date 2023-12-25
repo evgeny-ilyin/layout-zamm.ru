@@ -1,6 +1,52 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 889:
+/***/ (() => {
+
+/**
+ * lc_select.js - Superlight Javascript dropdowns
+ * Version: 1.1.8
+ * Author: Luca Montanari (LCweb)
+ * Website: https://lcweb.it
+ * Licensed under the MIT license
+ */
+
+!function(){"use strict";if(void 0!==window.lc_select)return!1;let t=[],e=!1,l=null,n=null;const s={enable_search:!0,min_for_search:7,autofocus_search:!1,wrap_width:"auto",addit_classes:[],pre_placeh_opt:!1,max_opts:!1,on_change:null,labels:["search options","add options","Select options ..",".. no matching options .."]};document.addEventListener("click",(function(t){const e=document.querySelector("#lc-select-dd.lcslt-shown");if(!e)return!0;for(const e of document.getElementsByClassName("lcslt-wrap"))if(e.contains(t.target))return!0;return e.contains(t.target)||t.target.classList.contains("lcslt-shown")||(e.remove(),n&&(n.classList.remove("lcslt_dd-open"),n=null)),!0})),window.addEventListener("resize",(function(t){const e=document.querySelector("#lc-select-dd.lcslt-shown");return!e||(document.activeElement.hasAttribute("type")&&"text"===document.activeElement.getAttribute("type")||(e.classList.remove("lcslt-shown"),n.classList.remove("lcslt_dd-open"),n=null),!0)})),window.addEventListener("scroll",(t=>{document.querySelector(".lc-select-dd-scroll")&&e&&window.scrollTo(e[0],e[1])})),document.addEventListener("keydown",(t=>{if(-1===[38,40,13,27,9].indexOf(t.keyCode)||!document.querySelector("#lc-select-dd.lcslt-shown"))return!0;t.preventDefault();const e=document.querySelector(".lcslt-dd-opt.lcslt-dd-opt-hlight"),l=document.querySelectorAll(".lcslt-dd-opt:not(.lcslt-disabled)"),s=new Event("mouseenter",{bubbles:!0});switch(t.keyCode){case 27:n.click();break;case 9:document.activeElement.classList&&document.activeElement.classList.contains("lcslt-tabindex-trick")||n.click();break;case 13:e&&(e.classList.remove("lcslt-dd-opt-hlight"),e.click());break;case 38:case 40:let i,o=38==t.keyCode?0:l.length-1;e&&l.forEach(((t,l)=>{t==e&&(o=l)})),i=38==t.keyCode?o?o-1:l.length-1:o==l.length-1?0:o+1,l[i].dispatchEvent(s),c()}return!0}));const c=()=>{const t=document.querySelector(".lcslt-dd-opt-hlight");if(!t)return!1;const e=parseInt(getComputedStyle(t).borderTopWidth,10);document.querySelector(".lc-select-dd-scroll").scrollTop=t.offsetTop-2*(t.offsetHeight+e)-10};window.lc_select=function(a,r={}){return a?"object"!=typeof r?console.error("Options must be an object"):(r=Object.assign({},s,r),this.init=function(){const t=this;l||(this.generate_style(),l=!0),i(a).forEach((function(e){"SELECT"==e.tagName&&(e.parentNode.classList.length&&e.parentNode.classList.contains("lcslt-wrap")||(t.wrap_element(e),e.removeEventListener("lc-select-refresh",(()=>{})),e.addEventListener("lc-select-refresh",(e=>{n&&n.click();const l=e.target.parentNode.querySelector(".lcslt");return t.set_sel_content(l),!(!e.target.parentNode.classList.length||e.target.parentNode.classList.length&&!e.target.parentNode.classList.contains("lcslt-wrap"))&&(e.target.disabled?l.classList.add("lcslt-disabled"):l.classList.remove("lcslt-disabled"),!0)})),e.removeEventListener("lc-select-destroy",(()=>{})),e.addEventListener("lc-select-destroy",(t=>{n&&n.click();const e=t.target,l=t.target.parentNode,s=e.querySelector('option[data-lcslt-placeh="1"]');return!(!l.classList.length||l.classList.length&&!l.classList.contains("lcslt-wrap"))&&(s&&s.remove(),l.parentNode.insertBefore(e,l),l.remove(),!0)}))))}))},this.wrap_element=function(t){const e=this,l=document.createElement("div"),n="lcslt-f-"+t.getAttribute("name").replace(/\[\]/g,""),s=t.disabled?"lcslt-disabled":"",c=t.multiple?"lcslt-multiple":"",i=t.getAttribute("tabindex")?parseInt(t.getAttribute("tabindex"),10):"";let o,a=t.hasAttribute("data-placeholder")?t.getAttribute("data-placeholder").trim():"";if(!a&&c&&(a=r.labels[2]),a=a.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;").replace(/'/g,"&#039;"),"object"==typeof r.addit_classes&&r.addit_classes.some((t=>{l.classList.add(t)})),"auto"!=r.wrap_width&&(o="inherit"==r.wrap_width?Math.round(t.getBoundingClientRect().width)+"px":r.wrap_width,l.style.width=o),l.classList.add("lcslt-wrap",n),l.innerHTML='<input type="text" name="'+n+'-tit" tabindex="'+i+'" class="lcslt-tabindex-trick" /><div class="lcslt '+n+" "+c+" "+s+'" data-placeh="'+a+'"></div>',t.parentNode.insertBefore(l,t),l.appendChild(t),"inherit"==r.wrap_width){const e=l.querySelector(".lcslt"),n=e.currentStyle||window.getComputedStyle(e);let s=parseInt(n.paddingRight,10)+parseInt(n.paddingLeft,10);t.querySelector("option[data-image]")&&(s+=20),l.style.width=parseInt(o,10)+s+"px"}const d=l.querySelector(".lcslt");if(r.pre_placeh_opt&&!c&&a){let e=!0;if(t.querySelectorAll("option").forEach((t=>{if(t.hasAttribute("selected"))return e=!1,!1})),e){const e=document.createElement("option");e.setAttribute("data-lcslt-placeh",1),e.setAttribute("value",""),e.style.display="none",e.innerHTML=a,e.selected=!0,t.insertBefore(e,t.firstChild)}}this.set_sel_content(d),d.addEventListener("click",(t=>{d.classList.contains("lcslt-disabled")||t.target.classList.contains("lcslt-multi-selected")||t.target.classList.contains("lcslt-max-opts")||t.target.parentNode.classList.contains("lcslt-multi-selected")||e.show_dd(d)})),l.querySelector(".lcslt-tabindex-trick").onfocus=t=>{d.click()}},this.set_sel_content=function(t=!1){t||(t=n);const e=this,l=t.nextSibling,s=t.classList.contains("lcslt-multiple");let c="",i=0,a=0;l.querySelectorAll("option").forEach((t=>{if(t.selected){const e=t.hasAttribute("data-image")?'<i class="lcslt-img" style="background-image: url(\''+t.getAttribute("data-image").trim()+"')\"></i>":"";if(s)c+='<div class="lcslt-multi-selected" data-val="'+t.getAttribute("value")+'" title="'+t.innerHTML+'"><span>'+e+t.innerHTML+"</span></div>";else{const l=r.pre_placeh_opt&&t.hasAttribute("data-lcslt-placeh")?'class="lcslt-placeholder"':"";c="<span "+l+' title="'+t.innerHTML+'">'+e+t.innerHTML+"</span>"}a++}i++}));let d=!1;"number"==typeof r.max_opts&&r.max_opts>1&&(a>=r.max_opts?(t.classList.add("lcslt-max-opts"),d=!0):t.classList.remove("lcslt-max-opts")),c?s&&i>a&&!l.disabled&&!d&&(c+='<span class="lcslt-multi-callout" title="'+r.labels[1]+'">+</span>'):c='<span class="lcslt-placeholder">'+t.getAttribute("data-placeh")+"</span>",t.innerHTML=c,s&&t.querySelectorAll(".lcslt-multi-selected").forEach((l=>{l.addEventListener("click",(n=>{o(n.target,".lcslt").classList.contains("lcslt-disabled")||e.deselect_option(n,t,l)}))}))},this.show_dd=function(t){if(document.querySelector("#lc-select-dd")&&(document.querySelector("#lc-select-dd").remove(),n&&n.classList.remove("lcslt_dd-open")),t==n)return n=null,!1;n=t,this.append_dd(),this.set_dd_position(),c();const e=this,l=document.querySelector("#lc-select-dd");l.classList.add("lcslt-shown"),t.classList.add("lcslt_dd-open"),setTimeout((()=>{t.getBoundingClientRect().x!=l.getBoundingClientRect().x&&e.set_dd_position()}),10)},this.set_dd_position=function(){const t=document.querySelector("#lc-select-dd"),e=n.getBoundingClientRect(),l=e.width.toFixed(2),s=parseInt(n.clientHeight,10)+parseInt(getComputedStyle(n).borderTopWidth,10),c=parseInt(e.y,10)+parseInt(window.pageYOffset,10)+s;let i=e.left.toFixed(2);i<0&&(i=0),t.setAttribute("style","width:"+l+"px; top:"+c+"px; left: "+i+"px;")},this.append_dd=function(){const t=this,l=n.parentNode.querySelector("select");let s=new Map,c=!1,i=[];l.querySelectorAll("optgroup").length?l.querySelectorAll("optgroup").forEach((t=>{s.set(t.getAttribute("label"),new Map),t.disabled&&i.push(t.getAttribute("label"))})):(c=!0,s.set("%%lcslt%%",new Map)),l.querySelectorAll("option").forEach((t=>{let e={img:t.hasAttribute("data-image")?t.getAttribute("data-image").trim():"",name:t.innerHTML,selected:t.selected,disabled:t.disabled};const l=c?"%%lcslt%%":t.parentNode.getAttribute("label");(c||l)&&s.get(l).set(t.getAttribute("value"),e)}));const o=n.classList.contains("lcslt-multiple")?"lcslt-multiple-dd":"",a="object"==typeof r.addit_classes?r.addit_classes.join(" "):"";let d='<div id="lc-select-dd" class="'+o+" "+a+'">';const u=!!(r.enable_search&&l.querySelectorAll("option").length>=parseInt(r.min_for_search,10));u&&(d+='<ul><li class="lcslt-search-li"><input type="text" name="lcslt-search" value="" placeholder="'+r.labels[0]+'" autocomplete="off" /></li></ul>'),d+='<ul class="lc-select-dd-scroll">',s.forEach(((t,e)=>{if(!c){const n=-1!==i.indexOf(t)?"lcslt-disabled":"",s=l.querySelector('optgroup[label="'+e+'"]'),c=s.hasAttribute("data-image")&&s.getAttribute("data-image")?'<i class="lcslt-img" style="background-image: url(\''+s.getAttribute("data-image").trim()+"')\"></i>":"";d+='<li class="lcslt-group '+n+'"><span class="lcslt-group-name">'+c+e+'</span><ul class="lcslt-group-opts">'}s.get(e).forEach(((n,c)=>{const a=s.get(e).get(c),r=a.img?'<i class="lcslt-img" style="background-image: url(\''+a.img+"')\"></i>":"",u=a.selected?"lcslt-selected":"",p=a.disabled||-1!==i.indexOf(t)?"lcslt-disabled":"",h=u?"lcslt-dd-opt-hlight":"";!o&&l.querySelector('option[value="'+c+'"]').hasAttribute("data-lcslt-placeh")||(d+='<li class="lcslt-dd-opt '+u+" "+p+" "+h+'" data-val="'+c+'"><span>'+r+a.name+"</span></li>")})),c||(d+="</ul></li>")})),document.body.insertAdjacentHTML("beforeend",d+"</ul></div>"),document.querySelectorAll(".lcslt-dd-opt").forEach((e=>{e.addEventListener("click",(l=>{t.clicked_dd_option(l,e)})),e.addEventListener("mouseenter",(t=>{document.querySelector(".lcslt-dd-opt-hlight")&&document.querySelector(".lcslt-dd-opt-hlight").classList.remove("lcslt-dd-opt-hlight"),e.classList.contains("lcslt-disabled")||e.classList.add("lcslt-dd-opt-hlight")})),e.addEventListener("mouseleave",(t=>{e.classList.remove("lcslt-dd-opt-hlight")}))})),u&&(window.innerWidth>1024&&r.autofocus_search&&setTimeout((()=>document.querySelector("input[name=lcslt-search]").focus()),50),document.querySelector("input[name=lcslt-search]").addEventListener("keyup",(t=>{this.debounce("opts_search",500,"search_options")}))),document.querySelector(".lc-select-dd-scroll").addEventListener("mouseenter",(()=>{e=[window.pageXOffset,window.pageYOffset]})),document.querySelector(".lc-select-dd-scroll").addEventListener("mouseleave",(()=>{e=!1}))},this.on_val_change=function(t){const e=t.nextSibling,l=Array.from(e.selectedOptions).map((t=>t.value)),n=new Event("change",{bubbles:!0});e.dispatchEvent(n),"function"==typeof r.on_change&&r.on_change.call(this,l,e)},this.deselect_option=function(t,e,l){e.nextSibling.querySelector('option[value="'+l.getAttribute("data-val")+'"]').selected=!1,this.set_sel_content(e),this.on_val_change(e)},this.clicked_dd_option=function(t,e){const l=n.classList.contains("lcslt-multiple"),s=e.getAttribute("data-val"),c=n.nextSibling;if(e.classList.contains("lcslt-disabled")||!l&&e.classList.contains("lcslt-selected")||!e.classList.contains("lcslt-selected")&&n.classList.contains("lcslt-max-opts"))return!1;l||(document.querySelectorAll(".lcslt-dd-opt").forEach((t=>{t.getAttribute("data-val")!=s&&t.classList.remove("lcslt-selected")})),c.querySelectorAll("option").forEach((t=>{t.getAttribute("value")!=s&&(t.selected=!1)}))),e.classList.toggle("lcslt-selected"),e.classList.remove("lcslt-dd-opt-hlight"),c.querySelector('option[value="'+s+'"]').selected=!c.querySelector('option[value="'+s+'"]').selected,this.set_sel_content(),this.on_val_change(n),l?this.set_dd_position():n.click()},this.search_options=function(){if(!document.querySelector("input[name=lcslt-search]"))return!1;const t=document.querySelector("input[name=lcslt-search]").value.trim(),e=document.querySelectorAll(".lcslt-group-name"),l=document.querySelectorAll(".lcslt-dd-opt"),n=document.querySelector(".lcslt-no-results");if(t.length<2)document.getElementById("lc-select-dd").classList.remove("lcslt-is-searching"),e.forEach((t=>{t.style.removeProperty("display")})),l.forEach((t=>{t.style.removeProperty("display")})),n&&n.remove();else{document.getElementById("lc-select-dd").classList.add("lcslt-is-searching"),e.forEach((t=>{t.style.display="none"}));const s=t.split(" ");let c=!0;l.forEach((t=>{let e=!1;s.some((l=>{-1!==t.querySelector("span").innerHTML.toLowerCase().indexOf(l.toLowerCase())&&(e=!0,c=!1)})),e?t.style.removeProperty("display"):t.style.display="none"})),c?n||document.querySelector(".lc-select-dd-scroll").insertAdjacentHTML("beforeend",'<li class="lcslt-no-results"><span>'+r.labels[3]+"</span></li>"):n&&n.remove()}},this.debounce=function(e,l,n,s){void 0!==t[e]&&t[e]&&clearTimeout(t[e]);const c=this;t[e]=setTimeout((()=>{c[n].call(c,s)}),l)},this.generate_style=function(){const t="    url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNTg3LjQ3MXB4IiBoZWlnaHQ9IjU4Ny40NzFweCIgdmlld0JveD0iMCAwIDU4Ny40NzEgNTg3LjQ3MSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTg3LjQ3MSA1ODcuNDcxOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+PGc+PGc+PHBhdGggZD0iTTIyMC4zMDIsNDQwLjYwNGMxMjEuNDc2LDAsMjIwLjMwMi05OC44MjYsMjIwLjMwMi0yMjAuMzAyQzQ0MC42MDQsOTguODI2LDM0MS43NzcsMCwyMjAuMzAyLDBDOTguODI2LDAsMCw5OC44MjYsMCwyMjAuMzAyQzAsMzQxLjc3Nyw5OC44MjYsNDQwLjYwNCwyMjAuMzAyLDQ0MC42MDR6IE0yMjAuMzAyLDcxLjE0MmM4Mi4yNDcsMCwxNDkuMTU5LDY2LjkxMywxNDkuMTU5LDE0OS4xNTljMCw4Mi4yNDgtNjYuOTEyLDE0OS4xNi0xNDkuMTU5LDE0OS4xNnMtMTQ5LjE2LTY2LjkxMi0xNDkuMTYtMTQ5LjE2QzcxLjE0MiwxMzguMDU1LDEzOC4wNTUsNzEuMTQyLDIyMC4zMDIsNzEuMTQyeiIvPjxwYXRoIGQ9Ik01MjUuNTIzLDU4Ny40NzFjMTYuNTU1LDAsMzIuMTEzLTYuNDQ3LDQzLjgwMS0xOC4xNThjMTEuNjk5LTExLjY4LDE4LjE0Ni0yNy4yMzQsMTguMTQ2LTQzLjc5MWMwLTE2LjU1My02LjQ0Ny0zMi4xMTUtMTguMTUyLTQzLjgyMkw0NDYuNjQzLDM1OS4wMjNjLTMuMjYyLTMuMjYyLTcuNDc1LTUuMDYxLTExLjg1OS01LjA2MWMtNS40NDksMC0xMC40NjUsMi43MTEtMTMuNzYyLDcuNDM4Yy0xNi4yMzgsMjMuMzE4LTM2LjI5Nyw0My4zNzctNTkuNjEzLDU5LjYxNWMtNC4yNTgsMi45NjUtNi45NDcsNy40NjctNy4zNzksMTIuMzUyYy0wLjQyOCw0LjgyOCwxLjM5Myw5LjY2Niw0Ljk5OCwxMy4yN2wxMjIuNjc0LDEyMi42NzZDNDkzLjQwNiw1ODEuMDIzLDUwOC45NjksNTg3LjQ3MSw1MjUuNTIzLDU4Ny40NzF6Ii8+PC9nPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48L3N2Zz4=')";document.head.insertAdjacentHTML("beforeend",`<style>\n.lcslt-wrap {\n    position: relative;\n    display: inline-block;\n}\n.lcslt-wrap select {\n    display: none !important;\n}\n.lcslt {\n    display: flex;\n\talign-items: center;\n\tflex-direction: row;\n\tflex-wrap: wrap;\n    width: 100%;\n    min-height: 15px;\n    padding: 5px 30px 5px 5px;\n    position: relative;\n    overflow: hidden;  \n    font-size: 1rem;\n}\n.lcslt:not(.lcslt-disabled):not(.lcslt-max-opts) {\n    cursor: pointer;\n}\n.lcslt:not(.lcslt-multiple):after {\n\tcontent: "";\n\twidth: 0;\n\theight: 0;\n\tborder-left: 5px solid transparent;\n\tborder-right: 5px solid transparent;\n\tborder-top: 6px solid #444;\n\tdisplay: inline-block;\n    position: absolute;\n    right: 6px;\n    transition: transform .3s ease; \n}\n.lcslt.lcslt_dd-open:after {\n    transform: rotate(180deg);\n}\n.lcslt:not(.lcslt-multiple) > span {\n    line-height: normal;\n}\n.lcslt span,\n.lcslt-multi-selected {\n    max-width: 100%;\n\toverflow: hidden;\n\twhite-space: nowrap;\n\ttext-overflow: ellipsis;\n}\n.lcslt-multiple {\n\tpadding: 5px 5px 0 5px;\n\theight: auto;\n\tline-height: 0;\n}\n.lcslt span:not(.lcslt-placeholder):not(.lcslt-multi-callout) {\n\tline-height: 1.1em;\n\tfont-size: 0.95em;\n}\n.lcslt-opt {\n    display: inline-block;\n    margin: 0 0 5px 5px; \n}\n.lcslt-multi-selected {\n\tdisplay: flex;\n\tposition: relative;\n\tline-height: normal;\n\talign-items: center;\n}\n.lcslt:not(.lcslt-disabled) .lcslt-multi-selected {\n    cursor: pointer;\n}\n.lcslt-multi-selected:before {\n    content: "×";\n    font-family: arial;\n}\n.lcslt-multi-callout {\n\tdisplay: inline-block;\n    line-height: 0;\n}\n.lcslt-placeholder {\n\tline-height: normal;\n\tpadding-bottom: 5px;\n}\n.lcslt-tabindex-trick {\n    position: fixed;\n    top: -99999px;\n}\n\n\n.lcslt-wrap,\n.lcslt-wrap *,\n#lc-select-dd,\n#lc-select-dd * {\n    box-sizing: border-box;\n}\n#lc-select-dd {\n\tvisibility: hidden;\n\tz-index: -100;\n\tposition: absolute;\n\ttop: -9999px;\n\tz-index: 999;\n\toverflow: hidden;\n\tborder-top: none;\n\tfont-size: 1rem;\n\tfont-family: sans-serif;\n}\n#lc-select-dd.lcslt-shown {\n    visibility: visible;\n    z-index: 99999999;\n}\n#lc-select-dd ul {\n\tmargin: 0;\n    padding: 0;\n\tlist-style: none;\n}\n.lc-select-dd-scroll {\n    max-height: 200px; \n    overflow: auto;\n}\n.lcslt-search-li { \n    padding: 0 !important;\n    margin: 0 !important;\n    position: relative;\n}\n.lcslt-search-li input {\n    width: 100%;\n    padding-right: 36px;\n    line-height: normal;\n}\n.lcslt-search-li input[type=text] { /* for iOS safari */\n    border: none;\n    outline: none;\n    -webkit-appearance: none;\n    -webkit-border-radius: 0;\n}\n.lcslt-search-li input[type=text],\n.lcslt-search-li input[type=text]:hover,\n.lcslt-search-li input[type=text]:active,\n.lcslt-search-li input[type=text]:focus,\n.lcslt-search-li input[type=text]:focus-visible {\n    border: none;\n    outline: none;\n}\n.lcslt-search-li:before {\n    content: "";\n    position: absolute;\n    z-index: 10;\n    width: 25px;\n    height: 50%;\n    right: 8px;\n    top: 50%;\n    -webkit-mask: ${t} no-repeat right center;\n    mask: ${t} no-repeat right center;\n    -webkit-mask-size: contain;\n    mask-size: contain;\n    transform: translate3d(0, -53%, 0);\n}\n#lc-select-dd li {\n    width: 100%;\n    margin: 0;\n}\n#lc-select-dd li > div {\n    display: flex;\n    align-items: center;\n}\n#lc-select-dd li span {\n    word-break: break-all;\n}\n#lc-select-dd li span {\n    display: inline-block;\n    line-height: normal;\n}\n.lcslt-dd-opt:not(.lcslt-disabled):not(.lcslt-selected),\n.lcslt-multiple-dd .lcslt-dd-opt:not(.lcslt-disabled) {   \n    cursor: pointer;\n}\n.lcslt-img {\n    background-position: center center;\n    background-repeat: no-repeat;\n    background-size: contain;\n    background-color: transparent;\n    vertical-align: top;\n    line-height: 0;\n    font-size: 0;\n}\n</style>`)},void this.init()):console.error("You must provide a valid selector or DOM object as first argument")};const i=t=>{if("string"!=typeof t){if(t instanceof Element)return[t];{let e=[];for(const l of t)l instanceof Element&&e.push(l);return e}}return(t.match(/(#[0-9][^\s:,]*)/g)||[]).forEach((function(e){t=t.replace(e,'[id="'+e.replace("#","")+'"]')})),document.querySelectorAll(t)},o=(t,e)=>{let l=t;for(;null!=l.parentNode&&!l.matches(e);)l=l.parentNode;return l}}();
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
 var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+(() => {
+"use strict";
 
 ;// CONCATENATED MODULE: ./src/js/modules/common-global.js
 if (!window.overlay) {
@@ -308,6 +354,35 @@ if (!window.addToSvgSprite) {
 	};
 }
 
+if (!window.setFavourites) {
+	window.setFavourites = (id = false) => {
+		if (!window.arFav) return;
+
+		const favCount = document.querySelector(`[data-id="fav-amount"]`),
+			isActiveClass = "is-active";
+
+		if (!window.setFav) window.setFav = new Set(arFav);
+
+		if (!id) {
+			// при загрузке страницы выставить счетчик
+			favCount.dataset.amount = setFav.size;
+		} else {
+			// при обновлении счетчик приходит аяксом, здесь обновлять не надо
+			setFav.has(id) ? setFav.delete(id) : setFav.add(id);
+		}
+
+		// reset all
+		let favsAll = document.querySelectorAll(`.js-fav`);
+		favsAll.forEach((fav) => fav.parentNode.classList.remove(isActiveClass));
+
+		// set favs
+		setFav.forEach((el) => {
+			let favs = document.querySelectorAll(`.js-fav[data-id="${el}"]`);
+			favs.forEach((fav) => fav.parentNode.classList.add(isActiveClass));
+		});
+	};
+}
+
 // if (!window.getContent) {
 // 	window.getContent = async (url) => {
 // 		if (!url) return;
@@ -488,7 +563,7 @@ function modalHandler() {
 	};
 
 	let reinitModalResults = (target) => {
-		inputFetch(target);
+		// inputFetch(target);
 		inputQuickSearch(target);
 	};
 
@@ -499,6 +574,7 @@ function modalHandler() {
 			modalClose = e.target.closest([".js-modal-close", ".overlay"]);
 
 		if (modalShow) {
+			e.preventDefault();
 			const url = modalShow.dataset.url,
 				width = modalShow.dataset.boxWidth,
 				storageKey = modalShow.dataset.storageKey;
@@ -536,6 +612,45 @@ function sectionClose() {
 	});
 }
 
+function collapseHandler() {
+	const isCollapsedClass = "is-collapsed";
+
+	let collapseSection = (trigger) => {
+		const section = trigger.nextElementSibling,
+			sectionH = section.scrollHeight,
+			elTransition = section.style.transition;
+		section.style.transition = "";
+		requestAnimationFrame(function () {
+			section.style.height = sectionH + "px";
+			section.style.transition = elTransition;
+			requestAnimationFrame(function () {
+				section.style.height = 0 + "px";
+				trigger.classList.add(isCollapsedClass);
+			});
+		});
+	};
+
+	let expandSection = (trigger) => {
+		const section = trigger.nextElementSibling,
+			sectionH = section.scrollHeight;
+		section.style.height = sectionH + "px";
+		trigger.classList.remove(isCollapsedClass);
+	};
+
+	document.addEventListener("click", (e) => {
+		const trigger = e.target.closest(".js-collapse");
+		if (!trigger) return;
+
+		const isCollapsed = trigger.classList.contains(isCollapsedClass);
+
+		if (isCollapsed) {
+			expandSection(trigger);
+		} else {
+			collapseSection(trigger);
+		}
+	});
+}
+
 function searchForm() {
 	const navMenu = document.querySelector(".nav__menu"),
 		menuToggler = document.getElementById("menu-toggle"),
@@ -567,8 +682,9 @@ function searchForm() {
 	});
 }
 
-function inputFetch(el = false) {
-	const inputs = el ? el.querySelectorAll("[data-query='true']") : document.querySelectorAll("[data-query='true']"),
+function inputFetch() {
+	const writeClass = "js-write",
+		isActiveClass = "is-active",
 		queryWrapperClass = "js-query-wrapper",
 		queryResultClass = "js-query-result",
 		minQueryLen = 2;
@@ -577,7 +693,8 @@ function inputFetch(el = false) {
 		let url = input.dataset.url,
 			query = { [input.name]: input.value },
 			onFocus = input.dataset.onFocus,
-			results = input.closest(`.${queryWrapperClass}`).querySelector(`.${queryResultClass}`);
+			wrapper = input.closest(`.${queryWrapperClass}`),
+			results = wrapper.querySelector(`.${queryResultClass}`);
 
 		if (!url) return;
 
@@ -595,6 +712,7 @@ function inputFetch(el = false) {
 				let result = await response.json();
 				if (result.status === true) {
 					results.innerHTML = result.content;
+					wrapper.classList.add(isActiveClass);
 				} else {
 					console.error(`Error: ${JSON.stringify(result)}`);
 				}
@@ -605,12 +723,33 @@ function inputFetch(el = false) {
 		}
 	};
 
-	inputs.forEach((input) => {
-		["focus", "input"].forEach((evt) =>
-			input.addEventListener(evt, () => {
-				fetchByQuery(input);
-			})
-		);
+	["focus", "input"].forEach((evt) =>
+		document.addEventListener(
+			evt,
+			(e) => {
+				if (e.target.dataset.query == "true") {
+					fetchByQuery(e.target);
+				}
+			},
+			true
+		)
+	);
+
+	document.addEventListener("click", (e) => {
+		if (!e.target.closest(`.${queryWrapperClass}.${isActiveClass}`)) {
+			let wrapper = document.querySelector(`.${queryWrapperClass}.${isActiveClass}`);
+			if (wrapper) {
+				wrapper.classList.remove(isActiveClass);
+			}
+		}
+	});
+
+	document.addEventListener("click", (e) => {
+		if (e.target.classList.contains(writeClass)) {
+			let wrapper = document.querySelector(`.${queryWrapperClass}.${isActiveClass}`);
+			wrapper.querySelector("input").value = e.target.innerText;
+			wrapper.classList.remove(isActiveClass);
+		}
 	});
 }
 
@@ -737,7 +876,7 @@ function contentGalleryPopup() {
 			sw = getScrollbarWidth(),
 			media = mediaMatch("1023");
 
-			if(headerAlert) offsetTop += headerAlert.getBoundingClientRect().height;
+		if (headerAlert) offsetTop += headerAlert.getBoundingClientRect().height;
 
 		if (!el || media) return;
 
@@ -803,6 +942,28 @@ function contentGalleryPopup() {
 		});
 
 		resetTopOffset();
+	});
+}
+
+function changeAmount() {
+	document.addEventListener("click", (e) => {
+		if (e.target.classList.contains("js-btn-minus")) {
+			let inputNumber = e.target.nextElementSibling;
+			if (inputNumber.getAttribute("min") == inputNumber.value) return;
+			inputNumber.stepDown();
+
+			let change = new Event("change", { bubbles: true });
+			inputNumber.dispatchEvent(change);
+		}
+
+		if (e.target.classList.contains("js-btn-plus")) {
+			let inputNumber = e.target.previousElementSibling;
+			if (inputNumber.getAttribute("max") == inputNumber.value) return;
+			inputNumber.stepUp();
+
+			let change = new Event("change", { bubbles: true });
+			inputNumber.dispatchEvent(change);
+		}
 	});
 }
 
@@ -1083,7 +1244,19 @@ if (headerAlert && closeAlert) {
 	window.addEventListener("load", alertCheck);
 }
 
+// EXTERNAL MODULE: ./node_modules/lc-select/lc_select.min.js
+var lc_select_min = __webpack_require__(889);
+;// CONCATENATED MODULE: ./src/js/modules/lc_select.js
+
+
+const customSelectSimple = new lc_select('select[data-select="custom"]', {
+	wrap_width: "100%",
+	pre_placeh_opt: true,
+	enable_search: false,
+});
+
 ;// CONCATENATED MODULE: ./src/js/common.js
+
 
 
 
@@ -1095,11 +1268,13 @@ addEventListener("DOMContentLoaded", () => {
 	catalogItemGalleriesInit();
 	catalogItemGalleryHandler();
 	useDynamicAdapt();
+	setFavourites();
 
 	stickyHeader();
 	hamburgerMenu();
 	modalHandler();
 	sectionClose();
+	collapseHandler();
 	searchForm();
 	inputFetch();
 	inputQuickSearch();
@@ -1108,7 +1283,10 @@ addEventListener("DOMContentLoaded", () => {
 	dropdownClose();
 	dropdownShow();
 	contentGalleryPopup();
+	changeAmount();
 });
+
+})();
 
 /******/ })()
 ;

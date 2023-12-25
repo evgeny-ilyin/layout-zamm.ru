@@ -6,31 +6,33 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-	<link rel="stylesheet" href="css/root-vars.css">
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/carousel-vendor.css">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231225115606">
+	<link rel="stylesheet" href="css/fonts.css?v=20231225115606">
+	<link rel="stylesheet" href="css/header.css?v=20231225115606">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/carousel-main.css">
-	<link rel="stylesheet" href="css/carousel-products.css">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20231225115606">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20231225115606">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/block-popular-categories.css">
-	<link rel="stylesheet" href="css/block-ideas.css">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231225115606">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/block-about.css">
+	<link rel="stylesheet" href="css/block-about.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/catalog-item.css">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/catalog.css">
-	<link rel="stylesheet" href="css/catalog-filter.css">
+	<link rel="stylesheet" href="css/catalog.css?v=20231225115606">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/product-card.css">
+	<link rel="stylesheet" href="css/product-card.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/cart.css">
+	<link rel="stylesheet" href="css/cart.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/carousel-footer.css">
-	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/order.css?v=20231225115606">
+
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20231225115606">
+	<link rel="stylesheet" href="css/footer.css?v=20231225115606">
 	<title>Карточка товара</title>
 	<meta name="description" content="Карточка товара">
 </head>
@@ -407,14 +409,14 @@
 							</div>
 						</div>
 						<div class="nav__icon">
-							<a href="javascript:void(0)" class="nav__icon-link" aria-label="Избранное">
+							<a href="javascript:void(0)" class="nav__icon-link" data-id="fav-amount" aria-label="Избранное">
 								<svg>
 									<use xlink:href="#fav"></use>
 								</svg>
 							</a>
 						</div>
 						<div class="nav__icon">
-							<a href="javascript:void(0)" class="nav__icon-link" data-id="amount" aria-label="Корзина">
+							<a href="javascript:void(0)" class="nav__icon-link" data-id="cart-amount" aria-label="Корзина">
 								<svg>
 									<use xlink:href="#lk_cart"></use>
 								</svg>
@@ -522,11 +524,11 @@
 					<div class="h3">Качество и технологии</div>
 					<div class="tabs">
 						<div class="tabs__header scrollblock">
-							<button class="tab-nav js-tab-nav" data-tab="paint">Покраска</button>
-							<button class="tab-nav js-tab-nav" data-tab="egger">ЛДСП Egger</button>
-							<button class="tab-nav js-tab-nav" data-tab="durability">Долговечность</button>
-							<button class="tab-nav js-tab-nav" data-tab="surface">Идеальная поверхность</button>
-							<button class="tab-nav js-tab-nav" data-tab="stock">Склад</button>
+							<button type="button" class="tab-nav js-tab-nav" data-tab="paint">Покраска</button>
+							<button type="button" class="tab-nav js-tab-nav" data-tab="egger">ЛДСП Egger</button>
+							<button type="button" class="tab-nav js-tab-nav" data-tab="durability">Долговечность</button>
+							<button type="button" class="tab-nav js-tab-nav" data-tab="surface">Идеальная поверхность</button>
+							<button type="button" class="tab-nav js-tab-nav" data-tab="stock">Склад</button>
 						</div>
 						<div class="tabs__content">
 							<div class="tab-block" data-tab-content="paint">
@@ -885,7 +887,7 @@
 											</a>
 										</div>
 
-										<div class="fav is-active">
+										<div class="fav">
 											<button type="button" class="js-fav" aria-label="В избранное" data-id="11111" data-url="https://deviart.ru/zamm/fetch-fav.php">
 												<svg>
 													<use xlink:href="#fav"></use>
@@ -1270,7 +1272,7 @@
 						<div class="subscription__header">Подпишитесь на нашу рассылку</div>
 						<div class="subscription__form">
 							<form action="" class="form">
-								<div class="form__fieldset btn-inset">
+								<div class="btn-inset">
 									<input type="email" name="" id="" class="input input_fill" placeholder="name@email.ru" />
 									<button type="submit" class="btn btn_gray btn_arrow-big btn_inset" aria-label="Подписаться"></button>
 								</div>
@@ -1431,17 +1433,20 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
-	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js"></script>
-	<script src="js/carousel-init.js"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231225115606"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20231225115606"></script>
+	<script src="js/carousel-init.js?v=20231225115606"></script>
 
-	<script src="js/common.js"></script>
-	<script src="js/tabs.js"></script>
-	<script src="js/observer.js"></script>
-	<script src="js/product-actions.js"></script>
-	<script src="js/product-props.js"></script>
-	<script src="js/product-card.js"></script>
+	<script src="js/common.js?v=20231225115606"></script>
+	<script src="js/tabs.js?v=20231225115606"></script>
+	<script src="js/observer.js?v=20231225115606"></script>
+	<script src="js/product-actions.js?v=20231225115606"></script>
+	<script src="js/product-props.js?v=20231225115606"></script>
+	<script src="js/product-card.js?v=20231225115606"></script>
 
+	<script>
+		var arFav = [11111, 33333, 999777];
+	</script>
 </body>
 
 </html>

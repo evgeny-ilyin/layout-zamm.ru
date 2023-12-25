@@ -6,31 +6,33 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231215105048">
-	<link rel="stylesheet" href="css/fonts.css?v=20231215105048">
-	<link rel="stylesheet" href="css/header.css?v=20231215105048">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231215105048">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231225115606">
+	<link rel="stylesheet" href="css/fonts.css?v=20231225115606">
+	<link rel="stylesheet" href="css/header.css?v=20231225115606">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/carousel-main.css?v=20231215105048">
-	<link rel="stylesheet" href="css/carousel-products.css?v=20231215105048">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231215105048">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20231225115606">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20231225115606">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231215105048">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20231215105048">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231225115606">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/block-about.css?v=20231215105048">
+	<link rel="stylesheet" href="css/block-about.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/catalog-item.css?v=20231215105048">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/catalog.css?v=20231215105048">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231215105048">
+	<link rel="stylesheet" href="css/catalog.css?v=20231225115606">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/product-card.css?v=20231215105048">
+	<link rel="stylesheet" href="css/product-card.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/cart.css?v=20231215105048">
+	<link rel="stylesheet" href="css/cart.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20231215105048">
-	<link rel="stylesheet" href="css/footer.css?v=20231215105048">
+	<link rel="stylesheet" href="css/order.css?v=20231225115606">
+
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20231225115606">
+	<link rel="stylesheet" href="css/footer.css?v=20231225115606">
 	<title>UI svg fetching</title>
 	<meta name="description" content="UI svg fetching">
 </head>
@@ -415,14 +417,14 @@
 							</div>
 						</div>
 						<div class="nav__icon">
-							<a href="javascript:void(0)" class="nav__icon-link" aria-label="Избранное">
+							<a href="javascript:void(0)" class="nav__icon-link" data-id="fav-amount" aria-label="Избранное">
 								<svg>
 									<use xlink:href="#fav"></use>
 								</svg>
 							</a>
 						</div>
 						<div class="nav__icon">
-							<a href="javascript:void(0)" class="nav__icon-link" data-id="amount" aria-label="Корзина">
+							<a href="javascript:void(0)" class="nav__icon-link" data-id="cart-amount" aria-label="Корзина">
 								<svg>
 									<use xlink:href="#lk_cart"></use>
 								</svg>
@@ -570,7 +572,7 @@
 						<div class="subscription__header">Подпишитесь на нашу рассылку</div>
 						<div class="subscription__form">
 							<form action="" class="form">
-								<div class="form__fieldset btn-inset">
+								<div class="btn-inset">
 									<input type="email" name="" id="" class="input input_fill" placeholder="name@email.ru" />
 									<button type="submit" class="btn btn_gray btn_arrow-big btn_inset" aria-label="Подписаться"></button>
 								</div>
@@ -730,11 +732,11 @@
 		</symbol>
 	</svg>
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231215105048"></script>
-	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20231215105048"></script>
-	<script src="js/carousel-init.js?v=20231215105048"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231225115606"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20231225115606"></script>
+	<script src="js/carousel-init.js?v=20231225115606"></script>
 
-	<script src="js/common.js?v=20231215105048"></script>
+	<script src="js/common.js?v=20231225115606"></script>
 	<script>
 		testSvg = (el = false) => {
 			const fetchObserver = new IntersectionObserver((entries, observer) => {

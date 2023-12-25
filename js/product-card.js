@@ -2,30 +2,6 @@
 /******/ 	"use strict";
 var __webpack_exports__ = {};
 
-;// CONCATENATED MODULE: ./src/js/modules/product-card.js
-function productAmount() {
-	const product = document.querySelector(".product");
-	if (!product) return;
-
-	product.addEventListener("click", (e) => {
-		if (e.target.classList.contains("js-btn-minus")) {
-			let inputNumber = e.target.nextElementSibling;
-			if (inputNumber.getAttribute("min") == inputNumber.value) return;
-			inputNumber.stepDown();
-			let change = new Event("change", { bubbles: true });
-			inputNumber.dispatchEvent(change);
-		}
-
-		if (e.target.classList.contains("js-btn-plus")) {
-			let inputNumber = e.target.previousElementSibling;
-			if (inputNumber.getAttribute("max") == inputNumber.value) return;
-			inputNumber.stepUp();
-			let change = new Event("change", { bubbles: true });
-			inputNumber.dispatchEvent(change);
-		}
-	});
-}
-
 ;// CONCATENATED MODULE: ./src/js/modules/product-card-global.js
 if (!window.productBlockCollapseHandler) {
 	window.productBlockCollapseHandler = (el = false) => {
@@ -75,9 +51,7 @@ if (!window.productBlockCollapseHandler) {
 ;// CONCATENATED MODULE: ./src/js/product-card.js
 
 
-
 addEventListener("DOMContentLoaded", () => {
-	productAmount();
 	productBlockCollapseHandler();
 });
 

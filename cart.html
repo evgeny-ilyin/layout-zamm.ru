@@ -6,31 +6,33 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-	<link rel="stylesheet" href="css/root-vars.css">
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/carousel-vendor.css">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231225115606">
+	<link rel="stylesheet" href="css/fonts.css?v=20231225115606">
+	<link rel="stylesheet" href="css/header.css?v=20231225115606">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/carousel-main.css">
-	<link rel="stylesheet" href="css/carousel-products.css">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20231225115606">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20231225115606">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/block-popular-categories.css">
-	<link rel="stylesheet" href="css/block-ideas.css">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231225115606">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/block-about.css">
+	<link rel="stylesheet" href="css/block-about.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/catalog-item.css">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/catalog.css">
-	<link rel="stylesheet" href="css/catalog-filter.css">
+	<link rel="stylesheet" href="css/catalog.css?v=20231225115606">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/product-card.css">
+	<link rel="stylesheet" href="css/product-card.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/cart.css">
+	<link rel="stylesheet" href="css/cart.css?v=20231225115606">
 
-	<link rel="stylesheet" href="css/carousel-footer.css">
-	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/order.css?v=20231225115606">
+
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20231225115606">
+	<link rel="stylesheet" href="css/footer.css?v=20231225115606">
 	<title>Корзина</title>
 	<meta name="description" content="Корзина">
 </head>
@@ -407,14 +409,14 @@
 							</div>
 						</div>
 						<div class="nav__icon">
-							<a href="javascript:void(0)" class="nav__icon-link" aria-label="Избранное">
+							<a href="javascript:void(0)" class="nav__icon-link" data-id="fav-amount" aria-label="Избранное">
 								<svg>
 									<use xlink:href="#fav"></use>
 								</svg>
 							</a>
 						</div>
 						<div class="nav__icon">
-							<a href="javascript:void(0)" class="nav__icon-link" data-id="amount" aria-label="Корзина">
+							<a href="javascript:void(0)" class="nav__icon-link" data-id="cart-amount" aria-label="Корзина">
 								<svg>
 									<use xlink:href="#lk_cart"></use>
 								</svg>
@@ -428,10 +430,13 @@
 
 
 	<div class="container">
-		<div class="content content_columns cart" data-id="cart-main" data-url="https://deviart.ru/zamm/fetch-cart.php">
-			<div class="cart__main">
-				<div class="h3">Оформление заказа</div>
-				<form action="/order/" method="post">
+
+		<div class="content order js-cart" data-id="cart-main" data-url="https://deviart.ru/zamm/fetch-cart.php">
+
+			<form action="/order/" class="form order__wrapper" method="post">
+
+				<div class="order__main">
+					<div class="h3">Оформление заказа</div>
 
 					<div data-id="cart-items">
 
@@ -541,321 +546,326 @@
 
 					</div>
 
-				</form>
 
-				<div class="cart__tools">
-					<a href="javascript:void(0)" class="link-svg _gray">
-						<svg>
-							<use xlink:href="#print"></use>
-						</svg>
-						Распечатать
-					</a>
-					<a href="javascript:void(0)" class="link-svg _gray js-modal-show" data-box-width="510" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=share">
-						<svg>
-							<use xlink:href="#share"></use>
-						</svg>
-						Поделиться корзиной
-					</a>
+					<div class="cart-tools">
+						<a href="javascript:void(0)" class="link-svg _gray">
+							<svg>
+								<use xlink:href="#print"></use>
+							</svg>
+							Распечатать
+						</a>
+						<a href="javascript:void(0)" class="link-svg _gray js-modal-show" data-box-width="510" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=share">
+							<svg>
+								<use xlink:href="#share"></use>
+							</svg>
+							Поделиться корзиной
+						</a>
 
-					<script>
-						var copyShareLink = function(b) {
-							navigator.clipboard.writeText(document.querySelector('#share-link').value).then(function() {
-								var html = b.innerHTML;
-								b.innerHTML = 'Скопировано';
-								b.setAttribute('disabled', true);
-								setTimeout(function() {
-									b.innerHTML = html;
-									b.removeAttribute('disabled');
-								}, 2000);
-							});
-						}
-					</script>
+						<script>
+							var copyShareLink = function(b) {
+								navigator.clipboard.writeText(document.querySelector('#share-link').value).then(function() {
+									var html = b.innerHTML;
+									b.innerHTML = 'Скопировано';
+									b.setAttribute('disabled', true);
+									setTimeout(function() {
+										b.innerHTML = html;
+										b.removeAttribute('disabled');
+									}, 2000);
+								});
+							}
+						</script>
+					</div>
+
+					<div class="hidden-overflow" data-id="cart-carousel">
+						<div class="block-header _left">К этим товарам подойдёт</div>
+						<div class="f-carousel product-carousel _extra carousel-top-nav" data-carousel="carousel" data-options='{"Dots": false}'>
+							<div class="f-carousel__slide">
+								<div class="item">
+									<div class="item__wrapper">
+										<div class="item__content">
+											<div class="item__image-wrapper">
+												<div>
+													<div class="labels">
+														<div class="label label_red">-20%</div>
+														<div class="label label_yellow">Акция</div>
+													</div>
+												</div>
+
+												<div>
+													<a href="javascript:void(0)" class="item__gallery-wrapper">
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" />
+														</div>
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="item__info">
+												<div class="item__title">
+													<a href="javascript:void(0)">Стол Экспо ТР</a>
+												</div>
+												<div class="item__prices">
+													<div class="item__price">29 620 ₽</div>
+												</div>
+											</div>
+
+											<div class="item__details">
+												<div class="item__buttons">
+													<button type="button" class="btn btn_gray js-add-to-cart" data-id="item-18888" data-url="https://deviart.ru/zamm/fetch-cart.php">
+														<span>Добавить</span>
+														<span>Добавлено</span>
+													</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="f-carousel__slide">
+								<div class="item">
+									<div class="item__wrapper">
+										<div class="item__content">
+											<div class="item__image-wrapper">
+												<div>
+													<div class="labels">
+														<div class="label label_yellow">Акция</div>
+													</div>
+												</div>
+
+												<div>
+													<a href="javascript:void(0)" class="item__gallery-wrapper">
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" />
+														</div>
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="item__info">
+												<div class="item__title">
+													<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
+												</div>
+												<div class="item__prices">
+													<div class="item__price _discount">29 620 ₽</div>
+													<div class="item__oldprice">39 620 ₽</div>
+												</div>
+											</div>
+
+											<div class="item__details">
+												<div class="item__buttons">
+													<button type="button" class="btn btn_gray js-add-to-cart" data-id="55555" data-url="https://deviart.ru/zamm/fetch-cart.php">
+														<span>Добавить</span>
+														<span>Добавлено</span>
+													</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="f-carousel__slide">
+								<div class="item">
+									<div class="item__wrapper">
+										<div class="item__content">
+											<div class="item__image-wrapper">
+												<div>
+													<div class="labels">
+														<div class="label label_green">В наличии</div>
+													</div>
+												</div>
+
+												<div>
+													<a href="javascript:void(0)" class="item__gallery-wrapper">
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" />
+														</div>
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
+														</div>
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
+														</div>
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="item__info">
+												<div class="item__title">
+													<a href="javascript:void(0)">Стол Экспо ТР</a>
+												</div>
+												<div class="item__prices">
+													<div class="item__price">29 620 ₽</div>
+												</div>
+											</div>
+
+											<div class="item__details">
+												<div class="item__buttons">
+													<button type="button" class="btn btn_gray js-add-to-cart" data-id="11111" data-url="https://deviart.ru/zamm/fetch-cart.php">
+														<span>Добавить</span>
+														<span>Добавлено</span>
+													</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="f-carousel__slide">
+								<div class="item">
+									<div class="item__wrapper">
+										<div class="item__content">
+											<div class="item__image-wrapper">
+												<div>
+													<div class="labels">
+														<div class="label label_red">-20%</div>
+														<div class="label label_yellow">Акция</div>
+													</div>
+												</div>
+
+												<div>
+													<a href="javascript:void(0)" class="item__gallery-wrapper">
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" />
+														</div>
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="item__info">
+												<div class="item__title">
+													<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
+												</div>
+												<div class="item__prices">
+													<div class="item__price _discount">29 620 ₽</div>
+													<div class="item__oldprice">39 620 ₽</div>
+												</div>
+											</div>
+
+											<div class="item__details">
+												<div class="item__buttons">
+													<button type="button" class="btn btn_gray js-add-to-cart" data-id="22222" data-url="https://deviart.ru/zamm/fetch-cart.php">
+														<span>Добавить</span>
+														<span>Добавлено</span>
+													</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="f-carousel__slide">
+								<div class="item">
+									<div class="item__wrapper">
+										<div class="item__content">
+											<div class="item__image-wrapper">
+												<div>
+													<div class="labels">
+														<div class="label label_red">-20%</div>
+														<div class="label label_yellow">Акция</div>
+													</div>
+												</div>
+
+												<div>
+													<a href="javascript:void(0)" class="item__gallery-wrapper">
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" />
+														</div>
+														<div class="item__gallery-item">
+															<div class="item__gallery-nav"></div>
+															<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
+														</div>
+													</a>
+												</div>
+											</div>
+
+											<div class="item__info">
+												<div class="item__title">
+													<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
+												</div>
+												<div class="item__prices">
+													<div class="item__price _discount">29 620 ₽</div>
+													<div class="item__oldprice">39 620 ₽</div>
+												</div>
+											</div>
+
+											<div class="item__details">
+												<div class="item__buttons">
+													<button type="button" class="btn btn_gray js-add-to-cart" data-id="33333" data-url="https://deviart.ru/zamm/fetch-cart.php">
+														<span>Добавить</span>
+														<span>Добавлено</span>
+													</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
 				</div>
 
-				<div class="hidden-overflow" data-id="cart-carousel">
-					<div class="block-header _left">К этим товарам подойдёт</div>
-					<div class="f-carousel product-carousel _extra carousel-top-nav" data-carousel="carousel" data-options='{"Dots": false}'>
-						<div class="f-carousel__slide">
-							<div class="item">
-								<div class="item__wrapper">
-									<div class="item__content">
-										<div class="item__image-wrapper">
-											<div>
-												<div class="labels">
-													<div class="label label_red">-20%</div>
-													<div class="label label_yellow">Акция</div>
-												</div>
-											</div>
-
-											<div>
-												<a href="javascript:void(0)" class="item__gallery-wrapper">
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" />
-													</div>
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-													</div>
-												</a>
-											</div>
-										</div>
-
-										<div class="item__info">
-											<div class="item__title">
-												<a href="javascript:void(0)">Стол Экспо ТР</a>
-											</div>
-											<div class="item__prices">
-												<div class="item__price">29 620 ₽</div>
-											</div>
-										</div>
-
-										<div class="item__details">
-											<div class="item__buttons">
-												<button type="button" class="btn btn_gray js-add-to-cart" data-id="item-18888" data-url="https://deviart.ru/zamm/fetch-cart.php">
-													<span>Добавить</span>
-													<span>Добавлено</span>
-												</button>
-											</div>
-										</div>
-
-									</div>
+				<div class="order__sidebar mobile-fixed" data-id="cart-total">
+					<div class="order__sticky">
+						<div class="cart-total">
+							<div class="cart-total__header">
+								<div class="cart-total__title">Итого</div>
+								<div class="cart-total__prices">
+									<div class="cart-total__price">1 234 ₽</div>
+									<div class="cart-total__oldprice">2 000 ₽</div>
+								</div>
+								<div class="cart-total__sum-mob"></div>
+							</div>
+							<div class="cart-total__sum">
+								<div>Всего <span data-da=".cart-total__sum-mob,1023">2 товара</span></div>
+								<div class="cart-pack">
+									<span data-da=".cart-total__sum-mob,1023,last">25 кг</span>
+									<span>2 м<sup>3</sup></span>
+									<span>3 коробки</span>
 								</div>
 							</div>
-						</div>
-
-						<div class="f-carousel__slide">
-							<div class="item">
-								<div class="item__wrapper">
-									<div class="item__content">
-										<div class="item__image-wrapper">
-											<div>
-												<div class="labels">
-													<div class="label label_yellow">Акция</div>
-												</div>
-											</div>
-
-											<div>
-												<a href="javascript:void(0)" class="item__gallery-wrapper">
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" />
-													</div>
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" loading="lazy" />
-													</div>
-												</a>
-											</div>
-										</div>
-
-										<div class="item__info">
-											<div class="item__title">
-												<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
-											</div>
-											<div class="item__prices">
-												<div class="item__price _discount">29 620 ₽</div>
-												<div class="item__oldprice">39 620 ₽</div>
-											</div>
-										</div>
-
-										<div class="item__details">
-											<div class="item__buttons">
-												<button type="button" class="btn btn_gray js-add-to-cart" data-id="55555" data-url="https://deviart.ru/zamm/fetch-cart.php">
-													<span>Добавить</span>
-													<span>Добавлено</span>
-												</button>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="f-carousel__slide">
-							<div class="item">
-								<div class="item__wrapper">
-									<div class="item__content">
-										<div class="item__image-wrapper">
-											<div>
-												<div class="labels">
-													<div class="label label_green">В наличии</div>
-												</div>
-											</div>
-
-											<div>
-												<a href="javascript:void(0)" class="item__gallery-wrapper">
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-2.webp" width="300" height="300" alt="" />
-													</div>
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-3.webp" width="300" height="300" alt="" loading="lazy" />
-													</div>
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-													</div>
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-5.webp" width="300" height="300" alt="" loading="lazy" />
-													</div>
-												</a>
-											</div>
-										</div>
-
-										<div class="item__info">
-											<div class="item__title">
-												<a href="javascript:void(0)">Стол Экспо ТР</a>
-											</div>
-											<div class="item__prices">
-												<div class="item__price">29 620 ₽</div>
-											</div>
-										</div>
-
-										<div class="item__details">
-											<div class="item__buttons">
-												<button type="button" class="btn btn_gray js-add-to-cart" data-id="11111" data-url="https://deviart.ru/zamm/fetch-cart.php">
-													<span>Добавить</span>
-													<span>Добавлено</span>
-												</button>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="f-carousel__slide">
-							<div class="item">
-								<div class="item__wrapper">
-									<div class="item__content">
-										<div class="item__image-wrapper">
-											<div>
-												<div class="labels">
-													<div class="label label_red">-20%</div>
-													<div class="label label_yellow">Акция</div>
-												</div>
-											</div>
-
-											<div>
-												<a href="javascript:void(0)" class="item__gallery-wrapper">
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" />
-													</div>
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-													</div>
-												</a>
-											</div>
-										</div>
-
-										<div class="item__info">
-											<div class="item__title">
-												<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
-											</div>
-											<div class="item__prices">
-												<div class="item__price _discount">29 620 ₽</div>
-												<div class="item__oldprice">39 620 ₽</div>
-											</div>
-										</div>
-
-										<div class="item__details">
-											<div class="item__buttons">
-												<button type="button" class="btn btn_gray js-add-to-cart" data-id="22222" data-url="https://deviart.ru/zamm/fetch-cart.php">
-													<span>Добавить</span>
-													<span>Добавлено</span>
-												</button>
-											</div>
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="f-carousel__slide">
-							<div class="item">
-								<div class="item__wrapper">
-									<div class="item__content">
-										<div class="item__image-wrapper">
-											<div>
-												<div class="labels">
-													<div class="label label_red">-20%</div>
-													<div class="label label_yellow">Акция</div>
-												</div>
-											</div>
-
-											<div>
-												<a href="javascript:void(0)" class="item__gallery-wrapper">
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-1.webp" width="300" height="300" alt="" />
-													</div>
-													<div class="item__gallery-item">
-														<div class="item__gallery-nav"></div>
-														<img src="img/dev/product/prod-4.webp" width="300" height="300" alt="" loading="lazy" />
-													</div>
-												</a>
-											</div>
-										</div>
-
-										<div class="item__info">
-											<div class="item__title">
-												<a href="javascript:void(0)">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</a>
-											</div>
-											<div class="item__prices">
-												<div class="item__price _discount">29 620 ₽</div>
-												<div class="item__oldprice">39 620 ₽</div>
-											</div>
-										</div>
-
-										<div class="item__details">
-											<div class="item__buttons">
-												<button type="button" class="btn btn_gray js-add-to-cart" data-id="33333" data-url="https://deviart.ru/zamm/fetch-cart.php">
-													<span>Добавить</span>
-													<span>Добавлено</span>
-												</button>
-											</div>
-										</div>
-
-									</div>
-								</div>
+							<div class="cart-total__button">
+								<button type="button" class="btn btn_yellow btn_wide">Оформить заказ</button>
 							</div>
 						</div>
 					</div>
 				</div>
 
+			</form>
 
-			</div>
-			<div class="cart__sidebar" data-id="cart-total">
-				<div class="cart-total">
-					<div class="cart-total__header">
-						<div class="cart-total__title">Итого</div>
-						<div class="cart-total__prices">
-							<div class="cart-total__price">1 234 ₽</div>
-							<div class="cart-total__oldprice">2 000 ₽</div>
-						</div>
-						<div class="cart-total__sum-mob"></div>
-					</div>
-					<div class="cart-total__sum">
-						<div>Всего <span data-da=".cart-total__sum-mob,1023">3 товара</span></div>
-						<div class="cart-pack">
-							<span data-da=".cart-total__sum-mob,1023,last">25 кг</span>
-							<span>2 м<sup>3</sup></span>
-							<span>3 коробки</span>
-						</div>
-					</div>
-					<div class="cart-total__button">
-						<button type="button" class="btn btn_yellow btn_wide">Оформить заказ</button>
-					</div>
-				</div>
-			</div>
 		</div>
 	</div>
 
@@ -975,7 +985,7 @@
 						<div class="subscription__header">Подпишитесь на нашу рассылку</div>
 						<div class="subscription__form">
 							<form action="" class="form">
-								<div class="form__fieldset btn-inset">
+								<div class="btn-inset">
 									<input type="email" name="" id="" class="input input_fill" placeholder="name@email.ru" />
 									<button type="submit" class="btn btn_gray btn_arrow-big btn_inset" aria-label="Подписаться"></button>
 								</div>
@@ -1136,11 +1146,11 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
-	<script src="js/carousel-init.js"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231225115606"></script>
+	<script src="js/carousel-init.js?v=20231225115606"></script>
 
-	<script src="js/common.js"></script>
-	<script src="js/cart.js"></script>
+	<script src="js/common.js?v=20231225115606"></script>
+	<script src="js/cart.js?v=20231225115606"></script>
 
 </body>
 

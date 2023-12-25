@@ -1,10 +1,27 @@
 .prop-showroom a {
   text-decoration: underline;
   text-decoration-color: var(--black30);
-  text-underline-offset: 1px
+  text-underline-offset: 1px;
+  -webkit-transition: all .15s ease;
+  -o-transition: all .15s ease;
+  transition: all .15s ease
 }
 .prop-showroom a:hover {
+  text-shadow: 0 0 0;
   text-decoration-color: var(--black60)
+}
+body:not(.is-touch) .product-carousel .is-dragging .item {
+  background: var(--white)!important
+}
+body:not(.is-touch) .product-carousel .is-dragging .item__details {
+  max-height: 0!important;
+  -webkit-transition: max-height .1s ease!important;
+  -o-transition: max-height .1s ease!important;
+  transition: max-height .1s ease!important
+}
+body:not(.is-touch) .product-carousel .is-dragging .article,
+body:not(.is-touch) .product-carousel .is-dragging .fav {
+  opacity: 0!important
 }
 .item {
   position: relative;

@@ -1,7 +1,8 @@
 :root {
   --black-real: #000;
+  --black-real10: rgba(0, 0, 0, 0.1);
   --black: #333;
-  --black10: rgba(51, 51, 51, 0.1);
+  --black10: #ebebeb;
   --black30: rgba(51, 51, 51, 0.3);
   --black60: rgba(51, 51, 51, 0.6);
   --black70: rgba(51, 51, 51, 0.7);
@@ -22,6 +23,7 @@
   --gray-yellow: #fdf5e6;
   --red: #ff2e00;
   --gray-light: #f3f7fa;
+  --green: #2eb822;
   --svg-fetch-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3E%3Cpath fill='%23333' fill-rule='evenodd' d='M8 2.6A5.4 5.4 0 1 0 13.4 8a.6.6 0 1 1 1.2 0A6.6 6.6 0 1 1 8 1.4a.6.6 0 0 1 0 1.2Z' clip-rule='evenodd'/%3E%3Cpath fill='%23333' fill-opacity='.3' fill-rule='evenodd' d='M4.182 11.818a5.4 5.4 0 1 0 0-7.636.6.6 0 0 1-.849-.849 6.6 6.6 0 1 1 0 9.334.6.6 0 1 1 .849-.849Z' clip-rule='evenodd'/%3E%3C/svg%3E");
   --svg-arrow-long: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M7.161 2 1.5 8m0 0 5.661 6M1.5 8H15'/%3E%3C/svg%3E");
   --svg-arrow-yellow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath stroke='%23ffc845' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.2' d='M2 3h7.001m0 0v7m0-7L2 10'/%3E%3C/svg%3E");
