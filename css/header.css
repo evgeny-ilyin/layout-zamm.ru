@@ -3056,7 +3056,7 @@ input[type=radio]:disabled ~ span {
     padding-left: 16px;
     padding-right: 16px
   }
-  .mobile-fixed {
+  .order__sidebar._mobile-bottom {
     padding: 24px 16px 29px
   }
   .h1,
@@ -3109,7 +3109,7 @@ input[type=radio]:disabled ~ span {
     max-width: 786px;
     margin-right: 57px
   }
-  .mobile-fixed {
+  .order__sidebar._mobile-bottom {
     padding: 0
   }
   .h1,
@@ -3529,7 +3529,7 @@ input[type=radio]:disabled ~ span {
   }
 }
 @media (max-width:1023px) {
-  .mobile-fixed {
+  .order__sidebar._mobile-bottom {
     position: fixed;
     bottom: 0;
     left: 0;
