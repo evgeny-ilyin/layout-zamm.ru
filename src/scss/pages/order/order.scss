@@ -1,13 +1,142 @@
-.order {
-	// .tabs
-	.tabs {
-		@include respond-to(lg, "max") {
-			margin-bottom: 24px;
+.order-type {
+	display: flex;
+	flex-flow: row nowrap;
+	padding: 0 22px 10px;
+	margin-bottom: 14px;
+
+	@include respond-to(lg) {
+		border-bottom: 2px solid $black10;
+		padding-bottom: 2px;
+	}
+
+	// .order-type__switch
+	&__switch {
+		input[type="radio"] {
+			& ~ span {
+				color: $black60;
+				padding: 9px 8px 7px 28px;
+				border-radius: 4px;
+
+				&::before,
+				&::after {
+					display: none;
+					border-radius: 0 !important;
+				}
+
+				@include respond-to(lg) {
+					padding: 0 30px 0 9px;
+				}
+			}
+		}
+
+		input[type="radio"]:checked {
+			& ~ span {
+				color: $black;
+				text-shadow: $shadow-600;
+				background: $gray;
+
+				&::before {
+					@include respond-to(lg) {
+						display: block;
+						position: absolute;
+						top: auto;
+						bottom: -4px;
+						width: 100%;
+						height: auto;
+						margin: 0;
+						border-bottom: 2px solid $black-real;
+					}
+				}
+
+				&::after {
+					display: block;
+					position: absolute;
+					top: auto;
+					left: 9px;
+					border: 0;
+					width: 13px;
+					height: 13px;
+					background: $svg-checked center no-repeat;
+
+					@include respond-to(lg) {
+						left: auto;
+						right: 11px;
+					}
+				}
+
+				@include respond-to(lg) {
+					background: transparent;
+				}
+			}
+		}
+	}
+}
+
+.order-form {
+	background: none;
+	border: 0;
+	padding: 0;
+	max-width: 485px;
+	margin: 0 auto 24px;
+
+	@include respond-to(lg) {
+		margin: 0 auto;
+		max-width: none;
+	}
+
+	// .order-form__row
+	&__row {
+		width: 100%;
+		margin-bottom: 23px;
+
+		@include respond-to(lg) {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			margin-bottom: 16px;
+		}
+
+		@include respond-to(xl) {
+			grid-template-columns: 2fr 3fr;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
 
-	// .tabs__header
-	.tabs__header {
+	// .order-form__left
+	&__left {
+		font-size: rem(18);
+		font-weight: 700;
+		margin-bottom: 10px;
+
+		@include respond-to(lg) {
+			font-size: rem(20);
+			margin-bottom: 0;
+		}
+	}
+
+	// .order-form__right
+	&__right {
+	}
+
+	// .order-form__fieldset
+	&__fieldset {
+		padding: 16px;
+		background: $white;
+		border-radius: 4px;
+
+		@include respond-to(lg) {
+			padding: 24px;
+		}
+
+		~ .order-form__fieldset {
+			margin-top: 10px;
+		}
+	}
+
+	&._controls {
+		max-width: none;
 		background: $white;
 		margin: 0 -#{$min-padding}; // 12
 		padding-top: 34px;
@@ -21,22 +150,15 @@
 			margin: 0;
 			padding-top: 0;
 		}
-	}
 
-	// .tab-form__left
-	.tab-form__left {
-		&:empty {
-			display: none;
+		div {
+			&:empty {
+				display: none;
 
-			@include respond-to(lg) {
-				display: block;
+				@include respond-to(lg) {
+					display: block;
+				}
 			}
-		}
-	}
-
-	// .tab-form__right
-	.tab-form__right {
-		@include when-inside(".tabs__header") {
 		}
 	}
 }
@@ -171,9 +293,9 @@
 
 	// .order-total__button
 	&__button {
-		@include respond-to(md) {
-			width: 50%;
-		}
+		// @include respond-to(md) {
+		// 	width: 50%;
+		// }
 
 		@include respond-to(lg) {
 			width: 100%;
@@ -415,17 +537,21 @@
 		}
 	}
 
-	.btn_close {
+	.btn_remove {
 		right: 0;
 		top: 50%;
 		transform: translateY(-50%);
 		width: 16px;
 		height: 16px;
+		opacity: 0.6;
+
+		@include on-event {
+			opacity: 1;
+		}
 
 		&::before,
 		&::after {
 			height: 14px;
-			opacity: 0.5;
 		}
 	}
 }
