@@ -1,4 +1,5 @@
 .link-arrow {
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 	width: fit-content;
@@ -41,6 +42,7 @@
 }
 
 .link-arrow-span {
+	cursor: pointer;
 	@include on-hover {
 		.link-arrow {
 			&::after {
@@ -51,6 +53,7 @@
 }
 
 .link-angle {
+	cursor: pointer;
 	display: flex;
 	align-items: center;
 	width: fit-content;
