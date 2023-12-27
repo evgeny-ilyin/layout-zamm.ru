@@ -161,6 +161,10 @@
 /**
  * Backgrounds
  */
+.bg-gray {
+	background-color: $gray;
+}
+
 .bg-gray-xxl {
 	@include respond-to(xxl) {
 		background-color: $gray;
@@ -196,5 +200,49 @@
 	bottom: 12px;
 	left: 17px;
 	text-decoration: none;
-	text-shadow: none !important;
+	text-shadow: 1px 1px 3px $black60;
+	// text-shadow: none !important;
+}
+
+.block {
+	display: block;
+}
+
+.flex {
+	display: flex;
+}
+
+// collapse
+.js-collapse {
+	cursor: pointer;
+	position: relative;
+
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		top: calc(50% - 5px);
+		right: 2px;
+		width: 7px;
+		height: 10px;
+		background: $svg-angle center no-repeat;
+		transform: translateY(1px) rotate(-90deg);
+		transition: transform $transition-default;
+	}
+
+	&.is-collapsed {
+		& + div {
+			height: 0;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		&::after {
+			transform: translateY(1px) rotate(90deg);
+		}
+	}
+
+	& ~ div {
+		transition: all $transition-default;
+	}
 }
