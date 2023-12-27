@@ -1,1 +1,5 @@
-// import { cartAmount } from "./modules/order.js";
+import { orderActions } from "./modules/order.js";
+
+addEventListener("DOMContentLoaded", () => {
+	orderActions();
+});

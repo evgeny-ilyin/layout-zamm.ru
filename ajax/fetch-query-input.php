@@ -13,6 +13,16 @@ try {
 			}
 			break;
 
+		case 'query':
+			$content = '
+					<div class="js-write">Ул. Новый Арбат, дом 2</div>
+					<div class="js-write">Ул. Новый Арбат, дом 20</div>
+					<div class="js-write">Ул. Новый Арбат, дом 21</div>
+					<div class="js-write">Ул. Новый Арбат, дом 22</div>
+					<div class="js-write">Ул. Новый Арбат, дом 23</div>
+					<div class="js-write">Ул. Новый Арбат, дом 24</div>';
+			break;
+
 		default:
 			$content = '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <b>Corporis</b> soluta ut odit officia repudiandae esse atque cumque iure beatae dicta neque, possimus similique ratione <a href="#">fugit architecto laborum</a> maiores sapiente vero!</p><p>Sapiente animi exercitationem explicabo voluptas ullam eum porro nihil mollitia minima fugiat asperiores quos quae impedit illo, esse consequuntur incidunt soluta numquam suscipit assumenda. Quas in iusto pariatur sit sed eos natus reiciendis quidem, aliquam corrupti sequi nulla nostrum laboriosam aut voluptas?</p>';
 			break;

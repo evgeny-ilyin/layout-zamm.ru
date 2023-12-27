@@ -5,20 +5,11 @@
 	position: relative;
 	border: 1px solid $black10;
 	border-radius: 4px;
-	background: $gray;
+	background: $white;
 	height: 100%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-
-	&._white {
-		background: $white;
-
-		input[type="number"],
-		button {
-			background: $white;
-		}
-	}
 
 	&._lg {
 		width: 117px;
@@ -26,13 +17,29 @@
 
 		button {
 			height: 40px;
-			opacity: 0.6;
+
+			&::before {
+				opacity: 0.6;
+				transition: all $transition-default;
+			}
+
+			@include on-hover {
+				&::before {
+					opacity: 1;
+				}
+			}
+
+			@include on-focus-visible {
+				&::before {
+					opacity: 1;
+				}
+			}
 		}
 	}
 
 	input[type="number"] {
 		cursor: default;
-		background: $gray;
+		background: $white;
 		width: 25px;
 		height: 20px;
 		padding: 0;
@@ -55,7 +62,7 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: $gray;
+		background: $white;
 		border: 0 !important;
 
 		&::before {

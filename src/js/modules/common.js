@@ -113,16 +113,20 @@ export function modalHandler() {
 			}
 			let result = await response.json();
 			if (result.status === true) {
-				const key = getRandomStr(8);
-				setModalContent(result.content, width, origin, key);
+				if (result.nocache === true) {
+					setModalContent(result.content, width);
+				} else {
+					const key = getRandomStr(8);
+					setModalContent(result.content, width, origin, key);
+				}
 				if (result.svg) {
 					addToSvgSprite(result.svg);
 				}
 			} else {
-				console.log(`Error: ${JSON.stringify(result)}`);
+				console.error(`Error: ${JSON.stringify(result)}`);
 			}
 		} catch (e) {
-			console.log(e);
+			console.error(e);
 			return;
 		}
 	};
@@ -150,7 +154,7 @@ export function modalHandler() {
 	};
 
 	let reinitModalResults = (target) => {
-		inputFetch(target);
+		// inputFetch(target);
 		inputQuickSearch(target);
 	};
 
@@ -161,6 +165,7 @@ export function modalHandler() {
 			modalClose = e.target.closest([".js-modal-close", ".overlay"]);
 
 		if (modalShow) {
+			e.preventDefault();
 			const url = modalShow.dataset.url,
 				width = modalShow.dataset.boxWidth,
 				storageKey = modalShow.dataset.storageKey;
@@ -192,7 +197,47 @@ export function sectionClose() {
 		const target = el.closest(`.${isActiveClass}`);
 		if (target) {
 			overlay(0);
+			resetTopOffset();
 			target.classList.remove(isActiveClass);
+		}
+	});
+}
+
+export function collapseHandler() {
+	const isCollapsedClass = "is-collapsed";
+
+	let collapseSection = (trigger) => {
+		const section = trigger.nextElementSibling,
+			sectionH = section.scrollHeight,
+			elTransition = section.style.transition;
+		section.style.transition = "";
+		requestAnimationFrame(function () {
+			section.style.height = sectionH + "px";
+			section.style.transition = elTransition;
+			requestAnimationFrame(function () {
+				section.style.height = 0 + "px";
+				trigger.classList.add(isCollapsedClass);
+			});
+		});
+	};
+
+	let expandSection = (trigger) => {
+		const section = trigger.nextElementSibling,
+			sectionH = section.scrollHeight;
+		section.style.height = sectionH + "px";
+		trigger.classList.remove(isCollapsedClass);
+	};
+
+	document.addEventListener("click", (e) => {
+		const trigger = e.target.closest(".js-collapse");
+		if (!trigger) return;
+
+		const isCollapsed = trigger.classList.contains(isCollapsedClass);
+
+		if (isCollapsed) {
+			expandSection(trigger);
+		} else {
+			collapseSection(trigger);
 		}
 	});
 }
@@ -228,8 +273,9 @@ export function searchForm() {
 	});
 }
 
-export function inputFetch(el = false) {
-	const inputs = el ? el.querySelectorAll("[data-query='true']") : document.querySelectorAll("[data-query='true']"),
+export function inputFetch() {
+	const writeClass = "js-write",
+		isActiveClass = "is-active",
 		queryWrapperClass = "js-query-wrapper",
 		queryResultClass = "js-query-result",
 		minQueryLen = 2;
@@ -238,7 +284,8 @@ export function inputFetch(el = false) {
 		let url = input.dataset.url,
 			query = { [input.name]: input.value },
 			onFocus = input.dataset.onFocus,
-			results = input.closest(`.${queryWrapperClass}`).querySelector(`.${queryResultClass}`);
+			wrapper = input.closest(`.${queryWrapperClass}`),
+			results = wrapper.querySelector(`.${queryResultClass}`);
 
 		if (!url) return;
 
@@ -256,22 +303,44 @@ export function inputFetch(el = false) {
 				let result = await response.json();
 				if (result.status === true) {
 					results.innerHTML = result.content;
+					wrapper.classList.add(isActiveClass);
 				} else {
-					console.log(`Error: ${JSON.stringify(result)}`);
+					console.error(`Error: ${JSON.stringify(result)}`);
 				}
 			} catch (e) {
-				console.log(e);
+				console.error(e);
 				return;
 			}
 		}
 	};
 
-	inputs.forEach((input) => {
-		["focus", "input"].forEach((evt) =>
-			input.addEventListener(evt, () => {
-				fetchByQuery(input);
-			})
-		);
+	["focus", "input"].forEach((evt) =>
+		document.addEventListener(
+			evt,
+			(e) => {
+				if (e.target.dataset.query == "true") {
+					fetchByQuery(e.target);
+				}
+			},
+			true
+		)
+	);
+
+	document.addEventListener("click", (e) => {
+		if (!e.target.closest(`.${queryWrapperClass}.${isActiveClass}`)) {
+			let wrapper = document.querySelector(`.${queryWrapperClass}.${isActiveClass}`);
+			if (wrapper) {
+				wrapper.classList.remove(isActiveClass);
+			}
+		}
+	});
+
+	document.addEventListener("click", (e) => {
+		if (e.target.classList.contains(writeClass)) {
+			let wrapper = document.querySelector(`.${queryWrapperClass}.${isActiveClass}`);
+			wrapper.querySelector("input").value = e.target.innerText;
+			wrapper.classList.remove(isActiveClass);
+		}
 	});
 }
 
@@ -380,5 +449,111 @@ export function dropdownClose() {
 				dd.parentNode.classList.remove(isActiveClass);
 			}
 		});
+	});
+}
+
+export function contentGalleryPopup() {
+	const isActiveClass = "is-active",
+		targetCommonClass = "popup-gallery";
+
+	document.addEventListener("click", (e) => {
+		let el = e.target.closest(".js-popup-gallery"),
+			body = document.body,
+			headerAlert = document.querySelector(".header-alert"),
+			header = document.querySelector(".header"),
+			containers = document.querySelectorAll(".container"),
+			offsetTop = header.getBoundingClientRect().height,
+			scrollY = window.scrollY,
+			sw = getScrollbarWidth(),
+			media = mediaMatch("1023");
+
+		if (headerAlert) offsetTop += headerAlert.getBoundingClientRect().height;
+
+		if (!el || media) return;
+
+		let showGallery = (target) => {
+			body.style.top = `-${scrollY}px`;
+			body.classList.add("noscroll");
+			header.style.top = `${scrollY}px`;
+			header.classList.remove("is-hidden");
+			containers.forEach((c) => {
+				c.style.paddingRight = `${sw}px`;
+			});
+			target.classList.add(isActiveClass);
+			target.style.top = `${offsetTop}px`;
+		};
+
+		const targetClass = el.dataset.target,
+			url = el.dataset.url;
+
+		// загрузить по урлу
+		if (targetClass && url) {
+			const targetExists = document.querySelector(`.${targetClass}`);
+
+			// если такой элемент ещё не создан — создать
+			if (!targetExists) {
+				const target = document.createElement("div");
+				target.classList.add(targetCommonClass, targetClass);
+				body.append(target);
+
+				(async () => {
+					try {
+						let response = await fetch(url);
+						if (!response.ok) {
+							return;
+						}
+						let result = await response.text();
+						target.innerHTML = result;
+						carouselsInit();
+						showGallery(target);
+					} catch (e) {
+						console.error(e);
+						return;
+					}
+				})();
+			} else {
+				showGallery(targetExists);
+			}
+		} else if (targetClass && !url) {
+			const target = document.querySelector(`.${targetClass}`);
+			showGallery(target);
+		}
+	});
+
+	window.addEventListener("resize", () => {
+		const activeGallery = document.querySelector(`.${targetCommonClass}.${isActiveClass}`);
+		if (!activeGallery) return;
+
+		activeGallery.classList.remove(isActiveClass);
+		document.body.classList.remove("noscroll");
+
+		const containers = document.querySelectorAll(".container");
+		containers.forEach((c) => {
+			c.style.paddingRight = "";
+		});
+
+		resetTopOffset();
+	});
+}
+
+export function changeAmount() {
+	document.addEventListener("click", (e) => {
+		if (e.target.classList.contains("js-btn-minus")) {
+			let inputNumber = e.target.nextElementSibling;
+			if (inputNumber.getAttribute("min") == inputNumber.value) return;
+			inputNumber.stepDown();
+
+			let change = new Event("change", { bubbles: true });
+			inputNumber.dispatchEvent(change);
+		}
+
+		if (e.target.classList.contains("js-btn-plus")) {
+			let inputNumber = e.target.previousElementSibling;
+			if (inputNumber.getAttribute("max") == inputNumber.value) return;
+			inputNumber.stepUp();
+
+			let change = new Event("change", { bubbles: true });
+			inputNumber.dispatchEvent(change);
+		}
 	});
 }

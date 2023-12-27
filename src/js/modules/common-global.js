@@ -27,22 +27,32 @@ if (!window.overlay) {
 				c.style.paddingRight = "";
 			});
 
-			const o = document.querySelector(".overlay"),
-				scrollY = body.style.top;
+			const o = document.querySelector(".overlay");
 			if (!o) return;
-			body.style.top = "";
-			o.classList.remove(isActiveClass);
 
-			window.scrollTo({
-				left: 0,
-				top: parseInt(scrollY || "0") * -1,
-				behavior: "instant",
-			});
+			o.classList.remove(isActiveClass);
+			resetTopOffset();
 
 			setTimeout(() => {
 				o.remove();
 			}, 250);
 		}
+	};
+}
+
+if (!window.resetTopOffset) {
+	window.resetTopOffset = () => {
+		const body = document.body,
+			header = document.querySelector(".header"),
+			scrollY = body.style.top;
+		body.style.top = "";
+		header.style.top = "";
+
+		window.scrollTo({
+			left: 0,
+			top: parseInt(scrollY || "0") * -1,
+			behavior: "instant",
+		});
 	};
 }
 
@@ -101,6 +111,23 @@ if (!window.isTouchDevice) {
 				document.body.classList[isTouch ? "add" : "remove"](touchClass);
 			})
 		);
+	};
+}
+
+if (!window.updateChunks) {
+	window.updateChunks = (obj, where = document) => {
+		if (typeof obj === "object" && obj !== null) {
+			Object.entries(obj).forEach(([key, value]) => {
+				let target = where.querySelector(`[data-id=${key}]`);
+				if (!target) {
+					// console.warn(`data-id "${key}" not found`);
+					return;
+				}
+				target.innerHTML = value;
+			});
+		} else {
+			console.error("Chunk list is not an object");
+		}
 	};
 }
 
@@ -185,6 +212,21 @@ if (!window.showSkeleton) {
 	};
 }
 
+if (!window.showHidden) {
+	window.showHidden = () => {
+		const hiddenClass = "hidden";
+		document.addEventListener("click", (e) => {
+			const el = e.target.closest(".js-show-hidden");
+			if (!el) return;
+			const hiddens = el.parentElement.querySelectorAll(`.${hiddenClass}`);
+			hiddens.forEach((h) => {
+				h.classList.remove(hiddenClass);
+			});
+			el.classList.add(hiddenClass);
+		});
+	};
+}
+
 if (!window.setWindowLocation) {
 	window.setWindowLocation = (url) => {
 		// TODO @ prod:
@@ -257,31 +299,58 @@ if (!window.addToSvgSprite) {
 	window.addToSvgSprite = (svg) => {
 		let sprite = document.querySelector(".svg-sprite");
 		if (!sprite) return;
-		sprite.insertAdjacentHTML('beforeend', svg);
+		sprite.insertAdjacentHTML("beforeend", svg);
 	};
 }
 
-if (!window.getContent) {
-	window.getContent = async (url) => {
-		if (!url) return;
+if (!window.setFavourites) {
+	window.setFavourites = (id = false) => {
+		if (!window.arFav) return;
 
-		try {
-			let response = await fetch(url);
-			if (!response.ok) {
-				return;
-			}
+		const favCount = document.querySelector(`[data-id="fav-amount"]`),
+			isActiveClass = "is-active";
 
-			let result = await response.json();
-			if (result.status === true) {
-				return result.content;
-			} else {
-				console.log(`Error: ${JSON.stringify(result)}`);
-			}
-		} catch (e) {
-			console.log(e);
-			return;
+		if (!window.setFav) window.setFav = new Set(arFav);
+
+		if (!id) {
+			// при загрузке страницы выставить счетчик
+			favCount.dataset.amount = setFav.size;
+		} else {
+			// при обновлении счетчик приходит аяксом, здесь обновлять не надо
+			setFav.has(id) ? setFav.delete(id) : setFav.add(id);
 		}
+
+		// reset all
+		let favsAll = document.querySelectorAll(`.js-fav`);
+		favsAll.forEach((fav) => fav.parentNode.classList.remove(isActiveClass));
+
+		// set favs
+		setFav.forEach((el) => {
+			let favs = document.querySelectorAll(`.js-fav[data-id="${el}"]`);
+			favs.forEach((fav) => fav.parentNode.classList.add(isActiveClass));
+		});
 	};
 }
 
+// if (!window.getContent) {
+// 	window.getContent = async (url) => {
+// 		if (!url) return;
 
+// 		try {
+// 			let response = await fetch(url);
+// 			if (!response.ok) {
+// 				return;
+// 			}
+
+// 			let result = await response.json();
+// 			if (result.status === true) {
+// 				return result.content;
+// 			} else {
+// 				console.error(`Error: ${JSON.stringify(result)}`);
+// 			}
+// 		} catch (e) {
+// 			console.error(e);
+// 			return;
+// 		}
+// 	};
+// }

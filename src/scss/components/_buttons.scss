@@ -32,6 +32,8 @@
 	// }
 	@include on-focus-visible {
 		box-shadow: 0 0 0 1px $black60, 0 0 0 7px $black-real10;
+		border-radius: 4px;
+		outline: none;
 	}
 	
 	// .btn_disabled
@@ -106,7 +108,7 @@
 			box-shadow: 0 0 0 1px $black60;
 			color: $black60 !important;
 			span::after {
-				opacity: 0.5;
+				opacity: 0.6;
 			}
 		}
 		@include on-focus {
@@ -338,8 +340,9 @@
 		right: 2px;
 	}
 
-	// .btn_close
-	&_close {
+	// .btn_remove
+	&_close,
+	&_remove {
 		position: absolute;
 		z-index: 10;
 		display: flex;
@@ -509,4 +512,11 @@
 	display: flex;
 	align-items: center;
 	position: relative;
+}
+
+button {
+	@include on-focus-visible {
+		box-shadow: 0 0 0 1px $black60, 0 0 0 7px $black-real10;
+		border-radius: 4px;
+	}
 }

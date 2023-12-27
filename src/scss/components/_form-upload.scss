@@ -1,0 +1,79 @@
+input[type="file"] {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+
+	@include on-focus-visible {
+		& ~ span {
+			box-shadow: 0 0 0 2px $yellow;
+			border-radius: 3px;
+		}
+	}
+}
+
+.file-input {
+	cursor: pointer;
+	width: fit-content !important;
+
+	// .file-input__icon
+	&__icon {
+		width: 16px;
+		height: 16px;
+		margin-right: 8px;
+		fill: $black;
+		flex: 0 0 16px;
+	}
+
+	// .file-input__name
+	&__name {
+		margin-left: 10px;
+		font-size: rem(13);
+		color: $black60;
+		text-decoration: underline;
+		display: flex;
+		position: relative;
+
+		span {
+			display: flex;
+			padding-right: 20px;
+
+			// &::after {
+			// 	content: '✕';
+			// 	display: block;
+			// 	position: absolute;
+			// 	top: 1px;
+			// 	right: 0;
+			// 	text-shadow: $shadow-600;
+			// }
+		}
+
+		.btn {
+			position: absolute;
+			top: calc(50% - 8px);
+			right: 0;
+			width: 16px;
+			height: 16px;
+			opacity: 0.6;
+
+			&::before,
+			&::after {
+				height: 12px;
+			}
+
+			@include on-event {
+				opacity: 1;
+			}
+		}
+	}
+
+	input {
+		& ~ span:not(.hidden) {
+			& ~ span {
+				display: none;
+			}
+		}
+	}
+}

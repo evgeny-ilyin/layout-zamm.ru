@@ -20,6 +20,7 @@
 }
 
 .form-item {
+	position: relative;
 	margin-bottom: 12px;
 
 	// .form-item__info
@@ -62,6 +63,39 @@
 			width: 75%;
 		}
 	}
+	// .form-item__actions
+	&__actions {
+		margin: 9px 0 0 30px;
+	}
+
+	// .form-item__query-result
+	&__query-result {
+		display: none;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		left: 0;
+		z-index: 1;
+		margin-top: 3px;
+		padding: 4px 0;
+		max-height: 300px;
+		background: $white;
+		border-radius: 4px;
+		box-shadow: 0 0 0 1px $black10, 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+
+		@include when-inside('.form-item.is-active') {
+			display: block;
+		}
+
+		div {
+			cursor: pointer;
+			padding: 7px 12px 8px;
+
+			@include on-hover {
+				background: $gray;
+			}
+		}
+	}
 
 	&:last-child {
 		margin-bottom: 0;
@@ -77,11 +111,6 @@
 		~ .form-item-flex {
 			margin-top: 12px;
 		}
-	}
-
-	// .form-item__actions
-	&__actions {
-		margin: 9px 0 0 30px;
 	}
 }
 
@@ -104,7 +133,7 @@
 		input[type="text"] {
 			width: auto;
 			flex: 1;
-			margin: 0 8px 0;
+			margin: 0 8px 0 0;
 		}
 
 		.btn {
@@ -178,9 +207,20 @@
 		background-color: $gray;
 		box-shadow: 0 0 0 1px $yellow;
 	}
+
 	@include on-focus {
 		background-color: $white;
 		box-shadow: 0 0 0 2px $yellow;
+	}
+
+	@include when-inside('.form-item.is-active') {
+		background-color: $white;
+		box-shadow: 0 0 0 2px $yellow;
+	}
+
+	&.is-error {
+		color: $red-coral-dark;
+		box-shadow: 0 0 0 2px $red-coral-dark;
 	}
 
 	&:disabled {
@@ -270,6 +310,8 @@
 			padding: 12px 12px 12px 32px;
 		}
 	}
+
+
 }
 
 .textarea {
@@ -278,3 +320,4 @@
 @import "form-labels";
 @import "form-checkboxes";
 @import "form-selects";
+@import "form-upload";

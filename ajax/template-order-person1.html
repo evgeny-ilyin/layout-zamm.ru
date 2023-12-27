@@ -1,0 +1,257 @@
+<div class="order-form__row" data-id="profile">
+	<div class="order-form__left">Профиль</div>
+	<div class="order-form__right">
+		<div class="form-item select-profile">
+			<select name="ORDER_PROFILE" data-select="custom" data-watch="true">
+				<option value="profile-1" selected>Иванов Иван Иванович</option>
+				<option value="profile-new">Новый профиль</option>
+			</select>
+		</div>
+	</div>
+</div>
+
+<div class="order-form__row" data-id="personal-data">
+	<div class="order-form__left">Личные данные</div>
+	<div class="order-form__right">
+		<div class="order-form__fieldset">
+			<div class="form-item">
+				<input type="text" name="ORDER_PROP_1" value="" class="input input_fill" data-required aria-label="Имя" placeholder="Имя">
+			</div>
+			<div class="form-item">
+				<input type="text" name="ORDER_PROP_2" value="" class="input input_fill" data-required aria-label="Фамилия" placeholder="Фамилия">
+			</div>
+			<div class="form-item">
+				<input type="text" name="ORDER_PROP_3" value="" class="input input_fill" data-required aria-label="Отчество" placeholder="Отчество">
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="order-form__row" data-id="contacts">
+	<div class="order-form__left">Контакты</div>
+	<div class="order-form__right">
+		<div class="order-form__fieldset">
+			<div class="form-item">
+				<input type="email" name="ORDER_PROP_4" value="" class="input input_fill" aria-label="E-mail" placeholder="Ваш e-mail">
+			</div>
+			<div class="form-item">
+				<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" aria-label="Телефон" placeholder="Ваш телефон" data-pattern-type="phone">
+			</div>
+			<div class="form-item">
+				<label>
+					<input type="checkbox" name="ORDER_PROP_6" value="Y">
+					<span>Нужен звонок менеджера</span>
+				</label>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="order-form__row" data-id="shipping">
+	<div class="order-form__left">Доставка</div>
+	<div class="order-form__right">
+		<div class="order-form__fieldset">
+
+			<div class="form-item">
+				<label>
+					<input type="radio" name="DELIVERY_ID" value="111" data-watch="true" data-method="get" data-params='{"param1": "value1", "param2": "value2", "PAYMENT_ID": "value-from-param"}'>
+					<span>
+						<div class="form-item__info">
+							<div class="form-item__name">
+								<p>Доставка внутри МКАД</p> <b>2 700 ₽</b>
+							</div>
+							<div class="form-item__body">
+								<p><small>Заказы от 50 до 100кг, с 9 до 18:00. Зона 1</small></p>
+								<p><small><a href="https://zamm.ru/help/delivery/" target="_blank">Посмотреть зоны доставки</a></small></p>
+							</div>
+						</div>
+					</span>
+				</label>
+			</div>
+
+			<div class="form-item">
+				<label>
+					<input type="radio" name="DELIVERY_ID" value="222" data-watch="true" data-params='{"PAYMENT_ID": "value-from-param-post"}' checked>
+					<span>
+						<div class="form-item__info">
+							<div class="form-item__name">
+								<p>Самовывоз</p> <b>Бесплатно</b>
+							</div>
+							<div class="form-item__body">
+								<p><small><span>Только для юридических лиц</span></small></p>
+							</div>
+						</div>
+					</span>
+				</label>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div class="order-form__row" data-id="delivery-address">
+	<div class="order-form__left">Куда доставить</div>
+	<div class="order-form__right">
+		<div class="order-form__fieldset">
+			<div class="form-item js-query-wrapper">
+				<input type="text" name="ORDER_PROP_7" value="" class="input input_fill" aria-label="Город, улица, дом" placeholder="Город, улица, дом" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=query" data-query="true" autocomplete="off">
+				<div class="form-item__query-result js-query-result scrollblock"></div>
+			</div>
+
+			<div class="form-items-row">
+				<div class="form-item">
+					<input type="text" name="ORDER_PROP_8" value="" class="input input_fill" aria-label="Подъезд" placeholder="Подъезд">
+				</div>
+				<div class="form-item">
+					<input type="text" name="ORDER_PROP_9" value="" class="input input_fill" aria-label="Этаж" placeholder="Этаж">
+				</div>
+				<div class="form-item">
+					<input type="text" name="ORDER_PROP_10" value="" class="input input_fill" aria-label="Квартира" placeholder="Квартира">
+				</div>
+			</div>
+
+			<div class="form-item">
+				<textarea name="ORDER_PROP_11" class="textarea textarea_fill" aria-label="Комментарий к заказу" placeholder="Уточните, пожалуйста, детали для доставщиков: например, как к вам проехать, нужен ли пропуск, код домофона"></textarea>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="order-form__row" data-id="additional-services">
+	<div class="order-form__left">Дополнительные услуги</div>
+	<div class="order-form__right">
+		<div class="order-form__fieldset">
+
+			<div class="form-item">
+				<label>
+					<input type="checkbox" name="ORDER_PROP_12" value="Y" data-watch="true">
+					<span>
+						<div class="form-item__info">
+							<div class="form-item__name">
+								<p>Сборка мебели на дому</p> <b>1 500 ₽</b>
+							</div>
+							<div class="form-item__body">
+								<p><small><span>Доставка осуществляется по Московской области.</span></small></p>
+							</div>
+						</div>
+					</span>
+				</label>
+			</div>
+
+		</div>
+
+		<div class="order-form__fieldset">
+
+			<div class="form-item">
+				<label>
+					<input type="checkbox" name="ORDER_PROP_13" value="Y" data-watch="true">
+					<span>
+						<div class="form-item__info">
+							<div class="form-item__name">
+								<p>Сборка мебели на дому</p> <b>3 500 ₽</b>
+							</div>
+							<div class="form-item__body">
+								<p><small><span>Доставка осуществляется по Московской области.</span></small></p>
+							</div>
+						</div>
+					</span>
+				</label>
+
+				<div class="form-item__actions">
+					<div class="amount-element _lg">
+						<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
+						<input type="number" name="ORDER_PROP_13_count" value="1" readonly="" min="1" max="20" step="1" aria-label="Количество" data-watch="true">
+						<button type="button" class="js-btn-plus" aria-label="Больше"></button>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class="order-form__row" data-id="payment">
+	<div class="order-form__left">Оплата</div>
+	<div class="order-form__right">
+		<div class="order-form__fieldset">
+			<div class="form-item">
+				<label>
+					<input type="radio" name="PAYMENT_ID" value="111" data-watch="true" checked>
+					<span>
+						<div class="form-item__info">
+							<div class="form-item__name">
+								<p>Оплата картой онлайн</p>
+							</div>
+						</div>
+					</span>
+				</label>
+			</div>
+
+			<div class="form-item">
+				<label>
+					<input type="radio" name="PAYMENT_ID" value="222" data-watch="true">
+					<span>
+						<div class="form-item__info">
+							<div class="form-item__name">
+								<p>Наличными при получении</p>
+							</div>
+						</div>
+					</span>
+				</label>
+			</div>
+
+			<div class="form-item">
+				<label>
+					<input type="radio" name="PAYMENT_ID" value="333" data-watch="true">
+					<span>
+						<div class="form-item__info">
+							<div class="form-item__name">
+								<p>Банковский перевод (Оплата по счету)&nbsp;&nbsp;&nbsp;<span class="link-classic js-modal-show" data-box-width="510" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=geo">Подробнее</span></p>
+							</div>
+						</div>
+					</span>
+				</label>
+			</div>
+
+			<div class="form-item">
+				<label>
+					<input type="radio" name="PAYMENT_ID" value="444" data-watch="true">
+					<span>
+						<div class="form-item__info">
+							<div class="form-item__name">
+								<p>В рассрочку от 1 234 ₽/мес&nbsp;&nbsp;&nbsp;<span class="link-classic js-modal-show" data-box-width="510" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=geo">Подробнее</span></p>
+							</div>
+						</div>
+					</span>
+				</label>
+			</div>
+		</div>
+
+		<div class="order-form__fieldset">
+			<div class="form-item">
+				<label for="promo-input">У меня есть промокод</label>
+				<div class="form-item-flex">
+					<input type="text" name="ORDER_PROP_PROMO" id="promo-input" class="input text-uppercase js-promocode-input" autocomplete="off" data-submit="false" placeholder="PROMOCODE">
+					<button type="button" class="btn btn_gray js-promocode-submit" data-url="https://deviart.ru/zamm/fetch-order.php?request=promocode-submit">
+						<span>Применить</span>
+					</button>
+				</div>
+
+				<div class="promocode" data-id="promocode-list">
+					<div class="promocode__item">
+						<div class="promocode__code">PROMOCODE</div>
+						<div class="promocode__status">-20%</div>
+						<button type="button" class="btn btn_remove js-promocode-remove" aria-label="Удалить промокод" data-url="https://deviart.ru/zamm/fetch-order.php?request=promocode-remove&id=1"></button>
+					</div>
+					<div class="promocode__item _error">
+						<div class="promocode__code">PROMOCODE</div>
+						<div class="promocode__status"><small>промокод не найден</small></div>
+						<button type="button" class="btn btn_remove js-promocode-remove" aria-label="Удалить промокод" data-url="https://deviart.ru/zamm/fetch-order.php?request=promocode-remove&id=2"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
