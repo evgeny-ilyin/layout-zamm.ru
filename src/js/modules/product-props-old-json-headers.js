@@ -58,7 +58,7 @@ if (!window.productProps) {
 
 						fetchLoader([item, details], "stop");
 					} catch (e) {
-						console.log(e);
+						console.error(e);
 						return;
 					}
 				})();
@@ -90,7 +90,7 @@ if (!window.productProps) {
 
 						fetchLoader([card], "stop");
 					} catch (e) {
-						console.log(e);
+						console.error(e);
 						return;
 					}
 				})();
@@ -101,7 +101,7 @@ if (!window.productProps) {
 					if (value.length) {
 						let target = where.querySelector(`[data-id=${key}]`);
 						if (!target) {
-							console.log(`data-id ${key} not found`);
+							// console.log(`data-id ${key} not found`);
 							return;
 						}
 						target.innerHTML = value;
