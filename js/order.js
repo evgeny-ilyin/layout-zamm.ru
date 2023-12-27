@@ -12,6 +12,28 @@ function orderActions() {
 			formWatcher(order, e.target);
 		}
 	});
+
+	document.addEventListener("keydown", (e) => {
+		if (e.target.closest(".js-promocode-input")) {
+			if (e.key == "Enter") {
+				const node = e.target.parentElement;
+				promoSubmit(node);
+			}
+		}
+	});
+
+	document.addEventListener("click", (e) => {
+		if (e.target.closest(".js-promocode-submit")) {
+			const node = e.target.closest(".js-promocode-submit").parentElement;
+			promoSubmit(node);
+		}
+	});
+
+	document.addEventListener("click", (e) => {
+		const btn = e.target.closest(".js-promocode-remove");
+		if (!btn) return;
+		promoRemove(btn);
+	});
 }
 
 function formWatcher(node, el) {
@@ -77,6 +99,65 @@ function formWatcher(node, el) {
 			}
 		})();
 	}
+}
+
+function promoSubmit(node) {
+	const btn = node.querySelector(".js-promocode-submit");
+	if (!btn) return;
+
+	let url = btn.dataset.url,
+		input = btn.previousElementSibling,
+		promocode = input.value,
+		formData = new FormData();
+
+	if (!promocode.length || !url) return;
+
+	formData.append("promocode", promocode.toUpperCase());
+
+	(async () => {
+		try {
+			btnLoader(btn);
+			input.setAttribute("disabled", true);
+			let response = await fetch(url, {
+				method: "POST",
+				body: formData,
+			});
+			if (!response.ok) {
+				return;
+			}
+			let result = await response.json();
+			if (result.status === true) {
+				input.value = "";
+				updateChunks(result.chunks);
+			}
+			btnLoader(btn, "stop");
+			input.removeAttribute("disabled");
+		} catch (e) {
+			console.error(e);
+			return;
+		}
+	})();
+}
+
+function promoRemove(node) {
+	let url = node.dataset.url;
+
+	if (!url) return;
+	(async () => {
+		try {
+			let response = await fetch(url);
+			if (!response.ok) {
+				return;
+			}
+			let result = await response.json();
+			if (result.status === true) {
+				updateChunks(result.chunks);
+			}
+		} catch (e) {
+			console.error(e);
+			return;
+		}
+	})();
 }
 
 ;// CONCATENATED MODULE: ./src/js/order.js

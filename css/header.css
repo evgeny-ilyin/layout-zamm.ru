@@ -392,7 +392,7 @@ a:active {
 }
 a:focus-visible {
   outline: 2px solid var(--yellow-dark);
-  border-radius: 4px;
+  border-radius: 3px;
   -webkit-transition: none;
   -o-transition: none;
   transition: none
@@ -1644,7 +1644,8 @@ ol {
   position: absolute;
   right: 2px
 }
-.btn_close {
+.btn_close,
+.btn_remove {
   position: absolute;
   z-index: 10;
   display: -webkit-box;
@@ -1664,7 +1665,9 @@ ol {
   background-color: transparent
 }
 .btn_close::after,
-.btn_close::before {
+.btn_close::before,
+.btn_remove::after,
+.btn_remove::before {
   content: "";
   position: absolute;
   width: 1px;
@@ -1673,12 +1676,14 @@ ol {
   -webkit-box-shadow: 0 0 1px 0 var(--black);
   box-shadow: 0 0 1px 0 var(--black)
 }
-.btn_close::before {
+.btn_close::before,
+.btn_remove::before {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg)
 }
-.btn_close::after {
+.btn_close::after,
+.btn_remove::after {
   -webkit-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
   transform: rotate(-45deg)
@@ -2193,7 +2198,8 @@ input[type=radio] {
 }
 input[type=checkbox]:focus-visible ~ span::before {
   -webkit-box-shadow: 0 0 0 2px var(--yellow);
-  box-shadow: 0 0 0 2px var(--yellow)
+  box-shadow: 0 0 0 2px var(--yellow);
+  border-radius: 3px
 }
 input[type=radio]:focus-visible ~ span::after {
   -webkit-box-shadow: 0 0 0 2px var(--yellow);
@@ -2382,6 +2388,70 @@ input[type=radio]:disabled ~ span {
   -webkit-transform: translateY(1px) rotate(-90deg)!important;
   -ms-transform: translateY(1px) rotate(-90deg)!important;
   transform: translateY(1px) rotate(-90deg)!important
+}
+input[type=file] {
+  width: .1px;
+  height: .1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1
+}
+input[type=file]:focus-visible ~ span {
+  -webkit-box-shadow: 0 0 0 2px var(--yellow);
+  box-shadow: 0 0 0 2px var(--yellow);
+  border-radius: 3px
+}
+.file-input {
+  cursor: pointer;
+  width: -webkit-fit-content!important;
+  width: -moz-fit-content!important;
+  width: fit-content!important
+}
+.file-input__icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  fill: var(--black);
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 16px;
+  flex: 0 0 16px
+}
+.file-input__name {
+  margin-left: 10px;
+  font-size: .8125rem;
+  color: var(--black60);
+  text-decoration: underline;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative
+}
+.file-input__name span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-right: 20px
+}
+.file-input__name .btn {
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 0;
+  width: 16px;
+  height: 16px;
+  opacity: .6
+}
+.file-input__name .btn::after,
+.file-input__name .btn::before {
+  height: 12px
+}
+.file-input__name .btn:active,
+.file-input__name .btn:focus,
+.file-input__name .btn:hover {
+  opacity: 1
+}
+.file-input input ~ span:not(.hidden) ~ span {
+  display: none
 }
 .labels {
   display: -webkit-box;
@@ -3322,7 +3392,7 @@ input[type=radio]:disabled ~ span {
     -webkit-box-flex: 1;
     -ms-flex: 1;
     flex: 1;
-    margin: 0 8px 0
+    margin: 0 8px 0 0
   }
   .form-item-flex .btn {
     width: auto

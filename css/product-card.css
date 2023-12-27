@@ -268,6 +268,13 @@
 .product__amount {
   height: 42px
 }
+.product__amount .amount-element {
+  background: var(--gray)
+}
+.product__amount .amount-element button,
+.product__amount .amount-element input[type=number] {
+  background: var(--gray)
+}
 .product__delivery {
   margin-bottom: 19px
 }
@@ -809,7 +816,7 @@
   position: relative;
   border: 1px solid var(--black10);
   border-radius: 4px;
-  background: var(--gray);
+  background: var(--white);
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -820,13 +827,6 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center
-}
-.amount-element._white {
-  background: var(--white)
-}
-.amount-element._white button,
-.amount-element._white input[type=number] {
-  background: var(--white)
 }
 .amount-element._lg {
   width: 117px;
@@ -839,7 +839,7 @@
 }
 .amount-element input[type=number] {
   cursor: default;
-  background: var(--gray);
+  background: var(--white);
   width: 25px;
   height: 20px;
   padding: 0;
@@ -866,7 +866,7 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background: var(--gray);
+  background: var(--white);
   border: 0!important
 }
 .amount-element button::before {

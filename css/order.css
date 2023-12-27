@@ -300,19 +300,24 @@
 .promocode__status small {
   display: block
 }
-.promocode .btn_close {
+.promocode .btn_remove {
   right: 0;
   top: 50%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   width: 16px;
-  height: 16px
+  height: 16px;
+  opacity: .6
 }
-.promocode .btn_close::after,
-.promocode .btn_close::before {
-  height: 14px;
-  opacity: .5
+.promocode .btn_remove:active,
+.promocode .btn_remove:focus,
+.promocode .btn_remove:hover {
+  opacity: 1
+}
+.promocode .btn_remove::after,
+.promocode .btn_remove::before {
+  height: 14px
 }
 @media (min-width:425px) {
   .order-goods__list {
