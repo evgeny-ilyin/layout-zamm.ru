@@ -5,12 +5,12 @@ function plural_form($n, $forms)
 }
 
 try {
-	usleep(0);
+	usleep(150000);
 
 	$data = $_POST;
 
 	$dataArray = json_decode($_POST['formData'], true);
-	$total = $dataArray['amount15555'] + $dataArray['amount18888'];
+	$total = $dataArray['amount15555'] + $dataArray['amount18888'] + $dataArray['amount10000'];
 	$totaltext = plural_form($total, array('товар', 'товара', 'товаров'));
 
 	switch ($data['trigger']) {
@@ -45,9 +45,7 @@ try {
 				'$total' => "N штук",
 				'$totaltext' => "",
 			));
-			$cartItems = file_get_contents('template-cart-items.html');
-			$cartItems .= file_get_contents('template-cart-items.html');
-			$cartItems .= file_get_contents('template-cart-items.html');
+			$cartItems = file_get_contents('template-cart-items-three.html');
 			$cartCarousel = file_get_contents('template-cart-carousel.html');
 
 			$addedId = $_POST['itemId'];
