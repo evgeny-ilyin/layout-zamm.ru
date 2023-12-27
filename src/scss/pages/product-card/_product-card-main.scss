@@ -71,7 +71,7 @@
 		}
 
 		form {
-			@include respond-to(xl) {
+			@include respond-to(lg) {
 				position: sticky;
 				top: 100px;
 				margin: 0 0 50px;
@@ -105,27 +105,6 @@
 			top: 12px;
 			left: 14px;
 			bottom: auto;
-		}
-	}
-
-	// .product__gallery
-	&__gallery {
-		display: none;
-		position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background: $gray;
-
-		&.is-active {
-			display: block;
-			z-index: 5;
-			padding-top: 15px;
-
-			.container {
-				height: 100%;
-			}
 		}
 	}
 
@@ -232,7 +211,7 @@
 			display: flex;
 			flex-direction: column;
 			margin-bottom: 41px;
-			
+
 			@include respond-to(md) {
 				flex-flow: row nowrap;
 				margin-bottom: 48px;
@@ -447,47 +426,21 @@
 			min-width: 145px;
 			height: 42px;
 			transition: all $transition-default;
-
-			span {
-				display: inline;
-				position: relative;
-				white-space: nowrap;
-
-				& ~ span {
-					display: none;
-					margin-right: 16px;
-
-					&::after {
-						content: "";
-						display: block;
-						position: absolute;
-						top: 4px;
-						right: -20px;
-						width: 14px;
-						height: 12px;
-						background: var(--svg-checked) center no-repeat;
-						background-size: contain;
-					}
-				}
-			}
-
-			&.in-cart {
-				width: calc(50% - 9px);
-
-				span {
-					display: none;
-
-					& ~ span {
-						display: inline;
-					}
-				}
-			}
 		}
 	}
 
 	// .product__amount
 	&__amount {
 		height: 42px;
+
+		.amount-element {
+			background: $gray;
+
+			input[type="number"],
+			button {
+				background: $gray;
+			}
+		}
 	}
 
 	// .product__delivery

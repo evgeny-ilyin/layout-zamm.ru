@@ -22,11 +22,11 @@
 				</div>
 			</div>
 			<div class="product__gallery-showall">
-				<a href="javascript:void(0)" class="link-angle _blue js-product-gallery" data-target="product__gallery">Смотреть все 15 фото</a>
+				<a href="javascript:void(0)" class="link-angle _blue js-popup-gallery" data-target="gallery-showall">Смотреть все 15 фото</a>
 			</div>
 		</div>
 
-		<div class="product__gallery">
+		<div class="popup-gallery gallery-showall">
 			<div class="container">
 				<div class="content photos">
 
@@ -39,34 +39,34 @@
 
 					<!-- шаблон для карусели: ajax/template-prop-product-card-gallery.html -->
 					<div class="photos__carousel" data-da=".product__details,1023,first" data-id="photos-carousel">
-						<div id="productPhotos" class="f-carousel carousel-product-card">
+						<div id="productPhotos" class="f-carousel gallery-thumbs-popup">
 							<div class="labels">
 								<div class="label label_yellow-light">Скидка!</div>
 								<div class="label label_green">В наличии</div>
 							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v15">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v15" width="950" height="550" alt="" />
+							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?home&v10">
+								<img data-lazy-src="https://source.unsplash.com/random/1000x650/?home&v10" width="1000" height="650" alt="" />
 							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v10">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v10" width="950" height="550" alt="" />
+							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?home&v5">
+								<img data-lazy-src="https://source.unsplash.com/random/1000x650/?home&v5" width="1000" height="650" alt="" />
 							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v5">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v5" width="950" height="550" alt="" />
+							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/650x650/?home&v15">
+								<img data-lazy-src="https://source.unsplash.com/random/650x650/?home&v15" width="650" height="650" alt="" />
 							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v25">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v25" width="950" height="550" alt="" />
+							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?home&v25">
+								<img data-lazy-src="https://source.unsplash.com/random/1000x650/?home&v25" width="1000" height="650" alt="" />
 							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v35">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v35" width="950" height="550" alt="" />
+							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?home&v35">
+								<img data-lazy-src="https://source.unsplash.com/random/1000x650/?home&v35" width="1000" height="650" alt="" />
 							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v45">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v45" width="950" height="550" alt="" />
+							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?home&v45">
+								<img data-lazy-src="https://source.unsplash.com/random/1000x650/?home&v45" width="1000" height="650" alt="" />
 							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v55">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v55" width="950" height="550" alt="" />
+							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?home&v65">
+								<img data-lazy-src="https://source.unsplash.com/random/1000x650/?home&v65" width="1000" height="650" alt="" />
 							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v65">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v65" width="950" height="550" alt="" />
+							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?home&v65">
+								<img data-lazy-src="https://source.unsplash.com/random/1000x650/?home&v65" width="1000" height="650" alt="" />
 							</div>
 						</div>
 					</div>
@@ -213,10 +213,10 @@
 		<div class="product__tabs" data-id="product-tabs-1">
 			<div class="tabs">
 				<div class="tabs__header scrollblock">
-					<button class="tab-nav js-tab-nav" data-tab="size">Размеры стола</button>
-					<button class="tab-nav js-tab-nav" data-tab="pack">Упаковка</button>
-					<button class="tab-nav js-tab-nav" data-tab="benefits">Преимущества</button>
-					<button class="tab-nav js-tab-nav" data-tab="materials">Материалы и уход</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="size">Размеры стола</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="pack">Упаковка</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="benefits">Преимущества</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="materials">Материалы и уход</button>
 				</div>
 				<div class="tabs__content">
 					<div class="tab-block" data-tab-content="size">
@@ -337,11 +337,11 @@
 			<div class="h3">Качество и технологии</div>
 			<div class="tabs">
 				<div class="tabs__header scrollblock">
-					<button class="tab-nav js-tab-nav" data-tab="paint">Покраска</button>
-					<button class="tab-nav js-tab-nav" data-tab="egger">ЛДСП Egger</button>
-					<button class="tab-nav js-tab-nav" data-tab="durability">Долговечность</button>
-					<button class="tab-nav js-tab-nav" data-tab="surface">Идеальная поверхность</button>
-					<button class="tab-nav js-tab-nav" data-tab="stock">Склад</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="paint">Покраска</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="egger">ЛДСП Egger</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="durability">Долговечность</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="surface">Идеальная поверхность</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="stock">Склад</button>
 				</div>
 				<div class="tabs__content">
 					<div class="tab-block" data-tab-content="paint">
@@ -484,39 +484,39 @@
 			</div>
 		</div>
 
+		<!-- шаблон для галереи по таргету (в попапе): ajax/template-content-gallery.html -->
 		<div class="product__content-gallery" data-id="product-content-gallery">
 			<div class="h3">Галерея</div>
 			<div class="f-carousel carousel-gallery-thumbs" data-carousel="carousel" data-options='{"Navigation": false, "slidesPerPage": 2}' data-thumbs="true" data-thumbs-media="min-width: 1024px">
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?home&v15">
-					<a href="javascript:void(0)" class="link-arrow-span">
+					<div class="link-arrow-span js-popup-gallery" data-target="gallery-1" data-url="https://deviart.ru/zamm/fetch-content-gallery.php">
 						<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v15" width="800" height="500" alt="" />
 						<span class="item-note link-arrow _white">Домашний интерьер WOODER</span>
-					</a>
+					</div>
 				</div>
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?home&v10">
-					<a href="javascript:void(0)" class="link-arrow-span">
-
+					<div class="link-arrow-span js-popup-gallery" data-target="gallery-1" data-url="https://deviart.ru/zamm/fetch-content-gallery.php">
 						<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v10" width="800" height="500" alt="" />
 						<span class="item-note link-arrow _white">Домашний интерьер WOODER 1</span>
-					</a>
+					</div>
 				</div>
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?home&v5">
-					<a href="javascript:void(0)" class="link-arrow-span">
+					<div class="link-arrow-span js-popup-gallery" data-target="gallery-1" data-url="https://deviart.ru/zamm/fetch-content-gallery.php">
 						<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v5" width="800" height="500" alt="" />
 						<span class="item-note link-arrow _white">Домашний интерьер WOODER 2</span>
-					</a>
+					</div>
 				</div>
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?home&v25">
-					<a href="javascript:void(0)" class="link-arrow-span">
+					<div class="link-arrow-span js-popup-gallery" data-target="gallery-1" data-url="https://deviart.ru/zamm/fetch-content-gallery.php">
 						<img data-lazy-src="https://source.unsplash.com/random/800x500/?home&v25" width="800" height="500" alt="" />
 						<span class="item-note link-arrow _white">Домашний интерьер WOODER 3</span>
-					</a>
+					</div>
 				</div>
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/800x500/?home&v35">
-					<a href="javascript:void(0)" class="link-arrow-span">
+					<div class="link-arrow-span js-popup-gallery" data-target="gallery-1" data-url="https://deviart.ru/zamm/fetch-content-gallery.php">
 						<img data-lazy-src="https://source.unsplash.com/random/800x500/?home" width="800" height="500" alt="" />
 						<span class="item-note link-arrow _white">Домашний интерьер WOODER 4</span>
-					</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -671,7 +671,10 @@
 				<a href="javascript:void(0)">ТЦ Авиапарк</a>
 				<a href="javascript:void(0)">Петербург, Бармалеева 1</a>
 				<a href="javascript:void(0)">Покровка 44</a>
-				<a href="javascript:void(0)" class="link-angle _gray">и ещё 5</a>
+				<a href="javascript:void(0)" class="link-angle _gray js-show-hidden">и ещё 5</a>
+				<a href="javascript:void(0)" class="hidden">Тверская, 2</a>
+				<a href="javascript:void(0)" class="hidden">Тверская, 8</a>
+				<a href="javascript:void(0)" class="hidden">Тверская, 64</a>
 			</div>
 
 			<div class="product__more">

@@ -7,53 +7,7 @@
 
 		<div class="product__photos" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=photos"></div>
 
-		<div class="product__gallery">
-			<div class="container">
-				<div class="content photos">
-
-					<div class="photos__head">
-						<div class="photos__header">Фотографии <span>Стол Linda</span></div>
-						<div class="photos__close">
-							<button type="button" class="btn btn_close btn_close-xl js-close" aria-label="Закрыть"></button>
-						</div>
-					</div>
-
-					<div class="photos__carousel" data-da=".product__details,1023,first">
-						<div id="productPhotos" class="f-carousel carousel-product-card">
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v15">
-								<div class="labels">
-									<div class="label label_yellow-light">Скидка!</div>
-									<div class="label label_green">В наличии</div>
-								</div>
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v15" width="950" height="550" alt="" />
-							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v10">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v10" width="950" height="550" alt="" />
-							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v5">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v5" width="950" height="550" alt="" />
-							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v25">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v25" width="950" height="550" alt="" />
-							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v35">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v35" width="950" height="550" alt="" />
-							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v45">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v45" width="950" height="550" alt="" />
-							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v55">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v55" width="950" height="550" alt="" />
-							</div>
-							<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/950x550/?home&v65">
-								<img data-lazy-src="https://source.unsplash.com/random/950x550/?home&v65" width="950" height="550" alt="" />
-							</div>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
+		<div class="popup-gallery gallery-showall" data-id="product-gallery" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=gallery"></div>
 
 		<div class="product__3d">
 			<div>
@@ -116,11 +70,11 @@
 			<div class="h3">Качество и технологии</div>
 			<div class="tabs">
 				<div class="tabs__header scrollblock">
-					<button class="tab-nav js-tab-nav" data-tab="paint">Покраска</button>
-					<button class="tab-nav js-tab-nav" data-tab="egger">ЛДСП Egger</button>
-					<button class="tab-nav js-tab-nav" data-tab="durability">Долговечность</button>
-					<button class="tab-nav js-tab-nav" data-tab="surface">Идеальная поверхность</button>
-					<button class="tab-nav js-tab-nav" data-tab="stock">Склад</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="paint">Покраска</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="egger">ЛДСП Egger</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="durability">Долговечность</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="surface">Идеальная поверхность</button>
+					<button type="button" class="tab-nav js-tab-nav" data-tab="stock">Склад</button>
 				</div>
 				<div class="tabs__content">
 					<div class="tab-block" data-tab-content="paint">
@@ -182,11 +136,11 @@
 
 			<div class="product__fav" data-id="product-fav">
 				<div class="fav">
-					<a href="javascript:void(0)" class="js-fav" aria-label="В избранное" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
+					<button type="button" class="js-fav" aria-label="В избранное" data-id="44444" data-url="https://deviart.ru/zamm/fetch-fav.php">
 						<svg>
 							<use xlink:href="#fav"></use>
 						</svg>
-					</a>
+					</button>
 				</div>
 			</div>
 
@@ -307,7 +261,10 @@
 				<a href="javascript:void(0)">ТЦ Авиапарк</a>
 				<a href="javascript:void(0)">Петербург, Бармалеева 1</a>
 				<a href="javascript:void(0)">Покровка 44</a>
-				<a href="javascript:void(0)" class="link-angle _gray">и ещё 5</a>
+				<a href="javascript:void(0)" class="link-angle _gray js-show-hidden">и ещё 5</a>
+				<a href="javascript:void(0)" class="hidden">Тверская, 2</a>
+				<a href="javascript:void(0)" class="hidden">Тверская, 8</a>
+				<a href="javascript:void(0)" class="hidden">Тверская, 64</a>
 			</div>
 
 			<div class="product__more">
