@@ -51,6 +51,7 @@
 		"@fancyapps/ui": "^5.0.24",
 		"lc-select": "^1.1.8",
 		"nouislider": "^15.7.1",
+		"vanilla-text-mask": "^5.1.1",
 		"wnumb": "^1.2.0"
 	}
 }
