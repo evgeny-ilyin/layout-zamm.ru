@@ -82,13 +82,13 @@ function changeCart(cart, itemId, trigger) {
 	})();
 }
 
-const cartForm = document.querySelector(".js-cart form");
-document.addEventListener("click", (e) => {
-	if (e.target.closest(".cart-total__button button")) {
-		e.preventDefault();
-		if (cartForm) cartForm.submit();
-	}
-});
+// const cartForm = document.querySelector(".js-cart form");
+// document.addEventListener("click", (e) => {
+// 	if (e.target.closest(".cart-total__button button")) {
+// 		e.preventDefault();
+// 		if (cartForm) cartForm.submit();
+// 	}
+// });
 
 ;// CONCATENATED MODULE: ./src/js/cart.js
 

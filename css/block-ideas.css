@@ -64,6 +64,11 @@
   box-shadow: 0 0 0 5px var(--yellow) inset;
   border: 1px solid var(--white)
 }
+.idea-marker__btn:focus-visible {
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 5px var(--yellow) inset;
+  box-shadow: 0 0 0 5px var(--yellow) inset
+}
 .idea-marker__content {
   font-size: .875rem;
   position: absolute;

@@ -1211,6 +1211,11 @@
   .carousel-top-nav .f-carousel__nav .f-button:disabled {
     pointer-events: none
   }
+  .carousel-top-nav .f-carousel__nav .f-button:focus-visible {
+    -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
+    box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
+    border-radius: 4px
+  }
 }
 @media (hover:hover) {
   .f-button:hover:not([disabled]) {

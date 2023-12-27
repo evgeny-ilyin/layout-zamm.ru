@@ -6,33 +6,33 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20231227134921">
-	<link rel="stylesheet" href="css/fonts.css?v=20231227134921">
-	<link rel="stylesheet" href="css/header.css?v=20231227134921">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231227134921">
+	<link rel="stylesheet" href="css/root-vars.css?v=20231228025644">
+	<link rel="stylesheet" href="css/fonts.css?v=20231228025644">
+	<link rel="stylesheet" href="css/header.css?v=20231228025644">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20231228025644">
 
-	<link rel="stylesheet" href="css/carousel-main.css?v=20231227134921">
-	<link rel="stylesheet" href="css/carousel-products.css?v=20231227134921">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231227134921">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20231228025644">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20231228025644">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20231228025644">
 
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231227134921">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20231227134921">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20231228025644">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20231228025644">
 
-	<link rel="stylesheet" href="css/block-about.css?v=20231227134921">
+	<link rel="stylesheet" href="css/block-about.css?v=20231228025644">
 
-	<link rel="stylesheet" href="css/catalog-item.css?v=20231227134921">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20231228025644">
 
-	<link rel="stylesheet" href="css/catalog.css?v=20231227134921">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20231227134921">
+	<link rel="stylesheet" href="css/catalog.css?v=20231228025644">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20231228025644">
 
-	<link rel="stylesheet" href="css/product-card.css?v=20231227134921">
+	<link rel="stylesheet" href="css/product-card.css?v=20231228025644">
 
-	<link rel="stylesheet" href="css/cart.css?v=20231227134921">
+	<link rel="stylesheet" href="css/cart.css?v=20231228025644">
 
-	<link rel="stylesheet" href="css/order.css?v=20231227134921">
+	<link rel="stylesheet" href="css/order.css?v=20231228025644">
 
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20231227134921">
-	<link rel="stylesheet" href="css/footer.css?v=20231227134921">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20231228025644">
+	<link rel="stylesheet" href="css/footer.css?v=20231228025644">
 	<title>Оформление заказа</title>
 	<meta name="description" content="Оформление заказа">
 </head>
@@ -492,7 +492,7 @@
 										<input type="email" name="ORDER_PROP_4" value="" class="input input_fill" aria-label="E-mail" placeholder="Ваш e-mail">
 									</div>
 									<div class="form-item">
-										<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" aria-label="Телефон" placeholder="Ваш телефон">
+										<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" aria-label="Телефон" placeholder="Ваш телефон" data-pattern-type="phone">
 									</div>
 									<div class="form-item">
 										<label>
@@ -687,9 +687,9 @@
 
 								<div class="order-form__fieldset">
 									<div class="form-item">
-										<label for="label_ID">У меня есть промокод</label>
+										<label for="promo-input">У меня есть промокод</label>
 										<div class="form-item-flex">
-											<input type="text" name="ORDER_PROP_PROMO" class="input text-uppercase js-promocode-input" autocomplete="off" data-submit="false" placeholder="PROMOCODE">
+											<input type="text" name="ORDER_PROP_PROMO" id="promo-input" class="input text-uppercase js-promocode-input" autocomplete="off" data-submit="false" placeholder="PROMOCODE">
 											<button type="button" class="btn btn_gray js-promocode-submit" data-url="https://deviart.ru/zamm/fetch-order.php?request=promocode-submit">
 												<span>Применить</span>
 											</button>
@@ -1060,12 +1060,13 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231227134921"></script>
-	<script src="js/carousel-init.js?v=20231227134921"></script>
+	<!-- <script src="js/vendors/vanillaTextMask.js?v=20231228025644"></script> -->
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20231228025644"></script>
+	<script src="js/carousel-init.js?v=20231228025644"></script>
 
-	<script src="js/common.js?v=20231227134921"></script>
-	<script src="js/order.js?v=20231227134921"></script>
-	<script src="js/tabs.js?v=20231227134921"></script>
+	<script src="js/common.js?v=20231228025644"></script>
+	<script src="js/order.js?v=20231228025644"></script>
+	<script src="js/tabs.js?v=20231228025644"></script>
 
 </body>
 

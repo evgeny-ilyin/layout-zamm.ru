@@ -1429,7 +1429,9 @@ ol {
 }
 .btn:focus-visible {
   -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
-  box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10)
+  box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
+  border-radius: 4px;
+  outline: 0
 }
 .btn:disabled,
 .btn_disabled {
@@ -1490,7 +1492,7 @@ ol {
   color: var(--black60)!important
 }
 .btn_yellow:active span::after {
-  opacity: .5
+  opacity: .6
 }
 .btn_yellow-dark {
   background: var(--yellow-dark);
@@ -1799,6 +1801,11 @@ ol {
   -ms-flex-align: center;
   align-items: center;
   position: relative
+}
+button:focus-visible {
+  -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
+  box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
+  border-radius: 4px
 }
 .tabs {
   margin: 32px 0 64px;
@@ -2113,6 +2120,12 @@ ol {
   background-color: var(--white);
   -webkit-box-shadow: 0 0 0 2px var(--yellow);
   box-shadow: 0 0 0 2px var(--yellow)
+}
+.input.is-error,
+.textarea.is-error {
+  color: var(--red-coral-dark);
+  -webkit-box-shadow: 0 0 0 2px var(--red-coral-dark);
+  box-shadow: 0 0 0 2px var(--red-coral-dark)
 }
 .input:disabled,
 .textarea:disabled {
