@@ -1,3 +1,24 @@
+.product-carousel {
+	.is-dragging {
+		@include when-inside("body:not(.is-touch)") {
+			.item {
+				background: $white !important;
+			}
+
+			.item__details {
+				max-height: 0 !important;
+				transition: max-height 0.1s ease !important;
+				// z-index: 12;
+			}
+
+			.article,
+			.fav {
+				opacity: 0 !important;
+			}
+		}
+	}
+}
+
 .item {
 	position: relative;
 	height: auto;
@@ -297,9 +318,9 @@
 .prop-collapse {
 	width: calc(100% - 15px);
 	padding-right: 10px;
-	padding-bottom: 4px;
-	min-height: 35px;
-	height: 35px;
+	padding-bottom: 1px;
+	// min-height: 35px;
+	// height: 35px;
 	overflow-x: scroll;
 
 	&::before {
