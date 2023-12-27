@@ -113,6 +113,11 @@
 			box-shadow: 0 0 0 5px $yellow inset;
 			border: 1px solid $white;
 		}
+
+		@include on-focus-visible {
+			border-radius: 50%;
+			box-shadow: 0 0 0 5px $yellow inset;
+		}
 	}
 
 	// .idea-marker__content

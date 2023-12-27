@@ -72,6 +72,12 @@
 	@include on-event {
 		color: $href-color-hover;
 	}
+
+	&:focus-visible {
+		outline: 2px solid $yellow-dark;
+		border-radius: 4px;
+		transition: none;
+	}
 }
 
 %text-links-solid {
@@ -97,6 +103,12 @@
 		text-shadow: $shadow-600;
 		transition: all $transition-default;
 	}
+
+	&:focus-visible {
+		outline: 2px solid $yellow-dark;
+		border-radius: 3px;
+		transition: none;
+	}
 }
 
 %text-links-dashed {
@@ -108,8 +120,10 @@
 	text-decoration: underline;
 	text-decoration-color: $black30;
 	text-underline-offset: 1px;
+	transition: all 0.15s ease;
 
 	@include on-hover {
+		text-shadow: 0 0 0;
 		text-decoration-color: $black60;
 	}
 }

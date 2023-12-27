@@ -33,7 +33,7 @@
 	.item {
 		// z-index: 12;
 	}
-	
+
 	.f-carousel {
 		&::before,
 		&::after {
@@ -125,6 +125,11 @@
 
 				@include on-disabled {
 					pointer-events: none;
+				}
+
+				@include on-focus-visible {
+					box-shadow: 0 0 0 1px $black60, 0 0 0 7px $black-real10;
+					border-radius: 4px;
 				}
 			}
 		}
