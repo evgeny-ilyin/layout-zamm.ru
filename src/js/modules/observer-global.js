@@ -44,7 +44,7 @@ if (!window.blockObserver) {
 
 							fetchLoader(target, "stop");
 						} catch (e) {
-							console.log(e);
+							console.error(e);
 							return;
 						}
 					})();
@@ -65,6 +65,8 @@ if (!window.blockObserver) {
 				catalogItemGalleryHandler();
 				tabsInit();
 				tabsHandler(target);
+				productPropsHoverHandler();
+				setFavourites();
 			} catch (e) {}
 		};
 	};
