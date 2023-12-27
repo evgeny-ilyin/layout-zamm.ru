@@ -29,7 +29,11 @@
 
 	// .tabs__content
 	&__content {
-		margin-top: 8px;
+		margin-top: 23px;
+
+		@include respond-to(lg) {
+			margin-top: 8px;
+		}
 	}
 }
 
