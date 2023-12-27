@@ -1,7 +1,10 @@
-<div class="content content_columns order js-cart" data-id="cart-main" data-url="https://deviart.ru/zamm/fetch-cart.php">
-	<div class="order__main">
-		<div class="h3">Оформление заказа</div>
-		<form action="/order/" method="post">
+
+<div class="content order js-cart" data-id="cart-main" data-url="https://deviart.ru/zamm/fetch-cart.php">
+
+	<form action="/order/" class="form order__wrapper" method="post">
+
+		<div class="order__main">
+			<div class="h3">Оформление заказа</div>
 
 			<div data-id="cart-items">
 
@@ -39,7 +42,7 @@
 						</div>
 						<div class="cart-item__bottom">
 							<div class="cart-item__actions">
-								<div class="amount-element _white _lg">
+								<div class="amount-element _lg">
 									<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
 									<input type="number" name="amount15555" value="1" readonly="" min="1" max="20" step="1" aria-label="Количество">
 									<button type="button" class="js-btn-plus" aria-label="Больше"></button>
@@ -89,7 +92,7 @@
 						</div>
 						<div class="cart-item__bottom">
 							<div class="cart-item__actions">
-								<div class="amount-element _white _lg">
+								<div class="amount-element _lg">
 									<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
 									<input type="number" name="amount18888" value="1" readonly="" min="1" max="20" step="1" aria-label="Количество">
 									<button type="button" class="js-btn-plus" aria-label="Больше"></button>
@@ -111,67 +114,70 @@
 
 			</div>
 
-		</form>
 
-		<div class="cart-tools">
-			<a href="javascript:void(0)" class="link-svg _gray">
-				<svg>
-					<use xlink:href="#print"></use>
-				</svg>
-				Распечатать
-			</a>
-			<a href="javascript:void(0)" class="link-svg _gray js-modal-show" data-box-width="510" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=share">
-				<svg>
-					<use xlink:href="#share"></use>
-				</svg>
-				Поделиться корзиной
-			</a>
+			<div class="cart-tools">
+				<a href="javascript:void(0)" class="link-svg _gray">
+					<svg>
+						<use xlink:href="#print"></use>
+					</svg>
+					Распечатать
+				</a>
+				<a href="javascript:void(0)" class="link-svg _gray js-modal-show" data-box-width="510" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=share">
+					<svg>
+						<use xlink:href="#share"></use>
+					</svg>
+					Поделиться корзиной
+				</a>
 
-			<script>
-				var copyShareLink = function (b) {
-					navigator.clipboard.writeText(document.querySelector('#share-link').value).then(function () {
-						var html = b.innerHTML;
-						b.innerHTML = 'Скопировано';
-						b.setAttribute('disabled', true);
-						setTimeout(function () {
-							b.innerHTML = html;
-							b.removeAttribute('disabled');
-						}, 2000);
-					});
-				}
-			</script>
+				<script>
+					var copyShareLink = function (b) {
+						navigator.clipboard.writeText(document.querySelector('#share-link').value).then(function () {
+							var html = b.innerHTML;
+							b.innerHTML = 'Скопировано';
+							b.setAttribute('disabled', true);
+							setTimeout(function () {
+								b.innerHTML = html;
+								b.removeAttribute('disabled');
+							}, 2000);
+						});
+					}
+				</script>
+			</div>
+
+			@@include('block-product-carousel-orderpage.html', {
+			"header": "К этим товарам подойдёт",
+			"id": '',
+			"data-id": ' data-id="cart-carousel"'
+			})
+
 		</div>
 
-		@@include('block-product-carousel-orderpage.html', {
-		"header": "К этим товарам подойдёт",
-		"id": '',
-		"data-id": ' data-id="cart-carousel"'
-		})
-
-	</div>
-	<div class="order__sidebar mobile-fixed" data-id="cart-total">
-		<div class="order__sticky">
-			<div class="cart-total">
-				<div class="cart-total__header">
-					<div class="cart-total__title">Итого</div>
-					<div class="cart-total__prices">
-						<div class="cart-total__price">1 234 ₽</div>
-						<div class="cart-total__oldprice">2 000 ₽</div>
+		<div class="order__sidebar _mobile-bottom" data-id="cart-total">
+			<div class="order__sticky">
+				<div class="cart-total">
+					<div class="cart-total__header">
+						<div class="cart-total__title">Итого</div>
+						<div class="cart-total__prices">
+							<div class="cart-total__price">1 234 ₽</div>
+							<div class="cart-total__oldprice">2 000 ₽</div>
+						</div>
+						<div class="cart-total__sum-mob"></div>
 					</div>
-					<div class="cart-total__sum-mob"></div>
-				</div>
-				<div class="cart-total__sum">
-					<div>Всего <span data-da=".cart-total__sum-mob,1023">3 товара</span></div>
-					<div class="cart-pack">
-						<span data-da=".cart-total__sum-mob,1023,last">25 кг</span>
-						<span>2 м<sup>3</sup></span>
-						<span>3 коробки</span>
+					<div class="cart-total__sum">
+						<div>Всего <span data-da=".cart-total__sum-mob,1023">2 товара</span></div>
+						<div class="cart-pack">
+							<span data-da=".cart-total__sum-mob,1023,last">25 кг</span>
+							<span>2 м<sup>3</sup></span>
+							<span>3 коробки</span>
+						</div>
 					</div>
-				</div>
-				<div class="cart-total__button">
-					<button type="button" class="btn btn_yellow btn_wide">Оформить заказ</button>
+					<div class="cart-total__button">
+						<button type="submit" class="btn btn_yellow btn_wide">Оформить заказ</button>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+
+	</form>
+
 </div>

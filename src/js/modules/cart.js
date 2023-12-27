@@ -1,24 +1,15 @@
-export function cartAmount() {
+export function cartActions() {
 	const cart = document.querySelector(".js-cart");
 	if (!cart) return;
 
+	document.addEventListener("change", (e) => {
+		if (e.target.closest(".cart-item")) {
+			let itemId = e.target.closest(".cart-item").dataset.itemId;
+			changeCart(cart, itemId, "changeAmountCart");
+		}
+	});
+
 	cart.addEventListener("click", (e) => {
-		if (e.target.classList.contains("js-btn-minus")) {
-			let itemId = e.target.closest(".cart-item").dataset.itemId,
-				inputNumber = e.target.nextElementSibling;
-			if (inputNumber.getAttribute("min") == inputNumber.value) return;
-			inputNumber.stepDown();
-			changeCart(cart, itemId, "changeAmountCart");
-		}
-
-		if (e.target.classList.contains("js-btn-plus")) {
-			let itemId = e.target.closest(".cart-item").dataset.itemId,
-				inputNumber = e.target.previousElementSibling;
-			if (inputNumber.getAttribute("max") == inputNumber.value) return;
-			inputNumber.stepUp();
-			changeCart(cart, itemId, "changeAmountCart");
-		}
-
 		if (e.target.closest(".js-remove-from-cart")) {
 			let itemId = e.target.closest(".cart-item").dataset.itemId;
 			changeCart(cart, itemId, "removeItemCart");
@@ -45,6 +36,7 @@ function changeCart(cart, itemId, trigger) {
 
 	(async () => {
 		try {
+			fetchLoader([cart], "start");
 			let response = await fetch(url, {
 				method: "POST",
 				body: data,
@@ -64,17 +56,20 @@ function changeCart(cart, itemId, trigger) {
 				if (result.addedId || result.removedId) {
 					let id = result.addedId || result.removedId;
 					const itemButton = document.querySelector(`button[data-id="${id}"]`);
-					if (!itemButton) return;
-					const buttonWrapper = itemButton.closest(".item__details");
-					if (result.addedId) {
-						itemButton.classList.add("in-cart");
-						buttonWrapper.style.opacity = 1;
-					} else if (result.removedId) {
-						itemButton.classList.remove("in-cart");
-						buttonWrapper.style.opacity = "";
+					if (itemButton) {
+						const buttonWrapper = itemButton.closest(".item__details");
+						if (result.addedId) {
+							itemButton.classList.add("in-cart");
+							buttonWrapper.style.opacity = 1;
+						} else if (result.removedId) {
+							itemButton.classList.remove("in-cart");
+							buttonWrapper.style.opacity = "";
+						}
 					}
 				}
 			}
+
+			fetchLoader([cart], "stop");
 		} catch (e) {
 			console.error(e);
 			return;
@@ -82,10 +77,10 @@ function changeCart(cart, itemId, trigger) {
 	})();
 }
 
-const cartForm = document.querySelector(".js-cart form");
-document.addEventListener("click", (e) => {
-	if (e.target.closest(".cart-total__button button")) {
-		e.preventDefault();
-		if (cartForm) cartForm.submit();
-	}
-});
+// const cartForm = document.querySelector(".js-cart form");
+// document.addEventListener("click", (e) => {
+// 	if (e.target.closest(".cart-total__button button")) {
+// 		e.preventDefault();
+// 		if (cartForm) cartForm.submit();
+// 	}
+// });

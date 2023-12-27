@@ -1,5 +1,5 @@
-import { cartAmount } from "./modules/cart.js";
+import { cartActions } from "./modules/cart.js";
 
 addEventListener("DOMContentLoaded", () => {
-	cartAmount();
+	cartActions();
 });
