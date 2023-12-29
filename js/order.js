@@ -69,6 +69,7 @@ function formWatcher(node, el) {
 				if (result.status === true) {
 					updateChunks(result.chunks);
 					selectsInit();
+					globalForm.validation();
 				}
 				fetchLoader([node], "stop");
 			} catch (e) {
@@ -91,6 +92,7 @@ function formWatcher(node, el) {
 				if (result.status === true) {
 					updateChunks(result.chunks);
 					selectsInit();
+					globalForm.validation();
 				}
 				fetchLoader([node], "stop");
 			} catch (e) {
@@ -99,6 +101,19 @@ function formWatcher(node, el) {
 			}
 		})();
 	}
+
+	// let reinitObserverResults = (target) => {
+	// 	try {
+	// 		productBlockCollapseHandler();
+	// 		carouselsInit(target);
+	// 		catalogItemGalleriesInit();
+	// 		catalogItemGalleryHandler();
+	// 		tabsInit();
+	// 		tabsHandler(target);
+	// 		productPropsHoverHandler();
+	// 		setFavourites();
+	// 	} catch (e) {}
+	// };
 }
 
 function promoSubmit(node) {

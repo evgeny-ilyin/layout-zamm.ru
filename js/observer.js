@@ -72,6 +72,8 @@ if (!window.blockObserver) {
 				tabsHandler(target);
 				productPropsHoverHandler();
 				setFavourites();
+				selectsInit();
+				globalForm.validation();
 			} catch (e) {}
 		};
 	};

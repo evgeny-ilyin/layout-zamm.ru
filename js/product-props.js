@@ -49,10 +49,10 @@ if (!window.productProps) {
 
 						if (result.status === true) {
 							updateChunks(result.chunks, item);
-						}
 
-						catalogItemGalleriesInit(item);
-						productPropsCollapseHandler(item);
+							catalogItemGalleriesInit(item);
+							productPropsCollapseHandler(item);
+						}
 
 						fetchLoader([item, details], "stop");
 					} catch (e) {
@@ -77,10 +77,10 @@ if (!window.productProps) {
 						let result = await response.json();
 						if (result.status === true) {
 							updateChunks(result.chunks, card);
-						}
 
-						tabsInit();
-						carouselsInit();
+							tabsInit();
+							carouselsInit();
+						}
 
 						if (result.url) {
 							setWindowLocation(result.url);
