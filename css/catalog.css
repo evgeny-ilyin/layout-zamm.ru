@@ -4,6 +4,7 @@
   margin-bottom: 58px
 }
 .catalog-head__sub {
+  position: relative;
   padding: 24px 0;
   margin-bottom: 10px
 }
@@ -13,10 +14,10 @@
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-flow: row wrap;
-  flex-flow: row wrap;
-  margin-top: 31px;
-  padding-bottom: 24px;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  margin-top: 33px;
+  padding-bottom: 16px;
   border-bottom: 2px solid var(--black10)
 }
 .catalog-head__slider {
@@ -68,7 +69,15 @@
   transition: opacity .1s
 }
 .tag-category {
-  padding: 11px 16px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 42px;
+  padding: 0 16px;
+  line-height: 1;
   margin: 0 8px 8px 0;
   border-radius: 60px;
   background: var(--gray);
@@ -116,6 +125,72 @@
   -ms-grid-columns: (1fr)[2];
   grid-template-columns: repeat(2,1fr);
   gap: 16px
+}
+.tags-collapse {
+  padding-right: 30px;
+  overflow-x: scroll;
+  border-bottom: none
+}
+.tags-collapse::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  height: 42px;
+  width: 30px;
+  z-index: 1;
+  background: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),color-stop(60%,#fff));
+  background: -o-linear-gradient(left,rgba(0,0,0,0) 0,#fff 60%);
+  background: linear-gradient(90deg,rgba(0,0,0,0) 0,#fff 60%)
+}
+.tags-collapse.is-opened {
+  width: 100%;
+  height: auto;
+  padding-right: 12px;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow-x: hidden
+}
+.tags-collapse.is-opened .js-tags-collapse::after {
+  -webkit-transform: translateY(2px) rotate(-90deg);
+  -ms-transform: translateY(2px) rotate(-90deg);
+  transform: translateY(2px) rotate(-90deg)
+}
+.js-tags-collapse {
+  display: none
+}
+.tags-collapse .js-tags-collapse {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 25px;
+  height: 42px;
+  right: 0;
+  padding: 0;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: 0 0
+}
+.tags-collapse .js-tags-collapse::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - 7px);
+  right: 1px;
+  width: 11px;
+  height: 14px;
+  background: var(--svg-angle) center no-repeat;
+  -webkit-transform: translateY(1px) rotate(90deg);
+  -ms-transform: translateY(1px) rotate(90deg);
+  transform: translateY(1px) rotate(90deg);
+  -webkit-transition: -webkit-transform .25s ease-in-out;
+  transition: -webkit-transform .25s ease-in-out;
+  -o-transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
 }
 .pagination {
   margin: 56px 0;
@@ -214,7 +289,8 @@
     background: linear-gradient(270deg,#f6f8f9 0,rgba(246,248,249,0) 100%)
   }
   .catalog-head__tags {
-    margin-top: 47px
+    margin-top: 47px;
+    padding-right: 25px
   }
   .catalog-head__root .catalog-head__name {
     padding: 0 32px

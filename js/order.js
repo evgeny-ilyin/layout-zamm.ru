@@ -101,19 +101,6 @@ function formWatcher(node, el) {
 			}
 		})();
 	}
-
-	// let reinitObserverResults = (target) => {
-	// 	try {
-	// 		productBlockCollapseHandler();
-	// 		carouselsInit(target);
-	// 		catalogItemGalleriesInit();
-	// 		catalogItemGalleryHandler();
-	// 		tabsInit();
-	// 		tabsHandler(target);
-	// 		productPropsHoverHandler();
-	// 		setFavourites();
-	// 	} catch (e) {}
-	// };
 }
 
 function promoSubmit(node) {

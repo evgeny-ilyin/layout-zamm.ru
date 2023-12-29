@@ -347,8 +347,8 @@ if (!window.catalogItemGalleryHandler) {
 	};
 }
 
-if (!window.isPropOverflowX) {
-	window.isPropOverflowX = (el) => {
+if (!window.isStrOverflowX) {
+	window.isStrOverflowX = (el) => {
 		return el ? el.scrollWidth > el.clientWidth : false;
 	};
 }
@@ -387,6 +387,44 @@ if (!window.setFavourites) {
 			let favs = document.querySelectorAll(`.js-fav[data-id="${el}"]`);
 			favs.forEach((fav) => fav.parentNode.classList.add(isActiveClass));
 		});
+	};
+}
+
+if (!window.catalogTagsCollapseHandler) {
+	window.catalogTagsCollapseHandler = () => {
+		const isOpenedClass = "is-opened";
+		document.addEventListener("click", (e) => {
+			if (e.target.classList.contains("js-tags-collapse")) {
+				let btn = e.target,
+					parent = btn.parentElement;
+				parent.classList.toggle(isOpenedClass);
+			}
+		});
+
+		["load", "resize"].forEach((evt) =>
+			window.addEventListener(evt, () => {
+				overflowCatalogTags();
+			})
+		);
+	};
+}
+
+if (!window.overflowCatalogTags) {
+	window.overflowCatalogTags = () => {
+		const isOpenedClass = "is-opened",
+			parent = document.querySelector(".catalog-head__tags");
+		if (!parent) return;
+		
+		const btn = parent.querySelector(".js-tags-collapse");
+		if (!parent.classList.contains(isOpenedClass) && !isStrOverflowX(parent)) {
+			parent.classList.remove("tags-collapse");
+			btn.classList.add("hidden");
+		} else if (parent.classList.contains(isOpenedClass)) {
+			parent.classList.remove(isOpenedClass);
+		} else {
+			parent.classList.add("tags-collapse");
+			btn.classList.remove("hidden");
+		}
 	};
 }
 
@@ -1647,6 +1685,7 @@ addEventListener("DOMContentLoaded", () => {
 	setFavourites();
 	selectsInit();
 	fileInputInit();
+	catalogTagsCollapseHandler();
 
 	stickyHeader();
 	hamburgerMenu();

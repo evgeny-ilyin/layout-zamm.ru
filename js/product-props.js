@@ -148,7 +148,7 @@ if (!window.productPropsCollapseHandler) {
 			let parent = btn.parentElement,
 				flag = parent.querySelector(`input[type="hidden"]`);
 
-			if (!parent.classList.contains(isOpenedClass) && !isPropOverflowX(parent)) {
+			if (!parent.classList.contains(isOpenedClass) && !isStrOverflowX(parent)) {
 				btn.classList.add("hidden");
 			} else {
 				btn.addEventListener("click", () => {
