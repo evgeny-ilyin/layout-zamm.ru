@@ -44,10 +44,10 @@ if (!window.productProps) {
 
 						if (result.status === true) {
 							updateChunks(result.chunks, item);
-						}
 
-						catalogItemGalleriesInit(item);
-						productPropsCollapseHandler(item);
+							catalogItemGalleriesInit(item);
+							productPropsCollapseHandler(item);
+						}
 
 						fetchLoader([item, details], "stop");
 					} catch (e) {
@@ -72,10 +72,10 @@ if (!window.productProps) {
 						let result = await response.json();
 						if (result.status === true) {
 							updateChunks(result.chunks, card);
-						}
 
-						tabsInit();
-						carouselsInit();
+							tabsInit();
+							carouselsInit();
+						}
 
 						if (result.url) {
 							setWindowLocation(result.url);
@@ -143,7 +143,7 @@ if (!window.productPropsCollapseHandler) {
 			let parent = btn.parentElement,
 				flag = parent.querySelector(`input[type="hidden"]`);
 
-			if (!parent.classList.contains(isOpenedClass) && !isPropOverflowX(parent)) {
+			if (!parent.classList.contains(isOpenedClass) && !isStrOverflowX(parent)) {
 				btn.classList.add("hidden");
 			} else {
 				btn.addEventListener("click", () => {
