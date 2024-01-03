@@ -17,6 +17,15 @@ input[type="checkbox"] {
 			}
 		}
 	}
+
+	&.is-error {
+		& ~ span {
+			&::before {
+				box-shadow: 0 0 0 2px $red-coral-dark;
+				border-radius: 3px;
+			}
+		}
+	}
 }
 
 input[type="radio"] {
@@ -24,6 +33,15 @@ input[type="radio"] {
 		& ~ span {
 			&::after {
 				box-shadow: 0 0 0 2px $yellow;
+			}
+		}
+	}
+
+	&.is-error {
+		& ~ span {
+			&::before {
+				box-shadow: 0 0 0 2px $red-coral-dark;
+				border-radius: 50%;
 			}
 		}
 	}

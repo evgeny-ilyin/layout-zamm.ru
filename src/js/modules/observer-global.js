@@ -66,7 +66,10 @@ if (!window.blockObserver) {
 				tabsInit();
 				tabsHandler(target);
 				productPropsHoverHandler();
+				overflowCatalogTags();
 				setFavourites();
+				selectsInit();
+				globalForm.validation();
 			} catch (e) {}
 		};
 	};

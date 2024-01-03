@@ -40,13 +40,13 @@
 					<div class="order-form__right">
 						<div class="order-form__fieldset">
 							<div class="form-item">
-								<input type="text" name="ORDER_PROP_1" value="" class="input input_fill" data-required aria-label="Имя" placeholder="Имя">
+								<input type="text" name="ORDER_PROP_1" value="" class="input input_fill" data-required aria-label="Имя" placeholder="Имя *">
 							</div>
 							<div class="form-item">
-								<input type="text" name="ORDER_PROP_2" value="" class="input input_fill" data-required aria-label="Фамилия" placeholder="Фамилия">
+								<input type="text" name="ORDER_PROP_2" value="" class="input input_fill" data-required aria-label="Фамилия" placeholder="Фамилия *">
 							</div>
 							<div class="form-item">
-								<input type="text" name="ORDER_PROP_3" value="" class="input input_fill" data-required aria-label="Отчество" placeholder="Отчество">
+								<input type="text" name="ORDER_PROP_3" value="" class="input input_fill" data-required aria-label="Отчество" placeholder="Отчество *">
 							</div>
 						</div>
 					</div>
@@ -57,10 +57,10 @@
 					<div class="order-form__right">
 						<div class="order-form__fieldset">
 							<div class="form-item">
-								<input type="email" name="ORDER_PROP_4" value="" class="input input_fill" aria-label="E-mail" placeholder="Ваш e-mail">
+								<input type="email" name="ORDER_PROP_4" value="" class="input input_fill" data-required aria-label="E-mail" placeholder="Ваш e-mail *">
 							</div>
 							<div class="form-item">
-								<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" aria-label="Телефон" placeholder="Ваш телефон" data-pattern-type="phone">
+								<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" data-required aria-label="Телефон" placeholder="Ваш телефон *" data-pattern-type="phone">
 							</div>
 							<div class="form-item">
 								<label>
@@ -100,10 +100,12 @@
 									<span>
 										<div class="form-item__info">
 											<div class="form-item__name">
-												<p>Самовывоз</p> <b>Бесплатно</b>
+												<p>Доставка за пределы МКАД</p> <b>4 700 ₽</b>
 											</div>
 											<div class="form-item__body">
-												<p><small><span>Только для юридических лиц</span></small></p>
+												<p><small>Заказы от 50 до 100кг, с 9 до 18:00. Зона 1</small></p>
+												<p><small>В стоимость доставки включено: подъём на 1 этаж, подъём на лифте (любой этаж), пронос первые 30 метров</small></p>
+												<p><small><a href="https://zamm.ru/help/delivery/" target="_blank">Посмотреть зоны доставки</a></small></p>
 											</div>
 										</div>
 									</span>
@@ -119,7 +121,7 @@
 					<div class="order-form__right">
 						<div class="order-form__fieldset">
 							<div class="form-item js-query-wrapper">
-								<input type="text" name="ORDER_PROP_7" value="" class="input input_fill" aria-label="Город, улица, дом" placeholder="Город, улица, дом" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=query" data-query="true" autocomplete="off">
+								<input type="text" name="ORDER_PROP_7" value="" class="input input_fill" data-required aria-label="Город, улица, дом" placeholder="Город, улица, дом *" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=query" data-query="true" autocomplete="off">
 								<div class="form-item__query-result js-query-result scrollblock"></div>
 							</div>
 
@@ -131,7 +133,7 @@
 									<input type="text" name="ORDER_PROP_9" value="" class="input input_fill" aria-label="Этаж" placeholder="Этаж">
 								</div>
 								<div class="form-item">
-									<input type="text" name="ORDER_PROP_10" value="" class="input input_fill" aria-label="Квартира" placeholder="Квартира">
+									<input type="text" name="ORDER_PROP_10" value="" class="input input_fill" data-required aria-label="Квартира" placeholder="Квартира *">
 								</div>
 							</div>
 
@@ -309,7 +311,7 @@
 
 					<div class="form-agreement">
 						<label>
-							<input type="checkbox" name="ORDER_PROP_agreement" value="Y">
+							<input type="checkbox" name="ORDER_PROP_agreement" value="Y" data-required>
 							<span>Согласен на обработку <a href="javascript:void(0)" target="_blank" class="link-classic">персональных&nbsp;данных</a></span>
 						</label>
 					</div>

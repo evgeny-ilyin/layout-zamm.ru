@@ -83,7 +83,7 @@
 		border-radius: 4px;
 		box-shadow: 0 0 0 1px $black10, 0 20px 20px 0 rgba(0, 0, 0, 0.1);
 
-		@include when-inside('.form-item.is-active') {
+		@include when-inside(".form-item.is-active") {
 			display: block;
 		}
 
@@ -213,7 +213,7 @@
 		box-shadow: 0 0 0 2px $yellow;
 	}
 
-	@include when-inside('.form-item.is-active') {
+	@include when-inside(".form-item.is-active") {
 		background-color: $white;
 		box-shadow: 0 0 0 2px $yellow;
 	}
@@ -310,8 +310,6 @@
 			padding: 12px 12px 12px 32px;
 		}
 	}
-
-
 }
 
 .textarea {

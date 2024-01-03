@@ -4,6 +4,7 @@ import { fileInputInit } from "./modules/form-custom-file-input.js";
 import "./modules/form-custom-select.js";
 import * as fn from "./modules/common.js";
 import * as form from "./modules/form-submit.js";
+import { globalForm } from "./modules/form-submit.js";
 import "./modules/common-cookies.js";
 
 addEventListener("DOMContentLoaded", () => {
@@ -15,6 +16,7 @@ addEventListener("DOMContentLoaded", () => {
 	setFavourites();
 	selectsInit();
 	fileInputInit();
+	catalogTagsCollapseHandler();
 
 	fn.stickyHeader();
 	fn.hamburgerMenu();
@@ -33,4 +35,7 @@ addEventListener("DOMContentLoaded", () => {
 
 	form.submitPrevent();
 	form.maskHandler();
+
+	Object.assign(window, { globalForm });
+	globalForm.validation();
 });

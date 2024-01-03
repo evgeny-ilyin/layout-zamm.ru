@@ -64,6 +64,7 @@ function formWatcher(node, el) {
 				if (result.status === true) {
 					updateChunks(result.chunks);
 					selectsInit();
+					globalForm.validation();
 				}
 				fetchLoader([node], "stop");
 			} catch (e) {
@@ -86,6 +87,7 @@ function formWatcher(node, el) {
 				if (result.status === true) {
 					updateChunks(result.chunks);
 					selectsInit();
+					globalForm.validation();
 				}
 				fetchLoader([node], "stop");
 			} catch (e) {

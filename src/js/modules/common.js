@@ -156,6 +156,8 @@ export function modalHandler() {
 	let reinitModalResults = (target) => {
 		// inputFetch(target);
 		inputQuickSearch(target);
+		selectsInit();
+		globalForm.validation();
 	};
 
 	document.addEventListener("click", (e) => {
