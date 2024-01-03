@@ -353,6 +353,7 @@ export function filterFetches() {
 			productProps();
 			productPropsHoverHandler();
 			setFavourites();
+			overflowCatalogTags();
 		} catch (e) {}
 	};
 
