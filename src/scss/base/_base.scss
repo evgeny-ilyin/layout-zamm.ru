@@ -9,7 +9,7 @@ html {
 	box-sizing: border-box;
 	min-width: $min-width;
 	min-height: 100vh;
-	overflow-x: hidden;
+	// overflow-x: hidden;
 	cursor: default;
 }
 
@@ -20,12 +20,15 @@ body {
 	min-height: 100vh;
 	letter-spacing: -0.28px;
 	// scrollbar-gutter: stable;
-	// overflow-x: hidden; // не будет работать sticky, нужен clip (ниже)
+	// sticky для сайдбара не работает, если для html стоит overflow-x: hidden; (выше), нужен clip (ниже), но тогда возникают проблемы у body.noscroll
+
+	overflow-x: hidden;
+	overflow-y: scroll;
 }
 
 body,
 html {
-	overflow-x: clip;
+	// overflow-x: clip;
 }
 
 /**
