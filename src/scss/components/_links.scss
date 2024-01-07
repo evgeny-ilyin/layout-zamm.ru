@@ -43,6 +43,17 @@
 
 .link-arrow-span {
 	cursor: pointer;
+
+	&.js-popup-gallery {
+		@include respond-to(lg, "max") {
+			.link-arrow {
+				&::after {
+					display: none;
+				}
+			}
+		}
+	}
+
 	@include on-hover {
 		.link-arrow {
 			&::after {
