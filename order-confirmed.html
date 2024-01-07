@@ -33,19 +33,11 @@
 
 	<link rel="stylesheet" href="css/carousel-footer.css?v=20240107182550">
 	<link rel="stylesheet" href="css/footer.css?v=20240107182550">
-	<title>UI svg fetching</title>
-	<meta name="description" content="UI svg fetching">
+	<title>Заказ оформлен</title>
+	<meta name="description" content="Заказ оформлен">
 </head>
-<style>
-	.test {
-		display: block;
-		width: 100px;
-		height: 100px;
-		margin: 0 auto;
-	}
-</style>
 
-<body>
+<body class="bg-gray">
 	<div class="header-alert _black hidden">
 		<div class="container">
 			<div class="content header-alert__wrapper">
@@ -438,21 +430,17 @@
 
 
 	<div class="container">
-
-
-		<div class="content">
-			<br><br>
-			<h2>SVG fetch test</h2>
-		</div>
-
-		<div class="content" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-observer.php?block=svg">
-			observer loader
-		</div>
-
-		<div class="content">
-			<svg class="test">
-				<use xlink:href="#test"></use>
-			</svg>
+		<div class="content order-confirmed">
+			<div class="order-confirmed__svg">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 72 72">
+					<rect width="72" height="72" fill="#F6F8F9" rx="36" />
+					<path fill="#333" d="M34.232 13.29a3 3 0 0 1 3.536 0l3.743 2.73a3 3 0 0 0 1.774.577l4.634-.01a3 3 0 0 1 2.86 2.08l1.424 4.409a3 3 0 0 0 1.096 1.508l3.754 2.717a3 3 0 0 1 1.092 3.363l-1.44 4.404a3 3 0 0 0 0 1.864l1.44 4.404a3 3 0 0 1-1.093 3.363L53.3 47.416a3 3 0 0 0-1.096 1.509l-1.424 4.409a3 3 0 0 1-2.86 2.078l-4.634-.009a3 3 0 0 0-1.774.577l-3.743 2.73a3 3 0 0 1-3.536 0l-3.743-2.73a3 3 0 0 0-1.774-.577l-4.634.01a3 3 0 0 1-2.86-2.08l-1.424-4.408a3 3 0 0 0-1.096-1.51L14.947 44.7a3 3 0 0 1-1.092-3.363l1.44-4.404a3 3 0 0 0 0-1.864l-1.44-4.404a3 3 0 0 1 1.092-3.363l3.754-2.717a3 3 0 0 0 1.096-1.508l1.424-4.41a3 3 0 0 1 2.86-2.078l4.634.009a3 3 0 0 0 1.774-.577l3.743-2.73Z" />
+					<path stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M26.203 35.086 33.97 45.17c4.44-7.342 7.577-10.885 14.219-16.304" />
+				</svg>
+			</div>
+			<div class="order-confirmed__header">Оплата прошла успешно!</div>
+			<div class="order-confirmed__body">Ваш заказ <b>#12344556789</b> появится в разделе «Заказы» в личном кабинете</div>
+			<a href="javascript:void(0)" class="btn btn_yellow">Посмотреть заказ</a>
 		</div>
 	</div>
 
@@ -732,88 +720,11 @@
 		</symbol>
 	</svg>
 
+
 	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240107182550"></script>
-	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20240107182550"></script>
 	<script src="js/carousel-init.js?v=20240107182550"></script>
 
 	<script src="js/common.js?v=20240107182550"></script>
-	<script>
-		testSvg = (el = false) => {
-			const fetchObserver = new IntersectionObserver((entries, observer) => {
-				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
-						let target = entry.target,
-							url = target.dataset.url,
-							data = {},
-							params = {};
-
-						let sprite = document.querySelector(".svg-sprite");
-
-						if (!url) return;
-
-						if (target.dataset.params) {
-							params = JSON.parse(target.dataset.params);
-						}
-
-						Object.assign(data, params);
-
-						(async () => {
-							try {
-								fetchLoader(target, "start", {
-									class: "_sm"
-								});
-
-								let response = await fetch(url, {
-									method: "POST",
-									headers: {
-										"Content-Type": "application/json;charset=utf-8",
-									},
-									body: JSON.stringify(data),
-								});
-								if (!response.ok) {
-									return;
-								}
-								let result = await response.json();
-
-								if (result.status === true) {
-									// target.innerHTML = result.content;
-									target.innerHTML = '';
-									sprite.insertAdjacentHTML('beforeend', result.content);
-								}
-
-								// reinitObserverResults(target);
-
-								fetchLoader(target, "stop");
-							} catch (e) {
-								console.log(e);
-								return;
-							}
-						})();
-
-						observer.unobserve(entry.target);
-					}
-				});
-			}, {});
-
-			const blocks = el ? el.querySelectorAll("[data-fetch='true']") : document.querySelectorAll("[data-fetch='true']");
-			blocks.forEach((block) => fetchObserver.observe(block));
-
-			let reinitObserverResults = (target) => {
-				try {
-					productBlockCollapseHandler();
-					carouselsInit(target);
-					catalogItemGalleriesInit();
-					catalogItemGalleryHandler();
-					tabsInit();
-					tabsHandler(target);
-				} catch (e) {}
-			};
-		};
-
-		addEventListener("DOMContentLoaded", () => {
-			testSvg();
-		});
-	</script>
 
 </body>
 

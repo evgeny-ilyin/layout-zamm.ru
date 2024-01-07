@@ -319,6 +319,37 @@
 .promocode .btn_remove::before {
   height: 14px
 }
+.order-confirmed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: calc(100% - 24px);
+  max-width: 485px;
+  margin: 72px auto;
+  padding: 40px 24px 48px;
+  background: var(--white);
+  text-align: center
+}
+.order-confirmed__svg {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 31px
+}
+.order-confirmed__header {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 14px
+}
+.order-confirmed__body {
+  margin-bottom: 48px
+}
 @media (min-width:425px) {
   .order-goods__list {
     -ms-grid-columns: (1fr)[3];
@@ -435,6 +466,23 @@
   }
   .order-pack {
     display: block
+  }
+  .order-confirmed {
+    max-width: 679px;
+    margin: 105px auto 0;
+    padding: 40px 32px
+  }
+  .order-confirmed__svg {
+    width: 96px;
+    height: 96px;
+    margin-bottom: 14px
+  }
+  .order-confirmed__header {
+    font-size: 2.125rem;
+    margin-bottom: 22px
+  }
+  .order-confirmed__body {
+    margin-bottom: 40px
   }
 }
 @media (min-width:1280px) {
