@@ -555,3 +555,59 @@
 		}
 	}
 }
+
+.order-confirmed {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+	width: calc(100% - 24px);
+	max-width: 485px;
+	margin: 72px auto;
+	padding: 40px 24px 48px;
+	background: $white;
+	text-align: center;
+
+	@include respond-to(lg) {
+		max-width: 679px;
+		margin: 105px auto 0;
+		padding: 40px 32px;
+	}
+
+	// .order-confirmed__svg
+	&__svg {
+		width: 72px;
+		height: 72px;
+		margin-bottom: 31px;
+
+		@include respond-to(lg) {
+			width: 96px;
+			height: 96px;
+			margin-bottom: 14px;
+		}
+	}
+
+	// .order-confirmed__header
+	&__header {
+		font-size: rem(20);
+		font-weight: 700;
+		margin-bottom: 14px;
+
+		@include respond-to(lg) {
+			font-size: rem(34);
+			margin-bottom: 22px;
+		}
+	}
+	// .order-confirmed__body
+	&__body {
+		margin-bottom: 48px;
+
+		@include respond-to(lg) {
+			margin-bottom: 40px;
+		}
+	}
+}
+.btn {
+	// .btn_yellow
+	&_yellow {
+	}
+}
