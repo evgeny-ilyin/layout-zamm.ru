@@ -284,15 +284,15 @@
 	}
 	// .product__content-gallery
 	&__content-gallery {
-		margin-bottom: 125px;
 		padding-bottom: 50px;
-
+		
 		@include respond-to(md) {
 			overflow-x: hidden;
 		}
-
+		
 		@include respond-to(lg) {
 			overflow-x: auto;
+			margin-bottom: 125px;
 		}
 	}
 	// .product__top
