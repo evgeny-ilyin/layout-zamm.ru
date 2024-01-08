@@ -87,6 +87,10 @@
 		@include on-hover {
 			svg {
 				fill: $black;
+
+				@include when-inside('.is-touch') {
+					fill: $gray-dark-second;
+				}
 			}
 		}
 	}
@@ -102,7 +106,7 @@
 		opacity: 1;
 
 		svg {
-			fill: $black;
+			fill: $black !important;
 		}
 	}
 }
