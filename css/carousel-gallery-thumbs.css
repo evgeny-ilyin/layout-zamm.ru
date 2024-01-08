@@ -1,7 +1,7 @@
 @charset "UTF-8";
 .carousel-gallery-thumbs {
   --f-carousel-slide-width: 100%;
-  --f-carousel-slide-height: 416px;
+  --f-carousel-slide-height: auto;
   margin-top: 36px;
   position: relative
 }
@@ -185,7 +185,7 @@
 @media (min-width:768px) {
   .carousel-gallery-thumbs {
     --f-carousel-slide-width: 50%;
-    --f-carousel-slide-height: 416px;
+    --f-carousel-slide-height: auto;
     margin: 0 -8px
   }
   .carousel-gallery-thumbs .f-carousel__slide {

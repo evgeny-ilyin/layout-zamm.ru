@@ -1116,6 +1116,13 @@
   margin: 0 0 var(--f-thumb-gap) 0
 }
 .carousel-overflow {
+  overflow-x: hidden;
+  overflow-x: clip
+}
+.is-touch .carousel-overflow {
+  overflow-x: hidden
+}
+.carousel-overflow {
   z-index: 11
 }
 .carousel-overflow + .carousel-overflow {

@@ -153,7 +153,6 @@
   max-height: 620px
 }
 .product__content-gallery {
-  margin-bottom: 125px;
   padding-bottom: 50px
 }
 .product__top {
@@ -1093,7 +1092,8 @@
     margin: 0 auto
   }
   .product__content-gallery {
-    overflow-x: auto
+    overflow-x: auto;
+    margin-bottom: 125px
   }
   .product__top {
     margin-bottom: 11px
