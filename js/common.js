@@ -882,6 +882,19 @@ function modalHandler() {
 		globalForm.validation();
 	};
 
+	let videoIframe = async (url, origin) => {
+		if (!url) return;
+
+		let width = origin.dataset.boxWidth || false;
+
+		// шаблон iframe
+		const iframe = document.createElement("div");
+		iframe.classList.add("modal__body", "_player");
+		iframe.innerHTML= `<iframe src="${url}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>`;
+
+		setModalContent(iframe.outerHTML, width);
+	};
+
 	document.addEventListener("click", (e) => {
 		const modalClass = "modal",
 			modalExist = document.querySelector(`.${modalClass}`),
@@ -890,19 +903,31 @@ function modalHandler() {
 
 		if (modalShow) {
 			e.preventDefault();
-			const url = modalShow.dataset.url,
+			let url = "",
 				width = modalShow.dataset.boxWidth,
+				type = modalShow.dataset.boxType,
 				storageKey = modalShow.dataset.storageKey;
 
-			if (!url) return;
-
+			// from storage
 			if (storageKey) {
-				const content = localStorage.getItem(storageKey);
+				let content = localStorage.getItem(storageKey);
 				if (content) {
 					setModalContent(content, width);
 					return;
 				}
 			}
+
+			// yt video
+			if (type == "video") {
+				url = modalShow.href;
+				if (!url) return;
+				videoIframe(url, modalShow);
+				return;
+			}
+
+			// other - fetch
+			url = modalShow.dataset.url;
+			if (!url) return;
 			fetchByUrl(url, modalShow);
 		}
 
@@ -1196,7 +1221,7 @@ function contentGalleryPopup() {
 		if (!el || media) return;
 
 		let showGallery = (target) => {
-			// body.style.top = `-${scrollY}px`;
+			body.style.top = `-${scrollY}px`;
 			body.classList.add("noscroll");
 			// header.style.top = `${scrollY}px`;
 			header.classList.remove("is-hidden");
