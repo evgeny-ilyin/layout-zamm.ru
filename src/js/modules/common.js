@@ -474,7 +474,7 @@ export function contentGalleryPopup() {
 		if (!el || media) return;
 
 		let showGallery = (target) => {
-			// body.style.top = `-${scrollY}px`;
+			body.style.top = `-${scrollY}px`;
 			body.classList.add("noscroll");
 			// header.style.top = `${scrollY}px`;
 			header.classList.remove("is-hidden");
