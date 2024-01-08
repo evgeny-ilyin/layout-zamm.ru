@@ -8,6 +8,7 @@
 	--modal-padding-x: 32px;
 	--modal-max-w: 826px;
 	min-width: $min-width;
+	width: 100%;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -74,6 +75,27 @@
 
 	// .modal__body
 	&__body {
+		// ._player
+		&._player {
+			background: #000;
+			border-radius: 3px;
+			height: 0;
+			overflow: hidden;
+			margin-top: 40px;
+			padding-bottom: 56.25%;
+			position: relative;
+
+			iframe {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border-radius: 8px;
+			}
+		}
 	}
 
 	// .modal__form
@@ -90,7 +112,7 @@
 .btn_close-modal {
 	position: absolute;
 	top: var(--modal-padding-y);
-	right: var(--modal-padding-x);
+	right: calc(var(--modal-padding-x) - 5px);
 
 	@include respond-to(md, "max") {
 		&::before,

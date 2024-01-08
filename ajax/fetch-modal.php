@@ -1,8 +1,8 @@
 <?
 try {
 	usleep(150000);
-	$json = file_get_contents('php://input');
-	$data = json_decode($json, true);
+	// $json = file_get_contents('php://input');
+	// $data = json_decode($json, true);
 
 	switch ($_REQUEST['modal']) {
 		case 'geo':
@@ -65,6 +65,11 @@ try {
 				</button>
 			</div>';
 			break;
+		// case 'youtube':
+		// 	$content = '
+		// 	<iframe src="https://www.youtube.com/embed/BbGmMjo3yEA" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
+		// 	$nocache = true;
+		// 	break;
 
 		default:
 			$content = '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <b>Corporis</b> soluta ut odit officia repudiandae esse atque cumque iure beatae dicta neque, possimus similique ratione <a href="#">fugit architecto laborum</a> maiores sapiente vero!</p><p>Sapiente animi exercitationem explicabo voluptas ullam eum porro nihil mollitia minima fugiat asperiores quos quae impedit illo, esse consequuntur incidunt soluta numquam suscipit assumenda. Quas in iusto pariatur sit sed eos natus reiciendis quidem, aliquam corrupti sequi nulla nostrum laboriosam aut voluptas?</p>';
@@ -72,6 +77,10 @@ try {
 	}
 
 	$resp = array('status' => true, 'content' => $content);
+
+	if($nocache)
+	$resp = array('status' => true, 'nocache' => true, 'content' => $content);
+
 
 	if($svg)
 	$resp['svg'] = $svg;
