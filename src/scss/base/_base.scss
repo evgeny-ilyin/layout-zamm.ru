@@ -43,6 +43,26 @@ html {
 	box-sizing: inherit;
 }
 
+::-moz-selection {
+	background: $yellow;
+	color: $black;
+}
+
+::selection {
+	background: $yellow;
+	color: $black;
+}
+
+img::-moz-selection {
+	background: rgba(255, 192, 0, 0.5);
+	color: transparent;
+}
+
+img::selection {
+	background: rgba(255, 192, 0, 0.5);
+	color: transparent;
+}
+
 svg {
 	transition: all $transition-default;
 }
