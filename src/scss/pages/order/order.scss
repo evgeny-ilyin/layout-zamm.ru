@@ -3,6 +3,11 @@
 	flex-flow: row nowrap;
 	padding: 0 22px 10px;
 	margin-bottom: 14px;
+	font-size: rem(14);
+
+	@include respond-to(sm) {
+		font-size: rem(15);
+	}
 
 	@include respond-to(lg) {
 		border-bottom: 2px solid $black10;
@@ -391,9 +396,10 @@
 	&__list {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
+		// grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 		gap: 8px;
 		font-size: rem(14);
-		padding: 24px 0 22px;
+		padding: 24px 16px 20px;
 
 		@include respond-to(sm) {
 			grid-template-columns: repeat(3, 1fr);

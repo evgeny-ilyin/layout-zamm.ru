@@ -45,6 +45,12 @@
 		color: #159400;
 	}
 
+	// .label_gray
+	&_gray {
+		background: $gray-dark;
+		color: $black60;
+	}
+
 	// .label_big
 	&_big {
 		font-size: rem(15);

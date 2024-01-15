@@ -31,8 +31,8 @@
 
 	&__ring {
 		position: sticky !important;
-		top: 30vh;
-		height: 30vh;
+		// top: 30vh;
+		max-height: 30vh;
 		display: flex;
 		align-items: center;
 

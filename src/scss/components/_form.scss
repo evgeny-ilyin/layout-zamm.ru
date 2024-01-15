@@ -16,6 +16,11 @@
 
 	// .form__fieldset
 	&__fieldset {
+		margin-bottom: 32px;
+
+		&:last-child {
+			margin-bottom: 16px;
+		}
 	}
 }
 

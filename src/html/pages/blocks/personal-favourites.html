@@ -1,0 +1,30 @@
+<div class="content content_columns">
+	<div class="content__main">
+
+		<h3>Ваши избранные товары</h3>
+		<!-- если в избранном пусто -->
+		<div class="personal-empty-block">
+			<svg xmlns="http://www.w3.org/2000/svg" width="153" height="126" viewBox="0 0 153 126">
+				<path fill="#C7D0D6" d="m2.481 104.203-1.447-1.241L0 14.679V12.2L115.784 0 153 11.371v2.481l-1.861 86.216-4.135 1.24-2.481-1.24-2.068-75.465-23.983 3.102-1.654 54.582-3.515.62-2.275-1.24-.827-52.722-70.297 9.304c-3.308.496-3.928 3.101-3.928 5.375l-2.033 80.911-4.997.939-2.197-1.353-1.525-80.083c0-4.962-1.654-7.03-2.48-7.443L9.51 29.565l-2.068 73.397-4.962 1.241Z" />
+			</svg>
+			<div>Вы ещё не добавили товары в избранное</div>
+			<a href="catalog.html" class="btn btn_yellow btn_arrow"><span>Перейти к покупкам</span></a>
+		</div>
+
+		<!-- список -->
+		<div class="catalog-items">
+			@@include('../../templates/template-5-product-items.html')
+		</div>
+
+	</div>
+
+	<div class="content__sidebar">
+		@@include('../../templates/personal-menu.html', {
+		"person": '',
+		"orders": '',
+		"favourites": 'class="is-active"',
+		"history": '',
+		"profiles": '',
+		})
+	</div>
+</div>

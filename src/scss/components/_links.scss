@@ -157,6 +157,32 @@
 	}
 }
 
+.link-cancel {
+	display: flex;
+	align-items: center;
+	position: relative;
+	font-size: rem(13);
+	color: $black60;
+
+	@include on-hover {
+		&::after {
+			opacity: 1;
+		}
+	}
+
+	&::after {
+		content: "";
+		cursor: pointer;
+		display: block;
+		width: 18px;
+		height: 18px;
+		margin-left: 4px;
+		background: $svg-close center no-repeat;
+		opacity: 0.6;
+		transition: opacity 0.15s ease;
+	}
+}
+
 .link-classic {
 	@extend %link-classic;
 }

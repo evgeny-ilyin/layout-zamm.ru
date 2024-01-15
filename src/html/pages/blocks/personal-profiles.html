@@ -1,0 +1,46 @@
+<div class="content content_columns">
+	<div class="content__main">
+
+		<h3>Профили</h3>
+		<div class="personal-profile-empty">
+			<div>Здесь будут храниться профили для заполнения заказов <span>Вы пока не добавили ни одного профиля</span></div>
+		</div>
+
+		<div class="personal-profile-list" data-id="personal-profile-list">
+
+			<div class="personal-profile">
+				<div class="personal-profile__name">
+					<span>Физическое лицо</span>
+					Константинопольский Константин Константинович
+				</div>
+				<div class="personal-profile__address">Московская обл., г. Наро-Фоминск, ул. Колхозная, д. 19</div>
+				<div class="personal-profile__button">
+					<button type="button" class="btn btn_gray js-modal-show" data-box-width="485" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=profile">Изменить</button>
+				</div>
+			</div>
+
+			<div class="personal-profile">
+				<div class="personal-profile__name">
+					<span>Физическое лицо</span>
+					Jon Doe
+				</div>
+				<div class="personal-profile__address">Московская обл., г. Химки, ул. Дружбы, д. 1</div>
+				<div class="personal-profile__button">
+					<button type="button" class="btn btn_gray js-modal-show" data-box-width="485" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=profile">Изменить</button>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+
+	<div class="content__sidebar">
+		@@include('../../templates/personal-menu.html', {
+		"person": '',
+		"orders": '',
+		"favourites": '',
+		"history": '',
+		"profiles": 'class="is-active"',
+		})
+	</div>
+</div>

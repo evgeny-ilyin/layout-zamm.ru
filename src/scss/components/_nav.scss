@@ -930,6 +930,19 @@
 					fill: $black;
 				}
 			}
+
+			&.is-active {
+				background: $gray;
+				font-weight: 700;
+
+				svg {
+					fill: $black;
+				}
+
+				@include on-event {
+					text-shadow: none;
+				}
+			}
 		}
 	}
 	// .menu-personal__footer

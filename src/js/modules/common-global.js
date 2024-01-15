@@ -356,7 +356,7 @@ if (!window.overflowCatalogTags) {
 		const isOpenedClass = "is-opened",
 			parent = document.querySelector(".catalog-head__tags");
 		if (!parent) return;
-		
+
 		const btn = parent.querySelector(".js-tags-collapse");
 		if (!parent.classList.contains(isOpenedClass) && !isStrOverflowX(parent)) {
 			parent.classList.remove("tags-collapse");
@@ -369,26 +369,3 @@ if (!window.overflowCatalogTags) {
 		}
 	};
 }
-
-// if (!window.getContent) {
-// 	window.getContent = async (url) => {
-// 		if (!url) return;
-
-// 		try {
-// 			let response = await fetch(url);
-// 			if (!response.ok) {
-// 				return;
-// 			}
-
-// 			let result = await response.json();
-// 			if (result.status === true) {
-// 				return result.content;
-// 			} else {
-// 				console.error(`Error: ${JSON.stringify(result)}`);
-// 			}
-// 		} catch (e) {
-// 			console.error(e);
-// 			return;
-// 		}
-// 	};
-// }

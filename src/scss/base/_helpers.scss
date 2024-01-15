@@ -97,6 +97,10 @@
 	margin: 0 auto;
 }
 
+.flex-center {
+	justify-content: center;
+}
+
 // .relative {
 // 	position: relative;
 // }
@@ -243,4 +247,38 @@
 	& ~ div {
 		transition: all $transition-default;
 	}
+}
+
+.js-target-collapse {
+	span {
+		&::after {
+			content: "";
+			display: block;
+			margin-left: 9px;
+			width: 8px;
+			height: 11px;
+			background: $svg-angle center no-repeat;
+			transform: translateY(1px) rotate(90deg);
+			transition: all $transition-default !important;
+		}
+	}
+
+	&[aria-expanded="true"] {
+		span {
+			&::after {
+				transform: translateY(1px) rotate(-90deg);
+			}
+		}
+	}
+}
+
+.is-collapsible {
+	transition: all $transition-default;
+	overflow: hidden;
+}
+
+.is-collapsed:not(.js-collapse) {
+	height: 0;
+	margin-top: 0;
+	margin-bottom: 0;
 }

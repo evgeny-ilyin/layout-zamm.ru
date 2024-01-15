@@ -1,0 +1,76 @@
+<div class="content content_columns">
+	<div class="content__main">
+
+		<h3>Личный кабинет</h3>
+
+		<div class="personal-profile-form">
+			<form action="personal-profile.html" class="form" method="post">
+	
+				<div class="form__fieldset">
+					<div class="form-item">
+						Личные данные
+					</div>
+					<div class="form-item">
+						<input type="text" name="ORDER_PROP_2" value="Константинопольский" class="input input_fill" data-required aria-label="Фамилия" placeholder="Фамилия *">
+					</div>
+					<div class="form-item">
+						<input type="text" name="ORDER_PROP_1" value="Константин" class="input input_fill" data-required aria-label="Имя" placeholder="Имя *">
+					</div>
+					<div class="form-item">
+						<input type="text" name="ORDER_PROP_3" value="" class="input input_fill" data-required aria-label="Отчество" placeholder="Отчество *">
+					</div>
+				</div>
+	
+				<div class="form__fieldset">
+					<div class="form-item">
+						Контакты
+					</div>
+					<div class="form-item">
+						<input type="email" name="ORDER_PROP_4" value="" class="input input_fill" data-required aria-label="E-mail" placeholder="Ваш e-mail *">
+					</div>
+					<div class="form-item">
+						<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" data-required aria-label="Телефон" placeholder="Ваш телефон *" data-pattern-type="phone">
+					</div>
+				</div>
+	
+				<div class="form__fieldset">
+					<div class="form-item">
+						Адрес
+					</div>
+					<div class="form-item js-query-wrapper">
+						<input type="text" name="ORDER_PROP_7" value="" class="input input_fill" data-required aria-label="Город, улица, дом" placeholder="Город, улица, дом *" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=query" data-query="true" autocomplete="off">
+						<div class="form-item__query-result js-query-result scrollblock"></div>
+					</div>
+	
+					<div class="form-items-row">
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_8" value="" class="input input_fill" aria-label="Подъезд" placeholder="Подъезд">
+						</div>
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_9" value="" class="input input_fill" aria-label="Этаж" placeholder="Этаж">
+						</div>
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_10" value="" class="input input_fill" data-required aria-label="Квартира" placeholder="Квартира *">
+						</div>
+					</div>
+				</div>
+	
+				<div class="form__fieldset">
+					<button type="submit" class="btn btn_yellow btn_wide">Сохранить изменения</button>
+				</div>
+	
+			</form>
+		</div>
+
+	</div>
+
+	<div class="content__sidebar">
+		@@include('../../templates/personal-menu.html', {
+		"person": 'class="is-active"',
+		"orders": '',
+		"favourites": '',
+		"history": '',
+		"profiles": '',
+		})
+	</div>
+</div>

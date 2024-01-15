@@ -23,15 +23,17 @@ addEventListener("DOMContentLoaded", () => {
 	fn.modalHandler();
 	fn.sectionClose();
 	fn.collapseHandler();
+	fn.collapseTargetHandler();
 	fn.searchForm();
 	fn.inputFetch();
 	fn.inputQuickSearch();
 	fn.accordion();
 	fn.accordionFooter();
-	fn.dropdownClose();
 	fn.dropdownShow();
+	fn.dropdownClose();
 	fn.contentGalleryPopup();
 	fn.changeAmount();
+	fn.getContent();
 
 	form.submitPrevent();
 	form.maskHandler();

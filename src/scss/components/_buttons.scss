@@ -35,7 +35,7 @@
 		border-radius: 4px;
 		outline: none;
 	}
-	
+
 	// .btn_disabled
 	&_disabled {
 		cursor: default !important;
@@ -424,7 +424,7 @@
 		height: 100%;
 		fill: $gray-dark-second;
 	}
-	
+
 	@include on-event {
 		svg {
 			fill: $black;

@@ -65,25 +65,122 @@ try {
 				</button>
 			</div>';
 			break;
-		// case 'youtube':
-		// 	$content = '
-		// 	<iframe src="https://www.youtube.com/embed/BbGmMjo3yEA" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
-		// 	$nocache = true;
-		// 	break;
-
-		default:
-			$content = '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <b>Corporis</b> soluta ut odit officia repudiandae esse atque cumque iure beatae dicta neque, possimus similique ratione <a href="#">fugit architecto laborum</a> maiores sapiente vero!</p><p>Sapiente animi exercitationem explicabo voluptas ullam eum porro nihil mollitia minima fugiat asperiores quos quae impedit illo, esse consequuntur incidunt soluta numquam suscipit assumenda. Quas in iusto pariatur sit sed eos natus reiciendis quidem, aliquam corrupti sequi nulla nostrum laboriosam aut voluptas?</p>';
+		case 'profile':
+			$content = '
+			<div class="modal__head">
+				Личные данные
+			</div>
+			<div class="modal__body">
+				<form action="personal-profile.html" class="form" method="post" novalidate="">
+					<input type="hidden" name="profileId" value="101">
+		
+					<div class="form__fieldset">
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_2" value="Константинопольский" class="input input_fill" data-required="" aria-label="Фамилия" placeholder="Фамилия *">
+						</div>
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_1" value="Константин" class="input input_fill" data-required="" aria-label="Имя" placeholder="Имя *">
+						</div>
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_3" value="" class="input input_fill" data-required="" aria-label="Отчество" placeholder="Отчество *">
+						</div>
+					</div>
+		
+					<div class="form__fieldset">
+						<div class="form-item">
+							Контакты
+						</div>
+						<div class="form-item">
+							<input type="email" name="ORDER_PROP_4" value="" class="input input_fill" data-required="" aria-label="E-mail" placeholder="Ваш e-mail *">
+						</div>
+						<div class="form-item">
+							<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" data-required="" aria-label="Телефон" placeholder="Ваш телефон *" data-pattern-type="phone">
+						</div>
+					</div>
+		
+					<div class="form__fieldset">
+						<div class="form-item">
+							Куда доставить
+						</div>
+						<div class="form-item js-query-wrapper">
+							<input type="text" name="ORDER_PROP_7" value="" class="input input_fill" data-required="" aria-label="Город, улица, дом" placeholder="Город, улица, дом *" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=query" data-query="true" autocomplete="off">
+							<div class="form-item__query-result js-query-result scrollblock"></div>
+						</div>
+		
+						<div class="form-items-row">
+							<div class="form-item">
+								<input type="text" name="ORDER_PROP_8" value="" class="input input_fill" aria-label="Подъезд" placeholder="Подъезд">
+							</div>
+							<div class="form-item">
+								<input type="text" name="ORDER_PROP_9" value="" class="input input_fill" aria-label="Этаж" placeholder="Этаж">
+							</div>
+							<div class="form-item">
+								<input type="text" name="ORDER_PROP_10" value="" class="input input_fill" data-required="" aria-label="Квартира" placeholder="Квартира *">
+							</div>
+						</div>
+		
+						<div class="form-item">
+							<textarea name="ORDER_PROP_11" class="textarea textarea_fill" aria-label="Комментарий к заказу" placeholder="Уточните, пожалуйста, детали для доставщиков: например, как к вам проехать, нужен ли пропуск, код домофона"></textarea>
+						</div>
+					</div>
+		
+					<div class="form__fieldset">
+						<button type="submit" class="btn btn_yellow btn_wide">Сохранить изменения</button>
+					</div>
+		
+					<div class="form__fieldset">
+						<a href="javascript:void(0)" class="link-cancel flex-center js-get" data-url="https://deviart.ru/zamm/fetch-modal.php?action=remove-profile&profileId=101" data-loader="modal">Удалить профиль</a>
+					</div>
+		
+				</form>
+			</div>';
+			$nocache = true;
 			break;
+			// case 'youtube':
+			// 	$content = '
+			// 	<iframe src="https://www.youtube.com/embed/BbGmMjo3yEA" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
+			// 	$nocache = true;
+			// 	break;
+
+
+
+
+
 	}
 
-	$resp = array('status' => true, 'content' => $content);
+	switch ($_REQUEST['action']) {
+		case 'remove-profile':
+			$modal = 'close';
+			$personalProfileList = '<div class="personal-profile">
+			<div class="personal-profile__name">
+			<span>Физическое лицо</span>
+			Jon Doe
+			</div>
+			<div class="personal-profile__address">Московская обл., г. Химки, ул. Дружбы, д. 1</div>
+			<div class="personal-profile__button">
+			<button type="button" class="btn btn_gray js-modal-show" data-box-width="485" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=profile">Изменить</button>
+			</div>
+			</div>';
+			$chunks['personal-profile-list'] = $personalProfileList;
+			break;
+		}
+		
+	$resp = array('status' => true);
 
-	if($nocache)
-	$resp = array('status' => true, 'nocache' => true, 'content' => $content);
+	if ($chunks)
+		$resp['chunks'] = $chunks;
 
+	if ($content)
+		$resp['content'] = $content;
 
-	if($svg)
-	$resp['svg'] = $svg;
+	if ($nocache)
+		$resp['nocache'] = $nocache;
+
+	if ($modal)
+		$resp['modal'] = $modal;
+
+	if ($svg)
+		$resp['svg'] = $svg;
 
 	header('Content-Type: application/json; charset=UTF-8');
 	header('HTTP/1.1 200');
