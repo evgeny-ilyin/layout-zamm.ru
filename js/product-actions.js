@@ -80,8 +80,7 @@ function toCart(btn, trigger) {
 function addToFavourites() {
 	document.addEventListener("click", (e) => {
 		if (e.target.closest(".js-fav")) {
-			const btn = e.target.closest(".js-fav"),
-				isActiveClass = "is-active";
+			const btn = e.target.closest(".js-fav");
 			if (!btn) return;
 
 			let data = new FormData(),

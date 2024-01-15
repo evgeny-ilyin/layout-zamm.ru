@@ -6,35 +6,37 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20240109012819">
-	<link rel="stylesheet" href="css/fonts.css?v=20240109012819">
-	<link rel="stylesheet" href="css/header.css?v=20240109012819">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240109012819">
+	<link rel="stylesheet" href="css/root-vars.css?v=20240115105735">
+	<link rel="stylesheet" href="css/fonts.css?v=20240115105735">
+	<link rel="stylesheet" href="css/header.css?v=20240115105735">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240115105735">
 
-	<link rel="stylesheet" href="css/carousel-main.css?v=20240109012819">
-	<link rel="stylesheet" href="css/carousel-products.css?v=20240109012819">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20240109012819">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20240115105735">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20240115105735">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20240115105735">
 
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20240109012819">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20240109012819">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20240115105735">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20240115105735">
 
-	<link rel="stylesheet" href="css/block-about.css?v=20240109012819">
+	<link rel="stylesheet" href="css/block-about.css?v=20240115105735">
 
-	<link rel="stylesheet" href="css/catalog-item.css?v=20240109012819">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20240115105735">
 
-	<link rel="stylesheet" href="css/catalog.css?v=20240109012819">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20240109012819">
+	<link rel="stylesheet" href="css/catalog.css?v=20240115105735">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20240115105735">
 
-	<link rel="stylesheet" href="css/catalog-old-article.css?v=20240109012819">
+	<link rel="stylesheet" href="css/catalog-old-article.css?v=20240115105735">
 
-	<link rel="stylesheet" href="css/product-card.css?v=20240109012819">
+	<link rel="stylesheet" href="css/product-card.css?v=20240115105735">
 
-	<link rel="stylesheet" href="css/cart.css?v=20240109012819">
+	<link rel="stylesheet" href="css/cart.css?v=20240115105735">
 
-	<link rel="stylesheet" href="css/order.css?v=20240109012819">
+	<link rel="stylesheet" href="css/order.css?v=20240115105735">
 
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20240109012819">
-	<link rel="stylesheet" href="css/footer.css?v=20240109012819">
+	<link rel="stylesheet" href="css/personal.css?v=20240115105735">
+
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240115105735">
+	<link rel="stylesheet" href="css/footer.css?v=20240115105735">
 	<title>UI modal</title>
 	<meta name="description" content="UI modal">
 </head>
@@ -361,31 +363,31 @@
 									<div class="menu-personal__name">Константин Константинопольский</div>
 								</div>
 								<div class="menu-personal__body">
-									<a href="javascript:void(0)">
+									<a href="personal-profile.html">
 										<svg>
 											<use xlink:href="#lk_person"></use>
 										</svg>
 										Профиль
 									</a>
-									<a href="javascript:void(0)">
+									<a href="personal-orders.html">
 										<svg>
 											<use xlink:href="#lk_orders"></use>
 										</svg>
 										Заказы
 									</a>
-									<a href="javascript:void(0)">
+									<a href="personal-favourites.html">
 										<svg>
 											<use xlink:href="#fav"></use>
 										</svg>
 										Избранное
 									</a>
-									<a href="javascript:void(0)">
+									<a href="personal-history.html">
 										<svg>
 											<use xlink:href="#lk_history"></use>
 										</svg>
 										Просмотренные
 									</a>
-									<a href="javascript:void(0)">
+									<a href="personal-profiles.html">
 										<svg>
 											<use xlink:href="#lk_profiles"></use>
 										</svg>
@@ -476,7 +478,7 @@
 			</div>
 		</div>
 
-		<div class="modal is-active" style="max-width: 510px;">
+		<div class="modal -is-active" style="max-width: 510px;">
 			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
 			<div class="modal__head">
 				Поделиться корзиной
@@ -506,6 +508,80 @@
 				});
 			}
 		</script>
+
+
+
+
+		<div class="modal is-active" style="max-width: 485px;">
+			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
+			<div class="modal__head">
+				Личные данные
+			</div>
+			<div class="modal__body">
+				<form action="personal-profile.html" class="form" method="post" novalidate="">
+					<input type="hidden" name="profileId" value="101">
+
+					<div class="form__fieldset">
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_2" value="Константинопольский" class="input input_fill" data-required="" aria-label="Фамилия" placeholder="Фамилия *">
+						</div>
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_1" value="Константин" class="input input_fill" data-required="" aria-label="Имя" placeholder="Имя *">
+						</div>
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_3" value="" class="input input_fill" data-required="" aria-label="Отчество" placeholder="Отчество *">
+						</div>
+					</div>
+
+					<div class="form__fieldset">
+						<div class="form-item">
+							Контакты
+						</div>
+						<div class="form-item">
+							<input type="email" name="ORDER_PROP_4" value="" class="input input_fill" data-required="" aria-label="E-mail" placeholder="Ваш e-mail *">
+						</div>
+						<div class="form-item">
+							<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" data-required="" aria-label="Телефон" placeholder="Ваш телефон *" data-pattern-type="phone">
+						</div>
+					</div>
+
+					<div class="form__fieldset">
+						<div class="form-item">
+							Куда доставить
+						</div>
+						<div class="form-item js-query-wrapper">
+							<input type="text" name="ORDER_PROP_7" value="" class="input input_fill" data-required="" aria-label="Город, улица, дом" placeholder="Город, улица, дом *" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=query" data-query="true" autocomplete="off">
+							<div class="form-item__query-result js-query-result scrollblock"></div>
+						</div>
+
+						<div class="form-items-row">
+							<div class="form-item">
+								<input type="text" name="ORDER_PROP_8" value="" class="input input_fill" aria-label="Подъезд" placeholder="Подъезд">
+							</div>
+							<div class="form-item">
+								<input type="text" name="ORDER_PROP_9" value="" class="input input_fill" aria-label="Этаж" placeholder="Этаж">
+							</div>
+							<div class="form-item">
+								<input type="text" name="ORDER_PROP_10" value="" class="input input_fill" data-required="" aria-label="Квартира" placeholder="Квартира *">
+							</div>
+						</div>
+
+						<div class="form-item">
+							<textarea name="ORDER_PROP_11" class="textarea textarea_fill" aria-label="Комментарий к заказу" placeholder="Уточните, пожалуйста, детали для доставщиков: например, как к вам проехать, нужен ли пропуск, код домофона"></textarea>
+						</div>
+					</div>
+
+					<div class="form__fieldset">
+						<button type="submit" class="btn btn_yellow btn_wide">Сохранить изменения</button>
+					</div>
+
+					<div class="form__fieldset">
+						<a href="javascript:void(0)" class="link-cancel flex-center js-get" data-url="https://deviart.ru/zamm/fetch-modal.php?action=remove-profile&profileId=101" data-loader="modal">Удалить профиль</a>
+					</div>
+
+				</form>
+			</div>
+		</div>
 	</div>
 
 	<footer class="footer">
@@ -787,11 +863,11 @@
 		</symbol>
 	</svg>
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240109012819"></script>
-	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20240109012819"></script>
-	<script src="js/carousel-init.js?v=20240109012819"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240115105735"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20240115105735"></script>
+	<script src="js/carousel-init.js?v=20240115105735"></script>
 
-	<script src="js/common.js?v=20240109012819"></script>
+	<script src="js/common.js?v=20240115105735"></script>
 
 </body>
 

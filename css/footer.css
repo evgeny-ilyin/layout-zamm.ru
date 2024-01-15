@@ -226,8 +226,7 @@
 }
 .fetch__ring {
   position: sticky!important;
-  top: 30vh;
-  height: 30vh;
+  max-height: 30vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
