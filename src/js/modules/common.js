@@ -139,6 +139,10 @@ export function modalHandler() {
 		if (width) modalWrapper.style.maxWidth = `${parseInt(width)}px`;
 		modalWrapper.insertAdjacentHTML("beforeend", content);
 
+		if((modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top) > window.innerHeight) {
+			modalWrapper.style.bottom = '50px';
+		}
+
 		reinitModalResults(modalWrapper);
 
 		setTimeout(() => {
@@ -168,7 +172,7 @@ export function modalHandler() {
 		// шаблон iframe
 		const iframe = document.createElement("div");
 		iframe.classList.add("modal__body", "_player");
-		iframe.innerHTML= `<iframe src="${url}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>`;
+		iframe.innerHTML = `<iframe src="${url}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>`;
 
 		setModalContent(iframe.outerHTML, width);
 	};
@@ -266,6 +270,33 @@ export function collapseHandler() {
 		} else {
 			collapseSection(trigger);
 		}
+	});
+}
+
+export function collapseTargetHandler() {
+	const isCollapsedClass = "is-collapsed",
+		targetCollapseClass = "is-collapsible";
+
+	let toggleTarget = (trigger) => {
+		const parent = trigger.dataset.parent,
+			section = trigger.closest(`.${parent}`).querySelector(`.${targetCollapseClass}`),
+			sectionH = section.scrollHeight;
+
+		if (section.classList.contains(isCollapsedClass)) {
+			section.style.height = sectionH + "px";
+			section.classList.remove(isCollapsedClass);
+			trigger.setAttribute("aria-expanded", true);
+		} else {
+			section.style.height = 0;
+			section.classList.add(isCollapsedClass);
+			trigger.setAttribute("aria-expanded", false);
+		}
+	};
+
+	document.addEventListener("click", (e) => {
+		const trigger = e.target.closest(".js-target-collapse");
+		if (!trigger) return;
+		toggleTarget(trigger);
 	});
 }
 
@@ -582,5 +613,39 @@ export function changeAmount() {
 			let change = new Event("change", { bubbles: true });
 			inputNumber.dispatchEvent(change);
 		}
+	});
+}
+
+export function getContent() {
+	let fetchByUrl = async (el) => {
+		const url = el.dataset.url,
+			loader = false || document.querySelector(`.${el.dataset.loader}`);
+		if (!url) return;
+
+		try {
+			fetchLoader([loader], "start");
+			let response = await fetch(url);
+			if (!response.ok) {
+				return;
+			}
+
+			let result = await response.json();
+			if (result.status === true) {
+				if (result.chunks) updateChunks(result.chunks);
+				if (result.modal == "close") document.querySelector(".js-modal-close").click();
+			} else {
+				console.error(`Error: ${JSON.stringify(result)}`);
+			}
+			fetchLoader([loader], "stop");
+		} catch (e) {
+			console.error(e);
+			return;
+		}
+	};
+
+	document.addEventListener("click", (e) => {
+		const el = e.target.closest(".js-get");
+		if (!el) return;
+		fetchByUrl(el);
 	});
 }
