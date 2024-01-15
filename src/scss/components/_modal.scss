@@ -22,11 +22,11 @@
 	border-radius: 4px;
 	box-shadow: 0 4px 132px 0 rgba(54, 45, 21, 0.2);
 
-	@include respond-to(xm, "max") {
+	@include respond-to(md, "max") {
 		max-width: 100% !important;
 	}
 
-	@include respond-to(xm) {
+	@include respond-to(md) {
 		max-width: var(--modal-max-w);
 		top: 143px;
 		right: auto;
