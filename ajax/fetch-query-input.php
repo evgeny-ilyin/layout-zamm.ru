@@ -21,6 +21,8 @@ try {
 					<div class="js-write">Ул. Новый Арбат, дом 22</div>
 					<div class="js-write">Ул. Новый Арбат, дом 23</div>
 					<div class="js-write">Ул. Новый Арбат, дом 24</div>';
+			$hiddenInput = '<input type="hidden" name="hidden-name" value="hidden-value">';
+			$chunks['hidden-options'] = $hiddenInput;
 			break;
 
 		default:
@@ -29,6 +31,10 @@ try {
 	}
 
 	$resp = array('status' => true, 'content' => $content);
+
+	if ($chunks)
+		$resp['chunks'] = $chunks;
+
 
 	header('Content-Type: application/json; charset=UTF-8');
 	header('HTTP/1.1 200');
