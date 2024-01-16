@@ -1457,6 +1457,18 @@ ol {
   -o-transition: opacity .15s ease;
   transition: opacity .15s ease
 }
+.link-gray {
+  font-size: .875rem;
+  color: var(--black60);
+  text-decoration-color: var(--black30)
+}
+.link-gray:hover {
+  text-shadow: none;
+  text-decoration-color: transparent
+}
+.link-gray:active {
+  color: var(--black30)
+}
 .link-svg {
   display: -webkit-box;
   display: -ms-flexbox;

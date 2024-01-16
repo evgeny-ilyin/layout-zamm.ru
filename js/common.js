@@ -1059,6 +1059,7 @@ function inputFetch() {
 				}
 				let result = await response.json();
 				if (result.status === true) {
+					if(result.chunks) updateChunks(result.chunks);
 					results.innerHTML = result.content;
 					wrapper.classList.add(isActiveClass);
 				} else {
