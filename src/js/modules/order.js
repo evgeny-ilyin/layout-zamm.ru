@@ -8,6 +8,12 @@ export function orderActions() {
 		}
 	});
 
+	document.addEventListener("focusout", (e) => {
+		if (e.target.dataset.watch == "true") {
+			if (e.target.value.length > 0) formWatcher(order, e.target);
+		}
+	});
+
 	document.addEventListener("keydown", (e) => {
 		if (e.target.closest(".js-promocode-input")) {
 			if (e.key == "Enter") {
