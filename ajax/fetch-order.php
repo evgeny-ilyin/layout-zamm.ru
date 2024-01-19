@@ -20,34 +20,34 @@ try {
 	}
 
 	switch ($_REQUEST['request']) {
-		case 'promocode-submit':
+/* 		case 'promocode-submit':
 			$promoList = '<div class="promocode__item">
-					<div class="promocode__code">' . filter_input(INPUT_POST, "promocode", FILTER_SANITIZE_SPECIAL_CHARS) . '</div>
+					<div class="promocode__code">' . filter_input(INPUT_POST, "ORDER_PROP_PROMO", FILTER_SANITIZE_SPECIAL_CHARS) . '</div>
 					<div class="promocode__status">-30%</div>
-					<button type="button" class="btn btn_remove js-promocode-remove" aria-label="Удалить промокод" data-url="https://deviart.ru/zamm/fetch-order.php?request=promocode-remove&id=1"></button>
+					<button type="button" class="btn btn_remove js-promocode-remove" aria-label="Удалить промокод" data-watch="true" data-params=\'{"promoRemove": "ZAMM10"}\'></button>
 				</div>';
 			break;
 
 		case 'promocode-remove':
-			if ($_REQUEST['id'] == 2) {
-				$promoList = '<div class="promocode__item">
-				<div class="promocode__code">PROMOCODE</div>
-				<div class="promocode__status">-20%</div>
-				<button type="button" class="btn btn_remove js-promocode-remove" aria-label="Удалить промокод" data-url="https://deviart.ru/zamm/fetch-order.php?request=promocode-remove&id=1"></button>
-			</div>';
-			}
-
 			if ($_REQUEST['id'] == 1) {
-				$promoList = '<div class="promocode__item _error">
-						<div class="promocode__code">PROMOCODE</div>
-						<div class="promocode__status"><small>промокод не найден</small></div>
-						<button type="button" class="btn btn_remove js-promocode-remove" aria-label="Удалить промокод" data-url="https://deviart.ru/zamm/fetch-order.php?request=promocode-remove&id=2"></button>
-					</div>';
+				$promoList = '<div class="promocode__item">
+					<div class="promocode__code">ZAMM10</div>
+					<div class="promocode__status">-20%</div>
+					<button type="button" class="btn btn_remove js-promocode-remove" aria-label="Удалить промокод" data-watch="true" data-params=\'{"promoRemove": "ZAMM10"}\'></button>
+				</div>';
 			}
-			break;
 
-			case 'order-remove':
-				$orderList = '<div class="personal-order">
+			if ($_REQUEST['id'] == 2) {
+				$promoList = '<div class="promocode__item _error">
+					<div class="promocode__code">ZAMM20</div>
+					<div class="promocode__status"><small>промокод не найден</small></div>
+					<button type="button" class="btn btn_remove js-promocode-remove" aria-label="Удалить промокод" data-watch="true" data-params=\'{"promoRemove": "ZAMM20"}\'></button>
+				</div>';
+			}
+			break; */
+
+		case 'order-remove':
+			$orderList = '<div class="personal-order">
 						<div class="personal-order__wrapper order-info">
 							<div class="order-info__header">
 								<div class="order-info__data">
@@ -99,7 +99,7 @@ try {
 							</div>
 						</div>
 					</div>';
-				break;
+			break;
 
 		default:
 			# code...
