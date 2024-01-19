@@ -105,7 +105,10 @@
 .personal-logout._dynamic_adapt_ {
   border-top: 2px solid var(--black10);
   max-width: 486px;
-  margin: 64px auto 0
+  margin: 64px auto 0;
+  position: relative;
+  bottom: auto;
+  top: auto
 }
 .personal-logout._dynamic_adapt_ a {
   padding: 0;
