@@ -139,8 +139,8 @@ export function modalHandler() {
 		if (width) modalWrapper.style.maxWidth = `${parseInt(width)}px`;
 		modalWrapper.insertAdjacentHTML("beforeend", content);
 
-		if((modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top) > window.innerHeight) {
-			modalWrapper.style.bottom = '50px';
+		if (modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top > window.innerHeight) {
+			modalWrapper.style.bottom = "50px";
 		}
 
 		reinitModalResults(modalWrapper);
@@ -360,7 +360,7 @@ export function inputFetch() {
 				}
 				let result = await response.json();
 				if (result.status === true) {
-					if(result.chunks) updateChunks(result.chunks);
+					if (result.chunks) updateChunks(result.chunks);
 					results.innerHTML = result.content;
 					wrapper.classList.add(isActiveClass);
 				} else {
@@ -398,6 +398,16 @@ export function inputFetch() {
 		if (e.target.classList.contains(writeClass)) {
 			let wrapper = document.querySelector(`.${queryWrapperClass}.${isActiveClass}`);
 			wrapper.querySelector("input").value = e.target.innerText;
+
+			if (e.target.dataset.value.length > 0 && e.target.dataset.target.length > 0) {
+				let target = document.querySelectorAll(`input[name=${e.target.dataset.target}]`);
+				target.forEach((t) => {
+					t.value = e.target.dataset.value;
+				});
+			}
+
+			let customEvent = new Event("queryResult", { bubbles: true });
+			wrapper.querySelector("input").dispatchEvent(customEvent);
 			wrapper.classList.remove(isActiveClass);
 		}
 	});

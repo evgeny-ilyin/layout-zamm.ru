@@ -15,12 +15,12 @@ try {
 
 		case 'query':
 			$content = '
-					<div class="js-write">Ул. Новый Арбат, дом 2</div>
-					<div class="js-write">Ул. Новый Арбат, дом 20</div>
-					<div class="js-write">Ул. Новый Арбат, дом 21</div>
-					<div class="js-write">Ул. Новый Арбат, дом 22</div>
-					<div class="js-write">Ул. Новый Арбат, дом 23</div>
-					<div class="js-write">Ул. Новый Арбат, дом 24</div>';
+					<div class="js-write" data-value="location-0" data-target="location">Ул. Новый Арбат, дом 2</div>
+					<div class="js-write" data-value="location-1" data-target="location">Ул. Новый Арбат, дом 20</div>
+					<div class="js-write" data-value="location-2" data-target="location">Ул. Новый Арбат, дом 21</div>
+					<div class="js-write" data-value="location-3" data-target="location">Ул. Новый Арбат, дом 22</div>
+					<div class="js-write" data-value="location-4" data-target="location">Ул. Новый Арбат, дом 23</div>
+					<div class="js-write" data-value="location-5" data-target="location">Ул. Новый Арбат, дом 24</div>';
 			$hiddenInput = '<input type="hidden" name="hidden-name" value="hidden-value">';
 			$chunks['hidden-options'] = $hiddenInput;
 			break;

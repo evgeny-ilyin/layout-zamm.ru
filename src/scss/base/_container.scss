@@ -132,7 +132,6 @@
 		@include respond-to(lg) {
 			width: calc(100% - 300px - 57px);
 			max-width: 786px;
-			// flex: 1 1 786px;
 			margin-right: 57px;
 		}
 
@@ -147,6 +146,7 @@
 
 	// .order__sidebar
 	&__sidebar {
+		max-width: 405px;
 
 		&._mobile-bottom {
 			@include respond-to(lg, "max") {

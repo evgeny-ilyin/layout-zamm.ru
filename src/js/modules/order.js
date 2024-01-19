@@ -3,13 +3,13 @@ export function orderActions() {
 	if (!order) return;
 
 	document.addEventListener("change", (e) => {
-		if (e.target.dataset.watch == "true") {
+		if (e.target.dataset.watch == "true" && !e.target.dataset.query) {
 			formWatcher(order, e.target);
 		}
 	});
 
-	document.addEventListener("focusout", (e) => {
-		if (e.target.dataset.watch == "true") {
+	document.addEventListener("queryResult", (e) => {
+		if (e.target.dataset.watch == "true" && e.target.dataset.query == "true") {
 			if (e.target.value.length > 0) formWatcher(order, e.target);
 		}
 	});

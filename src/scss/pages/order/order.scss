@@ -186,7 +186,7 @@
 	}
 
 	@include respond-to(xl) {
-		max-width: none;
+		max-width: 405px;
 	}
 
 	&._dynamic_adapt_ {
