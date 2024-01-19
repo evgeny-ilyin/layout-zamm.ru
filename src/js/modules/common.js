@@ -400,7 +400,7 @@ export function inputFetch() {
 			wrapper.querySelector("input").value = e.target.innerText;
 
 			if (e.target.dataset.value.length > 0 && e.target.dataset.target.length > 0) {
-				let target = document.querySelectorAll(`input[name=${e.target.dataset.target}]`);
+				let target = document.querySelectorAll(`input[name="${e.target.dataset.target}"]`);
 				target.forEach((t) => {
 					t.value = e.target.dataset.value;
 				});
