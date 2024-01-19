@@ -1,0 +1,27 @@
+@@include('html/head.html', {
+"title": "Войти"
+})
+<body class="bg-gray">
+	@@include('html/header.html', {})
+
+	<div class="container">
+		@@include('html/pages/blocks/personal-login-call.html')
+	</div>
+
+	@@include('html/footer.html', {
+	"year_from": 2020,
+	"year_to": 2023,
+	})
+
+	@@include('html/cookies.html', {})
+	@@include('html/svg-sprite.html', {})
+
+
+	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
+	<script src="js/carousel-init.js"></script>
+
+	<script src="js/common.js"></script>
+	<script src="js/login.js"></script>
+
+</body>
+</html>
