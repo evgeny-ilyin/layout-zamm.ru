@@ -130,18 +130,15 @@
 		border-top: 2px solid $black10;
 		max-width: 486px;
 		margin: 64px auto 0;
+		position: relative;
+		bottom: auto;
+		top: auto;
 
 		a {
 			padding: 0;
 			height: 46px;
 		}
 	}
-
-	// @include when-inside("._dynamic_adapt_") {
-	// 	position: relative;
-	// 	bottom: auto;
-	// 	top: auto;
-	// }
 }
 
 .personal-empty-block {
