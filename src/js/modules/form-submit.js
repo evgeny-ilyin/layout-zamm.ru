@@ -270,7 +270,8 @@ function validateInputFocus(input) {
 
 function submitForm(inputs, e) {
 	e.preventDefault();
-	const errors = [];
+	const errors = [],
+		errorsClass = "has-errors";
 
 	inputs.forEach((input) => {
 		const error = validateInput(input);
@@ -280,7 +281,12 @@ function submitForm(inputs, e) {
 	});
 
 	if (errors.length === 0) {
-		e.target.submit();
+		e.target.classList.remove(errorsClass);
+		if (e.target.dataset.fetch !== "true") {
+			e.target.submit();
+		}
+	} else {
+		e.target.classList.add(errorsClass);
 	}
 }
 
