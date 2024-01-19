@@ -322,7 +322,7 @@
 
 		&[data-amount] {
 			&::before {
-				content: attr(data-amount) " ";
+				content: attr(data-amount);
 				display: block;
 				position: absolute;
 				right: -3px;

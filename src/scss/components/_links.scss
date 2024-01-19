@@ -183,6 +183,21 @@
 	}
 }
 
+.link-gray {
+	font-size: rem(14);
+	color: $black60;
+	text-decoration-color: $black30;
+
+	@include on-hover {
+		text-shadow: none;
+		text-decoration-color: transparent;
+	}
+	
+	@include on-active {
+		color: $black30;
+	}
+}
+
 .link-classic {
 	@extend %link-classic;
 }

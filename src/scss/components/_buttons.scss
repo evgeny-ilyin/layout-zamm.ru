@@ -194,8 +194,9 @@
 		width: fit-content;
 	}
 
-	// .btn_wide
-	&_wide {
+	// .btn_wide, .btn_fill
+	&_wide,
+	&_fill {
 		width: 100%;
 	}
 
