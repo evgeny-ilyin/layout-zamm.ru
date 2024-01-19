@@ -6,40 +6,40 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
-	<link rel="stylesheet" href="css/root-vars.css?v=20240116161640">
-	<link rel="stylesheet" href="css/fonts.css?v=20240116161640">
-	<link rel="stylesheet" href="css/header.css?v=20240116161640">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240116161640">
+	<link rel="stylesheet" href="css/root-vars.css?v=20240119180538">
+	<link rel="stylesheet" href="css/fonts.css?v=20240119180538">
+	<link rel="stylesheet" href="css/header.css?v=20240119180538">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/carousel-main.css?v=20240116161640">
-	<link rel="stylesheet" href="css/carousel-products.css?v=20240116161640">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20240116161640">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20240119180538">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20240119180538">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20240116161640">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20240116161640">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20240119180538">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/block-about.css?v=20240116161640">
+	<link rel="stylesheet" href="css/block-about.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/catalog-item.css?v=20240116161640">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/catalog.css?v=20240116161640">
-	<link rel="stylesheet" href="css/catalog-filter.css?v=20240116161640">
+	<link rel="stylesheet" href="css/catalog.css?v=20240119180538">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/catalog-old-article.css?v=20240116161640">
+	<link rel="stylesheet" href="css/catalog-old-article.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/product-card.css?v=20240116161640">
+	<link rel="stylesheet" href="css/product-card.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/cart.css?v=20240116161640">
+	<link rel="stylesheet" href="css/cart.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/order.css?v=20240116161640">
+	<link rel="stylesheet" href="css/order.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/login-page.css?v=20240116161640">
-	<link rel="stylesheet" href="css/personal.css?v=20240116161640">
+	<link rel="stylesheet" href="css/login.css?v=20240119180538">
+	<link rel="stylesheet" href="css/personal.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/error-pages.css?v=20240116161640">
+	<link rel="stylesheet" href="css/error-pages.css?v=20240119180538">
 
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20240116161640">
-	<link rel="stylesheet" href="css/footer.css?v=20240116161640">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240119180538">
+	<link rel="stylesheet" href="css/footer.css?v=20240119180538">
 
 	<title>Войти</title>
 	<meta name="description" content="Войти">
@@ -404,7 +404,7 @@
 							</div>
 						</div>
 						<div class="nav__icon">
-							<a href="personal-login.html" class="nav__icon-link dropdown-touch" aria-label="Войти">
+							<a href="personal-login-sms.html" class="nav__icon-link dropdown-touch" aria-label="Войти">
 								<svg>
 									<use xlink:href="#lk_person"></use>
 								</svg>
@@ -412,7 +412,7 @@
 							<div class="menu-dropdown menu-dropdown_icons-block menu-personal">
 								<div class="menu-personal__header">Личный кабинет</div>
 								<div class="menu-personal__footer">
-									<a href="personal-login.html">Войти</a>
+									<a href="personal-login-sms.html">Войти</a>
 								</div>
 							</div>
 						</div>
@@ -438,20 +438,46 @@
 
 
 	<div class="container">
-		<div class="content login-page">
-			<div class="login-page__col">
-				<div class="login-page__wrapper">
-
+		<div class="content login">
+			<div class="login__col">
+				<div class="login__wrapper _image">
+					<picture>
+						<source media="(min-width: 1280px)" srcset="img/dev/personal/bg-login-1280.webp" type="image/webp" />
+						<source media="(min-width: 577px)" srcset="img/dev/personal/bg-login-577.webp" type="image/webp" />
+						<source srcset="img/dev/personal/bg-login-320.webp" type="image/webp" />
+						<img src="img/dev/about/bg-login-1280.webp" width="700" height="700" alt="" loading="lazy" />
+					</picture>
 				</div>
 			</div>
-			<div class="login-page__col _white">
-				<div class="login-page__wrapper">
-					<div class="login-page__header">Вход по sms</div>
-					<form action="" class="login-page__form">
-						<input type="tel" name="phone" class="input input_fill" data-required aria-label="Телефон" placeholder="Ваш телефон" data-pattern-type="phone">
-						<button class="btn btn_yellow btn_wide">Получить код по смс</button>
+			<div class="login__col _white">
+				<div class="login__wrapper _text">
+					<div class="login__header">Вход по звонку</div>
+					<form action="https://deviart.ru/zamm/fetch-login.php" class="login__form js-login" data-fetch="true">
+						<fieldset class="login__tab is-active">
+							<div class="login-phone">
+								<input type="tel" name="phone" class="input input_fill" data-required aria-label="Телефон" placeholder="Ваш телефон" data-pattern-type="phone">
+								<button type="submit" class="btn btn_yellow btn_fill">Получить код по звонку</button>
+							</div>
+						</fieldset>
+						<fieldset class="login__tab" disabled>
+							<div class="otp">
+								<div class="otp__header">Введите последние 4 цифры номера входящего звонка</div>
+								<div class="otp__inputs">
+									<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
+									<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
+									<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
+									<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
+									<input type="hidden" name="f" value="">
+								</div>
+								<div class="otp__footer">
+									<div class="otp__timer" data-timer="60">Отправить код повторно можно через <span></span> сек.</div>
+								</div>
+							</div>
+						</fieldset>
 					</form>
-					<a href="" class="link-gray">Войти по звонку</a>
+					<div class="login__footer">
+						<a href="personal-login-sms.html" class="link-gray">Войти по смс</a>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -737,10 +763,11 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240116161640"></script>
-	<script src="js/carousel-init.js?v=20240116161640"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240119180538"></script>
+	<script src="js/carousel-init.js?v=20240119180538"></script>
 
-	<script src="js/common.js?v=20240116161640"></script>
+	<script src="js/common.js?v=20240119180538"></script>
+	<script src="js/login.js?v=20240119180538"></script>
 
 </body>
 

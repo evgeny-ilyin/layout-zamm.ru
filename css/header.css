@@ -331,6 +331,9 @@ svg {
 .order__main .h3 {
   margin-bottom: 32px
 }
+.order__sidebar {
+  max-width: 405px
+}
 .order__sticky {
   position: sticky;
   top: 100px
@@ -864,7 +867,7 @@ ol {
   border-radius: 50%
 }
 .nav__icon-link[data-amount]::before {
-  content: attr(data-amount) " ";
+  content: attr(data-amount);
   display: block;
   position: absolute;
   right: -3px;
@@ -1655,6 +1658,7 @@ ol {
   width: -moz-fit-content;
   width: fit-content
 }
+.btn_fill,
 .btn_wide {
   width: 100%
 }
@@ -2033,6 +2037,11 @@ button:focus-visible {
   position: absolute;
   left: 6px;
   bottom: 5px
+}
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: none
 }
 .form input[type=email]::-webkit-input-placeholder,
 .form input[type=tel]::-webkit-input-placeholder,
@@ -3247,6 +3256,9 @@ input[type=file]:focus-visible ~ span {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     justify-content: space-between
+  }
+  .form-item__name p {
+    max-width: 75%
   }
   .modal {
     max-width: var(--modal-max-w);

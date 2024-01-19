@@ -838,8 +838,8 @@ function modalHandler() {
 		if (width) modalWrapper.style.maxWidth = `${parseInt(width)}px`;
 		modalWrapper.insertAdjacentHTML("beforeend", content);
 
-		if((modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top) > window.innerHeight) {
-			modalWrapper.style.bottom = '50px';
+		if (modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top > window.innerHeight) {
+			modalWrapper.style.bottom = "50px";
 		}
 
 		reinitModalResults(modalWrapper);
@@ -1059,7 +1059,7 @@ function inputFetch() {
 				}
 				let result = await response.json();
 				if (result.status === true) {
-					if(result.chunks) updateChunks(result.chunks);
+					if (result.chunks) updateChunks(result.chunks);
 					results.innerHTML = result.content;
 					wrapper.classList.add(isActiveClass);
 				} else {
@@ -1097,6 +1097,16 @@ function inputFetch() {
 		if (e.target.classList.contains(writeClass)) {
 			let wrapper = document.querySelector(`.${queryWrapperClass}.${isActiveClass}`);
 			wrapper.querySelector("input").value = e.target.innerText;
+
+			if (e.target.dataset.value.length > 0 && e.target.dataset.target.length > 0) {
+				let target = document.querySelectorAll(`input[name=${e.target.dataset.target}]`);
+				target.forEach((t) => {
+					t.value = e.target.dataset.value;
+				});
+			}
+
+			let customEvent = new Event("queryResult", { bubbles: true });
+			wrapper.querySelector("input").dispatchEvent(customEvent);
 			wrapper.classList.remove(isActiveClass);
 		}
 	});
@@ -1625,7 +1635,8 @@ function validateInputFocus(input) {
 
 function submitForm(inputs, e) {
 	e.preventDefault();
-	const errors = [];
+	const errors = [],
+		errorsClass = "has-errors";
 
 	inputs.forEach((input) => {
 		const error = validateInput(input);
@@ -1635,7 +1646,12 @@ function submitForm(inputs, e) {
 	});
 
 	if (errors.length === 0) {
-		e.target.submit();
+		e.target.classList.remove(errorsClass);
+		if (e.target.dataset.fetch !== "true") {
+			e.target.submit();
+		}
+	} else {
+		e.target.classList.add(errorsClass);
 	}
 }
 

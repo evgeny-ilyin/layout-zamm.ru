@@ -27,7 +27,10 @@
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  padding: 16px
+  padding: 45px 16px
+}
+.error-page__wrapper._text {
+  padding: 45px 16px 79px
 }
 .error-page__wrapper .label {
   font-size: .75rem;
@@ -37,9 +40,9 @@
   margin: 0 0 0 -55px
 }
 .error-page__wrapper svg {
-  width: 70%;
+  width: 60%;
   max-width: 250px;
-  height: 300px
+  height: 220px
 }
 .error-page__header {
   font-size: 2.5rem;
@@ -77,6 +80,9 @@
     right: 16px;
     bottom: 16px;
     left: 16px
+  }
+  .error-page__wrapper._text {
+    padding: 16px
   }
   .error-page__wrapper .label {
     font-size: .875rem;

@@ -24,6 +24,9 @@
   margin-top: 42px
 }
 .catalog-head-carousel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   padding-bottom: 20px
 }
 .catalog-head-carousel .f-carousel__slide {
