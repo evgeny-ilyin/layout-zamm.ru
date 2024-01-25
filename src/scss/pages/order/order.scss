@@ -92,12 +92,12 @@
 	// .order-form__row
 	&__row {
 		width: 100%;
-		margin-bottom: 23px;
+		// margin-bottom: 23px;
 
 		@include respond-to(lg) {
 			display: grid;
 			grid-template-columns: 1fr 2fr;
-			margin-bottom: 16px;
+			// margin-bottom: 16px;
 		}
 
 		@include respond-to(xl) {
@@ -123,6 +123,11 @@
 
 	// .order-form__right
 	&__right {
+		margin-bottom: 23px;
+		
+		@include respond-to(lg) {
+			margin-bottom: 16px;
+		}
 	}
 
 	// .order-form__fieldset

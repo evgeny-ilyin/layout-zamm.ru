@@ -32,7 +32,7 @@ fieldset {
 
 .form-item {
 	position: relative;
-	margin-bottom: 12px;
+	// margin-bottom: 12px;
 
 	// .form-item__info
 	&__info {
@@ -78,6 +78,7 @@ fieldset {
 			width: 75%;
 		}
 	}
+
 	// .form-item__actions
 	&__actions {
 		margin: 9px 0 0 30px;
@@ -160,17 +161,17 @@ fieldset {
 .form-items-row {
 	display: grid;
 	grid-auto-flow: column;
+	// margin-bottom: 12px;
 	// grid-template-columns: repeat(3, 1fr);
 	gap: 12px;
-	margin-bottom: 12px;
 
-	.form-item {
-		margin-bottom: 0;
-	}
+	// .form-item {
+	// 	margin-bottom: 0;
+	// }
 
-	&:last-child {
-		margin-bottom: 0;
-	}
+	// &:last-child {
+	// 	margin-bottom: 0;
+	// }
 }
 
 .form-agreement {
@@ -324,6 +325,12 @@ fieldset {
 			margin-right: 13px;
 			padding: 12px 12px 12px 32px;
 		}
+	}
+}
+
+.input {
+	@include when-inside('.form-item') {
+		margin-bottom: 12px;
 	}
 }
 
