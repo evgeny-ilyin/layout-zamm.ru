@@ -54,7 +54,7 @@ export function ideaPopupPlace() {
 					canvasL = canvas.offsetLeft,
 					marker = box.parentElement,
 					markerW = marker.offsetWidth,
-					markerL = marker.offsetLeft,
+					markerL = marker.getBoundingClientRect().left,
 					markerR = marker.getBoundingClientRect().right,
 					minL = markerW / 2 + markerL + canvasL - 16,
 					minR = window.innerWidth - markerR + markerW / 2 - 32,
