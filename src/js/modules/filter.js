@@ -207,7 +207,7 @@ export function filterFetches() {
 		let ranges = filterForm.querySelectorAll(".input-min, .input-max");
 
 		ranges.forEach((el) => {
-			if(el.value.replace(/[^0-9]+/g, "") == el.dataset.default) {
+			if (el.value.replace(/[^0-9]+/g, "") == el.dataset.default) {
 				formData.delete(el.name);
 			}
 		});
@@ -304,47 +304,8 @@ export function filterFetches() {
 		fetchLoader(itemsContainer, "stop");
 	};
 
-	let fetchByMoreBtn = async (btn) => {
-		if (!btn) return;
-		const url = btn.dataset.url,
-			target = document.querySelector(`.${btn.dataset.target}`);
-		if (!target || !url) return;
-
-		btnLoader(btn);
-
-		// step 1: fetch get
-		let response = await fetch(url);
-		let result = await response.json();
-
-		// step 2: update page chunks
-		if (result.status === true) {
-			// update action if new url recieved
-			if (result.url) {
-				filterForm.action = result.url;
-				setWindowLocation(result.url);
-			}
-
-			if (result.products) {
-				// target.innerHTML += result; -- bad solution (target div flickering)
-				let div = document.createElement("div");
-				div.innerHTML = result.products;
-
-				div.childNodes.forEach((i) => {
-					target.appendChild(i);
-				});
-			}
-
-			if (result.chunks) {
-				updateChunks(result.chunks);
-			}
-		}
-
-		reinitFilterResults();
-
-		btnLoader(btn, "stop");
-	};
-
-	let reinitFilterResults = () => {
+	let reinitFilterResults = (param = false) => {
+		if (param.url) filterForm.action = param.url;
 		try {
 			carouselsInit();
 			catalogItemGalleriesInit();
@@ -353,7 +314,7 @@ export function filterFetches() {
 			productProps();
 			productPropsHoverHandler();
 			setFavourites();
-			overflowCatalogTags();
+			overflowTags();
 		} catch (e) {}
 	};
 
@@ -405,7 +366,7 @@ export function filterFetches() {
 		document.addEventListener("click", (e) => {
 			const btn = e.target.closest(".js-load-more");
 			if (!btn) return;
-			fetchByMoreBtn(btn);
+			loadMore(btn, reinitFilterResults);
 		});
 	}
 }
