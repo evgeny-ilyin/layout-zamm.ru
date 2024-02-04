@@ -1,0 +1,26 @@
+@@include('html/head.html', {
+"title": "Идеи"
+})
+<body>
+	@@include('html/header.html', {})
+
+	<div class="container">
+		@@include('html/pages/blocks/block-interiors-ideas.html')
+	</div>
+
+	@@include('html/footer.html', {
+	"year_from": 2020,
+	"year_to": 2023,
+	})
+
+	@@include('html/cookies.html', {})
+	@@include('html/svg-sprite.html', {})
+
+
+	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
+	<script src="js/carousel-init.js"></script>
+
+	<script src="js/common.js"></script>
+
+</body>
+</html>

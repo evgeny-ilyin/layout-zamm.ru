@@ -1,0 +1,95 @@
+<div class="content">
+	<div class="breadcrumbs">
+		<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a href="/" title="Главная" class="breadcrumbs__link" itemprop="item">
+					<span itemprop="name">Главная</span>
+				</a>
+				<meta itemprop="position" content="1" />
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<span itemprop="name">Идеи</span>
+				<meta itemprop="position" content="2" />
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="content">
+	<div class="interiors-head">
+		<div class="interiors-head__sub">
+			<h1>Идеи</h1>
+			<div class="interiors-head__tags scrollblock">
+				<button type="button" class="js-tags-collapse"></button>
+				<a href="javascript:void(0)" class="tag-category">Белые</a>
+				<a href="javascript:void(0)" class="tag-category is-active">Для дома</a>
+				<a href="javascript:void(0)" class="tag-category">Большие</a>
+				<a href="javascript:void(0)" class="tag-category">Современный стиль</a>
+				<a href="javascript:void(0)" class="tag-category">Письменные</a>
+				<a href="javascript:void(0)" class="tag-category">Для школьников</a>
+				<a href="javascript:void(0)" class="tag-category">Компактные</a>
+				<a href="javascript:void(0)" class="tag-category">С ящиком</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="interiors">
+		<div class="interiors-top">
+
+			<div class="interiors-top__left">
+				<div class="interiors-top__text">
+					<span class="label label_yellow-light label_big label_rotate">Новая идея</span>
+					<h2>Заголовок идеи</h2>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, quisquam omnis eos voluptate repellendus maxime sed reprehenderit nobis eum commodi?</p>
+				</div>
+				<div class="interiors-top__button">
+					<a href="javascript:void(0)" class="btn btn_yellow-dark">Посмотреть</a>
+				</div>
+			</div>
+
+			<div class="interiors-top__right">
+				<div class="interior">
+					<!-- если надо сделать ссылку на всей области картинки -->
+					<!-- <a href="javascript:void(0)"> -->
+					<picture>
+						<source media="(min-width: 1280px)" srcset="@img/dev/ideas/idea-1-1280.webp" type="image/webp">
+						<source media="(min-width: 1024px)" srcset="@img/dev/ideas/idea-1-1024.webp" type="image/webp">
+						<source media="(min-width: 768px)" srcset="@img/dev/ideas/idea-1-768.webp" type="image/webp">
+						<source media="(min-width: 577px)" srcset="@img/dev/ideas/idea-1-577.webp" type="image/webp">
+						<source srcset="@img/dev/ideas/idea-1-320.webp" type="image/webp">
+						<img src="@img/dev/ideas/idea-1.png" width="831" height="482" alt="" loading="lazy" class="interior__image">
+					</picture>
+					<!-- </a> -->
+					<div class="furniture">
+						<div class="furniture__list scrollblock hide-scroll js-draggable">
+							<div class="furniture__item js-set-active">
+								<img src="@img/dev/menu/table-3.webp" width="64" height="64" alt="" loading="lazy">
+								<div>Стол формат PRO ЛДСП 2 ящика без аксессуаров лес черный/черный</div>
+							</div>
+							<div class="furniture__item js-set-active">
+								<img src="@img/dev/menu/table-2.webp" width="64" height="64" alt="" loading="lazy">
+								<div>Стол формат PRO ЛДСП 2 ящика без аксессуаров лес черный/черный</div>
+							</div>
+							<div class="furniture__item js-set-active">
+								<img src="@img/dev/menu/table-3.webp" width="64" height="64" alt="" loading="lazy">
+								<div>Стол формат PRO ЛДСП 2 ящика без аксессуаров лес черный/черный</div>
+							</div>
+							<div class="furniture__item js-set-active">
+								<img src="@img/dev/menu/table-1.webp" width="64" height="64" alt="" loading="lazy">
+								<div>Стол формат PRO ЛДСП 2 ящика без аксессуаров лес черный/черный</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		@@include('../../templates/template-interiors-body.html')
+
+		@@include('../../components/pagination-interiors.html')
+
+	</div>
+</div>
