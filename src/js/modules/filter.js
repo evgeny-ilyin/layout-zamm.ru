@@ -304,20 +304,6 @@ export function filterFetches() {
 		fetchLoader(itemsContainer, "stop");
 	};
 
-	let reinitFilterResults = (param = false) => {
-		if (param.url) filterForm.action = param.url;
-		try {
-			carouselsInit();
-			catalogItemGalleriesInit();
-			catalogItemGalleryHandler();
-			rangeSlidersInit();
-			productProps();
-			productPropsHoverHandler();
-			setFavourites();
-			overflowTags();
-		} catch (e) {}
-	};
-
 	if (filter) {
 		// filter on change
 		filterForm.addEventListener("input", () => {
@@ -363,10 +349,27 @@ export function filterFetches() {
 		});
 
 		// btn "load more"
-		document.addEventListener("click", (e) => {
-			const btn = e.target.closest(".js-load-more");
-			if (!btn) return;
-			loadMore(btn, reinitFilterResults);
-		});
+		// document.addEventListener("click", (e) => {
+		// 	const btn = e.target.closest(".js-load-more");
+		// 	if (!btn) return;
+		// 	loadMore(btn, reinitFilterResults);
+		// });
 	}
+}
+
+if (!window.reinitFilterResults) {
+	window.reinitFilterResults = (param = false) => {
+		const filterForm = document.getElementById("filter-form");
+		if (param.url) filterForm.action = param.url;
+		try {
+			carouselsInit();
+			catalogItemGalleriesInit();
+			catalogItemGalleryHandler();
+			rangeSlidersInit();
+			productProps();
+			productPropsHoverHandler();
+			setFavourites();
+			overflowTags();
+		} catch (e) {}
+	};
 }
