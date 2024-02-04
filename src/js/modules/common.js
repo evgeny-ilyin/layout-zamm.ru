@@ -220,6 +220,142 @@ export function modalHandler() {
 	});
 }
 
+export function edgePopupHandler() {
+	const popupClass = "popup-edge",
+		popupShowClass = "js-popup-show",
+		popupCloseClass = "js-popup-close",
+		isActiveClass = "is-active";
+
+	let createPopup = () => {
+		const popupExist = document.querySelector(`.${popupClass}`);
+		setTimeout(() => {
+			if (popupExist) popupExist.remove();
+		}, 250);
+
+		const popup = document.createElement("div"),
+			btn = document.createElement("button");
+
+		popup.classList.add(popupClass, "scrollblock");
+		btn.classList.add("btn", "btn_close", `${popupCloseClass}`);
+		btn.ariaLabel = "Закрыть";
+		popup.appendChild(btn);
+		document.body.appendChild(popup);
+		return popup;
+	};
+
+	let closePopup = (popup) => {
+		let popupBtn = document.querySelector(`.${popupShowClass}.${isActiveClass}`);
+		if (popupBtn) popupBtn.classList.remove(isActiveClass);
+		popup.classList.remove(isActiveClass);
+	};
+
+	let fetchByUrl = async (url, origin) => {
+		if (!url) return;
+
+		try {
+			let response = await fetch(url);
+			if (!response.ok) {
+				return;
+			}
+			let result = await response.json();
+			if (result.status === true) {
+				if (result.nocache === true) {
+					setPopupContent(result.content);
+				} else {
+					const key = getRandomStr(8);
+					setPopupContent(result.content, origin, key);
+				}
+			} else {
+				console.error(`Error: ${JSON.stringify(result)}`);
+			}
+		} catch (e) {
+			console.error(e);
+			return;
+		}
+	};
+
+	let setPopupContent = (content, origin = false, key = false) => {
+		const popupWrapper = createPopup();
+
+		popupWrapper.insertAdjacentHTML("beforeend", content);
+		// popupWrapper.append(content);
+
+		setTimeout(() => {
+			popupWrapper.classList.add(isActiveClass);
+		}, 10);
+
+		if (origin && key) {
+			origin.dataset.storageKey = key;
+			localStorage.setItem(key, content);
+		}
+	};
+
+	document.addEventListener("click", (e) => {
+		const popupExist = document.querySelector(`.${popupClass}`),
+			popupShow = e.target.closest(`.${popupShowClass}`),
+			popupClose = e.target.closest(`.${popupCloseClass}`);
+
+		if (popupShow) {
+			e.preventDefault();
+
+			if (popupShow.classList.contains(isActiveClass) && popupExist) {
+				closePopup(popupExist);
+				return;
+			}
+
+			if (!popupShow.classList.contains(isActiveClass) && popupExist) {
+				closePopup(popupExist);
+			}
+
+			let content = "",
+				target = popupShow.dataset.target,
+				url = popupShow.dataset.url,
+				storageKey = popupShow.dataset.storageKey;
+
+			popupShow.classList.add(isActiveClass);
+
+			// from storage
+			if (storageKey) {
+				let content = localStorage.getItem(storageKey);
+				if (content) {
+					setPopupContent(content);
+					return;
+				}
+			}
+
+			// clone target to popup
+			if (target) {
+				content = popupShow.parentElement.querySelector(`.${target}`).cloneNode(true);
+				content.removeAttribute("class");
+			}
+
+			// fetch to popup
+			if (url) {
+				content = fetchByUrl(url, popupShow);
+			}
+
+			// just clone self to popup
+			if (!target && !url) {
+				content = popupShow.cloneNode(true);
+				content.removeAttribute("class");
+			}
+
+			// set content
+			if (content.length > 0) {
+				setPopupContent(content);
+				return;
+			}
+		}
+
+		if (popupExist) {
+			if (popupExist.classList.contains(isActiveClass) && (!popupExist.contains(e.target) || popupClose)) {
+				closePopup(popupExist);
+				return;
+			}
+		}
+	});
+}
+
 export function sectionClose() {
 	document.addEventListener("click", (e) => {
 		const el = e.target.closest(".js-close"),
@@ -658,5 +794,58 @@ export function getContent() {
 		const el = e.target.closest(".js-get");
 		if (!el) return;
 		fetchByUrl(el);
+	});
+}
+
+export function clickAndDrag() {
+	document.addEventListener("mousedown", (e) => {
+		const scroll_speed = 1,
+			draggableClass = "js-draggable",
+			draggingClass = "js-dragging", // flag for other functions
+			el = e.target.closest(`.${draggableClass}`);
+
+		if (!el) return;
+
+		let isDown = false,
+			startX,
+			scrollLeft;
+
+		e.preventDefault();
+
+		isDown = true;
+		startX = e.pageX - el.offsetLeft;
+		scrollLeft = el.scrollLeft;
+		
+		// prevent default child behavior
+		document.addEventListener("click", function (e) {
+			if (el.contains(e.target)) {
+				e.preventDefault();
+			}
+		});
+
+		el.addEventListener("mouseleave", () => {
+			isDown = false;
+		});
+
+		el.addEventListener("mouseup", () => {
+			isDown = false;
+
+			 // remove the dragging class after a short delay to prevent other click events
+			setTimeout(() => {
+				el.classList.remove(draggingClass);
+			}, 250);
+		});
+
+		el.addEventListener("mousemove", (e) => {
+			if (!isDown) return;
+			e.preventDefault();
+			const x = e.pageX - el.offsetLeft,
+				walk = (x - startX) * scroll_speed; // scroll fast
+			el.scrollLeft = scrollLeft - walk;
+
+			if (scrollLeft !== el.scrollLeft) {
+				el.classList.add(draggingClass);
+			}
+		});
 	});
 }
