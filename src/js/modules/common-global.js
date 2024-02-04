@@ -227,6 +227,22 @@ if (!window.showHidden) {
 	};
 }
 
+if (!window.setActive) {
+	window.setActive = () => {
+		const isActiveClass = "is-active";
+		document.addEventListener("click", (e) => {
+			const el = e.target.closest(".js-set-active");
+			if (!el) return;
+
+			// если в блоке с драгом (напр., furniture) - не срабатывать в процессе движения
+			let dragging = e.target.closest(".js-draggable.js-dragging");
+			if (dragging) return;
+
+			el.classList.toggle(isActiveClass);
+		});
+	};
+}
+
 if (!window.setWindowLocation) {
 	window.setWindowLocation = (url) => {
 		// TODO @ prod:
@@ -332,8 +348,66 @@ if (!window.setFavourites) {
 	};
 }
 
-if (!window.catalogTagsCollapseHandler) {
-	window.catalogTagsCollapseHandler = () => {
+if (!window.loadMore) {
+	window.loadMore = () => {
+		document.addEventListener("click", (e) => {
+			const btn = e.target.closest(".js-load-more");
+			if (!btn) return;
+			loadMoreByBtn(btn);
+		});
+
+		let loadMoreByBtn = async (btn) => {
+			if (!btn) return;
+			const url = btn.dataset.url,
+				target = document.querySelector(`.${btn.dataset.target}`);
+			if (!target || !url) return;
+
+			btnLoader(btn);
+
+			// step 1: fetch get
+			let response = await fetch(url);
+			let result = await response.json();
+			let callbackParam = {};
+
+			// step 2: update page chunks
+			if (result.status === true) {
+				// update path and needed form actions if new url recieved
+				if (result.url) {
+					callbackParam = { url: result.url };
+					setWindowLocation(result.url);
+				}
+
+				if (result.content) {
+					// target.innerHTML += result; -- bad solution (target div flickering)
+					let div = document.createElement("div");
+					div.innerHTML = result.content;
+
+					div.childNodes.forEach((i) => {
+						target.appendChild(i);
+					});
+				}
+
+				if (result.chunks) {
+					updateChunks(result.chunks);
+				}
+
+				if (result.reinit) {
+					switch (result.reinit) {
+						case "filter":
+							reinitFilterResults(callbackParam);
+							break;
+						default:
+							break;
+					}
+				}
+			}
+			btnLoader(btn, "stop");
+		};
+	};
+}
+
+if (!window.tagsCollapseHandler) {
+	window.tagsCollapseHandler = () => {
 		const isOpenedClass = "is-opened";
 		document.addEventListener("click", (e) => {
 			if (e.target.classList.contains("js-tags-collapse")) {
@@ -345,27 +419,28 @@ if (!window.catalogTagsCollapseHandler) {
 
 		["load", "resize"].forEach((evt) =>
 			window.addEventListener(evt, () => {
-				overflowCatalogTags();
+				overflowTags();
 			})
 		);
 	};
 }
 
-if (!window.overflowCatalogTags) {
-	window.overflowCatalogTags = () => {
+if (!window.overflowTags) {
+	window.overflowTags = () => {
 		const isOpenedClass = "is-opened",
-			parent = document.querySelector(".catalog-head__tags");
-		if (!parent) return;
+			buttons = document.querySelectorAll(".js-tags-collapse");
 
-		const btn = parent.querySelector(".js-tags-collapse");
-		if (!parent.classList.contains(isOpenedClass) && !isStrOverflowX(parent)) {
-			parent.classList.remove("tags-collapse");
-			btn.classList.add("hidden");
-		} else if (parent.classList.contains(isOpenedClass)) {
-			parent.classList.remove(isOpenedClass);
-		} else {
-			parent.classList.add("tags-collapse");
-			btn.classList.remove("hidden");
-		}
+		buttons.forEach((btn) => {
+			let parent = btn.parentElement;
+			if (!parent.classList.contains(isOpenedClass) && !isStrOverflowX(parent)) {
+				parent.classList.remove("tags-collapse");
+				btn.classList.add("hidden");
+			} else if (parent.classList.contains(isOpenedClass)) {
+				parent.classList.remove(isOpenedClass);
+			} else {
+				parent.classList.add("tags-collapse");
+				btn.classList.remove("hidden");
+			}
+		});
 	};
 }
