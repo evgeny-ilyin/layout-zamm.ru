@@ -66,7 +66,7 @@ if (!window.blockObserver) {
 				tabsInit();
 				tabsHandler(target);
 				productPropsHoverHandler();
-				overflowCatalogTags();
+				overflowTags();
 				setFavourites();
 				selectsInit();
 				globalForm.validation();

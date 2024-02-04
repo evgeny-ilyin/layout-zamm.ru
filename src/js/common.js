@@ -10,17 +10,20 @@ import "./modules/common-cookies.js";
 addEventListener("DOMContentLoaded", () => {
 	isTouchDevice();
 	showHidden();
+	setActive();
 	catalogItemGalleriesInit();
 	catalogItemGalleryHandler();
 	useDynamicAdapt();
 	setFavourites();
+	loadMore();
 	selectsInit();
 	fileInputInit();
-	catalogTagsCollapseHandler();
+	tagsCollapseHandler();
 
 	fn.stickyHeader();
 	fn.hamburgerMenu();
 	fn.modalHandler();
+	fn.edgePopupHandler();
 	fn.sectionClose();
 	fn.collapseHandler();
 	fn.collapseTargetHandler();
@@ -34,6 +37,7 @@ addEventListener("DOMContentLoaded", () => {
 	fn.contentGalleryPopup();
 	fn.changeAmount();
 	fn.getContent();
+	fn.clickAndDrag();
 
 	form.submitPrevent();
 	form.maskHandler();
