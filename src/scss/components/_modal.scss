@@ -107,17 +107,3 @@
 		}
 	}
 }
-
-// .btn_close-modal
-.btn_close-modal {
-	position: absolute;
-	top: var(--modal-padding-y);
-	right: calc(var(--modal-padding-x) - 5px);
-
-	@include respond-to(md, "max") {
-		&::before,
-		&::after {
-			height: 25px;
-		}
-	}
-}

@@ -385,6 +385,20 @@
 		}
 	}
 
+	// .btn_close-modal
+	&_close-modal{
+		position: absolute;
+		top: var(--modal-padding-y);
+		right: calc(var(--modal-padding-x) - 5px);
+
+		@include respond-to(md, "max") {
+			&::before,
+			&::after {
+				height: 25px;
+			}
+		}
+	}
+
 	// .btn_reset
 	&_reset {
 		background: transparent;
@@ -415,6 +429,12 @@
 	}
 }
 
+.btn-inset {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
 .btn-trash {
 	display: block;
 	width: 20px;
@@ -429,6 +449,46 @@
 	@include on-event {
 		svg {
 			fill: $black;
+		}
+	}
+}
+
+.btn-plus {
+	position: relative;
+	width: 32px;
+	height: 32px;
+	border: 0;
+	border-radius: 50%;
+	padding: 0;
+	background: $white;
+	align-items: center;
+	cursor: pointer;
+	text-align: left;
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 9px;
+		right: 15px;
+		height: 14px;
+		border-left: 2px solid #858585;
+		transition: all $transition-default;
+	}
+
+	&::after {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 15px;
+		right: 9px;
+		width: 14px;
+		border-top: 2px solid #858585;
+	}
+
+	&.is-active {
+		&::before {
+			transform: rotate(90deg);
 		}
 	}
 }
@@ -463,6 +523,21 @@
 				box-shadow: none;
 			}
 		}
+	}
+}
+
+.js-popup-close {
+	top: 23px;
+	right: 21px;
+
+	@include respond-to(xm) {
+		top: 32px;
+		right: 25px;
+	}
+
+	&::after,
+	&::before {
+		height: 26px;
 	}
 }
 
@@ -507,12 +582,6 @@
 			}
 		}
 	}
-}
-
-.btn-inset {
-	display: flex;
-	align-items: center;
-	position: relative;
 }
 
 button {
