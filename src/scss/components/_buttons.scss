@@ -72,6 +72,29 @@
 		}
 	}
 
+	// .btn_gray-light
+	&_gray-light {
+		background: $gray;
+		box-shadow: 0 0 0 1px $gray;
+
+		@include on-hover {
+			background: $white;
+			box-shadow: 0 0 0 1px $black10;
+		}
+		@include on-active {
+			box-shadow: 0 0 0 1px $black60;
+			color: $black60 !important;
+			span::after {
+				opacity: 0.6;
+			}
+		}
+		@include on-focus {
+			// box-shadow: 0 0 0 1px $black60 inset, 0 0 0 6px #f7e9c7;
+		}
+		@include on-disabled {
+		}
+	}
+
 	// .btn_gray
 	&_gray {
 		background: $gray;
@@ -386,7 +409,7 @@
 	}
 
 	// .btn_close-modal
-	&_close-modal{
+	&_close-modal {
 		position: absolute;
 		top: var(--modal-padding-y);
 		right: calc(var(--modal-padding-x) - 5px);

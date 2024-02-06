@@ -156,57 +156,7 @@
 				padding: 10px;
 				margin-bottom: 5px;
 			}
-			// display: flex;
-			// flex-flow: column nowrap;
-			// text-align: center;
-			// background: $gray;
-
-			// a {
-			// display: flex;
-			// flex-flow: column nowrap;
-			// text-align: center;
-			// flex: 1;
-			// 	background-color: $gray;
-			// 	text-decoration: none;
-			// 	text-shadow: none;
-			// 	border-radius: 4px;
-			// 	transition: background-color 0.1s;
-
-			// 	@include on-hover {
-			// 		background-color: $white;
-			// 	}
-			// }
-
-			// div {
-			// 	padding: 4px 10px 10px;
-			// 	font-weight: 600;
-			// }
 		}
-	}
-}
-
-.tag-category {
-	display: flex;
-	align-items: center;
-	height: 42px;
-	padding: 0 16px;
-	line-height: 1;
-	margin: 0 8px 8px 0;
-	border-radius: 60px;
-	background: $gray;
-	border: 1px solid transparent;
-	text-decoration: none;
-	white-space: nowrap;
-	transition: all $transition-default;
-
-	@include on-hover {
-		background: #e9ebec;
-		text-shadow: none;
-	}
-
-	&.is-active {
-		border-color: $black-real;
-		font-weight: 700;
 	}
 }
 
