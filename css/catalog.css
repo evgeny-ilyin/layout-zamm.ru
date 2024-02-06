@@ -195,10 +195,6 @@
   border-color: var(--black-real);
   font-weight: 700
 }
-span.tag-category:hover {
-  pointer-events: none;
-  background: var(--gray)
-}
 .pagination {
   margin: 56px 0;
   display: -webkit-box;
