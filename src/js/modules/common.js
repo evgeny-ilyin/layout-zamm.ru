@@ -226,7 +226,7 @@ export function edgePopupHandler() {
 		popupCloseClass = "js-popup-close",
 		isActiveClass = "is-active";
 
-	let createPopup = () => {
+	let createPopup = (hide = false) => {
 		const popupExist = document.querySelector(`.${popupClass}`);
 		setTimeout(() => {
 			if (popupExist) popupExist.remove();
@@ -235,9 +235,12 @@ export function edgePopupHandler() {
 		const popup = document.createElement("div"),
 			btn = document.createElement("button");
 
-		popup.classList.add(popupClass, "scrollblock");
+		popup.classList.add(popupClass, "content", "scrollblock");
+		hide ? popup.classList.add(`hidden-${hide}`) : "";
+
 		btn.classList.add("btn", "btn_close", `${popupCloseClass}`);
 		btn.ariaLabel = "Закрыть";
+
 		popup.appendChild(btn);
 		document.body.appendChild(popup);
 		return popup;
@@ -252,6 +255,9 @@ export function edgePopupHandler() {
 	let fetchByUrl = async (url, origin) => {
 		if (!url) return;
 
+		let hide;
+		hide = origin.dataset.hide;
+
 		try {
 			let response = await fetch(url);
 			if (!response.ok) {
@@ -260,10 +266,10 @@ export function edgePopupHandler() {
 			let result = await response.json();
 			if (result.status === true) {
 				if (result.nocache === true) {
-					setPopupContent(result.content);
+					setPopupContent(result.content, hide);
 				} else {
 					const key = getRandomStr(8);
-					setPopupContent(result.content, origin, key);
+					setPopupContent(result.content, hide, origin, key);
 				}
 			} else {
 				console.error(`Error: ${JSON.stringify(result)}`);
@@ -274,8 +280,8 @@ export function edgePopupHandler() {
 		}
 	};
 
-	let setPopupContent = (content, origin = false, key = false) => {
-		const popupWrapper = createPopup();
+	let setPopupContent = (content, hide = false, origin = false, key = false) => {
+		const popupWrapper = createPopup(hide);
 
 		popupWrapper.insertAdjacentHTML("beforeend", content);
 		// popupWrapper.append(content);
@@ -307,42 +313,44 @@ export function edgePopupHandler() {
 				closePopup(popupExist);
 			}
 
-			let content = "",
-				target = popupShow.dataset.target,
-				url = popupShow.dataset.url,
-				storageKey = popupShow.dataset.storageKey;
+			let content, hide, target, url, storageKey;
 
+			hide = popupShow.dataset.hide;
+			target = popupShow.dataset.target;
+			url = popupShow.dataset.url;
+			storageKey = popupShow.dataset.storageKey;
 			popupShow.classList.add(isActiveClass);
 
 			// from storage
 			if (storageKey) {
-				let content = localStorage.getItem(storageKey);
+				content = localStorage.getItem(storageKey);
 				if (content) {
-					setPopupContent(content);
+					setPopupContent(content, hide);
 					return;
 				}
 			}
 
-			// clone target to popup
-			if (target) {
-				content = popupShow.parentElement.querySelector(`.${target}`).cloneNode(true);
-				content.removeAttribute("class");
-			}
-
 			// fetch to popup
 			if (url) {
-				content = fetchByUrl(url, popupShow);
+				fetchByUrl(url, popupShow);
+				return;
+			}
+
+			// clone target to popup
+			if (target) {
+				content = popupShow.parentElement.querySelector(`.${target}`).cloneNode(true).outerHTML;
+				// content.removeAttribute("class");
 			}
 
 			// just clone self to popup
 			if (!target && !url) {
-				content = popupShow.cloneNode(true);
-				content.removeAttribute("class");
+				content = popupShow.cloneNode(true).outerHTML;
+				// content.removeAttribute("class");
 			}
 
 			// set content
-			if (content.length > 0) {
-				setPopupContent(content);
+			if (content) {
+				setPopupContent(content, hide);
 				return;
 			}
 		}
@@ -815,7 +823,7 @@ export function clickAndDrag() {
 		isDown = true;
 		startX = e.pageX - el.offsetLeft;
 		scrollLeft = el.scrollLeft;
-		
+
 		// prevent default child behavior
 		document.addEventListener("click", function (e) {
 			if (el.contains(e.target)) {
@@ -830,7 +838,7 @@ export function clickAndDrag() {
 		el.addEventListener("mouseup", () => {
 			isDown = false;
 
-			 // remove the dragging class after a short delay to prevent other click events
+			// remove the dragging class after a short delay to prevent other click events
 			setTimeout(() => {
 				el.classList.remove(draggingClass);
 			}, 250);
