@@ -1,0 +1,140 @@
+.banner-block {
+	position: relative;
+	margin: 40px 0 80px;
+	overflow: hidden;
+
+	@include respond-to(xm, "max") {
+		display: flex;
+		min-height: 380px;
+	}
+
+	@include respond-to(xm) {
+		padding-top: 50px;
+	}
+
+	@include respond-to(lg) {
+		overflow: visible;
+		padding-top: 80px;
+	}
+
+	// .banner-block__text
+	&__text {
+		padding: 20px 16px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		@include respond-to(xm, "max") {
+			flex: 1;
+		}
+
+		@include respond-to(xm) {
+			padding: 24px;
+		}
+
+		@include respond-to(lg) {
+			min-height: 315px;
+		}
+
+		// ._bg-gray
+		&._bg-gray {
+			background: $gray;
+		}
+	}
+
+	// .banner-block__body
+	&__body {
+		max-width: 260px;
+		margin-bottom: 60px;
+		z-index: 5;
+
+		@include respond-to(lg) {
+			max-width: 385px;
+		}
+
+		@include respond-to(xm, "max") {
+			.h2 {
+				font-size: rem(20);
+			}
+		}
+
+		a[href^="tel:"] {
+			white-space: nowrap;
+		}
+	}
+
+	// .banner-block__button
+	&__button {
+		z-index: 5;
+	}
+
+	// .banner-block__img
+	&__img {
+		position: absolute;
+		bottom: -25px;
+		right: -55px;
+
+		@include respond-to(xm) {
+			bottom: -20px;
+			right: 20px;
+		}
+
+		@include respond-to(lg) {
+			bottom: -29px;
+			right: 50px;
+		}
+
+		@include respond-to(xl) {
+			right: 140px;
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 6%;
+			bottom: 29px;
+			width: 558px;
+			height: 90%;
+			z-index: 1;
+			clip-path: polygon(0 6%, 96% 0, 100% 100%, 3% 100%);
+
+			@include respond-to(xm) {
+				bottom: 20px;
+				width: 97%;
+			}
+
+			@include respond-to(lg) {
+				bottom: 29px;
+				width: 100%;
+			}
+
+			@include respond-to(xl) {
+				width: 558px;
+			}
+		}
+
+		img {
+			position: relative;
+			z-index: 2;
+			width: 330px;
+			object-fit: contain;
+			overflow: hidden;
+
+			@include respond-to(xm) {
+				width: 375px;
+			}
+
+			@include respond-to(lg) {
+				width: 515px;
+			}
+		}
+
+		// ._bg-yellow-light
+		&._bg-yellow-light {
+			&::after {
+				background: $yellow-light;
+			}
+		}
+	}
+}

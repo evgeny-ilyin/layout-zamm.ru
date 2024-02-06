@@ -1,0 +1,101 @@
+.interiors-carousel {
+	--f-carousel-dots-width: 22px;
+
+	--f-button-width: 44px;
+	--f-button-height: 40px;
+	--f-button-svg-width: 18px;
+	--f-button-svg-height: 18px;
+	--f-button-svg-stroke-width: 2;
+	--f-button-color: #{$black};
+	--f-button-hover-color: #{$black};
+	--f-button-border-radius: 4px;
+	--f-button-shadow: 0 0 0 1px #{$black10};
+	--f-button-bg: #{$white};
+	--f-button-hover-bg: #{$gray};
+	--f-button-active-bg: #{$white};
+
+	// margin-bottom: 90px;
+	// min-height: 249px;
+
+	@include respond-to(md) {
+		--f-carousel-spacing: #{$min-padding};
+		// min-height: 489px;
+		// --f-carousel-slide-height: 450px;
+	}
+
+	@include respond-to(lg) {
+		--f-carousel-slide-width: 75%;
+		// min-height: 620px;
+		// --f-carousel-slide-height: 600px;
+	}
+
+	.f-progress {
+		bottom: 0;
+		top: auto;
+	}
+
+	.f-carousel__dots {
+		justify-content: flex-start;
+	}
+
+	.f-carousel__dot {
+		width: 16px;
+		height: 5px;
+		border-radius: 24px;
+	}
+
+	li.is-current {
+		.f-carousel__dot {
+			background-color: $black60;
+		}
+	}
+
+	.f-carousel__nav {
+		opacity: 0;
+		transition: all $transition-default;
+
+		@include respond-to(lg, "max") {
+			display: none;
+		}
+	}
+
+	@include on-hover {
+		.f-carousel__nav {
+			opacity: 1;
+		}
+	}
+}
+
+// .interior-name
+.interior-name {
+	position: absolute;
+	z-index: 1;
+	color: $white;
+	top: 12px;
+	left: 12px;
+	right: 12px;
+
+	@include respond-to(lg) {
+		top: 19px;
+		left: 24px;
+	}
+}
+
+.interior-slide {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+
+	@include respond-to(md) {
+		flex-direction: row;
+	}
+
+	// .interior-slide__img
+	&__img {
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
