@@ -62,6 +62,10 @@ if (!window.carouselsInit) {
 				Object.assign(breakpoints, { breakpoints: { [`(${carousel.dataset.disabled})`]: { enabled: false } } });
 			}
 
+			if (carousel.dataset.dotsMediaDisable) {
+				Object.assign(breakpoints, { breakpoints: { [`(${carousel.dataset.dotsMediaDisable})`]: { Dots: false } } });
+			}
+
 			if (carousel.classList.contains("carousel-top-nav")) {
 				Object.assign(navigation, { Navigation: { nextTpl: next, prevTpl: prev } });
 			}
@@ -106,7 +110,6 @@ if (!window.carouselsInit) {
 				{ Thumbs }
 			);
 		}
-
 
 		// popup galleries like a product main photo gallery
 		let popupGalleries = document.querySelectorAll(".js-popup-gallery-wrap");
