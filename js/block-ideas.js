@@ -7,21 +7,11 @@ function ideaPopupShow() {
 	const isActiveClass = "is-active";
 
 	let ideasClose = () => {
-		const active = document.querySelectorAll(`.idea-marker.${isActiveClass}, .idea-mobile-content.${isActiveClass}`);
+		const active = document.querySelectorAll(`.idea-marker.${isActiveClass}`);
 		if (!active.length) return;
 		active.forEach((e) => {
 			e.classList.remove(isActiveClass);
 		});
-	};
-
-	let ideasMobile = (el) => {
-		const ideaMobile = document.querySelector(".idea-mobile-content div");
-		if (ideaMobile) {
-			const cloneContent = el.nextElementSibling.cloneNode(true);
-			ideaMobile.innerHTML = "";
-			ideaMobile.parentElement.classList.add(isActiveClass);
-			ideaMobile.append(cloneContent);
-		}
 	};
 
 	document.addEventListener("click", (e) => {
@@ -32,7 +22,6 @@ function ideaPopupShow() {
 			} else {
 				ideasClose();
 				el.parentElement.classList.toggle(isActiveClass);
-				ideasMobile(el);
 			}
 		} else {
 			if (!e.target.closest(".idea-marker__content")) {
@@ -42,7 +31,7 @@ function ideaPopupShow() {
 	});
 }
 
-// canvas.offsetLeft		-- родитель от левого края браузера
+// canvas.offsetLeft		-- родитель от левого края контейнера
 // canvas.offsetWidth		-- длина родителя
 // marker.offsetLeft		-- маркер до левого края
 // marker.offsetWidth		-- длина маркера
@@ -55,17 +44,44 @@ function ideaPopupPlace() {
 	["load", "resize"].forEach((evt) =>
 		window.addEventListener(evt, () => {
 			iPopups.forEach((box) => {
-				const canvas = box.closest(".idea"),
-					canvasL = canvas.offsetLeft,
+				let canvas,
+					canvasIdea = box.closest(".idea"),
+					canvasCarousel = box.closest(".f-carousel__slide");
+
+				if (canvasIdea) {
+					canvas = canvasIdea;
+				}
+
+				if (canvasCarousel) {
+					canvas = canvasCarousel;
+				}
+
+				let canvasL = canvas.offsetLeft,
 					marker = box.parentElement,
 					markerW = marker.offsetWidth,
-					markerL = marker.offsetLeft,
+					markerL = marker.getBoundingClientRect().left,
 					markerR = marker.getBoundingClientRect().right,
-					minL = markerW / 2 + markerL + canvasL - 16,
-					minR = window.innerWidth - markerR + markerW / 2 - 32,
-					boxW = box.offsetWidth,
-					overL = minL < boxW / 2,
+					minL,
+					minR,
+					boxW,
+					overL,
+					overR;
+
+				if (canvasIdea) {
+					minL = markerW / 2 + markerL + canvasL - 16;
+					minR = window.innerWidth - markerR + markerW / 2 - 32;
+					boxW = box.offsetWidth;
+					overL = minL < boxW / 2;
 					overR = minR < boxW / 2;
+				}
+
+				if (canvasCarousel) {
+					minL = markerL - canvas.getBoundingClientRect().left;
+					minR = canvas.getBoundingClientRect().right - markerR;
+					boxW = box.offsetWidth;
+					overL = minL < boxW / 2;
+					overR = minR < boxW / 2;
+				}
 
 				box.classList[overL ? "add" : "remove"](leftClass);
 				box.classList[overR ? "add" : "remove"](rightClass);
@@ -73,6 +89,7 @@ function ideaPopupPlace() {
 		})
 	);
 }
+
 ;// CONCATENATED MODULE: ./src/js/block-ideas.js
 
 

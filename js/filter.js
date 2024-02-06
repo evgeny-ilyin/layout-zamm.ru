@@ -2903,7 +2903,7 @@ function filterFetches() {
 		let ranges = filterForm.querySelectorAll(".input-min, .input-max");
 
 		ranges.forEach((el) => {
-			if(el.value.replace(/[^0-9]+/g, "") == el.dataset.default) {
+			if (el.value.replace(/[^0-9]+/g, "") == el.dataset.default) {
 				formData.delete(el.name);
 			}
 		});
@@ -3000,59 +3000,6 @@ function filterFetches() {
 		fetchLoader(itemsContainer, "stop");
 	};
 
-	let fetchByMoreBtn = async (btn) => {
-		if (!btn) return;
-		const url = btn.dataset.url,
-			target = document.querySelector(`.${btn.dataset.target}`);
-		if (!target || !url) return;
-
-		btnLoader(btn);
-
-		// step 1: fetch get
-		let response = await fetch(url);
-		let result = await response.json();
-
-		// step 2: update page chunks
-		if (result.status === true) {
-			// update action if new url recieved
-			if (result.url) {
-				filterForm.action = result.url;
-				setWindowLocation(result.url);
-			}
-
-			if (result.products) {
-				// target.innerHTML += result; -- bad solution (target div flickering)
-				let div = document.createElement("div");
-				div.innerHTML = result.products;
-
-				div.childNodes.forEach((i) => {
-					target.appendChild(i);
-				});
-			}
-
-			if (result.chunks) {
-				updateChunks(result.chunks);
-			}
-		}
-
-		reinitFilterResults();
-
-		btnLoader(btn, "stop");
-	};
-
-	let reinitFilterResults = () => {
-		try {
-			carouselsInit();
-			catalogItemGalleriesInit();
-			catalogItemGalleryHandler();
-			rangeSlidersInit();
-			productProps();
-			productPropsHoverHandler();
-			setFavourites();
-			overflowCatalogTags();
-		} catch (e) {}
-	};
-
 	if (filter) {
 		// filter on change
 		filterForm.addEventListener("input", () => {
@@ -3098,12 +3045,29 @@ function filterFetches() {
 		});
 
 		// btn "load more"
-		document.addEventListener("click", (e) => {
-			const btn = e.target.closest(".js-load-more");
-			if (!btn) return;
-			fetchByMoreBtn(btn);
-		});
+		// document.addEventListener("click", (e) => {
+		// 	const btn = e.target.closest(".js-load-more");
+		// 	if (!btn) return;
+		// 	loadMore(btn, reinitFilterResults);
+		// });
 	}
+}
+
+if (!window.reinitFilterResults) {
+	window.reinitFilterResults = (param = false) => {
+		const filterForm = document.getElementById("filter-form");
+		if (param.url) filterForm.action = param.url;
+		try {
+			carouselsInit();
+			catalogItemGalleriesInit();
+			catalogItemGalleryHandler();
+			rangeSlidersInit();
+			productProps();
+			productPropsHoverHandler();
+			setFavourites();
+			overflowTags();
+		} catch (e) {}
+	};
 }
 
 ;// CONCATENATED MODULE: ./src/js/filter.js

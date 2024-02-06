@@ -44,8 +44,7 @@
   margin: 0 auto 24px
 }
 .order-form__row {
-  width: 100%;
-  margin-bottom: 23px
+  width: 100%
 }
 .order-form__row:last-child {
   margin-bottom: 0
@@ -54,6 +53,9 @@
   font-size: 1.125rem;
   font-weight: 700;
   margin-bottom: 10px
+}
+.order-form__right {
+  margin-bottom: 23px
 }
 .order-form__fieldset {
   padding: 16px;
@@ -402,12 +404,14 @@
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 2fr;
-    grid-template-columns: 1fr 2fr;
-    margin-bottom: 16px
+    grid-template-columns: 1fr 2fr
   }
   .order-form__left {
     font-size: 1.25rem;
     margin-bottom: 0
+  }
+  .order-form__right {
+    margin-bottom: 16px
   }
   .order-form__fieldset {
     padding: 24px
