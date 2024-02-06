@@ -6,8 +6,8 @@
 .popup-edge {
 	position: fixed;
 	min-width: $min-width;
-	min-height: 40vh;
-	min-height: 40dvh;
+	// min-height: 40vh;
+	// min-height: 40dvh;
 	max-height: 100vh;
 	max-height: 100dvh;
 	padding: 24px 12px 16px;
@@ -26,11 +26,25 @@
 
 	@include respond-to(xm) {
 		padding-top: 30px;
+
+		&.hidden-xm {
+			bottom: -100% !important;
+			transition: bottom $transition-default;
+		}
 	}
 
 	@include respond-to(lg) {
-		bottom: -100% !important;
-		transition: bottom $transition-default;
+		&.hidden-lg {
+			bottom: -100% !important;
+			transition: bottom $transition-default;
+		}
+	}
+
+	@include respond-to(xl) {
+		&.hidden-xl {
+			bottom: -100% !important;
+			transition: bottom $transition-default;
+		}
 	}
 
 	// &._right {
