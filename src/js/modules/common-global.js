@@ -362,7 +362,7 @@ if (!window.loadMore) {
 				targetClass = btn.dataset.target;
 			if (!targetClass || !url) return;
 
-			const target = document.querySelector(`.${btn.dataset.targetClass}`);
+			const target = document.querySelector(`.${targetClass}`);
 
 			btnLoader(btn);
 
