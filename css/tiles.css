@@ -20,7 +20,7 @@
   display: -ms-flexbox;
   display: flex;
   gap: 8px;
-  top: auto;
+  top: auto!important;
   bottom: 12px
 }
 .tile__image {
