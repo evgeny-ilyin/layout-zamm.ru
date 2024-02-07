@@ -1,0 +1,16 @@
+.heading-tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-flow: row nowrap;
+  flex-flow: row nowrap;
+  margin-bottom: 34px;
+  padding-bottom: 16px
+}
+@media (min-width:1024px) {
+  .heading-tags {
+    padding-right: 25px
+  }
+}
