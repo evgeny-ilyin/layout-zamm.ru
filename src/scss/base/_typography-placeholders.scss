@@ -6,17 +6,16 @@
 	line-height: 0.9;
 	font-weight: 600;
 	letter-spacing: -1.28px;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 
 	@include respond-to(md) {
 		font-size: rem(40);
-		margin-bottom: 25px;
+		margin-bottom: 39px;
 	}
 
 	@include respond-to(lg) {
 		font-size: rem(64);
 		font-weight: 700;
-		margin-bottom: 40px;
 	}
 }
 
