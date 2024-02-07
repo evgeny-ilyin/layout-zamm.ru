@@ -22,31 +22,6 @@
 		}
 	}
 
-	// .catalog-head__sub
-	&__sub {
-		position: relative;
-		padding: 24px 0;
-		margin-bottom: 10px;
-	}
-
-	// .catalog-head__tags
-	&__tags {
-		display: flex;
-		flex-flow: row nowrap;
-		margin-top: 33px;
-		padding-bottom: 16px;
-		border-bottom: 2px solid $black10;
-
-		@include respond-to(lg) {
-			margin-top: 47px;
-			padding-right: 25px;
-		}
-	}
-
-	// .catalog-head__collapse
-	&__collapse {
-	}
-
 	// .catalog-head__name
 	&__name {
 		@include respond-to(lg) {
@@ -237,6 +212,7 @@
 		}
 	}
 }
+
 // collapse
 .js-tags-collapse {
 	display: none;
