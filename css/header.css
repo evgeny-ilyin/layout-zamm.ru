@@ -344,7 +344,7 @@ h1 {
   line-height: .9;
   font-weight: 600;
   letter-spacing: -1.28px;
-  margin-bottom: 20px
+  margin-bottom: 30px
 }
 .h2,
 h2 {
@@ -1674,6 +1674,10 @@ ol {
   line-height: 1.1;
   padding: 5px 15px 4px
 }
+.btn_medium {
+  padding-left: 61px;
+  padding-right: 61px
+}
 .btn_long {
   padding-left: 72px;
   padding-right: 72px
@@ -1926,6 +1930,38 @@ ol {
   -webkit-transform: rotate(90deg);
   -ms-transform: rotate(90deg);
   transform: rotate(90deg)
+}
+.btn-round {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--white);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out
+}
+.btn-round:active,
+.btn-round:focus,
+.btn-round:hover {
+  background: var(--yellow)
+}
+.btn-round svg {
+  width: 16px;
+  height: 16px
+}
+.btn-round[data-box-type=video] svg {
+  margin-left: 3px;
+  width: 13px;
+  height: 13px
 }
 .js-close-header-alert {
   top: auto;
@@ -2694,7 +2730,8 @@ input[type=file]:focus-visible ~ span {
   white-space: nowrap;
   font-weight: 600;
   background: var(--white);
-  color: var(--black)
+  color: var(--black);
+  text-shadow: none
 }
 .label_yellow-light {
   background: var(--yellow-light);
@@ -3356,7 +3393,7 @@ input[type=file]:focus-visible ~ span {
   .h1,
   h1 {
     font-size: 2.5rem;
-    margin-bottom: 25px
+    margin-bottom: 39px
   }
   .block-header {
     margin-top: 50px;
@@ -3423,8 +3460,7 @@ input[type=file]:focus-visible ~ span {
   .h1,
   h1 {
     font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 40px
+    font-weight: 700
   }
   .h2,
   h2 {
@@ -3673,6 +3709,15 @@ input[type=file]:focus-visible ~ span {
   }
   .btn_arrow.btn_nav-second:hover span::after {
     background-image: var(--svg-arrow-black)
+  }
+  .btn-round {
+    width: 48px;
+    height: 48px
+  }
+  .btn-round[data-box-type=video] svg {
+    margin-left: 5px;
+    width: 20px;
+    height: 20px
   }
   .tabs__content {
     margin-top: 8px
