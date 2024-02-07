@@ -1,0 +1,104 @@
+.tiles {
+	// .tiles__body
+	&__body {
+	}
+
+	// .tiles__block
+	&__block {
+		@include respond-to(xm) {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			// grid-template-rows: repeat(11, 50px);
+			// grid-auto-rows: 35px;
+			grid-auto-rows: 6vw;
+			grid-auto-rows: 6dvw;
+			grid-gap: 16px;
+			margin-bottom: 16px;
+
+			.tile:nth-child(1) {
+				grid-area: 1 / 1 / 5 / 2;
+			}
+			.tile:nth-child(2) {
+				grid-area: 1 / 2 / 8 / 3;
+			}
+			.tile:nth-child(3) {
+				grid-area: 5 / 1 / 12 / 2;
+			}
+			.tile:nth-child(4) {
+				grid-area: 8 / 2 / 12 / 3;
+			}
+		}
+
+		// @include respond-to(md) {
+		// 	grid-auto-rows: 50px;
+		// }
+
+		@include respond-to(lg) {
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 -8px;
+			grid-gap: 0;
+
+			.tile:nth-child(4n + 1) {
+				width: calc(67% - 16px);
+				height: 480px;
+			}
+
+			.tile:nth-child(4n + 2) {
+				width: calc(33% - 16px);
+				height: 480px;
+			}
+
+			.tile:nth-child(4n + 3),
+			.tile:nth-child(4n + 4) {
+				width: calc(50% - 16px);
+				height: 616px;
+			}
+		}
+
+		.tile__image {
+			border-radius: 2px;
+		}
+	}
+}
+
+.tile {
+	position: relative;
+	height: 100%;
+	margin-bottom: 12px;
+
+	@include respond-to(md) {
+		margin: 0;
+	}
+
+	@include respond-to(lg) {
+		margin: 8px;
+	}
+
+	// .tile__name
+	&__name {
+		position: absolute;
+		z-index: 1;
+		color: $white;
+		top: 12px;
+		left: 12px;
+		right: 12px;
+
+		@include respond-to(lg) {
+			top: 19px;
+			left: 24px;
+		}
+	}
+
+	// .tile__image
+	&__image {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		// max-height: 428px;
+
+		@include respond-to(lg) {
+			max-height: none;
+		}
+	}
+}
