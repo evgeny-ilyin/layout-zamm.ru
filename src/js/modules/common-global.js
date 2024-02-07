@@ -359,8 +359,10 @@ if (!window.loadMore) {
 		let loadMoreByBtn = async (btn) => {
 			if (!btn) return;
 			const url = btn.dataset.url,
-				target = document.querySelector(`.${btn.dataset.target}`);
-			if (!target || !url) return;
+				targetClass = btn.dataset.target;
+			if (!targetClass || !url) return;
+
+			const target = document.querySelector(`.${btn.dataset.targetClass}`);
 
 			btnLoader(btn);
 
