@@ -1,14 +1,3 @@
-.heading-tags {
-	display: flex;
-	flex-flow: row nowrap;
-	margin-bottom: 34px;
-	padding-bottom: 16px;
-
-	@include respond-to(lg) {
-		padding-right: 25px;
-	}
-}
-
 .heading {
 	display: flex;
 	flex-direction: column;
