@@ -95,7 +95,7 @@
 	&__f {
 		display: flex;
 		gap: 8px;
-		top: auto;
+		top: auto !important;
 		bottom: 12px;
 
 		@include respond-to(lg) {
