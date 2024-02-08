@@ -1,6 +1,17 @@
 .tiles__block .tile__image {
   border-radius: 2px
 }
+.tiles__simple {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[1];
+  grid-template-columns: repeat(1,1fr);
+  gap: 16px;
+  margin-top: 8px
+}
+.tiles__simple .tile {
+  margin: 0
+}
 .tile {
   position: relative;
   height: 100%;
@@ -117,6 +128,13 @@
     -ms-grid-column-span: 1;
     grid-area: 8/2/12/3
   }
+  .tiles__simple {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2,1fr)
+  }
+  .tiles__simple .tile {
+    min-height: 418px
+  }
 }
 @media (min-width:768px) {
   .tile {
@@ -145,6 +163,13 @@
   .tiles__block .tile:nth-child(4n+4) {
     width: calc(50% - 16px);
     height: 616px
+  }
+  .tiles__simple {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3,1fr)
+  }
+  .tiles__simple .tile {
+    min-height: 480px
   }
   .tile {
     margin: 8px
