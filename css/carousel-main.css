@@ -1,18 +1,6 @@
 @charset "UTF-8";
 .main-carousel {
   --f-carousel-dots-width: 22px;
-  --f-button-width: 44px;
-  --f-button-height: 40px;
-  --f-button-svg-width: 18px;
-  --f-button-svg-height: 18px;
-  --f-button-svg-stroke-width: 2;
-  --f-button-color: var(--black);
-  --f-button-hover-color: var(--black);
-  --f-button-border-radius: 4px;
-  --f-button-shadow: 0 0 0 1px var(--black10);
-  --f-button-bg: var(--white);
-  --f-button-hover-bg: var(--gray);
-  --f-button-active-bg: var(--white);
   margin-bottom: 90px
 }
 .main-carousel .f-progress {
@@ -26,15 +14,6 @@
 }
 .main-carousel li.is-current .f-carousel__dot {
   background-color: var(--black60)
-}
-.main-carousel .f-carousel__nav {
-  opacity: 0;
-  -webkit-transition: all .25s ease-in-out;
-  -o-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out
-}
-.main-carousel:hover .f-carousel__nav {
-  opacity: 1
 }
 .main-slide {
   display: -webkit-box;
@@ -207,11 +186,6 @@
   }
   .main-slide__subheader {
     font-size: 1.125rem
-  }
-}
-@media (max-width:1023px) {
-  .main-carousel .f-carousel__nav {
-    display: none
   }
 }
 @media (max-width:767px) {

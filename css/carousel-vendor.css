@@ -1161,7 +1161,28 @@
   --f-carousel-theme-color: var(--yellow);
   --f-carousel-dot-width: 5px;
   --f-carousel-dot-height: 5px;
-  --f-carousel-dots-width: 11px
+  --f-carousel-dots-width: 11px;
+  --f-button-width: 44px;
+  --f-button-height: 40px;
+  --f-button-svg-width: 18px;
+  --f-button-svg-height: 18px;
+  --f-button-svg-stroke-width: 2;
+  --f-button-color: var(--black);
+  --f-button-hover-color: var(--black);
+  --f-button-border-radius: 4px;
+  --f-button-shadow: 0 0 0 1px var(--black10);
+  --f-button-bg: var(--white);
+  --f-button-hover-bg: var(--gray);
+  --f-button-active-bg: var(--white)
+}
+.f-carousel .f-carousel__nav {
+  opacity: 0;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out
+}
+.f-carousel:hover .f-carousel__nav {
+  opacity: 1
 }
 .f-carousel__dot {
   background-color: var(--black60)
@@ -1170,16 +1191,15 @@
   background-color: var(--black)
 }
 .carousel-top-nav {
-  --f-button-width: 44px;
-  --f-button-height: 40px;
-  --f-button-svg-width: 18px;
-  --f-button-svg-height: 16px;
   --f-button-next-pos: 0;
   --f-button-prev-pos: 0;
   --f-button-bg: var(--gray)
 }
 .carousel-top-nav .f-carousel__nav {
   display: none
+}
+.f-carousel__slide img {
+  margin: 0 auto
 }
 @media (min-width:1280px) {
   .carousel-top-nav .f-carousel__nav {
@@ -1222,6 +1242,11 @@
     -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
     box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
     border-radius: 4px
+  }
+}
+@media (max-width:1023px) {
+  .f-carousel .f-carousel__nav {
+    display: none
   }
 }
 @media (hover:hover) {

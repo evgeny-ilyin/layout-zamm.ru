@@ -143,7 +143,7 @@
   min-height: 593px
 }
 .heading.text-white {
-  text-shadow: 0 0 3px var(--black-real)
+  text-shadow: 1px 1px 3px var(--black60)
 }
 @media (min-width:768px) {
   .heading__left {
