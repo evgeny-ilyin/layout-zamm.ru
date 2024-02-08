@@ -1,0 +1,63 @@
+<div class="content">
+	<div class="breadcrumbs">
+		<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a href="/" title="Главная" class="breadcrumbs__link" itemprop="item">
+					<span itemprop="name">Главная</span>
+				</a>
+				<meta itemprop="position" content="1" />
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<span itemprop="name">Новости / Статьи</span>
+				<meta itemprop="position" content="2" />
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="content">
+	<div class="h1">Новости ZAMM</div>
+
+	<div class="heading _singlecol text-white">
+		<span class="label label_yellow-light label_big label_rotate">Новый проект</span>
+		<div class="heading__left">
+			<div class="heading__text">
+				<h2>Офис The Люди</h2>
+				<p>Сделали мебель для офиса Ютуб-канал The Люди. Смотрите фото офиса в цвете Дуб Галифакс и в дополнение немного фото с нашего производства</p>
+				<div class="heading__icons">
+					<div class="heading__tags">
+						<div class="heading__tag">Статья</div>
+						<!-- <a href="/" class="heading__tag">Ссылка</a> --> <!-- если надо ссылкой -->
+					</div>
+					<div class="heading__views">1 256</div>
+				</div>
+			</div>
+			<div class="heading__button">
+				<a href="javascript:void(0)" class="btn btn_yellow btn_medium">Читать</a>
+			</div>
+		</div>
+
+		<div class="heading__right">
+			<div class="heading__tile">
+				<!-- если надо сделать ссылку на всей области картинки -->
+				<!-- <a href="javascript:void(0)"> -->
+				<picture>
+					<img src="@img/dev/ideas/idea-6.png" width="831" height="482" alt="" loading="lazy" class="heading__image">
+				</picture>
+				<!-- </a> -->
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="tiles">
+
+		@@include('../../templates/template-news-body.html', {
+		"link": "news-article.html"
+		})
+	</div>
+
+	@@include('../../components/pagination-news.html')
+
+</div>

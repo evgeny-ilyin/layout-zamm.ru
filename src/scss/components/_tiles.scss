@@ -60,6 +60,34 @@
 			border-radius: 2px;
 		}
 	}
+
+	// .tiles__simple
+	&__simple {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 16px;
+		margin-top: 8px;
+
+		@include respond-to(xm) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+		@include respond-to(lg) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+		.tile {
+			margin: 0;
+			
+			@include respond-to(xm) {
+				min-height: 418px;
+			}
+
+			@include respond-to(lg) {
+				min-height: 480px;
+			}
+		}
+	}
 }
 
 .tile {
