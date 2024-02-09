@@ -416,8 +416,6 @@ a:focus-visible {
   transition: none
 }
 .link-classic,
-.publication__body ol a,
-.publication__body ul a,
 p a {
   text-decoration: underline;
   text-decoration-color: var(--black30);
@@ -427,8 +425,6 @@ p a {
   transition: all .15s ease
 }
 .link-classic:hover,
-.publication__body ol a:hover,
-.publication__body ul a:hover,
 p a:hover {
   text-shadow: 0 0 0;
   text-decoration-color: var(--black60)
@@ -1971,7 +1967,9 @@ ol {
 }
 .btn-round svg {
   width: 16px;
-  height: 16px
+  height: 16px;
+  fill: currentColor;
+  stroke: currentColor
 }
 .btn-round[data-box-type=video] svg {
   margin-left: 3px;
@@ -3109,30 +3107,6 @@ input[type=file]:focus-visible ~ span {
 .popup-edge.is-active {
   bottom: 0
 }
-.publication {
-  max-width: 720px
-}
-.publication__tags {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-bottom: 16px
-}
-.publication__tags.scrollblock {
-  overflow-x: scroll
-}
-.publication__body {
-  margin-bottom: 56px
-}
-.publication__body p + h1 {
-  margin-top: 45px
-}
-.publication__body p + h2 {
-  margin-top: 27px
-}
-.publication__body img {
-  margin: 48px auto
-}
 .available {
   margin-bottom: 7px;
   display: -webkit-box;
@@ -3902,9 +3876,6 @@ input[type=file]:focus-visible ~ span {
     -webkit-transition: bottom .25s ease-in-out;
     -o-transition: bottom .25s ease-in-out;
     transition: bottom .25s ease-in-out
-  }
-  .publication__body {
-    font-size: 1.125rem
   }
   .banner-block__img {
     right: 140px

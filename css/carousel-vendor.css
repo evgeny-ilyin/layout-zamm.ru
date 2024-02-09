@@ -1201,6 +1201,10 @@
 .f-carousel__slide img {
   margin: 0 auto
 }
+.f-carousel__slide iframe {
+  display: block;
+  margin: 0 auto
+}
 @media (min-width:1280px) {
   .carousel-top-nav .f-carousel__nav {
     display: block;

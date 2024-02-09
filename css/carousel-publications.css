@@ -1,6 +1,14 @@
 .publication-carousel {
   margin-bottom: 40px
 }
+.publication-carousel .f-carousel__slide iframe {
+  max-width: 70vw;
+  max-height: 45vw
+}
+.publication-carousel .f-carousel__slide img {
+  -o-object-fit: contain;
+  object-fit: contain
+}
 .publication-carousel .f-carousel__track {
   -webkit-box-align: start;
   -ms-flex-align: start;
@@ -10,6 +18,25 @@
   .publication-carousel {
     --f-carousel-spacing: 12px
   }
+  .publication-carousel {
+    max-height: 490px;
+    overflow: hidden
+  }
+  .publication-carousel .f-carousel__slide img {
+    max-height: 490px
+  }
+}
+@media (min-width:1024px) {
+  .publication-carousel {
+    max-height: 520px
+  }
+  .publication-carousel .f-carousel__slide iframe {
+    width: 780px;
+    height: 440px
+  }
+  .publication-carousel .f-carousel__slide img {
+    max-height: 520px
+  }
 }
 @media (min-width:1280px) {
   .publication-carousel {
@@ -18,7 +45,15 @@
     --f-button-border: 1px solid rgba(0, 0, 0, 0.1);
     --f-button-shadow: 0 4px 28px 0 rgba(0, 0, 0, 0.15)
   }
+  .publication-carousel {
+    max-height: 620px
+  }
+  .publication-carousel .f-carousel__slide iframe {
+    width: 932px;
+    height: 525px
+  }
   .publication-carousel .f-carousel__slide img {
-    max-width: 932px
+    max-width: 932px;
+    max-height: 620px
   }
 }

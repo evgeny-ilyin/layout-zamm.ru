@@ -75,6 +75,7 @@
 }
 .tile__views {
   font-size: .8125rem;
+  font-weight: 600;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -86,7 +87,8 @@
 .tile__views svg {
   width: 20px;
   height: 20px;
-  margin-right: 6px
+  margin-right: 6px;
+  fill: currentColor
 }
 @media (min-width:577px) {
   .tiles__block {
