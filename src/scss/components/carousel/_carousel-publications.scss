@@ -1,0 +1,89 @@
+.publication-carousel {
+	// --f-carousel-slide-width: 932px;
+	margin-bottom: 40px;
+
+	@include respond-to(md) {
+		--f-carousel-spacing: #{$min-padding};
+	}
+
+	@include respond-to(xl) {
+		// --f-carousel-slide-width: 932px;
+		--f-button-next-pos: 60px;
+		--f-button-prev-pos: 60px;
+		--f-button-border: 1px solid rgba(0, 0, 0, 0.1);
+		--f-button-shadow: 0 4px 28px 0 rgba(0, 0, 0, 0.15);
+	}
+
+	// для избегания показа следующих слайдов по вертикали при загрузке страницы
+	@include respond-to(md) {
+		max-height: 490px;
+		overflow: hidden;
+	}
+
+	@include respond-to(lg) {
+		max-height: 520px;
+	}
+
+	@include respond-to(xl) {
+		max-height: 620px;
+	}
+
+	.f-carousel__slide {
+		iframe {
+			max-width: 70vw;
+			max-height: 45vw;
+
+			@include respond-to(lg) {
+				width: 780px;
+				height: 440px;
+			}
+
+			@include respond-to(xl) {
+				width: 932px;
+				height: 525px;
+			}
+		}
+
+		img {
+			object-fit: contain;
+
+			@include respond-to(md) {
+				max-height: 490px;
+			}
+
+			@include respond-to(lg) {
+				max-height: 520px;
+			}
+
+			@include respond-to(xl) {
+				max-width: 932px;
+				max-height: 620px;
+			}
+		}
+	}
+
+	.f-carousel__track {
+		align-items: flex-start;
+	}
+
+	// .f-progress {
+	// 	bottom: 0;
+	// 	top: auto;
+	// }
+
+	// .f-carousel__dots {
+	// 	justify-content: flex-start;
+	// }
+
+	// .f-carousel__dot {
+	// 	width: 16px;
+	// 	height: 5px;
+	// 	border-radius: 24px;
+	// }
+
+	// li.is-current {
+	// 	.f-carousel__dot {
+	// 		background-color: $black60;
+	// 	}
+	// }
+}
