@@ -87,6 +87,10 @@
 // 	white-space: nowrap;
 // }
 
+.flex {
+	display: flex;
+}
+
 .noscroll {
 	overflow: hidden;
 	width: 100vw;
@@ -152,6 +156,15 @@
 	scrollbar-width: none; /* Firefox */
 }
 
+.scroll-x {
+	overflow-x: scroll;
+}
+
+.scroll-y {
+	overflow-y: scroll;
+}
+
+
 /**
  * Animations
  */
@@ -216,10 +229,6 @@
 
 .block {
 	display: block;
-}
-
-.flex {
-	display: flex;
 }
 
 // collapse

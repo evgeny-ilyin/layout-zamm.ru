@@ -5,6 +5,10 @@
 	&__list {
 		display: flex;
 		flex-flow: row wrap;
+
+		@include when-inside('.text-center') {
+			justify-content: center;
+		}
 	}
 
 	// .breadcrumbs__item

@@ -191,6 +191,14 @@
 
 		.heading__tile {
 			position: static;
+
+			a {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
 		}
 
 		.heading__image {
@@ -210,6 +218,6 @@
 	}
 
 	&.text-white {
-		text-shadow: 0 0 3px $black-real;
+		text-shadow: 1px 1px 3px $black60;
 	}
 }
