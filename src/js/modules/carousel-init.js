@@ -10,7 +10,8 @@ if (!window.carouselsInit) {
 			...Carousel.defaults,
 			infinite: false,
 			center: false,
-			slidesPerPage: 1,
+			preload: 1,
+			// slidesPerPage: 1,
 			l10n: fRU,
 			Thumbs: {
 				type: "classic",
