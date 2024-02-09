@@ -1,20 +1,6 @@
 /*! Блок "Главная карусель" */
 .main-carousel {
 	--f-carousel-dots-width: 22px;
-
-	--f-button-width: 44px;
-	--f-button-height: 40px;
-	--f-button-svg-width: 18px;
-	--f-button-svg-height: 18px;
-	--f-button-svg-stroke-width: 2;
-	--f-button-color: #{$black};
-	--f-button-hover-color: #{$black};
-	--f-button-border-radius: 4px;
-	--f-button-shadow: 0 0 0 1px #{$black10};
-	--f-button-bg: #{$white};
-	--f-button-hover-bg: #{$gray};
-	--f-button-active-bg: #{$white};
-
 	margin-bottom: 90px;
 
 	@include respond-to(lg) {
@@ -39,21 +25,6 @@
 	li.is-current {
 		.f-carousel__dot {
 			background-color: $black60;
-		}
-	}
-
-	.f-carousel__nav {
-		opacity: 0;
-		transition: all $transition-default;
-
-		@include respond-to(lg, "max") {
-			display: none;
-		}
-	}
-
-	@include on-hover {
-		.f-carousel__nav {
-			opacity: 1;
 		}
 	}
 }
