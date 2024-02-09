@@ -1,0 +1,43 @@
+.publication {
+	max-width: 720px;
+
+	// .publication__tags
+	&__tags {
+		display: flex;
+		margin-bottom: 16px;
+
+		&.scrollblock {
+			overflow-x: scroll;
+		}
+	}
+
+	// .publication__body
+	&__body {
+		margin-bottom: 56px;
+
+		p {
+			& + h1 {
+				margin-top: 45px;
+			}
+
+			& + h2 {
+				margin-top: 27px;
+			}
+		}
+
+		ul,
+		ol {
+			a {
+				@extend %link-classic;
+			}
+		}
+
+		img {
+			margin: 48px auto;
+		}
+
+		@include respond-to(xl) {
+			font-size: rem(18);
+		}
+	}
+}
