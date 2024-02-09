@@ -76,6 +76,36 @@
 	--f-carousel-dot-width: 5px;
 	--f-carousel-dot-height: 5px;
 	--f-carousel-dots-width: 11px;
+
+	--f-button-width: 44px;
+	--f-button-height: 40px;
+	--f-button-svg-width: 18px;
+	--f-button-svg-height: 18px;
+
+	--f-button-svg-stroke-width: 2;
+	--f-button-color: #{$black};
+	--f-button-hover-color: #{$black};
+	--f-button-border-radius: 4px;
+	--f-button-shadow: 0 0 0 1px #{$black10};
+	--f-button-bg: #{$white};
+	--f-button-hover-bg: #{$gray};
+	--f-button-active-bg: #{$white};
+
+	
+	.f-carousel__nav {
+		opacity: 0;
+		transition: all $transition-default;
+
+		@include respond-to(lg, "max") {
+			display: none;
+		}
+	}
+
+	@include on-hover {
+		.f-carousel__nav {
+			opacity: 1;
+		}
+	}
 }
 
 .f-carousel__dot {
@@ -90,10 +120,6 @@
 
 // серые кнопки навигации в правом верхнем углу для простой галереи
 .carousel-top-nav {
-	--f-button-width: 44px;
-	--f-button-height: 40px;
-	--f-button-svg-width: 18px;
-	--f-button-svg-height: 16px;
 	--f-button-next-pos: 0;
 	--f-button-prev-pos: 0;
 	--f-button-bg: #{$gray};
@@ -147,5 +173,16 @@
 				}
 			}
 		}
+	}
+}
+
+.f-carousel__slide {
+	img {
+		margin: 0 auto;
+	}
+
+	iframe {
+		display: block;
+		margin: 0 auto;
 	}
 }
