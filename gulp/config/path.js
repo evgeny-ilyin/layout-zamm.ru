@@ -17,7 +17,7 @@ const jsFiles = [
 	"./src/js/cart.js",
 	"./src/js/order.js",
 	"./src/js/login.js",
-	"./src/js/interiors.js",
+	"./src/js/showroom.js",
 ];
 
 export const path = {
