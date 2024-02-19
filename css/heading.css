@@ -115,7 +115,8 @@
 .heading__views svg {
   width: 20px;
   height: 20px;
-  margin-right: 6px
+  margin-right: 6px;
+  fill: currentColor
 }
 .heading._singlecol {
   margin-bottom: 16px
@@ -127,6 +128,9 @@
   right: 0;
   bottom: 0;
   left: 0
+}
+.heading._singlecol .heading__text {
+  margin-right: 0
 }
 .heading._singlecol .heading__text p {
   font-size: 1.125rem;
@@ -177,6 +181,8 @@
   }
   .heading__left {
     width: 420px;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
     padding: 40px 24px 24px;
     -webkit-box-ordinal-group: 1;
     -ms-flex-order: 0;

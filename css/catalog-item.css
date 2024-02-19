@@ -23,6 +23,12 @@ body:not(.is-touch) .product-carousel .is-dragging .article,
 body:not(.is-touch) .product-carousel .is-dragging .fav {
   opacity: 0!important
 }
+body:not(.is-touch) .order .product-carousel .is-dragging .item {
+  background: 0 0!important
+}
+body:not(.is-touch) .order .product-carousel .is-dragging .item__details {
+  max-height: none!important
+}
 .item {
   position: relative;
   height: auto;
@@ -271,6 +277,11 @@ body:not(.is-touch) .is-active .item__gallery-nav::before {
   padding-bottom: 1px;
   overflow-x: scroll
 }
+@supports (-moz-appearance:none) {
+  .prop-collapse {
+    padding-bottom: 10px
+  }
+}
 .prop-collapse::before {
   content: "";
   display: block;
@@ -283,6 +294,11 @@ body:not(.is-touch) .is-active .item__gallery-nav::before {
   background: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),color-stop(75%,#f3f7fa));
   background: -o-linear-gradient(left,rgba(0,0,0,0) 0,#f3f7fa 75%);
   background: linear-gradient(90deg,rgba(0,0,0,0) 0,#f3f7fa 75%)
+}
+@supports (-moz-appearance:none) {
+  .prop-collapse::before {
+    bottom: 10px
+  }
 }
 .prop-collapse.is-opened {
   width: 100%;

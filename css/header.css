@@ -517,9 +517,13 @@ ol {
   overflow: hidden;
   overflow-y: auto;
   -ms-scroll-chaining: none;
-  overscroll-behavior: contain;
-  scrollbar-width: thin;
-  scrollbar-color: var(--gray-dark-second) var(--gray-light)
+  overscroll-behavior: contain
+}
+@supports (-moz-appearance:none) {
+  .scrollblock {
+    scrollbar-width: thin;
+    scrollbar-color: var(--gray-dark-second) var(--gray-light)
+  }
 }
 .scrollblock::-webkit-scrollbar {
   width: 4px;
@@ -1518,6 +1522,7 @@ ol {
   border-radius: 4px;
   padding: 12px 24px 10px;
   font-size: .9375rem;
+  font-weight: 500;
   line-height: 1.2;
   letter-spacing: -.3px;
   color: var(--black)!important;
@@ -1550,8 +1555,8 @@ ol {
   transition: opacity .25s ease-in-out
 }
 .btn:focus-visible {
-  -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
-  box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
+  -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10)!important;
+  box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10)!important;
   border-radius: 4px;
   outline: 0
 }
@@ -1680,6 +1685,22 @@ ol {
 .btn_white-transp:hover {
   background: rgba(255,255,255,.4)
 }
+.btn_transparent {
+  -webkit-box-shadow: 0 0 0 1px var(--black30);
+  box-shadow: 0 0 0 1px var(--black30)
+}
+.btn_transparent:hover {
+  -webkit-box-shadow: 0 0 0 1px var(--black70);
+  box-shadow: 0 0 0 1px var(--black70)
+}
+.btn_transparent:active {
+  -webkit-box-shadow: 0 0 0 1px var(--black);
+  box-shadow: 0 0 0 1px var(--black);
+  color: var(--black60)!important
+}
+.btn_transparent:active span::after {
+  opacity: .6
+}
 .btn_small {
   font-size: .8125rem;
   line-height: 1.1;
@@ -1730,6 +1751,32 @@ ol {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg)
+}
+.btn_arrow:focus-visible {
+  -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--gray-blue-light)!important;
+  box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--gray-blue-light)!important;
+  border-radius: 4px;
+  outline: 0
+}
+.btn_arrow.btn_white {
+  -webkit-box-shadow: 0 0 0 1px var(--white);
+  box-shadow: 0 0 0 1px var(--white)
+}
+.btn_arrow.btn_white:hover {
+  -webkit-box-shadow: 0 0 0 1px var(--black10);
+  box-shadow: 0 0 0 1px var(--black10)
+}
+.btn_arrow.btn_white:active {
+  -webkit-box-shadow: 0 0 0 1px var(--black60);
+  box-shadow: 0 0 0 1px var(--black60)
+}
+.btn_arrow.btn_yellow:focus-visible {
+  -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--yellow-light)!important;
+  box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--yellow-light)!important
+}
+.btn_arrow.btn_transparent:focus-visible {
+  -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black10)!important;
+  box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black10)!important
 }
 .btn_arrow-big {
   display: -webkit-box;
@@ -2216,7 +2263,8 @@ fieldset {
   margin-bottom: 16px
 }
 .form-item {
-  position: relative
+  position: relative;
+  margin-bottom: 12px
 }
 .form-item__info {
   width: 100%
@@ -2407,9 +2455,6 @@ fieldset {
 .is-active .textarea_nav-search:focus {
   background-image: none;
   padding: 12px
-}
-.form-item .input {
-  margin-bottom: 12px
 }
 label {
   cursor: pointer;
@@ -2766,6 +2811,10 @@ input[type=file]:focus-visible ~ span {
   background: var(--gray-dark);
   color: var(--black60)
 }
+.label_white {
+  background: var(--white);
+  color: var(--black)
+}
 .label_big {
   font-size: .9375rem;
   font-weight: 500;
@@ -2979,7 +3028,6 @@ input[type=file]:focus-visible ~ span {
   --modal-padding-x: 32px;
   --modal-max-w: 826px;
   min-width: 320px;
-  width: 100%;
   position: fixed;
   top: 0;
   right: 0;
@@ -2999,6 +3047,23 @@ input[type=file]:focus-visible ~ span {
 .modal.is-active {
   z-index: 12;
   opacity: 1
+}
+.modal.is-video {
+  width: 100%
+}
+.modal.is-image {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none
+}
+.modal.is-image img {
+  max-height: 90dvh
 }
 .modal__head {
   font-size: 1.25rem;
@@ -3106,6 +3171,32 @@ input[type=file]:focus-visible ~ span {
 }
 .popup-edge.is-active {
   bottom: 0
+}
+.note {
+  position: relative;
+  border-radius: 8px;
+  padding: 8px 8px 8px 16px;
+  margin: 24px 0;
+  background: var(--white);
+  font-size: .875rem;
+  line-height: 1.3
+}
+.note::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: 8px;
+  width: 3px;
+  background: var(--black);
+  border-radius: 2px
+}
+.note_yellow {
+  background: var(--yellow-light)
+}
+.note_yellow::before {
+  background: var(--yellow-dark)
 }
 .available {
   margin-bottom: 7px;
@@ -3338,6 +3429,72 @@ input[type=file]:focus-visible ~ span {
 .banner-block__img._bg-yellow-light::after {
   background: var(--yellow-light)
 }
+.tags-collapse {
+  padding-right: 30px;
+  overflow-x: scroll;
+  border-bottom: none
+}
+.tags-collapse::before {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  height: 42px;
+  width: 30px;
+  z-index: 1;
+  background: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),color-stop(60%,#fff));
+  background: -o-linear-gradient(left,rgba(0,0,0,0) 0,#fff 60%);
+  background: linear-gradient(90deg,rgba(0,0,0,0) 0,#fff 60%)
+}
+.tags-collapse.is-opened {
+  width: 100%;
+  height: auto;
+  padding-right: 12px;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  overflow-x: hidden
+}
+.tags-collapse.is-opened .js-tags-collapse::after {
+  -webkit-transform: translateY(2px) rotate(-90deg);
+  -ms-transform: translateY(2px) rotate(-90deg);
+  transform: translateY(2px) rotate(-90deg)
+}
+.js-tags-collapse {
+  display: none
+}
+.tags-collapse .js-tags-collapse {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 25px;
+  height: 42px;
+  right: 0;
+  padding: 0;
+  border: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: 0 0
+}
+.tags-collapse .js-tags-collapse::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: calc(50% - 7px);
+  right: 1px;
+  width: 11px;
+  height: 14px;
+  background: var(--svg-angle) center no-repeat;
+  -webkit-transform: translateY(1px) rotate(90deg);
+  -ms-transform: translateY(1px) rotate(90deg);
+  transform: translateY(1px) rotate(90deg);
+  -webkit-transition: -webkit-transform .25s ease-in-out;
+  transition: -webkit-transform .25s ease-in-out;
+  -o-transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out;
+  transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
+}
 @media (min-width:425px) {
   .nav__icon {
     position: relative
@@ -3412,7 +3569,13 @@ input[type=file]:focus-visible ~ span {
     margin-top: 50px;
     margin-bottom: 32px;
     text-align: left;
-    font-size: 1.5rem
+    font-size: 1.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between
   }
   .header-alert {
     padding: 7px 0
@@ -3453,6 +3616,10 @@ input[type=file]:focus-visible ~ span {
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%)
+  }
+  .modal.is-image img {
+    margin: 0 auto;
+    max-height: calc(100dvh - 143px - 143px)
   }
   .modal__head {
     font-size: 1.625rem

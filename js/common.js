@@ -276,11 +276,16 @@ if (!window.showHidden) {
 		document.addEventListener("click", (e) => {
 			const el = e.target.closest(".js-show-hidden");
 			if (!el) return;
-			const hiddens = el.parentElement.querySelectorAll(`.${hiddenClass}`);
-			hiddens.forEach((h) => {
-				h.classList.remove(hiddenClass);
-			});
-			el.classList.add(hiddenClass);
+			if (el.dataset.target) {
+				el.parentElement.classList.add(hiddenClass);
+				document.querySelector(`.${el.dataset.target}`).classList.remove(hiddenClass);
+			} else {
+				const hiddens = el.parentElement.querySelectorAll(`.${hiddenClass}`);
+				hiddens.forEach((h) => {
+					h.classList.remove(hiddenClass);
+				});
+				el.classList.add(hiddenClass);
+			}
 		});
 	};
 }
@@ -318,14 +323,15 @@ if (!window.catalogItemGalleriesInit) {
 			return;
 		}
 
-		const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel");
+		const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel, .showrooms");
 
 		galleryItems.forEach((el) => {
 			if (!el) return;
 
-			let items = el.querySelectorAll(".item");
+			let items = el.querySelectorAll(".item, .sr-card");
 			items.forEach((i) => {
-				i.querySelector(".item__gallery-item").classList.add(isActiveClass);
+				let gallery = i.querySelector(".item__gallery-item, .js-gallery");
+				if (gallery) gallery.classList.add(isActiveClass);
 			});
 		});
 	};
@@ -333,17 +339,18 @@ if (!window.catalogItemGalleriesInit) {
 
 if (!window.catalogItemGalleryHandler) {
 	window.catalogItemGalleryHandler = () => {
-		const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel"),
+		const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel, .showrooms"),
 			isActiveClass = "is-active";
 
 		galleryItems.forEach((el) => {
 			if (!el) return;
 			el.addEventListener("mouseover", (e) => {
-				const item = e.target.closest(".item");
+				const item = e.target.closest(".item, .sr-card__gallery");
 				if (!item) return;
-
-				const gallery = item.querySelector(".item__gallery-wrapper"),
-					gItems = gallery.querySelectorAll(".item__gallery-item");
+				const gallery = item.querySelector(".item__gallery-wrapper, .sr-card__gallery-wrapper");
+				if (!gallery) return;
+				const gItems = gallery.querySelectorAll(".item__gallery-item, .js-gallery");
+				if (!gItems) return;
 
 				gallery.addEventListener("mouseenter", () => {
 					gItems.forEach((i) => {
@@ -356,7 +363,7 @@ if (!window.catalogItemGalleryHandler) {
 
 				gallery.addEventListener("mouseleave", () => {
 					gallery.querySelectorAll(`.${isActiveClass}`).forEach((e) => e.classList.remove(isActiveClass));
-					gallery.querySelector(".item__gallery-item").classList.add(isActiveClass);
+					gallery.querySelector(".item__gallery-item, .js-gallery").classList.add(isActiveClass);
 				});
 			});
 		});
@@ -861,7 +868,7 @@ function hamburgerMenu() {
 }
 
 function modalHandler() {
-	let createModal = () => {
+	let createModal = (type = false) => {
 		const modalClass = "modal",
 			modalExist = document.querySelector(`.${modalClass}`);
 		if (modalExist) modalExist.remove();
@@ -870,6 +877,7 @@ function modalHandler() {
 			btn = document.createElement("button");
 
 		modal.classList.add(modalClass, "scrollblock");
+		if (type) modal.classList.add(`is-${type}`);
 		btn.classList.add("btn", "btn_close", "btn_close-modal", "js-modal-close");
 		btn.ariaLabel = "Закрыть";
 		modal.appendChild(btn);
@@ -880,7 +888,8 @@ function modalHandler() {
 	let fetchByUrl = async (url, origin) => {
 		if (!url) return;
 
-		let width = origin.dataset.boxWidth || false;
+		let boxWidth = origin.dataset.boxWidth || false,
+			boxType = origin.dataset.boxType || false;
 
 		try {
 			let response = await fetch(url);
@@ -890,10 +899,10 @@ function modalHandler() {
 			let result = await response.json();
 			if (result.status === true) {
 				if (result.nocache === true) {
-					setModalContent(result.content, width);
+					setModalContent(result.content, { width: boxWidth, type: boxType });
 				} else {
 					const key = getRandomStr(8);
-					setModalContent(result.content, width, origin, key);
+					setModalContent(result.content, { width: boxWidth, type: boxType, origin: origin, key: key });
 				}
 				if (result.svg) {
 					addToSvgSprite(result.svg);
@@ -907,12 +916,12 @@ function modalHandler() {
 		}
 	};
 
-	let setModalContent = (content, width = false, origin = false, key = false) => {
-		const modalWrapper = createModal(),
+	let setModalContent = (content, arg) => {
+		const modalWrapper = createModal(arg.type),
 			menuToggler = document.getElementById("menu-toggle"),
 			isActiveClass = "is-active";
 
-		if (width) modalWrapper.style.maxWidth = `${parseInt(width)}px`;
+		if (arg.width) modalWrapper.style.maxWidth = `${parseInt(arg.width)}px`;
 		modalWrapper.insertAdjacentHTML("beforeend", content);
 
 		if (modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top > window.innerHeight) {
@@ -927,11 +936,37 @@ function modalHandler() {
 			overlay(1);
 		}, 10);
 
-		if (origin && key) {
-			origin.dataset.storageKey = key;
-			localStorage.setItem(key, content);
+		if (arg.origin && arg.key) {
+			arg.origin.dataset.storageKey = arg.key;
+			localStorage.setItem(arg.key, content);
 		}
 	};
+
+	// let setModalContent = (content, width = false, origin = false, key = false) => {
+	// 	const modalWrapper = createModal(),
+	// 		menuToggler = document.getElementById("menu-toggle"),
+	// 		isActiveClass = "is-active";
+
+	// 	if (width) modalWrapper.style.maxWidth = `${parseInt(width)}px`;
+	// 	modalWrapper.insertAdjacentHTML("beforeend", content);
+
+	// 	if (modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top > window.innerHeight) {
+	// 		modalWrapper.style.bottom = "50px";
+	// 	}
+
+	// 	reinitModalResults(modalWrapper);
+
+	// 	setTimeout(() => {
+	// 		menuToggler.checked = false;
+	// 		modalWrapper.classList.add(isActiveClass);
+	// 		overlay(1);
+	// 	}, 10);
+
+	// 	if (origin && key) {
+	// 		origin.dataset.storageKey = key;
+	// 		localStorage.setItem(key, content);
+	// 	}
+	// };
 
 	let reinitModalResults = (target) => {
 		// inputFetch(target);
@@ -943,14 +978,15 @@ function modalHandler() {
 	let videoIframe = async (url, origin) => {
 		if (!url) return;
 
-		let width = origin.dataset.boxWidth || false;
+		let boxWidth = origin.dataset.boxWidth || false,
+			boxType = origin.dataset.boxType || false;
 
 		// шаблон iframe
 		const iframe = document.createElement("div");
 		iframe.classList.add("modal__body", "_player");
 		iframe.innerHTML = `<iframe src="${url}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>`;
 
-		setModalContent(iframe.outerHTML, width);
+		setModalContent(iframe.outerHTML, { width: boxWidth, type: boxType });
 	};
 
 	document.addEventListener("click", (e) => {
@@ -962,21 +998,21 @@ function modalHandler() {
 		if (modalShow) {
 			e.preventDefault();
 			let url = "",
-				width = modalShow.dataset.boxWidth,
-				type = modalShow.dataset.boxType,
+				boxWidth = modalShow.dataset.boxWidth,
+				boxType = modalShow.dataset.boxType,
 				storageKey = modalShow.dataset.storageKey;
 
 			// from storage
 			if (storageKey) {
 				let content = localStorage.getItem(storageKey);
 				if (content) {
-					setModalContent(content, width);
+					setModalContent(content, { width: boxWidth, type: boxType });
 					return;
 				}
 			}
 
 			// yt video
-			if (type == "video") {
+			if (boxType == "video") {
 				url = modalShow.href;
 				if (!url) return;
 				videoIframe(url, modalShow);

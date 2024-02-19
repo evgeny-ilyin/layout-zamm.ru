@@ -196,6 +196,88 @@
 .cart-pack span:last-child::after {
   content: ""
 }
+.amount-element {
+  --svg-minus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 2'%3E%3Cpath fill='%23333' fill-rule='evenodd' d='M14 1a.75.75 0 0 1-.75.75h-12a.75.75 0 0 1 0-1.5h12A.75.75 0 0 1 14 1Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  --svg-plus: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath fill='%23333' fill-rule='evenodd' d='M8 1a.75.75 0 0 0-1.5 0v5.25H1.25a.75.75 0 1 0 0 1.5H6.5V13A.75.75 0 0 0 8 13V7.75h5.25a.75.75 0 0 0 0-1.5H8V1Z' clip-rule='evenodd'/%3E%3C/svg%3E");
+  position: relative;
+  border: 1px solid var(--black10);
+  border-radius: 4px;
+  background: var(--white);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.amount-element._lg {
+  width: 117px;
+  -ms-flex-pack: distribute;
+  justify-content: space-around
+}
+.amount-element._lg button {
+  height: 40px
+}
+.amount-element._lg button::before {
+  opacity: .6;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out
+}
+.amount-element._lg button:hover::before {
+  opacity: 1
+}
+.amount-element._lg button:focus-visible::before {
+  opacity: 1
+}
+.amount-element input[type=number] {
+  cursor: default;
+  background: var(--white);
+  width: 25px;
+  height: 20px;
+  padding: 0;
+  text-align: center;
+  border: 0;
+  -webkit-appearance: textfield!important;
+  -moz-appearance: textfield!important;
+  appearance: textfield!important
+}
+.amount-element input[type=number]::-webkit-inner-spin-button,
+.amount-element input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none
+}
+.amount-element button {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: var(--white);
+  border: 0!important
+}
+.amount-element button::before {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px
+}
+.amount-element button.js-btn-minus::before {
+  background: var(--svg-minus) no-repeat center
+}
+.amount-element button.js-btn-plus::before {
+  background: var(--svg-plus) no-repeat center
+}
 @media (min-width:768px) {
   .cart-tools {
     padding-bottom: 56px

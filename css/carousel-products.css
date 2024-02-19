@@ -25,6 +25,9 @@
   -ms-flex: 1;
   flex: 1
 }
+.product-carousel .f-carousel__dots {
+  z-index: -1
+}
 .product-carousel._extra {
   --f-carousel-spacing: 12px;
   --f-carousel-slide-width: 260px
