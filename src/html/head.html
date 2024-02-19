@@ -5,48 +5,184 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
+	<!-- common header -->
 	<link rel="stylesheet" href="css/root-vars.css">
 	<link rel="stylesheet" href="css/fonts.css">
 	<link rel="stylesheet" href="css/header.css">
 	<link rel="stylesheet" href="css/carousel-vendor.css">
 
+	@@if (stylesFor === '404') {
+	<!-- 404 -->
+	<link rel="stylesheet" href="css/error-pages.css">
+	}
+
+	@@if (stylesFor === 'index') {
+	<!-- index -->
 	<link rel="stylesheet" href="css/carousel-main.css">
 	<link rel="stylesheet" href="css/carousel-products.css">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css">
-	<link rel="stylesheet" href="css/carousel-interiors.css">
-	<link rel="stylesheet" href="css/carousel-publications.css">
-
+	<link rel="stylesheet" href="css/catalog-item.css">
 	<link rel="stylesheet" href="css/block-popular-categories.css">
 	<link rel="stylesheet" href="css/block-ideas.css">
-
 	<link rel="stylesheet" href="css/block-about.css">
+	<link rel="stylesheet" href="css/block-showrooms.css">
+	}
 
+	@@if (stylesFor === 'catalog') {
+	<!-- catalog -->
+	<link rel="stylesheet" href="css/carousel-products.css">
 	<link rel="stylesheet" href="css/catalog-item.css">
-
 	<link rel="stylesheet" href="css/catalog.css">
 	<link rel="stylesheet" href="css/catalog-filter.css">
-
 	<link rel="stylesheet" href="css/catalog-old-article.css">
+	<link rel="stylesheet" href="css/block-popular-categories.css">
+	<link rel="stylesheet" href="css/pagination.css">
+	}
 
+	@@if (stylesFor === 'catalog-sub') {
+	<!-- catalog-sub -->
+	<link rel="stylesheet" href="css/heading-tags.css">
+	<link rel="stylesheet" href="css/carousel-products.css">
+	<link rel="stylesheet" href="css/catalog-item.css">
+	<link rel="stylesheet" href="css/catalog.css">
+	<link rel="stylesheet" href="css/catalog-filter.css">
+	<link rel="stylesheet" href="css/catalog-old-article.css">
+	<link rel="stylesheet" href="css/block-popular-categories.css">
+	<link rel="stylesheet" href="css/pagination.css">
+	}
+
+	@@if (stylesFor === 'product') {
+	<!-- product -->
+	<link rel="stylesheet" href="css/carousel-products.css">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css">
+	<link rel="stylesheet" href="css/catalog-item.css">
 	<link rel="stylesheet" href="css/product-card.css">
+	}
 
+	@@if (stylesFor === 'cart') {
+	<!-- cart -->
+	<link rel="stylesheet" href="css/carousel-products.css">
+	<link rel="stylesheet" href="css/catalog-item.css">
 	<link rel="stylesheet" href="css/cart.css">
+	}
 
+	@@if (stylesFor === 'order') {
+	<!-- order -->
 	<link rel="stylesheet" href="css/order.css">
+	}
 
-	<link rel="stylesheet" href="css/login.css">
+	@@if (stylesFor === 'order-confirmed') {
+	<!-- order-confirmed -->
+	<link rel="stylesheet" href="css/order.css">
+	}
+
+	@@if (stylesFor === 'personal-profile') {
+	<!-- personal-profile -->
 	<link rel="stylesheet" href="css/personal.css">
+	}
 
-	<link rel="stylesheet" href="css/error-pages.css">
+	@@if (stylesFor === 'personal-orders') {
+	<!-- personal-orders -->
+	<link rel="stylesheet" href="css/catalog-item.css">
+	<link rel="stylesheet" href="css/personal.css">
+	}
 
+	@@if (stylesFor === 'personal-favourites') {
+	<!-- personal-favourites -->
+	<link rel="stylesheet" href="css/catalog-item.css">
+	<link rel="stylesheet" href="css/catalog.css">
+	<link rel="stylesheet" href="css/personal.css">
+	}
+
+	@@if (stylesFor === 'personal-history') {
+	<!-- personal-history -->
+	<link rel="stylesheet" href="css/catalog-item.css">
+	<link rel="stylesheet" href="css/catalog.css">
+	<link rel="stylesheet" href="css/personal.css">
+	}
+
+	@@if (stylesFor === 'personal-profiles') {
+	<!-- personal-history -->
+	<link rel="stylesheet" href="css/personal.css">
+	}
+
+	@@if (stylesFor === 'personal-login') {
+	<!-- personal-login -->
+	<link rel="stylesheet" href="css/login.css">
+	}
+
+	@@if (stylesFor === 'interiors-projects') {
+	<!-- interiors-projects -->
 	<link rel="stylesheet" href="css/heading-tags.css">
 	<link rel="stylesheet" href="css/heading.css">
 	<link rel="stylesheet" href="css/tiles.css">
 	<link rel="stylesheet" href="css/tiles-furniture.css">
 	<link rel="stylesheet" href="css/interiors.css">
+	<link rel="stylesheet" href="css/pagination.css">
+	}
+
+	@@if (stylesFor === 'interiors-project') {
+	<!-- interiors-project -->
+	<link rel="stylesheet" href="css/carousel-products.css">
+	<link rel="stylesheet" href="css/carousel-interiors.css">
+	<link rel="stylesheet" href="css/block-ideas.css">
+	<link rel="stylesheet" href="css/catalog-item.css">
+	<link rel="stylesheet" href="css/tiles.css">
+	<link rel="stylesheet" href="css/tiles-furniture.css">
+	<link rel="stylesheet" href="css/interiors.css">
+	}
+
+	@@if (stylesFor === 'interiors-ideas') {
+	<!-- interiors-ideas -->
+	<link rel="stylesheet" href="css/heading-tags.css">
+	<link rel="stylesheet" href="css/heading.css">
+	<link rel="stylesheet" href="css/tiles.css">
+	<link rel="stylesheet" href="css/tiles-furniture.css">
+	<link rel="stylesheet" href="css/interiors.css">
+	<link rel="stylesheet" href="css/pagination.css">
+	}
+
+	@@if (stylesFor === 'interiors-idea') {
+	<!-- interiors-idea -->
+	<link rel="stylesheet" href="css/carousel-products.css">
+	<link rel="stylesheet" href="css/carousel-interiors.css">
+	<link rel="stylesheet" href="css/block-ideas.css">
+	<link rel="stylesheet" href="css/catalog-item.css">
+	<link rel="stylesheet" href="css/tiles.css">
+	<link rel="stylesheet" href="css/tiles-furniture.css">
+	<link rel="stylesheet" href="css/interiors.css">
+	}
+
+	@@if (stylesFor === 'news-list') {
+	<!-- news-list -->
+	<link rel="stylesheet" href="css/heading.css">
+	<link rel="stylesheet" href="css/tiles.css">
+	<link rel="stylesheet" href="css/pagination.css">
+	}
+
+	@@if (stylesFor === 'news-details') {
+	<!-- news-details -->
+	<link rel="stylesheet" href="css/carousel-products.css">
+	<link rel="stylesheet" href="css/carousel-publications.css">
+	<link rel="stylesheet" href="css/catalog-item.css">
 	<link rel="stylesheet" href="css/publication-detail.css">
 	<link rel="stylesheet" href="css/publications-preview.css">
+	}
 
+	@@if (stylesFor === 'showroom-list') {
+	<!-- showroom-list -->
+	<link rel="stylesheet" href="css/map.css">
+	<link rel="stylesheet" href="css/showrooms.css">
+	}
+
+	@@if (stylesFor === 'showroom-details') {
+	<!-- showroom-details -->
+	<link rel="stylesheet" href="css/heading.css">
+	<link rel="stylesheet" href="css/carousel-showroom.css">
+	<link rel="stylesheet" href="css/map.css">
+	<link rel="stylesheet" href="css/showrooms.css">
+	}
+
+	<!-- common footer -->
 	<link rel="stylesheet" href="css/carousel-footer.css">
 	<link rel="stylesheet" href="css/footer.css">
 
