@@ -41,6 +41,7 @@ $bright-blue60: var(--bright-blue60);
 $gray-dark-second: var(--gray-dark-second);
 $yellow-light: var(--yellow-light);
 $gray-blue: var(--gray-blue);
+$gray-blue-light: var(--gray-blue-light);
 $gray-yellow: var(--gray-yellow);
 $red: var(--red);
 $gray-light: var(--gray-light);
@@ -103,7 +104,7 @@ $max-padding: 16px !default; // 768+ (md)
 /// @prop {String} keys - Keys are identifiers mapped to a given length
 /// @prop {Map} values - Values are actual breakpoints expressed in pixels
 $breakpoints: (
-	"xs": 320px,
+	"xs": 375px,
 	"sm": 425px,
 	"xm": 577px,
 	"md": 768px,
