@@ -138,3 +138,65 @@
 		}
 	}
 }
+
+.tags-collapse {
+	padding-right: 30px;
+	overflow-x: scroll;
+	border-bottom: none;
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		right: 0;
+		height: 42px;
+		width: 30px;
+		z-index: 1;
+		background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(255, 255, 255) 60%);
+	}
+
+	&.is-opened {
+		width: 100%;
+		height: auto;
+		padding-right: 12px;
+		flex-wrap: wrap;
+		overflow-x: hidden;
+
+		.js-tags-collapse {
+			&::after {
+				transform: translateY(2px) rotate(-90deg);
+			}
+		}
+	}
+}
+
+// collapse
+.js-tags-collapse {
+	display: none;
+
+	@include when-inside(".tags-collapse") {
+		display: block;
+		position: absolute;
+		z-index: 1;
+		width: 25px;
+		height: 42px;
+		right: 0;
+		padding: 0;
+		border: none;
+		user-select: none;
+		background: transparent;
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: calc(50% - 7px);
+			right: 1px;
+			width: 11px;
+			height: 14px;
+			background: $svg-angle center no-repeat;
+			transform: translateY(1px) rotate(90deg);
+			transition: transform $transition-default;
+		}
+	}
+}
