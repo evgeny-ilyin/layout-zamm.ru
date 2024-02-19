@@ -10,7 +10,7 @@
 	}
 
 	@include respond-to(md) {
-		--f-carousel-spacing: 16px;
+		--f-carousel-spacing: #{$max-padding};
 		--f-carousel-slide-width: calc((100% - 32px) / 3);
 	}
 

@@ -1,12 +1,12 @@
 .product-carousel {
-	--f-carousel-spacing: 12px;
+	--f-carousel-spacing: #{$min-padding};
 	--f-carousel-slide-width: 300px;
 	margin-left: -12px;
 	margin-right: -12px;
 	margin-bottom: 80px;
 
 	@include respond-to(md) {
-		--f-carousel-spacing: 16px;
+		--f-carousel-spacing: #{$max-padding};
 		margin-left: -16px;
 		margin-right: -16px;
 	}
@@ -29,12 +29,16 @@
 		}
 	}
 
+	.f-carousel__dots {
+		z-index: -1;
+	}
+
 	&._extra {
-		--f-carousel-spacing: 12px;
+		--f-carousel-spacing: #{$min-padding};
 		--f-carousel-slide-width: 260px;
 
 		@include respond-to(md) {
-			--f-carousel-spacing: 16px;
+			--f-carousel-spacing: #{$max-padding};
 			--f-carousel-slide-width: 300px;
 		}
 
