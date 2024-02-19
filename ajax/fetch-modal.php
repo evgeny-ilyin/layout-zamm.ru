@@ -136,13 +136,14 @@ try {
 			</div>';
 			$nocache = true;
 			break;
-			// case 'youtube':
-			// 	$content = '
-			// 	<iframe src="https://www.youtube.com/embed/BbGmMjo3yEA" frameborder="0" allowfullscreen="allowfullscreen"></iframe>';
-			// 	$nocache = true;
-			// 	break;
-
-
+			case 'image_path_auto':
+				$content = '<div class="modal__head"></div>
+				<div class="modal__body"><img src="img/dev/showrooms/route-car-details.jpg" alt=""></div>';
+				break;
+			case 'image_path_walk':
+				$content = '<div class="modal__head"></div>
+				<div class="modal__body"><img src="img/dev/showrooms/route-ped-details.jpg" alt=""></div>';
+				break;
 
 
 
