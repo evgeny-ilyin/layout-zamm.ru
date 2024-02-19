@@ -1,4 +1,4 @@
-// "xs": 320px,
+// "xs": 375px,
 // "sm": 425px,
 // "xm": 577px,
 // "md": 768px,
@@ -8,7 +8,6 @@
 	--modal-padding-x: 32px;
 	--modal-max-w: 826px;
 	min-width: $min-width;
-	width: 100%;
 	position: fixed;
 	top: 0;
 	right: 0;
@@ -38,6 +37,27 @@
 	&.is-active {
 		z-index: 12;
 		opacity: 1;
+	}
+
+	&.is-video {
+		width: 100%;
+	}
+
+	&.is-image {
+		width: fit-content;
+		margin: 0 auto;
+		left: 0;
+		right: 0;
+		transform: none;
+
+		img {
+			max-height: 90dvh;
+			
+			@include respond-to(md) {
+				margin: 0 auto;
+				max-height: calc(100dvh - 143px - 143px);
+			}
+		}
 	}
 
 	// .modal__head
