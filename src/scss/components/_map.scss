@@ -1,0 +1,91 @@
+.map {
+	// .map_showroom
+	&_showroom {
+		height: 100%;
+		min-height: 265px;
+
+		@include respond-to(md) {
+			height: calc(457px - 11px - 11px);
+		}
+	
+		@include respond-to(lg) {
+			height: calc(544px - 8px - 8px);
+		}
+	}
+
+	// .map_showroom-all
+	&_showroom-all {
+		height: 606px;
+	}
+
+	.btn {
+		margin: 8px 0 1px 1px;
+	}
+
+	ymaps {
+		box-shadow: none;
+	}
+
+	[class$="default-cluster"] > ymaps {
+		font-family: "Manrope";
+		font-size: rem(24);
+		font-weight: 700;
+	}
+
+	[class$="cluster-content__header"] {
+		display: none;
+	}
+
+	[class$="balloon__layout"] {
+		border-radius: 4px;
+	}
+
+	[class$="balloon__tail"] {
+		// display: none;
+		background: $white;
+	}
+
+	[class$="balloon__content"] {
+		font-family: "Manrope";
+		padding: 10px 16px;
+
+		b,
+		strong {
+			display: inline-block;
+			font-size: rem(15);
+			line-height: 1;
+		}
+
+		// & > ymaps {
+		// 	max-height: 140px;
+		// }
+	}
+
+	// [class$="cluster-content"],
+	// [class$="cluster-tabs__menu"] {
+	// 	max-height: 140px;
+	// }
+
+	[class$="cluster-tabs__menu-item"] {
+		font-family: "Manrope";
+		line-height: 1.2;
+		padding: 4px 10px;
+	}
+
+	[class$="cluster-tabs__menu-item_current_yes"] {
+		font-family: "Manrope";
+		line-height: 1.2;
+		padding: 4px 10px;
+		background: $gray-dark;
+	}
+
+	[class$="cluster-tabs__section_type_nav"] {
+		border-color: $gray-dark;
+	}
+
+	[class$="cluster-tabs__content-item"] {
+		.btn {
+			margin-top: 16px;
+		}
+	}
+}

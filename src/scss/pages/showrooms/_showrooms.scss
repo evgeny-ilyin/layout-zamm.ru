@@ -1,0 +1,462 @@
+.showrooms {
+	// .showrooms__list
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+		gap: 8px;
+		margin-bottom: 112px;
+
+		@include respond-to(xm) {
+			gap: 12px;
+		}
+
+		@include respond-to(lg) {
+			grid-template-columns: repeat(2, 1fr);
+			gap: 16px;
+		}
+	}
+
+	// .showrooms__map
+	&__map {
+	}
+}
+
+.sr-card {
+	background: $gray;
+	min-height: 204px;
+	display: flex;
+	flex-flow: row nowrap;
+	border-radius: 0 4px 4px 0;
+
+	@include respond-to(xm) {
+		min-height: 260px;
+	}
+
+	// .sr-card__desc
+	&__desc {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: space-between;
+		padding: 16px;
+
+		@include respond-to(xm) {
+			flex: 0 0 50%;
+		}
+
+		span {
+			color: $black60;
+		}
+	}
+
+	// .sr-card__name
+	&__name {
+	}
+
+	// .sr-card__address
+	&__address {
+		display: flex;
+		align-items: center;
+		margin-bottom: 11px;
+
+		@include respond-to(xm) {
+			display: block;
+		}
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	// .sr-card__icon
+	&__icon {
+		display: flex;
+		align-items: center;
+		margin-right: 4px;
+
+		span {
+			font-size: rem(14);
+			line-height: 1.3;
+			color: $black60;
+			white-space: nowrap;
+			margin-left: 4px;
+		}
+
+		@include respond-to(xm) {
+			margin: 0 0 9px 0;
+		}
+	}
+
+	// .sr-card__street
+	&__street {
+		font-weight: 700;
+
+		@include respond-to(xm) {
+			font-size: rem(18);
+		}
+	}
+
+	// .sr-card__hours
+	&__hours {
+		display: grid;
+		grid-template-rows: repeat(1, 1fr);
+	}
+
+	// .sr-card__contacts
+	&__contacts {
+		display: grid;
+		grid-template-rows: repeat(1, 1fr);
+		gap: 2px;
+		font-size: rem(14);
+		line-height: 1.4;
+		margin-top: 16px;
+
+		span {
+			display: block;
+		}
+	}
+
+	// .sr-card__note
+	&__note {
+		border-top: 1px solid $black-real10;
+		margin-top: 20px;
+
+		.note {
+			margin: 16px 0;
+		}
+	}
+
+	// .sr-card__gallery
+	&__gallery {
+		display: none;
+		position: relative;
+
+		@include respond-to(xm) {
+			display: block;
+			flex: 0 0 50%;
+		}
+	}
+
+	// .sr-card__gallery-wrapper
+	&__gallery-wrapper {
+		display: flex;
+		flex-direction: row;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		padding: 0 8px;
+		border-radius: 4px;
+		z-index: 2;
+	}
+
+	// .sr-card__gallery-item
+	&__gallery-item {
+		flex-grow: 1;
+		margin-bottom: 8px;
+
+		@include when-inside("body.is-touch") {
+			&:not(:first-child) {
+				display: none;
+			}
+		}
+
+		&.is-active {
+			img {
+				opacity: 1;
+			}
+		}
+
+		img {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			opacity: 0;
+			transition: opacity $transition-default;
+			width: 100%;
+			height: 100%;
+			border-radius: 4px;
+			object-fit: cover;
+			pointer-events: none;
+		}
+	}
+
+	// .sr-card__gallery-nav
+	&__gallery-nav {
+		display: block;
+		position: relative;
+		height: 100%;
+
+		@include when-inside("body:not(.is-touch)") {
+			margin: 0 3px 0 0;
+
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+
+		&::before {
+			content: "";
+			cursor: pointer;
+			display: block;
+			height: 1px;
+			background-color: rgba($color: #fff, $alpha: 0.3);
+			transition: background 0.2s ease-in-out;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 1;
+
+			@include when-inside("body.is-touch") {
+				display: none;
+			}
+
+			@include when-inside("body:not(.is-touch) .is-active") {
+				background: $white;
+			}
+		}
+	}
+}
+
+.heading {
+	&._showroom {
+		background: $gray;
+		border-radius: 8px;
+		margin-bottom: 112px;
+		margin-left: -$min-padding;
+		margin-right: -$min-padding;
+
+		@include respond-to(xm) {
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.heading__left {
+			background: none;
+			padding-top: 32px;
+
+			@include respond-to(xm, "max") {
+				padding-left: $min-padding;
+				padding-right: $min-padding;
+			}
+		}
+
+		.heading__right {
+			width: 100%;
+			padding: 4px;
+
+			@include respond-to(md) {
+				padding: 11px;
+			}
+
+			@include respond-to(lg) {
+				padding: 8px;
+			}
+		}
+
+		.heading__carousel {
+			position: relative;
+		}
+
+		.heading__map {
+			position: relative;
+			height: 100%;
+
+			[class$="inner-panes"] {
+				border-radius: 4px;
+				border: 1px solid $black10;
+			}
+		}
+
+		.heading__text {
+			margin-right: 0;
+		}
+
+		.heading__tile {
+		}
+
+		.heading__image {
+		}
+
+		.heading__button {
+			display: grid;
+			grid-template-columns: repeat(1, 1fr);
+			gap: 8px;
+
+			@include respond-to(xs) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			.btn {
+				padding-left: 10px;
+				padding-right: 10px;
+				width: 100%;
+			}
+		}
+
+		.sr-card {
+			display: block;
+			min-height: auto;
+			background: none;
+			border-radius: 0;
+		}
+
+		.sr-card__desc {
+			display: block;
+			padding: 0;
+		}
+
+		.sr-card__address {
+			display: block;
+			margin-bottom: 20px;
+
+			@include respond-to(md) {
+				margin-bottom: 28px;
+			}
+
+			@include respond-to(lg) {
+				margin-bottom: 32px;
+			}
+		}
+
+		.sr-card__icon {
+			margin-bottom: 4px;
+		}
+
+		.sr-card__street {
+			font-size: rem(20);
+
+			@include respond-to(lg) {
+				max-width: 77%;
+			}
+		}
+
+		.sr-card__hours {
+			gap: 5px;
+		}
+
+		.sr-card__contacts {
+			font-size: rem(15);
+			line-height: 1.2;
+			gap: 5px;
+			margin-top: 20px;
+
+			@include respond-to(md) {
+				margin-top: 28px;
+			}
+
+			@include respond-to(lg) {
+				margin-top: 32px;
+			}
+
+			span {
+				margin-right: 3px;
+
+				@include respond-to(sm) {
+					display: inline;
+				}
+			}
+		}
+
+		.sr-card__note {
+			margin-top: 20px;
+
+			@include respond-to(md) {
+				margin-top: 28px;
+			}
+
+			@include respond-to(lg) {
+				margin-top: 32px;
+			}
+		}
+	}
+}
+
+.showroom-trigger {
+	border-radius: 4px;
+	display: flex;
+	text-shadow: none !important;
+	margin: 1px 0 8px;
+
+	@include respond-to(lg, "max") {
+		width: 100%;
+		height: 40px;
+		background: $white;
+		align-items: center;
+		padding-left: 4px;
+		text-decoration: none;
+		margin: 1px 0 12px;
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			right: 18px;
+			width: 8px;
+			height: 11px;
+			background: $svg-angle center no-repeat;
+		}
+
+		img {
+			width: auto;
+			height: 32px;
+			border-radius: 2px;
+		}
+
+		span {
+			order: 1;
+			font-size: rem(14);
+			margin-left: 12px;
+		}
+	}
+
+	@include respond-to(lg) {
+		position: absolute;
+		left: 20px;
+		bottom: 20px;
+		z-index: 1;
+		overflow: hidden;
+		color: $white !important;
+		margin: 0;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 33%);
+			opacity: 0.5;
+		}
+
+		span {
+			display: block;
+			width: 100%;
+			text-align: center;
+			position: absolute;
+			bottom: 8px;
+		}
+	}
+}
+
+.icon-map {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: $yellow;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	svg {
+		width: 10px;
+		height: 14px;
+		fill: currentColor;
+	}
+}

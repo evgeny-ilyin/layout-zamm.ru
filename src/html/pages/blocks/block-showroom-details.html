@@ -1,0 +1,97 @@
+<div class="content">
+	<div class="heading _showroom">
+		<div class="heading__left">
+			<div class="heading__text">
+				<div class="sr-card">
+					<div class="sr-card__desc">
+						<div class="sr-card__name">
+							<div class="sr-card__address">
+								<div class="sr-card__icon">
+									<div class="icon-map">
+										<svg>
+											<use xlink:href="#map-pointer"></use>
+										</svg>
+									</div>
+									<span>Адрес шоурума</span>
+								</div>
+								<div class="sr-card__street">
+									Москва, Проспект Мира, д. 102 с30
+								</div>
+							</div>
+							<div class="sr-card__hours">
+								<div><span>пн - пт:</span> 10:00 — 20:00</div>
+								<div><span>сб, вс:</span> выходные</div>
+							</div>
+						</div>
+						<div class="sr-card__contacts">
+							<div>
+								<span>Отдел интернет-магазина</span>
+								<a href="tel:+74951919870">+7 (495) 191-98-70</a>
+							</div>
+							<div>
+								<span>Отдел проектов</span>
+								<a href="tel:+74951919871">+7 (495) 191-98-71</a>
+							</div>
+						</div>
+						<div class="sr-card__note">
+							<div class="note note_yellow">
+								Шоу-рум по адресу г. Москва, Проспект Мира, д. 102 с30 работает только для <b>юридических лиц</b>.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="heading__button">
+				<button type="button" class="btn btn_white btn_arrow js-modal-show" data-box-width="1200" data-box-type="image" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=image_path_auto"><span>Маршрут на авто</span></button>
+				<button type="button" class="btn btn_white btn_arrow js-modal-show" data-box-width="1200" data-box-type="image" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=image_path_walk"><span>Маршрут пешком</span></button>
+			</div>
+
+		</div>
+
+		<div class="heading__right">
+			<div class="heading__carousel">
+				<a href="javascript:void(0)" class="showroom-trigger js-show-hidden" data-target="heading__map">
+					<span>Смотреть карту</span>
+					<img src="@img/dev/showrooms/trigger-map.png" width="152" height="112" alt="">
+				</a>
+				<div class="f-carousel showroom-carousel" data-carousel="carousel" data-options='{"Navigation": false}'>
+
+					<div class="f-carousel__slide">
+						<picture>
+							<source media="(min-width: 768px)" srcset="@img/dev/carousels/interiors/carousel-interior-6-768.webp" type="image/webp" />
+							<source srcset="@img/dev/carousels/interiors/carousel-interior-6-320.webp" type="image/webp" />
+							<img src="@img/dev/carousels/interiors/carousel-interior-6-768.png" width="1024" height="683" alt="" />
+						</picture>
+					</div>
+
+					<div class="f-carousel__slide">
+						<picture>
+							<source media="(min-width: 768px)" srcset="@img/dev/carousels/interiors/carousel-interior-3-768.webp" type="image/webp" />
+							<source srcset="@img/dev/carousels/interiors/carousel-interior-3-320.webp" type="image/webp" />
+							<img src="@img/dev/carousels/interiors/carousel-interior-3-768.png" width="1024" height="683" alt="" loading="lazy" />
+						</picture>
+					</div>
+
+					<div class="f-carousel__slide">
+						<picture>
+							<source media="(min-width: 768px)" srcset="@img/dev/carousels/interiors/carousel-interior-1-768.webp" type="image/webp" />
+							<source srcset="@img/dev/carousels/interiors/carousel-interior-1-320.webp" type="image/webp" />
+							<img src="@img/dev/carousels/interiors/carousel-interior-1-768.png" width="1024" height="683" alt="" loading="lazy" />
+						</picture>
+					</div>
+
+				</div>
+
+			</div>
+			
+			<div class="heading__map hidden">
+				<a href="javascript:void(0)" class="showroom-trigger js-show-hidden" data-target="heading__carousel">
+					<span>Смотреть фото</span>
+					<img src="@img/dev/showrooms/trigger-gallery.png" width="152" height="112" alt="">
+				</a>
+				<div class="map map_showroom"></div>
+			</div>
+		</div>
+	</div>
+</div>

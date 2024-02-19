@@ -1,0 +1,60 @@
+.showroom-carousel {
+	--f-carousel-dots-width: 22px;
+	margin-bottom: 0 !important;
+	height: 265px;
+	max-height: 265px;
+
+	@include respond-to(xm) {
+		--f-carousel-spacing: #{$min-padding};
+		height: calc(457px - 11px - 11px);
+		max-height: calc(457px - 11px - 11px);
+	}
+
+	@include respond-to(lg) {
+		height: calc(544px - 8px - 8px);
+		max-height: calc(544px - 8px - 8px);
+	}
+
+	.f-carousel__dots {
+		@include respond-to(lg) {
+			bottom: calc(var(--f-carousel-dots-height) - 7px);
+		}
+	}
+
+	.f-carousel__dot {
+		width: 16px;
+		height: 5px;
+		border-radius: 24px;
+		@include respond-to(lg) {
+			background-color: $white;
+		}
+	}
+
+	li.is-current {
+		.f-carousel__dot {
+			@include respond-to(lg) {
+				background-color: $white;
+			}
+		}
+	}
+
+	.f-carousel__viewport {
+		border-radius: 2px;
+
+		@include respond-to(lg) {
+			border-radius: 4px;
+		}
+	}
+
+	.f-carousel__slide {
+		img {
+			height: 100%;
+			object-fit: cover;
+			border-radius: 2px;
+
+			@include respond-to(lg) {
+				border-radius: 4px;
+			}
+		}
+	}
+}
