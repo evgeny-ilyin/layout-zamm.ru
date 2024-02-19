@@ -32,7 +32,7 @@ fieldset {
 
 .form-item {
 	position: relative;
-	// margin-bottom: 12px;
+	margin-bottom: 12px;
 
 	// .form-item__info
 	&__info {
@@ -328,11 +328,11 @@ fieldset {
 	}
 }
 
-.input {
-	@include when-inside('.form-item') {
-		margin-bottom: 12px;
-	}
-}
+// .input {
+// 	@include when-inside('.form-item') {
+// 		margin-bottom: 12px;
+// 	}
+// }
 
 .textarea {
 }
