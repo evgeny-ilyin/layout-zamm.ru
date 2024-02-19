@@ -7,6 +7,7 @@
 	border-radius: 4px;
 	padding: 12px 24px 10px;
 	font-size: rem(15);
+	font-weight: 500;
 	line-height: 1.2;
 	letter-spacing: -0.3px;
 	color: $text-color !important;
@@ -199,6 +200,24 @@
 		}
 	}
 
+	
+	// .btn_transparent
+	&_transparent {
+		// background: $white;
+		box-shadow: 0 0 0 1px $black30;
+
+		@include on-hover {
+			box-shadow: 0 0 0 1px $black70;
+		}
+		@include on-active {
+			box-shadow: 0 0 0 1px $black;
+			color: $black60 !important;
+			span::after {
+				opacity: 0.6;
+			}
+		}
+	}
+
 	// .btn_small
 	&_small {
 		font-size: rem(13);
@@ -309,6 +328,12 @@
 		&.btn_yellow {
 			@include on-focus-visible {
 				box-shadow: 0 0 0 1px $black60, 0 0 0 7px $yellow-light !important;
+			}
+		}
+
+		&.btn_transparent {
+			@include on-focus-visible {
+				box-shadow: 0 0 0 1px $black60, 0 0 0 7px $black10 !important;
 			}
 		}
 
