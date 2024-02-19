@@ -18,6 +18,7 @@ const jsFiles = [
 	"./src/js/order.js",
 	"./src/js/login.js",
 	"./src/js/showroom.js",
+	"./src/js/yandex-map.js",
 ];
 
 export const path = {
