@@ -118,8 +118,10 @@
 	overscroll-behavior: contain;
 
 	/* Firefox */
-	scrollbar-width: thin;
-	scrollbar-color: $gray-dark-second $gray-light;
+	@supports (-moz-appearance:none) {
+		scrollbar-width: thin;
+		scrollbar-color: $gray-dark-second $gray-light;
+	}
 
 	/* Chrome, Edge and Safari */
 	&::-webkit-scrollbar {
@@ -163,7 +165,6 @@
 .scroll-y {
 	overflow-y: scroll;
 }
-
 
 /**
  * Animations
