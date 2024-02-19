@@ -132,6 +132,8 @@ ol {
 		margin-bottom: 32px;
 		text-align: left;
 		font-size: rem(24);
+		display: flex;
+		justify-content: space-between;
 	}
 
 	@include respond-to(lg) {
