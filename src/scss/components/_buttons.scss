@@ -31,7 +31,7 @@
 	// 	text-shadow: none;
 	// }
 	@include on-focus-visible {
-		box-shadow: 0 0 0 1px $black60, 0 0 0 7px $black-real10;
+		box-shadow: 0 0 0 1px $black60, 0 0 0 7px $black-real10 !important;
 		border-radius: 4px;
 		outline: none;
 	}
@@ -286,6 +286,29 @@
 				&::after {
 					transform: rotate(45deg);
 				}
+			}
+		}
+
+		@include on-focus-visible {
+			box-shadow: 0 0 0 1px $black60, 0 0 0 7px $gray-blue-light !important;
+			border-radius: 4px;
+			outline: none;
+		}
+
+		&.btn_white {
+			box-shadow: 0 0 0 1px $white;
+
+			@include on-hover {
+				box-shadow: 0 0 0 1px $black10;
+			}
+			@include on-active {
+				box-shadow: 0 0 0 1px $black60;
+			}
+		}
+
+		&.btn_yellow {
+			@include on-focus-visible {
+				box-shadow: 0 0 0 1px $black60, 0 0 0 7px $yellow-light !important;
 			}
 		}
 
