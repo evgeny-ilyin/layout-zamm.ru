@@ -74,7 +74,9 @@
 			padding-bottom: 9px;
 
 			/* Firefox */
-			scrollbar-color: $black-real $black10;
+			@supports (-moz-appearance: none) {
+				scrollbar-color: $black-real $black10;
+			}
 
 			/* Chrome, Edge and Safari */
 			&::-webkit-scrollbar {
@@ -545,7 +547,8 @@
 				font-size: rem(0);
 				width: 16px;
 				height: 16px;
-				background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23333' fill-rule='evenodd' d='M15.424 3.424a.6.6 0 0 0 0-.849L13.118.27a.6.6 0 0 0-.848 0L5.763 6.776a.6.6 0 0 0-.14.221l-1.188 3.3a.6.6 0 0 0 .729.78l3.493-.993a.6.6 0 0 0 .26-.153l4.338-4.338 2.17-2.169Zm-2.73-1.882L14.15 3l-1.744 1.745-4.228 4.227-2.219.63.746-2.072 5.988-5.988ZM2 1.4A1.6 1.6 0 0 0 .4 3v11A1.6 1.6 0 0 0 2 15.6h11a1.6 1.6 0 0 0 1.6-1.6V9a.6.6 0 1 0-1.2 0v5a.4.4 0 0 1-.4.4H2a.4.4 0 0 1-.4-.4V3c0-.221.179-.4.4-.4h4a.6.6 0 0 0 0-1.2H2Z' clip-rule='evenodd'/%3E%3C/svg%3E") center no-repeat;
+				background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23333' fill-rule='evenodd' d='M15.424 3.424a.6.6 0 0 0 0-.849L13.118.27a.6.6 0 0 0-.848 0L5.763 6.776a.6.6 0 0 0-.14.221l-1.188 3.3a.6.6 0 0 0 .729.78l3.493-.993a.6.6 0 0 0 .26-.153l4.338-4.338 2.17-2.169Zm-2.73-1.882L14.15 3l-1.744 1.745-4.228 4.227-2.219.63.746-2.072 5.988-5.988ZM2 1.4A1.6 1.6 0 0 0 .4 3v11A1.6 1.6 0 0 0 2 15.6h11a1.6 1.6 0 0 0 1.6-1.6V9a.6.6 0 1 0-1.2 0v5a.4.4 0 0 1-.4.4H2a.4.4 0 0 1-.4-.4V3c0-.221.179-.4.4-.4h4a.6.6 0 0 0 0-1.2H2Z' clip-rule='evenodd'/%3E%3C/svg%3E")
+					center no-repeat;
 			}
 		}
 
