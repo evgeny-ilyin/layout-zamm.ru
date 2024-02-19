@@ -1,1 +1,169 @@
 /*! Блок "Адреса шоурумов" */
+.block-showrooms {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	height: 664px;
+	margin: 0 -#{$min-padding};
+	// margin-bottom: 96px;
+
+	@include respond-to(md) {
+		flex-direction: row;
+		height: 519px;
+		margin: 0;
+	}
+
+	@include respond-to(lg) {
+		height: 480px;
+		flex-direction: row;
+	}
+
+	// .block-showrooms__list
+	&__list {
+		position: relative;
+		height: 50%;
+		background: $yellow;
+		padding: 16px 0;
+		display: flex;
+		flex-direction: column;
+
+		@include respond-to(md) {
+			padding: 8px;
+			width: 50%;
+			height: auto;
+		}
+
+		@include respond-to(lg) {
+			width: 420px;
+			flex-shrink: 0;
+			padding: 16px 4px 0 12px;
+			margin-right: 16px;
+		}
+
+		.scrollblock {
+			padding: 0 4px 66px 0;
+
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				height: 66px;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: linear-gradient(0deg, #ffc845 0%, rgba(255, 255, 255, 0) 100%);
+			}
+
+			/* Firefox */
+			@supports (-moz-appearance: none) {
+				scrollbar-color: #ebb943 transparent;
+			}
+
+			/* Chrome, Edge and Safari */
+			&::-webkit-scrollbar-track,
+			&::-webkit-scrollbar-track:hover,
+			&::-webkit-scrollbar-track:active {
+				background-color: transparent;
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background-color: #ebb943;
+			}
+
+			&::-webkit-scrollbar-thumb:hover,
+			&::-webkit-scrollbar-thumb:active {
+				background-color: #ebb943;
+			}
+		}
+	}
+
+	// .block-showrooms__map
+	&__map {
+		width: 100%;
+		height: 50%;
+		order: -1;
+
+		@include respond-to(md) {
+			width: 50%;
+			height: auto;
+			order: 0;
+		}
+
+		@include respond-to(lg) {
+			width: 100%;
+		}
+
+		& + .btn._dynamic_adapt_ {
+			width: auto;
+			margin: 16px #{$min-padding};
+		}
+	}
+
+	// .block-showrooms__item
+	&__item {
+		position: relative;
+		display: flex;
+		text-decoration: none;
+		text-shadow: none !important;
+		border-radius: 4px;
+		padding: 9px 32px 7px 8px;
+		transition: all $transition-default;
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 13px;
+			right: 15px;
+			width: 10px;
+			height: 10px;
+			background: $svg-angle center no-repeat;
+		}
+
+		@include on-hover {
+			background: $yellow-dark;
+		}
+
+		span {
+			font-size: rem(14);
+			line-height: 1.3;
+			color: $black60;
+		}
+
+		@include respond-to(lg) {
+			margin-bottom: 8px;
+
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	// .block-showrooms__name
+	&__name {
+		div {
+			margin-bottom: 3px;
+		}
+	}
+
+	.map_showroom-all {
+		height: 100%;
+	}
+
+	.icon-map {
+		width: 16px;
+		height: 16px;
+		border-radius: 50%;
+		background: $yellow-light;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-right: 4px;
+
+		svg {
+			width: 10px;
+			height: 10px;
+			fill: $black;
+		}
+	}
+}

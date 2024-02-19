@@ -49,7 +49,8 @@ if (!window.mapInit) {
 		objectManager.add(data);
 
 		zMap.geoObjects.add(objectManager);
-		zMap.setBounds(objectManager.getBounds(), { checkZoomRange: true, zoomMargin: 1 }).then(function () {
+		// zoomMargin нужен, если точки при getBounds оказались слишком близко к краю прямоугольника
+		zMap.setBounds(objectManager.getBounds(), { checkZoomRange: true, zoomMargin: 10 }).then(function () {
 			if (zMap.getZoom() > zoomDefault) zMap.setZoom(zoomDefault);
 
 			if (!centerTo) return;
