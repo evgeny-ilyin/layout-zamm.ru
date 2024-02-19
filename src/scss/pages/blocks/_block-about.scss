@@ -24,14 +24,12 @@
 	&__body {
 		max-width: 790px;
 		font-size: rem(15);
-		// line-height: 1.2;
 
 		@include respond-to(md) {
 			font-size: rem(18);
 		}
 
 		p {
-			// line-height: 1.2;
 			&:last-child {
 				margin-bottom: 0;
 			}

@@ -5,8 +5,8 @@
 	@include respond-to(md, "max") {
 		--f-carousel-spacing: #{$min-padding};
 		--f-carousel-slide-width: 87%;
-		margin-left: -$min-padding;
-		margin-right: -$min-padding;
+		margin-left: -#{$min-padding};
+		margin-right: -#{$min-padding};
 	}
 
 	@include respond-to(md) {
