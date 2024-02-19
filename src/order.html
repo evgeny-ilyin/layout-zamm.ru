@@ -1,28 +1,29 @@
 @@include('html/head.html', {
-	"title": "Оформление заказа"
-	})
-	<body class="bg-gray">
-		@@include('html/header.html', {})
-	
-		<div class="container">
-			@@include('html/pages/blocks/block-order.html')
-		</div>
-	
-		@@include('html/footer.html', {
-			"year_from": 2020,
-			"year_to": 2024,
-		})
-	
-		@@include('html/cookies.html', {})
-		@@include('html/svg-sprite.html', {})
-	
-	
-		<script src="js/vendors/fancyapps/carousel.umd.js"></script>
-		<script src="js/carousel-init.js"></script>
-	
-		<script src="js/common.js"></script>
-		<script src="js/order.js"></script>
-		<script src="js/tabs.js"></script>
+"title": "Оформление заказа",
+"stylesFor": "order"
+})
+<body class="bg-gray">
+	@@include('html/header.html', {})
 
-	</body>
-	</html>
+	<div class="container">
+		@@include('html/pages/blocks/block-order.html')
+	</div>
+
+	@@include('html/footer.html', {
+	"year_from": 2020,
+	"year_to": 2024,
+	})
+
+	@@include('html/cookies.html', {})
+	@@include('html/svg-sprite.html', {})
+
+
+	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
+	<script src="js/carousel-init.js"></script>
+
+	<script src="js/common.js"></script>
+	<script src="js/order.js"></script>
+	<script src="js/tabs.js"></script>
+
+</body>
+</html>
