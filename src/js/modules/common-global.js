@@ -218,11 +218,16 @@ if (!window.showHidden) {
 		document.addEventListener("click", (e) => {
 			const el = e.target.closest(".js-show-hidden");
 			if (!el) return;
-			const hiddens = el.parentElement.querySelectorAll(`.${hiddenClass}`);
-			hiddens.forEach((h) => {
-				h.classList.remove(hiddenClass);
-			});
-			el.classList.add(hiddenClass);
+			if (el.dataset.target) {
+				el.parentElement.classList.add(hiddenClass);
+				document.querySelector(`.${el.dataset.target}`).classList.remove(hiddenClass);
+			} else {
+				const hiddens = el.parentElement.querySelectorAll(`.${hiddenClass}`);
+				hiddens.forEach((h) => {
+					h.classList.remove(hiddenClass);
+				});
+				el.classList.add(hiddenClass);
+			}
 		});
 	};
 }
@@ -260,14 +265,15 @@ if (!window.catalogItemGalleriesInit) {
 			return;
 		}
 
-		const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel");
+		const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel, .showrooms");
 
 		galleryItems.forEach((el) => {
 			if (!el) return;
 
-			let items = el.querySelectorAll(".item");
+			let items = el.querySelectorAll(".item, .sr-card");
 			items.forEach((i) => {
-				i.querySelector(".item__gallery-item").classList.add(isActiveClass);
+				let gallery = i.querySelector(".item__gallery-item, .js-gallery");
+				if (gallery) gallery.classList.add(isActiveClass);
 			});
 		});
 	};
@@ -275,17 +281,18 @@ if (!window.catalogItemGalleriesInit) {
 
 if (!window.catalogItemGalleryHandler) {
 	window.catalogItemGalleryHandler = () => {
-		const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel"),
+		const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel, .showrooms"),
 			isActiveClass = "is-active";
 
 		galleryItems.forEach((el) => {
 			if (!el) return;
 			el.addEventListener("mouseover", (e) => {
-				const item = e.target.closest(".item");
+				const item = e.target.closest(".item, .sr-card__gallery");
 				if (!item) return;
-
-				const gallery = item.querySelector(".item__gallery-wrapper"),
-					gItems = gallery.querySelectorAll(".item__gallery-item");
+				const gallery = item.querySelector(".item__gallery-wrapper, .sr-card__gallery-wrapper");
+				if (!gallery) return;
+				const gItems = gallery.querySelectorAll(".item__gallery-item, .js-gallery");
+				if (!gItems) return;
 
 				gallery.addEventListener("mouseenter", () => {
 					gItems.forEach((i) => {
@@ -298,7 +305,7 @@ if (!window.catalogItemGalleryHandler) {
 
 				gallery.addEventListener("mouseleave", () => {
 					gallery.querySelectorAll(`.${isActiveClass}`).forEach((e) => e.classList.remove(isActiveClass));
-					gallery.querySelector(".item__gallery-item").classList.add(isActiveClass);
+					gallery.querySelector(".item__gallery-item, .js-gallery").classList.add(isActiveClass);
 				});
 			});
 		});
