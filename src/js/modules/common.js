@@ -85,7 +85,7 @@ export function hamburgerMenu() {
 }
 
 export function modalHandler() {
-	let createModal = () => {
+	let createModal = (type = false) => {
 		const modalClass = "modal",
 			modalExist = document.querySelector(`.${modalClass}`);
 		if (modalExist) modalExist.remove();
@@ -94,6 +94,7 @@ export function modalHandler() {
 			btn = document.createElement("button");
 
 		modal.classList.add(modalClass, "scrollblock");
+		if (type) modal.classList.add(`is-${type}`);
 		btn.classList.add("btn", "btn_close", "btn_close-modal", "js-modal-close");
 		btn.ariaLabel = "Закрыть";
 		modal.appendChild(btn);
@@ -104,7 +105,8 @@ export function modalHandler() {
 	let fetchByUrl = async (url, origin) => {
 		if (!url) return;
 
-		let width = origin.dataset.boxWidth || false;
+		let boxWidth = origin.dataset.boxWidth || false,
+			boxType = origin.dataset.boxType || false;
 
 		try {
 			let response = await fetch(url);
@@ -114,10 +116,10 @@ export function modalHandler() {
 			let result = await response.json();
 			if (result.status === true) {
 				if (result.nocache === true) {
-					setModalContent(result.content, width);
+					setModalContent(result.content, { width: boxWidth, type: boxType });
 				} else {
 					const key = getRandomStr(8);
-					setModalContent(result.content, width, origin, key);
+					setModalContent(result.content, { width: boxWidth, type: boxType, origin: origin, key: key });
 				}
 				if (result.svg) {
 					addToSvgSprite(result.svg);
@@ -131,12 +133,12 @@ export function modalHandler() {
 		}
 	};
 
-	let setModalContent = (content, width = false, origin = false, key = false) => {
-		const modalWrapper = createModal(),
+	let setModalContent = (content, arg) => {
+		const modalWrapper = createModal(arg.type),
 			menuToggler = document.getElementById("menu-toggle"),
 			isActiveClass = "is-active";
 
-		if (width) modalWrapper.style.maxWidth = `${parseInt(width)}px`;
+		if (arg.width) modalWrapper.style.maxWidth = `${parseInt(arg.width)}px`;
 		modalWrapper.insertAdjacentHTML("beforeend", content);
 
 		if (modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top > window.innerHeight) {
@@ -151,11 +153,37 @@ export function modalHandler() {
 			overlay(1);
 		}, 10);
 
-		if (origin && key) {
-			origin.dataset.storageKey = key;
-			localStorage.setItem(key, content);
+		if (arg.origin && arg.key) {
+			arg.origin.dataset.storageKey = arg.key;
+			localStorage.setItem(arg.key, content);
 		}
 	};
+
+	// let setModalContent = (content, width = false, origin = false, key = false) => {
+	// 	const modalWrapper = createModal(),
+	// 		menuToggler = document.getElementById("menu-toggle"),
+	// 		isActiveClass = "is-active";
+
+	// 	if (width) modalWrapper.style.maxWidth = `${parseInt(width)}px`;
+	// 	modalWrapper.insertAdjacentHTML("beforeend", content);
+
+	// 	if (modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top > window.innerHeight) {
+	// 		modalWrapper.style.bottom = "50px";
+	// 	}
+
+	// 	reinitModalResults(modalWrapper);
+
+	// 	setTimeout(() => {
+	// 		menuToggler.checked = false;
+	// 		modalWrapper.classList.add(isActiveClass);
+	// 		overlay(1);
+	// 	}, 10);
+
+	// 	if (origin && key) {
+	// 		origin.dataset.storageKey = key;
+	// 		localStorage.setItem(key, content);
+	// 	}
+	// };
 
 	let reinitModalResults = (target) => {
 		// inputFetch(target);
@@ -167,14 +195,15 @@ export function modalHandler() {
 	let videoIframe = async (url, origin) => {
 		if (!url) return;
 
-		let width = origin.dataset.boxWidth || false;
+		let boxWidth = origin.dataset.boxWidth || false,
+			boxType = origin.dataset.boxType || false;
 
 		// шаблон iframe
 		const iframe = document.createElement("div");
 		iframe.classList.add("modal__body", "_player");
 		iframe.innerHTML = `<iframe src="${url}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>`;
 
-		setModalContent(iframe.outerHTML, width);
+		setModalContent(iframe.outerHTML, { width: boxWidth, type: boxType });
 	};
 
 	document.addEventListener("click", (e) => {
@@ -186,21 +215,21 @@ export function modalHandler() {
 		if (modalShow) {
 			e.preventDefault();
 			let url = "",
-				width = modalShow.dataset.boxWidth,
-				type = modalShow.dataset.boxType,
+				boxWidth = modalShow.dataset.boxWidth,
+				boxType = modalShow.dataset.boxType,
 				storageKey = modalShow.dataset.storageKey;
 
 			// from storage
 			if (storageKey) {
 				let content = localStorage.getItem(storageKey);
 				if (content) {
-					setModalContent(content, width);
+					setModalContent(content, { width: boxWidth, type: boxType });
 					return;
 				}
 			}
 
 			// yt video
-			if (type == "video") {
+			if (boxType == "video") {
 				url = modalShow.href;
 				if (!url) return;
 				videoIframe(url, modalShow);
