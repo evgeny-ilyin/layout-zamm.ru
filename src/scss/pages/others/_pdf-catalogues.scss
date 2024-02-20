@@ -12,6 +12,7 @@
 			padding-top: 16px;
 		}
 	}
+
 	// .pdfs__header
 	&__header {
 		color: $black60;
@@ -22,9 +23,10 @@
 		}
 
 		@include respond-to(lg) {
-			padding-right: 100px;
+			padding-right: 40px;
 		}
 	}
+
 	// .pdfs__list
 	&__list {
 		@include respond-to(lg) {
@@ -33,6 +35,7 @@
 		}
 	}
 }
+
 .pdf {
 	display: flex;
 	flex-direction: column;
