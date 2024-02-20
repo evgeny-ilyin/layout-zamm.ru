@@ -176,3 +176,51 @@
 		top: 100px;
 	}
 }
+
+/**
+ * Inner pages columns (others)
+ */
+.inner-page {
+	margin-bottom: 32px;
+
+	@include respond-to(md) {
+		margin-bottom: 40px;
+	}
+
+	@include respond-to(lg) {
+		margin-bottom: 94px;
+	}
+
+	// .inner-page_cols
+	&_cols {
+		display: flex;
+		flex-direction: column;
+
+		@include respond-to(lg) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+
+	// .inner-page__col-left
+	&__col-left {
+		margin-bottom: 10px;
+
+		@include respond-to(md) {
+			margin-bottom: 18px;
+		}
+
+		@include respond-to(lg) {
+			padding-right: 40px;
+			margin-bottom: 0;
+		}
+	}
+
+	// .inner-page__col-right
+	&__col-right {
+		@include respond-to(lg) {
+			width: 58%;
+			flex-shrink: 0;
+		}
+	}
+}
