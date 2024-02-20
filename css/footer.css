@@ -95,18 +95,53 @@
 .subscription__form {
   margin-top: 23px
 }
+.accordion__item {
+  border-radius: 8px;
+  background: var(--white);
+  margin-bottom: 8px
+}
+.accordion__header {
+  padding: 14px 52px 14px 12px;
+  font-size: 1.125rem;
+  line-height: 1;
+  font-weight: 700
+}
+.accordion__content {
+  font-size: .875rem;
+  padding: 0 52px 0 12px
+}
+.accordion__content :last-child {
+  margin-bottom: 14px
+}
 .js-accordion.on {
   position: relative
 }
-.js-accordion.on::before {
-  content: "";
+.js-accordion.on span::before {
   display: block;
+  content: "";
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 8px;
   width: 32px;
   height: 32px;
+  border-radius: 50%;
   background: var(--white);
-  position: absolute;
-  right: 0;
-  border-radius: 50%
+  border: 1px solid transparent;
+  -webkit-transition: border .25s ease-in-out,background .25s ease-in-out;
+  -o-transition: border .25s ease-in-out,background .25s ease-in-out;
+  transition: border .25s ease-in-out,background .25s ease-in-out
+}
+.js-accordion.on.is-opened span::before {
+  background: var(--gray);
+  border: 1px solid var(--black10)
+}
+.js-accordion.on.is-opened .js-accordion__trigger::before {
+  -webkit-transform: translateY(-50%) rotate(90deg);
+  -ms-transform: translateY(-50%) rotate(90deg);
+  transform: translateY(-50%) rotate(90deg)
 }
 .js-accordion.on .js-accordion__trigger {
   display: -webkit-box;
@@ -117,31 +152,36 @@
   align-items: center;
   position: relative;
   cursor: pointer;
-  text-align: left
+  text-align: left;
+  min-height: 48px
 }
 .js-accordion.on .js-accordion__trigger::before {
   content: "";
   display: block;
   position: absolute;
-  right: 15px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 22px;
   height: 14px;
-  border-left: 2px solid #858585;
+  border-left: 2px solid var(--black60);
   -webkit-transition: all .25s ease-in-out;
   -o-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out
+  transition: all .25s ease-in-out;
+  z-index: 1
 }
 .js-accordion.on .js-accordion__trigger::after {
   content: "";
   display: block;
   position: absolute;
-  right: 9px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 16px;
   width: 14px;
-  border-top: 2px solid #858585
-}
-.js-accordion.on .js-accordion__trigger.is-opened::before {
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  transform: rotate(90deg)
+  border-top: 2px solid var(--black60)
 }
 .js-accordion.on .js-accordion__trigger + * {
   max-height: 0;
@@ -454,6 +494,29 @@
   .subscription__header {
     text-align: left
   }
+  .accordion__header {
+    padding: 16px 108px 24px 24px;
+    font-size: 1.5rem
+  }
+  .accordion__content {
+    font-size: .9375rem;
+    padding: 0 108px 0 24px
+  }
+  .accordion__content :last-child {
+    margin-bottom: 16px
+  }
+  .js-accordion.on span::before {
+    right: 12px
+  }
+  .js-accordion.on .js-accordion__trigger {
+    min-height: 64px
+  }
+  .js-accordion.on .js-accordion__trigger::before {
+    right: 26px
+  }
+  .js-accordion.on .js-accordion__trigger::after {
+    right: 20px
+  }
 }
 @media (min-width:1280px) {
   .footer__logo {
@@ -493,10 +556,16 @@
     gap: 10px 0;
     margin: 42px 0 34px
   }
-  .f-menu.js-accordion.on::before {
-    top: 10px
+  .f-menu.js-accordion.on span::before {
+    right: 0
   }
   .f-menu.js-accordion.on .js-accordion__trigger {
     padding: 17px 45px 17px 0
+  }
+  .f-menu.js-accordion.on .js-accordion__trigger::before {
+    right: 15px
+  }
+  .f-menu.js-accordion.on .js-accordion__trigger::after {
+    right: 9px
   }
 }
