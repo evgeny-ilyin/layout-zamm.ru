@@ -1925,6 +1925,29 @@ ol {
 .btn_reset:hover::after {
   opacity: 1
 }
+.btn_download {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center
+}
+.btn_download::after {
+  content: "";
+  display: block;
+  margin-left: 5px;
+  width: 17px;
+  height: 17px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 17px;
+  flex: 0 0 17px;
+  background-image: var(--svg-download);
+  background-repeat: no-repeat
+}
 .btn-inset {
   display: -webkit-box;
   display: -ms-flexbox;
