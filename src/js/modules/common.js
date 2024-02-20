@@ -624,11 +624,11 @@ export function accordion() {
 		isOpenedClass = "is-opened",
 		isEnabledClass = "on";
 	triggers.forEach((trigger) => {
+		const accordionParent = trigger.parentElement,
+			accordionContent = trigger.nextElementSibling;
 		trigger.addEventListener("click", () => {
-			const accordionParent = trigger.parentElement,
-				accordionContent = trigger.nextElementSibling;
 			if (accordionParent.classList.contains(isEnabledClass)) {
-				trigger.classList.toggle(isOpenedClass);
+				accordionParent.classList.toggle(isOpenedClass);
 				if (accordionContent.style.maxHeight) {
 					accordionContent.style.maxHeight = null;
 				} else {
@@ -636,6 +636,14 @@ export function accordion() {
 				}
 			}
 		});
+
+		["load", "resize"].forEach((evt) =>
+			window.addEventListener(evt, () => {
+				if (accordionContent.style.maxHeight) {
+					accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
+				}
+			})
+		);
 	});
 }
 

@@ -1,16 +1,78 @@
+.accordion {
+	// .accordion__item
+	&__item {
+		border-radius: 8px;
+		background: $white;
+		margin-bottom: 8px;
+	}
+
+	// .accordion__header
+	&__header {
+		padding: 14px 52px 14px 12px;
+		font-size: rem(18);
+		line-height: 1;
+		font-weight: 700;
+
+		@include respond-to(lg) {
+			padding: 16px 108px 24px 24px;
+			font-size: rem(24);
+		}
+	}
+
+	// .accordion__content
+	&__content {
+		font-size: rem(14);
+		padding: 0 52px 0 12px;
+
+		*:last-child {
+			margin-bottom: 14px;
+		}
+
+		@include respond-to(lg) {
+			font-size: rem(15);
+			padding: 0 108px 0 24px;
+
+			*:last-child {
+				margin-bottom: 16px;
+			}
+		}
+	}
+}
+
 .js-accordion {
 	&.on {
 		position: relative;
 
-		&::before {
-			content: "";
+		span::before {
 			display: block;
+			content: "";
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 8px;
 			width: 32px;
 			height: 32px;
-			background: $white;
-			position: absolute;
-			right: 0;
 			border-radius: 50%;
+			background: $white;
+			border: 1px solid transparent;
+			transition: border $transition-default, background $transition-default;
+
+			@include respond-to(lg) {
+				right: 12px;
+			}
+		}
+
+		&.is-opened {
+			span::before {
+				background: $gray;
+				border: 1px solid $black10;
+			}
+
+			.js-accordion__trigger {
+				&::before {
+					transform: translateY(-50%) rotate(90deg);
+				}
+			}
 		}
 
 		// .js-accordion__trigger
@@ -20,29 +82,41 @@
 			position: relative;
 			cursor: pointer;
 			text-align: left;
+			min-height: 48px;
+
+			@include respond-to(lg) {
+				min-height: 64px;
+			}
 
 			&::before {
 				content: "";
 				display: block;
 				position: absolute;
-				right: 15px;
+				top: 50%;
+				transform: translateY(-50%);
+				right: 22px;
 				height: 14px;
-				border-left: 2px solid #858585;
+				border-left: 2px solid $black60;
 				transition: all $transition-default;
+				z-index: 1;
+
+				@include respond-to(lg) {
+					right: 26px;
+				}
 			}
 
 			&::after {
 				content: "";
 				display: block;
 				position: absolute;
-				right: 9px;
+				top: 50%;
+				transform: translateY(-50%);
+				right: 16px;
 				width: 14px;
-				border-top: 2px solid #858585;
-			}
+				border-top: 2px solid $black60;
 
-			&.is-opened {
-				&::before {
-					transform: rotate(90deg);
+				@include respond-to(lg) {
+					right: 20px;
 				}
 			}
 
@@ -56,11 +130,21 @@
 }
 
 @include respond-to(md, "max") {
-	.f-menu.js-accordion.on::before {
-		top: 10px;
-	}
+	.f-menu.js-accordion.on {
+		span::before {
+			right: 0;
+		}
 
-	.f-menu.js-accordion.on .js-accordion__trigger {
-		padding: 17px 45px 17px 0;
+		.js-accordion__trigger {
+			padding: 17px 45px 17px 0;
+
+			&::before {
+				right: 15px;
+			}
+
+			&::after {
+				right: 9px;
+			}
+		}
 	}
 }
