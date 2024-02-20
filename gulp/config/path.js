@@ -17,7 +17,6 @@ const jsFiles = [
 	"./src/js/cart.js",
 	"./src/js/order.js",
 	"./src/js/login.js",
-	"./src/js/showroom.js",
 	"./src/js/yandex-map.js",
 ];
 

@@ -200,7 +200,6 @@
 		}
 	}
 
-	
 	// .btn_transparent
 	&_transparent {
 		// background: $white;
@@ -502,6 +501,24 @@
 			&::after {
 				opacity: 1;
 			}
+		}
+	}
+
+	// .btn_download
+	&_download {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&::after {
+			content: "";
+			display: block;
+			margin-left: 5px;
+			width: 17px;
+			height: 17px;
+			flex: 0 0 17px;
+			background-image: $svg-download;
+			background-repeat: no-repeat;
 		}
 	}
 }
