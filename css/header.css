@@ -406,7 +406,7 @@ a {
   color: var(--black);
   text-decoration: underline;
   text-decoration-color: transparent;
-  text-underline-offset: 4px;
+  text-underline-offset: 5px;
   text-shadow: none;
   -webkit-transition: all .15s ease;
   -o-transition: all .15s ease;
