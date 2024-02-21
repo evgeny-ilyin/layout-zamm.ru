@@ -1,5 +1,10 @@
 // carousel overrides
 
+// hide all before carousel initialized
+.f-carousel > .f-carousel__slide {
+	display: none;
+}
+
 ///
 /// carousel-overflow скрывает карусель за пределами блока content и отменяет стандартное поведение overflow карусели
 /// устанавливается для блока .content
