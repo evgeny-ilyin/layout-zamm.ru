@@ -219,6 +219,7 @@
 	// .inner-page__col-right
 	&__col-right {
 		@include respond-to(lg) {
+			margin-top: 10px;
 			width: 58%;
 			flex-shrink: 0;
 		}
