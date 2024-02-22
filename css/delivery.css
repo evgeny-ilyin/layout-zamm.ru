@@ -16,11 +16,11 @@
   background: 0 0;
   border: none;
   border-radius: 8px;
-  padding: 0 16px;
-  height: 30px;
+  padding: 0 8px;
+  height: 26px;
   margin-right: 3px;
   margin-bottom: 8px;
-  font-size: 1.125rem
+  font-size: .9375rem
 }
 .tabs_delivery .tab-nav:last-of-type {
   margin-right: 16px
@@ -253,6 +253,11 @@
   }
   .tabs_delivery .tabs__header.scrollblock::before {
     display: none
+  }
+  .tabs_delivery .tab-nav {
+    padding: 0 16px;
+    height: 30px;
+    font-size: 1.125rem
   }
   .delivery-pack {
     margin: 124px 0 57px
