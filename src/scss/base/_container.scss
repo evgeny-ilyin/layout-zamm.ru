@@ -225,3 +225,43 @@
 		}
 	}
 }
+
+/**
+ * Inner pages grids
+ */
+.grid {
+	display: grid;
+	gap: 12px 12px;
+
+	@include respond-to(md) {
+		gap: 16px 16px;
+	}
+
+	// .grid_xm-2
+	&_xm-2 {
+		@include respond-to(xm) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	// .grid_md-2
+	&_md-2 {
+		@include respond-to(md) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	// .grid_lg-2
+	&_lg-2 {
+		@include respond-to(lg) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	// .grid_xl-2
+	&_xl-2 {
+		@include respond-to(xl) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
