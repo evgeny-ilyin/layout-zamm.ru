@@ -1,18 +1,18 @@
 .note {
 	position: relative;
 	border-radius: 8px;
-	padding: 8px 8px 8px 16px;
+	padding: 8px 8px 8px 20px;
 	margin: 24px 0;
 	background: $white;
 
 	&::before {
-		content: '';
+		content: "";
 		display: block;
 		position: absolute;
 		top: 8px;
 		bottom: 8px;
 		left: 8px;
-		width: 3px;
+		width: 2px;
 		background: $black;
 		border-radius: 2px;
 	}
@@ -24,5 +24,59 @@
 		&::before {
 			background: $yellow-dark;
 		}
+	}
+
+	// .note_big
+	&_big {
+		padding: 12px 12px 12px 20px;
+		font-weight: 700;
+
+		&::before {
+			top: 12px;
+			bottom: 12px;
+			left: 12px;
+		}
+
+		@include respond-to(lg) {
+			padding: 16px 16px 16px 32px;
+			font-size: rem(20);
+			line-height: 1;
+
+			&::before {
+				top: 16px;
+				bottom: 16px;
+				left: 16px;
+			}
+		}
+	}
+}
+
+.note-important {
+	display: flex;
+	margin: 32px 0;
+
+	svg {
+		order: 1;
+		flex-shrink: 0;
+		width: 40px;
+		height: 40px;
+		margin-left: 12px;
+
+		@include respond-to(lg) {
+			order: 0;
+			margin: 0 12px 0 0;
+		}
+	}
+
+	b,
+	strong {
+		display: block;
+		margin-bottom: 3px;
+	}
+
+	span {
+		color: $black60;
+		font-size: rem(14);
+		line-height: 1.3;
 	}
 }
