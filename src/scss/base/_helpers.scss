@@ -91,6 +91,19 @@
 	display: flex;
 }
 
+.flex-header {
+	display: flex;
+	align-items: center;
+
+	* {
+		margin-bottom: 0;
+	}
+}
+
+.pos-flex-right {
+	margin-left: auto;
+}
+
 .noscroll {
 	overflow: hidden;
 	width: 100vw;
@@ -118,7 +131,7 @@
 	overscroll-behavior: contain;
 
 	/* Firefox */
-	@supports (-moz-appearance:none) {
+	@supports (-moz-appearance: none) {
 		scrollbar-width: thin;
 		scrollbar-color: $gray-dark-second $gray-light;
 	}
