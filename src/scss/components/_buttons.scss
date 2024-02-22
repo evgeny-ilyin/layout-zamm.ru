@@ -274,6 +274,36 @@
 		}
 	}
 
+	// .btn_angle
+	&_angle {
+		span {
+			&::after {
+				content: "";
+				display: block;
+				margin-left: 10px;
+				width: 15px;
+				height: 10px;
+				flex: 0 0 10px;
+				background: $svg-angle right center no-repeat;
+				transition: opacity $transition-default;
+			}
+		}
+
+		&.btn_white {
+			box-shadow: 0 0 0 1px $white;
+
+			@include on-hover {
+				box-shadow: 0 0 0 1px $black10;
+			}
+			@include on-active {
+				box-shadow: 0 0 0 1px $black60;
+			}
+			@include on-focus-visible {
+				box-shadow: 0 0 0 1px $black60 !important;
+			}
+		}
+	}
+
 	// .btn_arrow
 	&_arrow {
 		span {
@@ -625,6 +655,21 @@
 				height: 20px;
 			}
 		}
+	}
+}
+
+.btn-zones {
+	display: flex;
+	flex-shrink: 0;
+	align-items: center;
+	padding-top: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+	height: 40px;
+
+	img {
+		border-radius: 4px;
+		margin: 0 8px 0 4px;
 	}
 }
 
