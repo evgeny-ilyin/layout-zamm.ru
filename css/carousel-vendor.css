@@ -1116,7 +1116,7 @@
   margin: 0 0 var(--f-thumb-gap) 0
 }
 .f-carousel > .f-carousel__slide {
-  display: none
+  opacity: 0
 }
 .carousel-overflow {
   overflow-x: hidden;

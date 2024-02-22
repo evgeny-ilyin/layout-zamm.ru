@@ -449,6 +449,21 @@ body {
   font: normal .9375rem/1.2 Manrope,Helvetica,"Open Sans",Arial,sans-serif;
   font-weight: 500
 }
+.h1 span,
+.h2 span,
+.h3 span,
+.h4 span,
+.h5 span,
+.h6 span,
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  color: var(--black60);
+  margin-left: 5px
+}
 p {
   letter-spacing: -.3px;
   margin-bottom: 16px;
@@ -2136,7 +2151,7 @@ button:focus-visible {
   -webkit-box-direction: normal;
   -ms-flex-flow: row wrap;
   flex-flow: row wrap;
-  padding-bottom: 8px
+  padding: 1px 0 8px 1px
 }
 .tabs__header.scrollblock {
   -webkit-box-orient: horizontal;
@@ -2195,6 +2210,11 @@ button:focus-visible {
 .tab-nav:active {
   color: var(--black60);
   border-color: var(--black60)
+}
+.tab-nav:focus-visible {
+  -webkit-box-shadow: 0 0 0 1px var(--black30)!important;
+  box-shadow: 0 0 0 1px var(--black30)!important;
+  border-radius: 40px
 }
 .tab-block {
   display: none;
@@ -3101,6 +3121,7 @@ input[type=file]:focus-visible ~ span {
   transform: none
 }
 .modal.is-image img {
+  max-height: 90vh;
   max-height: 90dvh
 }
 .modal__head {
@@ -3662,6 +3683,7 @@ input[type=file]:focus-visible ~ span {
   }
   .modal.is-image img {
     margin: 0 auto;
+    max-height: calc(100vh - 143px - 143px);
     max-height: calc(100dvh - 143px - 143px)
   }
   .modal__head {

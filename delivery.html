@@ -7,21 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
 	<!-- common header -->
-	<link rel="stylesheet" href="css/root-vars.css?v=20240221141619">
-	<link rel="stylesheet" href="css/fonts.css?v=20240221141619">
-	<link rel="stylesheet" href="css/header.css?v=20240221141619">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240221141619">
-
-
-	<!-- index -->
-	<link rel="stylesheet" href="css/carousel-main.css?v=20240221141619">
-	<link rel="stylesheet" href="css/carousel-products.css?v=20240221141619">
-	<link rel="stylesheet" href="css/catalog-item.css?v=20240221141619">
-	<link rel="stylesheet" href="css/block-popular-categories.css?v=20240221141619">
-	<link rel="stylesheet" href="css/block-ideas.css?v=20240221141619">
-	<link rel="stylesheet" href="css/block-about.css?v=20240221141619">
-	<link rel="stylesheet" href="css/block-showrooms.css?v=20240221141619">
-	<link rel="stylesheet" href="css/map.css?v=20240221141619">
+	<link rel="stylesheet" href="css/root-vars.css?v=20240222125222">
+	<link rel="stylesheet" href="css/fonts.css?v=20240222125222">
+	<link rel="stylesheet" href="css/header.css?v=20240222125222">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240222125222">
 
 
 
@@ -68,17 +57,23 @@
 
 
 
+
+
+
+
+	<!-- delivery -->
+	<link rel="stylesheet" href="css/delivery.css?v=20240222125222">
 
 
 	<!-- common footer -->
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20240221141619">
-	<link rel="stylesheet" href="css/footer.css?v=20240221141619">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240222125222">
+	<link rel="stylesheet" href="css/footer.css?v=20240222125222">
 
 	<title>Доставка</title>
 	<meta name="description" content="Доставка">
 </head>
 
-<body>
+<body class="bg-gray">
 	<div class="header-alert _black hidden">
 		<div class="container">
 			<div class="content header-alert__wrapper">
@@ -481,317 +476,323 @@
 						<meta itemprop="position" content="1" />
 					</li>
 					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<span itemprop="name">Новости / Статьи</span>
+						<a href="/" title="Главная" class="breadcrumbs__link" itemprop="item">
+							<span itemprop="name">Помощь</span>
+						</a>
 						<meta itemprop="position" content="2" />
+					</li>
+					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+						<span itemprop="name">Условия доставки</span>
+						<meta itemprop="position" content="3" />
 					</li>
 				</ul>
 			</div>
 		</div>
 
 		<div class="content">
-			<div class="h1">Новости ZAMM</div>
+			<div class="h1">Доставка <span>Москва</span></div>
 
-			<div class="heading _singlecol text-white">
-				<span class="label label_yellow-light label_big label_rotate">Новый проект</span>
-				<div class="heading__left">
-					<div class="heading__text">
-						<h2>Офис The Люди</h2>
-						<p>Сделали мебель для офиса Ютуб-канала The Люди. Смотрите фото офиса в цвете Дуб Галифакс и в дополнение немного фото с нашего производства</p>
-						<div class="heading__icons">
-							<div class="heading__tags">
-								<div class="heading__tag">Статья</div>
-								<!-- <a href="/" class="heading__tag">Ссылка</a> --> <!-- если надо ссылкой -->
-							</div>
-							<div class="heading__views">
-								<svg>
-									<use xlink:href="#views"></use>
-								</svg>
-								1 256
-							</div>
-						</div>
-					</div>
-					<div class="heading__button">
-						<a href="news-details.html" class="btn btn_yellow btn_medium">Читать</a>
-					</div>
+			<div class="tabs tabs_delivery">
+				<div class="tabs__header scrollblock hide-scroll">
+					<button type="button" class="tab-nav _red js-tab-nav" data-tab="zone1">1 зона</button>
+					<button type="button" class="tab-nav _green js-tab-nav" data-tab="zone11">1.1 зона (Moscow City)</button>
+					<button type="button" class="tab-nav _pink js-tab-nav" data-tab="zone2">2 зона</button>
+					<button type="button" class="tab-nav _blue js-tab-nav" data-tab="zone3">3 зона</button>
+					<button type="button" class="tab-nav _dirt js-tab-nav" data-tab="zone4">4 зона</button>
+					<button type="button" class="tab-nav _gray js-tab-nav" data-tab="zone5">5 зона</button>
 				</div>
+				<div class="tabs__content">
+					<div class="tab-block" data-tab-content="zone1">
 
-				<div class="heading__right">
-					<div class="heading__tile">
-						<!-- если надо сделать ссылку на всей области картинки -->
-						<!-- <a href="javascript:void(0)"> -->
-						<picture>
-							<img src="img/dev/ideas/idea-6.png" width="831" height="482" alt="" loading="lazy" class="heading__image">
-						</picture>
-						<!-- </a> -->
-
-					</div>
-				</div>
-
-			</div>
-
-			<div class="tiles">
-				<div class="tiles__body">
-
-					<!-- ! Одна обертка tiles__block на каждые 4 проекта (меньше 4 можно). Для плиточной masonry раскладки на планшете. -->
-					<!--
-		Для новостей разметка остальных блоков упрощённая.
-		Коммент дизайнера:
-		Основные 6-10 материалов можно выкладывать такой сложной интересной версткой. а остальные материалы, которых может быть много — можно выкладывать обычной плиткой и показывать по кнопке “показать больше”
-	-->
-					<!-- ! Поэтому сами решайте сколько сразу у вас будет главных материалов видно - 1 или 2 tiles__block  -->
-					<!-- ! Подгружать же через "Ещё" надо сразу в tiles__simple без доп обёрток
-	-->
-
-					<div class="tiles__block">
-
-						<div class="tile">
-							<div class="tile__h">
-								<div class="h3">JULIUS MEINL</div>
-								<div class="tile__icons">
-									<div class="tile__tags">
-										<div class="tile__tag">Видео</div>
-										<!-- <a href="/" class="tile__tag">Ссылка</a> --> <!-- если надо ссылкой -->
-									</div>
-									<div class="tile__views">
-										<svg>
-											<use xlink:href="#views"></use>
-										</svg>
-										1 256
-									</div>
-								</div>
-							</div>
-							<div class="tile__f">
-								<a href="https://www.youtube.com/embed/BbGmMjo3yEA" class="btn-round js-modal-show" data-box-width="1000" data-box-type="video" aria-label="Смотреть">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 20">
-										<path d="M15.98 9.132a1 1 0 0 1 0 1.736L1.497 19.145A1 1 0 0 1 0 18.277V1.723A1 1 0 0 1 1.496.855l14.485 8.277Z" />
-									</svg>
-								</a>
-							</div>
-							<a href="news-details.html">
-								<picture>
-									<source media="(min-width: 1280px)" srcset="img/dev/ideas/idea-1-1280.webp" type="image/webp">
-									<source media="(min-width: 1024px)" srcset="img/dev/ideas/idea-1-1024.webp" type="image/webp">
-									<source media="(min-width: 768px)" srcset="img/dev/ideas/idea-1-768.webp" type="image/webp">
-									<source media="(min-width: 577px)" srcset="img/dev/ideas/idea-1-577.webp" type="image/webp">
-									<source srcset="img/dev/ideas/idea-1-320.webp" type="image/webp">
-									<img src="img/dev/ideas/idea-1.png" width="831" height="482" alt="" loading="lazy" class="tile__image">
-								</picture>
-							</a>
-						</div>
-
-						<div class="tile">
-							<div class="tile__h">
-								<div class="h3">Офис консалтинговой компании</div>
-								<div class="tile__icons">
-									<div class="tile__views">
-										<svg>
-											<use xlink:href="#views"></use>
-										</svg>
-										849
-									</div>
-								</div>
-							</div>
-							<div class="tile__f">
-								<a href="news-details.html" target="_blank" class="btn-round" aria-label="Читать">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
-										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2" d="M2 3h7.001m0 0V10m0-6.999L2 10" />
-									</svg>
-								</a>
-							</div>
-							<a href="news-details.html">
-								<picture>
-									<img src="img/dev/ideas/idea-7.png" width="831" height="985" alt="" loading="lazy" class="tile__image">
-								</picture>
-							</a>
-						</div>
-
-						<div class="tile">
-							<div class="tile__h">
-								<div class="h3">Автомедиафасад</div>
-								<div class="tile__icons">
-									<div class="tile__views">
-										<svg>
-											<use xlink:href="#views"></use>
-										</svg>
-										19 400
-									</div>
-								</div>
-							</div>
-							<a href="news-details.html">
-								<picture>
-									<img src="img/dev/ideas/idea-8.png" width="831" height="985" alt="" loading="lazy" class="tile__image">
-								</picture>
-							</a>
-						</div>
-
-						<div class="tile">
-							<div class="tile__h">
-								<div class="h3">JULIUS MEINL</div>
-								<div class="tile__icons">
-									<div class="tile__tags">
-										<div class="tile__tag">Видео</div>
-										<!-- <a href="/" class="tile__tag">Ссылка</a> --> <!-- если надо ссылкой -->
-									</div>
-									<div class="tile__views">
-										<svg>
-											<use xlink:href="#views"></use>
-										</svg>
-										1 256
-									</div>
-								</div>
-							</div>
-							<div class="tile__f">
-								<a href="https://www.youtube.com/embed/BbGmMjo3yEA" class="btn-round js-modal-show" data-box-width="1000" data-box-type="video" aria-label="Смотреть">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 20">
-										<path d="M15.98 9.132a1 1 0 0 1 0 1.736L1.497 19.145A1 1 0 0 1 0 18.277V1.723A1 1 0 0 1 1.496.855l14.485 8.277Z" />
-									</svg>
-								</a>
-							</div>
-							<a href="news-details.html">
-								<picture>
-									<img src="img/dev/ideas/idea-6.png" width="831" height="985" alt="" loading="lazy" class="tile__image">
-								</picture>
-							</a>
-						</div>
-
-					</div>
-
-					<!-- упрощённые карточки (tiles__simple) -->
-					<div class="tiles__simple">
-
-						<div class="tile">
-							<div class="tile__h">
-								<div class="h3">Почему мы занимаемся офисной мебелью на металлокаркасе?</div>
-								<div class="tile__icons">
-									<div class="tile__tags">
-										<div class="tile__tag">Видео</div>
-										<!-- <a href="/" class="tile__tag">Ссылка</a> --> <!-- если надо ссылкой -->
-									</div>
-									<div class="tile__views">
-										<svg>
-											<use xlink:href="#views"></use>
-										</svg>
-										99
-									</div>
-								</div>
-							</div>
-							<div class="tile__f">
-								<a href="https://www.youtube.com/embed/BbGmMjo3yEA" class="btn-round js-modal-show" data-box-width="1000" data-box-type="video" aria-label="Смотреть">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 20">
-										<path d="M15.98 9.132a1 1 0 0 1 0 1.736L1.497 19.145A1 1 0 0 1 0 18.277V1.723A1 1 0 0 1 1.496.855l14.485 8.277Z" />
-									</svg>
-								</a>
-							</div>
-							<a href="news-details.html">
-								<picture>
-									<img src="img/dev/ideas/idea-4.png" width="831" height="985" alt="" loading="lazy" class="tile__image">
-								</picture>
-							</a>
-						</div>
-
-						<div class="tile">
-							<div class="tile__h">
-								<div class="h3">Офис The Люди</div>
-							</div>
-							<a href="news-details.html">
-								<picture>
-									<img src="img/dev/ideas/idea-6.png" width="831" height="985" alt="" loading="lazy" class="tile__image">
-								</picture>
-							</a>
-						</div>
-
-						<div class="tile">
-							<div class="tile__h">
-								<div class="h3">Сделали мебель для офиса Ютуб-канала The Люди</div>
-								<div class="tile__icons">
-									<div class="tile__views">
-										<svg>
-											<use xlink:href="#views"></use>
-										</svg>
-										15 950
-									</div>
-								</div>
-							</div>
-							<a href="news-details.html">
-								<picture>
-									<img src="img/dev/ideas/idea-2.png" width="831" height="985" alt="" loading="lazy" class="tile__image">
-								</picture>
-							</a>
-						</div>
-
-						<div class="tile">
-							<div class="tile__h">
-								<div class="h3">Офис The Люди</div>
-							</div>
-							<a href="news-details.html">
-								<picture>
-									<img src="img/dev/ideas/idea-6.png" width="831" height="985" alt="" loading="lazy" class="tile__image">
-								</picture>
-							</a>
-						</div>
-
-						<div class="tile">
-							<div class="tile__h">
-								<div class="h3">Почему мы занимаемся офисной мебелью на металлокаркасе?</div>
-								<div class="tile__icons">
-									<div class="tile__tags">
-										<div class="tile__tag">Видео</div>
-										<!-- <a href="/" class="tile__tag">Ссылка</a> --> <!-- если надо ссылкой -->
-									</div>
-									<div class="tile__views">
-										<svg>
-											<use xlink:href="#views"></use>
-										</svg>
-										99
-									</div>
-								</div>
-							</div>
-							<div class="tile__f">
-								<a href="https://www.youtube.com/embed/BbGmMjo3yEA" class="btn-round js-modal-show" data-box-width="1000" data-box-type="video" aria-label="Смотреть">
-									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 20">
-										<path d="M15.98 9.132a1 1 0 0 1 0 1.736L1.497 19.145A1 1 0 0 1 0 18.277V1.723A1 1 0 0 1 1.496.855l14.485 8.277Z" />
-									</svg>
-								</a>
-							</div>
-							<a href="news-details.html">
-								<picture>
-									<img src="img/dev/ideas/idea-4.png" width="831" height="985" alt="" loading="lazy" class="tile__image">
-								</picture>
-							</a>
-						</div>
-
-						<div class="tile">
-							<div class="tile__h">
-								<div class="h3">Сделали мебель для офиса Ютуб-канала The Люди</div>
-								<div class="tile__icons">
-									<div class="tile__views">
-										<svg>
-											<use xlink:href="#views"></use>
-										</svg>
-										15 950
-									</div>
-								</div>
-							</div>
-							<a href="news-details.html">
-								<picture>
-									<img src="img/dev/ideas/idea-1.png" width="831" height="985" alt="" loading="lazy" class="tile__image">
-								</picture>
-							</a>
+						<div class="delivery-table-container scrollblock">
+							<table class="delivery-table ">
+								<thead>
+									<tr>
+										<th>Вес</th>
+										<th>Доставка<br>без подъёма</th>
+										<th>Доставка с подъёмом<br>(1 этаж + лифт + 30 м пронос)</th>
+										<th>Подъём по лестнице<br>(за этаж)</th>
+										<th>Пронос за каждые<br>следующие 30 метров</th>
+										<th>Сборка</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>от 20 кг до 40 кг</td>
+										<td>1 000 ₽</td>
+										<td>1 100 ₽</td>
+										<td>100 ₽</td>
+										<td>100 ₽</td>
+										<td>1 000 ₽</td>
+									</tr>
+									<tr>
+										<td>от 50 кг до 70 кг</td>
+										<td>1 200 ₽</td>
+										<td>1 300 ₽</td>
+										<td>200 ₽</td>
+										<td>200 ₽</td>
+										<td>1 200 ₽</td>
+									</tr>
+									<tr>
+										<td>от 70 кг до 100 кг</td>
+										<td>1 500 ₽</td>
+										<td>1 600 ₽</td>
+										<td>300 ₽</td>
+										<td>300 ₽</td>
+										<td>10% от стоимости</td>
+									</tr>
+									<tr>
+										<td>от 20 кг до 40 кг</td>
+										<td>1 000 ₽</td>
+										<td>1 100 ₽</td>
+										<td>100 ₽</td>
+										<td>100 ₽</td>
+										<td>1 000 ₽</td>
+									</tr>
+									<tr>
+										<td>от 50 кг до 70 кг</td>
+										<td>1 200 ₽</td>
+										<td>1 300 ₽</td>
+										<td>200 ₽</td>
+										<td>200 ₽</td>
+										<td>1 200 ₽</td>
+									</tr>
+									<tr>
+										<td>от 70 кг до 100 кг</td>
+										<td>1 500 ₽</td>
+										<td>1 600 ₽</td>
+										<td>300 ₽</td>
+										<td>300 ₽</td>
+										<td>10% от стоимости</td>
+									</tr>
+									<tr>
+										<td>от 20 кг до 40 кг</td>
+										<td>1 000 ₽</td>
+										<td>1 100 ₽</td>
+										<td>100 ₽</td>
+										<td>100 ₽</td>
+										<td>1 000 ₽</td>
+									</tr>
+									<tr>
+										<td>от 50 кг до 70 кг</td>
+										<td>1 200 ₽</td>
+										<td>1 300 ₽</td>
+										<td>200 ₽</td>
+										<td>200 ₽</td>
+										<td>1 200 ₽</td>
+									</tr>
+									<tr>
+										<td>от 70 кг до 100 кг</td>
+										<td>1 500 ₽</td>
+										<td>1 600 ₽</td>
+										<td>300 ₽</td>
+										<td>300 ₽</td>
+										<td>10% от стоимости</td>
+									</tr>
+									<tr>
+										<td>от 20 кг до 40 кг</td>
+										<td>1 000 ₽</td>
+										<td>1 100 ₽</td>
+										<td>100 ₽</td>
+										<td>100 ₽</td>
+										<td>1 000 ₽</td>
+									</tr>
+									<tr>
+										<td>от 50 кг до 70 кг</td>
+										<td>1 200 ₽</td>
+										<td>1 300 ₽</td>
+										<td>200 ₽</td>
+										<td>200 ₽</td>
+										<td>1 200 ₽</td>
+									</tr>
+									<tr>
+										<td>от 70 кг до 100 кг</td>
+										<td>1 500 ₽</td>
+										<td>1 600 ₽</td>
+										<td>300 ₽</td>
+										<td>300 ₽</td>
+										<td>10% от стоимости</td>
+									</tr>
+									<tr>
+										<td>от 20 кг до 40 кг</td>
+										<td>1 000 ₽</td>
+										<td>1 100 ₽</td>
+										<td>100 ₽</td>
+										<td>100 ₽</td>
+										<td>1 000 ₽</td>
+									</tr>
+									<tr>
+										<td>от 50 кг до 70 кг</td>
+										<td>1 200 ₽</td>
+										<td>1 300 ₽</td>
+										<td>200 ₽</td>
+										<td>200 ₽</td>
+										<td>1 200 ₽</td>
+									</tr>
+									<tr>
+										<td>от 70 кг до 100 кг</td>
+										<td>1 500 ₽</td>
+										<td>1 600 ₽</td>
+										<td>300 ₽</td>
+										<td>300 ₽</td>
+										<td>10% от стоимости</td>
+									</tr>
+									<tr>
+										<td>от 20 кг до 40 кг</td>
+										<td>1 000 ₽</td>
+										<td>1 100 ₽</td>
+										<td>100 ₽</td>
+										<td>100 ₽</td>
+										<td>1 000 ₽</td>
+									</tr>
+									<tr>
+										<td>от 50 кг до 70 кг</td>
+										<td>1 200 ₽</td>
+										<td>1 300 ₽</td>
+										<td>200 ₽</td>
+										<td>200 ₽</td>
+										<td>1 200 ₽</td>
+									</tr>
+									<tr>
+										<td>от 70 кг до 100 кг</td>
+										<td>1 500 ₽</td>
+										<td>1 600 ₽</td>
+										<td>300 ₽</td>
+										<td>300 ₽</td>
+										<td>10% от стоимости</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 
 					</div>
+					<div class="tab-block" data-tab-content="zone11">
 
+						<div class="delivery-table-container scrollblock">
+							<table class="delivery-table">
+								<thead>
+									<tr>
+										<th>Вес</th>
+										<th>Доставка<br>без подъёма</th>
+										<th>Доставка с подъёмом<br>(1 этаж + лифт + 30 м пронос)</th>
+										<th>Подъём по лестнице<br>(за этаж)</th>
+										<th>Пронос за каждые<br>следующие 30 метров</th>
+										<th>Сборка</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>от 20 кг до 40 кг</td>
+										<td>1 000 ₽</td>
+										<td>1 100 ₽</td>
+										<td>100 ₽</td>
+										<td>100 ₽</td>
+										<td>1 000 ₽</td>
+									</tr>
+									<tr>
+										<td>от 50 кг до 70 кг</td>
+										<td>1 200 ₽</td>
+										<td>1 300 ₽</td>
+										<td>200 ₽</td>
+										<td>200 ₽</td>
+										<td>1 200 ₽</td>
+									</tr>
+									<tr>
+										<td>от 70 кг до 100 кг</td>
+										<td>1 500 ₽</td>
+										<td>1 600 ₽</td>
+										<td>300 ₽</td>
+										<td>300 ₽</td>
+										<td>10% от стоимости</td>
+									</tr>
+									<tr>
+										<td>от 20 кг до 40 кг</td>
+										<td>1 000 ₽</td>
+										<td>1 100 ₽</td>
+										<td>100 ₽</td>
+										<td>100 ₽</td>
+										<td>1 000 ₽</td>
+									</tr>
+									<tr>
+										<td>от 50 кг до 70 кг</td>
+										<td>1 200 ₽</td>
+										<td>1 300 ₽</td>
+										<td>200 ₽</td>
+										<td>200 ₽</td>
+										<td>1 200 ₽</td>
+									</tr>
+									<tr>
+										<td>от 70 кг до 100 кг</td>
+										<td>1 500 ₽</td>
+										<td>1 600 ₽</td>
+										<td>300 ₽</td>
+										<td>300 ₽</td>
+										<td>10% от стоимости</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+					<div class="tab-block" data-tab-content="zone2"></div>
+					<div class="tab-block" data-tab-content="zone3"></div>
+					<div class="tab-block" data-tab-content="zone4"></div>
+					<div class="tab-block" data-tab-content="zone5"></div>
 				</div>
 			</div>
 
-			<div class="pagination">
-				<div class="pagination__more">
-					<button class="btn btn_yellow btn_long js-load-more" data-url="https://deviart.ru/zamm/fetch-more-news.php" data-target="tiles__simple">
-						<span>Показать ещё</span>
-					</button>
-				</div>
+			<div class="delivery-zones">
 			</div>
 
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="content">
+			<div class="banner-block">
+				<div class="banner-block__text">
+					<div class="banner-block__body">
+						<div class="h2">Не нашли ответа на свой вопрос?</div>
+						<div>Позвоните нам по телефону <a href="tel:+74951919871">+7 495 191-98-71</a></div>
+					</div>
+					<div class="banner-block__button">
+						<a href="javascript:void(0)" class="btn btn_yellow">Написать сообщение</a>
+					</div>
+				</div>
+				<div class="banner-block__img _bg-yellow-light">
+					<picture>
+						<source srcset="img/dev/common/banner-girl.webp" type="image/webp">
+						<img src="img/dev/common/banner-girl.png" width="588" height="420" alt="">
+					</picture>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -1089,10 +1090,11 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240221141619"></script>
-	<script src="js/carousel-init.js?v=20240221141619"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240222125222"></script>
+	<script src="js/carousel-init.js?v=20240222125222"></script>
 
-	<script src="js/common.js?v=20240221141619"></script>
+	<script src="js/common.js?v=20240222125222"></script>
+	<script src="js/tabs.js?v=20240222125222"></script>
 
 </body>
 
