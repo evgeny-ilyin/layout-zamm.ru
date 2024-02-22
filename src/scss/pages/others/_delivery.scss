@@ -36,11 +36,17 @@
 		background: none;
 		border: none;
 		border-radius: 8px;
-		padding: 0 16px;
-		height: 30px;
+		padding: 0 8px;
+		height: 26px;
 		margin-right: 3px;
 		margin-bottom: 8px;
-		font-size: rem(18);
+		font-size: rem(15);
+
+		@include respond-to(lg) {
+			padding: 0 16px;
+			height: 30px;
+			font-size: rem(18);
+		}
 
 		&:last-of-type {
 			margin-right: 16px;
