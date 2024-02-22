@@ -51,10 +51,12 @@
 		transform: none;
 
 		img {
+			max-height: 90vh;
 			max-height: 90dvh;
 			
 			@include respond-to(md) {
 				margin: 0 auto;
+				max-height: calc(100vh - 143px - 143px);
 				max-height: calc(100dvh - 143px - 143px);
 			}
 		}
