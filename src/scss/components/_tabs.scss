@@ -6,7 +6,7 @@
 	&__header {
 		display: flex;
 		flex-flow: row wrap;
-		padding-bottom: 8px;
+		padding: 1px 0 8px 1px;
 
 		&.scrollblock {
 			flex-flow: row nowrap;
@@ -67,6 +67,11 @@
 	@include on-active {
 		color: $black60;
 		border-color: $black60;
+	}
+
+	@include on-focus-visible {
+		box-shadow: 0 0 0 1px $black30 !important;
+		border-radius: 40px;
 	}
 }
 
