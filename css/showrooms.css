@@ -91,7 +91,8 @@
 .sr-card__note .note {
   font-size: .875rem;
   line-height: 1.3;
-  margin: 16px 0
+  margin: 16px 0;
+  padding-left: 16px
 }
 .sr-card__gallery {
   display: none;

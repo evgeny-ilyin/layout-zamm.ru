@@ -3,7 +3,10 @@
   min-height: 265px
 }
 .map_showroom-all {
-  height: 606px
+  height: 554px
+}
+.map_delivery-zones {
+  height: 452px
 }
 .map .btn {
   margin: 8px 0 1px 1px
@@ -61,5 +64,11 @@
 @media (min-width:1024px) {
   .map_showroom {
     height: 528px
+  }
+  .map_showroom-all {
+    height: 606px
+  }
+  .map_delivery-zones {
+    height: 580px
   }
 }

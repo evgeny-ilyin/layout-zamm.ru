@@ -353,6 +353,11 @@ svg {
 .inner-page__col-left {
   margin-bottom: 10px
 }
+.grid {
+  display: -ms-grid;
+  display: grid;
+  gap: 12px 12px
+}
 .h1,
 h1 {
   font-size: 2rem;
@@ -379,7 +384,7 @@ h3 {
 }
 .h4,
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1;
   font-weight: 700;
   letter-spacing: -.4px;
@@ -387,7 +392,7 @@ h4 {
 }
 .h5,
 h5 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   line-height: 1.2;
   font-weight: 700;
   letter-spacing: -.3px;
@@ -395,7 +400,7 @@ h5 {
 }
 .h6,
 h6 {
-  font-size: 1rem;
+  font-size: .875rem;
   line-height: 1.2;
   font-weight: 700;
   letter-spacing: -.3px;
@@ -496,6 +501,9 @@ ol {
 .text-uppercase {
   text-transform: uppercase
 }
+.text-block span {
+  color: var(--black60)
+}
 .text-black {
   color: var(--black)
 }
@@ -529,6 +537,20 @@ ol {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex
+}
+.flex-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.flex-header * {
+  margin-bottom: 0
+}
+.pos-flex-right {
+  margin-left: auto
 }
 .noscroll {
   overflow: hidden;
@@ -1756,6 +1778,36 @@ ol {
 .btn_nav-second {
   width: 100%
 }
+.btn_angle span::after {
+  content: "";
+  display: block;
+  margin-left: 10px;
+  width: 15px;
+  height: 10px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 10px;
+  flex: 0 0 10px;
+  background: var(--svg-angle) right center no-repeat;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out
+}
+.btn_angle.btn_white {
+  -webkit-box-shadow: 0 0 0 1px var(--white);
+  box-shadow: 0 0 0 1px var(--white)
+}
+.btn_angle.btn_white:hover {
+  -webkit-box-shadow: 0 0 0 1px var(--black10);
+  box-shadow: 0 0 0 1px var(--black10)
+}
+.btn_angle.btn_white:active {
+  -webkit-box-shadow: 0 0 0 1px var(--black60);
+  box-shadow: 0 0 0 1px var(--black60)
+}
+.btn_angle.btn_white:focus-visible {
+  -webkit-box-shadow: 0 0 0 1px var(--black60)!important;
+  box-shadow: 0 0 0 1px var(--black60)!important
+}
 .btn_arrow span::after {
   content: "";
   display: block;
@@ -2075,6 +2127,24 @@ ol {
   margin-left: 3px;
   width: 13px;
   height: 13px
+}
+.btn-zones {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  height: 40px
+}
+.btn-zones img {
+  border-radius: 4px;
+  margin: 0 8px 0 4px
 }
 .js-close-header-alert {
   top: auto;
@@ -3234,7 +3304,7 @@ input[type=file]:focus-visible ~ span {
 .note {
   position: relative;
   border-radius: 8px;
-  padding: 8px 8px 8px 16px;
+  padding: 8px 8px 8px 20px;
   margin: 24px 0;
   background: var(--white)
 }
@@ -3245,7 +3315,7 @@ input[type=file]:focus-visible ~ span {
   top: 8px;
   bottom: 8px;
   left: 8px;
-  width: 3px;
+  width: 2px;
   background: var(--black);
   border-radius: 2px
 }
@@ -3254,6 +3324,41 @@ input[type=file]:focus-visible ~ span {
 }
 .note_yellow::before {
   background: var(--yellow-dark)
+}
+.note_big {
+  padding: 12px 12px 12px 20px;
+  font-weight: 700
+}
+.note_big::before {
+  top: 12px;
+  bottom: 12px;
+  left: 12px
+}
+.note-important {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 32px 0
+}
+.note-important svg {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  margin-left: 12px
+}
+.note-important b,
+.note-important strong {
+  display: block;
+  margin-bottom: 3px
+}
+.note-important span {
+  color: var(--black60);
+  font-size: .875rem;
+  line-height: 1.3
 }
 .available {
   margin-bottom: 7px;
@@ -3487,6 +3592,53 @@ input[type=file]:focus-visible ~ span {
 .banner-block__img._bg-yellow-light::after {
   background: var(--yellow-light)
 }
+.info-block {
+  border-radius: 8px;
+  background: var(--white);
+  padding: 8px
+}
+.info-block__important {
+  border-radius: 8px;
+  background: var(--gray);
+  padding: 12px 12px 22px;
+  margin-bottom: 24px
+}
+.info-block__important > * {
+  padding-left: 0!important;
+  padding-right: 0!important
+}
+.info-block__important span {
+  color: var(--black60)
+}
+.info-block__important .info-block__header {
+  padding: 0
+}
+.info-block__header {
+  padding: 12px
+}
+.info-block__header > :last-child {
+  margin-bottom: 0
+}
+.info-block__body {
+  padding: 0 12px
+}
+.info-block__body._wide {
+  max-width: 100%
+}
+.info-block__footer {
+  margin-top: 30px;
+  border-top: 1px dotted var(--black30);
+  padding: 16px 12px 0
+}
+.info-block__special {
+  margin-top: 22px;
+  border-top: 1px dotted var(--black30);
+  padding-top: 11px;
+  row-gap: 5px
+}
+.info-block__special > div:nth-child(2) {
+  color: var(--black60)
+}
 .tags-collapse {
   padding-right: 30px;
   overflow-x: scroll;
@@ -3573,6 +3725,10 @@ input[type=file]:focus-visible ~ span {
   }
 }
 @media (min-width:577px) {
+  .grid_xm-2 {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2,1fr)
+  }
   .header-alert__wrapper {
     grid-auto-flow: column
   }
@@ -3623,6 +3779,13 @@ input[type=file]:focus-visible ~ span {
   }
   .inner-page__col-left {
     margin-bottom: 18px
+  }
+  .grid {
+    gap: 16px 16px
+  }
+  .grid_md-2 {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2,1fr)
   }
   .h1,
   h1 {
@@ -3724,6 +3887,10 @@ input[type=file]:focus-visible ~ span {
     -ms-flex-negative: 0;
     flex-shrink: 0
   }
+  .grid_lg-2 {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2,1fr)
+  }
   .h1,
   h1 {
     font-size: 4rem;
@@ -3737,6 +3904,18 @@ input[type=file]:focus-visible ~ span {
   h3 {
     font-size: 1.5rem;
     letter-spacing: -.48px
+  }
+  .h4,
+  h4 {
+    font-size: 1.25rem
+  }
+  .h5,
+  h5 {
+    font-size: 1.125rem
+  }
+  .h6,
+  h6 {
+    font-size: 1rem
   }
   .block-header {
     font-size: 2.125rem
@@ -4078,6 +4257,22 @@ input[type=file]:focus-visible ~ span {
     -o-transition: bottom .25s ease-in-out;
     transition: bottom .25s ease-in-out
   }
+  .note_big {
+    padding: 16px 16px 16px 32px;
+    font-size: 1.25rem;
+    line-height: 1
+  }
+  .note_big::before {
+    top: 16px;
+    bottom: 16px;
+    left: 16px
+  }
+  .note-important svg {
+    -webkit-box-ordinal-group: 1;
+    -ms-flex-order: 0;
+    order: 0;
+    margin: 0 12px 0 0
+  }
   .product__props .prop__list img {
     width: 32px;
     height: 32px
@@ -4103,6 +4298,21 @@ input[type=file]:focus-visible ~ span {
   .banner-block__img img {
     width: 515px
   }
+  .info-block {
+    padding: 12px
+  }
+  .info-block__important {
+    padding: 20px 20px 39px
+  }
+  .info-block__header {
+    max-width: 80%
+  }
+  .info-block__body {
+    max-width: 90%
+  }
+  .info-block__footer {
+    margin-top: 60px
+  }
 }
 @media (min-width:1280px) {
   .content__sidebar {
@@ -4117,6 +4327,10 @@ input[type=file]:focus-visible ~ span {
     order: 1;
     width: calc(100% - 260px - 56px);
     margin-left: 56px
+  }
+  .grid_xl-2 {
+    -ms-grid-columns: (1fr)[2];
+    grid-template-columns: repeat(2,1fr)
   }
   .menu-dropdown {
     left: 104px;
