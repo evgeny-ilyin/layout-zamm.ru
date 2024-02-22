@@ -1,0 +1,68 @@
+@@include('html/head.html', {
+"title": "Доставка",
+"stylesFor": "delivery"
+})
+<body class="bg-gray">
+	@@include('html/header.html', {})
+
+	<div class="container">
+		@@include('html/pages/others/delivery.html')
+	</div>
+
+	@@include('html/footer.html')
+
+	@@include('html/cookies.html', {})
+	@@include('html/svg-sprite.html', {})
+
+
+	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
+	<script src="js/carousel-init.js"></script>
+
+	<script src="js/common.js"></script>
+	<script src="js/tabs.js"></script>
+
+	<!-- Укажите свой API-ключ. Тестовый ключ НЕ БУДЕТ работать на других сайтах. -->
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU&amp;apikey=62d58f34-0a00-4308-8480-c2d69f1e160b" type="text/javascript"></script>
+	<script src="js/yandex-map.js"></script>
+
+	<script>
+		let data = {
+			"type": "FeatureCollection",
+			"features": [
+				{
+					"type": "Feature", "id": 0, "geometry": { "type": "Point", "coordinates": [55.800479, 37.638063] }, "properties": {
+						"balloonContent": "<b>Шоу-рум ZAMM Москва (м. Алексеевская) для юр. лиц: г. Москва, ул. Проспект Мира, д. 102с30</b><a href='showroom-details.html' class='btn btn_gray-dark btn_arrow'><span>Перейти на страницу</span></a>",
+						"clusterCaption": "м. Алексеевская"
+					}
+				},
+				{
+					"type": "Feature", "id": 1, "geometry": { "type": "Point", "coordinates": [55.762865, 37.654071] }, "properties": {
+						"balloonContent": "<b>Шоу-рум ZAMM Москва (м. Курская) для юр. и физ. лиц: г. Москва, ул. Покровка д. 44</b><a href='showroom-details.html' class='btn btn_gray-dark btn_arrow'><span>Перейти на страницу</span></a>",
+						"clusterCaption": "м. Курская"
+					}
+				},
+				{
+					"type": "Feature", "id": 2, "geometry": { "type": "Point", "coordinates": [55.790231, 37.531289] }, "properties": {
+						"balloonContent": "<b>Шоу-рум ZAMM Москва (м. ЦСКА, ТЦ Авиапарк) для юр. и физ. лиц: г. Москва, Ходынский бул., 4</b><a href='showroom-details.html' class='btn btn_gray-dark btn_arrow'><span>Перейти на страницу</span></a>",
+						"clusterCaption": "м. ЦСКА, ТЦ Авиапарк"
+					}
+				},
+				{
+					"type": "Feature", "id": 3, "geometry": { "type": "Point", "coordinates": [59.964678, 30.304540] }, "properties": {
+						"balloonContent": "<b>Шоу-рум ZAMM Санкт-Петербург для юр. и физ. лиц</b><a href='showroom-details.html' class='btn btn_gray-dark btn_arrow'><span>Перейти на страницу</span></a>",
+						"clusterCaption": "Бармалеева, 1"
+					}
+				},
+				{
+					"type": "Feature", "id": 4, "geometry": { "type": "Point", "coordinates": [56.240028, 37.994200] }, "properties": {
+						"balloonContent": "<b>Склад ZAMM (Производство): г. Хотьково ул. Художественный проезд 2Е</b><a href='showroom-details.html' class='btn btn_gray-dark btn_arrow'><span>Перейти на страницу</span></a>",
+						"clusterCaption": "Производство и склад"
+					}
+				},
+			]
+		}
+		ymaps.ready(mapInit);
+	</script>
+
+</body>
+</html>

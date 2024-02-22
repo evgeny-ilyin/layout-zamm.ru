@@ -7,7 +7,7 @@
 		@include respond-to(md) {
 			height: calc(457px - 11px - 11px);
 		}
-	
+
 		@include respond-to(lg) {
 			height: calc(544px - 8px - 8px);
 		}
@@ -15,7 +15,20 @@
 
 	// .map_showroom-all
 	&_showroom-all {
-		height: 606px;
+		height: 554px;
+		
+		@include respond-to(lg) {
+			height: 606px;
+		}
+	}
+
+	// .map_delivery-zones
+	&_delivery-zones {
+		height: 452px;
+
+		@include respond-to(lg) {
+			height: 580px;
+		}
 	}
 
 	.btn {

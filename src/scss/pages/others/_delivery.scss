@@ -1,0 +1,362 @@
+.tabs {
+	@include when-inside(".tabs_delivery") {
+		// .tabs__header
+		&__header {
+			padding: 1px 0 1px 8px;
+			margin-bottom: 4px;
+
+			&.scrollblock {
+				padding-right: 30px;
+
+				@include respond-to(lg) {
+					padding-right: 1px;
+					padding-left: 16px;
+				}
+
+				&::before {
+					height: 43px;
+
+					@include respond-to(lg) {
+						display: none;
+					}
+				}
+			}
+		}
+
+		// .tabs__content
+		&__content {
+			margin-top: 0;
+		}
+	}
+}
+
+.tabs_delivery {
+	.tab-nav {
+		position: relative;
+		background: none;
+		border: none;
+		border-radius: 8px;
+		padding: 0 16px;
+		height: 30px;
+		margin-right: 3px;
+		margin-bottom: 8px;
+		font-size: rem(18);
+
+		&:last-of-type {
+			margin-right: 16px;
+		}
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			border-bottom-width: 2px;
+			border-bottom-style: solid;
+			right: 0;
+			bottom: -8px;
+			left: 0;
+			transition: border-bottom-width ease 0.05s;
+		}
+
+		&.is-active {
+			text-shadow: 0 0 0, 0 0 0, 0 0 0;
+
+			&::after {
+				border-bottom-width: 4px;
+			}
+		}
+
+		@include on-hover {
+			text-shadow: 0 0 0, 0 0 0, 0 0 0;
+			background: $black30;
+		}
+
+		@include on-active {
+			color: $black60;
+			border-color: $black60;
+		}
+
+		// ._red
+		&._red {
+			color: #ff4740;
+			border-bottom-color: #ff4740;
+
+			@include on-hover {
+				background: rgba(#ffb1ab, 0.3);
+			}
+
+			&.is-active {
+				background: rgba(#ffb1ab, 0.3);
+			}
+		}
+
+		// ._green
+		&._green {
+			color: #1cab1b;
+			border-bottom-color: #1cab1b;
+
+			@include on-hover {
+				background: rgba(#a4de95, 0.4);
+			}
+
+			&.is-active {
+				background: rgba(#a4de95, 0.4);
+			}
+		}
+
+		// ._pink
+		&._pink {
+			color: #f26dc1;
+			border-bottom-color: #f26dc1;
+
+			@include on-hover {
+				background: rgba(#fac6e8, 0.4);
+			}
+
+			&.is-active {
+				background: rgba(#fac6e8, 0.4);
+			}
+		}
+
+		// ._blue
+		&._blue {
+			color: #3390ed;
+			border-bottom-color: #3390ed;
+
+			@include on-hover {
+				background: rgba(#a5d5fa, 0.4);
+			}
+
+			&.is-active {
+				background: rgba(#a5d5fa, 0.4);
+			}
+		}
+
+		// ._dirt
+		&._dirt {
+			color: #a09d14;
+			border-bottom-color: #a09d14;
+
+			@include on-hover {
+				background: rgba(#d5d994, 0.4);
+			}
+
+			&.is-active {
+				background: rgba(#d5d994, 0.4);
+			}
+		}
+
+		// ._gray
+		&._gray {
+			color: $black60;
+			border-bottom-color: $black60;
+
+			@include on-hover {
+				background: $black10;
+			}
+
+			&.is-active {
+				background: $black10;
+			}
+		}
+	}
+
+	.tab-block {
+		border: 0;
+		padding: 5px 4px 16px;
+
+		// градиент строк справа (при переполнении)
+		// выглядит плохо, скрывает закругления углов, есть гэп из-за скролла
+		// position: relative;
+
+		// &::before {
+		// 	content: "";
+		// 	display: block;
+		// 	position: absolute;
+		// 	width: 15px;
+		// 	top: 0;
+		// 	right: 8px;
+		// 	bottom: 25px;
+		// 	z-index: 3;
+		// 	background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 75%);
+		// }
+	}
+}
+
+.delivery-table-container {
+	overflow: auto;
+	max-height: 80vh;
+	max-height: 80dvh;
+	overscroll-behavior: auto;
+
+	&::-webkit-scrollbar-track,
+	&::-webkit-scrollbar-track:hover,
+	&::-webkit-scrollbar-track:active {
+		background-color: unset;
+	}
+}
+
+.delivery-table {
+	width: 100%;
+	border-collapse: collapse;
+
+	th {
+		padding: 8px 20px;
+	}
+
+	td {
+		padding: 12px 20px;
+		white-space: nowrap;
+	}
+
+	th,
+	td {
+		min-width: 148px;
+		text-align: left;
+
+		&:last-child {
+			text-align: right;
+		}
+	}
+
+	thead {
+		font-size: rem(12);
+		color: $black-real;
+
+		tr,
+		th {
+			background: $white;
+			border-bottom: 1px solid $black10;
+		}
+
+		th {
+			position: sticky;
+			top: 0;
+			z-index: 2;
+
+			&:first-child {
+				left: 0;
+				z-index: 3;
+
+				&::before {
+					content: "";
+					display: block;
+					position: absolute;
+					width: 20px;
+					top: 0;
+					right: -15px;
+					bottom: 0;
+					background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 75%);
+				}
+			}
+		}
+	}
+
+	tbody {
+		tr {
+			td {
+				background: $white;
+
+				&:first-child {
+					border-radius: 4px 0 0 4px;
+
+					&::before {
+						content: "";
+						display: block;
+						position: absolute;
+						width: 20px;
+						top: 0;
+						right: -15px;
+						bottom: 0;
+						z-index: 1;
+						background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(255, 255, 255, 1) 75%);
+					}
+				}
+
+				&:last-child {
+					border-radius: 0 4px 4px 0;
+				}
+			}
+
+			&:first-child {
+				// пустая белая строка сверху
+				td {
+					height: 24px;
+				}
+			}
+
+			&:nth-child(even) {
+				td {
+					background: $gray;
+
+					&:first-child {
+						&::before {
+							background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(243, 247, 250, 1) 75%);
+						}
+					}
+
+					// &:last-child {
+					// 	&::before {
+					// 		background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, rgba(243, 247, 250, 1) 75%);
+					// 	}
+					// }
+				}
+			}
+
+			& > :first-child {
+				position: sticky;
+				left: 0;
+			}
+		}
+	}
+}
+
+.delivery-zones {
+	scroll-margin-top: 60px;
+	margin-bottom: 95px;
+
+	// .delivery-zones__map
+	&__map {
+		margin-top: 32px;
+
+		@include respond-to(md) {
+			margin-top: 16px;
+		}
+
+		.btn._dynamic_adapt_ {
+			width: 100%;
+			margin-top: 8px;
+
+			span {
+				justify-content: space-between;
+			}
+		}
+	}
+}
+
+.delivery-pack {
+	margin: 80px 0 40px;
+
+	@include respond-to(md) {
+		margin: 90px 0 45px;
+	}
+
+	@include respond-to(lg) {
+		margin: 124px 0 57px;
+	}
+
+	// .delivery-pack__text
+	&__text {
+		@include respond-to(xl) {
+			max-width: 542px;
+		}
+	}
+
+	// .delivery-pack__image
+	&__image {
+		img {
+			margin: 8px auto;
+			border-radius: 2px;
+		}
+	}
+}

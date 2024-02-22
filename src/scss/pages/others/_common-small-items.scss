@@ -139,6 +139,93 @@
 	}
 }
 
+.info-block {
+	border-radius: 8px;
+	background: $white;
+	padding: 8px;
+
+	@include respond-to(lg) {
+		padding: 12px;
+	}
+
+	// .info-block__important
+	&__important {
+		border-radius: 8px;
+		background: $gray;
+		padding: 12px 12px 22px;
+		margin-bottom: 24px;
+
+		@include respond-to(lg) {
+			padding: 20px 20px 39px;
+		}
+
+		& > * {
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+		}
+
+		span {
+			color: $black60;
+		}
+
+		.info-block__header {
+			padding: 0;
+		}
+	}
+
+	// .info-block__header
+	&__header {
+		padding: 12px;
+
+		@include respond-to(lg) {
+			max-width: 80%;
+		}
+
+		& > *:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// .info-block__body
+	&__body {
+		padding: 0 12px;
+
+		@include respond-to(lg) {
+			max-width: 90%;
+		}
+
+		&._wide {
+			max-width: 100%;
+		}
+	}
+
+	// .info-block__footer
+	&__footer {
+		margin-top: 30px;
+		border-top: 1px dotted $black30;
+		padding: 16px 12px 0;
+
+		@include respond-to(lg) {
+			margin-top: 60px;
+		}
+	}
+
+	// .info-block__special
+	&__special {
+		margin-top: 22px;
+		border-top: 1px dotted $black30;
+		padding-top: 11px;
+		row-gap: 5px;
+
+
+		& > div {
+			&:nth-child(2) {
+				color: $black60;
+			}
+		}
+	}
+}
+
 .tags-collapse {
 	padding-right: 30px;
 	overflow-x: scroll;
