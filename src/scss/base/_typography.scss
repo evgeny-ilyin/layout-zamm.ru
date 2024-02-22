@@ -56,6 +56,24 @@ h6,
 	@extend %h6-heading;
 }
 
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+	span {
+		color: $black60;
+		margin-left: 5px;
+	}
+}
+
 a {
 	@extend %text-links-solid;
 }
@@ -104,6 +122,12 @@ ol {
 
 .text-uppercase {
 	text-transform: uppercase;
+}
+
+.text-block {
+	span {
+		color: $black60;
+	}
 }
 
 /**
