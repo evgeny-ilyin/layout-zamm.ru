@@ -125,8 +125,14 @@ ol {
 }
 
 .text-block {
+	margin-bottom: 12px;
+
 	span {
 		color: $black60;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
 	}
 }
 

@@ -264,4 +264,32 @@
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
+
+	// .grid_lg-3
+	&_lg-3 {
+		@include respond-to(lg) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	// .grid_xl-3
+	&_xl-3 {
+		@include respond-to(xl) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
+	// .grid_lg-4
+	&_lg-4 {
+		@include respond-to(lg) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+
+	// .grid_xl-4
+	&_xl-4 {
+		@include respond-to(xl) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
 }

@@ -9,11 +9,10 @@
 		flex-direction: row;
 		height: 519px;
 		margin: 0 0 42px;
-}
+	}
 
 	@include respond-to(lg) {
 		height: 480px;
-		flex-direction: row;
 		margin-bottom: 0;
 	}
 
@@ -22,21 +21,29 @@
 		position: relative;
 		height: 332px;
 		background: $yellow;
-		padding: 16px 0;
+		padding: 16px 0 0;
 		display: flex;
 		flex-direction: column;
 
 		@include respond-to(md) {
-			padding: 8px;
+			flex-shrink: 0;
+			padding: 8px 8px 0;
 			width: 50%;
 			height: auto;
 		}
 
 		@include respond-to(lg) {
 			width: 420px;
-			flex-shrink: 0;
 			padding: 16px 4px 0 12px;
 			margin-right: 16px;
+		}
+
+		@include when-inside("._contacts") {
+			@include respond-to(md) {
+				flex-shrink: 0;
+				margin-right: 0;
+				width: 50%;
+			}
 		}
 
 		.scrollblock {
@@ -91,11 +98,6 @@
 		@include respond-to(lg) {
 			width: 100%;
 		}
-
-		& + .btn._dynamic_adapt_ {
-			width: auto;
-			margin: 16px $min-padding;
-		}
 	}
 
 	// .block-showrooms__item
@@ -145,6 +147,43 @@
 		}
 	}
 
+	// .block-showrooms__image
+	&__image {
+		position: relative;
+		min-height: 332px;
+
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			object-position: center 95%;
+			z-index: -1;
+		}
+	}
+
+	// .block-showrooms__text
+	&__text {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 100%;
+		padding: 32px 12px 12px;
+		text-align: center;
+
+		@include respond-to(md) {
+			padding: 32px 24px 24px;
+			text-align: left;
+		}
+
+		@include respond-to(lg) {
+			height: auto;
+			padding: 32px;
+		}
+	}
+
 	.map_showroom-all {
 		height: 100%;
 	}
@@ -164,5 +203,32 @@
 			height: 10px;
 			fill: $black;
 		}
+	}
+
+	&._contacts {
+		@include respond-to(md) {
+			height: 480px;
+		}
+
+		@include respond-to(lg) {
+			height: 577px;
+		}
+
+		.btn {
+			background: $white;
+
+			@include respond-to(md) {
+				width: auto;
+			}
+
+			@include respond-to(lg) {
+				width: fit-content;
+			}
+		}
+	}
+
+	.btn._dynamic_adapt_ {
+		width: auto;
+		margin: 16px $min-padding;
 	}
 }
