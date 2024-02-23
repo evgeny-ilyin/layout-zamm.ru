@@ -43,11 +43,12 @@ samp {
   font-size: 1em
 }
 small {
-  font-size: 80%
+  font-size: 85%;
+  line-height: 1.2
 }
 sub,
 sup {
-  font-size: 75%;
+  font-size: 85%;
   line-height: 0;
   position: relative;
   vertical-align: baseline
@@ -501,8 +502,14 @@ ol {
 .text-uppercase {
   text-transform: uppercase
 }
+.text-block {
+  margin-bottom: 12px
+}
 .text-block span {
   color: var(--black60)
+}
+.text-block:last-child {
+  margin-bottom: 0
 }
 .text-black {
   color: var(--black)
@@ -3891,6 +3898,14 @@ input[type=file]:focus-visible ~ span {
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2,1fr)
   }
+  .grid_lg-3 {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3,1fr)
+  }
+  .grid_lg-4 {
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4,1fr)
+  }
   .h1,
   h1 {
     font-size: 4rem;
@@ -4331,6 +4346,14 @@ input[type=file]:focus-visible ~ span {
   .grid_xl-2 {
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2,1fr)
+  }
+  .grid_xl-3 {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3,1fr)
+  }
+  .grid_xl-4 {
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4,1fr)
   }
   .menu-dropdown {
     left: 104px;
