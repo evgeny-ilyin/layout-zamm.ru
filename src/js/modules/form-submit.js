@@ -286,6 +286,7 @@ function submitForm(inputs, e) {
 			e.target.submit();
 		}
 	} else {
+		e.stopPropagation();
 		e.target.classList.add(errorsClass);
 	}
 }

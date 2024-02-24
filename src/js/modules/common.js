@@ -138,7 +138,7 @@ export function modalHandler() {
 			menuToggler = document.getElementById("menu-toggle"),
 			isActiveClass = "is-active";
 
-		if (arg.width) modalWrapper.style.maxWidth = `${parseInt(arg.width)}px`;
+		if (arg.width) modalWrapper.style.width = `${parseInt(arg.width)}px`;
 		modalWrapper.insertAdjacentHTML("beforeend", content);
 
 		if (modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top > window.innerHeight) {
@@ -206,6 +206,7 @@ export function modalHandler() {
 		setModalContent(iframe.outerHTML, { width: boxWidth, type: boxType });
 	};
 
+	// modal by click
 	document.addEventListener("click", (e) => {
 		const modalClass = "modal",
 			modalExist = document.querySelector(`.${modalClass}`),
@@ -239,6 +240,47 @@ export function modalHandler() {
 			// other - fetch
 			url = modalShow.dataset.url;
 			if (!url) return;
+			fetchByUrl(url, modalShow);
+		}
+
+		if (modalExist && (!modalExist.contains(e.target) || modalClose)) {
+			modalExist.remove();
+			overlay(0);
+		}
+	});
+
+	// modal by form submit
+	document.addEventListener("submit", (e) => {
+		const modalClass = "modal",
+			modalExist = document.querySelector(`.${modalClass}`),
+			modalShow = e.target.closest(".js-modal-submit"),
+			modalClose = e.target.closest([".js-modal-close", ".overlay"]);
+
+		if (modalShow) {
+			e.preventDefault();
+			let url = "",
+				boxWidth = modalShow.dataset.boxWidth,
+				storageKey = modalShow.dataset.storageKey;
+
+			// from storage
+			if (storageKey) {
+				let content = localStorage.getItem(storageKey);
+				if (content) {
+					setModalContent(content, { width: boxWidth });
+					return;
+				}
+			}
+
+			// fetch
+			url = modalShow.dataset.url;
+			if (!url) return;
+
+			let data = new FormData(e.target),
+				amp = url.includes("?") ? "&" : "?",
+				queryStr = amp + new URLSearchParams(data).toString();
+
+			url += queryStr;
+
 			fetchByUrl(url, modalShow);
 		}
 

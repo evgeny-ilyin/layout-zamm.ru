@@ -6,7 +6,7 @@
 .modal {
 	--modal-padding-y: 24px;
 	--modal-padding-x: 32px;
-	--modal-max-w: 826px;
+	// --modal-max-w: 826px;
 	min-width: $min-width;
 	position: fixed;
 	top: 0;
@@ -22,11 +22,12 @@
 	box-shadow: 0 4px 132px 0 rgba(54, 45, 21, 0.2);
 
 	@include respond-to(md, "max") {
-		max-width: 100% !important;
+		width: 100% !important;
 	}
 
 	@include respond-to(md) {
-		max-width: var(--modal-max-w);
+		// max-width: var(--modal-max-w);
+		max-width: 100%;
 		top: 143px;
 		right: auto;
 		left: 50%;
