@@ -142,6 +142,14 @@ textarea {
   -webkit-appearance: button;
   font: inherit
 }
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  -webkit-transition: background-color 600000s 0s;
+  transition: background-color 600000s 0s
+}
+input[data-autocompleted] {
+  background-color: transparent!important
+}
 details {
   display: block
 }
@@ -1398,8 +1406,6 @@ ol {
   transition: all .25s ease-in-out;
   margin-bottom: 1px
 }
-.link-arrow:active::after,
-.link-arrow:focus::after,
 .link-arrow:hover::after {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
@@ -1836,11 +1842,6 @@ ol {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg)
 }
-.btn_arrow:focus span::after {
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg)
-}
 .btn_arrow:focus-visible {
   -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--gray-blue-light)!important;
   box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--gray-blue-light)!important;
@@ -1898,11 +1899,6 @@ ol {
   margin-bottom: 1px
 }
 .btn_arrow-big:hover::after {
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg)
-}
-.btn_arrow-big:focus::after {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg)
@@ -3161,7 +3157,6 @@ input[type=file]:focus-visible ~ span {
 .modal {
   --modal-padding-y: 24px;
   --modal-padding-x: 32px;
-  --modal-max-w: 826px;
   min-width: 320px;
   position: fixed;
   top: 0;
@@ -3842,7 +3837,7 @@ input[type=file]:focus-visible ~ span {
     max-width: 75%
   }
   .modal {
-    max-width: var(--modal-max-w);
+    max-width: 100%;
     top: 143px;
     right: auto;
     left: 50%;
@@ -4662,7 +4657,7 @@ input[type=file]:focus-visible ~ span {
     height: 25px
   }
   .modal {
-    max-width: 100%!important
+    width: 100%!important
   }
 }
 @media (max-width:576px) {

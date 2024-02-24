@@ -76,7 +76,7 @@ function loginActions() {
 		let value = data.split("");
 
 		inputs.forEach((input, index) => {
-			if (Number.parseInt(value[index])) {
+			if (Number.parseInt(value[index]) >= 0) {
 				input.value = value[index];
 				input.blur();
 			} else {

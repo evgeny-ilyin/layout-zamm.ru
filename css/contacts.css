@@ -6,6 +6,9 @@
   margin-bottom: 48px;
   background: var(--gray)
 }
+.contacts__header .h1 {
+  margin-bottom: 97px
+}
 .contacts__header .h4 div {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -50,6 +53,9 @@
 @media (min-width:768px) {
   .contacts {
     margin-bottom: 60px
+  }
+  .contacts__header .h1 {
+    margin-bottom: 87px
   }
   .contacts-secondary {
     padding-bottom: 0;

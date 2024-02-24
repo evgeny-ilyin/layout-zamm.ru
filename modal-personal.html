@@ -13,6 +13,15 @@
 	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240224223553">
 
 
+	<!-- index -->
+	<link rel="stylesheet" href="css/carousel-main.css?v=20240224223553">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20240224223553">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20240224223553">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20240224223553">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20240224223553">
+	<link rel="stylesheet" href="css/block-about.css?v=20240224223553">
+	<link rel="stylesheet" href="css/block-showrooms.css?v=20240224223553">
+	<link rel="stylesheet" href="css/map.css?v=20240224223553">
 
 
 
@@ -57,8 +66,6 @@
 
 
 
-	<!-- pdf-catalogues -->
-	<link rel="stylesheet" href="css/pdf-catalogues.css?v=20240224223553">
 
 
 
@@ -71,11 +78,11 @@
 	<link rel="stylesheet" href="css/carousel-footer.css?v=20240224223553">
 	<link rel="stylesheet" href="css/footer.css?v=20240224223553">
 
-	<title>PDF Каталоги</title>
-	<meta name="description" content="PDF Каталоги">
+	<title>UI modal</title>
+	<meta name="description" content="UI modal">
 </head>
 
-<body class="bg-gray">
+<body>
 	<div class="header-alert _black hidden">
 		<div class="container">
 			<div class="content header-alert__wrapper">
@@ -468,104 +475,77 @@
 
 
 	<div class="container">
-		<div class="content">
-			<div class="breadcrumbs">
-				<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<a href="/" title="Главная" class="breadcrumbs__link" itemprop="item">
-							<span itemprop="name">Главная</span>
-						</a>
-						<meta itemprop="position" content="1" />
-					</li>
-					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<a href="/" title="Главная" class="breadcrumbs__link" itemprop="item">
-							<span itemprop="name">Помощь</span>
-						</a>
-						<meta itemprop="position" content="2" />
-					</li>
-					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<span itemprop="name">PDF Каталоги</span>
-						<meta itemprop="position" content="3" />
-					</li>
-				</ul>
+		<div class="modal is-active" style="width: 485px;">
+			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
+			<div class="modal__head">
+				Личные данные
+			</div>
+			<div class="modal__body">
+				<form action="personal-profile.html" class="form" method="post" novalidate="">
+					<input type="hidden" name="profileId" value="101">
+
+					<div class="form__fieldset">
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_2" value="Константинопольский" class="input input_fill" data-required="" aria-label="Фамилия" placeholder="Фамилия *">
+						</div>
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_1" value="Константин" class="input input_fill" data-required="" aria-label="Имя" placeholder="Имя *">
+						</div>
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_3" value="" class="input input_fill" data-required="" aria-label="Отчество" placeholder="Отчество *">
+						</div>
+					</div>
+
+					<div class="form__fieldset">
+						<div class="form-item">
+							Контакты
+						</div>
+						<div class="form-item">
+							<input type="email" name="ORDER_PROP_4" value="" class="input input_fill" data-required="" aria-label="E-mail" placeholder="Ваш e-mail *">
+						</div>
+						<div class="form-item">
+							<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" data-required="" aria-label="Телефон" placeholder="Ваш телефон *" data-pattern-type="phone">
+						</div>
+					</div>
+
+					<div class="form__fieldset">
+						<div class="form-item">
+							Куда доставить
+						</div>
+						<div class="form-item js-query-wrapper">
+							<input type="text" name="ORDER_PROP_7" value="" class="input input_fill" data-required="" aria-label="Город, улица, дом" placeholder="Город, улица, дом *" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=query" data-query="true" autocomplete="off">
+							<div class="form-item__query-result js-query-result scrollblock"></div>
+						</div>
+
+						<div class="form-items-row">
+							<div class="form-item">
+								<input type="text" name="ORDER_PROP_8" value="" class="input input_fill" aria-label="Подъезд" placeholder="Подъезд">
+							</div>
+							<div class="form-item">
+								<input type="text" name="ORDER_PROP_9" value="" class="input input_fill" aria-label="Этаж" placeholder="Этаж">
+							</div>
+							<div class="form-item">
+								<input type="text" name="ORDER_PROP_10" value="" class="input input_fill" data-required="" aria-label="Квартира" placeholder="Квартира *">
+							</div>
+						</div>
+
+						<div class="form-item">
+							<textarea name="ORDER_PROP_11" class="textarea textarea_fill" aria-label="Комментарий к заказу" placeholder="Уточните, пожалуйста, детали для доставщиков: например, как к вам проехать, нужен ли пропуск, код домофона"></textarea>
+						</div>
+					</div>
+
+					<div class="form__fieldset">
+						<button type="submit" class="btn btn_yellow btn_wide">Сохранить изменения</button>
+					</div>
+
+					<div class="form__fieldset">
+						<a href="javascript:void(0)" class="link-cancel flex-center js-get" data-url="https://deviart.ru/zamm/fetch-modal.php?action=remove-profile&profileId=101" data-loader="modal">Удалить профиль</a>
+					</div>
+
+				</form>
 			</div>
 		</div>
 
-		<div class="content">
-			<div class="h1">PDF Каталоги</div>
-			<div class="pdfs">
-				<div class="pdfs__period">
-					<div class="pdfs__header">Года 2023 – 2024</div>
-					<div class="pdfs__list">
-
-						<div class="pdf">
-							<div class="pdf__descr">
-								<div>
-									<div class="pdf__top">
-										<span>17 МБ</span>
-										<span>от 01.05.23</span>
-									</div>
-									<div class="pdf__name h2">Каталог продукции</div>
-									<div class="pdf__period h2">за 2023 – 2024</div>
-								</div>
-								<div>
-									<a href="javascript:void(0)" class="btn btn_yellow btn_download">Скачать</a>
-								</div>
-							</div>
-							<div class="pdf__cover">
-								<img src="img/dev/pdf-catalogues/pdf-cover.png" width="554" height="784" alt="">
-							</div>
-						</div>
-
-						<div class="pdf">
-							<div class="pdf__descr">
-								<div>
-									<div class="pdf__top">
-										<span>17 МБ</span>
-										<span>от 01.05.23</span>
-									</div>
-									<div class="pdf__name h2">Каталог продукции</div>
-									<div class="pdf__period h2">за 2023 – 2024</div>
-								</div>
-								<div>
-									<a href="javascript:void(0)" class="btn btn_yellow btn_download">Скачать</a>
-								</div>
-							</div>
-							<div class="pdf__cover">
-								<img src="img/dev/pdf-catalogues/pdf-cover.png" width="554" height="784" alt="">
-							</div>
-						</div>
-
-					</div>
-				</div>
-
-				<div class="pdfs__period">
-					<div class="pdfs__header">Года 2022 – 2023</div>
-					<div class="pdfs__list">
-
-						<div class="pdf">
-							<div class="pdf__descr">
-								<div>
-									<div class="pdf__top">
-										<span>17 МБ</span>
-										<span>от 01.05.23</span>
-									</div>
-									<div class="pdf__name h2">Каталог продукции</div>
-									<div class="pdf__period h2">за 2022 – 2023</div>
-								</div>
-								<div>
-									<a href="javascript:void(0)" class="btn btn_yellow btn_download">Скачать</a>
-								</div>
-							</div>
-							<div class="pdf__cover">
-								<img src="img/dev/pdf-catalogues/pdf-cover.png" width="554" height="784" alt="">
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<footer class="footer">
@@ -894,8 +874,8 @@
 		</symbol>
 	</svg>
 
-
 	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240224223553"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20240224223553"></script>
 	<script src="js/carousel-init.js?v=20240224223553"></script>
 
 	<script src="js/common.js?v=20240224223553"></script>

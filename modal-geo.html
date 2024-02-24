@@ -7,21 +7,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
 	<!-- common header -->
-	<link rel="stylesheet" href="css/root-vars.css">
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/carousel-vendor.css">
+	<link rel="stylesheet" href="css/root-vars.css?v=20240224223553">
+	<link rel="stylesheet" href="css/fonts.css?v=20240224223553">
+	<link rel="stylesheet" href="css/header.css?v=20240224223553">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240224223553">
 
 
 	<!-- index -->
-	<link rel="stylesheet" href="css/carousel-main.css">
-	<link rel="stylesheet" href="css/carousel-products.css">
-	<link rel="stylesheet" href="css/catalog-item.css">
-	<link rel="stylesheet" href="css/block-popular-categories.css">
-	<link rel="stylesheet" href="css/block-ideas.css">
-	<link rel="stylesheet" href="css/block-about.css">
-	<link rel="stylesheet" href="css/block-showrooms.css">
-	<link rel="stylesheet" href="css/map.css">
+	<link rel="stylesheet" href="css/carousel-main.css?v=20240224223553">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20240224223553">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20240224223553">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20240224223553">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20240224223553">
+	<link rel="stylesheet" href="css/block-about.css?v=20240224223553">
+	<link rel="stylesheet" href="css/block-showrooms.css?v=20240224223553">
+	<link rel="stylesheet" href="css/map.css?v=20240224223553">
 
 
 
@@ -75,8 +75,8 @@
 
 
 	<!-- common footer -->
-	<link rel="stylesheet" href="css/carousel-footer.css">
-	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240224223553">
+	<link rel="stylesheet" href="css/footer.css?v=20240224223553">
 
 	<title>UI modal</title>
 	<meta name="description" content="UI modal">
@@ -475,7 +475,7 @@
 
 
 	<div class="container">
-		<div class="modal -is-active" style="max-width: 510px;">
+		<div class="modal is-active" style="width: 510px;">
 			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
 			<div class="modal__head">
 				<svg>
@@ -519,110 +519,6 @@
 			</div>
 		</div>
 
-		<div class="modal -is-active" style="max-width: 510px;">
-			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
-			<div class="modal__head">
-				Поделиться корзиной
-			</div>
-			<div class="modal__body">
-				<div class="modal__form">
-					<label class="block">
-						Вы можете поделиться корзиной с помощью ссылки:
-						<input type="text" id="share-link" value="http://localhost/share/?z=YToyOntpOjY5NDg5NjtkOjI7aTo3MDEyO2Q6Mjt9" class="input input_fill" readonly>
-					</label>
-				</div>
-				<button type="button" class="btn btn_yellow" onclick="copyShareLink(this)">
-					<span>Копировать</span>
-				</button>
-			</div>
-		</div>
-		<script>
-			var copyShareLink = function(b) {
-				navigator.clipboard.writeText(document.querySelector('#share-link').value).then(function() {
-					var html = b.innerHTML;
-					b.innerHTML = 'Скопировано';
-					b.setAttribute('disabled', true);
-					setTimeout(function() {
-						b.innerHTML = html;
-						b.removeAttribute('disabled');
-					}, 2000);
-				});
-			}
-		</script>
-
-
-
-
-		<div class="modal is-active" style="max-width: 485px;">
-			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
-			<div class="modal__head">
-				Личные данные
-			</div>
-			<div class="modal__body">
-				<form action="personal-profile.html" class="form" method="post" novalidate="">
-					<input type="hidden" name="profileId" value="101">
-
-					<div class="form__fieldset">
-						<div class="form-item">
-							<input type="text" name="ORDER_PROP_2" value="Константинопольский" class="input input_fill" data-required="" aria-label="Фамилия" placeholder="Фамилия *">
-						</div>
-						<div class="form-item">
-							<input type="text" name="ORDER_PROP_1" value="Константин" class="input input_fill" data-required="" aria-label="Имя" placeholder="Имя *">
-						</div>
-						<div class="form-item">
-							<input type="text" name="ORDER_PROP_3" value="" class="input input_fill" data-required="" aria-label="Отчество" placeholder="Отчество *">
-						</div>
-					</div>
-
-					<div class="form__fieldset">
-						<div class="form-item">
-							Контакты
-						</div>
-						<div class="form-item">
-							<input type="email" name="ORDER_PROP_4" value="" class="input input_fill" data-required="" aria-label="E-mail" placeholder="Ваш e-mail *">
-						</div>
-						<div class="form-item">
-							<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" data-required="" aria-label="Телефон" placeholder="Ваш телефон *" data-pattern-type="phone">
-						</div>
-					</div>
-
-					<div class="form__fieldset">
-						<div class="form-item">
-							Куда доставить
-						</div>
-						<div class="form-item js-query-wrapper">
-							<input type="text" name="ORDER_PROP_7" value="" class="input input_fill" data-required="" aria-label="Город, улица, дом" placeholder="Город, улица, дом *" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=query" data-query="true" autocomplete="off">
-							<div class="form-item__query-result js-query-result scrollblock"></div>
-						</div>
-
-						<div class="form-items-row">
-							<div class="form-item">
-								<input type="text" name="ORDER_PROP_8" value="" class="input input_fill" aria-label="Подъезд" placeholder="Подъезд">
-							</div>
-							<div class="form-item">
-								<input type="text" name="ORDER_PROP_9" value="" class="input input_fill" aria-label="Этаж" placeholder="Этаж">
-							</div>
-							<div class="form-item">
-								<input type="text" name="ORDER_PROP_10" value="" class="input input_fill" data-required="" aria-label="Квартира" placeholder="Квартира *">
-							</div>
-						</div>
-
-						<div class="form-item">
-							<textarea name="ORDER_PROP_11" class="textarea textarea_fill" aria-label="Комментарий к заказу" placeholder="Уточните, пожалуйста, детали для доставщиков: например, как к вам проехать, нужен ли пропуск, код домофона"></textarea>
-						</div>
-					</div>
-
-					<div class="form__fieldset">
-						<button type="submit" class="btn btn_yellow btn_wide">Сохранить изменения</button>
-					</div>
-
-					<div class="form__fieldset">
-						<a href="javascript:void(0)" class="link-cancel flex-center js-get" data-url="https://deviart.ru/zamm/fetch-modal.php?action=remove-profile&profileId=101" data-loader="modal">Удалить профиль</a>
-					</div>
-
-				</form>
-			</div>
-		</div>
 	</div>
 
 	<footer class="footer">
@@ -740,9 +636,9 @@
 					<div class="footer__subscription subscription">
 						<div class="subscription__header">Подпишитесь на нашу рассылку</div>
 						<div class="subscription__form">
-							<form action="" class="form">
+							<form action="javascript:void(0)" class="form js-modal-submit" data-box-width="510" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=subscribe">
 								<div class="btn-inset">
-									<input type="email" name="" class="input input_fill" data-required placeholder="name@email.ru" />
+									<input type="email" name="subscriber_email" class="input input_fill" data-required placeholder="name@email.ru" />
 									<button type="submit" class="btn btn_gray btn_arrow-big btn_inset" aria-label="Подписаться"></button>
 								</div>
 							</form>
@@ -776,7 +672,6 @@
 			</div>
 		</div>
 	</template>
-
 
 	<div class="cookie hidden">
 		<div class="cookie__description">Мы <a href="javascript:void(0)" target="_blank" class="link-classic">используем cookie</a>, чтобы стать лучше</div>
@@ -952,11 +847,11 @@
 		</symbol>
 	</svg>
 
-	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
-	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js"></script>
-	<script src="js/carousel-init.js"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240224223553"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20240224223553"></script>
+	<script src="js/carousel-init.js?v=20240224223553"></script>
 
-	<script src="js/common.js"></script>
+	<script src="js/common.js?v=20240224223553"></script>
 
 </body>
 
