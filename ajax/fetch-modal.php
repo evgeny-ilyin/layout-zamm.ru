@@ -65,6 +65,7 @@ try {
 				</button>
 			</div>';
 			break;
+
 		case 'profile':
 			$content = '
 			<div class="modal__head">
@@ -136,17 +137,41 @@ try {
 			</div>';
 			$nocache = true;
 			break;
-			case 'image_path_auto':
-				$content = '<div class="modal__head"></div>
+
+		case 'image_path_auto':
+			$content = '<div class="modal__head"></div>
 				<div class="modal__body"><img src="img/dev/showrooms/route-car-details.jpg" alt=""></div>';
-				break;
-			case 'image_path_walk':
-				$content = '<div class="modal__head"></div>
+			break;
+
+		case 'image_path_walk':
+			$content = '<div class="modal__head"></div>
 				<div class="modal__body"><img src="img/dev/showrooms/route-ped-details.jpg" alt=""></div>';
-				break;
+			break;
 
-
-
+		case 'subscribe':
+			$content = '
+			<div class="modal__head">Как к вам обращаться?</div>
+			<div class="modal__body">
+				<form action="#" class="form" method="post" novalidate="">
+					<input type="hidden" name="subscriber_email" value="'.$_REQUEST['subscriber_email'].'">
+		
+					<div class="form__fieldset">
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_1" value="" class="input input_fill" data-required="" aria-label="Имя" placeholder="Имя *">
+						</div>
+						<div class="form-item">
+							<input type="text" name="ORDER_PROP_2" value="" class="input input_fill" data-required="" aria-label="Фамилия" placeholder="Фамилия *">
+						</div>
+					</div>
+		
+					<div class="form__fieldset">
+						<button type="submit" class="btn btn_yellow btn_wide">Готово</button>
+					</div>
+		
+				</form>
+			</div>';
+			$nocache = true;
+			break;
 	}
 
 	switch ($_REQUEST['action']) {
@@ -164,8 +189,8 @@ try {
 			</div>';
 			$chunks['personal-profile-list'] = $personalProfileList;
 			break;
-		}
-		
+	}
+
 	$resp = array('status' => true);
 
 	if ($chunks)
