@@ -889,6 +889,7 @@ function modalHandler() {
 		if (!url) return;
 
 		let boxWidth = origin.dataset.boxWidth || false,
+			boxMaxWidth = origin.dataset.boxMaxWidth || false,
 			boxType = origin.dataset.boxType || false;
 
 		try {
@@ -899,10 +900,10 @@ function modalHandler() {
 			let result = await response.json();
 			if (result.status === true) {
 				if (result.nocache === true) {
-					setModalContent(result.content, { width: boxWidth, type: boxType });
+					setModalContent(result.content, { width: boxWidth, maxWidth: boxMaxWidth, type: boxType });
 				} else {
 					const key = getRandomStr(8);
-					setModalContent(result.content, { width: boxWidth, type: boxType, origin: origin, key: key });
+					setModalContent(result.content, { width: boxWidth, maxWidth: boxMaxWidth, type: boxType, origin: origin, key: key });
 				}
 				if (result.svg) {
 					addToSvgSprite(result.svg);
@@ -922,6 +923,7 @@ function modalHandler() {
 			isActiveClass = "is-active";
 
 		if (arg.width) modalWrapper.style.width = `${parseInt(arg.width)}px`;
+		if (arg.maxWidth) modalWrapper.style.maxWidth = `${parseInt(arg.maxWidth)}px`;
 		modalWrapper.insertAdjacentHTML("beforeend", content);
 
 		if (modalWrapper.getBoundingClientRect().height + modalWrapper.getBoundingClientRect().top > window.innerHeight) {
@@ -979,6 +981,7 @@ function modalHandler() {
 		if (!url) return;
 
 		let boxWidth = origin.dataset.boxWidth || false,
+			boxMaxWidth = origin.dataset.boxMaxWidth || false,
 			boxType = origin.dataset.boxType || false;
 
 		// шаблон iframe
@@ -986,7 +989,7 @@ function modalHandler() {
 		iframe.classList.add("modal__body", "_player");
 		iframe.innerHTML = `<iframe src="${url}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>`;
 
-		setModalContent(iframe.outerHTML, { width: boxWidth, type: boxType });
+		setModalContent(iframe.outerHTML, { width: boxWidth, maxWidth: boxMaxWidth, type: boxType });
 	};
 
 	// modal by click
@@ -1000,6 +1003,7 @@ function modalHandler() {
 			e.preventDefault();
 			let url = "",
 				boxWidth = modalShow.dataset.boxWidth,
+				boxMaxWidth = modalShow.dataset.boxMaxWidth,
 				boxType = modalShow.dataset.boxType,
 				storageKey = modalShow.dataset.storageKey;
 
@@ -1007,7 +1011,7 @@ function modalHandler() {
 			if (storageKey) {
 				let content = localStorage.getItem(storageKey);
 				if (content) {
-					setModalContent(content, { width: boxWidth, type: boxType });
+					setModalContent(content, { width: boxWidth, maxWidth: boxMaxWidth, type: boxType });
 					return;
 				}
 			}
@@ -1043,13 +1047,14 @@ function modalHandler() {
 			e.preventDefault();
 			let url = "",
 				boxWidth = modalShow.dataset.boxWidth,
+				boxMaxWidth = modalShow.dataset.boxMaxWidth,
 				storageKey = modalShow.dataset.storageKey;
 
 			// from storage
 			if (storageKey) {
 				let content = localStorage.getItem(storageKey);
 				if (content) {
-					setModalContent(content, { width: boxWidth });
+					setModalContent(content, { width: boxWidth, maxWidth: boxMaxWidth });
 					return;
 				}
 			}
