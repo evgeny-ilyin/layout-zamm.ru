@@ -329,13 +329,13 @@
 			}
 		}
 
-		@include on-focus {
-			span {
-				&::after {
-					transform: rotate(45deg);
-				}
-			}
-		}
+		// @include on-focus {
+		// 	span {
+		// 		&::after {
+		// 			transform: rotate(45deg);
+		// 		}
+		// 	}
+		// }
 
 		@include on-focus-visible {
 			box-shadow: 0 0 0 1px $black60, 0 0 0 7px $gray-blue-light !important;
@@ -416,11 +416,11 @@
 			}
 		}
 
-		@include on-focus {
-			&::after {
-				transform: rotate(45deg);
-			}
-		}
+		// @include on-focus {
+		// 	&::after {
+		// 		transform: rotate(45deg);
+		// 	}
+		// }
 	}
 
 	// .btn_filter
