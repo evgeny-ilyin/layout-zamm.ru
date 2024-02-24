@@ -1,0 +1,30 @@
+<div class="modal is-active" style="width: 510px;">
+	<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
+	<div class="modal__head">
+		Поделиться корзиной
+	</div>
+	<div class="modal__body">
+		<div class="modal__form">
+			<label class="block">
+				Вы можете поделиться корзиной с помощью ссылки:
+				<input type="text" id="share-link" value="http://localhost/share/?z=YToyOntpOjY5NDg5NjtkOjI7aTo3MDEyO2Q6Mjt9" class="input input_fill" readonly>
+			</label>
+		</div>
+		<button type="button" class="btn btn_yellow" onclick="copyShareLink(this)">
+			<span>Копировать</span>
+		</button>
+	</div>
+</div>
+<script>
+	var copyShareLink = function (b) {
+		navigator.clipboard.writeText(document.querySelector('#share-link').value).then(function () {
+			var html = b.innerHTML;
+			b.innerHTML = 'Скопировано';
+			b.setAttribute('disabled', true);
+			setTimeout(function () {
+				b.innerHTML = html;
+				b.removeAttribute('disabled');
+			}, 2000);
+		});
+	}
+</script>
