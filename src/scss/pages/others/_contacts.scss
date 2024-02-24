@@ -15,6 +15,14 @@
 		margin-bottom: 48px;
 		background: $gray;
 
+		.h1 {
+			margin-bottom: 97px;
+
+			@include respond-to(md) {
+				margin-bottom: 87px;
+			}
+		}
+
 		.h4 {
 			div {
 				display: inline-flex;
