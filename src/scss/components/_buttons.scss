@@ -423,6 +423,35 @@
 		// }
 	}
 
+	// .btn_arrow-forward
+	&_arrow-forward {
+		display: flex;
+
+		span {
+			&::after {
+				content: "";
+				display: block;
+				margin-left: 13px;
+				width: 17px;
+				height: 17px;
+				flex: 0 0 17px;
+				background-image: $svg-arrow-long;
+				background-repeat: no-repeat;
+				transition: all $transition-default;
+				margin-bottom: 1px;
+				transform: scaleX(-1);
+			}
+		}
+
+		@include on-hover {
+			span {
+				&::after {
+					transform: translateX(3px) scaleX(-1);
+				}
+			}
+		}
+	}
+
 	// .btn_filter
 	&_filter {
 		span {
