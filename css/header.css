@@ -3285,7 +3285,7 @@ input[type=file]:focus-visible ~ span {
   display: block
 }
 .welcome__header {
-  font-size: 2.125rem;
+  font-size: 1.625rem;
   margin-top: 18px;
   margin-bottom: 42px;
   display: block;
@@ -3341,11 +3341,11 @@ input[type=file]:focus-visible ~ span {
 }
 .welcome__addr {
   max-width: 310px;
-  font-size: 1.375rem;
+  font-size: 1rem;
   font-weight: 700
 }
 .welcome__list {
-  font-size: 1rem;
+  font-size: .875rem;
   max-width: 310px;
   margin: 15px 0 20px
 }
@@ -3861,6 +3861,12 @@ input[type=file]:focus-visible ~ span {
     top: 32px;
     right: 25px
   }
+  .welcome__addr {
+    font-size: 1.375rem
+  }
+  .welcome__list {
+    font-size: 1rem
+  }
   .popup-edge {
     padding-top: 30px
   }
@@ -3977,6 +3983,9 @@ input[type=file]:focus-visible ~ span {
   }
   .modal__head {
     font-size: 1.625rem
+  }
+  .welcome__header {
+    font-size: 2.125rem
   }
   .welcome__block {
     min-height: 240px
