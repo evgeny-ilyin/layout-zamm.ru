@@ -136,11 +136,15 @@
 
 	// .welcome__header
 	&__header {
-		font-size: rem(34);
+		font-size: rem(26);
 		margin-top: 18px;
 		margin-bottom: 42px;
 		display: block;
 		text-align: center;
+
+		@include respond-to(md) {
+			font-size: rem(34);
+		}
 	}
 
 	// .welcome__block
@@ -199,15 +203,23 @@
 	// .welcome__addr
 	&__addr {
 		max-width: 310px;
-		font-size: rem(22);
+		font-size: rem(16);
 		font-weight: 700;
+
+		@include respond-to(xm) {
+			font-size: rem(22);
+		}
 	}
 
 	// .welcome__list
 	&__list {
-		font-size: rem(16);
+		font-size: rem(14);
 		max-width: 310px;
 		margin: 15px 0 20px;
+
+		@include respond-to(xm) {
+			font-size: rem(16);
+		}
 
 		div {
 			position: relative;
