@@ -237,6 +237,8 @@
 		gap: 16px 16px;
 	}
 
+	// 2 cols
+
 	// .grid_xm-2
 	&_xm-2 {
 		@include respond-to(xm) {
@@ -265,6 +267,15 @@
 		}
 	}
 
+	// 3 cols
+
+	// .grid_md-3
+	&_md-3 {
+		@include respond-to(md) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+
 	// .grid_lg-3
 	&_lg-3 {
 		@include respond-to(lg) {
@@ -278,6 +289,8 @@
 			grid-template-columns: repeat(3, 1fr);
 		}
 	}
+
+	// 4 cols
 
 	// .grid_lg-4
 	&_lg-4 {

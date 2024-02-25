@@ -70,7 +70,7 @@ h6,
 .h6 {
 	span {
 		color: $black60;
-		margin-left: 5px;
+		// margin-left: 5px;
 	}
 }
 
@@ -145,6 +145,10 @@ ol {
 
 .text-white {
 	color: $white !important;
+}
+
+.text-yellow {
+	color: $yellow !important;
 }
 
 /**
