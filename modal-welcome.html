@@ -13,67 +13,73 @@
 	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240225214159">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	<!-- contacts -->
-	<link rel="stylesheet" href="css/contacts.css?v=20240225214159">
+	<!-- index -->
+	<link rel="stylesheet" href="css/carousel-main.css?v=20240225214159">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20240225214159">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20240225214159">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20240225214159">
+	<link rel="stylesheet" href="css/block-ideas.css?v=20240225214159">
+	<link rel="stylesheet" href="css/block-about.css?v=20240225214159">
 	<link rel="stylesheet" href="css/block-showrooms.css?v=20240225214159">
+	<link rel="stylesheet" href="css/map.css?v=20240225214159">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	<!-- common footer -->
 	<link rel="stylesheet" href="css/carousel-footer.css?v=20240225214159">
 	<link rel="stylesheet" href="css/footer.css?v=20240225214159">
 
-	<title>Контакты</title>
-	<meta name="description" content="Контакты">
+	<title>UI modal</title>
+	<meta name="description" content="UI modal">
 </head>
 
 <body>
@@ -469,273 +475,55 @@
 
 
 	<div class="container">
-		<div class="content">
-			<div class="breadcrumbs">
-				<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
-					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<a href="/" title="Главная" class="breadcrumbs__link" itemprop="item">
-							<span itemprop="name">Главная</span>
-						</a>
-						<meta itemprop="position" content="1" />
-					</li>
-					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<span itemprop="name">Контакты</span>
-						<meta itemprop="position" content="3" />
-					</li>
-				</ul>
+		<!-- обёртка. не добавлять в шаблон, создаётся при ините -->
+		<div class="modal is-active" style="width: 860px;">
+			<button class="btn btn_close btn_close-modal js-modal-close" aria-label="Закрыть"></button>
+			<!-- обёртка -->
+
+			<!-- контент -->
+			<div class="modal__head welcome">
+				<div class="welcome__header">Добро пожаловать в <span class="text-yellow">ZAMM.RU</span></div>
 			</div>
-		</div>
-
-		<div class="content">
-			<div class="contacts">
-				<div class="contacts__header">
-					<div class="h1">Контакты</div>
-
-					<div class="grid grid_md-2 grid_lg-4">
-						<div class="h4"><span>По всем вопросам</span>
-							<div><a href="tel:+74951919871"><svg>
-										<use xlink:href="#contacts-call"></use>
-									</svg>+7 495 191-98-71</a></div>
-						</div>
-
-						<div class="h4"><span>Наша почта</span>
-							<div><a href="mailto:sales@zamm.ru"><svg>
-										<use xlink:href="#contacts-mail"></use>
-									</svg>zakaz@zamm.ru</a></div>
-						</div>
-
-						<div class="h4"><span>Пишите в мессенджеры</span>
-							<div><a href="javascript:void(0)"><svg>
-										<use xlink:href="#contacts-telegram"></use>
-									</svg>Telegram</a> <a href="javascript:void(0)"><svg>
-										<use xlink:href="#contacts-whatsapp"></use>
-									</svg>WhatsApp</a></div>
-						</div>
-
-						<div class="h4"><span>Обработка заказов</span>
+			<div class="modal__body welcome">
+				<div class="grid grid_md-2">
+					<div class="welcome__block is-active">
+						<div class="welcome__addr">Сейчас вы в интернет-магазине <span class="text-yellow">ZAMM.RU</span></div>
+						<div class="welcome__list">
 							<div><svg>
-									<use xlink:href="#contacts-workhours"></use>
-								</svg>С 10:00 до 20:00</div>
+									<use xlink:href="#list-mark"></use>
+								</svg>Мебель из наличия и с быстрой доставкой</div>
+							<div><svg>
+									<use xlink:href="#list-mark"></use>
+								</svg>Небольшие заказы для дома и офиса</div>
 						</div>
+						<a href="javascript:void(0)" class="btn btn_yellow btn_arrow-forward"><span>Остаться и продолжить покупки</span></a>
+						<img src="img/dev/modals/modal-welcome-ru.webp" alt="">
+					</div>
+
+					<div class="welcome__block">
+						<div class="welcome__addr">Если вы юридическое лицо, вам нужен <span class="text-yellow">PRO.ZAMM</span></div>
+						<div class="welcome__list">
+							<div><svg>
+									<use xlink:href="#list-mark"></use>
+								</svg>Большой ассортимент офисной мебели</div>
+							<div><svg>
+									<use xlink:href="#list-mark"></use>
+								</svg>Индивидуальные проекты</div>
+							<div><svg>
+									<use xlink:href="#list-mark"></use>
+								</svg>Только для юридических лиц</div>
+						</div>
+						<a href="javascript:void(0)" class="btn btn_yellow btn_arrow-forward"><span>Для бизнеса и организаций</span></a>
+						<img src="img/dev/modals/modal-welcome-pro.webp" alt="">
 					</div>
 				</div>
 
-				<div class="grid grid_md-2 grid_lg-3">
-					<div class="contacts-secondary">
-						<div class="h4">Отдел проектов ZAMM</div>
-						<div class="text-block">
-							Пн - Пт: 10:00 — 19:00<br>
-							Сб - Вс: выходные
-						</div>
-						<div class="text-block">
-							<a href="">+7 (495) 191-98-71</a><br>
-							<a href="mailto:sales@zamm.ru">sales@zamm.ru</a>
-						</div>
-					</div>
-
-					<div class="contacts-secondary">
-						<div class="h4">Склад ZAMM</div>
-						<div class="text-block">
-							Пн - Пт: 09:00 — 16:00 <span>(обед 12:00—13:00)</span><br>
-							Сб - Вс: выходные
-						</div>
-						<div class="text-block">
-							<a href="tel:+74951919871">+7 (495) 191-98-71</a><br>
-							<span><small>Позвоните, пожалуйста, за 2 часа до приезда, нужно оформить пропуск</small></span>
-						</div>
-						<div class="text-block">
-							<a href="" class="link-classic">Посмотреть схему проезда</a>
-						</div>
-					</div>
-
-					<div class="contacts-secondary contacts-social">
-						<div class="h4">Наши соцсети</div>
-						<div class="contacts-social__list">
-							<a href="javascript:void(0)"><svg>
-									<use xlink:href="#contacts-vk"></use>
-								</svg>Вконтакте</a>
-							<a href="javascript:void(0)"><svg>
-									<use xlink:href="#contacts-inst"></use>
-								</svg>Instagram</a>
-							<a href="javascript:void(0)"><svg>
-									<use xlink:href="#contacts-telegram"></use>
-								</svg>Telegram</a>
-							<a href="javascript:void(0)"><svg>
-									<use xlink:href="#contacts-youtube"></use>
-								</svg>Youtube</a>
-						</div>
-					</div>
-				</div>
 			</div>
+			<!-- контент -->
+
+			<!-- обёртка -->
 		</div>
-
-		<div class="content">
-			<div class="block-header">
-				Адреса шоу-румов
-			</div>
-
-			<div class="block-showrooms _contacts">
-				<div class="block-showrooms__image">
-					<div class="block-showrooms__text">
-						<div class="h1 text-white">Ждём вас к нам в шоурумы</div>
-						<div><a href="showroom-list.html" class="btn btn_transparent btn_arrow" data-da=".block-showrooms,767,last"><span>На страницу шоурумов</span></a></div>
-					</div>
-					<img src="img/dev/contacts/welcome.webp" width="624" height="832" alt="">
-				</div>
-
-				<div class="block-showrooms__list">
-
-					<div class="scrollblock">
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-						<a href="showroom-details.html" class="block-showrooms__item">
-							<div class="icon-map">
-								<svg>
-									<use xlink:href="#map-pointer"></use>
-								</svg>
-							</div>
-							<div class="block-showrooms__name">
-								<div>Москва, Проспект Мира, д. 102 с30</div>
-								<span>м. Проспект мира</span>
-							</div>
-						</a>
-
-					</div>
-
-				</div>
-			</div>
-		</div>
+		<!-- обёртка -->
 	</div>
 
 	<footer class="footer">
@@ -1067,8 +855,8 @@
 		</symbol>
 	</svg>
 
-
 	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240225214159"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20240225214159"></script>
 	<script src="js/carousel-init.js?v=20240225214159"></script>
 
 	<script src="js/common.js?v=20240225214159"></script>

@@ -475,8 +475,7 @@ h3 span,
 h4 span,
 h5 span,
 h6 span {
-  color: var(--black60);
-  margin-left: 5px
+  color: var(--black60)
 }
 p {
   letter-spacing: -.3px;
@@ -524,6 +523,9 @@ ol {
 }
 .text-white {
   color: var(--white)!important
+}
+.text-yellow {
+  color: var(--yellow)!important
 }
 .block-header {
   font-weight: 700;
@@ -1903,6 +1905,35 @@ ol {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg)
 }
+.btn_arrow-forward {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex
+}
+.btn_arrow-forward span::after {
+  content: "";
+  display: block;
+  margin-left: 13px;
+  width: 17px;
+  height: 17px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 17px;
+  flex: 0 0 17px;
+  background-image: var(--svg-arrow-long);
+  background-repeat: no-repeat;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+  margin-bottom: 1px;
+  -webkit-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  transform: scaleX(-1)
+}
+.btn_arrow-forward:hover span::after {
+  -webkit-transform: translateX(3px) scaleX(-1);
+  -ms-transform: translateX(3px) scaleX(-1);
+  transform: translateX(3px) scaleX(-1)
+}
 .btn_filter span::after {
   content: "";
   display: block;
@@ -3250,6 +3281,95 @@ input[type=file]:focus-visible ~ span {
 .modal__form label > input {
   margin-top: 7px
 }
+.welcome {
+  display: block
+}
+.welcome__header {
+  font-size: 2.125rem;
+  margin-top: 18px;
+  margin-bottom: 42px;
+  display: block;
+  text-align: center
+}
+.welcome__block {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  padding: 24px 20px;
+  border-radius: 8px;
+  background: #edeeef;
+  min-height: 180px
+}
+.welcome__block > * {
+  z-index: 1
+}
+.welcome__block:not(:hover):not(.is-active) .btn {
+  background: 0 0
+}
+.welcome__block > img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: left;
+  object-position: left;
+  border-radius: 8px;
+  z-index: 0;
+  opacity: 0;
+  -webkit-filter: brightness(.6);
+  filter: brightness(.6);
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out
+}
+.welcome__block.is-active,
+.welcome__block:hover {
+  color: var(--white)
+}
+.welcome__block.is-active > img,
+.welcome__block:hover > img {
+  opacity: 1
+}
+.welcome__addr {
+  max-width: 310px;
+  font-size: 1.375rem;
+  font-weight: 700
+}
+.welcome__list {
+  font-size: 1rem;
+  max-width: 310px;
+  margin: 15px 0 20px
+}
+.welcome__list div {
+  position: relative;
+  margin-bottom: 10px;
+  padding-left: 30px
+}
+.welcome__list div svg {
+  fill: currentColor;
+  -webkit-transition: fill 0s;
+  -o-transition: fill 0s;
+  transition: fill 0s;
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  top: 2px;
+  left: 2px
+}
+.welcome .btn {
+  margin-top: auto;
+  min-height: 46px;
+  white-space: wrap
+}
 .geo-selector__fav {
   font-size: .875rem;
   color: var(--black60);
@@ -3789,6 +3909,10 @@ input[type=file]:focus-visible ~ span {
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2,1fr)
   }
+  .grid_md-3 {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3,1fr)
+  }
   .h1,
   h1 {
     font-size: 2.5rem;
@@ -3853,6 +3977,9 @@ input[type=file]:focus-visible ~ span {
   }
   .modal__head {
     font-size: 1.625rem
+  }
+  .welcome__block {
+    min-height: 240px
   }
 }
 @media (min-width:1024px) {
@@ -4645,6 +4772,12 @@ input[type=file]:focus-visible ~ span {
     display: -ms-flexbox;
     display: flex;
     font-size: .8125rem
+  }
+  .welcome .btn {
+    font-size: .875rem;
+    min-height: 36px;
+    padding-top: 5px;
+    padding-bottom: 4px
   }
 }
 @media (max-width:767px) {
