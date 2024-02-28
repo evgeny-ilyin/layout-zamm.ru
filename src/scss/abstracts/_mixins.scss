@@ -102,3 +102,31 @@
 		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "+"Please make sure it is defined in `$breakpoints` map.";
 	}
 }
+
+/// Simple arrows https://codepen.io/andgatjens/pen/PmLqaN
+@mixin rotate($angle) {
+	-moz-transform: rotate($angle);
+	-ms-transform: rotate($angle);
+	-webkit-transform: rotate($angle);
+	transform: rotate($angle);
+}
+
+@mixin arrow($arrowSize: 20px, $arrowBorderSize: 2px, $color: #333) {
+	// display: inline-block;
+	// height: $arrowSize;
+	// position: relative;
+	// width: $arrowSize;
+
+	border-bottom-style: solid;
+	border-bottom-width: $arrowBorderSize;
+	border-right-style: solid;
+	border-right-width: $arrowBorderSize;
+	content: "";
+	// display: inline-block;
+	height: $arrowSize;
+	// left: 0;
+	// position: absolute;
+	// top: 0;
+	width: $arrowSize;
+	border-color: $color;
+}
