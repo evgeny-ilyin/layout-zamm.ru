@@ -3590,6 +3590,12 @@ input[type=file]:focus-visible ~ span {
 .note_yellow::before {
   background: var(--yellow-dark)
 }
+.note_transparent {
+  background: 0 0
+}
+.note_transparent::before {
+  background: currentColor
+}
 .note_big {
   padding: 12px 12px 12px 20px;
   font-weight: 700
