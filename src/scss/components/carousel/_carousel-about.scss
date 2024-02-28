@@ -1,13 +1,9 @@
 .about-carousel {
-	--f-carousel-slide-width: 100%;
+	--f-carousel-slide-width: 319px;
 	--f-carousel-slide-height: 528px;
 	margin-top: 64px;
 	margin-left: -8px;
 	margin-right: -8px;
-
-	@include respond-to(xm) {
-		--f-carousel-slide-width: 319px;
-	}
 
 	@include respond-to(md) {
 		--f-carousel-slide-width: 297px;
