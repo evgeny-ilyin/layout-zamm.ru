@@ -305,3 +305,9 @@
     width: 100%
   }
 }
+@media (max-width:424px) {
+  .heading__text .h1,
+  .heading__text h1 {
+    font-size: 9.5vw!important
+  }
+}
