@@ -176,7 +176,8 @@
   text-align: center
 }
 .heading._high .heading__button {
-  width: 327px;
+  width: 100%;
+  max-width: 327px;
   margin-top: auto
 }
 .heading._high .heading__image {
