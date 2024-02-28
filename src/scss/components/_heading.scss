@@ -254,7 +254,7 @@
 		.heading__left {
 			top: 0;
 			padding: 45px 24px 40px;
-			
+
 			@include respond-to(lg, "max") {
 				background: linear-gradient(180deg, rgba(53, 45, 33, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
 			}
@@ -287,7 +287,8 @@
 		}
 
 		.heading__button {
-			width: 327px;
+			width: 100%;
+			max-width: 327px;
 			margin-top: auto;
 
 			@include respond-to(lg, "max") {
