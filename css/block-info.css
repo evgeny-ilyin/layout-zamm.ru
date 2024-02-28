@@ -1,6 +1,6 @@
 .block-info {
   padding: 24px 0 64px;
-  margin-top: 88px
+  margin-top: 48px
 }
 .block-info__header {
   position: relative;
@@ -51,6 +51,9 @@
   }
 }
 @media (min-width:1024px) {
+  .block-info {
+    margin-top: 88px
+  }
   .block-info__header {
     height: 440px;
     margin-bottom: 50px
