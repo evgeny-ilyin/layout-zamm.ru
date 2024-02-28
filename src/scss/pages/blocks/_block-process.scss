@@ -1,6 +1,7 @@
 .block-process {
 	position: relative;
 	height: 544px;
+	margin-bottom: 110px;
 
 	@include respond-to(lg) {
 		height: 600px;
