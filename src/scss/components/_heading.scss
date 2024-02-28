@@ -65,6 +65,13 @@
 			margin-right: 35px;
 		}
 
+		.h1,
+		h1 {
+			@include respond-to(sm, "max") {
+				font-size: 9.5vw !important;
+			}
+		}
+
 		.h2,
 		h2 {
 			margin-bottom: 24px;
