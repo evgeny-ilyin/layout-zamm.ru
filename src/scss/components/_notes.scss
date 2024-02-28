@@ -26,6 +26,15 @@
 		}
 	}
 
+	// .note_transparent
+	&_transparent {
+		background: transparent;
+
+		&::before {
+			background: currentColor;
+		}
+	}
+
 	// .note_big
 	&_big {
 		padding: 12px 12px 12px 20px;
