@@ -15,7 +15,6 @@ $browser-context: 16;
 /// @type List
 // $ff-code: "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Monaco", monospace !default;
 
-
 /// цвета дублируются в _root-vars-map для первичной генерации переменных root
 /// можно обойтись без дублирования тут, если вызывать через функцию color(color-name) напрямую из _root-vars-map, но так дольше писать xD
 /// Simple colors
@@ -47,7 +46,6 @@ $red: var(--red);
 $gray-light: var(--gray-light);
 $green: var(--green);
 
-
 $svg-fetch-ring: var(--svg-fetch-ring);
 $svg-arrow-long: var(--svg-arrow-long);
 $svg-arrow-yellow: var(--svg-arrow-yellow);
@@ -55,6 +53,7 @@ $svg-arrow-black: var(--svg-arrow-black);
 $svg-arrow-white: var(--svg-arrow-white);
 $svg-arrow-bright-blue: var(--svg-arrow-bright-blue);
 $svg-angle: var(--svg-angle);
+$svg-angle-white: var(--svg-angle-white);
 $svg-angle-bright-blue: var(--svg-angle-bright-blue);
 $svg-close: var(--svg-close);
 $svg-nav-search: var(--svg-nav-search);
@@ -66,7 +65,6 @@ $svg-geo: var(--svg-geo);
 $svg-checked: var(--svg-checked);
 $svg-filter: var(--svg-filter);
 $svg-download: var(--svg-download);
-
 
 /// Simple colors
 /// @type Color
@@ -84,7 +82,6 @@ $href-color-hover: $black !default;
 
 $shadow-600: 0 0 0;
 $shadow-700: 0 0 0, 0 0 0;
-
 
 /// Form colors
 /// @type Color

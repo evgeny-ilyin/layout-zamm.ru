@@ -1,0 +1,39 @@
+.about-text {
+	margin-top: 32px;
+	margin-bottom: 94px;
+
+	@include respond-to(lg) {
+		margin-top: 29px;
+		margin-bottom: 85px;
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+
+	// .about__logo
+	&__logo {
+		text-align: center;
+		order: -1;
+		margin-bottom: 23px;
+
+		@include respond-to(md) {
+			margin-bottom: 15px;
+		}
+
+		@include respond-to(lg) {
+			text-align: right;
+			order: 0;
+			margin: 0;
+		}
+	}
+
+	// .about__body
+	&__body {
+		margin-left: auto;
+		margin-right: auto;
+		@include respond-to(lg) {
+			font-size: rem(18);
+		}
+	}
+}

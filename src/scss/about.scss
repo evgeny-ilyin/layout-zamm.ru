@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import "abstracts/root-vars-map";
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+
+
+@import "pages/others/about";
+@import "pages/blocks/block-about";
+@import "components/carousel/carousel-about";

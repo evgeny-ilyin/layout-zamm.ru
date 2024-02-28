@@ -6,7 +6,7 @@
 		display: flex;
 		flex-flow: row wrap;
 
-		@include when-inside('.text-center') {
+		@include when-inside(".text-center") {
 			justify-content: center;
 		}
 	}
@@ -47,6 +47,30 @@
 
 		@include on-hover {
 			color: $black;
+		}
+	}
+
+	@include when-inside(".text-white") {
+		// .breadcrumbs__item
+		&__item {
+			&::after {
+				background: $svg-angle-white center no-repeat;
+			}
+
+			& > span {
+				opacity: 0.5;
+				color: $white;
+			}
+		}
+
+		// .breadcrumbs__link
+		&__link {
+			opacity: 0.5;
+			color: $white;
+
+			@include on-hover {
+				color: $white;
+			}
 		}
 	}
 }

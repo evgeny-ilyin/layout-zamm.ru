@@ -4,6 +4,10 @@
 	position: relative;
 	margin-bottom: 96px;
 
+	@include respond-to(md) {
+		margin-top: 16px;
+	}
+
 	@include respond-to(lg) {
 		min-height: 480px;
 		flex-direction: row;
@@ -14,7 +18,7 @@
 		position: absolute;
 		top: -15px;
 		left: 15px;
-		z-index: 1;
+		z-index: 2;
 	}
 
 	// .heading__left
@@ -23,7 +27,7 @@
 		padding: 24px 16px;
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		// justify-content: space-between;
 		order: 1;
 
 		@include respond-to(md) {
@@ -69,8 +73,17 @@
 
 	// .heading__button
 	&__button {
+		margin-top: 17px;
+		display: flex;
+		flex-flow: row nowrap;
+		gap: 6px;
+
 		@include respond-to(md) {
 			margin-top: 27px;
+		}
+
+		@include respond-to(lg) {
+			margin-top: auto;
 		}
 
 		.btn {
@@ -156,18 +169,28 @@
 		// position: relative;
 		margin-bottom: 16px;
 
+		.breadcrumbs {
+			margin-top: 0;
+
+			@include respond-to(lg) {
+				margin-top: -16px;
+				margin-bottom: 13px;
+			}
+		}
+
 		.heading__left {
 			z-index: 1;
 			background: transparent;
-
+			background: linear-gradient(0deg, rgba(53, 45, 33, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
 			position: absolute;
 			right: 0;
 			bottom: 0;
 			left: 0;
 
 			@include respond-to(lg) {
-				position: static;
+				position: static; //!
 				padding-top: 48px;
+				background: linear-gradient(90deg, rgba(53, 45, 33, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
 			}
 		}
 
@@ -217,7 +240,82 @@
 		}
 	}
 
-	&.text-white {
-		text-shadow: 1px 1px 3px $black60;
+	&._high {
+		@include respond-to(lg) {
+			min-height: 532px;
+		}
+
+		.breadcrumbs__list {
+			@include respond-to(lg, "max") {
+				justify-content: center;
+			}
+		}
+
+		.heading__left {
+			top: 0;
+			padding: 45px 24px 40px;
+			
+			@include respond-to(lg, "max") {
+				background: linear-gradient(180deg, rgba(53, 45, 33, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+			}
+
+			@include respond-to(lg) {
+				width: 50%;
+				padding-left: 32px;
+				padding-right: 0;
+				padding-bottom: 48px;
+			}
+		}
+
+		.heading__text {
+			max-width: 487px;
+			text-align: center;
+
+			@include respond-to(lg, "max") {
+				margin-left: auto;
+				margin-right: auto;
+
+				.h1 {
+					font-size: rem(40);
+				}
+			}
+
+			@include respond-to(lg) {
+				max-width: none;
+				text-align: left;
+			}
+		}
+
+		.heading__button {
+			width: 327px;
+			margin-top: auto;
+
+			@include respond-to(lg, "max") {
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			@include respond-to(lg) {
+				width: auto;
+			}
+
+			.btn {
+				@include respond-to(lg, "max") {
+					width: 100%;
+				}
+			}
+		}
+
+		.heading__image {
+			min-height: 550px;
+
+			@include respond-to(lg) {
+				min-height: auto;
+			}
+		}
 	}
+
+	// &.text-white {
+	// 	text-shadow: 1px 1px 3px $black60;
+	// }
 }

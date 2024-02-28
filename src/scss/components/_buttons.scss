@@ -28,6 +28,13 @@
 			transition: opacity $transition-default;
 		}
 	}
+
+	svg {
+		width: 17px;
+		height: 17px;
+		fill: currentColor;
+	}
+
 	// @include on-event {
 	// 	text-shadow: none;
 	// }
@@ -215,6 +222,13 @@
 				opacity: 0.6;
 			}
 		}
+	}
+
+	// .btn_svg
+	&_svg {
+		padding-left: 13px;
+		padding-right: 13px;
+		max-width: 43px !important;
 	}
 
 	// .btn_small
