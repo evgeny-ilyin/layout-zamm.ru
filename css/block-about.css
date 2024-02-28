@@ -33,7 +33,7 @@
   border-radius: 8px
 }
 .about-carousel {
-  --f-carousel-slide-width: 100%;
+  --f-carousel-slide-width: 319px;
   --f-carousel-slide-height: 528px;
   margin-top: 64px;
   margin-left: -8px;
@@ -135,9 +135,6 @@
   justify-content: space-between
 }
 @media (min-width:577px) {
-  .about-carousel {
-    --f-carousel-slide-width: 319px
-  }
   .about-carousel .f-carousel__dots {
     display: none
   }
