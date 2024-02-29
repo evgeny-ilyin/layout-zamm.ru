@@ -463,7 +463,8 @@
 }
 @media (min-width:1280px) {
   .filter {
-    position: relative
+    position: sticky;
+    top: 50px
   }
   .filter__head {
     display: none

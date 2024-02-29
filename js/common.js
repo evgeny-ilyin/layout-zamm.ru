@@ -1811,7 +1811,7 @@ function maskHandler() {
 let form_submit_globalForm = {};
 form_submit_globalForm = {
 	validation: function () {
-		const forms = document.querySelectorAll("form");
+		const forms = document.querySelectorAll("form:not(.js-novalidate)");
 
 		if (forms.length > 0) {
 			for (let form of forms) {
