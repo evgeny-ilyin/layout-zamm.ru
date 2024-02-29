@@ -81,7 +81,7 @@ export function maskHandler() {
 let globalForm = {};
 globalForm = {
 	validation: function () {
-		const forms = document.querySelectorAll("form");
+		const forms = document.querySelectorAll("form:not(.js-novalidate)");
 
 		if (forms.length > 0) {
 			for (let form of forms) {
