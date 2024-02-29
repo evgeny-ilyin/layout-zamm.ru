@@ -28,7 +28,9 @@
 	}
 
 	@include respond-to(xl) {
-		position: relative;
+		// position: relative;
+		position: sticky;
+		top: 50px;
 	}
 
 	// .filter__head
