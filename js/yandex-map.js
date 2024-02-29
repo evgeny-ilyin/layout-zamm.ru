@@ -78,11 +78,6 @@ if (!window.mapInit) {
 			options
 		);
 
-		// удалим детальную ссылку из описания текущего шоурума, т.к. мы уже на этой странице
-		let pattern = /<a.*<\/a>/gi,
-			target = data.features.find((i) => i.selected === true).properties.balloonContent;
-		data.features.find((i) => i.selected === true).properties.balloonContent = target.replace(pattern, "");
-
 		ymaps
 			.geoQuery(data)
 			.setOptions({
@@ -99,17 +94,6 @@ if (!window.mapInit) {
 		});
 	};
 }
-
-// центрирование через отдельную переменную
-// if (typeof centerId === "number") {
-// 	let center = null,
-// 		shop = data.features.find((i) => i.id === centerId);
-// 	if (!shop) return;
-// 	center = shop.geometry.coordinates;
-// 	zMap.setCenter(center, zoomDefault, {
-// 		checkZoomRange: true,
-// 	});
-// }
 
 ;// CONCATENATED MODULE: ./src/js/yandex-map.js
 
