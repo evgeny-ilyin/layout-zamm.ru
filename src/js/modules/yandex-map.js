@@ -5,8 +5,8 @@ if (!window.mapInit) {
 		if (!zMapContainer) return;
 
 		let centerTo = data.features.find((i) => i.selected === true),
-			pointerIcon = "img/icon-map-pointer.svg",
-			clusterIcon = "img/icon-map-cluster.svg",
+			pointerIcon = data.pointerIcon,
+			clusterIcon = data.clusterIcon,
 			zoomDefault = 15,
 			options = { suppressMapOpenBlock: true, minZoom: 4, maxZoom: 20 };
 
