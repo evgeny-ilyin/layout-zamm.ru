@@ -1,3 +1,7 @@
+import "./product-card-global.js";
+import "./product-props.js";
+import "./tabs.js";
+
 if (!window.blockObserver) {
 	window.blockObserver = (el = false) => {
 		const fetchObserver = new IntersectionObserver((entries, observer) => {
@@ -70,7 +74,9 @@ if (!window.blockObserver) {
 				setFavourites();
 				selectsInit();
 				globalForm.validation();
-			} catch (e) {}
+			} catch (e) {
+				console.error(e);
+			}
 		};
 	};
 }
