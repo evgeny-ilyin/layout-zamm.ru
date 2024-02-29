@@ -43,10 +43,6 @@
   -ms-flex-direction: column;
   flex-direction: column
 }
-.heading__text .h2,
-.heading__text h2 {
-  margin-bottom: 24px
-}
 .heading__button {
   margin-top: 17px;
   display: -webkit-box;
@@ -149,10 +145,6 @@
 .heading._singlecol .heading__text p {
   font-size: 1.125rem;
   line-height: 1.2
-}
-.heading._singlecol .heading__text .h2,
-.heading._singlecol .heading__text h2 {
-  margin-bottom: 17px
 }
 .heading._singlecol .heading__tile {
   position: static
@@ -288,9 +280,6 @@
   .heading._high .heading__text {
     margin-left: auto;
     margin-right: auto
-  }
-  .heading._high .heading__text .h1 {
-    font-size: 2.5rem
   }
   .heading._high .heading__button {
     margin-left: auto;

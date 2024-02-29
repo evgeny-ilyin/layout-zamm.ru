@@ -6,10 +6,12 @@
   margin-bottom: 48px;
   background: var(--gray)
 }
-.contacts__header .h1 {
+.contacts__header .h1,
+.contacts__header h1 {
   margin-bottom: 97px
 }
-.contacts__header .h4 div {
+.contacts__header .h4 div,
+.contacts__header h4 div {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -17,11 +19,13 @@
   -ms-flex-align: center;
   align-items: center
 }
-.contacts__header .h4 span {
+.contacts__header .h4 span,
+.contacts__header h4 span {
   display: block;
   margin: 0 0 8px
 }
-.contacts__header .h4 a + a {
+.contacts__header .h4 a + a,
+.contacts__header h4 a + a {
   margin-left: 16px
 }
 .contacts a {
@@ -35,7 +39,9 @@
 .contacts svg {
   width: 20px;
   height: 20px;
-  margin-right: 4px
+  margin-right: 4px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0
 }
 .contacts-secondary {
   padding: 0 16px 50px;
@@ -54,7 +60,8 @@
   .contacts {
     margin-bottom: 60px
   }
-  .contacts__header .h1 {
+  .contacts__header .h1,
+  .contacts__header h1 {
     margin-bottom: 87px
   }
   .contacts-secondary {

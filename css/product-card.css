@@ -42,10 +42,11 @@
   margin: 0 auto;
   position: relative
 }
-.product__name {
+.product__name * {
   font-size: 1.125rem;
   font-weight: 600;
   line-height: 1;
+  letter-spacing: inherit;
   margin: 0 30px 15px 0
 }
 .product__photos {
@@ -1056,7 +1057,7 @@
     top: 100px;
     margin: 0 0 50px
   }
-  .product__name {
+  .product__name * {
     font-size: 1.5rem;
     margin-right: 0
   }
