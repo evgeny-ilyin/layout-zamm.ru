@@ -81,14 +81,17 @@
 
 	// .product__name
 	&__name {
-		font-size: rem(18);
-		font-weight: 600;
-		line-height: 1;
-		margin: 0 30px 15px 0;
+		* {
+			font-size: rem(18);
+			font-weight: 600;
+			line-height: 1;
+			letter-spacing: inherit;
+			margin: 0 30px 15px 0;
 
-		@include respond-to(lg) {
-			font-size: rem(24);
-			margin-right: 0;
+			@include respond-to(lg) {
+				font-size: rem(24);
+				margin-right: 0;
+			}
 		}
 	}
 	// .product__photos
@@ -285,11 +288,11 @@
 	// .product__content-gallery
 	&__content-gallery {
 		padding-bottom: 50px;
-		
+
 		@include respond-to(md) {
 			overflow-x: hidden;
 		}
-		
+
 		@include respond-to(lg) {
 			overflow-x: auto;
 			margin-bottom: 125px;
