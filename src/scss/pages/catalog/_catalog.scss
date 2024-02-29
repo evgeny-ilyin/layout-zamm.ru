@@ -135,6 +135,35 @@
 	}
 }
 
+.catalog-search-form {
+	form {
+		display: flex;
+		flex-flow: column wrap;
+		margin-bottom: 32px;
+
+		@include respond-to(sm) {
+			flex-flow: row nowrap;
+		}
+	}
+
+	input {
+		flex: 1;
+		margin-bottom: 10px;
+
+		@include respond-to(sm) {
+			margin: 0 12px 0 0;
+		}
+	}
+
+	button {
+		width: 100%;
+
+		@include respond-to(sm) {
+			width: auto;
+		}
+	}
+}
+
 .catalog-bar {
 	margin: 8px 0 9px;
 

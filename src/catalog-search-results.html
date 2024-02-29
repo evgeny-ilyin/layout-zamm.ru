@@ -1,0 +1,36 @@
+@@include('html/head.html', {
+"title": "Результаты поиска",
+"stylesFor": "catalog"
+})
+<body>
+	@@include('html/header.html', {})
+
+	<div class="container">
+		@@include('html/pages/blocks/block-product-catalog-search.html')
+		@@include('html/pages/blocks/block-product-carousel.html', {
+		"header": "Самые популярные столы",
+		"id": '',
+		"data-id": ' data-id="catalog-carousel"'
+		})
+		@@include('html/pages/blocks/block-cards.html')
+	</div>
+
+	@@include('html/footer.html')
+
+	@@include('html/cookies.html', {})
+	@@include('html/svg-sprite.html', {})
+
+
+	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
+	<script src="js/carousel-init.js"></script>
+
+	<script src="js/common.js"></script>
+	<script src="js/filter.js"></script>
+	<script src="js/product-actions.js"></script>
+	<script src="js/product-props.js"></script>
+
+	<script>
+		var arFav = [11111, 33333, 999777];
+	</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<div class="content">
+	<div class="breadcrumbs">
+		<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a href="/" title="Главная" class="breadcrumbs__link" itemprop="item">
+					<span itemprop="name">Главная</span>
+				</a>
+				<meta itemprop="position" content="1" />
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a href="catalog.html" title="Каталог" class="breadcrumbs__link" itemprop="item">
+					<span itemprop="name">Каталог</span>
+				</a>
+				<meta itemprop="position" content="2" />
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<span itemprop="name">Результаты поиска</span>
+				<meta itemprop="position" content="3" />
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="content" data-id="catalog-head">
+	<div class="h1">Поиск</div>
+</div>
+
+<div class="content content_columns">
+	<div class="content__main">
+
+		<div class="catalog-search-form">
+			<form method="get" action="/catalog/">
+				<input itemprop="query-input" type="text" name="q" placeholder="Введите запрос" autocomplete="off" class="input" />
+				<button type="submit" class="btn btn_yellow">Искать</button>
+			</form>
+		</div>
+
+		<div class="catalog-bar">
+			<div class="catalog-bar__controls">
+				<div class="catalog-bar__sort drop-down js-drop-down">
+					<div class="drop-down__head">По популярности</div>
+					<div class="drop-down__box">
+						<label class="option">
+							<input type="radio" name="sort" value="1" checked />
+							<span>По популярности</span>
+						</label>
+						<label class="option">
+							<input type="radio" name="sort" value="3" />
+							<span>Сначала дешевле</span>
+						</label>
+						<label class="option">
+							<input type="radio" name="sort" value="4" />
+							<span>Сначала дороже</span>
+						</label>
+						<label class="option">
+							<input type="radio" name="sort" value="5" />
+							<span>По размеру скидки</span>
+						</label>
+					</div>
+				</div>
+
+				<div class="catalog-bar__btn">
+					<button type="button" class="btn btn_yellow btn_filter js-filter-show"><span>Все фильтры</span></button>
+				</div>
+			</div>
+
+			<div class="catalog-bar__tags"></div>
+		</div>
+
+		<div class="catalog-items" data-id="filter-products">
+			@@include('../../templates/template-5-product-items.html') @@include('../../templates/template-5-product-items.html')
+		</div>
+
+		@@include('../../components/pagination-catalog.html')
+
+	</div>
+
+	<div class="content__sidebar">
+		<div class="filter scrollblock">
+			<form id="filter-form" action="https://deviart.ru/zamm/fetch-filter-chunks.php" method="post">
+				<div class="filter__head">
+					<div class="filter__header">Фильтры</div>
+					<div class="filter__close">
+						<button type="button" class="btn btn_close btn_close-xl js-close" aria-label="Закрыть"></button>
+					</div>
+				</div>
+
+				<div class="filter__body" data-id="filter-body">
+					<div class="filter-group" data-prop-id="group-price">
+						<div class="filter-group__header">Цена</div>
+						<div class="filter-group__list rangeslider">
+							<div class="rangeslider__wrapper">
+								<div class="rangeslider__inputs">
+									<div>
+										<label for="arrFilter_141_MIN">от</label>
+										<input type="text" class="input-min" id="arrFilter_141_MIN" name="arrFilter_141_MIN" data-default="10000" readonly />
+										<!--! не нужно !  value="10 000"  value по умолчанию заполнять крайними значениями диапазона (форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+										<!-- data-default заполняется так же, как data-min / data-max и используется для сравнения со значением из фильтра при сабмите формы. если значения совпадают - поле из формы удаляется, чтобы в битровый урл не попадали ненужные дефолтные значения -->
+									</div>
+									<div>
+										<label for="arrFilter_142_MAX">до</label>
+										<input type="text" class="input-max" id="arrFilter_142_MAX" name="arrFilter_142_MAX" data-default="100500" readonly />
+										<!--! не нужно !  value="100 500"  value по умолчанию заполнять крайними значениями диапазона(форматированными пробелом), чтобы при сбросе формы инпуты оставались заполнены -->
+										<!-- data-default заполняется так же, как data-min / data-max и используется для сравнения со значением из фильтра при сабмите формы. если значения совпадают - поле из формы удаляется, чтобы в битровый урл не попадали ненужные дефолтные значения -->
+									</div>
+								</div>
+								<div data-range="rangeslider" data-min="10000" data-max="100500" data-from="10000" data-to="100500" data-step="1000"></div>
+								<!-- min-max: крайние значения диапазона, обязательные -->
+								<!-- from-to: стартовые значения в рамках диапазона (напр., для сео страниц), необязательные. можно использовать по одному или не использовать вообще (применится min/max) -->
+								<!-- step: шаг изменения, необязательное — дефолт: 500 -->
+							</div>
+						</div>
+					</div>
+
+					<div class="filter-group" data-prop-id="group-220">
+						<div class="filter-group__header js-collapse">Цвет столешницы</div>
+						<div class="filter-group__list">
+							<label title="Берёза">
+								<input type="checkbox" name="arrFilter_220_1" value="Y" checked />
+								<img src="img/dev/props/color-1.webp" width="40" height="40" alt="" loading="lazy" />
+							</label>
+							<label title="Дуб">
+								<input type="checkbox" name="arrFilter_220_2" value="Y" />
+								<img src="img/dev/props/color-2.webp" width="40" height="40" alt="" loading="lazy" />
+							</label>
+						</div>
+					</div>
+
+					<div class="filter-group" data-prop-id="group-221">
+						<div class="filter-group__header js-collapse">Цвет металлокаркаса</div>
+						<div class="filter-group__list">
+							<label title="Металлик">
+								<input type="checkbox" name="arrFilter_221_1" value="Y" checked />
+								<img src="img/dev/props/color-3.webp" width="40" height="40" alt="" loading="lazy" />
+							</label>
+							<label title="Чёрный">
+								<input type="checkbox" name="arrFilter_221_2" value="Y" checked />
+								<img src="img/dev/props/color-4.webp" width="40" height="40" alt="" loading="lazy" />
+							</label>
+							<label title="Серый">
+								<input type="checkbox" name="arrFilter_221_3" value="Y" />
+								<img src="img/dev/props/color-5.webp" width="40" height="40" alt="" loading="lazy" />
+							</label>
+						</div>
+					</div>
+
+					<div class="filter-group" data-prop-id="group-222">
+						<div class="filter-group__header js-collapse is-collapsed">Ширина</div>
+						<div class="filter-group__list _column">
+							<label title="100 см">
+								<input type="checkbox" name="arrFilter_222_1" value="Y" />
+								<span>100 см</span>
+							</label>
+							<label title="120 см">
+								<input type="checkbox" name="arrFilter_222_2" value="Y" />
+								<span>120 см</span>
+							</label>
+							<label title="150 см">
+								<input type="checkbox" name="arrFilter_222_3" value="Y" />
+								<span>150 см</span>
+							</label>
+						</div>
+					</div>
+
+					<div class="filter-group" data-prop-id="group-223">
+						<div class="filter-group__header js-collapse">Глубина</div>
+						<div class="filter-group__list _column">
+							<label title="10 см">
+								<input type="checkbox" name="arrFilter_223_1" value="Y" />
+								<span>10 см</span>
+							</label>
+							<label title="12 см">
+								<input type="checkbox" name="arrFilter_223_2" value="Y" />
+								<span>12 см</span>
+							</label>
+							<label title="15 см">
+								<input type="checkbox" name="arrFilter_223_3" value="Y" />
+								<span>15 см</span>
+							</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="filter__buttons">
+					<button type="submit" class="btn btn_yellow btn_wide">Применить</button>
+					<button type="button" class="btn btn_reset invisible js-filter-reset">Сбросить фильтры</button>
+					<input type="hidden" id="filter-reset" name="filter-reset" value="N" />
+					<input type="hidden" id="filter-sort" name="filter-sort" value="" />
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="catalog-bottom" data-id="catalog-bottom">
+
+	</div>
+</div>
