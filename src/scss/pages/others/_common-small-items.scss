@@ -52,11 +52,11 @@
 			max-width: 385px;
 		}
 
-		@include respond-to(xm, "max") {
-			.h2 {
-				font-size: rem(20);
-			}
-		}
+		// @include respond-to(xm, "max") {
+		// 	.h2 {
+		// 		font-size: rem(20);
+		// 	}
+		// }
 
 		a[href^="tel:"] {
 			white-space: nowrap;

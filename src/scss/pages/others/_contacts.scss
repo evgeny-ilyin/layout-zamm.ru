@@ -15,6 +15,7 @@
 		margin-bottom: 48px;
 		background: $gray;
 
+		h1,
 		.h1 {
 			margin-bottom: 97px;
 
@@ -23,6 +24,7 @@
 			}
 		}
 
+		h4,
 		.h4 {
 			div {
 				display: inline-flex;
@@ -58,6 +60,7 @@
 		width: 20px;
 		height: 20px;
 		margin-right: 4px;
+		flex-shrink: 0;
 	}
 }
 
