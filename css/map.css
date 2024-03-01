@@ -15,6 +15,10 @@
   -webkit-box-shadow: none;
   box-shadow: none
 }
+.map > ymaps,
+.map > ymaps > ymaps {
+  width: 100%!important
+}
 .map [class$=default-cluster] > ymaps {
   font-family: Manrope;
   font-size: 1.5rem;
