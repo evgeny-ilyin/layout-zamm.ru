@@ -16,7 +16,7 @@
 	// .map_showroom-all
 	&_showroom-all {
 		height: 554px;
-		
+
 		@include respond-to(lg) {
 			height: 606px;
 		}
@@ -37,6 +37,11 @@
 
 	ymaps {
 		box-shadow: none;
+	}
+
+	& > ymaps,
+	& > ymaps > ymaps {
+		width: 100% !important;
 	}
 
 	[class$="default-cluster"] > ymaps {
