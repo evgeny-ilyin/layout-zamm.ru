@@ -279,7 +279,9 @@
 @media (min-width:768px) {
   .main-carousel {
     --f-carousel-slide-height: 448px;
-    margin-bottom: 109px!important
+    margin-bottom: 109px!important;
+    margin-left: 0;
+    margin-right: 0
   }
   .main-slide {
     -webkit-box-orient: horizontal;
