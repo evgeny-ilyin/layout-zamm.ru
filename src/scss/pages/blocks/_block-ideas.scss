@@ -93,6 +93,7 @@
 
 .idea-marker {
 	position: absolute;
+	z-index: 1;
 
 	// .idea-marker__btn
 	&__btn {
@@ -228,7 +229,7 @@
 					user-select: none;
 					background: $gray;
 					box-shadow: 0 0 0 1px $gray;
-			
+
 					@include on-hover {
 						background: $white;
 						box-shadow: 0 0 0 1px $black10;
@@ -240,8 +241,6 @@
 							opacity: 0.6;
 						}
 					}
-
-
 				}
 			}
 		}

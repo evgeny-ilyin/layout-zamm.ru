@@ -1,0 +1,96 @@
+<div class="content">
+	<div class="interior-single-image">
+		<div class="interior-name h2">JULIUS MEINL</div>
+		<div class="idea-marker" style="left: 19%; top: 30%">
+			<button class="idea-marker__btn js-idea js-popup-show" type="button" aria-label="Идея" data-target="idea-marker__content" data-hide="lg"></button>
+			<div class="idea-marker__content _hide-lg">
+				<img src="@img/dev/menu/table-1.webp" width="168" height="168" alt="" loading="lazy">
+				<div>
+					<div>Стол формат PRO с экраном ЛДСП 1</div>
+					<div class="idea-marker__price">18 350₽</div>
+					<a href="javascript:void(0)" class="idea-marker__link">Посмотреть</a>
+				</div>
+			</div>
+		</div>
+
+		<div class="idea-marker" style="right: 40%; top: 73%">
+			<button class="idea-marker__btn js-idea js-popup-show" type="button" aria-label="Идея" data-target="idea-marker__content" data-hide="lg"></button>
+			<div class="idea-marker__content _hide-lg">
+				<img src="@img/dev/menu/table-2.webp" width="168" height="168" alt="" loading="lazy">
+				<div>
+					<div>Стол формат PRO с экраном ЛДСП 1</div>
+					<div class="idea-marker__price">58 350₽</div>
+					<a href="javascript:void(0)" class="idea-marker__link">Посмотреть</a>
+				</div>
+			</div>
+		</div>
+
+		<!-- внимание, размеры картинок и их кол-во — больше, чем для слайдера, т.к. нужно занимать всю ширину (макс 1248) -->
+		<div class="interior-single-image__img">
+			<picture>
+				<source media="(min-width: 1280px)" srcset="@img/dev/interior-single/interior-single-1280.webp" type="image/webp" />
+				<source media="(min-width: 1024px)" srcset="@img/dev/interior-single/interior-single-1024.webp" type="image/webp" />
+				<source media="(min-width: 768px)" srcset="@img/dev/interior-single/interior-single-768.webp" type="image/webp" />
+				<source media="(min-width: 577px)" srcset="@img/dev/interior-single/interior-single-577.webp" type="image/webp" />
+				<source media="(min-width: 425px)" srcset="@img/dev/interior-single/interior-single-425.webp" type="image/webp" />
+				<source srcset="@img/dev/interior-single/interior-single-320.webp" type="image/webp" />
+				<img src="@img/dev/interior-single/interior-single-1280.jpg" width="1248" height="832" alt="">
+			</picture>
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="breadcrumbs">
+		<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a href="interiors-ideas.html" title="Идеи" class="breadcrumbs__link" itemprop="item">
+					<span itemprop="name">Идеи</span>
+				</a>
+				<meta itemprop="position" content="1" />
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<span itemprop="name">Julius Meinl</span>
+				<meta itemprop="position" content="2" />
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="content">
+	<div class="interior-description">
+		<div class="interior-description__text">
+			Представляем вашему вниманию интересный дизайн-проект Марии Бойко. Одним из нестандартных решений стало размещение в опен-спейс офисе, вместо бенч-систем, прямых столов для переговоров Формат ТР с узкими центральными опорами и кабель-каналами для проводов посередине.
+		</div>
+		<div class="interior-description__tags">
+			<a href="javascript:void(0)" class="tag-category">Белые</a>
+			<a href="javascript:void(0)" class="tag-category">Большие</a>
+			<a href="javascript:void(0)" class="tag-category">Современный стиль</a>
+			<a href="javascript:void(0)" class="tag-category">С ящиком</a>
+		</div>
+	</div>
+</div>
+
+@@include('../blocks/block-product-carousel.html', {
+"header": "Товары в идее:",
+"id": '',
+"data-id": ' data-id="catalog-carousel"'
+})
+
+<div class="content">
+	@@include('../blocks/block-banner-girl.html', {
+	"header": "Хотите собственный проект?",
+	"button": "Заказать проект",
+	})
+</div>
+
+<div class="content">
+	<div class="tiles">
+		<div class="h2">Посмотрите ещё идеи</div>
+
+		@@include('../../templates/template-interiors-body.html', {
+		"link": "interiors-idea.html"
+		})
+
+	</div>
+</div>
