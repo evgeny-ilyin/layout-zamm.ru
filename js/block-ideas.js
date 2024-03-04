@@ -46,7 +46,8 @@ function ideaPopupPlace() {
 			iPopups.forEach((box) => {
 				let canvas,
 					canvasIdea = box.closest(".idea"),
-					canvasCarousel = box.closest(".f-carousel__slide");
+					canvasCarousel = box.closest(".f-carousel__slide"),
+					canvasSingle = box.closest(".interior-single-image");
 
 				if (canvasIdea) {
 					canvas = canvasIdea;
@@ -54,6 +55,10 @@ function ideaPopupPlace() {
 
 				if (canvasCarousel) {
 					canvas = canvasCarousel;
+				}
+
+				if (canvasSingle) {
+					canvas = canvasSingle;
 				}
 
 				let canvasL = canvas.offsetLeft,
@@ -75,7 +80,7 @@ function ideaPopupPlace() {
 					overR = minR < boxW / 2;
 				}
 
-				if (canvasCarousel) {
+				if (canvasCarousel || canvasSingle) {
 					minL = markerL - canvas.getBoundingClientRect().left;
 					minR = canvas.getBoundingClientRect().right - markerR;
 					boxW = box.offsetWidth;

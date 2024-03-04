@@ -1,3 +1,22 @@
+.interior-single-image {
+  position: relative
+}
+.interior-single-image__img::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 144px;
+  opacity: .5;
+  background: -webkit-gradient(linear,left top,left bottom,from(rgba(53,45,33,.7)),to(rgba(0,0,0,0)));
+  background: -o-linear-gradient(top,rgba(53,45,33,.7) 0,rgba(0,0,0,0) 100%);
+  background: linear-gradient(180deg,rgba(53,45,33,.7) 0,rgba(0,0,0,0) 100%)
+}
+.interior-single-image__img img {
+  width: 100%
+}
 .interior-description {
   display: -webkit-box;
   display: -ms-flexbox;

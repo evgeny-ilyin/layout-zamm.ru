@@ -40,7 +40,8 @@
   text-align: center
 }
 .idea-marker {
-  position: absolute
+  position: absolute;
+  z-index: 1
 }
 .idea-marker__btn {
   display: block;

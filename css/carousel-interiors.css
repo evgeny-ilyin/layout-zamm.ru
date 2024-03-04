@@ -27,19 +27,18 @@
   left: 12px;
   right: 12px
 }
-.interior-name::before {
+.interior-slide__img::before {
   content: "";
   display: block;
   position: absolute;
-  left: -12px;
-  right: -12px;
-  top: -12px;
+  left: 0;
+  right: 0;
+  top: 0;
   height: 144px;
   opacity: .5;
   background: -webkit-gradient(linear,left top,left bottom,from(rgba(53,45,33,.7)),to(rgba(0,0,0,0)));
   background: -o-linear-gradient(top,rgba(53,45,33,.7) 0,rgba(0,0,0,0) 100%);
-  background: linear-gradient(180deg,rgba(53,45,33,.7) 0,rgba(0,0,0,0) 100%);
-  z-index: -1
+  background: linear-gradient(180deg,rgba(53,45,33,.7) 0,rgba(0,0,0,0) 100%)
 }
 .interior-slide__img img {
   width: 100%;
@@ -63,10 +62,6 @@
   .interior-name {
     top: 19px;
     left: 24px
-  }
-  .interior-name::before {
-    top: -19px;
-    left: -24px
   }
 }
 @media (min-width:1280px) {
