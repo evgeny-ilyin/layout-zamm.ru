@@ -34,7 +34,8 @@ export function ideaPopupShow() {
 export function ideaPopupPlace() {
 	const iPopups = document.querySelectorAll(".idea-marker__content"),
 		leftClass = "marker-l",
-		rightClass = "marker-r";
+		rightClass = "marker-r",
+		bottomClass = "marker-b";
 
 	["load", "resize"].forEach((evt) =>
 		window.addEventListener(evt, () => {
@@ -61,11 +62,16 @@ export function ideaPopupPlace() {
 					markerW = marker.offsetWidth,
 					markerL = marker.getBoundingClientRect().left,
 					markerR = marker.getBoundingClientRect().right,
+					header = canvas.querySelector(".interior-name"),
+					headerH = 16,
 					minL,
 					minR,
+					minT,
 					boxW,
+					boxT,
 					overL,
-					overR;
+					overR,
+					overT;
 
 				if (canvasIdea) {
 					minL = markerW / 2 + markerL + canvasL - 16;
@@ -76,6 +82,14 @@ export function ideaPopupPlace() {
 				}
 
 				if (canvasCarousel || canvasSingle) {
+					if (header) {
+						headerH = header.getBoundingClientRect().top - canvas.getBoundingClientRect().top + header.offsetHeight + 16;
+					}
+					// boxT = box.getBoundingClientRect().top;
+					boxT = marker.getBoundingClientRect().top - canvas.getBoundingClientRect().top - 8;
+					minT = boxT - canvas.getBoundingClientRect().top;
+					overT = minT < headerH;
+
 					minL = markerL - canvas.getBoundingClientRect().left;
 					minR = canvas.getBoundingClientRect().right - markerR;
 					boxW = box.offsetWidth;
@@ -85,6 +99,7 @@ export function ideaPopupPlace() {
 
 				box.classList[overL ? "add" : "remove"](leftClass);
 				box.classList[overR ? "add" : "remove"](rightClass);
+				box.classList[overT ? "add" : "remove"](bottomClass);
 			});
 		})
 	);

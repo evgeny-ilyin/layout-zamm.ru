@@ -270,6 +270,11 @@
 		left: auto;
 		right: 0;
 	}
+
+	.marker-b {
+		bottom: auto;
+		top: 40px;
+	}
 }
 
 @include respond-to(md) {
