@@ -139,6 +139,10 @@
   left: auto;
   right: 0
 }
+.idea-marker .marker-b {
+  bottom: auto;
+  top: 40px
+}
 @media (min-width:577px) {
   .is-active .idea-marker__content._hide-xm {
     z-index: 1;
