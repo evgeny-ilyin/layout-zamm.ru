@@ -1002,6 +1002,7 @@ function modalHandler() {
 		if (modalShow) {
 			e.preventDefault();
 			let url = "",
+				params = modalShow.dataset.params,
 				boxWidth = modalShow.dataset.boxWidth,
 				boxMaxWidth = modalShow.dataset.boxMaxWidth,
 				boxType = modalShow.dataset.boxType,
@@ -1024,9 +1025,31 @@ function modalHandler() {
 				return;
 			}
 
-			// other - fetch
+			// fetch
 			url = modalShow.dataset.url;
 			if (!url) return;
+
+			if (params) {
+				let param,
+					searchParams = new URLSearchParams();
+
+				try {
+					param = JSON.parse(params);
+					Object.keys(param).forEach((key) => {
+						searchParams.set(key, param[key]);
+					});
+				} catch (e) {
+					param = params;
+					searchParams.set("params", param);
+				}
+
+				let amp = url.includes("?") ? "&" : "?",
+					queryStr = amp + searchParams.toString();
+
+				if (!queryStr) return;
+				url += queryStr;
+			}
+
 			fetchByUrl(url, modalShow);
 		}
 
