@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
 	<!-- common header -->
-	<link rel="stylesheet" href="css/root-vars.css?v=20240306182024">
-	<link rel="stylesheet" href="css/fonts.css?v=20240306182024">
-	<link rel="stylesheet" href="css/header.css?v=20240306182024">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240306182024">
+	<link rel="stylesheet" href="css/root-vars.css">
+	<link rel="stylesheet" href="css/fonts.css">
+	<link rel="stylesheet" href="css/header.css">
+	<link rel="stylesheet" href="css/carousel-vendor.css">
 
 
 
@@ -28,9 +28,6 @@
 
 
 
-
-	<!-- personal-profile -->
-	<link rel="stylesheet" href="css/personal.css?v=20240306182024">
 
 
 
@@ -72,11 +69,11 @@
 
 
 	<!-- common footer -->
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20240306182024">
-	<link rel="stylesheet" href="css/footer.css?v=20240306182024">
+	<link rel="stylesheet" href="css/carousel-footer.css">
+	<link rel="stylesheet" href="css/footer.css">
 
-	<title>Личный кабинет</title>
-	<meta name="description" content="Личный кабинет">
+	<title>3D конструктор</title>
+	<meta name="description" content="3D конструктор">
 </head>
 
 <body>
@@ -476,134 +473,16 @@
 			<div class="breadcrumbs">
 				<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
 					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<a href="./" title="Главная" class="breadcrumbs__link" itemprop="item">
-							<span itemprop="name">Главная</span>
+						<a href="./" title="Вернуться к товару" class="breadcrumbs__link" itemprop="item">
+							<span itemprop="name">Вернуться к товару</span>
 						</a>
 						<meta itemprop="position" content="1" />
-					</li>
-					<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-						<span itemprop="name">Личный кабинет</span>
-						<meta itemprop="position" content="2" />
 					</li>
 				</ul>
 			</div>
 		</div>
-		<div class="content content_columns">
-			<div class="content__main">
 
-				<h3>Личный кабинет</h3>
 
-				<div class="personal-profile-form">
-					<form action="personal-profile.html" class="form" method="post">
-
-						<div class="form__fieldset">
-							<div class="form-item">
-								Личные данные
-							</div>
-							<div class="form-item">
-								<input type="text" name="ORDER_PROP_2" value="Константинопольский" class="input input_fill" data-required aria-label="Фамилия" placeholder="Фамилия *">
-							</div>
-							<div class="form-item">
-								<input type="text" name="ORDER_PROP_1" value="Константин" class="input input_fill" data-required aria-label="Имя" placeholder="Имя *">
-							</div>
-							<div class="form-item">
-								<input type="text" name="ORDER_PROP_3" value="" class="input input_fill" data-required aria-label="Отчество" placeholder="Отчество *">
-							</div>
-						</div>
-
-						<div class="form__fieldset">
-							<div class="form-item">
-								Контакты
-							</div>
-							<div class="form-item">
-								<input type="email" name="ORDER_PROP_4" value="" class="input input_fill" data-required aria-label="E-mail" placeholder="Ваш e-mail *">
-							</div>
-							<div class="form-item">
-								<input type="tel" name="ORDER_PROP_5" value="" class="input input_fill" data-required aria-label="Телефон" placeholder="Ваш телефон *" data-pattern-type="phone">
-							</div>
-						</div>
-
-						<div class="form__fieldset">
-							<div class="form-item">
-								Адрес
-							</div>
-							<div class="form-item js-query-wrapper">
-								<input type="text" name="ORDER_PROP_7" value="" class="input input_fill" data-required aria-label="Город, улица, дом" placeholder="Город, улица, дом *" data-url="https://deviart.ru/zamm/fetch-query-input.php?block=query" data-query="true" autocomplete="off">
-								<div class="form-item__query-result js-query-result scrollblock"></div>
-							</div>
-
-							<div class="form-items-row">
-								<div class="form-item">
-									<input type="text" name="ORDER_PROP_8" value="" class="input input_fill" aria-label="Подъезд" placeholder="Подъезд">
-								</div>
-								<div class="form-item">
-									<input type="text" name="ORDER_PROP_9" value="" class="input input_fill" aria-label="Этаж" placeholder="Этаж">
-								</div>
-								<div class="form-item">
-									<input type="text" name="ORDER_PROP_10" value="" class="input input_fill" data-required aria-label="Квартира" placeholder="Квартира *">
-								</div>
-							</div>
-						</div>
-
-						<div class="form__fieldset">
-							<button type="submit" class="btn btn_yellow btn_wide">Сохранить изменения</button>
-						</div>
-
-					</form>
-				</div>
-
-			</div>
-
-			<div class="content__sidebar">
-				<div class="personal-sidebar-wrapper" data-da=".content__main,1279,first">
-
-					<div class="menu-personal scrollblock">
-						<div class="menu-personal__body">
-							<a href="personal-profile.html" class="is-active">
-								<svg>
-									<use xlink:href="#lk_person"></use>
-								</svg>
-								Личный кабинет
-							</a>
-							<a href="personal-orders.html">
-								<svg>
-									<use xlink:href="#lk_orders"></use>
-								</svg>
-								Заказы
-							</a>
-							<a href="personal-favourites.html">
-								<svg>
-									<use xlink:href="#fav"></use>
-								</svg>
-								Избранное
-							</a>
-							<a href="personal-history.html">
-								<svg>
-									<use xlink:href="#lk_history"></use>
-								</svg>
-								Просмотренные
-							</a>
-							<a href="personal-profiles.html">
-								<svg>
-									<use xlink:href="#lk_profiles"></use>
-								</svg>
-								Профили
-							</a>
-						</div>
-					</div>
-
-					<div class="personal-logout" data-da=".content__main,1279,last">
-						<a href="javascript:void(0)">
-							<svg>
-								<use xlink:href="#lk_exit"></use>
-							</svg>
-							Выйти
-						</a>
-					</div>
-
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<footer class="footer">
@@ -950,14 +829,8 @@
 		</symbol>
 	</svg>
 
+	<script src="js/common.js"></script>
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240306182024"></script>
-	<script src="js/carousel-init.js?v=20240306182024"></script>
-
-	<script src="js/common.js?v=20240306182024"></script>
-	<script>
-		var arFav = [11111, 33333, 999777];
-	</script>
 </body>
 
 </html>

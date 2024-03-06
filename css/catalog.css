@@ -247,7 +247,8 @@
 }
 @media (max-width:1023px) {
   .catalog-head-carousel .f-carousel__slide {
-    min-width: 120px
+    min-width: 120px;
+    opacity: 1
   }
   .catalog-head-carousel .f-carousel__slide a {
     width: 120px;
