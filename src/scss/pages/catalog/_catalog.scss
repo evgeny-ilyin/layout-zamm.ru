@@ -51,6 +51,7 @@
 
 		@include respond-to(lg, "max") {
 			min-width: 120px;
+			opacity: 1;
 		}
 
 		a {
