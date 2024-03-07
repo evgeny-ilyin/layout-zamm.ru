@@ -44,17 +44,17 @@
 
 		<div class="heading__right">
 			<div class="heading__tile">
-				<!-- если надо сделать ссылку на всей области картинки -->
-				<!-- <a href="javascript:void(0)"> -->
-				<picture>
-					<source media="(min-width: 1280px)" srcset="@img/dev/ideas/idea-1-1280.webp" type="image/webp">
-					<source media="(min-width: 1024px)" srcset="@img/dev/ideas/idea-1-1024.webp" type="image/webp">
-					<source media="(min-width: 768px)" srcset="@img/dev/ideas/idea-1-768.webp" type="image/webp">
-					<source media="(min-width: 577px)" srcset="@img/dev/ideas/idea-1-577.webp" type="image/webp">
-					<source srcset="@img/dev/ideas/idea-1-320.webp" type="image/webp">
-					<img src="@img/dev/ideas/idea-1.png" width="831" height="482" alt="" loading="lazy" class="heading__image">
-				</picture>
-				<!-- </a> -->
+				<!-- если не надо делать ссылку, обертку <a> просто уберите, ничего не изменится -->
+				<a href="interiors-project.html">
+					<picture>
+						<source media="(min-width: 1280px)" srcset="@img/dev/ideas/idea-1-1280.webp" type="image/webp">
+						<source media="(min-width: 1024px)" srcset="@img/dev/ideas/idea-1-1024.webp" type="image/webp">
+						<source media="(min-width: 768px)" srcset="@img/dev/ideas/idea-1-768.webp" type="image/webp">
+						<source media="(min-width: 577px)" srcset="@img/dev/ideas/idea-1-577.webp" type="image/webp">
+						<source srcset="@img/dev/ideas/idea-1-320.webp" type="image/webp">
+						<img src="@img/dev/ideas/idea-1.png" width="831" height="482" alt="" loading="lazy" class="heading__image">
+					</picture>
+				</a>
 				<div class="furniture">
 					<div class="furniture__list scrollblock hide-scroll js-draggable">
 						<div class="furniture__item js-set-active">
