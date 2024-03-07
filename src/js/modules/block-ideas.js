@@ -41,6 +41,7 @@ export function ideaPopupPlace() {
 		window.addEventListener(evt, () => {
 			iPopups.forEach((box) => {
 				let canvas,
+					header,
 					canvasIdea = box.closest(".idea"),
 					canvasCarousel = box.closest(".f-carousel__slide"),
 					canvasSingle = box.closest(".interior-single-image");
@@ -51,10 +52,12 @@ export function ideaPopupPlace() {
 
 				if (canvasCarousel) {
 					canvas = canvasCarousel;
+					header = canvas.closest(".f-carousel").querySelector(".interior-name");
 				}
 
 				if (canvasSingle) {
 					canvas = canvasSingle;
+					header = canvas.querySelector(".interior-name");
 				}
 
 				let canvasL = canvas.offsetLeft,
@@ -62,7 +65,6 @@ export function ideaPopupPlace() {
 					markerW = marker.offsetWidth,
 					markerL = marker.getBoundingClientRect().left,
 					markerR = marker.getBoundingClientRect().right,
-					header = canvas.querySelector(".interior-name"),
 					headerH = 16,
 					minL,
 					minR,
@@ -87,7 +89,7 @@ export function ideaPopupPlace() {
 					}
 					// boxT = box.getBoundingClientRect().top;
 					boxT = marker.getBoundingClientRect().top - canvas.getBoundingClientRect().top - 8;
-					minT = boxT - canvas.getBoundingClientRect().top;
+					minT = boxT - canvas.getBoundingClientRect().top - window.scrollY; // scrollY for canvas top position compensation if page scrolled and refreshed
 					overT = minT < headerH;
 
 					minL = markerL - canvas.getBoundingClientRect().left;
