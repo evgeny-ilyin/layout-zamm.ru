@@ -43,6 +43,9 @@
   position: absolute;
   z-index: 1
 }
+.idea-marker.is-active {
+  z-index: 2
+}
 .idea-marker__btn {
   display: block;
   width: 32px;
@@ -75,23 +78,20 @@
   position: absolute;
   z-index: -1;
   opacity: 0;
-  bottom: 125%;
-  width: 320px;
-  left: -144px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  bottom: 125%;
+  width: 320px;
+  left: -999em;
   background: var(--white);
   border-radius: 4px;
   padding: 12px 8px 16px 8px;
   -webkit-box-shadow: 0 10px 36px 0 rgba(54,45,21,.3);
-  box-shadow: 0 10px 36px 0 rgba(54,45,21,.3);
-  -webkit-transition: all .25s ease-in-out;
-  -o-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out
+  box-shadow: 0 10px 36px 0 rgba(54,45,21,.3)
 }
 .idea-marker__content img {
   width: 60px;
@@ -131,17 +131,6 @@
 }
 .idea-marker__link {
   color: var(--black60)
-}
-.idea-marker .marker-l {
-  left: 0
-}
-.idea-marker .marker-r {
-  left: auto;
-  right: 0
-}
-.idea-marker .marker-b {
-  bottom: auto;
-  top: 40px
 }
 @media (min-width:577px) {
   .is-active .idea-marker__content._hide-xm {
@@ -266,12 +255,26 @@
     font-size: 2.125rem;
     text-align: left
   }
+  .is-active .idea-marker__content {
+    left: -144px
+  }
   .is-active .idea-marker__content._hide-lg {
     z-index: 1;
     opacity: 1;
     -webkit-transition: opacity .25s ease-in-out;
     -o-transition: opacity .25s ease-in-out;
     transition: opacity .25s ease-in-out
+  }
+  .idea-marker.is-active .marker-l {
+    left: 0
+  }
+  .idea-marker.is-active .marker-r {
+    left: auto;
+    right: 0
+  }
+  .idea-marker.is-active .marker-b {
+    bottom: auto;
+    top: 40px
   }
   .idea:nth-child(4n+1) {
     width: calc(67% - 16px);

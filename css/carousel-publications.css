@@ -1,5 +1,6 @@
 .publication-carousel {
-  margin-bottom: 40px
+  margin-bottom: 40px;
+  max-height: 225px
 }
 .publication-carousel .f-carousel__slide iframe {
   max-width: 70vw;
@@ -7,23 +8,41 @@
 }
 .publication-carousel .f-carousel__slide img {
   -o-object-fit: contain;
-  object-fit: contain
+  object-fit: contain;
+  max-height: 225px;
+  height: 100%
 }
 .publication-carousel .f-carousel__track {
   -webkit-box-align: start;
   -ms-flex-align: start;
   align-items: flex-start
 }
+@media (min-width:425px) {
+  .publication-carousel {
+    max-height: 260px;
+    overflow: hidden
+  }
+  .publication-carousel .f-carousel__slide img {
+    max-height: 260px
+  }
+}
+@media (min-width:577px) {
+  .publication-carousel {
+    max-height: 359px
+  }
+  .publication-carousel .f-carousel__slide img {
+    max-height: 359px
+  }
+}
 @media (min-width:768px) {
   .publication-carousel {
     --f-carousel-spacing: 12px
   }
   .publication-carousel {
-    max-height: 490px;
-    overflow: hidden
+    max-height: 481px
   }
   .publication-carousel .f-carousel__slide img {
-    max-height: 490px
+    max-height: 481px
   }
 }
 @media (min-width:1024px) {

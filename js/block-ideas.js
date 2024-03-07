@@ -46,6 +46,7 @@ function ideaPopupPlace() {
 		window.addEventListener(evt, () => {
 			iPopups.forEach((box) => {
 				let canvas,
+					header,
 					canvasIdea = box.closest(".idea"),
 					canvasCarousel = box.closest(".f-carousel__slide"),
 					canvasSingle = box.closest(".interior-single-image");
@@ -56,10 +57,12 @@ function ideaPopupPlace() {
 
 				if (canvasCarousel) {
 					canvas = canvasCarousel;
+					header = canvas.closest(".f-carousel").querySelector(".interior-name");
 				}
 
 				if (canvasSingle) {
 					canvas = canvasSingle;
+					header = canvas.querySelector(".interior-name");
 				}
 
 				let canvasL = canvas.offsetLeft,
@@ -67,7 +70,6 @@ function ideaPopupPlace() {
 					markerW = marker.offsetWidth,
 					markerL = marker.getBoundingClientRect().left,
 					markerR = marker.getBoundingClientRect().right,
-					header = canvas.querySelector(".interior-name"),
 					headerH = 16,
 					minL,
 					minR,
