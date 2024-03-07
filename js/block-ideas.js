@@ -44,7 +44,6 @@ function ideaPopupPlace() {
 
 	["load", "resize"].forEach((evt) =>
 		window.addEventListener(evt, () => {
-			console.log("All resources finished loading!");
 			iPopups.forEach((box) => {
 				let canvas,
 					header,
@@ -95,7 +94,7 @@ function ideaPopupPlace() {
 					}
 					// boxT = box.getBoundingClientRect().top;
 					boxT = marker.getBoundingClientRect().top - canvas.getBoundingClientRect().top - 8;
-					minT = boxT - canvas.getBoundingClientRect().top;
+					minT = boxT - canvas.getBoundingClientRect().top - window.scrollY; // scrollY for canvas top position compensation if page scrolled and refreshed
 					overT = minT < headerH;
 
 					minL = markerL - canvas.getBoundingClientRect().left;
