@@ -44,6 +44,7 @@ function ideaPopupPlace() {
 
 	["load", "resize"].forEach((evt) =>
 		window.addEventListener(evt, () => {
+			console.log("All resources finished loading!");
 			iPopups.forEach((box) => {
 				let canvas,
 					header,
