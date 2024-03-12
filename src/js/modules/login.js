@@ -1,7 +1,8 @@
 export function loginActions() {
 	const login = document.querySelector(".js-login"),
 		errorsClass = "has-errors",
-		activeClass = "is-active";
+		activeClass = "is-active",
+		statusErrorClass = "status-error";
 	if (!login) return;
 
 	login.addEventListener("submit", loginSubmit);
@@ -66,7 +67,7 @@ export function loginActions() {
 
 	function otpReset() {
 		inputs.forEach((input) => {
-			input.value = '';
+			input.value = "";
 		});
 	}
 
@@ -140,12 +141,22 @@ export function loginActions() {
 		inputs.forEach((i) => {
 			i.classList.add(otpErrorClass);
 		});
+
+		if (error) {
+			const status = document.createElement("div"),
+				footerElement = document.querySelector(`.otp__footer`);
+			status.classList.add(statusErrorClass);
+			status.innerText = error;
+			footerElement.prepend(status);
+		}
 	}
 
 	function removeError() {
 		inputs.forEach((i) => {
 			i.classList.remove(otpErrorClass);
 		});
+		let status = document.querySelector(`.${statusErrorClass}`);
+		status ? status.remove() : '';
 	}
 
 	function countdown() {

@@ -337,6 +337,11 @@ fieldset {
 .textarea {
 }
 
+.status-error {
+	color: $red-coral-dark;
+	margin: 5px 0;
+}
+
 @import "form-labels";
 @import "form-checkboxes";
 @import "form-selects";

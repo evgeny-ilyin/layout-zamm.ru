@@ -14,25 +14,25 @@
 			<div class="login__header">Вход по sms</div>
 			<form action="https://deviart.ru/zamm/fetch-login.php" class="login__form js-login" data-fetch="true">
 				<fieldset class="login__tab is-active">
-						<div class="login-phone">
-							<input type="tel" name="phone" class="input input_fill" data-required aria-label="Телефон" placeholder="Ваш телефон" data-pattern-type="phone">
-							<button type="submit" class="btn btn_yellow btn_fill">Получить код по смс</button>
-						</div>
+					<div class="login-phone">
+						<input type="tel" name="phone" class="input input_fill" data-required aria-label="Телефон" placeholder="Ваш телефон" data-pattern-type="phone">
+						<button type="submit" class="btn btn_yellow btn_fill">Получить код по смс</button>
+					</div>
 				</fieldset>
 				<fieldset class="login__tab" disabled>
-						<div class="otp">
-							<div class="otp__header">Введите код</div>
-							<div class="otp__inputs">
-								<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
-								<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
-								<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
-								<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
-								<input type="hidden" name="f" value="">
-							</div>
-							<div class="otp__footer">
-								<div class="otp__timer" data-timer="60">Отправить код повторно можно через <span></span> сек.</div>
-							</div>
+					<div class="otp">
+						<div class="otp__header">Введите код</div>
+						<div class="otp__inputs">
+							<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
+							<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
+							<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
+							<input type="text" class="input otp__input js-otp" inputmode="numeric" pattern="[0-9]*" maxlength="1">
+							<input type="hidden" name="f" value="">
 						</div>
+						<div class="otp__footer">
+							<div class="otp__timer" data-timer="60">Отправить код повторно можно через <span></span> сек.</div>
+						</div>
+					</div>
 				</fieldset>
 			</form>
 			<div class="login__footer">
