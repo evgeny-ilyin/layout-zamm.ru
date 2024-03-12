@@ -34,6 +34,7 @@ export function loginActions() {
 								tab.classList.toggle(activeClass);
 								tab.removeAttribute("disabled");
 							});
+							otpReset();
 							firstChar.focus();
 							countdown();
 						}
@@ -62,6 +63,12 @@ export function loginActions() {
 			removeError();
 		});
 	});
+
+	function otpReset() {
+		inputs.forEach((input) => {
+			input.value = '';
+		});
+	}
 
 	function otpPaste(e) {
 		let data = e.clipboardData.getData("text");
