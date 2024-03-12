@@ -2,10 +2,8 @@ import { maskInput } from "/node_modules/vanilla-text-mask/dist/vanillaTextMask.
 
 export function submitPrevent() {
 	document.addEventListener("keydown", (e) => {
-		if (e.target.dataset.submit == "false") {
-			if (e.key == "Enter") {
-				e.preventDefault();
-			}
+		if (e.target.tagName == "INPUT" && e.key == "Enter") {
+			e.preventDefault();
 		}
 	});
 }
@@ -270,8 +268,10 @@ function validateInputFocus(input) {
 
 function submitForm(inputs, e) {
 	e.preventDefault();
+
 	const errors = [],
-		errorsClass = "has-errors";
+		errorsClass = "has-errors",
+		submitButton = e.target.querySelector("button[type='submit']");
 
 	inputs.forEach((input) => {
 		const error = validateInput(input);
@@ -281,8 +281,26 @@ function submitForm(inputs, e) {
 	});
 
 	if (errors.length === 0) {
+		// https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent/submitter#browser_compatibility
+		// console.log(e.submitter.dataset);
+
 		e.target.classList.remove(errorsClass);
 		if (e.target.dataset.fetch !== "true") {
+
+			// if json params set on submit button
+			let param,
+				params = submitButton.dataset.params;
+			if (params) {
+				let parsed = JSON.parse(params);
+				Object.keys(parsed).forEach((key) => {
+					param = document.createElement("input");
+					param.type = "hidden";
+					param.name = key;
+					param.value = parsed[key];
+					e.target.append(param);
+				});
+			}
+
 			e.target.submit();
 		}
 	} else {
