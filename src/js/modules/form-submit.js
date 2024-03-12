@@ -286,13 +286,15 @@ function submitForm(inputs, e) {
 
 		e.target.classList.remove(errorsClass);
 		if (e.target.dataset.fetch !== "true") {
-
-			// if json params set on submit button
+			// if json params set on submit button, add them to form as hidden inputs
 			let param,
+				paramExists,
 				params = submitButton.dataset.params;
 			if (params) {
 				let parsed = JSON.parse(params);
 				Object.keys(parsed).forEach((key) => {
+					paramExists = e.target.querySelector(`input[type="hidden"][name=${key}]`);
+					paramExists ? paramExists.remove() : "";
 					param = document.createElement("input");
 					param.type = "hidden";
 					param.name = key;
