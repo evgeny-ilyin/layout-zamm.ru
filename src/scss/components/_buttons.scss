@@ -1,7 +1,8 @@
 .btn {
 	cursor: pointer;
 	display: block;
-	white-space: nowrap;
+	overflow: hidden;
+	// white-space: nowrap;
 	width: fit-content;
 	border: 0;
 	border-radius: 4px;
@@ -13,7 +14,7 @@
 	color: $text-color !important;
 	text-decoration: none;
 	text-align: center;
-	transition: all $transition-default;
+	transition: all $transition-default, text-indent 0s;
 	overflow-wrap: anywhere;
 	word-break: break-word; // deprecated
 	user-select: none;
@@ -48,6 +49,7 @@
 	&_disabled {
 		cursor: default !important;
 		pointer-events: none;
+		color: rgba($color: #333, $alpha: 0.3) !important;
 
 		span::after {
 			opacity: 0.5;
@@ -486,7 +488,7 @@
 
 	// .btn_inset
 	&_inset {
-		position: absolute;
+		position: absolute !important;
 		right: 2px;
 	}
 
