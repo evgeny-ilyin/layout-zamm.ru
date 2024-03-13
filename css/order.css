@@ -85,6 +85,7 @@
   background: var(--white)
 }
 .order-total._dynamic_adapt_ {
+  width: 100%;
   max-width: 485px;
   margin: 0 auto;
   padding: 16px

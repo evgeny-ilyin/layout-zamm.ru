@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
 	<!-- common header -->
-	<link rel="stylesheet" href="css/root-vars.css?v=20240313153746">
-	<link rel="stylesheet" href="css/fonts.css?v=20240313153746">
-	<link rel="stylesheet" href="css/header.css?v=20240313153746">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240313153746">
+	<link rel="stylesheet" href="css/root-vars.css?v=20240313235030">
+	<link rel="stylesheet" href="css/fonts.css?v=20240313235030">
+	<link rel="stylesheet" href="css/header.css?v=20240313235030">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240313235030">
 
 
 
@@ -26,7 +26,7 @@
 
 
 	<!-- order -->
-	<link rel="stylesheet" href="css/order.css?v=20240313153746">
+	<link rel="stylesheet" href="css/order.css?v=20240313235030">
 
 
 
@@ -74,8 +74,8 @@
 
 
 	<!-- common footer -->
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20240313153746">
-	<link rel="stylesheet" href="css/footer.css?v=20240313153746">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240313235030">
+	<link rel="stylesheet" href="css/footer.css?v=20240313235030">
 
 	<title>Оформление заказа</title>
 	<meta name="description" content="Оформление заказа">
@@ -776,7 +776,7 @@
 
 				<div class="order__sidebar" data-id="checkout-order-total">
 					<div class="order__sticky">
-						<div class="order-total" data-da=".order,1023,last">
+						<div class="order-total" data-da=".form.order__wrapper,1023,last">
 							<div class="order-total__header">
 								<div class="order-total__title">Стоимость заказа</div>
 								<div class="order-total__note">Детали заказа уточнит менеджер по телефону после оплаты</div>
@@ -793,7 +793,7 @@
 							</div>
 
 							<div class="order-total__button">
-								<button type="submit" class="btn btn_yellow btn_wide" data-params='{"soa-action": "saveOrderAjax"}'>Перейти к оплате</button>
+								<button type="submit" class="btn btn_yellow btn_wide" data-params='{"order[soa-action]": "saveOrderAjax","param2": "value2"}'>Перейти к оплате</button>
 							</div>
 
 							<div class="form-agreement">
@@ -955,7 +955,7 @@
 					<div class="footer__subscription subscription">
 						<div class="subscription__header">Подпишитесь на нашу рассылку</div>
 						<div class="subscription__form">
-							<form action="https://deviart.ru/zamm/fetch-modal.php?modal=subscribe" class="form js-modal-submit" data-box-width="510" data-fetch="true">
+							<form action="" class="form js-modal-submit" data-box-width="510" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=subscribe">
 								<div class="btn-inset">
 									<input type="email" name="subscriber_email" class="input input_fill" data-required placeholder="name@email.ru" />
 									<button type="submit" class="btn btn_gray btn_arrow-big btn_inset" aria-label="Подписаться"></button>
@@ -1185,12 +1185,12 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240313153746"></script>
-	<script src="js/carousel-init.js?v=20240313153746"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240313235030"></script>
+	<script src="js/carousel-init.js?v=20240313235030"></script>
 
-	<script src="js/common.js?v=20240313153746"></script>
-	<script src="js/order.js?v=20240313153746"></script>
-	<script src="js/tabs.js?v=20240313153746"></script>
+	<script src="js/common.js?v=20240313235030"></script>
+	<script src="js/order.js?v=20240313235030"></script>
+	<script src="js/tabs.js?v=20240313235030"></script>
 
 </body>
 

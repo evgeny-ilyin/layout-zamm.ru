@@ -7,8 +7,8 @@ function loginActions() {
 	const login = document.querySelector(".js-login"),
 		errorsClass = "has-errors",
 		activeClass = "is-active",
-		submitClass = "submit-status",
-		submitStatusClass = "submit-status_error";
+		submitStatusClass = "submit-status",
+		submitConditionClass = "submit-status_error";
 
 	if (!login) return;
 
@@ -17,7 +17,7 @@ function loginActions() {
 	function loginSubmit(e) {
 		if (!e.target.classList.contains(errorsClass)) {
 			let form = e.target,
-				url = form.action,
+				url = form.dataset.url,
 				tabs = form.querySelectorAll(".login__tab"),
 				firstChar = form.querySelector(".js-otp"),
 				data = new FormData(form);
@@ -47,7 +47,7 @@ function loginActions() {
 							countdown();
 						}
 					} else {
-						setError(result.message);
+						setError(result);
 					}
 				} catch (e) {
 					console.error(e);
@@ -144,16 +144,21 @@ function loginActions() {
 		}
 	}
 
-	function setError(error = false) {
+	function setError(response = false) {
 		inputs.forEach((i) => {
 			i.classList.add(otpErrorClass);
 		});
 
-		if (error) {
+		if (response.message) {
 			const status = document.createElement("div"),
 				footerElement = document.querySelector(`.otp__footer`);
-			status.classList.add(submitClass, submitStatusClass);
-			status.innerText = error;
+
+			status.classList.add(submitStatusClass, submitConditionClass);
+			status.innerHTML = response.message;
+
+			let statusExists = document.querySelector(`.${submitStatusClass}`);
+			statusExists ? statusExists.remove() : "";
+
 			footerElement.prepend(status);
 		}
 	}
@@ -163,7 +168,7 @@ function loginActions() {
 			i.classList.remove(otpErrorClass);
 		});
 		let statusExists = document.querySelector(`.${submitStatusClass}`);
-		statusExists ? statusExists.remove() : '';
+		statusExists ? statusExists.remove() : "";
 	}
 
 	function countdown() {

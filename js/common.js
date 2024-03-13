@@ -1106,7 +1106,7 @@ function modalHandler() {
 			}
 
 			// fetch
-			url = modalShow.action;
+			url = modalShow.dataset.url;
 			if (!url) return;
 
 			let data = new FormData(e.target),
@@ -2077,13 +2077,14 @@ function submitForm(inputs, e) {
 		if (params) {
 			let parsed = JSON.parse(params);
 			Object.keys(parsed).forEach((key) => {
-				paramExists = form.querySelector(`input[type="hidden"][name=${key}]`);
+				paramExists = form.querySelector(`input[type="hidden"][name="${key}"]`);
 				paramExists ? paramExists.remove() : "";
 				param = document.createElement("input");
 				param.type = "hidden";
 				param.name = key;
 				param.value = parsed[key];
 				form.prepend(param);
+				return;
 			});
 		}
 
@@ -2093,8 +2094,7 @@ function submitForm(inputs, e) {
 			form.submit();
 			btnLoader(submitButton); // will not disabled after classic submit call
 		} else {
-			let url = form.action,
-				hideFields =  false || form.dataset.hideFields,
+			let url = form.dataset.url,
 				data = new FormData(form);
 
 			(async () => {
@@ -2110,7 +2110,7 @@ function submitForm(inputs, e) {
 					let result = await response.json();
 
 					if (result) {
-						submitResult(result, submitButton, hideFields);
+						showSubmitStatus(result, submitButton);
 					}
 
 					btnLoader(submitButton, "stop");
@@ -2126,35 +2126,29 @@ function submitForm(inputs, e) {
 	}
 }
 
-function submitResult(response, btn, hideFields = false) {
+function showSubmitStatus(response, btn) {
 	const status = document.createElement("div"),
-		submitResultClass = "submit-status",
+		submitStatusClass = "submit-status",
 		submitReplacedClass = "submit-status_replaced",
-		submitStatusClass = response.status === true ? "submit-status_success" : "submit-status_error";
+		submitConditionClass = response.status === true ? "submit-status_success" : "submit-status_error";
 
-	if (response.status === true && hideFields) {
+	if (!response.message) return;
+	status.innerHTML = response.message;
+
+	let statusExists = document.querySelector(`.${submitStatusClass}`);
+	statusExists ? statusExists.remove() : "";
+
+	if (response.hideField === true) {
 		const modal = document.querySelector(".modal"),
 			modalHeaderClass = "modal__head",
 			modalBodyClass = "modal__body";
 
 		modal.querySelectorAll(`.${modalHeaderClass}, .${modalBodyClass}`).forEach((e) => e.remove());
 
-		if (!response.message) return;
-
-		status.classList.add(submitResultClass, submitReplacedClass);
-		status.innerHTML = response.message;
-
+		status.classList.add(submitStatusClass, submitConditionClass, submitReplacedClass);
 		modal.append(status);
 	} else {
-		let statusExists = document.querySelector(`.${submitResultClass}`);
-
-		statusExists ? statusExists.remove() : "";
-
-		if (!response.message) return;
-
-		status.classList.add(submitResultClass, submitStatusClass);
-		status.innerText = response.message.replace(/(<([^>]+)>)/gi, " ");
-
+		status.classList.add(submitStatusClass, submitConditionClass);
 		btn.parentElement.prepend(status);
 		response.status === true ? (btn.disabled = true) : "";
 	}

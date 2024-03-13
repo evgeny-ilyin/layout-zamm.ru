@@ -326,10 +326,10 @@ svg {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-flow: row nowrap;
-  flex-flow: row nowrap
+  -ms-flex-direction: column;
+  flex-direction: column
 }
 .order__main {
   width: 100%
@@ -4365,6 +4365,12 @@ input[type=file]:focus-visible ~ span {
 @media (min-width:1024px) {
   .order {
     margin-top: 36px
+  }
+  .order__wrapper {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap
   }
   .order__main {
     width: calc(100% - 300px - 57px);
