@@ -977,19 +977,34 @@ function modalHandler() {
 		globalForm.validation();
 	};
 
-	let videoIframe = async (url, origin) => {
+	let videoModal = async (url, origin) => {
 		if (!url) return;
 
 		let boxWidth = origin.dataset.boxWidth || false,
 			boxMaxWidth = origin.dataset.boxMaxWidth || false,
 			boxType = origin.dataset.boxType || false;
 
-		// шаблон iframe
-		const iframe = document.createElement("div");
-		iframe.classList.add("modal__body", "_player");
-		iframe.innerHTML = `<iframe src="${url}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>`;
+		// шаблон
+		const div = document.createElement("div");
+		div.classList.add("modal__body", "_player");
+		div.innerHTML = `<iframe src="${url}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>`;
 
-		setModalContent(iframe.outerHTML, { width: boxWidth, maxWidth: boxMaxWidth, type: boxType });
+		setModalContent(div.outerHTML, { width: boxWidth, maxWidth: boxMaxWidth, type: boxType });
+	};
+
+	let imageModal = async (url, origin) => {
+		if (!url) return;
+
+		let boxWidth = origin.dataset.boxWidth || false,
+			boxMaxWidth = origin.dataset.boxMaxWidth || false,
+			boxType = origin.dataset.boxType || false;
+
+		// шаблон
+		const div = document.createElement("div");
+		div.classList.add("modal__body", "_image");
+		div.innerHTML = `<img src="${url}" alt=""></img>`;
+
+		setModalContent(div.outerHTML, { width: boxWidth, maxWidth: boxMaxWidth, type: boxType });
 	};
 
 	// modal by click
@@ -1021,7 +1036,15 @@ function modalHandler() {
 			if (boxType == "video") {
 				url = modalShow.href;
 				if (!url) return;
-				videoIframe(url, modalShow);
+				videoModal(url, modalShow);
+				return;
+			}
+
+			// simple image
+			if (boxType == "image" && !modalShow.dataset.fetch) {
+				url = modalShow.href;
+				if (!url) return;
+				imageModal(url, modalShow);
 				return;
 			}
 
@@ -1083,7 +1106,7 @@ function modalHandler() {
 			}
 
 			// fetch
-			url = modalShow.dataset.url;
+			url = modalShow.action;
 			if (!url) return;
 
 			let data = new FormData(e.target),
@@ -1317,6 +1340,14 @@ function collapseTargetHandler() {
 			section.classList.add(isCollapsedClass);
 			trigger.setAttribute("aria-expanded", false);
 		}
+
+		["resize"].forEach((evt) =>
+			window.addEventListener(evt, () => {
+				if (!section.classList.contains(isCollapsedClass)) {
+					section.style.height = "";
+				}
+			})
+		);
 	};
 
 	document.addEventListener("click", (e) => {
@@ -1755,10 +1786,8 @@ var vanillaTextMask = __webpack_require__(213);
 
 function submitPrevent() {
 	document.addEventListener("keydown", (e) => {
-		if (e.target.dataset.submit == "false") {
-			if (e.key == "Enter") {
-				e.preventDefault();
-			}
+		if (e.target.tagName == "INPUT" && e.key == "Enter") {
+			e.preventDefault();
 		}
 	});
 }
@@ -2023,8 +2052,11 @@ function validateInputFocus(input) {
 
 function submitForm(inputs, e) {
 	e.preventDefault();
+
 	const errors = [],
-		errorsClass = "has-errors";
+		errorsClass = "has-errors",
+		form = e.target,
+		submitButton = form.querySelector("button[type='submit']");
 
 	inputs.forEach((input) => {
 		const error = validateInput(input);
@@ -2034,13 +2066,97 @@ function submitForm(inputs, e) {
 	});
 
 	if (errors.length === 0) {
-		e.target.classList.remove(errorsClass);
-		if (e.target.dataset.fetch !== "true") {
-			e.target.submit();
+		// https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent/submitter#browser_compatibility
+		// console.log(e.submitter.dataset);
+
+		// if json params set on submit button, add them to form as hidden inputs
+		let param,
+			paramExists,
+			params = submitButton.dataset.params;
+
+		if (params) {
+			let parsed = JSON.parse(params);
+			Object.keys(parsed).forEach((key) => {
+				paramExists = form.querySelector(`input[type="hidden"][name=${key}]`);
+				paramExists ? paramExists.remove() : "";
+				param = document.createElement("input");
+				param.type = "hidden";
+				param.name = key;
+				param.value = parsed[key];
+				form.prepend(param);
+			});
+		}
+
+		form.classList.remove(errorsClass);
+
+		if (form.dataset.fetch !== "true") {
+			form.submit();
+			btnLoader(submitButton); // will not disabled after classic submit call
+		} else {
+			let url = form.action,
+				hideFields =  false || form.dataset.hideFields,
+				data = new FormData(form);
+
+			(async () => {
+				try {
+					btnLoader(submitButton);
+					let response = await fetch(url, {
+						method: "POST",
+						body: data,
+					});
+					if (!response.ok) {
+						return;
+					}
+					let result = await response.json();
+
+					if (result) {
+						submitResult(result, submitButton, hideFields);
+					}
+
+					btnLoader(submitButton, "stop");
+				} catch (e) {
+					console.error(e);
+					return;
+				}
+			})();
 		}
 	} else {
 		e.stopPropagation();
-		e.target.classList.add(errorsClass);
+		form.classList.add(errorsClass);
+	}
+}
+
+function submitResult(response, btn, hideFields = false) {
+	const status = document.createElement("div"),
+		submitResultClass = "submit-status",
+		submitReplacedClass = "submit-status_replaced",
+		submitStatusClass = response.status === true ? "submit-status_success" : "submit-status_error";
+
+	if (response.status === true && hideFields) {
+		const modal = document.querySelector(".modal"),
+			modalHeaderClass = "modal__head",
+			modalBodyClass = "modal__body";
+
+		modal.querySelectorAll(`.${modalHeaderClass}, .${modalBodyClass}`).forEach((e) => e.remove());
+
+		if (!response.message) return;
+
+		status.classList.add(submitResultClass, submitReplacedClass);
+		status.innerHTML = response.message;
+
+		modal.append(status);
+	} else {
+		let statusExists = document.querySelector(`.${submitResultClass}`);
+
+		statusExists ? statusExists.remove() : "";
+
+		if (!response.message) return;
+
+		status.classList.add(submitResultClass, submitStatusClass);
+		status.innerText = response.message.replace(/(<([^>]+)>)/gi, " ");
+
+		btn.parentElement.prepend(status);
+		response.status === true ? (btn.disabled = true) : "";
 	}
 }
 
@@ -2099,45 +2215,47 @@ function deleteCookie(name) {
 	});
 }
 
-const cookieForm = document.querySelector(".cookie"),
-	cookieAccept = document.querySelector(".js-cookie__accept");
+addEventListener("DOMContentLoaded", () => {
+	const cookieForm = document.querySelector(".cookie"),
+		cookieAccept = document.querySelector(".js-cookie__accept");
 
-if (cookieForm && cookieAccept) {
-	let policyCheck = () => {
-		if (!getCookie("policyAccepted")) {
-			cookieForm.classList.remove("hidden");
-		}
-	};
+	if (cookieForm && cookieAccept) {
+		let policyCheck = () => {
+			if (!getCookie("policyAccepted")) {
+				cookieForm.classList.remove("hidden");
+			}
+		};
 
-	let policyAccepted = (e) => {
-		e.preventDefault();
-		setCookie("policyAccepted", "1", 7);
-		cookieForm.classList.add("hidden");
-	};
+		let policyAccepted = (e) => {
+			e.preventDefault();
+			setCookie("policyAccepted", "1", 7);
+			cookieForm.classList.add("hidden");
+		};
 
-	cookieAccept.addEventListener("click", policyAccepted);
-	window.addEventListener("load", policyCheck);
-}
+		cookieAccept.addEventListener("click", policyAccepted);
+		window.addEventListener("load", policyCheck);
+	}
 
-const headerAlert = document.querySelector(".header-alert"),
-	closeAlert = document.querySelector(".js-close-header-alert");
+	const headerAlert = document.querySelector(".header-alert"),
+		closeAlert = document.querySelector(".js-close-header-alert");
 
-if (headerAlert && closeAlert) {
-	let alertCheck = () => {
-		if (!getCookie("alertHidden")) {
-			headerAlert.classList.remove("hidden");
-		}
-	};
+	if (headerAlert && closeAlert) {
+		let alertCheck = () => {
+			if (!getCookie("alertHidden")) {
+				headerAlert.classList.remove("hidden");
+			}
+		};
 
-	let alertHide = (e) => {
-		e.preventDefault();
-		setCookie("alertHidden", "1", 1);
-		headerAlert.classList.add("hidden");
-	};
+		let alertHide = (e) => {
+			e.preventDefault();
+			setCookie("alertHidden", "1", 1);
+			headerAlert.classList.add("hidden");
+		};
 
-	closeAlert.addEventListener("click", alertHide);
-	window.addEventListener("load", alertCheck);
-}
+		closeAlert.addEventListener("click", alertHide);
+		window.addEventListener("load", alertCheck);
+	}
+});
 
 ;// CONCATENATED MODULE: ./src/js/common.js
 

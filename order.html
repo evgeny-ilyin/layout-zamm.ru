@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0">
 
 	<!-- common header -->
-	<link rel="stylesheet" href="css/root-vars.css?v=20240307131344">
-	<link rel="stylesheet" href="css/fonts.css?v=20240307131344">
-	<link rel="stylesheet" href="css/header.css?v=20240307131344">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240307131344">
+	<link rel="stylesheet" href="css/root-vars.css?v=20240313153746">
+	<link rel="stylesheet" href="css/fonts.css?v=20240313153746">
+	<link rel="stylesheet" href="css/header.css?v=20240313153746">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240313153746">
 
 
 
@@ -26,7 +26,9 @@
 
 
 	<!-- order -->
-	<link rel="stylesheet" href="css/order.css?v=20240307131344">
+	<link rel="stylesheet" href="css/order.css?v=20240313153746">
+
+
 
 
 
@@ -72,8 +74,8 @@
 
 
 	<!-- common footer -->
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20240307131344">
-	<link rel="stylesheet" href="css/footer.css?v=20240307131344">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240313153746">
+	<link rel="stylesheet" href="css/footer.css?v=20240313153746">
 
 	<title>Оформление заказа</title>
 	<meta name="description" content="Оформление заказа">
@@ -746,7 +748,7 @@
 									<div class="form-item">
 										<label for="promo-input">У меня есть промокод</label>
 										<div class="form-item-flex">
-											<input type="text" name="ORDER_PROP_PROMO" id="promo-input" class="input text-uppercase js-promocode-input" autocomplete="off" data-submit="false" placeholder="PROMOCODE">
+											<input type="text" name="ORDER_PROP_PROMO" id="promo-input" class="input text-uppercase js-promocode-input" autocomplete="off" placeholder="PROMOCODE">
 											<button type="button" class="btn btn_gray js-promocode-submit" data-watch="true" data-params='{"promoAction": "submit"}'>Применить</button>
 										</div>
 
@@ -791,7 +793,7 @@
 							</div>
 
 							<div class="order-total__button">
-								<button type="submit" class="btn btn_yellow btn_wide">Перейти к оплате</button>
+								<button type="submit" class="btn btn_yellow btn_wide" data-params='{"soa-action": "saveOrderAjax"}'>Перейти к оплате</button>
 							</div>
 
 							<div class="form-agreement">
@@ -953,7 +955,7 @@
 					<div class="footer__subscription subscription">
 						<div class="subscription__header">Подпишитесь на нашу рассылку</div>
 						<div class="subscription__form">
-							<form action="javascript:void(0)" class="form js-modal-submit" data-box-width="510" data-url="https://deviart.ru/zamm/fetch-modal.php?modal=subscribe">
+							<form action="https://deviart.ru/zamm/fetch-modal.php?modal=subscribe" class="form js-modal-submit" data-box-width="510" data-fetch="true">
 								<div class="btn-inset">
 									<input type="email" name="subscriber_email" class="input input_fill" data-required placeholder="name@email.ru" />
 									<button type="submit" class="btn btn_gray btn_arrow-big btn_inset" aria-label="Подписаться"></button>
@@ -1183,12 +1185,12 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240307131344"></script>
-	<script src="js/carousel-init.js?v=20240307131344"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240313153746"></script>
+	<script src="js/carousel-init.js?v=20240313153746"></script>
 
-	<script src="js/common.js?v=20240307131344"></script>
-	<script src="js/order.js?v=20240307131344"></script>
-	<script src="js/tabs.js?v=20240307131344"></script>
+	<script src="js/common.js?v=20240313153746"></script>
+	<script src="js/order.js?v=20240313153746"></script>
+	<script src="js/tabs.js?v=20240313153746"></script>
 
 </body>
 

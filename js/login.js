@@ -6,7 +6,10 @@ var __webpack_exports__ = {};
 function loginActions() {
 	const login = document.querySelector(".js-login"),
 		errorsClass = "has-errors",
-		activeClass = "is-active";
+		activeClass = "is-active",
+		submitClass = "submit-status",
+		submitStatusClass = "submit-status_error";
+
 	if (!login) return;
 
 	login.addEventListener("submit", loginSubmit);
@@ -39,11 +42,12 @@ function loginActions() {
 								tab.classList.toggle(activeClass);
 								tab.removeAttribute("disabled");
 							});
+							otpReset();
 							firstChar.focus();
 							countdown();
 						}
 					} else {
-						setError(result.error);
+						setError(result.message);
 					}
 				} catch (e) {
 					console.error(e);
@@ -67,6 +71,12 @@ function loginActions() {
 			removeError();
 		});
 	});
+
+	function otpReset() {
+		inputs.forEach((input) => {
+			input.value = "";
+		});
+	}
 
 	function otpPaste(e) {
 		let data = e.clipboardData.getData("text");
@@ -138,12 +148,22 @@ function loginActions() {
 		inputs.forEach((i) => {
 			i.classList.add(otpErrorClass);
 		});
+
+		if (error) {
+			const status = document.createElement("div"),
+				footerElement = document.querySelector(`.otp__footer`);
+			status.classList.add(submitClass, submitStatusClass);
+			status.innerText = error;
+			footerElement.prepend(status);
+		}
 	}
 
 	function removeError() {
 		inputs.forEach((i) => {
 			i.classList.remove(otpErrorClass);
 		});
+		let statusExists = document.querySelector(`.${submitStatusClass}`);
+		statusExists ? statusExists.remove() : '';
 	}
 
 	function countdown() {

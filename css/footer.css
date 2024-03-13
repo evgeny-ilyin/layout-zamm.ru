@@ -373,7 +373,9 @@
   align-items: center;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
-  justify-content: center
+  justify-content: center;
+  pointer-events: none;
+  text-indent: -999em
 }
 .btn-loader::before {
   position: absolute;
@@ -384,6 +386,9 @@
   background: var(--svg-fetch-ring) no-repeat;
   -webkit-animation: fetchRingRotate 1s infinite linear;
   animation: fetchRingRotate 1s infinite linear
+}
+.btn-loader::after {
+  display: none
 }
 .svg-sprite {
   display: block;
