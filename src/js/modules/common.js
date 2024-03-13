@@ -194,19 +194,34 @@ export function modalHandler() {
 		globalForm.validation();
 	};
 
-	let videoIframe = async (url, origin) => {
+	let videoModal = async (url, origin) => {
 		if (!url) return;
 
 		let boxWidth = origin.dataset.boxWidth || false,
 			boxMaxWidth = origin.dataset.boxMaxWidth || false,
 			boxType = origin.dataset.boxType || false;
 
-		// шаблон iframe
-		const iframe = document.createElement("div");
-		iframe.classList.add("modal__body", "_player");
-		iframe.innerHTML = `<iframe src="${url}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>`;
+		// шаблон
+		const div = document.createElement("div");
+		div.classList.add("modal__body", "_player");
+		div.innerHTML = `<iframe src="${url}" frameborder="0" allowfullscreen="allowfullscreen"></iframe>`;
 
-		setModalContent(iframe.outerHTML, { width: boxWidth, maxWidth: boxMaxWidth, type: boxType });
+		setModalContent(div.outerHTML, { width: boxWidth, maxWidth: boxMaxWidth, type: boxType });
+	};
+
+	let imageModal = async (url, origin) => {
+		if (!url) return;
+
+		let boxWidth = origin.dataset.boxWidth || false,
+			boxMaxWidth = origin.dataset.boxMaxWidth || false,
+			boxType = origin.dataset.boxType || false;
+
+		// шаблон
+		const div = document.createElement("div");
+		div.classList.add("modal__body", "_image");
+		div.innerHTML = `<img src="${url}" alt=""></img>`;
+
+		setModalContent(div.outerHTML, { width: boxWidth, maxWidth: boxMaxWidth, type: boxType });
 	};
 
 	// modal by click
@@ -238,7 +253,15 @@ export function modalHandler() {
 			if (boxType == "video") {
 				url = modalShow.href;
 				if (!url) return;
-				videoIframe(url, modalShow);
+				videoModal(url, modalShow);
+				return;
+			}
+
+			// simple image
+			if (boxType == "image" && !modalShow.dataset.fetch) {
+				url = modalShow.href;
+				if (!url) return;
+				imageModal(url, modalShow);
 				return;
 			}
 
@@ -534,6 +557,14 @@ export function collapseTargetHandler() {
 			section.classList.add(isCollapsedClass);
 			trigger.setAttribute("aria-expanded", false);
 		}
+
+		["resize"].forEach((evt) =>
+			window.addEventListener(evt, () => {
+				if (!section.classList.contains(isCollapsedClass)) {
+					section.style.height = "";
+				}
+			})
+		);
 	};
 
 	document.addEventListener("click", (e) => {
