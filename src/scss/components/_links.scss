@@ -90,6 +90,18 @@
 		}
 	}
 
+	&._back {
+		padding-right: 0;
+		padding-left: 12px;
+
+		&::after {
+			right: auto;
+			left: 0;
+			padding-left: 0;
+			transform: rotateY(180deg);
+		}
+	}
+
 	&._bg-white {
 		background: $white;
 		border-radius: 28px;
