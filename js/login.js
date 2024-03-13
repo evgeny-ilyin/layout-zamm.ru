@@ -65,7 +65,7 @@ function loginActions() {
 	inputs.forEach((input, index) => {
 		input.dataset.index = index;
 		input.addEventListener("paste", otpPaste);
-		input.addEventListener("keydown", otpKeydown);
+		input.addEventListener("keyup", otpKeydown); // keydown лучше, но input.blur() срабатывает слишком рано и если последняя цифра 1 или 2, браузер начинает ходить по вкладкам.
 		input.addEventListener("focus", () => {
 			input.classList.remove("is-blur-otp");
 			removeError();
@@ -128,6 +128,7 @@ function loginActions() {
 		// blur at last input
 		if (fieldIndex == inputs.length - 1) {
 			input.classList.add("is-blur-otp");
+			input.blur();
 			otpSubmit();
 		}
 	}

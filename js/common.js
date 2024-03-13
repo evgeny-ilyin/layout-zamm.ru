@@ -2056,7 +2056,8 @@ function submitForm(inputs, e) {
 	const errors = [],
 		errorsClass = "has-errors",
 		form = e.target,
-		submitButton = form.querySelector("button[type='submit']");
+		submitButton = form.querySelector("button[type='submit']"),
+		ignoreSubmitFor = ["js-modal-submit", "js-login"];
 
 	inputs.forEach((input) => {
 		const error = validateInput(input);
@@ -2094,12 +2095,16 @@ function submitForm(inputs, e) {
 			form.submit();
 			btnLoader(submitButton); // will not disabled after classic submit call
 		} else {
+			const contains = (el) => form.classList.contains(el);
+			if (ignoreSubmitFor.some(contains)) return;
+
 			let url = form.dataset.url,
 				data = new FormData(form);
 
 			(async () => {
 				try {
 					btnLoader(submitButton);
+
 					let response = await fetch(url, {
 						method: "POST",
 						body: data,
