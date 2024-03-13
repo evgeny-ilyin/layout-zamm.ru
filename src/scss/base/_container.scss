@@ -122,7 +122,11 @@
 	// .order__wrapper
 	&__wrapper {
 		display: flex;
-		flex-flow: row nowrap;
+		flex-direction: column;
+
+		@include respond-to(lg) {
+			flex-flow: row nowrap;
+		}
 	}
 
 	// .order__main
