@@ -45,42 +45,44 @@ function deleteCookie(name) {
 	});
 }
 
-const cookieForm = document.querySelector(".cookie"),
-	cookieAccept = document.querySelector(".js-cookie__accept");
+addEventListener("DOMContentLoaded", () => {
+	const cookieForm = document.querySelector(".cookie"),
+		cookieAccept = document.querySelector(".js-cookie__accept");
 
-if (cookieForm && cookieAccept) {
-	let policyCheck = () => {
-		if (!getCookie("policyAccepted")) {
-			cookieForm.classList.remove("hidden");
-		}
-	};
+	if (cookieForm && cookieAccept) {
+		let policyCheck = () => {
+			if (!getCookie("policyAccepted")) {
+				cookieForm.classList.remove("hidden");
+			}
+		};
 
-	let policyAccepted = (e) => {
-		e.preventDefault();
-		setCookie("policyAccepted", "1", 7);
-		cookieForm.classList.add("hidden");
-	};
+		let policyAccepted = (e) => {
+			e.preventDefault();
+			setCookie("policyAccepted", "1", 7);
+			cookieForm.classList.add("hidden");
+		};
 
-	cookieAccept.addEventListener("click", policyAccepted);
-	window.addEventListener("load", policyCheck);
-}
+		cookieAccept.addEventListener("click", policyAccepted);
+		window.addEventListener("load", policyCheck);
+	}
 
-const headerAlert = document.querySelector(".header-alert"),
-	closeAlert = document.querySelector(".js-close-header-alert");
+	const headerAlert = document.querySelector(".header-alert"),
+		closeAlert = document.querySelector(".js-close-header-alert");
 
-if (headerAlert && closeAlert) {
-	let alertCheck = () => {
-		if (!getCookie("alertHidden")) {
-			headerAlert.classList.remove("hidden");
-		}
-	};
+	if (headerAlert && closeAlert) {
+		let alertCheck = () => {
+			if (!getCookie("alertHidden")) {
+				headerAlert.classList.remove("hidden");
+			}
+		};
 
-	let alertHide = (e) => {
-		e.preventDefault();
-		setCookie("alertHidden", "1", 1);
-		headerAlert.classList.add("hidden");
-	};
+		let alertHide = (e) => {
+			e.preventDefault();
+			setCookie("alertHidden", "1", 1);
+			headerAlert.classList.add("hidden");
+		};
 
-	closeAlert.addEventListener("click", alertHide);
-	window.addEventListener("load", alertCheck);
-}
+		closeAlert.addEventListener("click", alertHide);
+		window.addEventListener("load", alertCheck);
+	}
+});
