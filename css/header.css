@@ -5058,6 +5058,7 @@ input[type=file]:focus-visible ~ span {
 @media (max-width:1023px) {
   .order__sidebar._mobile-bottom {
     position: fixed;
+    max-width: 100%;
     bottom: 0;
     left: 0;
     right: 0;
