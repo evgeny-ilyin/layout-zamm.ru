@@ -811,7 +811,8 @@ function stickyHeader() {
 }
 
 function hamburgerMenu() {
-	const navMenu = document.querySelector(".nav__menu"),
+	const navContainer = document.querySelector(".container.nav"),
+		navMenu = document.querySelector(".nav__menu"),
 		menuToggler = document.getElementById("menu-toggle"),
 		subMenuWrapper = document.querySelector(".catalog__submenu"),
 		catalogLinks = document.querySelectorAll(".catalog__list .catalog__link"),
@@ -851,14 +852,21 @@ function hamburgerMenu() {
 			subMenuWrapper.innerHTML = "";
 		} else {
 			// overlay(1);
+			let headerAlert = document.querySelector(".header-alert");
+			if (headerAlert) {
+				navMenu.style.top = `${navContainer.getBoundingClientRect().top * -1}px`;
+				// navMenu.style.top = `${headerAlert.getBoundingClientRect().height * -1}px`;
+
+			}
 		}
 	});
 
-	window.addEventListener("resize", () => {
-		if (menuToggler.checked) {
-			menuToggler.click();
-		}
-	});
+	// android bug: mobile search input focus triggers menu close
+	// window.addEventListener("resize", () => {
+	// 	if (menuToggler.checked) {
+	// 		menuToggler.click();
+	// 	}
+	// });
 
 	document.addEventListener("click", (e) => {
 		if (!navMenu.contains(e.target) && menuToggler.checked) {
@@ -1786,11 +1794,22 @@ var vanillaTextMask = __webpack_require__(213);
 
 function submitPrevent() {
 	document.addEventListener("keydown", (e) => {
-		if (e.target.tagName == "INPUT" && e.key == "Enter") {
-			e.preventDefault();
+		if (e.target.dataset.submit == "false" || e.target.closest("form").dataset.submit == "false") {
+			if (e.key == "Enter") {
+				e.preventDefault();
+			}
 		}
 	});
 }
+
+// disable submit by enter
+// export function submitPrevent() {
+// 	document.addEventListener("keydown", (e) => {
+// 		if (e.target.tagName == "INPUT" && e.key == "Enter") {
+// 			e.preventDefault();
+// 		}
+// 	});
+// }
 
 function maskHandler() {
 	const errorClass = "is-error",
@@ -2239,20 +2258,20 @@ addEventListener("DOMContentLoaded", () => {
 		closeAlert = document.querySelector(".js-close-header-alert");
 
 	if (headerAlert && closeAlert) {
-		let alertCheck = () => {
-			if (!getCookie("alertHidden")) {
-				headerAlert.classList.remove("hidden");
-			}
-		};
+		// let alertCheck = () => {
+		// 	if (!getCookie("alertHidden")) {
+		// 		headerAlert.classList.remove("hidden");
+		// 	}
+		// };
 
-		let alertHide = (e) => {
-			e.preventDefault();
-			setCookie("alertHidden", "1", 1);
+		let alertHide = () => {
+			// e.preventDefault();
+			// setCookie("alertHidden", "1", 1);
 			headerAlert.classList.add("hidden");
 		};
 
 		closeAlert.addEventListener("click", alertHide);
-		window.addEventListener("load", alertCheck);
+		// window.addEventListener("load", alertCheck);
 	}
 });
 

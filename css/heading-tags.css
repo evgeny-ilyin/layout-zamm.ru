@@ -9,6 +9,20 @@
   margin-bottom: 34px;
   padding-bottom: 16px
 }
+.heading-tags.tags-collapse::before {
+  width: 70px
+}
+.heading-tags .js-tags-collapse {
+  width: 38px
+}
+.heading-tags .js-tags-collapse::after {
+  right: 12px
+}
+@media (min-width:768px) {
+  .heading-tags .js-tags-collapse::after {
+    right: 16px
+  }
+}
 @media (min-width:1024px) {
   .heading-tags {
     padding-right: 25px

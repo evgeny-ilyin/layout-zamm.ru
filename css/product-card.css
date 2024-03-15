@@ -369,6 +369,9 @@
   right: -10px;
   z-index: 1
 }
+.photos__carousel .f-carousel {
+  margin-bottom: 30px
+}
 .props-wrapper {
   display: -ms-grid;
   display: grid;

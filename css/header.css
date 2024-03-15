@@ -5072,13 +5072,16 @@ input[type=file]:focus-visible ~ span {
     -webkit-transform: translateX(-100%);
     -ms-transform: translateX(-100%);
     transform: translateX(-100%);
-    -webkit-transition: all .25s ease-in-out;
-    -o-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
+    -webkit-transition: -webkit-transform .25s ease-in-out;
+    transition: -webkit-transform .25s ease-in-out;
+    -o-transition: transform .25s ease-in-out;
+    transition: transform .25s ease-in-out;
+    transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out;
     width: 100%;
     min-width: 320px;
     max-width: 375px;
     min-height: 100vh;
+    min-height: 100dvh;
     top: 0;
     left: 0;
     bottom: 0;
@@ -5109,6 +5112,7 @@ input[type=file]:focus-visible ~ span {
     width: 100%;
     height: auto;
     min-height: 100vh;
+    min-height: 100dvh;
     padding: 12px 24px;
     z-index: 1
   }

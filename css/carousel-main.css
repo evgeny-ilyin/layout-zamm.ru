@@ -495,7 +495,8 @@
 @media (max-width:767px) {
   .main-slide_col-2 .main-slide__text .label {
     position: absolute;
-    top: -15px
+    top: -15px;
+    z-index: 1
   }
   .main-slide_col-1 .main-slide__wrapper {
     max-width: 600px;
