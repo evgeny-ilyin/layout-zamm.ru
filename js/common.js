@@ -855,8 +855,6 @@ function hamburgerMenu() {
 			let headerAlert = document.querySelector(".header-alert");
 			if (headerAlert) {
 				navMenu.style.top = `${navContainer.getBoundingClientRect().top * -1}px`;
-				// navMenu.style.top = `${headerAlert.getBoundingClientRect().height * -1}px`;
-
 			}
 		}
 	});
