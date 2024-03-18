@@ -109,6 +109,9 @@
   font-size: .8125rem;
   color: var(--black60)
 }
+.tag:hover {
+  cursor: pointer
+}
 .tag:hover .tag__list {
   opacity: 1;
   visibility: visible
