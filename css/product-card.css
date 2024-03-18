@@ -260,10 +260,7 @@
   padding-right: 5px;
   width: 100%;
   min-width: 145px;
-  height: 42px;
-  -webkit-transition: all .25s ease-in-out;
-  -o-transition: all .25s ease-in-out;
-  transition: all .25s ease-in-out
+  height: 42px
 }
 .product__amount {
   height: 42px

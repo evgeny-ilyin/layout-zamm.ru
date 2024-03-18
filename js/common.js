@@ -824,7 +824,7 @@ function hamburgerMenu() {
 		catalogLink.addEventListener("click", (e) => {
 			const category = catalogLink.nextElementSibling;
 			if (category) {
-				e.preventDefault();
+				document.body.classList.contains("is-touch") ? e.preventDefault() : '';
 				const cloneCategory = category.cloneNode(true);
 				cloneCategory.classList.add(isActiveClass);
 				subMenuWrapper.classList.add(isActiveClass);
@@ -845,13 +845,13 @@ function hamburgerMenu() {
 
 	menuToggler.addEventListener("change", () => {
 		if (!menuToggler.checked) {
-			// overlay(0);
+			overlay(0);
 			backBtn.classList.remove(isActiveClass);
 			subMenuWrapper.classList.remove(isActiveClass);
 			navMenu.classList.remove(hideNavClass);
 			subMenuWrapper.innerHTML = "";
 		} else {
-			// overlay(1);
+			overlay(1);
 			let headerAlert = document.querySelector(".header-alert");
 			if (headerAlert) {
 				navMenu.style.top = `${navContainer.getBoundingClientRect().top * -1}px`;

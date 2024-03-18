@@ -18,6 +18,11 @@
   margin-bottom: 12px;
   overflow: hidden
 }
+.tile > a {
+  display: block;
+  width: 100%;
+  height: 100%
+}
 .tile a {
   text-shadow: none
 }
