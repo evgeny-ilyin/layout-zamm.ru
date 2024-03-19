@@ -1,5 +1,5 @@
 body:not(.is-touch) .product-carousel {
-	.is-dragging {
+	.is-dragging.is-real-dragging {
 		.item {
 			background: $white !important;
 		}
@@ -18,7 +18,7 @@ body:not(.is-touch) .product-carousel {
 }
 
 body:not(.is-touch) .order .product-carousel {
-	.is-dragging {
+	.is-dragging.is-real-dragging {
 		.item {
 			background: transparent !important;
 		}
