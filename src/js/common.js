@@ -22,6 +22,7 @@ addEventListener("DOMContentLoaded", () => {
 
 	fn.stickyHeader();
 	fn.hamburgerMenu();
+	fn.submenuPostionOnOverflowNav();
 	fn.modalHandler();
 	fn.edgePopupHandler();
 	fn.sectionClose();
