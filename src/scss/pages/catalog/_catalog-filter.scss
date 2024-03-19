@@ -28,9 +28,10 @@
 	}
 
 	@include respond-to(xl) {
-		// position: relative;
 		position: sticky;
 		top: 50px;
+		padding: 0px 7px;
+		max-height: calc(100vh - 75px);
 	}
 
 	// .filter__head
@@ -99,7 +100,8 @@
 
 	&.scrollblock {
 		@include respond-to(xl) {
-			overflow: visible;
+			// overflow: visible;
+			overflow-y: scroll;
 		}
 	}
 }
