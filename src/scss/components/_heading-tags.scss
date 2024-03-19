@@ -7,4 +7,22 @@
 	@include respond-to(lg) {
 		padding-right: 25px;
 	}
+
+	&.tags-collapse {
+		&::before {
+			width: 70px;
+		}
+	}
+
+	.js-tags-collapse {
+		width: 38px;
+
+		&::after {
+			right: $min-padding;
+
+			@include respond-to(md) {
+				right: $max-padding;
+			}
+		}
+	}
 }
