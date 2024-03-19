@@ -28,7 +28,8 @@ export function stickyHeader() {
 }
 
 export function hamburgerMenu() {
-	const navMenu = document.querySelector(".nav__menu"),
+	const navContainer = document.querySelector(".container.nav"),
+		navMenu = document.querySelector(".nav__menu"),
 		menuToggler = document.getElementById("menu-toggle"),
 		subMenuWrapper = document.querySelector(".catalog__submenu"),
 		catalogLinks = document.querySelectorAll(".catalog__list .catalog__link"),
@@ -61,21 +62,26 @@ export function hamburgerMenu() {
 
 	menuToggler.addEventListener("change", () => {
 		if (!menuToggler.checked) {
-			// overlay(0);
+			overlay(0);
 			backBtn.classList.remove(isActiveClass);
 			subMenuWrapper.classList.remove(isActiveClass);
 			navMenu.classList.remove(hideNavClass);
 			subMenuWrapper.innerHTML = "";
 		} else {
-			// overlay(1);
+			overlay(1);
+			let headerAlert = document.querySelector(".header-alert");
+			if (headerAlert) {
+				navMenu.style.top = `${navContainer.getBoundingClientRect().top * -1}px`;
+			}
 		}
 	});
 
-	window.addEventListener("resize", () => {
-		if (menuToggler.checked) {
-			menuToggler.click();
-		}
-	});
+	// android bug: mobile search input focus triggers menu close
+	// window.addEventListener("resize", () => {
+	// 	if (menuToggler.checked) {
+	// 		menuToggler.click();
+	// 	}
+	// });
 
 	document.addEventListener("click", (e) => {
 		if (!navMenu.contains(e.target) && menuToggler.checked) {
