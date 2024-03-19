@@ -13,7 +13,7 @@ try {
 			$resp['url'] = 'personal-profile.html';
 		} else {
 			$resp['status'] = false;
-			$resp['error'] = 'Неверный код подтверждения (>= 5555)';
+			$resp['message'] = 'Неверный код подтверждения <b>(>= 5555)</b>';
 		}
 	}
 
