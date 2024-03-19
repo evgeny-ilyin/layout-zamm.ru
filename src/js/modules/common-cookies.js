@@ -70,19 +70,19 @@ addEventListener("DOMContentLoaded", () => {
 		closeAlert = document.querySelector(".js-close-header-alert");
 
 	if (headerAlert && closeAlert) {
-		let alertCheck = () => {
-			if (!getCookie("alertHidden")) {
-				headerAlert.classList.remove("hidden");
-			}
-		};
+		// let alertCheck = () => {
+		// 	if (!getCookie("alertHidden")) {
+		// 		headerAlert.classList.remove("hidden");
+		// 	}
+		// };
 
-		let alertHide = (e) => {
-			e.preventDefault();
-			setCookie("alertHidden", "1", 1);
+		let alertHide = () => {
+			// e.preventDefault();
+			// setCookie("alertHidden", "1", 1);
 			headerAlert.classList.add("hidden");
 		};
 
 		closeAlert.addEventListener("click", alertHide);
-		window.addEventListener("load", alertCheck);
+		// window.addEventListener("load", alertCheck);
 	}
 });
