@@ -155,6 +155,7 @@
 		&._mobile-bottom {
 			@include respond-to(lg, "max") {
 				position: fixed;
+				max-width: 100%;
 				bottom: 0;
 				left: 0;
 				right: 0;
