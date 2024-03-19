@@ -96,6 +96,12 @@
 	margin-bottom: 12px;
 	overflow: hidden;
 
+	& > a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+
 	a {
 		text-shadow: none;
 	}
