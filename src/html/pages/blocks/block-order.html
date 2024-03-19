@@ -1,7 +1,7 @@
 <div class="order-goods-mobile"></div>
 <div class="content order js-order" data-id="checkout-order-main" data-url="https://deviart.ru/zamm/fetch-order.php">
 
-	<form action="/order/" class="form order__wrapper" method="post" enctype="multipart/form-data">
+	<form action="/order/" data-submit="false" class="form order__wrapper" method="post" enctype="multipart/form-data">
 
 		<div class="hidden" data-id="hidden-options"></div>
 
@@ -300,7 +300,7 @@
 
 		<div class="order__sidebar" data-id="checkout-order-total">
 			<div class="order__sticky">
-				<div class="order-total" data-da=".order,1023,last">
+				<div class="order-total" data-da=".form.order__wrapper,1023,last">
 					<div class="order-total__header">
 						<div class="order-total__title">Стоимость заказа</div>
 						<div class="order-total__note">Детали заказа уточнит менеджер по телефону после оплаты</div>
@@ -317,7 +317,7 @@
 					</div>
 
 					<div class="order-total__button">
-						<button type="submit" class="btn btn_yellow btn_wide" data-params='{"soa-action": "saveOrderAjax"}'>Перейти к оплате</button>
+						<button type="submit" class="btn btn_yellow btn_wide" data-params='{"order[soa-action]": "saveOrderAjax","param2": "value2"}'>Перейти к оплате</button>
 					</div>
 
 					<div class="form-agreement">
