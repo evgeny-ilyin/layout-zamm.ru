@@ -25,11 +25,12 @@
 		@include respond-to(lg, "max") {
 			position: fixed;
 			transform: translateX(-100%);
-			transition: all $transition-default;
+			transition: transform $transition-default;
 			width: 100%;
 			min-width: 320px;
 			max-width: 375px;
 			min-height: 100vh;
+			min-height: 100dvh;
 			top: 0;
 			left: 0;
 			bottom: 0;
@@ -45,6 +46,11 @@
 		@include respond-to(lg) {
 			flex-direction: row;
 			align-items: center;
+			min-width: 0; // прокрутка для переполненного меню на десктопе
+		}
+
+		@include respond-to(xl) {
+			min-width: auto; // прокрутка для переполненного меню на десктопе
 		}
 
 		&.hide-nav {
@@ -81,11 +87,17 @@
 		@include respond-to(lg) {
 			order: 1;
 			margin: 0 18px 0 24px;
+			overflow: hidden; // прокрутка для переполненного меню на десктопе
+		}
+
+		@include respond-to(xl) {
+			overflow: visible; // прокрутка для переполненного меню на десктопе
 		}
 	}
 
 	// .nav__search
 	&__search {
+
 		@include respond-to(lg, "max") {
 			position: relative;
 			order: 1;
@@ -96,6 +108,20 @@
 
 		@include respond-to(lg) {
 			order: 2;
+			position: relative;
+
+			&:not(.is-active) {
+				&::before {
+					content: "";
+					display: block;
+					position: absolute;
+					width: 25px;
+					top: 0;
+					left: -30px;
+					bottom: 0;
+					background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, rgb(255, 255, 255) 75%);
+				}
+			}
 		}
 
 		&.is-active {
@@ -107,6 +133,7 @@
 				width: 100%;
 				height: auto;
 				min-height: 100vh;
+				min-height: 100dvh;
 				padding: 12px 24px;
 				z-index: 1;
 				// bottom: 0;
@@ -147,11 +174,14 @@
 		}
 
 		@include respond-to(lg) {
-			padding-right: 42px;
+			@include when-inside(".is-active") {
+				padding-right: 42px;
+			}
 
 			button[type="submit"] {
 				flex: 1;
 			}
+
 			button[type="submit"] {
 				@include when-inside(".is-active") {
 					display: block;
@@ -556,6 +586,11 @@
 			height: 56px;
 			display: flex;
 			align-items: center;
+			overflow-x: scroll; // прокрутка для переполненного меню на десктопе
+		}
+
+		@include respond-to(xl) {
+			overflow-x: visible; // прокрутка для переполненного меню на десктопе
 		}
 	}
 
