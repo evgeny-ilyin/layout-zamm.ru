@@ -337,10 +337,40 @@ fieldset {
 .textarea {
 }
 
-.status-error {
-	color: $red-coral-dark;
-	margin: 5px 0;
+.submit-status {
+	text-align: center;
+	margin: 10px 0;
+
+	&_error {
+		color: $red-coral-dark;
+	}
+
+	&_success {
+		color: $black;
+	}
+
+	&_replaced {
+		margin: 32px 0;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
 }
+
+// .submit-error,
+// .submit-success {
+// 	text-align: center;
+// 	margin: 10px 0;
+// }
+
+// .submit-error {
+// 	color: $red-coral-dark;
+// }
+
+// .submit-success {
+// 	color: $black;
+// }
 
 @import "form-labels";
 @import "form-checkboxes";
