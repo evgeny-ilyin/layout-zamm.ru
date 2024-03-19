@@ -90,6 +90,21 @@ export function hamburgerMenu() {
 	});
 }
 
+// https://codepen.io/paulobrien/pen/vYxWppv
+export function submenuPostionOnOverflowNav() {
+	const nav = document.querySelector(".catalog__list"),
+		submenu = document.querySelectorAll(".menu-dropdown_column");
+
+	nav.addEventListener("scroll", setTransform);
+
+	function setTransform() {
+		document.activeElement.blur();
+		submenu.forEach((el) => {
+			el.style.transform = `translateX(${nav.scrollLeft * -1}px)`;
+		});
+	}
+}
+
 export function modalHandler() {
 	let createModal = (type = false) => {
 		const modalClass = "modal",
