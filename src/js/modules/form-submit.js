@@ -3,10 +3,21 @@ import { maskInput } from "/node_modules/vanilla-text-mask/dist/vanillaTextMask.
 export function submitPrevent() {
 	document.addEventListener("keydown", (e) => {
 		if (e.target.tagName == "INPUT" && e.key == "Enter") {
-			e.preventDefault();
+			if (e.target.dataset.submit == "false" || e.target.closest("form").dataset.submit == "false") {
+				e.preventDefault();
+			}
 		}
 	});
 }
+
+// disable submit by enter
+// export function submitPrevent() {
+// 	document.addEventListener("keydown", (e) => {
+// 		if (e.target.tagName == "INPUT" && e.key == "Enter") {
+// 			e.preventDefault();
+// 		}
+// 	});
+// }
 
 export function maskHandler() {
 	const errorClass = "is-error",
@@ -271,7 +282,9 @@ function submitForm(inputs, e) {
 
 	const errors = [],
 		errorsClass = "has-errors",
-		submitButton = e.target.querySelector("button[type='submit']");
+		form = e.target,
+		submitButton = form.querySelector("button[type='submit']"),
+		ignoreSubmitFor = ["js-modal-submit", "js-login"];
 
 	inputs.forEach((input) => {
 		const error = validateInput(input);
@@ -284,30 +297,92 @@ function submitForm(inputs, e) {
 		// https://developer.mozilla.org/en-US/docs/Web/API/SubmitEvent/submitter#browser_compatibility
 		// console.log(e.submitter.dataset);
 
-		e.target.classList.remove(errorsClass);
-		if (e.target.dataset.fetch !== "true") {
-			// if json params set on submit button, add them to form as hidden inputs
-			let param,
-				paramExists,
-				params = submitButton.dataset.params;
-			if (params) {
-				let parsed = JSON.parse(params);
-				Object.keys(parsed).forEach((key) => {
-					paramExists = e.target.querySelector(`input[type="hidden"][name=${key}]`);
-					paramExists ? paramExists.remove() : "";
-					param = document.createElement("input");
-					param.type = "hidden";
-					param.name = key;
-					param.value = parsed[key];
-					e.target.append(param);
-				});
-			}
+		// if json params set on submit button, add them to form as hidden inputs
+		let param,
+			paramExists,
+			params = submitButton.dataset.params;
 
-			e.target.submit();
+		if (params) {
+			let parsed = JSON.parse(params);
+			Object.keys(parsed).forEach((key) => {
+				paramExists = form.querySelector(`input[type="hidden"][name="${key}"]`);
+				paramExists ? paramExists.remove() : "";
+				param = document.createElement("input");
+				param.type = "hidden";
+				param.name = key;
+				param.value = parsed[key];
+				form.prepend(param);
+				return;
+			});
+		}
+
+		form.classList.remove(errorsClass);
+
+		if (form.dataset.fetch !== "true") {
+			form.submit();
+			btnLoader(submitButton); // will not disabled after classic submit call
+		} else {
+			const contains = (el) => form.classList.contains(el);
+			if (ignoreSubmitFor.some(contains)) return;
+
+			let url = form.dataset.url,
+				data = new FormData(form);
+
+			(async () => {
+				try {
+					btnLoader(submitButton);
+
+					let response = await fetch(url, {
+						method: "POST",
+						body: data,
+					});
+					if (!response.ok) {
+						return;
+					}
+					let result = await response.json();
+
+					if (result) {
+						showSubmitStatus(result, submitButton);
+					}
+
+					btnLoader(submitButton, "stop");
+				} catch (e) {
+					console.error(e);
+					return;
+				}
+			})();
 		}
 	} else {
 		e.stopPropagation();
-		e.target.classList.add(errorsClass);
+		form.classList.add(errorsClass);
+	}
+}
+
+function showSubmitStatus(response, btn) {
+	const status = document.createElement("div"),
+		submitStatusClass = "submit-status",
+		submitReplacedClass = "submit-status_replaced",
+		submitConditionClass = response.status === true ? "submit-status_success" : "submit-status_error";
+
+	if (!response.message) return;
+	status.innerHTML = response.message;
+
+	let statusExists = document.querySelector(`.${submitStatusClass}`);
+	statusExists ? statusExists.remove() : "";
+
+	if (response.hideField === true) {
+		const modal = document.querySelector(".modal"),
+			modalHeaderClass = "modal__head",
+			modalBodyClass = "modal__body";
+
+		modal.querySelectorAll(`.${modalHeaderClass}, .${modalBodyClass}`).forEach((e) => e.remove());
+
+		status.classList.add(submitStatusClass, submitConditionClass, submitReplacedClass);
+		modal.append(status);
+	} else {
+		status.classList.add(submitStatusClass, submitConditionClass);
+		btn.parentElement.prepend(status);
+		response.status === true ? (btn.disabled = true) : "";
 	}
 }
 
