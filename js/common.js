@@ -824,7 +824,7 @@ function hamburgerMenu() {
 		catalogLink.addEventListener("click", (e) => {
 			const category = catalogLink.nextElementSibling;
 			if (category) {
-				document.body.classList.contains("is-touch") ? e.preventDefault() : '';
+				document.body.classList.contains("is-touch") ? e.preventDefault() : "";
 				const cloneCategory = category.cloneNode(true);
 				cloneCategory.classList.add(isActiveClass);
 				subMenuWrapper.classList.add(isActiveClass);
@@ -871,6 +871,21 @@ function hamburgerMenu() {
 			menuToggler.click();
 		}
 	});
+}
+
+// https://codepen.io/paulobrien/pen/vYxWppv
+function submenuPostionOnOverflowNav() {
+	const nav = document.querySelector(".catalog__list"),
+		submenu = document.querySelectorAll(".menu-dropdown_column");
+
+	nav.addEventListener("scroll", setTransform);
+
+	function setTransform() {
+		document.activeElement.blur();
+		submenu.forEach((el) => {
+			el.style.transform = `translateX(${nav.scrollLeft * -1}px)`;
+		});
+	}
 }
 
 function modalHandler() {
@@ -2298,6 +2313,7 @@ addEventListener("DOMContentLoaded", () => {
 
 	stickyHeader();
 	hamburgerMenu();
+	submenuPostionOnOverflowNav();
 	modalHandler();
 	edgePopupHandler();
 	sectionClose();

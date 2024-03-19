@@ -4552,7 +4552,8 @@ input[type=file]:focus-visible ~ span {
     flex-direction: row;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center
+    align-items: center;
+    min-width: 0
   }
   .nav__mobile-controls {
     display: none
@@ -4561,12 +4562,26 @@ input[type=file]:focus-visible ~ span {
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
     order: 1;
-    margin: 0 18px 0 24px
+    margin: 0 18px 0 24px;
+    overflow: hidden
   }
   .nav__search {
     -webkit-box-ordinal-group: 3;
     -ms-flex-order: 2;
-    order: 2
+    order: 2;
+    position: relative
+  }
+  .nav__search:not(.is-active)::before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 25px;
+    top: 0;
+    left: -30px;
+    bottom: 0;
+    background: -webkit-gradient(linear,left top,right top,from(rgba(0,0,0,0)),color-stop(75%,#fff));
+    background: -o-linear-gradient(left,rgba(0,0,0,0) 0,#fff 75%);
+    background: linear-gradient(90deg,rgba(0,0,0,0) 0,#fff 75%)
   }
   .nav__search.is-active {
     left: 50%;
@@ -4579,7 +4594,7 @@ input[type=file]:focus-visible ~ span {
     padding: 12px 16px 0 48px;
     z-index: 1
   }
-  .nav__search-form {
+  .is-active .nav__search-form {
     padding-right: 42px
   }
   .nav__search-form button[type=submit] {
@@ -4635,7 +4650,8 @@ input[type=file]:focus-visible ~ span {
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center
+    align-items: center;
+    overflow-x: scroll
   }
   .catalog__submenu {
     display: none
@@ -5024,6 +5040,15 @@ input[type=file]:focus-visible ~ span {
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
     width: 100%
+  }
+  .nav__menu {
+    min-width: auto
+  }
+  .nav__catalog {
+    overflow: visible
+  }
+  .catalog__list {
+    overflow-x: visible
   }
   .menu-dropdown {
     left: 104px;
