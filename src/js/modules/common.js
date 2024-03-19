@@ -986,6 +986,7 @@ export function clickAndDrag() {
 		// prevent default child behavior
 		document.addEventListener("click", function (e) {
 			if (el.contains(e.target)) {
+				if (e.target.tagName == "A") return; // оставляем возможность клика ссылок
 				e.preventDefault();
 			}
 		});
