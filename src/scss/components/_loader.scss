@@ -124,6 +124,8 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	pointer-events: none;
+	text-indent: -999em;
 
 	&::before {
 		position: absolute;
@@ -133,5 +135,9 @@
 		height: 24px;
 		background: $svg-fetch-ring no-repeat;
 		animation: fetchRingRotate 1s infinite linear;
+	}
+
+	&::after {
+		display: none;
 	}
 }
