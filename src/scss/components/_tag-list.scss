@@ -5,6 +5,8 @@
 	color: $black60;
 
 	@include on-hover {
+		cursor: pointer;
+
 		.tag__list {
 			opacity: 1;
 			visibility: visible;
