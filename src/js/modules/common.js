@@ -41,7 +41,7 @@ export function hamburgerMenu() {
 		catalogLink.addEventListener("click", (e) => {
 			const category = catalogLink.nextElementSibling;
 			if (category) {
-				e.preventDefault();
+				document.body.classList.contains("is-touch") ? e.preventDefault() : "";
 				const cloneCategory = category.cloneNode(true);
 				cloneCategory.classList.add(isActiveClass);
 				subMenuWrapper.classList.add(isActiveClass);
