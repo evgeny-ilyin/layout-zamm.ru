@@ -310,7 +310,7 @@ if (!window.blockObserver) {
 			});
 		}, {});
 
-		const blocks = el ? el.querySelectorAll("[data-fetch='true']") : document.querySelectorAll("[data-fetch='true']");
+		const blocks = el ? el.querySelectorAll("[data-observer='true']") : document.querySelectorAll("[data-observer='true']");
 		blocks.forEach((block) => fetchObserver.observe(block));
 
 		let reinitObserverResults = (target) => {

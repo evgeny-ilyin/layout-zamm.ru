@@ -10,23 +10,23 @@
   text-shadow: 0 0 0;
   text-decoration-color: var(--black60)
 }
-body:not(.is-touch) .product-carousel .is-dragging .item {
+body:not(.is-touch) .product-carousel .is-dragging.is-real-dragging .item {
   background: var(--white)!important
 }
-body:not(.is-touch) .product-carousel .is-dragging .item__details {
+body:not(.is-touch) .product-carousel .is-dragging.is-real-dragging .item__details {
   max-height: 0!important;
   -webkit-transition: max-height .1s ease!important;
   -o-transition: max-height .1s ease!important;
   transition: max-height .1s ease!important
 }
-body:not(.is-touch) .product-carousel .is-dragging .article,
-body:not(.is-touch) .product-carousel .is-dragging .fav {
+body:not(.is-touch) .product-carousel .is-dragging.is-real-dragging .article,
+body:not(.is-touch) .product-carousel .is-dragging.is-real-dragging .fav {
   opacity: 0!important
 }
-body:not(.is-touch) .order .product-carousel .is-dragging .item {
+body:not(.is-touch) .order .product-carousel .is-dragging.is-real-dragging .item {
   background: 0 0!important
 }
-body:not(.is-touch) .order .product-carousel .is-dragging .item__details {
+body:not(.is-touch) .order .product-carousel .is-dragging.is-real-dragging .item__details {
   max-height: none!important
 }
 .item {

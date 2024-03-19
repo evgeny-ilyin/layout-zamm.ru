@@ -1792,8 +1792,8 @@ var vanillaTextMask = __webpack_require__(213);
 
 function submitPrevent() {
 	document.addEventListener("keydown", (e) => {
-		if (e.target.dataset.submit == "false" || e.target.closest("form").dataset.submit == "false") {
-			if (e.key == "Enter") {
+		if (e.target.tagName == "INPUT" && e.key == "Enter") {
+			if (e.target.dataset.submit == "false" || e.target.closest("form").dataset.submit == "false") {
 				e.preventDefault();
 			}
 		}

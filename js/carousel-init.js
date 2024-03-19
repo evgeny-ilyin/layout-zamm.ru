@@ -40,6 +40,13 @@ if (!window.carouselsInit) {
 			let plugins = {};
 			let navigation = {};
 			let breakpoints = {};
+			let on = {
+				on: {
+					initLayout: (c) => {
+						realDragDetect(c.container);
+					},
+				},
+			};
 			// console.log(Object.keys( carousel.dataset ));
 
 			if (carousel.dataset.options) {
@@ -76,7 +83,7 @@ if (!window.carouselsInit) {
 				Object.assign(navigation, { Navigation: { nextTpl: next, prevTpl: prev } });
 			}
 
-			Object.assign(options, autoplay, thumbs, navigation, breakpoints);
+			Object.assign(options, autoplay, thumbs, navigation, breakpoints, on);
 
 			if (Object.keys(plugins).length > 0 && plugins.constructor === Object) {
 				new Carousel(carousel, options, plugins);
@@ -153,6 +160,47 @@ if (!window.carouselsInit) {
 			);
 		});
 	};
+}
+
+/**
+ * Функция для фильтрации ложного срабатывания перетаскивания на карусели продуктов.
+ * Нужна для правильной отработки скрытия item__details в момент начала перетаскивания слайда.
+ * Иначе случаются ложно-позитивные срабатывания перетаскивания при кликах на sku.
+ */
+function realDragDetect(carousel) {
+	if (carousel.classList.contains("product-carousel")) {
+		const target = carousel.querySelector(".f-carousel__viewport"),
+			isDraggingClass = "is-dragging",
+			realDraggingClass = "is-real-dragging";
+
+		const config = {
+			attributes: true,
+		};
+
+		const realDragging = function () {
+			if (target.classList.contains(isDraggingClass)) {
+				target.classList.add(realDraggingClass);
+			} else {
+				target.classList.remove(realDraggingClass);
+			}
+		};
+
+		const callback = function (mutationsList) {
+			for (let mutation of mutationsList) {
+				if (mutation.attributeName === "class") {
+					if (mutation.target.classList.contains(isDraggingClass)) {
+						setTimeout(realDragging, 100);
+					}
+				}
+			}
+		};
+
+		const observer = new MutationObserver(callback);
+
+		observer.observe(target, config);
+
+		// observer.disconnect();
+	}
 }
 
 ;// CONCATENATED MODULE: ./src/js/carousel-init.js
