@@ -464,7 +464,9 @@
 @media (min-width:1280px) {
   .filter {
     position: sticky;
-    top: 50px
+    top: 50px;
+    padding: 0 7px;
+    max-height: calc(100vh - 75px)
   }
   .filter__head {
     display: none
@@ -474,7 +476,7 @@
     padding-bottom: 24px
   }
   .filter.scrollblock {
-    overflow: visible
+    overflow-y: scroll
   }
 }
 @media (max-width:1279px) {
