@@ -297,6 +297,8 @@ if (!window.setActive) {
 			const el = e.target.closest(".js-set-active");
 			if (!el) return;
 
+			if (e.target.tagName == "A") return; // оставляем возможность клика ссылок
+
 			// если в блоке с драгом (напр., furniture) - не срабатывать в процессе движения
 			let dragging = e.target.closest(".js-draggable.js-dragging");
 			if (dragging) return;
@@ -1769,6 +1771,7 @@ function clickAndDrag() {
 		// prevent default child behavior
 		document.addEventListener("click", function (e) {
 			if (el.contains(e.target)) {
+				if (e.target.tagName == "A") return; // оставляем возможность клика ссылок
 				e.preventDefault();
 			}
 		});
