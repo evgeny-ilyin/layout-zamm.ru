@@ -2,7 +2,9 @@ export function loginActions() {
 	const login = document.querySelector(".js-login"),
 		errorsClass = "has-errors",
 		activeClass = "is-active",
-		statusErrorClass = "status-error";
+		submitStatusClass = "submit-status",
+		submitConditionClass = "submit-status_error";
+
 	if (!login) return;
 
 	login.addEventListener("submit", loginSubmit);
@@ -10,7 +12,7 @@ export function loginActions() {
 	function loginSubmit(e) {
 		if (!e.target.classList.contains(errorsClass)) {
 			let form = e.target,
-				url = form.action,
+				url = form.dataset.url,
 				tabs = form.querySelectorAll(".login__tab"),
 				firstChar = form.querySelector(".js-otp"),
 				data = new FormData(form);
@@ -40,7 +42,7 @@ export function loginActions() {
 							countdown();
 						}
 					} else {
-						setError(result.error);
+						setError(result);
 					}
 				} catch (e) {
 					console.error(e);
@@ -58,7 +60,7 @@ export function loginActions() {
 	inputs.forEach((input, index) => {
 		input.dataset.index = index;
 		input.addEventListener("paste", otpPaste);
-		input.addEventListener("keydown", otpKeydown);
+		input.addEventListener("keyup", otpKeydown); // keydown лучше, но input.blur() срабатывает слишком рано и если последняя цифра 1 или 2, браузер начинает ходить по вкладкам.
 		input.addEventListener("focus", () => {
 			input.classList.remove("is-blur-otp");
 			removeError();
@@ -121,6 +123,7 @@ export function loginActions() {
 		// blur at last input
 		if (fieldIndex == inputs.length - 1) {
 			input.classList.add("is-blur-otp");
+			input.blur();
 			otpSubmit();
 		}
 	}
@@ -137,16 +140,21 @@ export function loginActions() {
 		}
 	}
 
-	function setError(error = false) {
+	function setError(response = false) {
 		inputs.forEach((i) => {
 			i.classList.add(otpErrorClass);
 		});
 
-		if (error) {
+		if (response.message) {
 			const status = document.createElement("div"),
 				footerElement = document.querySelector(`.otp__footer`);
-			status.classList.add(statusErrorClass);
-			status.innerText = error;
+
+			status.classList.add(submitStatusClass, submitConditionClass);
+			status.innerHTML = response.message;
+
+			let statusExists = document.querySelector(`.${submitStatusClass}`);
+			statusExists ? statusExists.remove() : "";
+
 			footerElement.prepend(status);
 		}
 	}
@@ -155,8 +163,8 @@ export function loginActions() {
 		inputs.forEach((i) => {
 			i.classList.remove(otpErrorClass);
 		});
-		let status = document.querySelector(`.${statusErrorClass}`);
-		status ? status.remove() : '';
+		let statusExists = document.querySelector(`.${submitStatusClass}`);
+		statusExists ? statusExists.remove() : "";
 	}
 
 	function countdown() {
