@@ -30,6 +30,7 @@ export const path = {
 		svg: `${srcFolder}/img/**/*.svg`,
 		svgspriteIn: `${srcFolder}/svgsprite/*.svg`,
 		svgspriteOut: `${srcFolder}/html/`,
+		constructorJs: `${srcFolder}/js/modules/constructor/*.*`,
 	},
 	build: {
 		html: `${buildFolder}/`,
@@ -45,6 +46,7 @@ export const path = {
 		js: `${srcFolder}/js/**/*.js`,
 		img: `${srcFolder}/img/**/*.*`,
 		svg: `${srcFolder}/svgsprite/*.svg`,
+		constructorJs: `${srcFolder}/js/modules/constructor/*.*`,
 	},
 	clean: buildFolder,
 	buildFolder: buildFolder,
