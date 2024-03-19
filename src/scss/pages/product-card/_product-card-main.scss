@@ -428,7 +428,6 @@
 			width: 100%;
 			min-width: 145px;
 			height: 42px;
-			transition: all $transition-default;
 		}
 	}
 
@@ -550,6 +549,10 @@
 
 	// .photos__carousel
 	&__carousel {
+		.f-carousel {
+			margin-bottom: 30px;
+		}
+
 		@include respond-to(lg) {
 			display: grid;
 			gap: 50px;
@@ -697,7 +700,7 @@
 		}
 
 		// & > div {
-			// margin: 6px 0;
+		// margin: 6px 0;
 		// }
 
 		& > div:nth-child(1) {
