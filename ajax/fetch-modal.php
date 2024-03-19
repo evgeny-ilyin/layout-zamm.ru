@@ -72,7 +72,7 @@ try {
 				Личные данные
 			</div>
 			<div class="modal__body">
-				<form action="personal-profile.html" class="form" method="post" novalidate="">
+				<form action="personal-profile.html" class="form" method="post">
 					<input type="hidden" name="profileId" value="101">
 		
 					<div class="form__fieldset">
@@ -152,7 +152,7 @@ try {
 			$content = '
 			<div class="modal__head">Как к вам обращаться?</div>
 			<div class="modal__body">
-				<form action="#" class="form" method="post" novalidate="">
+				<form action="" class="form" data-fetch="true" data-url="https://deviart.ru/zamm/fetch-submit-form.php">
 					<input type="hidden" name="subscriber_email" value="'.$_REQUEST['subscriber_email'].'">
 		
 					<div class="form__fieldset">
@@ -165,7 +165,7 @@ try {
 					</div>
 		
 					<div class="form__fieldset">
-						<button type="submit" class="btn btn_yellow btn_wide">Готово</button>
+						<button type="submit" class="btn btn_yellow btn_wide" data-params=\'{"param-name":"param-value"}\'>Готово</button>
 					</div>
 		
 				</form>
