@@ -137,7 +137,8 @@ try {
 	$propShowroom = 'Есть в шоуруме:
 	<a href="javascript:void(0)">ТЦ Времена года</a>
 	<a href="javascript:void(0)">Тверская, 12</a>
-	<a href="javascript:void(0)" class="link-angle _gray">и ещё 1</a>';
+	<a href="javascript:void(0)" class="link-angle _gray js-show-hidden">и ещё 1</a>
+	<a href="javascript:void(0)" class="hidden">Большая Грузинская ул., 1, стр. 1</a>';
 
 	/* 	$propPics = file_get_contents('template-prop-section-pics.html');
 
