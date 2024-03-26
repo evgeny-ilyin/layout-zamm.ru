@@ -704,6 +704,9 @@ replaceable-outlet.is-replacing {
   .constructor-viewer {
     height: 560px
   }
+  .good-options__header {
+    max-width: calc(100vw - 50px)
+  }
   .good-options .good-option--info picture {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
@@ -734,6 +737,9 @@ replaceable-outlet.is-replacing {
     left: 10%;
     right: 10%;
     width: 80%
+  }
+  .good-options__header {
+    max-width: calc(100vw - 24px)
   }
 }
 @media (min-width:1024px) and (max-width:1279px) {
