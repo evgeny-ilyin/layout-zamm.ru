@@ -19,6 +19,7 @@ function addToCart() {
 			}
 			if (btn.closest(".item")) trigger = "addItemCatalog";
 			if (btn.closest(".product")) trigger = "addItem";
+			if (btn.closest(".constructor")) trigger = "addItemConstructor";
 			toCart(btn, trigger);
 		}
 	});
