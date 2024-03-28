@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 	<!-- common header -->
-	<link rel="stylesheet" href="css/root-vars.css">
-	<link rel="stylesheet" href="css/fonts.css">
-	<link rel="stylesheet" href="css/header.css">
-	<link rel="stylesheet" href="css/carousel-vendor.css">
+	<link rel="stylesheet" href="css/root-vars.css?v=20240328173109">
+	<link rel="stylesheet" href="css/fonts.css?v=20240328173109">
+	<link rel="stylesheet" href="css/header.css?v=20240328173109">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240328173109">
 
 
 
@@ -18,13 +18,13 @@
 
 
 	<!-- catalog -->
-	<link rel="stylesheet" href="css/carousel-products.css">
-	<link rel="stylesheet" href="css/catalog-item.css">
-	<link rel="stylesheet" href="css/catalog.css">
-	<link rel="stylesheet" href="css/catalog-filter.css">
-	<link rel="stylesheet" href="css/catalog-old-article.css">
-	<link rel="stylesheet" href="css/block-popular-categories.css">
-	<link rel="stylesheet" href="css/pagination.css">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20240328173109">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20240328173109">
+	<link rel="stylesheet" href="css/catalog.css?v=20240328173109">
+	<link rel="stylesheet" href="css/catalog-filter.css?v=20240328173109">
+	<link rel="stylesheet" href="css/catalog-old-article.css?v=20240328173109">
+	<link rel="stylesheet" href="css/block-popular-categories.css?v=20240328173109">
+	<link rel="stylesheet" href="css/pagination.css?v=20240328173109">
 
 
 
@@ -80,8 +80,8 @@
 
 
 	<!-- common footer -->
-	<link rel="stylesheet" href="css/carousel-footer.css">
-	<link rel="stylesheet" href="css/footer.css">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240328173109">
+	<link rel="stylesheet" href="css/footer.css?v=20240328173109">
 
 	<title>Каталог</title>
 	<meta name="description" content="Каталог">
@@ -1127,7 +1127,7 @@
 			</div>
 
 			<div class="content__sidebar">
-				<div class="filter js-filter scrollblock hide-scroll">
+				<div class="filter js-filter scrollblock hover-scroll">
 					<form id="filter-form" class="js-novalidate" action="https://deviart.ru/zamm/fetch-filter-chunks.php" method="post">
 						<div class="filter__head">
 							<div class="filter__header">Фильтры</div>
@@ -1228,6 +1228,19 @@
 										<input type="checkbox" name="arrFilter_223_3" value="Y" />
 										<span>15 см</span>
 									</label>
+								</div>
+							</div>
+
+							<div class="filter-group" data-prop-id="group-224">
+								<div class="filter-group__header js-collapse is-collapsed">Другое</div>
+								<div class="filter-group__list _column">
+									<h5>Прокрутка при переполнении блока фильтра</h5>
+									<br><br><br><br><br><br><br><br>
+									<br><br><br><br><br><br><br><br>
+									<br><br><br><br><br><br><br><br>
+									<br><br><br><br><br><br><br><br>
+									<br><br><br><br><br><br><br><br>
+									<br><br><br><br><br><br><br><br>
 								</div>
 							</div>
 						</div>
@@ -1713,38 +1726,61 @@
 		<div class="content">
 			<div class="block-header">Популярные категории</div>
 			<div class="block-cards">
-				<a href="javascript:void(0)" class="card card_1 card_yellow">
+				<a href="javascript:void(0)" class="card card_1">
 					<div class="card__text">
 						<div class="card__header">Стеллажи</div>
-						<div class="card__subheader">на металокаркасе</div>
+						<div class="card__subheader">на металлокаркасе</div>
 						<div class="card__amount">88 моделей</div>
 					</div>
-					<img src="img/dev/cards/card-1.webp" width="524" height="355" alt="" loading="lazy" class="card__image" />
+					<picture>
+						<source media="(min-width: 1024px)" srcset="img/dev/cards/card-1-1024.webp" type="image/webp">
+						<source media="(min-width: 768px)" srcset="img/dev/cards/card-1-768.webp" type="image/webp">
+						<source media="(min-width: 577px)" srcset="img/dev/cards/card-1-577.webp" type="image/webp">
+						<source srcset="img/dev/cards/card-1-320.webp" type="image/webp">
+						<img src="img/dev/cards/card-1-1024.png" class="card__image" width="640" height="800" alt="" loading="lazy">
+					</picture>
+
+					<!-- <img src="img/dev/cards/card-1.webp" width="524" height="355" alt="" loading="lazy" class="card__image" /> -->
 				</a>
-				<a href="javascript:void(0)" class="card card_2 card_gray">
+				<a href="javascript:void(0)" class="card card_2">
 					<div class="card__text">
 						<div class="card__header">Рабочие столы <span class="label label_green label_rotate">От 4990₽</span></div>
 						<div class="card__subheader">для дома и офиса</div>
 						<div class="card__amount">188 моделей</div>
 					</div>
-					<!-- TODO Игорь: mix-blend-mode убрать в проде. это для тестовой картинки без прозрачного фона -->
-					<img src="img/dev/cards/card-2.webp" width="524" height="483" alt="" loading="lazy" class="card__image" style="mix-blend-mode: multiply" />
+					<picture>
+						<source media="(min-width: 1024px)" srcset="img/dev/cards/card-2-1024.webp" type="image/webp">
+						<source media="(min-width: 768px)" srcset="img/dev/cards/card-2-768.webp" type="image/webp">
+						<source media="(min-width: 577px)" srcset="img/dev/cards/card-2-577.webp" type="image/webp">
+						<source srcset="img/dev/cards/card-2-320.webp" type="image/webp">
+						<img src="img/dev/cards/card-2-1024.png" class="card__image" width="640" height="800" alt="" loading="lazy">
+					</picture>
+
 				</a>
-				<a href="javascript:void(0)" class="card card_3 card_smalltext card_red-coral">
+				<a href="javascript:void(0)" class="card card_3 card_smalltext card_sm-img-right">
 					<div class="card__text">
 						<div class="card__header">Шкафы и тумбочки</div>
 						<div class="card__subheader"></div>
 						<div class="card__amount">42 модели</div>
 					</div>
-					<img src="img/dev/cards/card-3.webp" width="210" height="179" alt="" loading="lazy" class="card__image" />
+					<picture>
+						<source srcset="img/dev/cards/card-3-320.webp" type="image/webp">
+						<img src="img/dev/cards/card-3-320.png" class="card__image" width="300" height="225" alt="" loading="lazy">
+					</picture>
+
 				</a>
-				<a href="javascript:void(0)" class="card card_4 card_smalltext card_blue">
+				<a href="javascript:void(0)" class="card card_4 card_smalltext card_sm-img-right">
 					<div class="card__text">
 						<div class="card__header">Кресла для кабинета</div>
 						<div class="card__subheader"></div>
 						<div class="card__amount">4 модели</div>
 					</div>
-					<img src="img/dev/cards/card-4.webp" width="182" height="179" alt="" loading="lazy" class="card__image" />
+					<picture>
+						<source media="(min-width: 1024px)" srcset="img/dev/cards/card-4-1024.webp" type="image/webp">
+						<source srcset="img/dev/cards/card-4-320.webp" type="image/webp">
+						<img src="img/dev/cards/card-4-320.png" class="card__image" width="300" height="225" alt="" loading="lazy">
+					</picture>
+
 				</a>
 			</div>
 		</div>
@@ -1878,6 +1914,7 @@
 		</div>
 	</footer>
 
+	<button class="btn btn_yellow scrollToTop" id="scrollToTop" aria-label="Вверх"></button>
 	<!-- TODO Игорь: шаблон tpl-props должен быть включен в DOM 1 раз для всех страниц, где есть показ свойств при наведении (карточки в каталоге и карусели) -->
 	<template id="tpl-props">
 		<div class="props skeleton">
@@ -2095,13 +2132,13 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
-	<script src="js/carousel-init.js"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240328173109"></script>
+	<script src="js/carousel-init.js?v=20240328173109"></script>
 
-	<script src="js/common.js"></script>
-	<script src="js/filter.js"></script>
-	<script src="js/product-actions.js"></script>
-	<script src="js/product-props.js"></script>
+	<script src="js/common.js?v=20240328173109"></script>
+	<script src="js/filter.js?v=20240328173109"></script>
+	<script src="js/product-actions.js?v=20240328173109"></script>
+	<script src="js/product-props.js?v=20240328173109"></script>
 
 	<script>
 		var arFav = [11111, 33333, 999777];

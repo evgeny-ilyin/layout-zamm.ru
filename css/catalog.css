@@ -103,6 +103,9 @@
   grid-template-columns: repeat(2,1fr);
   gap: 16px
 }
+.catalog-bottom {
+  margin-top: 50px
+}
 .tag {
   position: relative;
   padding: 0 16px 8px 0;

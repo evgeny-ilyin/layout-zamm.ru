@@ -315,7 +315,11 @@
   grid-template-columns: 1fr;
   justify-items: center;
   gap: 16px;
-  background: var(--white)
+  background: var(--white);
+  position: sticky;
+  bottom: 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--black10)
 }
 .filter-group {
   border-top: 1px solid var(--black10)
@@ -453,6 +457,10 @@
   -webkit-box-shadow: none;
   box-shadow: none
 }
+.noUi-base {
+  width: 98%;
+  margin: 0 auto
+}
 @media (min-width:768px) {
   .filter__head {
     margin: 36px 20px 20px
@@ -472,8 +480,7 @@
     display: none
   }
   .filter__buttons {
-    gap: 24px;
-    padding-bottom: 24px
+    gap: 24px
   }
   .filter.scrollblock {
     overflow-y: scroll
@@ -512,8 +519,6 @@
     padding: 0 20px
   }
   .filter__buttons {
-    position: sticky;
-    bottom: 0;
     -webkit-box-shadow: 0 -12px 12px 0 rgba(0,0,0,.05);
     box-shadow: 0 -12px 12px 0 rgba(0,0,0,.05);
     padding: 14px 20px 16px

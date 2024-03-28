@@ -21,7 +21,7 @@
   padding: 20px 16px 16px;
   background: var(--gray);
   border-radius: 2px;
-  margin-bottom: 110px
+  margin-bottom: 50px
 }
 .block-about__note {
   font-size: .8125rem;
@@ -161,9 +161,6 @@
   .about-text__logo {
     margin-bottom: 15px
   }
-  .block-about {
-    margin-bottom: 85px
-  }
   .block-about__body {
     font-size: 1.125rem
   }
@@ -194,9 +191,6 @@
   }
   .about-text__body {
     font-size: 1.125rem
-  }
-  .block-about {
-    margin-bottom: 90px
   }
   .about-logo svg {
     width: 120px;

@@ -8,7 +8,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   position: relative;
-  margin: 0 -12px 64px
+  margin: 0 -12px 50px
 }
 .block-showrooms__list {
   position: relative;
@@ -165,7 +165,7 @@
     -ms-flex-direction: row;
     flex-direction: row;
     height: 519px;
-    margin: 0 0 42px
+    margin: 0 0 50px
   }
   .block-showrooms__list {
     -ms-flex-negative: 0;
@@ -200,8 +200,7 @@
 }
 @media (min-width:1024px) {
   .block-showrooms {
-    height: 480px;
-    margin-bottom: 0
+    height: 480px
   }
   .block-showrooms__list {
     width: 420px;

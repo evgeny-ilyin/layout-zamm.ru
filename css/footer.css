@@ -1,6 +1,6 @@
 .footer {
   background: var(--gray);
-  margin-top: 110px
+  margin-top: 50px
 }
 .footer__logo {
   margin-top: -25px
@@ -394,6 +394,53 @@
   display: block;
   width: 0;
   height: 0
+}
+.scrollToTop {
+  width: 50px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: fixed;
+  left: calc(100vw - 90px);
+  left: calc(100dvw - 90px);
+  bottom: 30px;
+  padding: 0;
+  opacity: 0;
+  z-index: -1;
+  -webkit-transition: opacity .25s ease-in-out,background .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out,background .25s ease-in-out;
+  transition: opacity .25s ease-in-out,background .25s ease-in-out
+}
+.scrollToTop:hover::after {
+  margin-top: -4px
+}
+.scrollToTop::after {
+  content: "";
+  display: block;
+  width: 17px;
+  height: 17px;
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 17px;
+  flex: 0 0 17px;
+  background-image: var(--svg-arrow-long);
+  background-repeat: no-repeat;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -webkit-transition: all .1s;
+  -o-transition: all .1s;
+  transition: all .1s
+}
+.scrollToTop.is-visible {
+  opacity: 1;
+  z-index: 11
 }
 @media (min-width:425px) {
   .cookie {

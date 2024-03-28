@@ -3,7 +3,7 @@
   --f-carousel-slide-width: 300px;
   margin-left: -12px;
   margin-right: -12px;
-  margin-bottom: 80px
+  margin-bottom: 0
 }
 .product-carousel .f-carousel__viewport {
   padding-right: 32px
@@ -120,5 +120,10 @@ body.is-touch .product-carousel._extra .f-carousel__slide .item__details {
   }
   .product-carousel._extra .f-carousel__slide .item__image-wrapper {
     padding-top: 165px
+  }
+}
+@media (min-width:1280px) {
+  .product-carousel {
+    margin-bottom: 50px
   }
 }
