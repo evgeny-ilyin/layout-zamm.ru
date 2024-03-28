@@ -15,7 +15,8 @@
 .grid-project-6 .project {
   margin-bottom: 16px
 }
-.project img {
+.project img,
+.project picture {
   border-radius: 2px;
   background: var(--gray);
   top: 0;
@@ -252,7 +253,8 @@ body:not(.is-touch) .project._shadow-top::before {
   .grid-project-6 .project {
     display: none
   }
-  .project img {
+  .project img,
+  .project picture {
     position: absolute
   }
   .project__info {
