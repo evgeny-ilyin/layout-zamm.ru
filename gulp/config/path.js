@@ -18,6 +18,7 @@ const jsFiles = [
 	"./src/js/order.js",
 	"./src/js/login.js",
 	"./src/js/yandex-map.js",
+	"./src/js/constructor-filter.js",
 ];
 
 export const path = {
@@ -25,12 +26,13 @@ export const path = {
 		html: `${srcFolder}/*.html`,
 		scss: `${srcFolder}/scss/*.scss`,
 		js: jsFiles,
-		img: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
+		img: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp,gltf}`,
 		fonts: `${srcFolder}/fonts/*.*`,
 		svg: `${srcFolder}/img/**/*.svg`,
 		svgspriteIn: `${srcFolder}/svgsprite/*.svg`,
 		svgspriteOut: `${srcFolder}/html/`,
 		constructorJs: `${srcFolder}/js/modules/constructor/*.*`,
+		constructorJSON: `${srcFolder}/json/**/*.json`,
 	},
 	build: {
 		html: `${buildFolder}/`,
@@ -39,6 +41,7 @@ export const path = {
 		img: `${buildFolder}/img/`,
 		fonts: `${buildFolder}/fonts/`,
 		deploy: `${buildFolder}/**/*.*`,
+		constructorJSON: `${buildFolder}/json/`,
 	},
 	watch: {
 		html: `${srcFolder}/**/*.html`,
@@ -47,6 +50,7 @@ export const path = {
 		img: `${srcFolder}/img/**/*.*`,
 		svg: `${srcFolder}/svgsprite/*.svg`,
 		constructorJs: `${srcFolder}/js/modules/constructor/*.*`,
+		constructorJSON: `${srcFolder}/json/**/*.json`,
 	},
 	clean: buildFolder,
 	buildFolder: buildFolder,
