@@ -3,39 +3,35 @@
 	display: flex;
 	flex-direction: column;
 	position: relative;
-	margin: 0 -#{$min-padding} 64px;
+	margin: 0 -#{$min-padding} 50px;
 
 	@include respond-to(md) {
 		flex-direction: row;
 		height: 519px;
-		margin: 0 0 42px;
+		margin: 0 0 50px;
 	}
 
 	@include respond-to(lg) {
 		height: 480px;
-		margin-bottom: 0;
 	}
 
 	// .block-showrooms__list
 	&__list {
 		position: relative;
 		height: 332px;
-		background: $yellow;
-		padding: 16px 0 0;
+		background: $gray;
+		padding: 20px 5px 0 13px;
 		display: flex;
 		flex-direction: column;
 
 		@include respond-to(md) {
 			flex-shrink: 0;
-			padding: 8px 8px 0;
 			width: 50%;
 			height: auto;
 		}
 
 		@include respond-to(lg) {
-			width: 420px;
-			padding: 16px 4px 0 12px;
-			margin-right: 16px;
+			width: 400px;
 		}
 
 		@include when-inside("._contacts") {
@@ -46,40 +42,10 @@
 			}
 		}
 
-		.scrollblock {
-			padding: 0 4px 66px 0;
-
-			&::after {
-				content: "";
-				display: block;
-				position: absolute;
-				height: 66px;
-				left: 0;
-				right: 0;
-				bottom: 0;
-				background: linear-gradient(0deg, #ffc845 0%, rgba(255, 255, 255, 0) 100%);
-			}
-
-			/* Firefox */
-			@supports (-moz-appearance: none) {
-				scrollbar-color: #ebb943 transparent;
-			}
-
-			/* Chrome, Edge and Safari */
-			&::-webkit-scrollbar-track,
-			&::-webkit-scrollbar-track:hover,
-			&::-webkit-scrollbar-track:active {
-				background-color: transparent;
-			}
-
-			&::-webkit-scrollbar-thumb {
-				background-color: #ebb943;
-			}
-
-			&::-webkit-scrollbar-thumb:hover,
-			&::-webkit-scrollbar-thumb:active {
-				background-color: #ebb943;
-			}
+		& > div {
+			padding: 0 5px 20px 0;
+			display: grid;
+			gap: 10px;
 		}
 	}
 
@@ -100,53 +66,112 @@
 		}
 	}
 
+	//**/
 	// .block-showrooms__item
 	&__item {
-		position: relative;
 		display: flex;
+		background: $white;
+		border-radius: 4px;
+		padding: 8px 32px 8px 8px;
 		text-decoration: none;
 		text-shadow: none !important;
-		border-radius: 4px;
-		padding: 9px 32px 7px 8px;
 		transition: all $transition-default;
 
 		&::after {
 			content: "";
 			display: block;
 			position: absolute;
-			top: 13px;
-			right: 15px;
+			bottom: 15px;
+			right: 14px;
 			width: 10px;
 			height: 10px;
 			background: $svg-angle center no-repeat;
 		}
 
 		@include on-hover {
-			background: $yellow-dark;
+			background: $yellow-light;
+		}
+
+		// span {
+		// 	font-size: rem(14);
+		// 	line-height: 1.3;
+		// 	color: $black60;
+		// }
+
+		// @include respond-to(lg) {
+		// 	margin-bottom: 8px;
+
+		// 	&:last-child {
+		// 		margin-bottom: 0;
+		// 	}
+		// }
+	}
+
+	// .block-showrooms__left
+	&__left {
+		margin-right: 10px;
+		flex: 0 0 90px;
+
+		// picture,
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 4px;
+		}
+	}
+
+	// .block-showrooms__right
+	&__right {
+		display: grid;
+		gap: 9px;
+		font-size: rem(14);
+		padding: 15px 0;
+
+		& > div {
+			display: flex;
 		}
 
 		span {
-			font-size: rem(14);
-			line-height: 1.3;
 			color: $black60;
+			line-height: 1.3;
 		}
+	}
 
-		@include respond-to(lg) {
-			margin-bottom: 8px;
+	// .block-showrooms__icon
+	&__icon {
+		display: flex;
+		justify-content: center;
+		width: 18px;
+		flex: 0 0 18px;
+		margin-right: 8px;
 
-			&:last-child {
-				margin-bottom: 0;
-			}
+		svg {
+			width: 11px;
+			height: 14px;
+			fill: $yellow;
+			margin-top: 1px;
 		}
 	}
 
 	// .block-showrooms__name
 	&__name {
 		div {
-			margin-bottom: 3px;
+			margin-bottom: 2px;
 		}
 	}
 
+	// .block-showrooms__workhours
+	&__workhours {
+		display: grid;
+		gap: 6px;
+
+		span {
+			font-size: rem(12);
+			margin-right: 5px;
+		}
+	}
+	//**/
 	// .block-showrooms__image
 	&__image {
 		position: relative;
@@ -188,22 +213,20 @@
 		height: 100%;
 	}
 
-	.icon-map {
-		width: 16px;
-		height: 16px;
-		border-radius: 50%;
-		background: $yellow-light;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		margin-right: 4px;
+	// .icon-map {
+	// 	width: 18px;
+	// 	height: 18px;
+	// 	display: flex;
+	// 	align-items: center;
+	// 	justify-content: center;
+	// 	margin-right: 4px;
 
-		svg {
-			width: 10px;
-			height: 10px;
-			fill: $black;
-		}
-	}
+	// 	svg {
+	// 		// width: 10px;
+	// 		// height: 10px;
+	// 		fill: $yellow;
+	// 	}
+	// }
 
 	&._contacts {
 		@include respond-to(md) {
