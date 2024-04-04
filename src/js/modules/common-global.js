@@ -239,7 +239,18 @@ if (!window.setActive) {
 			const el = e.target.closest(".js-set-active");
 			if (!el) return;
 
-			if (e.target.tagName == "A") return; // оставляем возможность клика ссылок
+			let href = e.target.closest("a");
+
+			if (href) {
+				let target = href.getAttribute("target");
+				if (el.classList.contains(isActiveClass)) {
+					// переход по ссылке при клике в раскрытом контейнере
+					!target ? (window.location.href = href) : window.open(href, target);
+					return;
+				}
+			}
+
+			// if (e.target.tagName == "A") return; // оставляем возможность клика ссылок
 
 			// если в блоке с драгом (напр., furniture) - не срабатывать в процессе движения
 			let dragging = e.target.closest(".js-draggable.js-dragging");

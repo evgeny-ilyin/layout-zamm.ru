@@ -1,4 +1,3 @@
-
 .furniture {
 	position: absolute;
 	z-index: 1;
@@ -50,6 +49,23 @@
 		cursor: pointer;
 		transition: all $transition-default;
 
+		& > a {
+			display: flex;
+			align-items: center;
+			flex: 0 1 64px;
+			width: 64px;
+			max-width: 237px;
+			transition: all $transition-default;
+			text-shadow: none !important;
+			font-weight: 500;
+
+			@include on-hover {
+				div {
+					color: $black !important;
+				}
+			}
+		}
+
 		@include when-inside(".tiles__body") {
 			display: none;
 
@@ -73,6 +89,10 @@
 
 		&.is-active {
 			flex: 1 0 237px !important;
+
+			& > a {
+				flex: 1 0 237px !important;
+			}
 		}
 
 		img {
@@ -87,6 +107,7 @@
 			-webkit-line-clamp: 3;
 			-webkit-box-orient: vertical;
 			overflow: hidden;
+			transition: color $transition-default;
 		}
 
 		a {
