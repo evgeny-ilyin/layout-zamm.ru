@@ -1,0 +1,370 @@
+<div class="content content_columns constructor">
+
+	<div class="constructor__details">
+
+		<a href="product.html" title="Вернуться к товару" class="constructor__back link-angle _back">
+			<span>Вернуться к товару</span>
+		</a>
+
+		<replaceable-outlet class="constructor__name" data-id="constructor-caption">
+			Стол формат PRO ЛДСП 2 ящика без аксессуаров лес черный/черный
+		</replaceable-outlet>
+
+		<div class="constructor__prices">
+			<div class="constructor__price">26 500 ₽</div>
+			<div class="constructor__oldprice">30 000₽</div>
+		</div>
+
+		<div class="labels relative">
+			<div class="label label_yellow">Скидка 20%</div>
+			<div class="label label_green">В наличии</div>
+		</div>
+
+		<div class="constructor__container">
+			<constructor-component data-id="contructor-id">
+				<div class="constructor-viewer">
+					<svg class="constructor-viewer__icon" aria-hidden="true">
+						<use xlink:href="#3d"></use>
+					</svg>
+					<div class="constructor-viewer__note">
+						Вращайте модель
+					</div>
+					<replaceable-outlet class="constructor-viewer__wrap" data-id="constructor-model">
+						<!--
+							Установить значения по умолчанию можно так:
+							data-frame-color="#aeaeae"
+							data-texture="img/dev/constructor/models/zeta_70x140/zeta-tex-2.jpg"
+						-->
+						<model-3d data-id="contructor-id" data-model-src="img/dev/constructor/models/zeta_70x140/zeta_70x140.gltf" data-mode="init" data-frame-color="#aeaeae" data-texture="img/dev/constructor/models/zeta_70x140/zeta-tex-2.jpg" data-shadow-texture="img/dev/constructor/3d/roundshadow.png" class="model-view model-view--sq is-loading">
+							<span class="fetch"><span class="fetch__ring"></span></span>
+							<div class="model-view__progress" data-label="Подождите, идет загрузка: " data-percentage="0%">
+								<div class="model-view__progress-bar"></div>
+							</div>
+						</model-3d>
+					</replaceable-outlet>
+				</div>
+			</constructor-component>
+		</div>
+
+	</div>
+
+	<div class="constructor__options">
+
+		<div class="filter js-filter scrollblock hover-scroll">
+			<constructor-tools data-id="contructor-id" data-method="get" data-action="json/constructor-update.json" data-model-url="json/constructor-model-update.json" class="constructor-tools">
+				<form id="filter-form" class="js-novalidate" action="json/constructor-update.json" method="get">
+
+					<div class="filter__body" data-id="filter-body">
+
+						<replaceable-outlet data-id="constructor-options-a">
+
+							<div class="filter-group">
+								<div class="filter-group__header js-collapse">Размеры</div>
+								<div class="filter-group__list">
+
+									<div class="good-options flex flex-column">
+										<div class="h4">Размеры</div>
+										<label class="good-options__item good-option good-option--outline is-checked">
+											<input class="js-reload-model" type="radio" name="size" value="1" data-params="{&quot;foo&quot;: &quot;bar&quot;}" checked>
+											<div>
+												<span>Д <b>218 см</b></span>
+												<div>x</div>
+												<span>Ш <b>295 см</b></span>
+												<div>x</div>
+												<span>В <b>70 см</b></span>
+											</div>
+										</label>
+										<label class="good-options__item good-option good-option--outline">
+											<input class="js-reload-model" type="radio" name="size" value="2" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+											<div>
+												<span>Д <b>220 см</b></span>
+												<div>x</div>
+												<span>Ш <b>295 см</b></span>
+												<div>x</div>
+												<span>В <b>70 см</b></span>
+											</div>
+										</label>
+										<label class="good-options__item good-option good-option--outline">
+											<input class="js-reload-model" type="radio" name="size" value="3" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+											<div>
+												<span>Д <b>222 см</b></span>
+												<div>x</div>
+												<span>Ш <b>295 см</b></span>
+												<div>x</div>
+												<span>В <b>70 см</b></span>
+											</div>
+										</label>
+										<label class="good-options__item good-option good-option--outline">
+											<input class="js-reload-model" type="radio" name="size" value="4" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+											<div>
+												<span>Д <b>224 см</b></span>
+												<div>x</div>
+												<span>Ш <b>295 см</b></span>
+												<div>x</div>
+												<span>В <b>70 см</b></span>
+											</div>
+										</label>
+										<label class="good-options__item good-option good-option--outline">
+											<input class="js-reload-model" type="radio" name="size" value="5" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+											<div>
+												<span>Д <b>226 см</b></span>
+												<div>x</div>
+												<span>Ш <b>295 см</b></span>
+												<div>x</div>
+												<span>В <b>70 см</b></span>
+											</div>
+										</label>
+										<label class="good-options__item good-option good-option--outline">
+											<input class="js-reload-model" type="radio" name="size" value="6" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+											<div>
+												<span>Д <b>228 см</b></span>
+												<div>x</div>
+												<span>Ш <b>295 см</b></span>
+												<div>x</div>
+												<span>В <b>70 см</b></span>
+											</div>
+										</label>
+									</div>
+
+								</div>
+							</div>
+						</replaceable-outlet>
+
+						<replaceable-outlet data-id="constructor-options-aa">
+							<div class="filter-group">
+								<div class="filter-group__header js-collapse">Размеры v2</div>
+								<div class="filter-group__list">
+
+									<div class="good-options flex">
+										<div class="h4">Размеры</div>
+										<div class="good-options__header"><b>Длина</b></div>
+										<div class="good-options__body">
+											<label class="good-options__item good-option good-option--round">
+												<input class="js-reload-model" type="radio" name="length" value="200" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<span>200 см</span>
+											</label>
+											<label class="good-options__item good-option good-option--round">
+												<input class="js-reload-model" type="radio" name="length" value="220" data-params="{&quot;foo&quot;: &quot;bar&quot;}" disabled>
+												<span>220 см</span>
+											</label>
+											<label class="good-options__item good-option good-option--round">
+												<input class="js-reload-model" type="radio" name="length" value="240" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<span>240 см</span>
+											</label>
+											<label class="good-options__item good-option good-option--round">
+												<input class="js-reload-model" type="radio" name="length" value="260" data-params="{&quot;foo&quot;: &quot;bar&quot;}" checked>
+												<span>260 см</span>
+											</label>
+											<label class="good-options__item good-option good-option--round">
+												<input class="js-reload-model" type="radio" name="length" value="280" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<span>280 см</span>
+											</label>
+										</div>
+
+										<div class="good-options__header"><b>Глубина</b></div>
+										<div class="good-options__body">
+											<label class="good-options__item good-option good-option--round">
+												<input class="js-reload-model" type="radio" name="depth" value="55" data-params="{&quot;foo&quot;: &quot;bar&quot;}" checked>
+												<span>55 см</span>
+											</label>
+											<label class="good-options__item good-option good-option--round">
+												<input class="js-reload-model" type="radio" name="depth" value="60" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<span>60 см</span>
+											</label>
+											<label class="good-options__item good-option good-option--round">
+												<input class="js-reload-model" type="radio" name="depth" value="65" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<span>65 см</span>
+											</label>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</replaceable-outlet>
+
+						<replaceable-outlet data-id="constructor-options-b">
+
+							<div class="filter-group">
+								<div class="filter-group__header js-collapse">Цвета</div>
+								<div class="filter-group__list">
+
+									<div class="good-options flex">
+										<div class="h4">Цвета</div>
+										<div class="good-options__header"><b>Столешница</b></div>
+										<div class="good-options__body">
+											<label class="good-options__item good-option good-option--pic">
+												<input class="js-change-texture" type="radio" name="top-color" value="color-2" data-texture="@img/dev/constructor/models/zeta_70x140/zeta-tex.jpg" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<img src="@img/dev/constructor/temp/color-9.png" width="64" height="64" alt loading="lazy">
+											</label>
+											<label class="good-options__item good-option good-option--pic">
+												<input class="js-change-texture" type="radio" name="top-color" value="color-7" data-texture="@img/dev/constructor/models/zeta_70x140/zeta-tex-2.jpg" data-params="{&quot;foo&quot;: &quot;bar&quot;}" checked>
+												<img src="@img/dev/constructor/temp/color-10.png" width="64" height="64" alt loading="lazy">
+											</label>
+											<label class="good-options__item good-option good-option--pic">
+												<input class="js-change-texture" type="radio" name="top-color" value="color-3" data-texture="@img/dev/constructor/models/zeta_70x140/zeta-tex-3.jpg" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<img src="@img/dev/constructor/temp/color-11.png" width="64" height="64" alt loading="lazy">
+											</label>
+										</div>
+
+										<div class="good-options__header"><b>Металлокаркас</b></div>
+										<div class="good-options__body">
+											<label class="good-options__item good-option good-option--pic">
+												<input class="js-change-color" type="radio" name="frame-color" value="color-1" data-color="#f0f0f0" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<img src="@img/dev/constructor/temp/color-1.png" width="64" height="64" alt loading="lazy">
+											</label>
+											<label class="good-options__item good-option good-option--pic">
+												<input class="js-change-color" type="radio" name="frame-color" value="color-2" data-color="#4b4b4b" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<img src="@img/dev/constructor/temp/color-2.png" width="64" height="64" alt loading="lazy">
+											</label>
+											<label class="good-options__item good-option good-option--pic">
+												<input class="js-change-color" type="radio" name="frame-color" value="color-3" data-color="#aeaeae" data-params="{&quot;foo&quot;: &quot;bar&quot;}" checked>
+												<img src="@img/dev/constructor/temp/color-3.png" width="64" height="64" alt loading="lazy">
+											</label>
+											<label class="good-options__item good-option good-option--pic">
+												<input class="js-change-color" type="radio" name="frame-color" value="color-4" data-color="#766d4c" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<img src="@img/dev/constructor/temp/color-4.png" width="64" height="64" alt loading="lazy">
+											</label>
+											<label class="good-options__item good-option good-option--pic">
+												<input class="js-change-color" type="radio" name="frame-color" value="color-6" data-color="#534736" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+												<img src="@img/dev/constructor/temp/color-6.png" width="64" height="64" alt loading="lazy">
+											</label>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</replaceable-outlet>
+
+						<replaceable-outlet data-id="constructor-options-c">
+							<div class="filter-group">
+								<div class="filter-group__header js-collapse is-collapsed">Варианты</div>
+								<div class="filter-group__list">
+
+									<div class="good-options flex">
+										<div class="h4">Варианты</div>
+										<div class="good-options__header">Тип 1: Без аксессуаров</div>
+										<div class="good-options__body">
+											<label class="good-options__item good-option good-option--pic good-option--marked" data-title="Тип 1: Без аксессуаров">
+												<input class="js-reload-model" type="radio" name="variant" value="sku-id-01" data-params="{&quot;foo&quot;: &quot;bar&quot;}" checked>
+
+												<picture>
+													<source media="(min-width: 1024px)" srcset="@img/dev/constructor/temp/variant-1-1024.webp" type="image/webp" />
+													<source srcset="@img/dev/constructor/temp/variant-1-320.webp" type="image/webp" />
+													<img src="@img/dev/constructor/temp/variant-1-320.jpg" width="83" height="83" alt="" loading="lazy" />
+												</picture>
+
+											</label>
+
+											<label class="good-options__item good-option good-option--pic good-option--marked" data-title="Тип 2: С кабель-каналом и с длинным названием, которое надо обрезать">
+												<input class="js-reload-model" type="radio" name="variant" value="sku-id-02" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+
+												<picture>
+													<source media="(min-width: 1024px)" srcset="@img/dev/constructor/temp/variant-2-1024.webp" type="image/webp" />
+													<source srcset="@img/dev/constructor/temp/variant-2-320.webp" type="image/webp" />
+													<img src="@img/dev/constructor/temp/variant-2-320.jpg" width="83" height="83" alt="" loading="lazy" />
+												</picture>
+
+											</label>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</replaceable-outlet>
+
+						<replaceable-outlet data-id="constructor-options-d">
+							<div class="filter-group">
+								<div class="filter-group__header js-collapse">Аксессуары</div>
+								<div class="filter-group__list">
+
+									<div class="good-options flex">
+										<div class="h4">Аксессуары</div>
+										<div class="good-options__header">Ничего не добавлено</div>
+										<div class="good-options__body">
+											<label class="good-options__item good-option good-option--pic good-option--marked good-option--info" data-title="Аксессуар 1">
+												<input class="js-reload-model" type="checkbox" name="acc-id-04" value="on" data-params="{&quot;foo&quot;: &quot;bar&quot;}" checked>
+
+												<picture>
+													<source media="(min-width: 1024px)" srcset="@img/dev/constructor/temp/acc-1-1024.webp" type="image/webp" />
+													<source srcset="@img/dev/constructor/temp/acc-1-320.webp" type="image/webp" />
+													<img src="@img/dev/constructor/temp/acc-1-320.jpg" width="83" height="83" alt="" loading="lazy" />
+												</picture>
+
+												<div class="good-option__info">
+													<div class="good-option__name">С пропуском проводов. Органайзер для проводов (Д-055)</div>
+													<div class="good-option__prices">
+														<div class="good-option__price">26 500 ₽</div>
+														<div class="good-option__oldprice">30 000₽</div>
+													</div>
+													<div class="good-option__article">
+														Арт: 123456789
+													</div>
+													<div class="good-option__button">
+														<div class="btn btn_gray"><span>Добавить</span><span>Добавлено</span></div>
+													</div>
+												</div>
+
+											</label>
+											<label class="good-options__item good-option good-option--pic good-option--marked good-option--info" data-title="Аксессуар 2">
+												<input class="js-reload-model" type="checkbox" name="acc-id-05" value="on" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+
+												<picture>
+													<source media="(min-width: 1024px)" srcset="@img/dev/constructor/temp/acc-2-1024.webp" type="image/webp" />
+													<source srcset="@img/dev/constructor/temp/acc-2-320.webp" type="image/webp" />
+													<img src="@img/dev/constructor/temp/acc-2-320.jpg" width="83" height="83" alt="" loading="lazy" />
+												</picture>
+
+												<div class="good-option__info">
+													<div class="good-option__name">Органайзер (Д-055)</div>
+													<div class="good-option__prices">
+														<div class="good-option__price">26 500 ₽</div>
+													</div>
+													<div class="good-option__article">
+														Арт: 123456789
+													</div>
+													<div class="good-option__button">
+														<div class="btn btn_gray"><span>Добавить</span><span>Добавлено</span></div>
+													</div>
+												</div>
+											</label>
+											<label class="good-options__item good-option good-option--pic good-option--marked good-option--info" data-title="Аксессуар 3">
+												<input class="js-reload-model" type="checkbox" name="acc-id-06" value="on" data-params="{&quot;foo&quot;: &quot;bar&quot;}">
+
+												<picture>
+													<source media="(min-width: 1024px)" srcset="@img/dev/constructor/temp/acc-1-1024.webp" type="image/webp" />
+													<source srcset="@img/dev/constructor/temp/acc-1-320.webp" type="image/webp" />
+													<img src="@img/dev/constructor/temp/acc-1-320.jpg" width="83" height="83" alt="" loading="lazy" />
+												</picture>
+
+												<div class="good-option__info">
+													<div class="good-option__name">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat eum, reiciendis eligendi molestias itaque, aliquid quae cupiditate ullam autem repellendus aliquam sint necessitatibus adipisci! Recusandae, necessitatibus! Corrupti earum possimus nulla.</div>
+													<div class="good-option__prices">
+														<div class="good-option__price">26 500 ₽</div>
+													</div>
+													<div class="good-option__button">
+														<div class="btn btn_gray"><span>Добавить</span><span>Добавлено</span></div>
+													</div>
+												</div>
+											</label>
+										</div>
+									</div>
+
+								</div>
+							</div>
+						</replaceable-outlet>
+
+					</div>
+
+					<replaceable-outlet class="filter__buttons" data-id="constructor-purchase">
+						<button type="button" class="btn btn_yellow btn_wide js-add-to-cart" data-id="702736" data-url="https://deviart.ru/zamm/add-to-cart.php" data-cart="/cart/">
+							<span>В корзину за 29 620 ₽</span>
+							<span>Товар в корзине</span>
+						</button>
+					</replaceable-outlet>
+
+				</form>
+			</constructor-tools>
+		</div>
+
+	</div>
+</div>
