@@ -30,7 +30,7 @@
  */
 // .visually-hidden {
 // 	appearance: none;
-// 	clip: rect(0 0 0 0);
+// 	clip-path: rect(0 0 0 0);
 // 	width: 1px;
 // 	height: 1px;
 // 	margin: -1px;
@@ -181,6 +181,48 @@
 	}
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
+}
+
+.hover-scroll {
+	// -webkit-mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 17px, black 17px);
+	// -webkit-mask-size: 100% 20000px;
+	// -webkit-mask-position: left bottom;
+	// mask-image: linear-gradient(to top, transparent, black), linear-gradient(to left, transparent 17px, black 17px);
+	// mask-size: 100% 20000px;
+	// mask-position: left bottom;
+
+	// &::-webkit-scrollbar-track,
+	// &::-webkit-scrollbar-track:hover,
+	// &::-webkit-scrollbar-track:active {
+	// 	background-color: transparent;
+	// }
+
+	// @include on-hover {
+	// 	-webkit-mask-position: left top;
+	// }
+
+	&::-webkit-scrollbar-track,
+	&::-webkit-scrollbar-track:hover,
+	&::-webkit-scrollbar-track:active {
+		background-color: transparent;
+	}
+
+	@include when-inside("body:not(.is-touch)") {
+		&::-webkit-scrollbar-thumb {
+			background-color: transparent;
+		}
+
+		@include on-hover {
+			&::-webkit-scrollbar-thumb {
+				background-color: $gray-dark-second;
+			}
+
+			&::-webkit-scrollbar-thumb:hover,
+			&::-webkit-scrollbar-thumb:active {
+				background-color: #b8c3ca;
+			}
+		}
+	}
 }
 
 .scroll-x {
