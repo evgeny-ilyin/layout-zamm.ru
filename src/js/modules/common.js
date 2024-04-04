@@ -1017,3 +1017,29 @@ export function clickAndDrag() {
 		});
 	});
 }
+
+export function scrollToTop() {
+	const toTopBtn = document.getElementById("scrollToTop"),
+		toTopBtnClass = "is-visible";
+
+	function scrollFunction() {
+		if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+			toTopBtn.classList.add(toTopBtnClass);
+		} else {
+			toTopBtn.classList.remove(toTopBtnClass);
+		}
+	}
+
+	function toTop() {
+		document.body.scrollTop = 0; // Safari
+		document.documentElement.scrollTop = 0;
+	}
+
+	window.onscroll = function () {
+		scrollFunction();
+	};
+
+	document.addEventListener("click", (e) => {
+		if (e.target === toTopBtn) toTop();
+	});
+}

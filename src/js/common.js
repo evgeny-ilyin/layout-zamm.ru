@@ -39,6 +39,7 @@ addEventListener("DOMContentLoaded", () => {
 	fn.changeAmount();
 	fn.getContent();
 	fn.clickAndDrag();
+	fn.scrollToTop();
 
 	form.submitPrevent();
 	form.maskHandler();
