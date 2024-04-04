@@ -76,7 +76,8 @@ if (!window.productProps) {
 						}
 						let result = await response.json();
 						if (result.status === true) {
-							updateChunks(result.chunks, card);
+							// updateChunks(result.chunks, card);
+							updateChunks(result.chunks);
 
 							tabsInit();
 							carouselsInit();

@@ -349,7 +349,11 @@
   left: 0;
   padding: 4px;
   height: 27px;
-  background: var(--white)
+  background: var(--white);
+  overflow: hidden;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis
 }
 .good-options .good-option:hover input:not(:checked):not(:disabled) ~ img {
   border-color: transparent
