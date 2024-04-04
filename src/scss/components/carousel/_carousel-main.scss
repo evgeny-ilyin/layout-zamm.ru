@@ -3,20 +3,21 @@
 	--f-carousel-dots-width: 22px;
 	--f-carousel-slide-height: 613px;
 	// --f-carousel-slide-height: 164dvw;
-	margin-bottom: 92px !important;
+	margin-bottom: 30px !important;
 	margin-left: calc($min-padding * -1);
 	margin-right: calc($min-padding * -1);
 
 	@include respond-to(md) {
 		--f-carousel-slide-height: 448px;
-		margin-bottom: 109px !important;
+		// margin-bottom: 109px !important;
+		margin-bottom: 20px !important;
 		margin-left: 0;
 		margin-right: 0;
 	}
 
 	@include respond-to(lg) {
 		--f-carousel-slide-height: 600px;
-		margin-bottom: 99px !important;
+		margin-bottom: 70px !important;
 	}
 
 	.f-progress {

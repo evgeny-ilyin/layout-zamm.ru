@@ -3,12 +3,16 @@
 	--f-carousel-slide-width: 300px;
 	margin-left: -12px;
 	margin-right: -12px;
-	margin-bottom: 80px;
+	margin-bottom: 0;
 
 	@include respond-to(md) {
 		--f-carousel-spacing: #{$max-padding};
 		margin-left: -16px;
 		margin-right: -16px;
+	}
+
+	@include respond-to(xl) {
+		margin-bottom: 50px;
 	}
 
 	// для полного показа последнего слайда при выключенном infinite
