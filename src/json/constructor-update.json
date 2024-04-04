@@ -1,0 +1,14 @@
+{
+  "status": true,
+  "chunks": {
+    "constructor-caption": "Стол ИРИС, цвет ХХХ",
+
+    "constructor-options-a": "<div class=\"filter-group\">\n<div class=\"filter-group__header js-collapse\">Размеры<\/div>\n<div class=\"filter-group__list\">\n<div class=\"good-options flex flex-column\">\n<div class=\"h4\">Размеры<\/div>\n<label class=\"good-options__item good-option good-option--outline\">\n<input class=\"js-reload-model\" type=\"radio\" name=\"size\" value=\"1\" data-params=\"{&quot;foo&quot;: &quot;bar&quot;}\">\n<div><span>Д <b>218 см<\/b><\/span><div>x<\/div><span>Ш <b>295 см<\/b><\/span><div>x<\/div><span>В <b>70 см<\/b><\/span><\/div>\n<\/label>\n<label class=\"good-options__item good-option good-option--outline is-checked\"\">\n<input class=\"js-reload-model\" type=\"radio\" name=\"size\" value=\"2\" data-params=\"{&quot;foo&quot;: &quot;bar&quot;}\" checked>\n<div><span>Д <b>220 см<\/b><\/span><div>x<\/div><span>Ш <b>295 см<\/b><\/span><div>x<\/div><span>В <b>70 см<\/b><\/span><\/div>\n<\/label>\n<label class=\"good-options__item good-option good-option--outline\">\n<input class=\"js-reload-model\" type=\"radio\" name=\"size\" value=\"3\" data-params=\"{&quot;foo&quot;: &quot;bar&quot;}\">\n<div><span>Д <b>222 см<\/b><\/span><div>x<\/div><span>Ш <b>295 см<\/b><\/span><div>x<\/div><span>В <b>70 см<\/b><\/span><\/div>\n<\/label>\n<label class=\"good-options__item good-option good-option--outline\">\n<input class=\"js-reload-model\" type=\"radio\" name=\"size\" value=\"4\" data-params=\"{&quot;foo&quot;: &quot;bar&quot;}\">\n<div><span>Д <b>224 см<\/b><\/span><div>x<\/div><span>Ш <b>295 см<\/b><\/span><div>x<\/div><span>В <b>70 см<\/b><\/span><\/div>\n<\/label>\n<\/div>\n<\/div>\n<\/div>",
+    
+    "constructor-purchase": "<button type=\"button\" class=\"btn btn_yellow btn_wide js-add-to-cart\" data-id=\"702736\" data-url=\"https:\/\/deviart.ru\/zamm\/add-to-cart.php\" data-cart=\"\/cart\/\">\n<span>В корзину за 10 000 ₽<\/span>\n<span>Товар в корзине<\/span>\n<\/button>"
+  },
+  "history": {
+    "url": "constructor.html?sku=001",
+    "title": "ZAMM"
+  }
+}
