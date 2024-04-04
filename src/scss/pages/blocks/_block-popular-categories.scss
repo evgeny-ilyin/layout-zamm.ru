@@ -6,7 +6,7 @@
 	grid-column-gap: 0;
 	grid-row-gap: 0;
 	gap: 8px;
-	margin-bottom: 80px;
+	margin-bottom: 50px;
 
 	@include respond-to(md) {
 		grid-template-rows: repeat(3, 1fr);
@@ -17,7 +17,7 @@
 .card {
 	position: relative;
 	overflow: hidden;
-	background: $yellow-light;
+	background: $black10;
 	border-radius: 4px;
 	min-height: 210px;
 	padding: 12px;
@@ -111,24 +111,42 @@
 	// .card__image
 	&__image {
 		position: absolute;
-		left: auto;
-		top: auto;
-		bottom: -16px;
-		right: -16px;
-		transition: all $transition-default;
-		// width: auto;
-		// height: 80%;
-		// object-fit: contain;
-		height: auto;
-		max-height: 85%;
-		max-width: 85%;
+		left: 0;
+		bottom: 0;
+		width: auto;
+		max-width: none;
+
+		@include respond-to(xm) {
+			max-width: 100%;
+		}
+
+		@include when-inside(".card_4") {
+			@include respond-to(lg) {
+				max-width: none;
+			}
+		}
+
+		// max-width: calc(100% + 32px);
+		// max-width: none;
+
+		// top: auto;
+		// bottom: -16px;
+		// right: -16px;
+		// transition: all $transition-default;
+		// height: auto;
+		// max-height: 85%;
+		// max-width: 85%;
+
+		&._bottom {
+			// bottom: -10px;
+		}
 	}
 
 	@include on-hover {
-		.card__image {
-			bottom: 0;
-			right: 0;
-		}
+		// .card__image {
+		// 	bottom: 0;
+		// 	right: 0;
+		// }
 	}
 
 	// .card_1
@@ -201,5 +219,15 @@
 	// .card_blue
 	&_blue {
 		background: $blue;
+	}
+
+	// .card_sm-img-right
+	&_sm-img-right {
+		.card__image {
+			@include respond-to(xm, "max") {
+				left: auto;
+				right: 0;
+			}
+		}
 	}
 }
