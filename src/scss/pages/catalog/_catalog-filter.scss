@@ -85,16 +85,21 @@
 		gap: 16px;
 		background: $white;
 
+		position: sticky;
+		bottom: 0;
+		padding-top: 16px;
+		border-top: 1px solid $black10;
+
 		@include respond-to(xl, "max") {
-			position: sticky;
-			bottom: 0;
+			// position: sticky;
+			// bottom: 0;
 			box-shadow: 0 -12px 12px 0 rgba(0, 0, 0, 0.05);
 			padding: 14px 20px 16px;
 		}
 
 		@include respond-to(xl) {
 			gap: 24px;
-			padding-bottom: 24px;
+			// padding-bottom: 24px;
 		}
 	}
 
@@ -255,4 +260,9 @@
 	border-radius: 0;
 	border: 0;
 	box-shadow: none;
+}
+
+.noUi-base {
+	width: 98%;
+	margin: 0 auto;
 }
