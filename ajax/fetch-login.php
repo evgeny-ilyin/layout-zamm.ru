@@ -8,6 +8,11 @@ try {
 
 	$resp = array('status' => true);
 
+	// ошибка на 1 этапе
+	// $resp = array('status' => false);
+	// $resp['message'] = 'Подождите ещё ХХ секунд';
+
+
 	if (!empty($data['f'])) {
 		if ($data['f'] >= 5555) {
 			$resp['url'] = 'personal-profile.html';
