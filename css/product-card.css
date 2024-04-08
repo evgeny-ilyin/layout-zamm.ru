@@ -351,6 +351,9 @@
   -o-transition: all .25s ease-in-out;
   transition: all .25s ease-in-out
 }
+.product__kit-list a.is-active {
+  border-color: var(--black)
+}
 .product__kit-list a:hover {
   border-color: var(--black)
 }
