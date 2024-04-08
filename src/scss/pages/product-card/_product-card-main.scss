@@ -525,6 +525,10 @@
 			border: 1px solid $black10;
 			transition: all $transition-default;
 
+			&.is-active {
+				border-color: $black;
+			}
+
 			@include on-hover {
 				border-color: $black;
 			}
