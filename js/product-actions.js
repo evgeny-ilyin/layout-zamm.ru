@@ -41,7 +41,7 @@ function toCart(btn, trigger) {
 		inCartClass = "in-cart";
 
 	let formData = new FormData(form),
-		id = Number(btn.dataset.id),
+		id = btn.dataset.id,
 		url = btn.dataset.url;
 
 	formData.append("trigger", trigger);

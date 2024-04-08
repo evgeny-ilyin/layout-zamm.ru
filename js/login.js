@@ -152,7 +152,7 @@ function loginActions() {
 
 		if (response.message) {
 			const status = document.createElement("div"),
-				footerElement = document.querySelector(`.otp__footer`);
+				footerElement = document.querySelector(`.login__tab.is-active`);
 
 			status.classList.add(submitStatusClass, submitConditionClass);
 			status.innerHTML = response.message;
@@ -160,7 +160,7 @@ function loginActions() {
 			let statusExists = document.querySelector(`.${submitStatusClass}`);
 			statusExists ? statusExists.remove() : "";
 
-			footerElement.prepend(status);
+			footerElement.append(status);
 		}
 	}
 
