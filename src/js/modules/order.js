@@ -10,7 +10,7 @@ export function orderActions() {
 		// enable submit button only if checkbox set
 		if (e.target.closest(".form-agreement")) {
 			const submitBtn = order.querySelector(`button[type="submit"]`);
-			e.target.checked ? submitBtn.disabled = false : submitBtn.disabled = true;
+			e.target.checked === true ? submitBtn.disabled = false : submitBtn.disabled = true;
 		}
 	});
 
