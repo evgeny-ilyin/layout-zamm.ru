@@ -190,3 +190,22 @@ ol {
 		text-align: left;
 	}
 }
+
+.h-angle {
+	display: flex;
+	align-items: center;
+
+	&::after {
+		content: "";
+		display: block;
+		padding-left: 15px;
+		width: 20px;
+		height: 15px;
+		background: $svg-angle right center no-repeat;
+		transition: opacity $transition-default;
+
+		@include respond-to(lg) {
+			margin-top: 4px;
+		}
+	}
+}
