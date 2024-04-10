@@ -652,6 +652,25 @@ ol {
 .block-header._left {
   text-align: left
 }
+.h-angle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.h-angle::after {
+  content: "";
+  display: block;
+  padding-left: 15px;
+  width: 20px;
+  height: 15px;
+  background: var(--svg-angle) right center no-repeat;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out
+}
 .hidden {
   display: none!important
 }
@@ -4542,6 +4561,9 @@ input[type=file]:focus-visible ~ span {
   }
   .block-header {
     font-size: 2.125rem
+  }
+  .h-angle::after {
+    margin-top: 4px
   }
   .hidden-lg {
     display: none!important

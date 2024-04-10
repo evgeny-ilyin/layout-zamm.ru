@@ -86,7 +86,8 @@
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding: 16px
+  padding: 16px;
+  text-decoration: none
 }
 .product__3d > div:nth-child(2) {
   margin: 16px 0 0;
