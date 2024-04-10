@@ -6,6 +6,12 @@ export function orderActions() {
 		if (e.target.dataset.watch == "true" && !e.target.dataset.query) {
 			formWatcher(order, e.target);
 		}
+
+		// enable submit button only if checkbox set
+		if (e.target.closest(".form-agreement")) {
+			const submitBtn = order.querySelector(`button[type="submit"]`);
+			e.target.checked ? submitBtn.disabled = false : submitBtn.disabled = true;
+		}
 	});
 
 	document.addEventListener("queryResult", (e) => {
