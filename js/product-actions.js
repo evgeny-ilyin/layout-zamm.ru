@@ -69,7 +69,7 @@ function toCart(btn, trigger) {
 				if (!target) return;
 				target.dataset.amount = isNaN(result.amount) ? 0 : result.amount;
 
-				updateChunks(result.chunks);
+				if (result.chunks) updateChunks(result.chunks);
 			}
 			btnLoader(btn, "stop");
 		} catch (e) {
