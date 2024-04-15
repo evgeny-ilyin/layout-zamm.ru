@@ -52,11 +52,11 @@ function changeCart(cart, itemId, trigger) {
 			let result = await response.json();
 
 			if (result.status === true) {
-				updateChunks(result.chunks);
-
 				carouselsInit();
 				catalogItemGalleriesInit();
 				catalogItemGalleryHandler();
+
+				if (result.chunks) updateChunks(result.chunks);
 
 				if (result.addedId || result.removedId) {
 					let id = result.addedId || result.removedId;
