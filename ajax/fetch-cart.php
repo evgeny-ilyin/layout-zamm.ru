@@ -54,17 +54,31 @@ try {
 	}
 
 	$chunks = array();
-	if($cartTotal) $chunks['cart-total'] = $cartTotal;
-	if($cartItems) $chunks['cart-items'] = $cartItems;
-	if($cartCarousel) $chunks['cart-carousel'] = $cartCarousel;
+	if ($cartTotal) $chunks['cart-total'] = $cartTotal;
+	if ($cartItems) $chunks['cart-items'] = $cartItems;
+	if ($cartCarousel) $chunks['cart-carousel'] = $cartCarousel;
+
+
+	// js eval
+	$chunks['eval'] = '<script>
+		window.dataLayer = window.dataLayer || [];
+		window.dataLayer.push(
+				{
+						"ecommerce": {
+								"currencyCode": "USD"
+						}
+				}
+		);
+		</script>';
+
 
 	$resp = array('status' => true, 'chunks' => $chunks);
 
-	if($removedId)
-	$resp['removedId'] = $removedId;
+	if ($removedId)
+		$resp['removedId'] = $removedId;
 
-	if($addedId)
-	$resp['addedId'] = $addedId;
+	if ($addedId)
+		$resp['addedId'] = $addedId;
 
 
 	header('Content-Type: application/json; charset=UTF-8');

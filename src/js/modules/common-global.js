@@ -118,6 +118,12 @@ if (!window.updateChunks) {
 	window.updateChunks = (obj, where = document) => {
 		if (typeof obj === "object" && obj !== null) {
 			Object.entries(obj).forEach(([key, value]) => {
+				// execute js code
+				if (key == "eval") {
+					let cleanValue = value.replace(/^<script.*?>|<\/script>$/g, '');
+					eval(cleanValue);
+					return;
+				}
 				let target = where.querySelector(`[data-id=${key}]`);
 				if (!target) {
 					// console.warn(`data-id "${key}" not found`);
