@@ -57,7 +57,9 @@
 .cart-item__props img {
   display: inline;
   margin: 0 6px -1px 0;
-  border-radius: 4px
+  border-radius: 4px;
+  -webkit-box-shadow: 0 0 0 2px var(--black10);
+  box-shadow: 0 0 0 2px var(--black10)
 }
 .cart-item__descr {
   font-size: .8125rem;

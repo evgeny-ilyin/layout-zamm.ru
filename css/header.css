@@ -3183,7 +3183,8 @@ input[type=file]:focus-visible ~ span {
   font-weight: 600;
   background: var(--white);
   color: var(--black);
-  text-shadow: none
+  text-shadow: none;
+  text-decoration: none
 }
 .label_yellow-light {
   background: var(--yellow-light);
@@ -3868,7 +3869,9 @@ input[type=file]:focus-visible ~ span {
   margin: 0 2px 2px 0;
   -webkit-transition: border-color .25s ease-in-out;
   -o-transition: border-color .25s ease-in-out;
-  transition: border-color .25s ease-in-out
+  transition: border-color .25s ease-in-out;
+  -webkit-box-shadow: inset 0 0 0 2px var(--gray),inset 0 0 0 4px var(--black10);
+  box-shadow: inset 0 0 0 2px var(--gray),inset 0 0 0 4px var(--black10)
 }
 .product__props .prop__list img {
   width: 36px;

@@ -372,7 +372,9 @@
   box-sizing: content-box;
   padding: 2px;
   border: 1px solid transparent;
-  border-radius: 10px
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 0 2px var(--black10);
+  box-shadow: inset 0 0 0 2px var(--black10)
 }
 .rangeslider {
   margin-left: -12px;

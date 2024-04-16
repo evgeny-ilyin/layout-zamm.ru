@@ -215,6 +215,22 @@
   position: sticky;
   left: 0
 }
+.delivery-labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  border-top: 2px solid var(--black10);
+  padding-top: 14px;
+  margin-top: -20px
+}
+.delivery-labels .label {
+  margin-right: 14px
+}
+.delivery-labels .label:last-child {
+  margin-right: 0
+}
 .delivery-zones {
   scroll-margin-top: 60px;
   margin-bottom: 95px
