@@ -317,6 +317,22 @@
 	}
 }
 
+.delivery-labels {
+	display: flex;
+	flex-wrap: wrap;
+	border-top: 2px solid $black10;
+	padding-top: 14px;
+	margin-top: -20px;
+
+	.label {
+		margin-right: 14px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
 .delivery-zones {
 	scroll-margin-top: 60px;
 	margin-bottom: 95px;
