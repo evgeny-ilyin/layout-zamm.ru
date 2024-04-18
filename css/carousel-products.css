@@ -28,6 +28,15 @@
 .product-carousel .f-carousel__dots {
   z-index: -1
 }
+.product-carousel._simple .f-carousel__slide .item,
+.product-carousel._simple .f-carousel__slide .item__details,
+.product-carousel._simple .f-carousel__slide .item__gallery-wrapper {
+  background: 0 0
+}
+.product-carousel._simple .f-carousel__slide .item__buttons {
+  margin: 5px 0;
+  padding: 0 1px
+}
 .product-carousel._extra {
   --f-carousel-spacing: 12px;
   --f-carousel-slide-width: 260px
@@ -72,7 +81,8 @@ body:not(.is-touch) .product-carousel._extra .f-carousel__slide .item:hover .ite
   opacity: 0;
   -webkit-transition: all .25s ease-in-out!important;
   -o-transition: all .25s ease-in-out!important;
-  transition: all .25s ease-in-out!important
+  transition: all .25s ease-in-out!important;
+  background: 0 0
 }
 body.is-touch .product-carousel._extra .f-carousel__slide .item__details {
   opacity: 1
