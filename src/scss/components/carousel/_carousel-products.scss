@@ -37,6 +37,27 @@
 		z-index: -1;
 	}
 
+	&._simple {
+		.f-carousel__slide {
+			.item,
+			.item__gallery-wrapper,
+			.item__details {
+				background: transparent;
+			}
+
+			.item {
+				&__details {
+					// background: $white;
+				}
+
+				&__buttons {
+					margin: 5px 0;
+					padding: 0 1px;
+				}
+			}
+		}
+	}
+
 	&._extra {
 		--f-carousel-spacing: #{$min-padding};
 		--f-carousel-slide-width: 260px;
@@ -109,6 +130,7 @@
 					padding-bottom: 2px;
 					opacity: 0;
 					transition: all $transition-default !important;
+					background: transparent;
 
 					@include when-inside("body.is-touch") {
 						opacity: 1;
