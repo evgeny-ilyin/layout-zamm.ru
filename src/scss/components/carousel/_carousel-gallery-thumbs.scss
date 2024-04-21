@@ -82,6 +82,51 @@
 			display: none;
 		}
 	}
+
+	/*! Модификация с вертикальными превью */
+	@include when-inside("._vertical") {
+		.f-carousel__slide {
+			@include respond-to(lg) {
+				--f-carousel-slide-height: 560px;
+
+				& > div {
+					height: 100%;
+				}
+			}
+		}
+	}
+
+	& + .f-thumbs.is-vertical:not(.is-modern) {
+		margin-top: 0;
+		height: 560px;
+
+		@include respond-to(lg) {
+			--f-thumb-width: 135px;
+			--f-thumb-height: 180px;
+			width: 151px;
+		}
+
+		@include respond-to(xl) {
+			--f-thumb-width: 157px;
+			--f-thumb-height: 157px;
+			width: 173px;
+		}
+
+		// .f-thumbs__viewport {
+		// 	overflow-y: scroll;
+		// }
+
+		&::after {
+			content: "";
+			display: block;
+			position: absolute;
+			height: 65px;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(0deg, #f6f8f9 0%, rgba(0, 0, 0, 0) 100%);
+		}
+	}
 }
 
 /*! Карусель с превью в попапе */

@@ -1,0 +1,43 @@
+@@include('html/head.html', {
+"title": "Карточка товара",
+"stylesFor": "product"
+})
+<body>
+	@@include('html/header.html', {})
+
+	<div class="container _gray">
+		@@include('html/components/breadcrumbs.html')
+		@@include('html/pages/blocks/block-product-card-gallery-v2.html')
+	</div>
+
+	<div class="container _carousels">
+		<div>
+			@@include('html/pages/blocks/block-product-carousel.html', {
+			"header": "Аксессуары к этому столу",
+			"id": ' id="product-accessory"',
+			"data-id": ''
+			})
+		</div>
+	</div>
+
+	@@include('html/footer.html')
+
+	@@include('html/cookies.html', {})
+	@@include('html/svg-sprite.html', {})
+
+
+	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js"></script>
+	<script src="js/carousel-init.js"></script>
+
+	<script src="js/common.js"></script>
+	<script src="js/tabs.js"></script>
+	<script src="js/product-actions.js"></script>
+	<script src="js/product-props.js"></script>
+	<script src="js/product-card.js"></script>
+
+	<script>
+		var arFav = [11111, 33333, 999777];
+	</script>
+</body>
+</html>

@@ -269,7 +269,7 @@
 	}
 
 	&.modern {
-		color: #454545;
+		color: $gray-modern;
 
 		&::before {
 			display: none !important; // old banners bg if text-white set

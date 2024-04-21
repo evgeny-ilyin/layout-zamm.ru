@@ -281,11 +281,13 @@
 	&__tabs {
 		margin-bottom: 64px;
 	}
+
 	// .product__reviews
 	&__reviews {
 		margin-bottom: 64px;
 		max-height: 620px;
 	}
+
 	// .product__content-gallery
 	&__content-gallery {
 		padding-bottom: 50px;
@@ -298,7 +300,13 @@
 			overflow-x: auto;
 			margin-bottom: 125px;
 		}
+
+		&._vertical {
+			display: flex;
+      flex-direction: row;
+		}
 	}
+
 	// .product__top
 	&__top {
 		display: flex;
@@ -966,6 +974,7 @@
 		}
 	}
 }
+
 .r-header {
 	display: flex;
 	flex-flow: row wrap;
@@ -1015,6 +1024,7 @@
 		}
 	}
 }
+
 .r-body {
 	margin-bottom: 17px;
 
@@ -1025,6 +1035,7 @@
 		word-break: break-word; // deprecated
 	}
 }
+
 .r-date {
 	color: $black60;
 }
