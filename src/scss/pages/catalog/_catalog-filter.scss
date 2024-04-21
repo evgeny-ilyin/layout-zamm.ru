@@ -1,6 +1,7 @@
 .filter {
 	max-width: 390px;
 	background: $white;
+	position: relative;
 
 	@include respond-to(xl, "max") {
 		position: fixed;
@@ -28,10 +29,10 @@
 	}
 
 	@include respond-to(xl) {
-		position: sticky;
-		top: 50px;
-		padding: 0px 7px;
-		max-height: calc(100vh - 75px);
+		// 	position: sticky;
+		// 	top: 50px;
+		// padding: 0px 7px;
+		// max-height: calc(100vh - 50px);
 	}
 
 	// .filter__head
@@ -49,6 +50,7 @@
 			display: none;
 		}
 	}
+
 	// .filter__header
 	&__header {
 		font-size: rem(24);
@@ -58,6 +60,7 @@
 			font-size: rem(32);
 		}
 	}
+
 	// .filter__close
 	&__close {
 		height: 40px;
@@ -71,8 +74,21 @@
 
 	// .filter__body
 	&__body {
+		max-height: calc(100vh - 50px);
+		padding-bottom: 185px;
+
 		@include respond-to(xl, "max") {
-			padding: 0 20px;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+
+		@include respond-to(xl) {
+			padding-left: 7px;
+			padding-right: 7px;
+		}
+
+		&.scrollblock {
+			overflow-y: scroll;
 		}
 	}
 
@@ -84,11 +100,8 @@
 		justify-items: center;
 		gap: 16px;
 		background: $white;
-
 		position: sticky;
 		bottom: 0;
-		padding-top: 16px;
-		border-top: 1px solid $black10;
 
 		@include respond-to(xl, "max") {
 			// position: sticky;
@@ -98,14 +111,21 @@
 		}
 
 		@include respond-to(xl) {
-			gap: 24px;
-			// padding-bottom: 24px;
+			position: absolute;
+			padding-top: 16px;
+			border-top: 1px solid $black10;
+			// gap: 24px;
+			// padding-bottom: 25px;
+		}
+
+		// .btn_reset:not(.invisible) {
+		.btn_reset {
+			margin-bottom: 20px;
 		}
 	}
 
 	&.scrollblock {
 		@include respond-to(xl) {
-			// overflow: visible;
 			overflow-y: scroll;
 		}
 	}

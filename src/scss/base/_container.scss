@@ -111,6 +111,13 @@
 	// .col-sidebar
 }
 
+.sidebar-sticky {
+	@include respond-to(xl) {
+		position: sticky;
+		top: 50px;
+	}
+}
+
 /**
  * Inner pages columns (cart, order)
  */
