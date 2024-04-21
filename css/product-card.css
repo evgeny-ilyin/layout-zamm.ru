@@ -157,6 +157,15 @@
 .product__content-gallery {
   padding-bottom: 50px
 }
+.product__content-gallery._vertical {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row
+}
 .product__top {
   display: -webkit-box;
   display: -ms-flexbox;

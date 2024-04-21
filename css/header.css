@@ -4992,6 +4992,10 @@ input[type=file]:focus-visible ~ span {
     width: calc(100% - 260px - 56px);
     margin-left: 56px
   }
+  .sidebar-sticky {
+    position: sticky;
+    top: 50px
+  }
   .grid_xl-2 {
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2,1fr)

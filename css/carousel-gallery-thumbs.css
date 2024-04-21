@@ -40,6 +40,22 @@
 .carousel-gallery-thumbs + .f-thumbs:not(.is-modern) .f-thumbs__slide__button {
   border-radius: 4px
 }
+.carousel-gallery-thumbs + .f-thumbs.is-vertical:not(.is-modern) {
+  margin-top: 0;
+  height: 560px
+}
+.carousel-gallery-thumbs + .f-thumbs.is-vertical:not(.is-modern)::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 65px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear,left bottom,left top,from(#f6f8f9),to(rgba(0,0,0,0)));
+  background: -o-linear-gradient(bottom,#f6f8f9 0,rgba(0,0,0,0) 100%);
+  background: linear-gradient(0deg,#f6f8f9 0,rgba(0,0,0,0) 100%)
+}
 .popup-gallery {
   display: none;
   position: fixed;
@@ -209,9 +225,27 @@
   .carousel-gallery-thumbs .f-carousel__dots {
     display: none
   }
+  ._vertical .carousel-gallery-thumbs .f-carousel__slide {
+    --f-carousel-slide-height: 560px
+  }
+  ._vertical .carousel-gallery-thumbs .f-carousel__slide > div {
+    height: 100%
+  }
+  .carousel-gallery-thumbs + .f-thumbs.is-vertical:not(.is-modern) {
+    --f-thumb-width: 135px;
+    --f-thumb-height: 180px;
+    width: 151px
+  }
   .gallery-thumbs-popup .f-carousel__slide {
     height: var(--product-view-height,100%);
     min-height: 300px;
     max-height: 650px
+  }
+}
+@media (min-width:1280px) {
+  .carousel-gallery-thumbs + .f-thumbs.is-vertical:not(.is-modern) {
+    --f-thumb-width: 157px;
+    --f-thumb-height: 157px;
+    width: 173px
   }
 }

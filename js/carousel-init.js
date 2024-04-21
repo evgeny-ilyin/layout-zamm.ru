@@ -47,6 +47,13 @@ if (!window.carouselsInit) {
 					},
 				},
 			};
+			let thumbsOptions = {};
+			let thumbsOptionsVertical = {
+				Carousel: {
+					axis: "y",
+				}
+			};
+
 			// console.log(Object.keys( carousel.dataset ));
 
 			if (carousel.dataset.options) {
@@ -58,16 +65,20 @@ if (!window.carouselsInit) {
 				Object.assign(plugins, { Autoplay });
 			}
 
+			if(carousel.dataset.thumbsVertical == "true") {
+				thumbsOptions = thumbsOptionsVertical;
+			}
+
 			// thumbs only for breakpoint
 			if (carousel.dataset.thumbs == "true" && carousel.dataset.thumbsMedia) {
 				Object.assign(options, { Thumbs: false });
-				Object.assign(breakpoints, { breakpoints: { [`(${carousel.dataset.thumbsMedia})`]: { Thumbs: {} } } });
+				Object.assign(breakpoints, { breakpoints: { [`(${carousel.dataset.thumbsMedia})`]: { Thumbs: thumbsOptions } } });
 				Object.assign(plugins, { Thumbs });
 			}
 
 			// thumbs when data-thumbs="true"
 			if (carousel.dataset.thumbs == "true" && !carousel.dataset.thumbsMedia) {
-				Object.assign(thumbs, { Thumbs: {} });
+				Object.assign(thumbs, { Thumbs: thumbsOptions });
 				Object.assign(plugins, { Thumbs });
 			}
 
@@ -123,6 +134,7 @@ if (!window.carouselsInit) {
 				{ Thumbs }
 			);
 		}
+
 
 		// popup galleries like a product main photo gallery
 		let popupGalleries = document.querySelectorAll(".js-popup-gallery-wrap");

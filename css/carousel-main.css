@@ -157,7 +157,7 @@
   opacity: .6
 }
 .main-slide.modern {
-  color: #454545
+  color: var(--gray-modern)
 }
 .main-slide.modern::before {
   display: none!important

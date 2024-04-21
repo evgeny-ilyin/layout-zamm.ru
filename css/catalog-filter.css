@@ -283,7 +283,8 @@
 }
 .filter {
   max-width: 390px;
-  background: var(--white)
+  background: var(--white);
+  position: relative
 }
 .filter__head {
   display: -webkit-box;
@@ -307,6 +308,13 @@
   top: auto;
   z-index: 1
 }
+.filter__body {
+  max-height: calc(100vh - 50px);
+  padding-bottom: 185px
+}
+.filter__body.scrollblock {
+  overflow-y: scroll
+}
 .filter__buttons {
   width: 100%;
   display: -ms-grid;
@@ -317,9 +325,10 @@
   gap: 16px;
   background: var(--white);
   position: sticky;
-  bottom: 0;
-  padding-top: 16px;
-  border-top: 1px solid var(--black10)
+  bottom: 0
+}
+.filter__buttons .btn_reset {
+  margin-bottom: 20px
 }
 .filter-group {
   border-top: 1px solid var(--black10)
@@ -472,17 +481,17 @@
   }
 }
 @media (min-width:1280px) {
-  .filter {
-    position: sticky;
-    top: 50px;
-    padding: 0 7px;
-    max-height: calc(100vh - 75px)
-  }
   .filter__head {
     display: none
   }
+  .filter__body {
+    padding-left: 7px;
+    padding-right: 7px
+  }
   .filter__buttons {
-    gap: 24px
+    position: absolute;
+    padding-top: 16px;
+    border-top: 1px solid var(--black10)
   }
   .filter.scrollblock {
     overflow-y: scroll
@@ -518,7 +527,8 @@
     background: var(--black-real)
   }
   .filter__body {
-    padding: 0 20px
+    padding-left: 20px;
+    padding-right: 20px
   }
   .filter__buttons {
     -webkit-box-shadow: 0 -12px 12px 0 rgba(0,0,0,.05);
