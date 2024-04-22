@@ -74,7 +74,13 @@
 			@include respond-to(lg) {
 				position: sticky;
 				top: 100px;
-				margin: 0 0 50px;
+				// margin: 0 0 50px;
+				max-height: calc(100vh - 180px);
+				max-height: calc(100dvh - 180px);
+
+				& > div {
+					margin-right: 10px;
+				}
 			}
 		}
 	}
