@@ -10,7 +10,11 @@
 }
 .content__sidebar .banner-content {
   background: 0 0!important;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
+  padding-bottom: 50px
+}
+.content__sidebar .banner-content._solid {
+  margin-bottom: 0;
   padding-bottom: 50px
 }
 .banner-content._solid img {
@@ -191,6 +195,9 @@
 }
 @media (max-width:1279px) {
   .content__sidebar .banner-content {
+    display: none
+  }
+  .content__sidebar .banner-content._solid {
     display: none
   }
 }
