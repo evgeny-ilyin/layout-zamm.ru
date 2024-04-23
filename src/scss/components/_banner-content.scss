@@ -15,6 +15,10 @@
 		background: none !important;
 		margin-bottom: 100px;
 		padding-bottom: 50px;
+
+		@include respond-to(xl, "max") {
+			display: none;
+		}
 	}
 
 	.btn {
@@ -207,9 +211,5 @@
 				}
 			}
 		}
-	}
-
-	@include respond-to(xl, "max") {
-		display: none;
 	}
 }
