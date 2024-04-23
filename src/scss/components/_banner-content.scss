@@ -21,6 +21,23 @@
 		}
 	}
 
+	&._solid {
+		img {
+			width: 100%;
+			
+			@include respond-to(xl) {
+				max-width: none;
+			}
+		}
+
+		video {
+			display: block;
+			height: auto;
+			margin: 0 auto;
+			max-width: 100%;
+		}
+	}
+
 	.btn {
 		text-shadow: none;
 		position: absolute;
@@ -43,8 +60,10 @@
 		text-shadow: none !important;
 		color: inherit !important;
 
-		@include respond-to(lg) {
-			pointer-events: none;
+		@include when-inside(".banner-content:not(._solid)") {
+			@include respond-to(lg) {
+				pointer-events: none;
+			}
 		}
 
 		@include when-inside(".content__sidebar") {
