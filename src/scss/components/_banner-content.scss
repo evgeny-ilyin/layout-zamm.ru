@@ -13,7 +13,7 @@
 
 	@include when-inside(".content__sidebar") {
 		background: none !important;
-		margin-bottom: 100px;
+		margin-bottom: 50px;
 		padding-bottom: 50px;
 
 		@include respond-to(xl, "max") {
@@ -22,9 +22,18 @@
 	}
 
 	&._solid {
+		@include when-inside(".content__sidebar") {
+			margin-bottom: 0;
+			padding-bottom: 50px;
+
+			@include respond-to(xl, "max") {
+				display: none;
+			}
+		}
+
 		img {
 			width: 100%;
-			
+
 			@include respond-to(xl) {
 				max-width: none;
 			}
