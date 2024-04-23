@@ -176,7 +176,7 @@
   }
 }
 @media (max-width:1279px) {
-  .banner-content {
+  .content__sidebar .banner-content {
     display: none
   }
 }
