@@ -42,7 +42,7 @@
   color: inherit!important
 }
 .content__sidebar .banner-content__link {
-  pointer-events: auto
+  pointer-events: auto!important
 }
 .banner-content__text {
   width: 100%;
