@@ -76,7 +76,7 @@
 		}
 
 		@include when-inside(".content__sidebar") {
-			pointer-events: auto;
+			pointer-events: auto !important;
 		}
 	}
 
