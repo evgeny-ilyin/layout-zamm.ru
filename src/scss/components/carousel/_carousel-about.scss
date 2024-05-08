@@ -16,6 +16,11 @@
 		--f-carousel-slide-height: 432px;
 	}
 
+	@include respond-to(xxxl) {
+		--f-carousel-slide-width: calc(20%);
+		--f-carousel-slide-height: 432px;
+	}
+
 	.f-carousel__slide {
 		padding: 0 8px;
 	}
@@ -36,9 +41,9 @@
 			}
 		}
 
-		@include respond-to(xm) {
-			display: none;
-		}
+		// @include respond-to(xm) {
+		// 	display: none;
+		// }
 	}
 
 	.f-carousel__dot {
