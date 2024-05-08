@@ -43,11 +43,15 @@
 		overflow-x: scroll;
 
 		@include respond-to(lg) {
-			--column-gap: 70px;
+			--column-gap: 65px;
 			margin-left: -34px;
 			margin-right: -34px;
 			padding-left: 34px;
 			padding-right: 34px;
+		}
+
+		@include respond-to(xxl) {
+			justify-content: center;
 		}
 	}
 
