@@ -96,7 +96,7 @@ $transition-default: 0.25s ease-in-out;
 /// Container's maximum width + paddings
 /// @type Length
 $min-width: 320px !default;
-$max-width: 1280px !default;
+$max-width: 1920px !default;
 $min-padding: 12px !default;
 $max-padding: 16px !default; // 768+ (md)
 
@@ -111,6 +111,7 @@ $breakpoints: (
 	"lg": 1024px, // desktop
 	"xl": 1280px,
 	"xxl": 1440px,
+	"xxxl": 1620px,
 ) !default;
 
 /// Icons base64
