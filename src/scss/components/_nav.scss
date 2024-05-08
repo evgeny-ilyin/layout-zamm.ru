@@ -711,8 +711,10 @@
 	@include respond-to(lg) {
 		position: absolute;
 		top: -100vh;
-		left: calc(90px - $max-padding);
-		right: calc(90px - $max-padding);
+		left: 0;
+		right: 0;
+		// left: calc(90px - $max-padding);
+		// right: calc(90px - $max-padding);
 		padding: 17px 45px 45px;
 		z-index: -1;
 		opacity: 0;
@@ -721,8 +723,8 @@
 	}
 
 	@include respond-to(xl) {
-		left: calc(120px - $max-padding);
-		right: calc(120px - $max-padding);
+		// left: calc(120px - $max-padding);
+		// right: calc(120px - $max-padding);
 	}
 
 	// .menu-dropdown_column
@@ -817,6 +819,10 @@
 		a {
 			padding-top: 9px;
 			padding-bottom: 9px;
+
+			@include when-inside('body:not(.is-touch)') {
+				display: none;
+			}
 		}
 
 		// .category__header_column
@@ -849,7 +855,11 @@
 		}
 
 		@include respond-to(xl) {
-			gap: 4px 60px;
+			grid-template-columns: repeat(4, 1fr);
+		}
+
+		@include respond-to(xxl) {
+			grid-template-columns: repeat(5, 1fr);
 		}
 
 		// .category__list_column
@@ -895,10 +905,11 @@
 			width: 40px;
 			height: 40px;
 			margin: 0 4px 0 2px;
+			mix-blend-mode: multiply;
 		}
 
 		@include respond-to(lg) {
-			height: 68px;
+			height: 84px;
 			font-size: rem(15);
 			background: $white;
 			// transition: background $transition-default;
@@ -908,8 +919,8 @@
 			}
 
 			img {
-				width: 64px;
-				height: 64px;
+				width: 80px;
+				height: 80px;
 				margin-right: 12px;
 			}
 		}
