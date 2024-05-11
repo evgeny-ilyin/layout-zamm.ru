@@ -20,6 +20,10 @@
 		margin-bottom: 70px !important;
 	}
 
+	@include respond-to(xxxl) {
+		--f-carousel-slide-height: 500px;
+	}
+
 	.f-progress {
 		bottom: 0;
 		top: auto;
@@ -507,11 +511,14 @@
 			@include respond-to(md) {
 				width: 60%;
 			}
+			@include respond-to(xxxl) {
+				width: 45%;
+			}
 		}
 
 		.main-slide__bottom {
 			@include respond-to(md) {
-				width: 40%;
+				flex: 1;
 			}
 		}
 
