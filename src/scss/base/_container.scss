@@ -93,6 +93,7 @@
 		@include respond-to(xl) {
 			order: 0;
 			width: 260px;
+			margin-bottom: 30px;
 		}
 	}
 
@@ -122,6 +123,9 @@
  * Inner pages columns (cart, order)
  */
 .order {
+	margin-bottom: 40px;
+	max-width: $max-width-sm;
+
 	@include respond-to(lg) {
 		margin-top: 36px;
 	}
@@ -142,7 +146,7 @@
 
 		@include respond-to(lg) {
 			width: calc(100% - 300px - 57px);
-			max-width: 786px;
+			// max-width: 786px;
 			margin-right: 57px;
 		}
 
