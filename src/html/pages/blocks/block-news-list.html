@@ -47,7 +47,13 @@
 				<!-- если надо сделать ссылку на всей области картинки -->
 				<!-- <a href="javascript:void(0)"> -->
 				<picture>
-					<img src="@img/dev/ideas/idea-6.png" width="831" height="482" alt="" loading="lazy" class="heading__image">
+					<source media="(min-width: 1440px)" srcset="@img/dev/news-list/news-list-1440.webp" type="image/webp">
+					<source media="(min-width: 1280px)" srcset="@img/dev/news-list/news-list-1280.webp" type="image/webp">
+					<source media="(min-width: 1024px)" srcset="@img/dev/news-list/news-list-1024.webp" type="image/webp">
+					<source media="(min-width: 768px)" srcset="@img/dev/news-list/news-list-768.webp" type="image/webp">
+					<source media="(min-width: 577px)" srcset="@img/dev/news-list/news-list-577.webp" type="image/webp">
+					<source srcset="@img/dev/news-list/news-list-320.webp" type="image/webp">
+					<img src="@img/dev/news-list/news-list-1280.jpg" width="1392" height="480" alt="" loading="lazy" class="heading__image">
 				</picture>
 				<!-- </a> -->
 

@@ -18,7 +18,7 @@
 			</div>
 
 			<div class="heading__text">
-				<div class="h1">Добро пожаловать в империю качества Zamm</div>
+				<div class="h1">Мебель ZAMM:<br>на стыке инноваций и&nbsp;комфорта</div>
 			</div>
 			<div class="heading__button">
 				<a href="javascript:void(0)" class="btn btn_yellow">Заказать звонок</a>
@@ -31,6 +31,7 @@
 		<div class="heading__right">
 			<div class="heading__tile">
 				<picture>
+					<source media="(min-width: 1280px)" srcset="@img/dev/about/about-heading-1280.webp" type="image/webp">
 					<source media="(min-width: 1024px)" srcset="@img/dev/about/about-heading-1024.webp" type="image/webp">
 					<source media="(min-width: 768px)" srcset="@img/dev/about/about-heading-768.webp" type="image/webp">
 					<source media="(min-width: 577px)" srcset="@img/dev/about/about-heading-577.webp" type="image/webp">
@@ -123,9 +124,10 @@
 
 		<div class="block-info__header text-white">
 			<div class="block-info__text">
-				<div class="h2">Вопросу качества уделяется слишком мало внимания.</div>
+				<div class="h2">Мебель ZAMM: эталон качества</div>
 			</div>
 			<picture>
+				<source media="(min-width: 1280px)" srcset="@img/dev/about/about-heading-1280.webp" type="image/webp">
 				<source media="(min-width: 1024px)" srcset="@img/dev/about/block-info-1024.webp" type="image/webp">
 				<source media="(min-width: 577px)" srcset="@img/dev/about/block-info-577.webp" type="image/webp">
 				<source srcset="@img/dev/about/block-info-320.webp" type="image/webp">
@@ -214,4 +216,6 @@
 </div>
 
 
-@@include('../blocks/block-showrooms-contacts.html')
+@@include('../blocks/block-showrooms-contacts.html', {
+	"class": ""
+})

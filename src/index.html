@@ -15,13 +15,16 @@
 		})
 		@@include('html/pages/blocks/block-projects.html')
 		@@include('html/pages/blocks/block-product-carousel-simple.html', {
-			"header": "Ещё популярные столы",
-			"id": '',
-			"data-id": ''
-			})
+		"header": "Ещё популярные столы",
+		"id": '',
+		"data-id": ''
+		})
 		<!-- @@include('html/pages/blocks/block-ideas.html') -->
 		@@include('html/pages/blocks/block-about.html')
-		@@include('html/pages/blocks/block-showrooms.html')
+		@@include('html/pages/blocks/block-showrooms-contacts.html', {
+			"class": "_reversed"
+		})
+		<!-- @@include('html/pages/blocks/block-showrooms.html') -->
 	</div>
 
 	@@include('html/footer.html')
