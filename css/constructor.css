@@ -74,6 +74,7 @@
   z-index: 11
 }
 .constructor .filter__body {
+  max-height: none;
   padding: 0
 }
 .constructor .filter__body replaceable-outlet:first-child .filter-group {
@@ -608,15 +609,7 @@ replaceable-outlet.is-replacing {
     width: calc(35% - 16px);
     margin: 0
   }
-  .constructor__options form {
-    position: sticky;
-    top: 100px;
-    margin: 0
-  }
   .constructor .filter {
-    position: sticky;
-    top: 50px;
-    padding: 0 7px;
     max-height: calc(100vh - 75px - 70px)
   }
   .constructor .filter__buttons {

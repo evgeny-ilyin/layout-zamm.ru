@@ -6,6 +6,9 @@
   gap: 8px;
   margin-bottom: 112px
 }
+.showrooms__map {
+  margin-bottom: 50px
+}
 .sr-card {
   background: var(--gray);
   min-height: 204px;

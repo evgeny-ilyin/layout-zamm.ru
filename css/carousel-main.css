@@ -384,7 +384,9 @@
     width: 60%
   }
   .main-slide.clippy .main-slide__bottom {
-    width: 40%
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1
   }
   .main-slide.clippy .main-slide__header {
     font-size: 2.25rem
@@ -490,6 +492,20 @@
   }
   .main-slide.clippy .main-slide__header {
     font-size: 3.75rem
+  }
+}
+@media (min-width:1620px) {
+  .main-carousel {
+    --f-carousel-slide-height: 500px
+  }
+  .main-slide_col-1 .main-slide__text {
+    margin-left: 100px
+  }
+  .main-slide.modern .main-slide__text {
+    padding: 70px 100px 60px
+  }
+  .main-slide.clippy .main-slide__top {
+    width: 45%
   }
 }
 @media (max-width:767px) {

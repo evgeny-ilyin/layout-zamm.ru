@@ -375,7 +375,10 @@
   -ms-flex-pack: center;
   justify-content: center;
   pointer-events: none;
-  text-indent: -999em
+  color: transparent!important
+}
+.btn-loader span::after {
+  opacity: 0
 }
 .btn-loader::before {
   position: absolute;

@@ -14,9 +14,7 @@
   transform: translate(-50%,-50%)
 }
 .carousel-gallery-thumbs img {
-  height: 100%;
-  -o-object-fit: cover;
-  object-fit: cover
+  width: 100%
 }
 .carousel-gallery-thumbs + .f-thumbs:not(.is-modern) {
   --f-thumb-width: 114px;

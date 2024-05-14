@@ -41,3 +41,8 @@
     font-size: 1.125rem
   }
 }
+@media (min-width:1620px) {
+  .publication {
+    max-width: 960px
+  }
+}

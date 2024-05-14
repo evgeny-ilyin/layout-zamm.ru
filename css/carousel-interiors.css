@@ -55,17 +55,18 @@
   .interiors-carousel {
     --f-carousel-slide-width: 75%
   }
-  .interiors-carousel {
-    max-height: 520px;
-    overflow: hidden
-  }
   .interior-name {
     top: 19px;
     left: 24px
   }
 }
-@media (min-width:1280px) {
+@media (min-width:1440px) {
   .interiors-carousel {
-    max-height: 620px
+    --f-carousel-slide-width: 65%
+  }
+}
+@media (min-width:1620px) {
+  .interiors-carousel {
+    --f-carousel-slide-width: 55%
   }
 }

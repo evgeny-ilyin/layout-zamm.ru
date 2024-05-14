@@ -32,7 +32,10 @@
 .heading__right {
   -webkit-box-ordinal-group: 1;
   -ms-flex-order: 0;
-  order: 0
+  order: 0;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1
 }
 .heading__text {
   display: -webkit-box;
@@ -261,6 +264,22 @@
   }
   .heading._high .heading__image {
     min-height: auto
+  }
+}
+@media (min-width:1440px) {
+  .heading {
+    min-height: 520px
+  }
+  .heading__left {
+    width: 520px
+  }
+}
+@media (min-width:1620px) {
+  .heading__left {
+    width: 600px
+  }
+  .heading__right {
+    max-height: 610px
   }
 }
 @media (max-width:1023px) {

@@ -46,3 +46,17 @@
     border-radius: 4px
   }
 }
+@media (min-width:1440px) {
+  .showroom-carousel .f-carousel__slide img {
+    width: 100%
+  }
+}
+@media (min-width:1920px) {
+  .showroom-carousel {
+    --f-carousel-spacing: 0
+  }
+  .showroom-carousel .f-carousel__slide {
+    width: 50%;
+    padding: 0 6px
+  }
+}

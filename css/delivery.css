@@ -284,3 +284,8 @@
     max-width: 542px
   }
 }
+@media (min-width:1440px) {
+  .delivery-pack__text {
+    max-width: none
+  }
+}

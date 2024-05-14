@@ -159,6 +159,11 @@
 .block-showrooms._contacts .btn {
   background: var(--white)
 }
+.block-showrooms._reversed .block-showrooms__image {
+  -webkit-box-ordinal-group: 2;
+  -ms-flex-order: 1;
+  order: 1
+}
 .block-showrooms .btn._dynamic_adapt_ {
   width: auto;
   margin: 16px 12px
@@ -223,5 +228,15 @@
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content
+  }
+}
+@media (min-width:1440px) {
+  .block-showrooms__image {
+    width: 50%
+  }
+}
+@media (min-width:1620px) {
+  .block-showrooms__text {
+    max-width: 70%
   }
 }

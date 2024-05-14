@@ -32,7 +32,6 @@
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  background-color: var(--gray);
   text-decoration: none;
   text-shadow: none;
   border-radius: 4px;
@@ -41,11 +40,12 @@
   transition: all .1s
 }
 .catalog-head-carousel .f-carousel__slide a:hover {
-  background-color: var(--white)
+  background: var(--gray)
 }
 .catalog-head-carousel .f-carousel__slide img {
   border-radius: 4px;
-  width: 100%
+  width: 100%;
+  mix-blend-mode: multiply
 }
 .catalog-head-carousel .f-carousel__slide div {
   padding: 4px 10px 10px;
@@ -198,9 +198,6 @@
   }
 }
 @media (min-width:1024px) {
-  .catalog-head__root {
-    background: var(--gray)
-  }
   .catalog-head__root::after {
     content: "";
     display: block;
@@ -210,9 +207,9 @@
     top: 0;
     bottom: 0;
     opacity: .7;
-    background: -webkit-gradient(linear,right top,left top,from(#f6f8f9),to(rgba(246,248,249,0)));
-    background: -o-linear-gradient(right,#f6f8f9 0,rgba(246,248,249,0) 100%);
-    background: linear-gradient(270deg,#f6f8f9 0,rgba(246,248,249,0) 100%)
+    background: -webkit-gradient(linear,right top,left top,from(#fff),to(rgba(0,0,0,0)));
+    background: -o-linear-gradient(right,#fff 0,rgba(0,0,0,0) 100%);
+    background: linear-gradient(270deg,#fff 0,rgba(0,0,0,0) 100%)
   }
   .catalog-head__root .catalog-head__name {
     padding: 0 32px
@@ -242,6 +239,19 @@
 @media (min-width:1280px) {
   .catalog-bar__btn {
     display: none
+  }
+}
+@media (min-width:1620px) {
+  .catalog-head-carousel .f-carousel__slide div {
+    font-size: 1rem
+  }
+  .catalog-head-carousel {
+    --f-carousel-spacing: 24px;
+    --f-carousel-slide-width: 200px
+  }
+  .catalog-items {
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4,1fr)
   }
 }
 @media (max-width:1279px) {

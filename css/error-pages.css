@@ -5,7 +5,8 @@
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -ms-flex-flow: column wrap;
-  flex-flow: column wrap
+  flex-flow: column wrap;
+  margin-bottom: 50px
 }
 .error-page__col {
   position: relative

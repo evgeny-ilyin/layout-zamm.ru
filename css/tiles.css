@@ -250,3 +250,19 @@
     max-height: none
   }
 }
+@media (min-width:1620px) {
+  .tiles__block .tile:nth-child(4n+1) {
+    height: 580px
+  }
+  .tiles__block .tile:nth-child(4n+2) {
+    height: 580px
+  }
+  .tiles__simple {
+    -ms-grid-columns: (1fr)[4];
+    grid-template-columns: repeat(4,1fr)
+  }
+  .tiles__simple .tile {
+    min-height: auto;
+    height: 450px
+  }
+}

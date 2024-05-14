@@ -600,6 +600,12 @@
     max-width: none
   }
 }
+@media (min-width:1440px) {
+  .order-form__row {
+    -ms-grid-columns: 1fr 3fr;
+    grid-template-columns: 1fr 3fr
+  }
+}
 @media (max-width:1023px) {
   .order-goods-mobile {
     padding: 32px 16px 10px;

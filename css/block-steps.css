@@ -74,7 +74,7 @@
     margin: 0
   }
   .block-steps__list {
-    --column-gap: 70px;
+    --column-gap: 65px;
     margin-left: -34px;
     margin-right: -34px;
     padding-left: 34px;
@@ -97,5 +97,12 @@
     -ms-transform: rotate(315deg);
     -webkit-transform: rotate(315deg);
     transform: rotate(315deg)
+  }
+}
+@media (min-width:1440px) {
+  .block-steps__list {
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center
   }
 }

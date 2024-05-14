@@ -13,9 +13,12 @@
   margin-bottom: 50px;
   padding-bottom: 50px
 }
+.header + .container .content:first-child .banner-content {
+  margin-bottom: 0
+}
 .content__sidebar .banner-content._solid {
   margin-bottom: 0;
-  padding-bottom: 50px
+  padding-bottom: 0
 }
 .banner-content._solid img {
   width: 100%
@@ -153,8 +156,8 @@
     right: -49px;
     width: 50px;
     height: 100%;
-    -webkit-clip-path: polygon(0 0,100% 0,100% 45%,1px 67%,100% 67%,100% 100%,0 100%);
-    clip-path: polygon(0 0,100% 0,100% 45%,1px 67%,100% 67%,100% 100%,0 100%)
+    -webkit-clip-path: polygon(-1px -1px,101% -1px,101% 45%,1px 67%,101% 67%,101% 101%,0 101%);
+    clip-path: polygon(-1px -1px,101% -1px,101% 45%,1px 67%,101% 67%,101% 101%,0 101%)
   }
   .banner-content__header {
     font-size: 1.125rem
@@ -192,6 +195,29 @@
   .banner-content._solid img {
     max-width: none
   }
+  .banner-content__text {
+    width: calc(65% - 50px)
+  }
+  .banner-content__list {
+    margin-left: 80px
+  }
+}
+@media (min-width:1440px) {
+  .banner-content__text {
+    width: calc(68% - 50px);
+    padding-left: 60px
+  }
+  .banner-content__list {
+    margin-left: 100px
+  }
+}
+@media (min-width:1620px) {
+  .banner-content {
+    background-size: auto
+  }
+  .banner-content__text {
+    width: calc(68% - 50px)
+  }
 }
 @media (max-width:1279px) {
   .content__sidebar .banner-content {
@@ -214,7 +240,7 @@
     height: 50px;
     bottom: -49px;
     left: 0;
-    -webkit-clip-path: polygon(0 0,100% 0,100% 100%,160px 100%,110px 1px,110px 100%,0 100%);
-    clip-path: polygon(0 0,100% 0,100% 100%,160px 100%,110px 1px,110px 100%,0 100%)
+    -webkit-clip-path: polygon(0 0,101% 0,101% 101%,160px 101%,110px 1px,110px 101%,0 101%);
+    clip-path: polygon(0 0,101% 0,101% 101%,160px 101%,110px 1px,110px 101%,0 101%)
   }
 }
