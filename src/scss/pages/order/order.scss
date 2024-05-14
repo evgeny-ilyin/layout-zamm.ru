@@ -104,6 +104,10 @@
 			grid-template-columns: 2fr 3fr;
 		}
 
+		@include respond-to(xxl) {
+			grid-template-columns: 1fr 3fr;
+		}
+
 		&:last-child {
 			margin-bottom: 0;
 		}

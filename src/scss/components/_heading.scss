@@ -14,6 +14,10 @@
 		margin-bottom: 8px;
 	}
 
+	@include respond-to(xxl) {
+		min-height: 520px;
+	}
+
 	.label {
 		position: absolute;
 		top: -15px;
@@ -41,14 +45,27 @@
 			padding: 40px 24px 24px;
 			order: 0;
 		}
+
+		@include respond-to(xxl) {
+			width: 520px;
+		}
+
+		@include respond-to(xxxl) {
+			width: 600px;
+		}
 	}
 
 	// .heading__right
 	&__right {
 		order: 0;
+		flex: 1;
 
 		@include respond-to(lg) {
 			order: 1;
+		}
+
+		@include respond-to(xxxl) {
+			max-height: 610px;
 		}
 	}
 

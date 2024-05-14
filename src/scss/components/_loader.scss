@@ -125,7 +125,14 @@
 	align-items: center;
 	justify-content: center;
 	pointer-events: none;
-	text-indent: -999em;
+	color: transparent !important;
+	// text-indent: -999em;
+
+	span {
+		&::after {
+			opacity: 0;
+		}
+	}
 
 	&::before {
 		position: absolute;

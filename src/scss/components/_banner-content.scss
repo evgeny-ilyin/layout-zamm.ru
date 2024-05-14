@@ -11,6 +11,10 @@
 		margin-bottom: 100px;
 	}
 
+	@include respond-to(xxxl) {
+		background-size: auto;
+	}
+
 	@include when-inside(".content__sidebar") {
 		background: none !important;
 		margin-bottom: 50px;
@@ -21,10 +25,15 @@
 		}
 	}
 
+	@include when-inside('.header + .container .content:first-child') {
+		margin-bottom: 0;
+	}
+
 	&._solid {
 		@include when-inside(".content__sidebar") {
 			margin-bottom: 0;
-			padding-bottom: 50px;
+			padding-bottom: 0;
+			// padding-bottom: 50px;
 
 			@include respond-to(xl, "max") {
 				display: none;
@@ -100,6 +109,19 @@
 			align-items: center;
 		}
 
+		@include respond-to(xl) {
+			width: calc(65% - 50px);
+		}
+
+		@include respond-to(xxl) {
+			width: calc(68% - 50px);
+			padding-left: 60px;
+		}
+
+		@include respond-to(xxxl) {
+			width: calc(68% - 50px);
+		}
+
 		@include when-inside(".content__sidebar") {
 			width: 100%;
 			min-width: auto;
@@ -124,7 +146,7 @@
 					height: 50px;
 					bottom: -49px;
 					left: 0;
-					clip-path: polygon(0 0, 100% 0%, 100% 100%, 160px 100%, 110px 1px, 110px 100%, 0 100%);
+					clip-path: polygon(0 0, 101% 0%, 101% 101%, 160px 101%, 110px 1px, 110px 101%, 0 101%);
 				}
 
 				@include respond-to(md) {
@@ -132,7 +154,7 @@
 					right: -49px;
 					width: 50px;
 					height: 100%;
-					clip-path: polygon(0 0, 100% 0, 100% 45%, 1px 67%, 100% 67%, 100% 100%, 0 100%);
+					clip-path: polygon(-1px -1px, 101% -1px, 101% 45%, 1px 67%, 101% 67%, 101% 101%, 0 101%);
 				}
 
 				@include when-inside(".content__sidebar") {
@@ -203,6 +225,14 @@
 
 		@include respond-to(lg) {
 			margin-left: 50px;
+		}
+
+		@include respond-to(xl) {
+			margin-left: 80px;
+		}
+
+		@include respond-to(xxl) {
+			margin-left: 100px;
 		}
 
 		@include when-inside(".content__sidebar") {

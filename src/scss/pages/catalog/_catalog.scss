@@ -6,8 +6,6 @@
 		margin-bottom: 58px;
 
 		@include respond-to(lg) {
-			background: $gray;
-
 			&::after {
 				content: "";
 				display: block;
@@ -17,7 +15,7 @@
 				top: 0;
 				bottom: 0;
 				opacity: 0.7;
-				background: linear-gradient(270deg, #f6f8f9 0%, rgba(246, 248, 249, 0) 100%);
+				background: linear-gradient(270deg, #fff 0%, rgba(0, 0, 0, 0) 100%);
 			}
 		}
 	}
@@ -60,14 +58,15 @@
 			flex-flow: column nowrap;
 			text-align: center;
 			align-items: center;
-			background-color: $gray;
 			text-decoration: none;
 			text-shadow: none;
 			border-radius: 4px;
 			transition: all 0.1s;
+			// border: 2px solid transparent;
 
 			@include on-hover {
-				background-color: $white;
+				// border-color: $black10;
+				background: $gray;
 			}
 
 			@include respond-to(lg, "max") {
@@ -88,6 +87,7 @@
 		img {
 			border-radius: 4px;
 			width: 100%;
+			mix-blend-mode: multiply;
 
 			@include respond-to(lg, "max") {
 				width: 72px;
@@ -104,6 +104,10 @@
 			@include respond-to(lg) {
 				font-size: rem(15);
 				font-weight: 600;
+			}
+
+			@include respond-to(xxxl) {
+				font-size: rem(16);
 			}
 		}
 	}
@@ -133,6 +137,11 @@
 				margin-bottom: 5px;
 			}
 		}
+	}
+
+	@include respond-to(xxxl) {
+		--f-carousel-spacing: 24px;
+		--f-carousel-slide-width: 200px;
 	}
 }
 
@@ -209,6 +218,10 @@
 
 	@include respond-to(lg) {
 		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@include respond-to(xxxl) {
+		grid-template-columns: repeat(4, 1fr);
 	}
 }
 

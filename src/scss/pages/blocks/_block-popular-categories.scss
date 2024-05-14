@@ -108,23 +108,82 @@
 		}
 	}
 
+	// .card__note
+	&__note {
+		font-size: rem(10);
+		margin-top: 5px;
+		max-width: 500px;
+
+		@include respond-to(xm) {
+			font-size: rem(12);
+		}
+
+		@include respond-to(md) {
+			font-size: rem(15);
+			margin-top: 10px;
+		}
+
+		@include respond-to(lg) {
+			font-size: rem(18);
+		}
+
+		@include respond-to(lg) {
+			@include when-inside(".card_smalltext") {
+			}
+		}
+	}
+
+	// .card__price
+	&__price {
+		color: $gray-modern;
+		font-size: rem(14);
+		margin-top: 5px;
+
+		@include respond-to(xm) {
+			font-size: rem(18);
+		}
+
+		@include respond-to(md) {
+			font-size: rem(20);
+			margin-top: 10px;
+		}
+
+		@include respond-to(xl) {
+			font-size: rem(30);
+		}
+
+		@include when-inside(".card_smalltext") {
+			margin-top: 5px;
+
+			@include respond-to(md) {
+				font-size: rem(20);
+			}
+
+			@include respond-to(xl) {
+				font-size: rem(18);
+			}
+		}
+	}
+
 	// .card__image
 	&__image {
 		position: absolute;
-		left: 0;
+		right: 0;
 		bottom: 0;
 		width: auto;
+		height: 90%;
 		max-width: none;
 
-		@include respond-to(xm) {
+		@include respond-to(lg) {
 			max-width: 100%;
+			height: auto;
 		}
 
-		@include when-inside(".card_4") {
-			@include respond-to(lg) {
-				max-width: none;
-			}
-		}
+		// @include when-inside(".card_4") {
+		// 	@include respond-to(lg) {
+		// 		max-width: none;
+		// 	}
+		// }
 
 		// max-width: calc(100% + 32px);
 		// max-width: none;
@@ -173,6 +232,10 @@
 		@include respond-to(lg) {
 			grid-area: 1 / 3 / 4 / 5;
 		}
+
+		@include respond-to(xxxl) {
+			grid-area: 2 / 3 / 4 / 5;
+		}
 	}
 
 	// .card_3
@@ -201,6 +264,25 @@
 		}
 	}
 
+	// .card_5
+	&_5 {
+		display: none;
+
+		@include respond-to(xxxl) {
+			display: block;
+			grid-area: 1 / 3 / 2 / 4;
+		}
+	}
+	// .card_6
+	&_6 {
+		display: none;
+
+		@include respond-to(xxxl) {
+			display: block;
+			grid-area: 1 / 4 / 2 / 5;
+		}
+	}
+
 	// .card_yellow
 	&_yellow {
 		background: $yellow;
@@ -222,12 +304,12 @@
 	}
 
 	// .card_sm-img-right
-	&_sm-img-right {
-		.card__image {
-			@include respond-to(xm, "max") {
-				left: auto;
-				right: 0;
-			}
-		}
-	}
+	// &_sm-img-right {
+	// 	.card__image {
+	// 		@include respond-to(xm, "max") {
+	// 			left: auto;
+	// 			right: 0;
+	// 		}
+	// 	}
+	// }
 }

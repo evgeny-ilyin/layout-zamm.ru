@@ -1,0 +1,26 @@
+.about-texts {
+	// .about-texts__article
+	&__article {
+		margin-bottom: 32px;
+	}
+
+	// .about-texts__article-content
+	&__article-content {
+		margin-top: 32px;
+	}
+
+	.table {
+		border-spacing: 0;
+		margin-top: 24px;
+
+		th {
+			padding: 0 10px 15px;
+			text-align: left;
+		}
+
+		td {
+			border-top: 1px solid #e7e7e7;
+			padding: 15px 10px;
+		}
+	}
+}

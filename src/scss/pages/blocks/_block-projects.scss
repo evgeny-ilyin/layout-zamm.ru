@@ -12,6 +12,16 @@
 		grid-template-columns: repeat(6, 1fr);
 		grid-template-rows: repeat(6, 1fr);
 	}
+
+	@include respond-to(xxxl) {
+		grid-template-columns: repeat(8, 1fr);
+	}
+}
+
+.grid-project-7,
+.grid-project-8,
+.grid-project-9 {
+	display: none;
 }
 
 @include respond-to(md) {
@@ -53,6 +63,42 @@
 	}
 	.grid-project-6 {
 		grid-area: 3 / 5 / 7 / 7;
+	}
+}
+
+@include respond-to(xxxl) {
+	.grid-project-1 {
+		grid-area: 1 / 1 / 3 / 3;
+	}
+	.grid-project-2 {
+		grid-area: 1 / 3 / 3 / 7;
+	}
+	.grid-project-3 {
+		grid-area: 3 / 1 / 5 / 3;
+	}
+	.grid-project-4 {
+		grid-area: 3 / 3 / 5 / 5;
+	}
+	.grid-project-5 {
+		grid-area: 5 / 1 / 7 / 5;
+	}
+
+	// 6th set last
+	.grid-project-6 {
+		grid-area: 3 / 7 / 7 / 9;
+	}
+
+	.grid-project-7 {
+		display: block;
+		grid-area: 3 / 5 / 5 / 7;
+	}
+	.grid-project-8 {
+		display: block;
+		grid-area: 5 / 5 / 7 / 7;
+	}
+	.grid-project-9 {
+		display: block;
+		grid-area: 1 / 7 / 3 / 9;
 	}
 }
 

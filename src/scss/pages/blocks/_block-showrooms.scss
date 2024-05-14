@@ -171,11 +171,15 @@
 			margin-right: 5px;
 		}
 	}
-	//**/
+
 	// .block-showrooms__image
 	&__image {
 		position: relative;
 		min-height: 332px;
+
+		@include respond-to(xxl) {
+			width: 50%;
+		}
 
 		img {
 			position: absolute;
@@ -206,6 +210,10 @@
 		@include respond-to(lg) {
 			height: auto;
 			padding: 32px;
+		}
+
+		@include respond-to(xxxl) {
+			max-width: 70%;
 		}
 	}
 
@@ -247,6 +255,12 @@
 			@include respond-to(lg) {
 				width: fit-content;
 			}
+		}
+	}
+
+	&._reversed {
+		.block-showrooms__image {
+			order: 1;
 		}
 	}
 

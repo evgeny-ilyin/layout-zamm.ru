@@ -58,6 +58,24 @@
 			}
 		}
 
+		@include respond-to(xxxl) {
+			.tile:nth-child(4n + 1) {
+				// width: calc(50% - 16px);
+				height: 580px;
+			}
+
+			.tile:nth-child(4n + 2) {
+				// width: calc(50% - 16px);
+				height: 580px;
+			}
+
+			.tile:nth-child(4n + 3),
+			.tile:nth-child(4n + 4) {
+				// width: calc(50% - 16px);
+				// height: 450px;
+			}
+		}
+
 		.tile__image {
 			border-radius: 2px;
 		}
@@ -78,6 +96,10 @@
 			grid-template-columns: repeat(3, 1fr);
 		}
 
+		@include respond-to(xxxl) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+
 		.tile {
 			margin: 0;
 
@@ -87,6 +109,11 @@
 
 			@include respond-to(lg) {
 				min-height: 480px;
+			}
+
+			@include respond-to(xxxl) {
+				min-height: auto;
+				height: 450px;
 			}
 		}
 	}

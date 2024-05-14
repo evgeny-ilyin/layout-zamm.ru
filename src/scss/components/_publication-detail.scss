@@ -1,6 +1,10 @@
 .publication {
 	max-width: 720px;
 
+	@include respond-to(xxxl) {
+		max-width: 960px;
+	}
+
 	// .publication__tags
 	&__tags {
 		display: flex;

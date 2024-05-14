@@ -168,6 +168,10 @@
 		margin-bottom: 50px;
 	}
 
+	// @include respond-to(xxl) {
+	// 	width: 405px;
+	// }
+
 	// .cart-total__header
 	&__header {
 		font-size: rem(20);

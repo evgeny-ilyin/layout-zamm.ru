@@ -17,6 +17,10 @@
 		padding-top: 80px;
 	}
 
+	@include respond-to(xl) {
+		padding-top: 140px;
+	}
+
 	// .banner-block__text
 	&__text {
 		padding: 20px 16px;
@@ -127,6 +131,10 @@
 
 			@include respond-to(lg) {
 				width: 515px;
+			}
+
+			@include respond-to(xl) {
+				width: 588px;
 			}
 		}
 

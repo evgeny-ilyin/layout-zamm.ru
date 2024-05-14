@@ -372,6 +372,9 @@
 		@include respond-to(xl) {
 			max-width: 542px;
 		}
+		@include respond-to(xxl) {
+			max-width: none;
+		}
 	}
 
 	// .delivery-pack__image
