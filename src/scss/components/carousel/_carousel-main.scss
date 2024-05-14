@@ -83,6 +83,10 @@
 				width: 60%;
 				margin: 35px 0 57px 64px;
 			}
+
+			@include respond-to(xxxl) {
+				margin-left: 100px;
+			}
 		}
 
 		@include when-inside(".main-slide_col-2") {
@@ -292,6 +296,10 @@
 
 			@include respond-to(lg) {
 				padding: 70px 50px 60px;
+			}
+
+			@include respond-to(xxxl) {
+				padding: 70px 100px 60px;
 			}
 		}
 

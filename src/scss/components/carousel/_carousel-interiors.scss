@@ -10,14 +10,22 @@
 		--f-carousel-slide-width: 75%;
 	}
 
+	@include respond-to(xxl) {
+		--f-carousel-slide-width: 65%;
+	}
+
+	@include respond-to(xxxl) {
+		--f-carousel-slide-width: 55%;
+	}
+
 	// для избегания показа следующих слайдов по вертикали при загрузке страницы
 	@include respond-to(lg) {
-		max-height: 520px;
-		overflow: hidden;
+		// max-height: 520px;
+		// overflow: hidden;
 	}
 
 	@include respond-to(xl) {
-		max-height: 620px;
+		// max-height: 620px;
 	}
 
 	.f-carousel__track {
