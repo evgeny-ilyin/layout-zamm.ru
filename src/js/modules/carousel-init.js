@@ -6,16 +6,14 @@ if (!window.carouselsInit) {
 			GOTO: "Перейти к слайду #%d",
 		};
 
-		Carousel.defaults = {
-			...Carousel.defaults,
-			infinite: false,
-			center: false,
-			preload: 1,
-			// slidesPerPage: 1,
-			l10n: fRU,
-			Thumbs: {
-				type: "classic",
-			},
+		Carousel.defaults.infinite = false;
+		Carousel.defaults.center = false;
+		Carousel.defaults.preload = 1;
+		Carousel.defaults.slidesPerPage = 1;
+		// Carousel.defaults.dragFree = true;
+		Carousel.defaults.l10n = fRU;
+		Carousel.defaults.Thumbs = {
+			type: "classic",
 		};
 
 		const next = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18"><path d="M10.452 1 18 9m0 0-7.548 8M18 9H0"/></svg>`,
@@ -46,7 +44,7 @@ if (!window.carouselsInit) {
 			let thumbsOptionsVertical = {
 				Carousel: {
 					axis: "y",
-				}
+				},
 			};
 
 			// console.log(Object.keys( carousel.dataset ));
@@ -60,7 +58,7 @@ if (!window.carouselsInit) {
 				Object.assign(plugins, { Autoplay });
 			}
 
-			if(carousel.dataset.thumbsVertical == "true") {
+			if (carousel.dataset.thumbsVertical == "true") {
 				thumbsOptions = thumbsOptionsVertical;
 			}
 
@@ -129,7 +127,6 @@ if (!window.carouselsInit) {
 				{ Thumbs }
 			);
 		}
-
 
 		// popup galleries like a product main photo gallery
 		let popupGalleries = document.querySelectorAll(".js-popup-gallery-wrap");
