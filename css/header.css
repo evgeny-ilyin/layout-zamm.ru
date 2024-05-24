@@ -323,8 +323,7 @@ svg {
   width: 100%
 }
 .order {
-  margin-bottom: 40px;
-  max-width: 1280px
+  margin-bottom: 40px
 }
 .order__wrapper {
   display: -webkit-box;

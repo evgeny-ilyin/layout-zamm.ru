@@ -95,6 +95,14 @@
 .subscription__form {
   margin-top: 23px
 }
+.made-by {
+  margin-top: 15px;
+  font-size: .8125rem;
+  color: var(--black60)
+}
+.made-by a {
+  color: var(--black60)
+}
 .accordion__item {
   border-radius: 8px;
   background: var(--white);

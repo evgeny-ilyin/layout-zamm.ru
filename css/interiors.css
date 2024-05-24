@@ -62,7 +62,6 @@
 }
 @media (min-width:1280px) {
   .interior-single-image {
-    max-width: 1248px;
     margin: 0 auto;
     --bg-full: var(--gray);
     background-color: var(--gray);
