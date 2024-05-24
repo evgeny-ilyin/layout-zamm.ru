@@ -44,9 +44,6 @@
   text-shadow: none!important;
   color: inherit!important
 }
-.content__sidebar .banner-content__link {
-  pointer-events: auto!important
-}
 .banner-content__text {
   width: 100%;
   padding: 30px;
@@ -170,9 +167,6 @@
   }
 }
 @media (min-width:1024px) {
-  .banner-content:not(._solid) .banner-content__link {
-    pointer-events: none
-  }
   .banner-content__text {
     width: calc(60% - 50px);
     min-width: 700px;
