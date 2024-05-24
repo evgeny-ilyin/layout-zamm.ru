@@ -78,15 +78,15 @@
 		text-shadow: none !important;
 		color: inherit !important;
 
-		@include when-inside(".banner-content:not(._solid)") {
-			@include respond-to(lg) {
-				pointer-events: none;
-			}
-		}
+		// @include when-inside(".banner-content:not(._solid)") {
+		// 	@include respond-to(lg) {
+		// 		pointer-events: none;
+		// 	}
+		// }
 
-		@include when-inside(".content__sidebar") {
-			pointer-events: auto !important;
-		}
+		// @include when-inside(".content__sidebar") {
+		// 	pointer-events: auto !important;
+		// }
 	}
 
 	// .banner-content__text

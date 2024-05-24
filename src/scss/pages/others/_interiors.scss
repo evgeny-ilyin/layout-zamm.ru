@@ -2,7 +2,7 @@
 	position: relative;
 
 	@include respond-to(xl) {
-		max-width: 1248px;
+		// max-width: 1248px;
 		margin: 0 auto;
 		--bg-full: #{$gray};
 		background-color: $gray;

@@ -124,7 +124,7 @@
  */
 .order {
 	margin-bottom: 40px;
-	max-width: $max-width-sm;
+	// max-width: $max-width-sm;
 
 	@include respond-to(lg) {
 		margin-top: 36px;
