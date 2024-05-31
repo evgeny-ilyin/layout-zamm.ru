@@ -118,6 +118,12 @@
 			// padding-bottom: 25px;
 		}
 
+		button[type="submit"] {
+			@include when-inside("body:not(.is-touch)") {
+				display: none;
+			}
+		}
+
 		// .btn_reset:not(.invisible) {
 		.btn_reset {
 			margin-bottom: 20px;
