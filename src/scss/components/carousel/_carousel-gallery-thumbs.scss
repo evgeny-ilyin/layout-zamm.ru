@@ -12,6 +12,7 @@
 	--f-carousel-slide-height: auto;
 	margin-top: 36px;
 	position: relative;
+	flex: 1;
 
 	.f-spinner {
 		position: absolute;
@@ -21,9 +22,19 @@
 	}
 
 	img {
+		// width: 100%;
 		// height: 100%;
 		// object-fit: cover;
-		width: 100%;
+		width: auto;
+		height: 100%;
+	}
+
+	.item-note {
+		margin: 0 auto;
+
+		&:empty {
+			display: none;
+		}
 	}
 
 	& + .f-thumbs:not(.is-modern) {
