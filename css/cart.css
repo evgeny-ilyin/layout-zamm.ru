@@ -239,7 +239,7 @@
 .amount-element input[type=number] {
   cursor: default;
   background: var(--white);
-  width: 25px;
+  width: 35px;
   height: 20px;
   padding: 0;
   text-align: center;

@@ -911,6 +911,14 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   margin-top: 0;
   margin-bottom: 0
 }
+.js-dragging:hover {
+  cursor: -webkit-grabbing!important;
+  cursor: grabbing!important
+}
+.js-dragging a:hover {
+  cursor: -webkit-grabbing!important;
+  cursor: grabbing!important
+}
 .header-alert {
   font-size: .8125rem;
   padding: 12px 0;
@@ -1954,6 +1962,24 @@ body:not(.is-touch) .category__header a {
 }
 .btn_yellow-dark:active span::after {
   opacity: .5
+}
+.btn_coral-dark {
+  background: var(--red-coral-dark);
+  -webkit-box-shadow: 0 0 0 1px var(--red-coral-dark);
+  box-shadow: 0 0 0 1px var(--red-coral-dark)
+}
+.btn_coral-dark:hover {
+  background: var(--red-coral);
+  -webkit-box-shadow: 0 0 0 1px var(--red-coral);
+  box-shadow: 0 0 0 1px var(--red-coral)
+}
+.btn_coral-dark:active {
+  -webkit-box-shadow: 0 0 0 1px var(--black60);
+  box-shadow: 0 0 0 1px var(--black60);
+  color: var(--black60)!important
+}
+.btn_coral-dark:active span::after {
+  opacity: .6
 }
 .btn_white {
   background: var(--white);
@@ -3753,7 +3779,7 @@ input[type=file]:focus-visible ~ span {
   -ms-flex-align: center;
   align-items: center;
   font-size: .8125rem;
-  line-height: 1.3
+  line-height: 1.2
 }
 .available::before {
   content: "";

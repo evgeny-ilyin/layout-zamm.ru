@@ -23,6 +23,9 @@
 .carousel-gallery-thumbs .item-note {
   margin: 0 auto
 }
+.carousel-gallery-thumbs .item-note:empty {
+  display: none
+}
 .carousel-gallery-thumbs + .f-thumbs:not(.is-modern) {
   --f-thumb-width: 114px;
   --f-thumb-height: 64px;

@@ -37,6 +37,10 @@
   -o-transition: all .25s ease-in-out;
   transition: all .25s ease-in-out
 }
+.js-dragging .furniture__item {
+  cursor: -webkit-grabbing!important;
+  cursor: grabbing!important
+}
 .furniture__item > a {
   display: -webkit-box;
   display: -ms-flexbox;
