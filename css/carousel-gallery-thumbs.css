@@ -3,7 +3,10 @@
   --f-carousel-slide-width: 100%;
   --f-carousel-slide-height: auto;
   margin-top: 36px;
-  position: relative
+  position: relative;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  flex: 1
 }
 .carousel-gallery-thumbs .f-spinner {
   position: absolute;
