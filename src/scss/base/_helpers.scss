@@ -376,3 +376,12 @@
 	margin-top: 0;
 	margin-bottom: 0;
 }
+
+// drag
+.js-dragging:hover {
+	cursor: grabbing !important;
+}
+
+.js-dragging a:hover {
+	cursor: grabbing !important;
+}

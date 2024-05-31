@@ -49,6 +49,10 @@
 		cursor: pointer;
 		transition: all $transition-default;
 
+		@include when-inside(".js-dragging") {
+			cursor: grabbing !important;
+		}
+
 		& > a {
 			display: flex;
 			align-items: center;
