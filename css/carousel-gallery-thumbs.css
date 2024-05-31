@@ -17,7 +17,11 @@
   transform: translate(-50%,-50%)
 }
 .carousel-gallery-thumbs img {
-  width: 100%
+  width: auto;
+  height: 100%
+}
+.carousel-gallery-thumbs .item-note {
+  margin: 0 auto
 }
 .carousel-gallery-thumbs + .f-thumbs:not(.is-modern) {
   --f-thumb-width: 114px;
