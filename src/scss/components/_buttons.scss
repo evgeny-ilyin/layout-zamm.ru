@@ -175,6 +175,29 @@
 		}
 	}
 
+	// .btn_coral-dark
+	&_coral-dark {
+		background: $red-coral-dark;
+		box-shadow: 0 0 0 1px $red-coral-dark;
+
+		@include on-hover {
+			background: $red-coral;
+			box-shadow: 0 0 0 1px $red-coral;
+		}
+		@include on-active {
+			box-shadow: 0 0 0 1px $black60;
+			color: $black60 !important;
+			span::after {
+				opacity: 0.6;
+			}
+		}
+		@include on-focus {
+			// box-shadow: 0 0 0 1px $black60 inset, 0 0 0 6px $black10;
+		}
+		@include on-disabled {
+		}
+	}
+
 	// .btn_white
 	&_white {
 		background: $white;
