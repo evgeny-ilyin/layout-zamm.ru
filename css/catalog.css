@@ -284,12 +284,11 @@
     object-fit: cover
   }
   .catalog-head-carousel {
+    --grid-w: 140px;
     display: -ms-grid;
     display: grid;
     gap: 8px;
-    grid-auto-flow: column;
-    -ms-grid-rows: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(auto-fill,minmax(var(--grid-w),1fr));
     overflow-x: auto
   }
 }

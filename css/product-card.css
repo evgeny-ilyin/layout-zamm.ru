@@ -774,7 +774,7 @@
 }
 .r-body p {
   margin-bottom: 8px;
-  max-width: 540px;
+  max-width: 90%;
   overflow-wrap: anywhere;
   word-break: break-word
 }

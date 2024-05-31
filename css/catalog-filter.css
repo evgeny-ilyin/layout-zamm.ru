@@ -327,6 +327,9 @@
   position: sticky;
   bottom: 0
 }
+body:not(.is-touch) .filter__buttons button[type=submit] {
+  display: none
+}
 .filter__buttons .btn_reset {
   margin-bottom: 20px
 }
