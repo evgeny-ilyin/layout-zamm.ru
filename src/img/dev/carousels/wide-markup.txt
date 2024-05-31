@@ -1,0 +1,10 @@
+<picture>
+	<source media="(min-width: 1620px)" srcset="@img/dev/carousels/new-carousel-wide-1620.jpg" type="image/webp" />
+	<source media="(min-width: 1440px)" srcset="@img/dev/carousels/new-carousel-wide-1440.jpg" type="image/webp" />
+	<source media="(min-width: 1280px)" srcset="@img/dev/carousels/new-carousel-wide-1280.jpg" type="image/webp" />
+	<source media="(min-width: 1024px)" srcset="@img/dev/carousels/new-carousel-wide-1024.jpg" type="image/webp" />
+	<source media="(min-width: 768px)" srcset="@img/dev/carousels/new-carousel-wide-768.jpg" type="image/webp" />
+	<source media="(min-width: 577px)" srcset="@img/dev/carousels/new-carousel-wide-577.jpg" type="image/webp" />
+	<source srcset="@img/dev/carousels/new-carousel-wide-320.jpg" type="image/webp" />
+	<img src="@img/dev/carousels/new-carousel-wide-1620.jpg" width="1888" height="500" alt="" loading="lazy" />
+</picture>
