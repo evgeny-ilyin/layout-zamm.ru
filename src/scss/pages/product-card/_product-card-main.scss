@@ -92,7 +92,7 @@
 		form {
 			@include respond-to(lg) {
 				position: sticky;
-				top: 100px;
+				top: 75px;
 				margin-right: -5px;
 				max-height: calc(100vh - 180px);
 				max-height: calc(100dvh - 180px);
@@ -339,7 +339,7 @@
 	&__top {
 		display: flex;
 		flex-flow: row wrap;
-		align-items: flex-end;
+		align-items: center;
 		margin-bottom: 5px;
 
 		@include respond-to(lg) {
@@ -353,11 +353,12 @@
 
 		.article {
 			border: 0;
-			margin: 0;
+			margin: 0 0 5px;
 			padding: 0;
 			background: transparent;
 			min-height: auto;
 			font-size: rem(13);
+			line-height: 1.2;
 			color: $black60;
 		}
 	}
@@ -1070,7 +1071,7 @@
 
 	p {
 		margin-bottom: 8px;
-		max-width: 540px;
+		max-width: 90%;
 		overflow-wrap: anywhere;
 		word-break: break-word; // deprecated
 	}
