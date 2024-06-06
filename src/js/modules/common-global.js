@@ -120,7 +120,7 @@ if (!window.updateChunks) {
 			Object.entries(obj).forEach(([key, value]) => {
 				// execute js code
 				if (key == "eval") {
-					let cleanValue = value.replace(/^<script.*?>|<\/script>$/g, '');
+					let cleanValue = value.replace(/^<script.*?>|<\/script>$/g, "");
 					eval(cleanValue);
 					return;
 				}
@@ -470,5 +470,19 @@ if (!window.overflowTags) {
 				btn.classList.remove("hidden");
 			}
 		});
+	};
+}
+
+if (!window.stopVideo) {
+	window.stopVideo = (element) => {
+		let iframe = element.querySelector("iframe"),
+			video = element.querySelector("video");
+		if (iframe) {
+			let iframeSrc = iframe.src;
+			iframe.src = iframeSrc;
+		}
+		if (video) {
+			video.pause();
+		}
 	};
 }

@@ -516,6 +516,7 @@ export function sectionClose() {
 		if (target) {
 			overlay(0);
 			resetTopOffset();
+			stopVideo(target);
 			target.classList.remove(isActiveClass);
 		}
 	});
