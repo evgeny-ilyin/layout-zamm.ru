@@ -76,7 +76,7 @@
 .popup-gallery.is-active {
   display: block;
   z-index: 11;
-  padding-top: 15px
+  padding: 15px 0
 }
 .popup-gallery.is-active::before {
   content: "";
@@ -95,10 +95,8 @@
 :root {
   --product-view-height: calc(85vh - 100px)
 }
-.photos .gallery-thumbs-popup {
-  height: var(--product-view-height,100%);
-  min-height: 300px;
-  max-height: 650px
+.gallery-thumbs-popup {
+  min-height: 100%
 }
 .gallery-thumbs-popup .f-spinner {
   position: absolute;
@@ -129,8 +127,6 @@
   --f-thumb-height: 64px
 }
 .gallery-thumbs-popup + .f-thumbs:not(.is-modern) .f-thumbs__slide .f-thumbs__slide__img {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
   border: 1px solid transparent;
   border-radius: 4px;
   -webkit-transition: border-color .2s ease;
@@ -147,20 +143,13 @@
   border-radius: 4px
 }
 .gallery-thumbs-popup + .f-thumbs:not(.is-modern) .f-thumbs__slide__img {
-  -o-object-fit: contain;
-  object-fit: contain;
   background: var(--gray);
   width: auto;
   margin: 0 auto
 }
-.gallery-thumbs-popup + .f-thumbs.is-classic.is-vertical {
-  height: var(--product-view-height,100%);
-  min-height: 300px;
-  max-height: 650px
-}
 .gallery-thumbs-popup + .f-thumbs.is-classic {
-  --f-thumb-width: 195px;
-  --f-thumb-height: 115px;
+  --f-thumb-width: 117px;
+  --f-thumb-height: 117px;
   --f-thumb-gap: 12px
 }
 .gallery-thumbs-popup + .f-thumbs.is-classic .f-carousel__nav .f-button[disabled] {
@@ -243,11 +232,6 @@
     --f-thumb-width: 135px;
     --f-thumb-height: 180px;
     width: 151px
-  }
-  .gallery-thumbs-popup .f-carousel__slide {
-    height: var(--product-view-height,100%);
-    min-height: 300px;
-    max-height: 650px
   }
 }
 @media (min-width:1280px) {

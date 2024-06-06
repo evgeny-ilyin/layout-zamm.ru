@@ -327,7 +327,7 @@
   position: sticky;
   bottom: 0
 }
-body:not(.is-touch) .filter__buttons button[type=submit] {
+body:not(.is-touch) .filter__buttons button[type=button] {
   display: none
 }
 .filter__buttons .btn_reset {

@@ -1206,7 +1206,9 @@
 }
 .f-carousel__slide iframe {
   display: block;
-  margin: 0 auto
+  margin: 0 auto;
+  width: 100%;
+  height: 100%
 }
 @media (min-width:1280px) {
   .carousel-top-nav .f-carousel__nav {

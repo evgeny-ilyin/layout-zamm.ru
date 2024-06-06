@@ -51,7 +51,6 @@
   margin: 0 30px 15px 0
 }
 .product__photos {
-  display: none;
   position: relative;
   margin-bottom: 64px
 }
@@ -76,6 +75,15 @@
 }
 .product__gallery-showall a:hover {
   text-shadow: none
+}
+.product__main-gallery._vertical {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row
 }
 .product__3d {
   margin-bottom: 64px;
@@ -379,7 +387,14 @@
   object-fit: cover
 }
 .photos {
-  height: 100%
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column
 }
 .photos__head {
   position: relative;
@@ -423,8 +438,8 @@
   right: -10px;
   z-index: 1
 }
-.photos__carousel .f-carousel {
-  margin-bottom: 30px
+.photos__carousel {
+  height: calc(100% - 50px)
 }
 .props-wrapper {
   display: -ms-grid;
@@ -1068,6 +1083,9 @@
   }
 }
 @media (min-width:768px) {
+  .product__main-gallery {
+    overflow-x: hidden
+  }
   .product .equip__row {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -1144,9 +1162,6 @@
     font-size: 1.5rem;
     margin-right: 0
   }
-  .product__photos {
-    display: block
-  }
   .product__gallery-preview {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1177,6 +1192,9 @@
   .product__gallery-preview > div:first-child img {
     max-height: 465px
   }
+  .product__main-gallery {
+    overflow-x: auto
+  }
   .product__content-gallery {
     overflow-x: auto;
     margin-bottom: 125px
@@ -1194,14 +1212,17 @@
     display: -ms-grid;
     display: grid;
     gap: 50px;
-    -ms-grid-columns: 195px minmax(0,1fr);
-    grid-template-columns: 195px minmax(0,1fr)
+    -ms-grid-columns: 117px minmax(0,1fr);
+    grid-template-columns: 117px minmax(0,1fr)
   }
   .reviews__row {
     padding: 16px 24px
   }
 }
 @media (min-width:1280px) {
+  .product__photos .labels {
+    left: 140px
+  }
   .product__3d {
     padding: 14px 14px 14px 24px
   }
