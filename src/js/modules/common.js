@@ -909,6 +909,21 @@ export function contentGalleryPopup() {
 }
 
 export function changeAmount() {
+	// document.addEventListener("keyup", (e) => {
+	// 	if (e.target.closest(".amount-element")) {
+	// 		let inputNumber = e.target;
+	// 		let change = new Event("change", { bubbles: true });
+	// 		inputNumber.dispatchEvent(change);
+	// 	}
+	// });
+
+	document.addEventListener("keydown", (e) => {
+		if (e.target.closest(".amount-element") && e.target.tagName == "INPUT" && e.key == "Enter") {
+			e.preventDefault();
+			e.target.blur();
+		}
+	});
+
 	document.addEventListener("click", (e) => {
 		if (e.target.classList.contains("js-btn-minus")) {
 			let inputNumber = e.target.nextElementSibling;

@@ -124,7 +124,7 @@ try {
 	<div class="product__amount">
 		<div class="amount-element">
 			<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
-			<input type="number" name="amount" readonly min="1" max="20" step="1" value="1" aria-label="Количество" />
+			<input type="number" name="amount" min="1" max="20" step="1" value="1" aria-label="Количество" />
 			<button type="button" class="js-btn-plus" aria-label="Больше"></button>
 		</div>
 	</div>';
