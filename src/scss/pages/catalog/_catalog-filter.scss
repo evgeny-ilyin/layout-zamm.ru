@@ -118,7 +118,7 @@
 			// padding-bottom: 25px;
 		}
 
-		button[type="submit"] {
+		button[type="button"] {
 			@include when-inside("body:not(.is-touch)") {
 				display: none;
 			}
