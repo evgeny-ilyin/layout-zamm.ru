@@ -141,38 +141,6 @@ if (!window.carouselsInit) {
 			);
 		}
 
-		// productPhotos v1
-		/*
-		if (productPhotos && !productPhotos.classList.contains("is-ltr")) {
-			// exist and not initialized yet
-			new Carousel(
-				productPhotos,
-				{
-					transition: "classic",
-					preload: 3,
-					Navigation: false,
-					Thumbs: false,
-					breakpoints: {
-						"(min-width: 1024px)": {
-							Dots: false,
-							Thumbs: {
-								type: "classic",
-								Carousel: {
-									Navigation: {
-										nextTpl: next,
-										prevTpl: prev,
-									},
-									axis: "y",
-								},
-							},
-						},
-					},
-				},
-				{ Thumbs }
-			);
-		}
-		*/
-
 		// popup galleries like a product main photo gallery
 		let popupGalleries = document.querySelectorAll(".js-popup-gallery-wrap");
 
@@ -207,7 +175,6 @@ if (!window.carouselsInit) {
 					on: {
 						"*": (instance) => {
 							thumbIcon(gallery, instance)
-							// console.log(`Carousel eventName: ${eventName}`);
 						},
 					},
 				},
