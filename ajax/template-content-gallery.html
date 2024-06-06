@@ -1,3 +1,10 @@
+<!--
+		Отличия от шаблона основной галереи товара:
+		удалено: data-da=".product__details,1023,first" из div class="photos__carousel"
+		удалено: id="productPhotos" из class="f-carousel gallery-thumbs-popup"
+		замена:  "f-carousel carousel-product-card" на "f-carousel gallery-thumbs-popup js-popup-gallery-wrap"
+-->
+
 <div class="container">
 	<div class="content photos">
 
@@ -7,13 +14,6 @@
 				<button type="button" class="btn btn_close btn_close-xl js-close" aria-label="Закрыть"></button>
 			</div>
 		</div>
-
-		<!--
-		Отличия от шаблона основной галереи товара:
-		удалено: data-da=".product__details,1023,first" из div class="photos__carousel"
-		удалено: id="productPhotos" из class="f-carousel gallery-thumbs-popup"
-		замена:  "f-carousel carousel-product-card" на "f-carousel gallery-thumbs-popup js-popup-gallery-wrap"
-		-->
 
 		<div class="photos__carousel">
 			<div class="f-carousel gallery-thumbs-popup js-popup-gallery-wrap">
@@ -38,6 +38,9 @@
 				</div>
 				<div class="f-carousel__slide" data-thumb-src="https://source.unsplash.com/random/1000x650/?table&v45">
 					<img data-lazy-src="https://source.unsplash.com/random/1000x650/?table&v45" width="1000" height="650" alt="" />
+				</div>
+				<div class="f-carousel__slide" data-video="true" data-thumb-src="https://img.youtube.com/vi/BbGmMjo3yEA/hqdefault.jpg">
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/BbGmMjo3yEA?rel=0&color=white" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 				</div>
 			</div>
 		</div>

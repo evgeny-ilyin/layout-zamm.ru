@@ -155,7 +155,7 @@
 	&.is-active {
 		display: block;
 		z-index: 11;
-		padding-top: 15px;
+		padding: 15px 0;
 
 		&::before {
 			content: "";
@@ -181,10 +181,12 @@
 }
 
 .gallery-thumbs-popup {
+	min-height: 100%;
+
 	@include when-inside(".photos") {
-		height: var(--product-view-height, 100%);
-		min-height: 300px;
-		max-height: 650px;
+		// height: var(--product-view-height, 100%);
+		// min-height: 300px;
+		// max-height: 650px;
 	}
 
 	.f-spinner {
@@ -206,9 +208,9 @@
 		// align-items: flex-start;
 
 		@include respond-to(lg) {
-			height: var(--product-view-height, 100%);
-			min-height: 300px;
-			max-height: 650px;
+			// height: var(--product-view-height, 100%);
+			// min-height: 300px;
+			// max-height: 650px;
 		}
 
 		img {
@@ -227,7 +229,6 @@
 
 		.f-thumbs__slide {
 			.f-thumbs__slide__img {
-				box-sizing: border-box;
 				border: 1px solid transparent;
 				border-radius: 4px;
 				transition: border-color 0.2s ease;
@@ -251,7 +252,6 @@
 		}
 
 		.f-thumbs__slide__img {
-			object-fit: contain;
 			background: $gray;
 			width: auto;
 			margin: 0 auto;
@@ -259,14 +259,14 @@
 	}
 
 	& + .f-thumbs.is-classic.is-vertical {
-		height: var(--product-view-height, 100%);
-		min-height: 300px;
-		max-height: 650px;
+		// height: var(--product-view-height, 100%);
+		// min-height: 300px;
+		// max-height: 650px;
 	}
 
 	& + .f-thumbs.is-classic {
-		--f-thumb-width: 195px;
-		--f-thumb-height: 115px;
+		--f-thumb-width: 117px;
+		--f-thumb-height: 117px;
 		--f-thumb-gap: 12px;
 	}
 

@@ -100,16 +100,19 @@ if (!window.carouselsInit) {
 		let productPhotos = document.getElementById("productPhotos");
 
 		if (productPhotos && !productPhotos.classList.contains("is-ltr")) {
-			// exist and not initialized already
+			// exist and not initialized yet
 			new Carousel(
 				productPhotos,
 				{
 					transition: "classic",
+					slidesPerPage: 1,
 					preload: 3,
-					Navigation: false,
+					Navigation: true,
+					Dots: true,
 					Thumbs: false,
 					breakpoints: {
-						"(min-width: 1024px)": {
+						"(min-width: 1280px)": {
+							Navigation: false,
 							Dots: false,
 							Thumbs: {
 								type: "classic",
@@ -121,6 +124,11 @@ if (!window.carouselsInit) {
 									axis: "y",
 								},
 							},
+						},
+					},
+					on: {
+						load: (instance) => {
+							thumbIcon(productPhotos, instance)
 						},
 					},
 				},
@@ -159,11 +167,26 @@ if (!window.carouselsInit) {
 							},
 						},
 					},
+					on: {
+						"*": (instance) => {
+							thumbIcon(gallery, instance)
+						},
+					},
 				},
 				{ Thumbs }
 			);
 		});
 	};
+}
+
+function thumbIcon(gallery, instance) {
+	let slides = instance.slides;
+	slides.forEach((slide) => {
+		if (slide.el.getAttribute("data-video") === "true") {
+			let index = slide.el.getAttribute("data-index");
+			gallery.parentElement.querySelectorAll(`.f-thumbs__slide[data-index="${index}"]`).forEach((e) => e.classList.add("thumb-video"));
+		}
+	});
 }
 
 /**
