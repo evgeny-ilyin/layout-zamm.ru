@@ -336,6 +336,55 @@
 		}
 	}
 
+	&._video {
+		position: relative;
+		min-height: 307px;
+
+		// @include respond-to() {
+		// }
+
+		@include respond-to(md) {
+			min-height: 307px;
+		}
+
+		@include respond-to(lg) {
+			min-height: 420px;
+		}
+
+		@include respond-to(xl) {
+			min-height: 525px;
+		}
+
+		@include respond-to(xxl) {
+			min-height: 595px;
+		}
+
+		@include respond-to(xxxl) {
+			min-height: 674px;
+		}
+
+		@include respond-to(wide) {
+			min-height: 775px;
+		}
+
+		.heading__left {
+			background: none;
+		}
+
+		.heading__right {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			max-height: none;
+		}
+
+		video {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+
 	// &.text-white {
 	// 	text-shadow: 1px 1px 3px $black60;
 	// }
