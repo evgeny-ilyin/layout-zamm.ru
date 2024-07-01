@@ -132,7 +132,7 @@ if (!window.carouselsInit) {
 						},
 					},
 					on: {
-						load: (instance) => {
+						"*": (instance) => {
 							thumbIcon(productPhotos, instance)
 						},
 					},
