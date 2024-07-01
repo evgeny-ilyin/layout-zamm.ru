@@ -844,6 +844,13 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
 .block {
   display: block
 }
+.inline {
+  display: inline
+}
+.break-after::after {
+  content: "\a";
+  white-space: pre
+}
 .js-collapse {
   cursor: pointer;
   position: relative
@@ -2503,6 +2510,37 @@ button:focus-visible {
   -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
   box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
   border-radius: 4px
+}
+.btn-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  border: 1px solid;
+  border-radius: 5px;
+  color: var(--white);
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  position: absolute;
+  right: 32px;
+  bottom: 32px;
+  background: 0 0;
+  z-index: 1
+}
+.btn-control svg {
+  display: block;
+  fill: currentColor
+}
+.btn-control svg path {
+  -webkit-transition: d .4s ease;
+  -o-transition: d .4s ease;
+  transition: d .4s ease
 }
 .tabs {
   margin: 32px 0 64px;

@@ -17,6 +17,8 @@
   transform: translate(-50%,-50%)
 }
 .carousel-gallery-thumbs img {
+  -o-object-fit: contain;
+  object-fit: contain;
   width: auto;
   height: 100%
 }

@@ -7,10 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 	<!-- common header -->
-	<link rel="stylesheet" href="css/root-vars.css?v=20240606222620">
-	<link rel="stylesheet" href="css/fonts.css?v=20240606222620">
-	<link rel="stylesheet" href="css/header.css?v=20240606222620">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240606222620">
+	<link rel="stylesheet" href="css/root-vars.css?v=20240701170323">
+	<link rel="stylesheet" href="css/fonts.css?v=20240701170323">
+	<link rel="stylesheet" href="css/header.css?v=20240701170323">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240701170323">
+
+
 
 
 
@@ -68,18 +70,18 @@
 
 
 	<!-- manufacturing -->
-	<link rel="stylesheet" href="css/heading.css?v=20240606222620">
-	<link rel="stylesheet" href="css/carousel-manufacturing.css?v=20240606222620">
-	<link rel="stylesheet" href="css/tiles.css?v=20240606222620">
-	<link rel="stylesheet" href="css/block-values.css?v=20240606222620">
-	<link rel="stylesheet" href="css/block-process.css?v=20240606222620">
+	<link rel="stylesheet" href="css/heading.css?v=20240701170323">
+	<link rel="stylesheet" href="css/carousel-manufacturing.css?v=20240701170323">
+	<link rel="stylesheet" href="css/tiles.css?v=20240701170323">
+	<link rel="stylesheet" href="css/block-values.css?v=20240701170323">
+	<link rel="stylesheet" href="css/block-process.css?v=20240701170323">
 
 
 
 
 	<!-- common footer -->
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20240606222620">
-	<link rel="stylesheet" href="css/footer.css?v=20240606222620">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240701170323">
+	<link rel="stylesheet" href="css/footer.css?v=20240701170323">
 
 	<title>Производство</title>
 	<meta name="description" content="Производство">
@@ -488,7 +490,7 @@
 
 	<div class="container">
 		<div class="content">
-			<div class="heading _singlecol _high text-white">
+			<div class="heading _singlecol _high _video text-white">
 
 				<div class="heading__left">
 					<div class="breadcrumbs">
@@ -505,28 +507,39 @@
 							</li>
 						</ul>
 					</div>
-
-					<div class="heading__text">
-						<div class="h1">Производство мебели на металлокаркасе</div>
-					</div>
-					<div class="heading__button">
-						<a href="javascript:void(0)" class="btn btn_yellow">Заказать звонок</a>
-						<a href="javascript:void(0)" class="btn btn_yellow btn_svg"><svg>
-								<use xlink:href="#phone"></use>
-							</svg></a>
+					<div class="heading__centered">
+						<div class="heading__text">
+							<div class="h2">Производство мебели на металлокаркасе</div>
+						</div>
+						<div class="heading__button">
+							<a href="javascript:void(0)" class="btn btn_yellow">Заказать звонок</a>
+							<a href="javascript:void(0)" class="btn btn_yellow btn_svg"><svg>
+									<use xlink:href="#phone"></use>
+								</svg></a>
+						</div>
 					</div>
 				</div>
 
 				<div class="heading__right">
 					<div class="heading__tile">
-						<picture>
-							<source media="(min-width: 1280px)" srcset="img/dev/manufacturing/manufacturing-heading-1280.webp" type="image/webp">
-							<source media="(min-width: 1024px)" srcset="img/dev/manufacturing/manufacturing-heading-1024.webp" type="image/webp">
-							<source media="(min-width: 768px)" srcset="img/dev/manufacturing/manufacturing-heading-768.webp" type="image/webp">
-							<source media="(min-width: 577px)" srcset="img/dev/manufacturing/manufacturing-heading-577.webp" type="image/webp">
-							<source srcset="img/dev/manufacturing/manufacturing-heading-320.webp" type="image/webp">
-							<img src="img/dev/manufacturing/manufacturing-heading-1024.jpg" width="1248" height="534" alt="" class="heading__image">
-						</picture>
+						<video preload autoplay loop muted>
+							<source media="(min-width: 577px)" src="img/dev/manufacturing/ZAMM_R3fin.mp4" type="video/mp4">
+							<source src="img/dev/manufacturing/ZAMM_R3fin-mobile.mp4" type="video/mp4">
+						</video>
+						<button type="button" class="btn-control js-video-control">
+							<svg width="36px" height="36px" viewBox="0 0 36 36" fill-rule="nonzero">
+								<path d="M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z"></path>
+							</svg>
+						</button>
+
+						<!-- <picture>
+					<source media="(min-width: 1280px)" srcset="img/dev/manufacturing/manufacturing-heading-1280.webp" type="image/webp">
+					<source media="(min-width: 1024px)" srcset="img/dev/manufacturing/manufacturing-heading-1024.webp" type="image/webp">
+					<source media="(min-width: 768px)" srcset="img/dev/manufacturing/manufacturing-heading-768.webp" type="image/webp">
+					<source media="(min-width: 577px)" srcset="img/dev/manufacturing/manufacturing-heading-577.webp" type="image/webp">
+					<source srcset="img/dev/manufacturing/manufacturing-heading-320.webp" type="image/webp">
+					<img src="img/dev/manufacturing/manufacturing-heading-1024.jpg" width="1248" height="534" alt="" class="heading__image">
+				</picture> -->
 					</div>
 				</div>
 
@@ -1075,11 +1088,11 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240606222620"></script>
-	<script src="js/vendors/fancyapps/carousel.autoplay.umd.js?v=20240606222620"></script>
-	<script src="js/carousel-init.js?v=20240606222620"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240701170323"></script>
+	<script src="js/vendors/fancyapps/carousel.autoplay.umd.js?v=20240701170323"></script>
+	<script src="js/carousel-init.js?v=20240701170323"></script>
 
-	<script src="js/common.js?v=20240606222620"></script>
+	<script src="js/common.js?v=20240701170323"></script>
 
 </body>
 

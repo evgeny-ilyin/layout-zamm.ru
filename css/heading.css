@@ -37,6 +37,9 @@
   -ms-flex: 1;
   flex: 1
 }
+.heading__centered {
+  margin: auto 0
+}
 .heading__text {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -178,6 +181,34 @@
 .heading._high .heading__image {
   min-height: 550px
 }
+.heading._video {
+  position: relative;
+  min-height: 540px
+}
+.heading._video .heading__left {
+  background: 0 0
+}
+.heading._video .heading__right {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  max-height: none
+}
+.heading._video video {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover
+}
+.heading._video .heading__text {
+  max-width: 400px!important;
+  text-align: center
+}
+.heading._video .heading__button {
+  width: 100%;
+  max-width: 327px;
+  margin: 0
+}
 @media (min-width:768px) {
   .heading {
     margin-top: 16px
@@ -193,6 +224,9 @@
   }
   .heading._singlecol .heading__image {
     min-height: 647px
+  }
+  .heading._video {
+    min-height: 307px
   }
 }
 @media (min-width:1024px) {
@@ -265,6 +299,22 @@
   .heading._high .heading__image {
     min-height: auto
   }
+  .heading._video {
+    min-height: 420px
+  }
+  .heading._video .heading__text {
+    margin: 0!important;
+    text-align: left!important
+  }
+  .heading._video .heading__button {
+    margin: 0;
+    width: auto
+  }
+}
+@media (min-width:1280px) {
+  .heading._video {
+    min-height: 525px
+  }
 }
 @media (min-width:1440px) {
   .heading {
@@ -273,6 +323,9 @@
   .heading__left {
     width: 520px
   }
+  .heading._video {
+    min-height: 595px
+  }
 }
 @media (min-width:1620px) {
   .heading__left {
@@ -280,6 +333,14 @@
   }
   .heading__right {
     max-height: 610px
+  }
+  .heading._video {
+    min-height: 674px
+  }
+}
+@media (min-width:1920px) {
+  .heading._video {
+    min-height: 775px
   }
 }
 @media (max-width:1023px) {
@@ -305,6 +366,17 @@
     margin-right: auto
   }
   .heading._high .heading__button .btn {
+    width: 100%
+  }
+  .heading._video .heading__text {
+    margin-left: auto;
+    margin-right: auto
+  }
+  .heading._video .heading__button {
+    margin-left: auto;
+    margin-right: auto
+  }
+  .heading._video .heading__button .btn {
     width: 100%
   }
 }
