@@ -12,17 +12,23 @@
   margin-bottom: 50px
 }
 .card {
+  --padding: 12px;
   position: relative;
   overflow: hidden;
   background: var(--black10);
   border-radius: 4px;
   min-height: 210px;
-  padding: 12px;
+  padding: var(--padding);
   text-decoration: none;
   text-shadow: none!important
 }
 .card__text {
   position: relative;
+  z-index: 2
+}
+.card__button {
+  position: absolute;
+  bottom: var(--padding);
   z-index: 2
 }
 .card__header {
@@ -126,7 +132,7 @@
     gap: 16px
   }
   .card {
-    padding: 16px
+    --padding: 16px
   }
   .card__header {
     font-size: 1.5rem
@@ -274,5 +280,15 @@
     -ms-grid-column: 4;
     -ms-grid-column-span: 1;
     grid-area: 1/4/2/5
+  }
+}
+@media (max-width:767px) {
+  .card__button .btn {
+    font-size: .875rem
+  }
+}
+@media (max-width:424px) {
+  .card__button .btn {
+    padding: 8px 16px 6px
   }
 }

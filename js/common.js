@@ -2428,7 +2428,7 @@ addEventListener("DOMContentLoaded", () => {
 	fileInputInit();
 	tagsCollapseHandler();
 
-	stickyHeader();
+	// fn.stickyHeader();
 	hamburgerMenu();
 	submenuPostionOnOverflowNav();
 	modalHandler();

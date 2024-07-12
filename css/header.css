@@ -1168,8 +1168,7 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   line-height: 12px;
   padding: 0 2px 0 3px
 }
-.nav__icon-link[data-amount=""]::before,
-.nav__icon-link[data-amount="0"]::before {
+.nav__icon-link[data-amount=""]::before {
   display: none
 }
 .search-prompt {
@@ -1208,6 +1207,9 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   display: -ms-grid;
   display: grid;
   grid-auto-flow: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   gap: 0 24px;
   font-size: .8125rem;
   letter-spacing: -.26px
@@ -1238,7 +1240,21 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
 }
 .nav-second__contact {
-  text-decoration: none
+  text-decoration: none;
+  white-space: nowrap
+}
+.nav-second__call-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 6px
+}
+.nav-second__call-btn .btn {
+  width: 100%
+}
+.nav-second__call-btn .btn svg {
+  width: 13px;
+  height: 13px
 }
 .nav-second__chat-btn {
   display: -ms-grid;
@@ -4257,6 +4273,9 @@ input[type=file]:focus-visible ~ span {
     flex: 0 0 auto;
     width: 100%
   }
+  .hidden-from-xm {
+    display: none!important
+  }
   .header-alert__wrapper {
     grid-auto-flow: column
   }
@@ -4747,6 +4766,12 @@ input[type=file]:focus-visible ~ span {
     -ms-flex-pack: justify;
     justify-content: space-between
   }
+  .nav-second__block {
+    gap: 0 16px
+  }
+  .nav-second__col {
+    gap: 0 16px
+  }
   .nav-second__menu {
     opacity: .6
   }
@@ -4763,6 +4788,30 @@ input[type=file]:focus-visible ~ span {
   }
   .nav-second__geo svg {
     display: none
+  }
+  .nav-second__workhours {
+    max-width: 95px
+  }
+  .nav-second__call-btn {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+  }
+  .nav-second__call-btn .btn {
+    width: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    white-space: nowrap;
+    font-size: .8125rem;
+    line-height: 1.1;
+    padding: 5px 9px;
+    height: 24px;
+    -webkit-box-shadow: none;
+    box-shadow: none
   }
   .nav-second__chat-btn {
     display: none
@@ -5170,11 +5219,23 @@ input[type=file]:focus-visible ~ span {
     flex: 0 0 auto;
     width: 100%
   }
+  .visible-xl {
+    display: inherit!important
+  }
   .nav__menu {
     min-width: auto
   }
   .nav__catalog {
     overflow: visible
+  }
+  .nav-second__block {
+    gap: 0 24px
+  }
+  .nav-second__col {
+    gap: 0 24px
+  }
+  .nav-second__workhours {
+    max-width: none
   }
   .catalog__list {
     overflow-x: visible
@@ -5330,6 +5391,13 @@ input[type=file]:focus-visible ~ span {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content
+  }
+  .nav-second__workhours {
+    font-size: 1.125rem;
+    line-height: .8;
+    -webkit-box-ordinal-group: 11;
+    -ms-flex-order: 10;
+    order: 10
   }
   .catalog {
     position: relative
@@ -5499,6 +5567,9 @@ input[type=file]:focus-visible ~ span {
     padding-left: 0;
     padding-right: 0
   }
+  .hidden-to-md {
+    display: none!important
+  }
   .btn_close-modal::after,
   .btn_close-modal::before {
     height: 25px
@@ -5508,6 +5579,9 @@ input[type=file]:focus-visible ~ span {
   }
 }
 @media (max-width:576px) {
+  .hidden-to-xm {
+    display: none!important
+  }
   .tab-block__col._cons {
     display: none
   }
