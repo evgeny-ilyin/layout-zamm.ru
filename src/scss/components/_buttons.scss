@@ -838,3 +838,29 @@ button {
 		border-radius: 4px;
 	}
 }
+
+.btn-control {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid;
+	border-radius: 5px;
+	color: $white;
+	width: 46px;
+	height: 46px;
+	padding: 0;
+	position: absolute;
+	right: 32px;
+	bottom: 32px;
+	background: transparent;
+	z-index: 1;
+
+	svg {
+		display: block;
+		fill: currentColor;
+
+		path {
+			transition: d 0.4s ease;
+		}
+	}
+}
