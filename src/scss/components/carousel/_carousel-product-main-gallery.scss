@@ -1,6 +1,9 @@
 .product-main-gallery {
 	// --f-carousel-slide-width: 100%;
 	--f-carousel-slide-height: auto;
+	--f-carousel-dot-width: 9px;
+	--f-carousel-dot-height: 9px;
+	--f-carousel-dots-width: 16px;
 	position: relative;
 	flex: 1;
 	order: 1;
@@ -146,6 +149,14 @@
 
 	& + .f-thumbs.is-classic .f-carousel__nav .f-button[disabled] {
 		display: none;
+	}
+
+
+	@include respond-to(md, "max") {
+		.f-carousel__nav {
+			display: block;
+			opacity: 1;
+		}
 	}
 }
 
