@@ -27,7 +27,8 @@
   -ms-flex-direction: column;
   flex-direction: column;
   height: 100%;
-  background: var(--gray)
+  background: var(--gray);
+  overflow: hidden
 }
 .main-slide_col-1 {
   position: relative;
