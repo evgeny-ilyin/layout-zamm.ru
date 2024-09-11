@@ -1061,3 +1061,34 @@ export function scrollToTop() {
 		if (e.target === toTopBtn) toTop();
 	});
 }
+
+export function videoControlHandler() {
+	const playPath = "M 12,26 18.5,22 18.5,14 12,10 z M 18.5,22 25,18 25,18 18.5,14 z",
+		pausePath = "M 12,26 16,26 16,10 12,10 z M 21,26 25,26 25,10 21,10 z";
+
+	let videoAction = (video, button) => {
+		let path = button.querySelector("path");
+		if (video.paused) {
+			video.play();
+			path.setAttribute("d", pausePath);
+		} else {
+			video.pause();
+			path.setAttribute("d", playPath);
+		}
+	};
+
+	document.addEventListener("click", (e) => {
+		const button = e.target.closest(".js-video-control");
+
+		if (button) {
+			e.preventDefault();
+			const parent = e.target.closest("div"),
+				video = parent.querySelector("video");
+
+			if (!video) return;
+
+			videoAction(video, button);
+			return;
+		}
+	});
+}

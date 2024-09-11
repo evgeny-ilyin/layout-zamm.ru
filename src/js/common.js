@@ -20,7 +20,7 @@ addEventListener("DOMContentLoaded", () => {
 	fileInputInit();
 	tagsCollapseHandler();
 
-	fn.stickyHeader();
+	// fn.stickyHeader();
 	fn.hamburgerMenu();
 	fn.submenuPostionOnOverflowNav();
 	fn.modalHandler();
@@ -40,6 +40,7 @@ addEventListener("DOMContentLoaded", () => {
 	fn.getContent();
 	fn.clickAndDrag();
 	fn.scrollToTop();
+	fn.videoControlHandler();
 
 	form.submitPrevent();
 	form.maskHandler();
