@@ -54,6 +54,31 @@
 	}
 }
 
+// .visible-xl
+.visible-xl {
+	@include respond-to(xl) {
+		display: inherit !important;
+	}
+}
+
+.hidden-from-xm {
+	@include respond-to(xm) {
+		display: none !important;
+	}
+}
+
+.hidden-to-xm {
+	@include respond-to(xm, "max") {
+		display: none !important;
+	}
+}
+
+.hidden-to-md {
+	@include respond-to(md, "max") {
+		display: none !important;
+	}
+}
+
 .hidden-overflow {
 	overflow: hidden;
 }
@@ -306,6 +331,17 @@
 
 .block {
 	display: block;
+}
+
+.inline {
+	display: inline;
+}
+
+.break-after {
+	&::after {
+		content: "\a";
+		white-space: pre;
+	}
 }
 
 // collapse
