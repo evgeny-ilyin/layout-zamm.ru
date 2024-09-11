@@ -1,11 +1,15 @@
 /*! Блок "Главная карусель" */
 .main-carousel {
 	--f-carousel-dots-width: 22px;
-	--f-carousel-slide-height: 613px;
+	--f-carousel-slide-height: 540px;
 	// --f-carousel-slide-height: 164dvw;
 	margin-bottom: 30px !important;
 	margin-left: calc($min-padding * -1);
 	margin-right: calc($min-padding * -1);
+
+	@include respond-to(sm) {
+		--f-carousel-slide-height: 613px;
+	}
 
 	@include respond-to(md) {
 		--f-carousel-slide-height: 448px;
@@ -47,6 +51,7 @@
 	flex-direction: column;
 	height: 100%;
 	background: $gray;
+	overflow: hidden;
 
 	@include respond-to(md) {
 		flex-direction: row;
@@ -60,6 +65,86 @@
 
 	// .main-slide_col-2
 	&_col-2 {
+	}
+
+	// .main-slide_v2
+	&_v2 {
+		color: $black-brown;
+		background: $white;
+		position: relative;
+
+		&::before {
+			display: none !important; // old banners bg if text-white set
+		}
+
+		svg {
+			fill: currentColor;
+			width: 105px;
+			height: 23px;
+			margin-bottom: -1px;
+
+			@include respond-to(sm) {
+				width: 150px;
+				height: 30px;
+			}
+
+			@include respond-to(md) {
+				width: 150px;
+				height: 30px;
+			}
+
+			@include respond-to(lg) {
+				width: 220px;
+				height: 43px;
+			}
+		}
+
+		&.type-1 {
+		}
+
+		&.type-2 {
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				right: 0;
+				background: $white;
+				clip-path: polygon(0 0, 0 100%, 100% 0);
+				transform: scale(-1);
+
+				@include respond-to(sm) {
+					top: 63%;
+					width: 160px;
+					height: 100px;
+				}
+
+				@include respond-to(md) {
+					top: 175px;
+					width: 160px;
+					height: 100px;
+				}
+
+				@include respond-to(lg) {
+					top: 240px;
+					width: 190px;
+					height: 130px;
+				}
+
+				@include respond-to(xl) {
+					width: 250px;
+				}
+
+				@include respond-to(xxl) {
+					width: 280px;
+				}
+
+				@include respond-to(xxxl) {
+					top: 200px;
+					width: 190px;
+					height: 100px;
+				}
+			}
+		}
 	}
 
 	// .main-slide__text
@@ -77,11 +162,12 @@
 			@include respond-to(md) {
 				position: relative;
 				align-items: flex-start;
-				justify-content: flex-end;
+				justify-content: space-between;
+				// justify-content: flex-end;
 				padding: 12px;
 				text-align: left;
 				width: 60%;
-				margin: 35px 0 57px 64px;
+				margin: 25px 0 40px 64px;
 			}
 
 			@include respond-to(xxxl) {
@@ -115,6 +201,182 @@
 				}
 			}
 		}
+
+		@include when-inside(".main-slide_v2") {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			z-index: 1;
+			height: 100%;
+
+			@include respond-to(xm) {
+				padding: 23px 30px 30px;
+			}
+
+			@include respond-to(md) {
+				padding: 35px 20px 35px 30px;
+				width: 60%;
+				max-width: 550px;
+			}
+
+			@include respond-to(lg) {
+				padding: 55px 30px 55px 40px;
+				max-width: 550px;
+			}
+
+			@include respond-to(xl) {
+				padding: 60px 25px 50px 50px;
+				width: 55%;
+				max-width: 730px;
+			}
+
+			@include respond-to(xxl) {
+				padding: 60px 85px 60px 60px;
+				width: 51%;
+				max-width: 790px;
+			}
+
+			@include respond-to(xxxl) {
+				padding: 45px 85px 45px 60px;
+				width: 50%;
+				max-width: 865px;
+			}
+		}
+
+		@include when-inside(".main-slide_v2.type-1") {
+			@include respond-to(md) {
+				background: $white;
+				--pos-1-y: calc(100% - 185px);
+				--pos-2-x: calc(100% - 100px);
+				--pos-2-y: calc(100% - 100px);
+				--pos-3-y: var(--pos-2-y);
+				clip-path: polygon(0 0, 100% 0, 100% var(--pos-1-y), var(--pos-2-x) var(--pos-2-y), 100% var(--pos-3-y), 100% 100%, 0 100%);
+			}
+
+			@include respond-to(lg) {
+				--pos-1-y: calc(100% - 250px);
+				--pos-2-x: calc(100% - 130px);
+				--pos-2-y: calc(100% - 140px);
+			}
+
+			@include respond-to(xl) {
+				--pos-1-y: calc(100% - 265px);
+				--pos-2-x: calc(100% - 135px);
+				--pos-2-y: calc(100% - 155px);
+			}
+
+			@include respond-to(xxl) {
+				--pos-1-y: calc(100% - 265px);
+				--pos-2-x: calc(100% - 150px);
+				--pos-2-y: calc(100% - 155px);
+			}
+
+			@include respond-to(xxxl) {
+				--pos-1-y: calc(100% - 260px);
+				--pos-2-x: calc(100% - 135px);
+				--pos-2-y: calc(100% - 170px);
+			}
+		}
+
+		@include when-inside(".main-slide_v2.type-2") {
+			position: relative;
+			align-items: center;
+			text-align: center;
+
+			@include respond-to(md, "max") {
+				padding: 0;
+			}
+
+			@include respond-to(md) {
+				background: $white;
+				align-items: flex-start;
+				text-align: left;
+			}
+
+			&::after {
+				content: "";
+				display: block;
+				position: absolute;
+				left: 0;
+				background: $white;
+				clip-path: polygon(0 0, 0 100%, 100% 0);
+
+				@include respond-to(sm) {
+					top: 63%;
+					width: 160px;
+					height: 100px;
+				}
+
+				@include respond-to(md) {
+					top: 175px;
+					width: 160px;
+					height: 100px;
+					left: calc(100% - 2px);
+				}
+
+				@include respond-to(lg) {
+					top: 240px;
+					width: 190px;
+					height: 130px;
+				}
+
+				@include respond-to(xl) {
+					width: 250px;
+				}
+
+				@include respond-to(xxl) {
+					width: 280px;
+				}
+
+				@include respond-to(xxxl) {
+					top: 200px;
+					width: 250px;
+					height: 100px;
+				}
+			}
+		}
+
+		@include when-inside(".ya-split") {
+			margin-top: 0;
+			padding: 23px 30px 30px;
+			justify-content: space-between;
+			height: 100%;
+
+			@include respond-to(xm) {
+				text-align: left;
+				align-items: flex-start;
+			}
+
+			@include respond-to(md) {
+				padding: 35px 20px 35px 30px;
+				width: 100%;
+				text-align: left;
+				margin: 0;
+			}
+
+			@include respond-to(lg) {
+				padding: 55px 30px 55px 40px;
+				// max-width: 550px;
+			}
+
+			@include respond-to(xl) {
+				padding: 60px 25px 50px 50px;
+				// width: 55%;
+				// max-width: 730px;
+			}
+
+			@include respond-to(xxl) {
+				padding: 60px 85px 60px 60px;
+				// width: 51%;
+				// max-width: 790px;
+			}
+
+			@include respond-to(xxxl) {
+				padding: 25px 85px 35px 60px;
+				// width: 50%;
+				// max-width: 865px;
+			}
+		}
 	}
 
 	// .main-slide__img
@@ -125,33 +387,133 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
+
+			img {
+				@include respond-to(xm) {
+					object-position: left;
+				}
+			}
 		}
 
 		@include when-inside(".main-slide_col-2") {
 			height: 280px;
 
 			@include respond-to(md) {
-				// width: calc(50% - 1px);
 				width: 50%;
 				height: auto;
 			}
+
+			img {
+				@include respond-to(xm) {
+					object-position: left;
+				}
+			}
 		}
+
+		@include when-inside(".main-slide_v2") {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+
+			img {
+				object-fit: contain;
+				object-position: bottom;
+			}
+
+			@include respond-to(sm) {
+				img {
+					object-fit: cover;
+				}
+			}
+
+			@include respond-to(md) {
+				right: -390px;
+
+				img {
+					object-fit: contain;
+					object-position: center;
+				}
+			}
+
+			@include respond-to(lg) {
+				right: 0;
+
+				img {
+					object-position: 140%;
+				}
+			}
+
+			@include respond-to(xl) {
+				img {
+					object-position: 130%;
+				}
+			}
+
+			@include respond-to(xxl) {
+				right: -650px;
+
+				img {
+					object-position: center;
+				}
+			}
+
+			@include respond-to(xxxl) {
+				right: -725px;
+			}
+		}
+
+		@include when-inside(".ya-split") {
+			@include respond-to(xm) {
+				img {
+					object-position: right;
+				}
+			}
+			@include respond-to(md) {
+				img {
+					object-position: center;
+				}
+			}
+			@include respond-to(lg) {
+				img {
+					// object-position: right;
+				}
+			}
+			@include respond-to(xl) {
+				img {
+					// object-position: right;
+				}
+			}
+			@include respond-to(xxl) {
+				img {
+					// object-position: right;
+				}
+			}
+			@include respond-to(xxxl) {
+				img {
+					// object-position: right;
+				}
+			}
+		}
+
+		// @include when-inside(".main-slide_v2.type-2") {
+		// img {
+		// 	clip-path: polygon(0 0, 100% 0, 100% 40%, 71% 59%, 100% 59%, 100% 100%, 0 100%, 0 60%, 32% 44%, 0 43%);
+		// }
+		// }
 
 		img {
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-
-			@include respond-to(xm) {
-				object-position: left;
-			}
 		}
 	}
 
 	// .main-slide__wrapper
 	&__wrapper {
 		display: grid;
-		gap: 31px;
+		gap: 25px;
 		margin: 14px 0;
 
 		@include when-inside(".main-slide_col-1") {
@@ -163,6 +525,58 @@
 
 		@include when-inside(".main-slide_col-2") {
 			justify-items: center;
+		}
+
+		@include when-inside(".main-slide_v2.type-1") {
+			display: block;
+			margin: 0;
+			background: $white;
+			width: 100%;
+			padding: 23px 30px 30px;
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 90% 100%, 80% 70%, 80% 100%, 0 100%);
+
+			@include respond-to(xm) {
+				padding: 21px 53px 21px 30px;
+				margin-left: -30px;
+				max-width: 514px;
+				--pos-1-y: calc(100% - 120px);
+				--pos-2-x: calc(100% - 70px);
+				--pos-2-y: calc(100% - 85px);
+				--pos-3-y: var(--pos-2-y);
+				clip-path: polygon(0 0, 100% 0, 100% var(--pos-1-y), var(--pos-2-x) var(--pos-2-y), 100% var(--pos-3-y), 100% 100%, 0 100%);
+			}
+
+			@include respond-to(md) {
+				background: none;
+				padding: 0;
+				margin-left: 0;
+				max-width: none;
+				clip-path: none;
+			}
+		}
+
+		@include when-inside(".main-slide_v2.type-2") {
+			margin: 0;
+			background: $white;
+			width: 100%;
+			padding: 23px 15px 30px;
+			gap: 0;
+			justify-content: center;
+
+			@include respond-to(md) {
+				padding: 0;
+				justify-content: start;
+			}
+		}
+
+		@include when-inside(".ya-split") {
+			@include respond-to(md, "max") {
+				gap: 0;
+			}
+
+			@include respond-to(xm) {
+				justify-items: flex-start;
+			}
 		}
 	}
 
@@ -182,20 +596,96 @@
 		@include when-inside(".main-slide_col-2") {
 			justify-items: center;
 		}
+
+		@include when-inside(".main-slide_v2") {
+			justify-items: center;
+		}
 	}
 
 	// .main-slide__header
 	&__header {
+		-webkit-text-stroke: 0.5px;
 		font-size: rem(40);
 		font-weight: 700;
-		line-height: 0.9;
+		line-height: 1;
+		color: $black-brown;
+		margin-bottom: 15px;
+		// line-height: 0.9;
+
+		@include respond-to(md) {
+			-webkit-text-stroke: 1px;
+			font-size: rem(40);
+		}
 
 		@include respond-to(lg) {
+			-webkit-text-stroke: 2px;
 			font-size: rem(50);
 		}
 
 		@include respond-to(xl) {
 			font-size: rem(64);
+		}
+
+		@include when-inside(".main-slide_v2") {
+			font-size: rem(30);
+			margin-bottom: 10px;
+		}
+
+		@include when-inside(".main-slide_v2.type-1") {
+			@include respond-to(xm) {
+				font-size: rem(33);
+			}
+
+			@include respond-to(md) {
+				font-size: rem(42);
+				font-size: clamp(rem(34), 4.2dvw, rem(42));
+				margin-bottom: 15px;
+			}
+
+			@include respond-to(lg) {
+				font-size: rem(53);
+			}
+		}
+
+		@include when-inside(".main-slide_v2.type-2") {
+			font-size: clamp(rem(30), 10dvw, rem(43));
+			line-height: 1.2;
+
+			// @include respond-to(xm) {
+			// 	font-size: rem(43);
+			// }
+
+			@include respond-to(md) {
+				font-size: rem(42);
+				font-size: clamp(rem(34), 4.2dvw, rem(42));
+				margin-bottom: 15px;
+			}
+
+			@include respond-to(lg) {
+				font-size: rem(48);
+				line-height: 1.1;
+			}
+
+			@include respond-to(xl) {
+				font-size: rem(60);
+			}
+		}
+
+		@include when-inside(".ya-split") {
+			font-size: rem(32);
+
+			@include respond-to(xm) {
+				-webkit-text-stroke: 1px;
+				font-size: rem(45);
+			}
+
+			@include respond-to(lg) {
+				font-size: rem(60);
+			}
+
+			@include respond-to(xl) {
+				font-size: rem(64);
+			}
 		}
 	}
 
@@ -206,6 +696,69 @@
 		@include respond-to(xl) {
 			font-size: rem(18);
 		}
+
+		@include when-inside(".main-slide_v2") {
+			-webkit-text-stroke: 2px;
+			font-size: rem(50);
+			font-weight: 700;
+			line-height: 0.7;
+			margin-top: -5px;
+			margin-left: -3px;
+			margin-bottom: 20px;
+
+			@include respond-to(xm) {
+				font-size: rem(75);
+			}
+
+			@include respond-to(md) {
+				font-size: rem(95);
+				font-size: clamp(rem(75), 9dvw, rem(95));
+				margin-bottom: 30px;
+			}
+
+			@include respond-to(xl) {
+				font-size: rem(110);
+			}
+		}
+	}
+
+	// .main-slide__list
+	&__list {
+		color: $gray-modern;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		gap: 12px;
+		max-width: 350px;
+		font-size: rem(16);
+
+		@include respond-to(xm) {
+			justify-content: flex-start;
+		}
+
+		@include respond-to(md) {
+			gap: 16px;
+		}
+
+		@include respond-to(lg) {
+			font-size: rem(22);
+			max-width: 470px;
+		}
+
+		@include respond-to(xxl) {
+			font-size: rem(24);
+		}
+
+		& > span {
+			text-shadow: none;
+			background: $yellow;
+			border-radius: 50px;
+			padding: 7px 19px 6px;
+
+			@include respond-to(lg) {
+				padding: 11px 19px 10px;
+			}
+		}
 	}
 
 	// .main-slide__addresses
@@ -213,44 +766,58 @@
 		display: flex;
 		flex-flow: row wrap;
 		justify-content: center;
-		gap: 10px;
+		gap: 12px;
 		max-width: 600px;
-		margin-top: 25px;
 		font-size: rem(14);
+
+		@include respond-to(xm) {
+			font-size: rem(14);
+		}
 
 		@include respond-to(md) {
 			justify-content: flex-start;
-			gap: 12px;
-			font-size: rem(17);
+			gap: 16px;
 		}
 
-		@include respond-to(xl) {
-			font-size: rem(22);
+		@include respond-to(lg) {
+			font-size: rem(18);
 		}
 
-		& > div {
+		@include respond-to(xxl) {
+			font-size: rem(19);
+		}
+
+		& > a {
 			display: flex;
 			align-items: center;
 			text-align: left;
+			text-decoration: none;
+			text-shadow: none;
+
+			// @include when-inside(".main-slide_v2.type-2") {
+			border: 2px solid $yellow;
+			background: $yellow;
+			border-radius: 50px;
+			padding: 8px 8px 7px;
+
+			@include on-hover {
+				background: $white;
+			}
+			// }
 
 			&::before {
 				content: "";
 				display: block;
 				margin-right: 6px;
-				width: 18px;
-				height: 18px;
+				width: 15px;
+				height: 15px;
 				background: currentColor;
 				mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 28'%3E%3Cpath d='M11 .875A10.325 10.325 0 0 0 .688 11.188a10.208 10.208 0 0 0 2.077 6.187s.281.37.327.424L11 27.125l7.912-9.33c.04-.05.323-.42.323-.42v-.003a10.205 10.205 0 0 0 2.078-6.184A10.324 10.324 0 0 0 11 .874Zm0 14.063a3.75 3.75 0 1 1 0-7.5 3.75 3.75 0 0 1 0 7.5Z'/%3E%3C/svg%3E");
 				mask-size: 100% 100%;
 
-				@include respond-to(md) {
+				@include respond-to(lg) {
 					width: 20px;
 					height: 20px;
-				}
-
-				@include respond-to(xl) {
-					width: 30px;
-					height: 30px;
 				}
 			}
 		}
@@ -260,6 +827,41 @@
 	&__note {
 		font-size: rem(15);
 		opacity: 0.6;
+
+		@include when-inside(".main-slide_v2") {
+			opacity: 1;
+			font-weight: 600;
+			padding-right: 30%;
+
+			@include respond-to(xm) {
+				font-size: rem(16);
+				padding-right: 0;
+			}
+
+			@include respond-to(md) {
+				font-size: rem(18);
+				padding-left: 2px;
+				padding-right: 30px;
+			}
+
+			@include respond-to(lg) {
+				font-size: rem(21);
+				padding-right: 0;
+			}
+
+			@include respond-to(xl) {
+				font-size: rem(26);
+			}
+
+			@include respond-to(xxxl) {
+				font-size: rem(28);
+			}
+		}
+
+		b,
+		strong {
+			-webkit-text-stroke: 0.5px;
+		}
 	}
 
 	// .main-slide__note-xl
@@ -268,6 +870,20 @@
 
 	// .main-slide__note-bottom
 	&__note-bottom {
+		font-size: rem(16);
+		max-width: 500px;
+		margin-bottom: 16px;
+
+		b,
+		strong {
+			-webkit-text-stroke: 0.3px;
+		}
+
+		@include when-inside(".main-slide__button") {
+			@include respond-to(md, "max") {
+				display: none;
+			}
+		}
 	}
 
 	// .main-slide__button
@@ -278,303 +894,53 @@
 				bottom: 35px;
 			}
 		}
-	}
 
-	&.modern {
-		color: $gray-modern;
-
-		&::before {
-			display: none !important; // old banners bg if text-white set
+		@include when-inside(".main-slide_v2") {
+			margin-top: 25px;
 		}
 
-		.main-slide__text {
-			width: 100%;
-			margin: 0;
-			padding: 40px 30px;
-			background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0) 100%);
-
-			@include respond-to(md) {
-				padding: 50px 40px;
-				background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
-			}
-
-			@include respond-to(lg) {
-				padding: 70px 50px 60px;
-			}
-
-			@include respond-to(xxxl) {
-				padding: 70px 100px 60px;
+		@include when-inside(".main-slide_v2.type-1") {
+			@include respond-to(xm, "max") {
+				padding: 0 30px 30px;
+				display: flex;
+				justify-content: center;
 			}
 		}
 
-		.main-slide__wrapper {
-			width: 100%;
-			height: 100%;
-			margin: 0;
-
+		@include when-inside(".main-slide_v2.type-2") {
 			@include respond-to(md, "max") {
-				gap: 0;
+				padding: 0 30px 30px;
+				display: flex;
+				justify-content: center;
+			}
+		}
+
+		@include when-inside(".ya-split") {
+			position: static;
+
+			@include respond-to(xm, "max") {
+				display: flex;
 				flex-direction: column;
-			}
-		}
-
-		.main-slide__top {
-			max-width: 450px;
-			margin: 0 auto;
-			display: flex;
-			flex-direction: column;
-
-			@include respond-to(md) {
-				display: block;
-				width: 80%;
-				max-width: none;
-				margin: 0;
-			}
-
-			@include respond-to(lg) {
-				width: 70%;
-			}
-		}
-
-		.main-slide__bottom {
-			display: flex;
-			justify-content: center;
-			align-items: flex-end;
-			gap: 16px;
-
-			@include respond-to(md) {
-				width: 70%;
-				justify-content: space-between;
-			}
-		}
-
-		.main-slide__header {
-			font-size: rem(34);
-
-			@include respond-to(md) {
-				margin-left: -2px;
-				font-size: rem(46);
-			}
-
-			@include respond-to(lg) {
-				margin-left: -4px;
-				font-size: rem(64);
-			}
-
-			@include respond-to(xl) {
-				font-size: rem(70);
-			}
-
-			& + .main-slide__header {
-				margin-top: 7px;
-			}
-
-			& + .main-slide__note {
-				margin-top: 22px;
-			}
-		}
-
-		.main-slide__subheader {
-			font-size: rem(24);
-			font-weight: 700;
-			margin-top: 6px;
-
-			@include respond-to(md) {
-				font-size: rem(40);
-				margin-top: 0;
-			}
-
-			@include respond-to(lg) {
-				font-size: rem(46);
-			}
-
-			& + .main-slide__note {
-				margin-top: 10px;
-
-				@include respond-to(md) {
-					margin-top: 18px;
-				}
-			}
-		}
-
-		.main-slide__note {
-			font-size: rem(16);
-			opacity: 1;
-
-			@include respond-to(md) {
-				font-size: rem(17);
-			}
-
-			@include respond-to(lg) {
-				font-size: rem(20);
-			}
-
-			@include respond-to(xl) {
-				font-size: rem(22);
-			}
-
-			& + .main-slide__header {
-				margin-top: 8px;
-			}
-
-			& + .main-slide__subheader {
-				margin-top: 8px;
-			}
-		}
-
-		.main-slide__note-xl {
-			display: inline-flex;
-			justify-content: center;
-			order: -1;
-			font-size: rem(16);
-			margin-bottom: 10px;
-
-			@include respond-to(md) {
-				display: block;
-				order: 0;
-				font-size: rem(24);
-				margin-top: 10px;
-				margin-bottom: 0;
-			}
-
-			@include respond-to(xl) {
-				font-size: rem(30);
-				margin-top: 18px;
-			}
-		}
-
-		.main-slide__note-bottom {
-			font-size: rem(14);
-			max-width: 190px;
-			margin-top: 7px;
-
-			@include respond-to(md) {
-				font-size: rem(17);
-				text-align: right;
-				margin-top: 0;
-			}
-
-			@include respond-to(lg) {
-				font-size: rem(20);
-				max-width: 250px;
-			}
-		}
-
-		svg {
-			fill: currentColor;
-			margin-top: 10px;
-			width: 250px;
-			height: 50px;
-
-			@include respond-to(md) {
-				margin-top: 18px;
-				width: 275px;
-				height: 56px;
-			}
-
-			@include respond-to(lg) {
-				width: 320px;
-				height: 65px;
-			}
-
-			@include respond-to(xl) {
-				width: 425px;
-				height: 86px;
-			}
-		}
-
-		.btn {
-			@include respond-to(xl) {
-				font-size: rem(20);
-				padding: 15px 30px 13px;
-
-				span {
-					&::after {
-						width: 20px;
-						height: 20px;
-						flex-basis: 20px;
-					}
-				}
+				align-items: center;
+				text-align: center;
 			}
 		}
 	}
 
-	&.clippy {
-		.main-slide__text {
-			background: none !important;
-
-			@include respond-to(sm, "max") {
-				padding: 40px 15px 0;
-			}
+	// .main-slide__product
+	&__product {
+		@include respond-to(md) {
+			position: absolute;
+			right: 0;
+			bottom: 35px;
 		}
 
-		.main-slide__img {
-			img {
-				@include respond-to(md) {
-					object-position: right;
-				}
-				@include respond-to(lg) {
-					object-position: center;
-				}
-			}
+		@include respond-to(lg) {
+			bottom: 55px;
 		}
 
-		.main-slide__top {
-			@include respond-to(md) {
-				width: 60%;
-			}
-			@include respond-to(xxxl) {
-				width: 45%;
-			}
-		}
-
-		.main-slide__bottom {
-			@include respond-to(md) {
-				flex: 1;
-			}
-		}
-
-		.main-slide__header {
-			font-size: 9vw;
-
-			@include respond-to(sm) {
-				font-size: rem(34);
-			}
-
-			@include respond-to(md) {
-				// margin-left: -2px;
-				font-size: rem(36);
-			}
-
-			@include respond-to(lg) {
-				margin-left: -3px;
-				font-size: rem(44);
-			}
-
-			@include respond-to(xl) {
-				font-size: rem(60);
-			}
-		}
-
-		.main-slide__note {
-			font-size: rem(13);
-
-			@include respond-to(md) {
-				font-size: rem(15);
-			}
-		}
-
-		.main-slide__note-bottom {
-			@include respond-to(md) {
-				order: -1;
-				text-align: left;
-			}
-		}
-
-		.main-slide__button {
-			@include respond-to(md) {
-				margin-left: auto;
-			}
+		@include respond-to(xxxl) {
+			bottom: 35px;
 		}
 	}
 
@@ -596,5 +962,141 @@
 				background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #211e18 100%);
 			}
 		}
+	}
+}
+
+.slide-product {
+	font-size: rem(16);
+	margin-bottom: 16px;
+	line-height: 1;
+
+	@include respond-to(xm) {
+		font-size: rem(26);
+		line-height: 1.2;
+	}
+
+	@include respond-to(md) {
+		font-size: rem(18);
+		margin: 0;
+		padding: 12px 44px 12px 50px;
+		background: $yellow;
+		text-align: right;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 0% 73%, 7% 40%, 0 40%);
+
+		// &::after {
+		// 	content: "";
+		// 	display: block;
+		// 	position: absolute;
+		// 	right: 0;
+		// 	background: var(--white);
+		// 	clip-path: polygon(0 0, 0 100%, 100% 0);
+		// 	top: 10px;
+		// 	width: 20px;
+		// 	height: 20px;
+		// }
+	}
+
+	@include respond-to(lg) {
+		font-size: rem(25);
+	}
+
+	@include respond-to(xxl) {
+		font-size: rem(31);
+	}
+
+	@include respond-to(xxxl) {
+		font-size: rem(25);
+	}
+
+	// .slide-product__name
+	&__name {
+		color: $black-brown;
+		-webkit-text-stroke: 0.5px;
+		font-weight: 700;
+	}
+
+	// .slide-product__price
+	&__price {
+		span {
+			color: $gray-modern;
+			text-decoration: line-through;
+			white-space: nowrap;
+		}
+
+		strong,
+		b {
+			color: $red-modern;
+		}
+	}
+}
+
+.ya-split {
+	background: #f1ede7;
+}
+
+.main-slide_v2,
+.main-slide__button._large {
+	.btn {
+		@include respond-to(sm) {
+			font-size: rem(20);
+			padding: 15px 30px 13px;
+
+			span {
+				&::after {
+					width: 20px;
+					height: 20px;
+					flex-basis: 20px;
+					margin-left: 10px;
+				}
+			}
+		}
+	}
+}
+
+.banner-yandex-split-logo {
+	max-width: 260px;
+	width: 100%;
+	margin: 10px auto 0 !important;
+
+	@include respond-to(xm) {
+		max-width: 320px;
+		margin: 10px 0 0 !important;
+	}
+
+	@include respond-to(lg) {
+		max-width: 420px;
+	}
+
+	@include respond-to(xl) {
+		max-width: 460px;
+	}
+
+	@include respond-to(xxl) {
+		max-width: 475px;
+	}
+}
+
+.banner-logo {
+	display: none;
+	position: absolute;
+
+	@include respond-to(md) {
+		display: block;
+		top: 22px;
+		right: 22px;
+		width: 64px;
+		height: 13px;
+	}
+
+	@include respond-to(lg) {
+		top: 33px;
+		right: 33px;
+		width: 96px;
+		height: 19px;
+	}
+
+	@include respond-to(xl) {
+		width: 140px;
+		height: 27px;
 	}
 }

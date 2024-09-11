@@ -1,0 +1,600 @@
+/*! Блок "Главная карусель" */
+.main-carousel {
+	--f-carousel-dots-width: 22px;
+	--f-carousel-slide-height: 613px;
+	// --f-carousel-slide-height: 164dvw;
+	margin-bottom: 30px !important;
+	margin-left: calc($min-padding * -1);
+	margin-right: calc($min-padding * -1);
+
+	@include respond-to(md) {
+		--f-carousel-slide-height: 448px;
+		// margin-bottom: 109px !important;
+		margin-bottom: 20px !important;
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	@include respond-to(lg) {
+		--f-carousel-slide-height: 600px;
+		margin-bottom: 70px !important;
+	}
+
+	@include respond-to(xxxl) {
+		--f-carousel-slide-height: 500px;
+	}
+
+	.f-progress {
+		bottom: 0;
+		top: auto;
+	}
+
+	.f-carousel__dot {
+		width: 16px;
+		height: 5px;
+		border-radius: 24px;
+	}
+
+	li.is-current {
+		.f-carousel__dot {
+			background-color: $black60;
+		}
+	}
+}
+
+.main-slide {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: $gray;
+
+	@include respond-to(md) {
+		flex-direction: row;
+	}
+
+	// .main-slide_col-1
+	&_col-1 {
+		position: relative;
+		height: 100%;
+	}
+
+	// .main-slide_col-2
+	&_col-2 {
+	}
+
+	// .main-slide__text
+	&__text {
+		@include when-inside(".main-slide_col-1") {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			padding: 12px 12px 110px;
+			text-align: center;
+			margin-top: 35px;
+			z-index: 2;
+
+			@include respond-to(md) {
+				position: relative;
+				align-items: flex-start;
+				justify-content: flex-end;
+				padding: 12px;
+				text-align: left;
+				width: 60%;
+				margin: 35px 0 57px 64px;
+			}
+
+			@include respond-to(xxxl) {
+				margin-left: 100px;
+			}
+		}
+
+		@include when-inside(".main-slide_col-2") {
+			position: relative;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 12px;
+			text-align: center;
+			min-height: 333px;
+			order: 1;
+
+			@include respond-to(md) {
+				padding: 40px 60px;
+				width: 50%;
+				height: auto;
+				order: 0;
+			}
+
+			.label {
+				@include respond-to(md, "max") {
+					position: absolute;
+					top: -15px;
+					z-index: 1;
+				}
+			}
+		}
+	}
+
+	// .main-slide__img
+	&__img {
+		@include when-inside(".main-slide_col-1") {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		@include when-inside(".main-slide_col-2") {
+			height: 280px;
+
+			@include respond-to(md) {
+				// width: calc(50% - 1px);
+				width: 50%;
+				height: auto;
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+
+			@include respond-to(xm) {
+				object-position: left;
+			}
+		}
+	}
+
+	// .main-slide__wrapper
+	&__wrapper {
+		display: grid;
+		gap: 31px;
+		margin: 14px 0;
+
+		@include when-inside(".main-slide_col-1") {
+			@include respond-to(md, "max") {
+				max-width: 600px;
+				justify-items: center;
+			}
+		}
+
+		@include when-inside(".main-slide_col-2") {
+			justify-items: center;
+		}
+	}
+
+	// .main-slide__top
+	&__top {
+	}
+
+	// .main-slide__bottom
+	&__bottom {
+	}
+
+	// .main-slide__body
+	&__body {
+		display: grid;
+		gap: 7px;
+
+		@include when-inside(".main-slide_col-2") {
+			justify-items: center;
+		}
+	}
+
+	// .main-slide__header
+	&__header {
+		font-size: rem(40);
+		font-weight: 700;
+		line-height: 0.9;
+
+		@include respond-to(lg) {
+			font-size: rem(50);
+		}
+
+		@include respond-to(xl) {
+			font-size: rem(64);
+		}
+	}
+
+	// .main-slide__subheader
+	&__subheader {
+		font-size: rem(17);
+
+		@include respond-to(xl) {
+			font-size: rem(18);
+		}
+	}
+
+	// .main-slide__addresses
+	&__addresses {
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: center;
+		gap: 10px;
+		max-width: 600px;
+		margin-top: 25px;
+		font-size: rem(14);
+
+		@include respond-to(md) {
+			justify-content: flex-start;
+			gap: 12px;
+			font-size: rem(17);
+		}
+
+		@include respond-to(xl) {
+			font-size: rem(22);
+		}
+
+		& > div {
+			display: flex;
+			align-items: center;
+			text-align: left;
+
+			&::before {
+				content: "";
+				display: block;
+				margin-right: 6px;
+				width: 18px;
+				height: 18px;
+				background: currentColor;
+				mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 28'%3E%3Cpath d='M11 .875A10.325 10.325 0 0 0 .688 11.188a10.208 10.208 0 0 0 2.077 6.187s.281.37.327.424L11 27.125l7.912-9.33c.04-.05.323-.42.323-.42v-.003a10.205 10.205 0 0 0 2.078-6.184A10.324 10.324 0 0 0 11 .874Zm0 14.063a3.75 3.75 0 1 1 0-7.5 3.75 3.75 0 0 1 0 7.5Z'/%3E%3C/svg%3E");
+				mask-size: 100% 100%;
+
+				@include respond-to(md) {
+					width: 20px;
+					height: 20px;
+				}
+
+				@include respond-to(xl) {
+					width: 30px;
+					height: 30px;
+				}
+			}
+		}
+	}
+
+	// .main-slide__note
+	&__note {
+		font-size: rem(15);
+		opacity: 0.6;
+	}
+
+	// .main-slide__note-xl
+	&__note-xl {
+	}
+
+	// .main-slide__note-bottom
+	&__note-bottom {
+	}
+
+	// .main-slide__button
+	&__button {
+		@include when-inside(".main-slide_col-1") {
+			@include respond-to(md, "max") {
+				position: absolute;
+				bottom: 35px;
+			}
+		}
+	}
+
+	&.modern {
+		color: $gray-modern;
+
+		&::before {
+			display: none !important; // old banners bg if text-white set
+		}
+
+		.main-slide__text {
+			width: 100%;
+			margin: 0;
+			padding: 40px 30px;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) 30%, rgba(0, 0, 0, 0) 100%);
+
+			@include respond-to(md) {
+				padding: 50px 40px;
+				background: linear-gradient(90deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0) 70%);
+			}
+
+			@include respond-to(lg) {
+				padding: 70px 50px 60px;
+			}
+
+			@include respond-to(xxxl) {
+				padding: 70px 100px 60px;
+			}
+		}
+
+		.main-slide__wrapper {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+
+			@include respond-to(md, "max") {
+				gap: 0;
+				flex-direction: column;
+			}
+		}
+
+		.main-slide__top {
+			max-width: 450px;
+			margin: 0 auto;
+			display: flex;
+			flex-direction: column;
+
+			@include respond-to(md) {
+				display: block;
+				width: 80%;
+				max-width: none;
+				margin: 0;
+			}
+
+			@include respond-to(lg) {
+				width: 70%;
+			}
+		}
+
+		.main-slide__bottom {
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			gap: 16px;
+
+			@include respond-to(md) {
+				width: 70%;
+				justify-content: space-between;
+			}
+		}
+
+		.main-slide__header {
+			font-size: rem(34);
+
+			@include respond-to(md) {
+				margin-left: -2px;
+				font-size: rem(46);
+			}
+
+			@include respond-to(lg) {
+				margin-left: -4px;
+				font-size: rem(64);
+			}
+
+			@include respond-to(xl) {
+				font-size: rem(70);
+			}
+
+			& + .main-slide__header {
+				margin-top: 7px;
+			}
+
+			& + .main-slide__note {
+				margin-top: 22px;
+			}
+		}
+
+		.main-slide__subheader {
+			font-size: rem(24);
+			font-weight: 700;
+			margin-top: 6px;
+
+			@include respond-to(md) {
+				font-size: rem(40);
+				margin-top: 0;
+			}
+
+			@include respond-to(lg) {
+				font-size: rem(46);
+			}
+
+			& + .main-slide__note {
+				margin-top: 10px;
+
+				@include respond-to(md) {
+					margin-top: 18px;
+				}
+			}
+		}
+
+		.main-slide__note {
+			font-size: rem(16);
+			opacity: 1;
+
+			@include respond-to(md) {
+				font-size: rem(17);
+			}
+
+			@include respond-to(lg) {
+				font-size: rem(20);
+			}
+
+			@include respond-to(xl) {
+				font-size: rem(22);
+			}
+
+			& + .main-slide__header {
+				margin-top: 8px;
+			}
+
+			& + .main-slide__subheader {
+				margin-top: 8px;
+			}
+		}
+
+		.main-slide__note-xl {
+			display: inline-flex;
+			justify-content: center;
+			order: -1;
+			font-size: rem(16);
+			margin-bottom: 10px;
+
+			@include respond-to(md) {
+				display: block;
+				order: 0;
+				font-size: rem(24);
+				margin-top: 10px;
+				margin-bottom: 0;
+			}
+
+			@include respond-to(xl) {
+				font-size: rem(30);
+				margin-top: 18px;
+			}
+		}
+
+		.main-slide__note-bottom {
+			font-size: rem(14);
+			max-width: 190px;
+			margin-top: 7px;
+
+			@include respond-to(md) {
+				font-size: rem(17);
+				text-align: right;
+				margin-top: 0;
+			}
+
+			@include respond-to(lg) {
+				font-size: rem(20);
+				max-width: 250px;
+			}
+		}
+
+		svg {
+			fill: currentColor;
+			margin-top: 10px;
+			width: 250px;
+			height: 50px;
+
+			@include respond-to(md) {
+				margin-top: 18px;
+				width: 275px;
+				height: 56px;
+			}
+
+			@include respond-to(lg) {
+				width: 320px;
+				height: 65px;
+			}
+
+			@include respond-to(xl) {
+				width: 425px;
+				height: 86px;
+			}
+		}
+
+		.btn {
+			@include respond-to(xl) {
+				font-size: rem(20);
+				padding: 15px 30px 13px;
+
+				span {
+					&::after {
+						width: 20px;
+						height: 20px;
+						flex-basis: 20px;
+					}
+				}
+			}
+		}
+	}
+
+	&.clippy {
+		.main-slide__text {
+			background: none !important;
+
+			@include respond-to(sm, "max") {
+				padding: 40px 15px 0;
+			}
+		}
+
+		.main-slide__img {
+			img {
+				@include respond-to(md) {
+					object-position: right;
+				}
+				@include respond-to(lg) {
+					object-position: center;
+				}
+			}
+		}
+
+		.main-slide__top {
+			@include respond-to(md) {
+				width: 60%;
+			}
+			@include respond-to(xxxl) {
+				width: 45%;
+			}
+		}
+
+		.main-slide__bottom {
+			@include respond-to(md) {
+				flex: 1;
+			}
+		}
+
+		.main-slide__header {
+			font-size: 9vw;
+
+			@include respond-to(sm) {
+				font-size: rem(34);
+			}
+
+			@include respond-to(md) {
+				// margin-left: -2px;
+				font-size: rem(36);
+			}
+
+			@include respond-to(lg) {
+				margin-left: -3px;
+				font-size: rem(44);
+			}
+
+			@include respond-to(xl) {
+				font-size: rem(60);
+			}
+		}
+
+		.main-slide__note {
+			font-size: rem(13);
+
+			@include respond-to(md) {
+				font-size: rem(15);
+			}
+		}
+
+		.main-slide__note-bottom {
+			@include respond-to(md) {
+				order: -1;
+				text-align: left;
+			}
+		}
+
+		.main-slide__button {
+			@include respond-to(md) {
+				margin-left: auto;
+			}
+		}
+	}
+
+	&.text-white {
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;
+			width: 100%;
+			height: 65%;
+			opacity: 0.6;
+			background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, #211e18 100%);
+			z-index: 1;
+
+			@include respond-to(md) {
+				top: auto;
+				bottom: 0;
+				background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #211e18 100%);
+			}
+		}
+	}
+}
