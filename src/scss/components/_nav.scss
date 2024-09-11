@@ -97,7 +97,6 @@
 
 	// .nav__search
 	&__search {
-
 		@include respond-to(lg, "max") {
 			position: relative;
 			order: 1;
@@ -369,8 +368,7 @@
 			}
 		}
 
-		&[data-amount=""],
-		&[data-amount="0"] {
+		&[data-amount=""] {
 			&::before {
 				display: none;
 			}
@@ -439,6 +437,14 @@
 			}
 		}
 
+		@include respond-to(lg) {
+			gap: 0 16px;
+		}
+
+		@include respond-to(xl) {
+			gap: 0 24px;
+		}
+
 		// @include respond-to(lg) {
 		// 	justify-content: space-between;
 		// }
@@ -448,6 +454,7 @@
 	&__col {
 		display: grid;
 		grid-auto-flow: column;
+		align-items: center;
 		gap: 0 24px;
 		font-size: rem(13);
 		letter-spacing: -0.26px;
@@ -459,6 +466,14 @@
 			border-bottom: 1px solid $black10;
 			padding-bottom: 24px;
 			margin-bottom: 24px;
+		}
+
+		@include respond-to(lg) {
+			gap: 0 16px;
+		}
+
+		@include respond-to(xl) {
+			gap: 0 24px;
 		}
 	}
 
@@ -536,20 +551,61 @@
 	// .nav-second__contact
 	&__contact {
 		text-decoration: none;
+		white-space: nowrap;
 
 		@include respond-to(lg, "max") {
 			font-size: rem(18);
 			line-height: 0.8;
 			width: fit-content;
 		}
+	}
 
-		// @include respond-to(lg) {
-		// 	margin-bottom: 1px;
-		// }
+	// .nav-second__workhours
+	&__workhours {
+		@include respond-to(lg, "max") {
+			font-size: rem(18);
+			line-height: 0.8;
+			order: 10;
+		}
 
-		// @include on-event {
-		// 	border-bottom-color: transparent;
-		// }
+		@include respond-to(lg) {
+			max-width: 95px;
+		}
+
+		@include respond-to(xl) {
+			max-width: none;
+		}
+	}
+
+	// .nav-second__call-btn
+	&__call-btn {
+		display: flex;
+		gap: 6px;
+
+		@include respond-to(lg) {
+			align-items: center;
+		}
+
+		.btn {
+			width: 100%;
+			
+			@include respond-to(lg) {
+				width: auto;
+				display: flex;
+				align-items: center;
+				white-space: nowrap;
+				font-size: rem(13);
+				line-height: 1.1;
+				padding: 5px 9px;
+				height: 24px;
+				box-shadow: none;
+			}
+
+			svg {
+				width: 13px;
+				height: 13px;
+			}
+		}
 	}
 
 	// .nav-second__chat-btn
@@ -820,7 +876,7 @@
 			padding-top: 9px;
 			padding-bottom: 9px;
 
-			@include when-inside('body:not(.is-touch)') {
+			@include when-inside("body:not(.is-touch)") {
 				display: none;
 			}
 		}
