@@ -112,7 +112,7 @@ if (!window.carouselsInit) {
 					Thumbs: false,
 					breakpoints: {
 						"(min-width: 1280px)": {
-							Navigation: false,
+							Navigation: true,
 							Dots: false,
 							Thumbs: {
 								type: "classic",
@@ -127,7 +127,7 @@ if (!window.carouselsInit) {
 						},
 					},
 					on: {
-						load: (instance) => {
+						"*": (instance) => {
 							thumbIcon(productPhotos, instance)
 						},
 					},
