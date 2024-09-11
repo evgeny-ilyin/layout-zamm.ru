@@ -15,23 +15,42 @@
 }
 
 .card {
+	--padding: 12px;
 	position: relative;
 	overflow: hidden;
 	background: $black10;
 	border-radius: 4px;
 	min-height: 210px;
-	padding: 12px;
+	padding: var(--padding);
 	text-decoration: none;
 	text-shadow: none !important;
 
 	@include respond-to(md) {
-		padding: 16px;
+		--padding: 16px;
 	}
 
 	// .card__text
 	&__text {
 		position: relative;
 		z-index: 2;
+	}
+
+	// .card__button
+	&__button {
+		position: absolute;
+		bottom: var(--padding);
+		z-index: 2;
+
+		.btn {
+
+			@include respond-to(sm, "max") {
+				padding: 8px 16px 6px;
+			}
+
+			@include respond-to(md, "max") {
+				font-size: rem(14);
+			}
+		}
 	}
 
 	// .card__header
