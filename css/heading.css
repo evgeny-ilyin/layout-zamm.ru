@@ -217,6 +217,15 @@
   max-width: 327px;
   margin: 0
 }
+.heading._image-only {
+  min-height: auto;
+  height: 400px;
+  margin-bottom: 40px
+}
+.heading._image-only img,
+.heading._image-only picture {
+  height: 100%
+}
 .heading._image-inside {
   min-height: 477px
 }

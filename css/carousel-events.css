@@ -12,7 +12,7 @@
   height: 16px
 }
 .events__more {
-  margin: 26px 0 60px;
+  margin: 50px 0 60px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -110,6 +110,9 @@
     width: 113px;
     height: 22px;
     margin-left: 10px
+  }
+  .events__more {
+    margin-top: 30px
   }
   .events-carousel {
     padding-bottom: 50px
