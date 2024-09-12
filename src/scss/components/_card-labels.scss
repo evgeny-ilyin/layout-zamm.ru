@@ -71,6 +71,15 @@
 	&_rotate {
 		transform: rotate(-5deg);
 	}
+
+	// .label_link
+	&_link {
+		transition: all $transition-default;
+
+		@include on-hover {
+			background: $yellow;
+		}
+	}
 }
 
 .label-logo {

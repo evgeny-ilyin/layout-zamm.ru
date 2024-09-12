@@ -6,6 +6,11 @@
 		position: relative;
 		left: 0;
 		margin-bottom: 14px;
+		gap: 6px;
+
+		.label_yellow {
+			color: $black;
+		}
 	}
 
 	// .event__header
