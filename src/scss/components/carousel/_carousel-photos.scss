@@ -1,0 +1,42 @@
+.photos-carousel-wrapper {
+	margin-bottom: 80px;
+}
+
+.photos-carousel {
+	--f-carousel-slide-width: 421px;
+	margin-left: -8px;
+	margin-right: -8px;
+	margin-bottom: 50px;
+	padding-bottom: 30px;
+
+	.f-carousel__slide {
+		padding: 0 8px;
+	}
+
+	.f-carousel__dots {
+		--f-carousel-dots-width: 22px;
+	}
+
+	.f-carousel__dot {
+		width: 16px;
+		height: 5px;
+		border-radius: 24px;
+	}
+
+	li.is-current {
+		.f-carousel__dot {
+			background-color: $black60;
+		}
+	}
+
+	// .photos-carousel__image
+	&__image {
+		height: 480px;
+		overflow: hidden;
+
+		img {
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}

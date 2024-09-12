@@ -440,6 +440,17 @@
 		}
 	}
 
+	&._image-only {
+		min-height: auto;
+		height: 400px;
+		margin-bottom: 40px;
+
+		picture,
+		img {
+			height: 100%;
+		}
+	}
+
 	&._image-inside {
 		min-height: 477px;
 

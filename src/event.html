@@ -1,0 +1,26 @@
+@@include('html/head.html', {
+"title": "Событие",
+"stylesFor": "event"
+})
+<body>
+	@@include('html/header.html', {})
+
+	<div class="container">
+		@@include('html/pages/others/event.html')
+		@@include('html/pages/blocks/block-collaboration-form.html')
+	</div>
+
+	@@include('html/footer.html')
+
+	@@include('html/cookies.html', {})
+	@@include('html/svg-sprite.html', {})
+
+
+	<script src="js/vendors/fancyapps/carousel.umd.js"></script>
+	<script src="js/vendors/fancyapps/carousel.autoplay.umd.js"></script>
+	<script src="js/carousel-init.js"></script>
+
+	<script src="js/common.js"></script>
+
+</body>
+</html>

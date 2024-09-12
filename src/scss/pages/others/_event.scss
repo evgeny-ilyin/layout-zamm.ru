@@ -1,0 +1,19 @@
+.event {
+	margin-bottom: 80px;
+
+	// .event__labels
+	&__labels {
+		position: relative;
+		left: 0;
+		margin-bottom: 14px;
+	}
+
+	// .event__header
+	&__header {
+		max-width: 675px;
+	}
+
+	// .event__body
+	&__body {
+	}
+}

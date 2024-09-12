@@ -56,7 +56,20 @@
 
 @@include('../../pages/blocks/block-brunch.html')
 
-@@include('../../pages/blocks/carousel-events.html')
+
+<div class="content carousel-overflow events">
+	<div class="block-header events__header">События <svg>
+			<use xlink:href="#logo"></use>
+		</svg>
+	</div>
+
+	@@include('../../pages/blocks/carousel-events.html')
+
+	<div class="events__more">
+		<a href="javascript:void(0)" class="btn btn_yellow btn_arrow btn_long"><span>Все события</span></a>
+	</div>
+</div>
+
 
 @@include('../../pages/blocks/block-projects-designers.html')
 

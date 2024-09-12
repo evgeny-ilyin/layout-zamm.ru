@@ -1,0 +1,62 @@
+<div class="content">
+	<div class="breadcrumbs">
+		<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a href="./" title="Главная" class="breadcrumbs__link" itemprop="item">
+					<span itemprop="name">Главная</span>
+				</a>
+				<meta itemprop="position" content="1" />
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a href="./" title="События" class="breadcrumbs__link" itemprop="item">
+					<span itemprop="name">События</span>
+				</a>
+				<meta itemprop="position" content="2" />
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<span itemprop="name">Название события</span>
+				<meta itemprop="position" content="3" />
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="content">
+	<div class="heading _image-only">
+		<picture>
+			<source media="(min-width: 1440px)" srcset="@img/dev/event/event-1440.webp" type="image/webp">
+			<source media="(min-width: 1280px)" srcset="@img/dev/event/event-1280.webp" type="image/webp">
+			<source media="(min-width: 1024px)" srcset="@img/dev/event/event-1024.webp" type="image/webp">
+			<source media="(min-width: 768px)" srcset="@img/dev/event/event-768.webp" type="image/webp">
+			<source media="(min-width: 577px)" srcset="@img/dev/event/event-577.webp" type="image/webp">
+			<source srcset="@img/dev/event/event-320.webp" type="image/webp">
+			<img src="@img/dev/event/event-1440.jpg" width="1888" height="400" alt="" loading="lazy" class="heading__image">
+		</picture>
+	</div>
+</div>
+
+<div class="content">
+	<div class="event">
+		<div class="event__labels labels">
+			<div class="label label_yellow">Бизнес завтраки</div>
+		</div>
+		<div class="event__header h2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</div>
+		<div class="event__body">
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, culpa molestiae perferendis quam rem veniam minus nobis assumenda cumque omnis autem deserunt dolor nihil aperiam laudantium inventore, praesentium amet consequuntur similique ipsa! Molestias, aut deserunt tempora quia repudiandae ipsam facere, saepe nesciunt accusantium molestiae, et consequuntur amet autem. Culpa corrupti ullam adipisci ratione nostrum perspiciatis laborum blanditiis distinctio eligendi consequatur nulla vitae eveniet ipsam itaque magni asperiores, amet natus? Totam autem voluptatum, voluptate magni rerum harum deleniti maiores dolores voluptas!</p>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis impedit quia nesciunt odio, voluptate modi quas commodi! Corporis consectetur delectus debitis neque saepe eius quis. Saepe non illum repudiandae at unde sit. Non quae eligendi voluptatem fuga exercitationem mollitia veritatis blanditiis in at facere officia nostrum impedit, et doloremque, ut harum deleniti placeat debitis commodi beatae repellat ea? Doloribus eius asperiores repellat culpa illo sunt blanditiis velit quia! Consequatur dolorem nam, velit illum odio tempora commodi culpa nemo alias iusto pariatur dolore odit veniam ipsam facere atque natus corporis qui! Rem esse in ipsum provident explicabo voluptatem tenetur est, sapiente doloremque atque laudantium recusandae mollitia perferendis eum sed amet optio aliquid, consectetur quas architecto sit distinctio nemo expedita voluptas. Consectetur aperiam nobis laborum aspernatur voluptatum incidunt, id fugiat soluta nostrum dignissimos illum perferendis. Fugit placeat voluptatum et sint aliquam repudiandae quidem, accusamus ea dolor, tempora perspiciatis tenetur, odio quasi architecto! Corrupti quibusdam tempore, dolorum repudiandae tenetur, officia laborum eveniet cum quisquam quam quaerat, officiis nihil possimus maiores consectetur sed et earum. Incidunt, corporis enim. Ut officiis perferendis, necessitatibus, temporibus aliquid omnis voluptatum eos aliquam ea placeat, quae sequi ipsum voluptas nulla fugiat harum recusandae animi dolorem magnam laborum aspernatur nihil.</p>
+		</div>
+	</div>
+</div>
+
+<div class="content carousel-overflow photos-carousel-wrapper">
+	<div class="block-header">Фотографии</div>
+	@@include('../../pages/blocks/carousel-photos.html')
+</div>
+
+<div class="content carousel-overflow events">
+	<div class="block-header events__header">Похожие события</div>
+	@@include('../../pages/blocks/carousel-events.html')
+	<div class="events__more">
+		<a href="javascript:void(0)" class="btn btn_yellow btn_arrow btn_long"><span>Все события</span></a>
+	</div>
+</div>
