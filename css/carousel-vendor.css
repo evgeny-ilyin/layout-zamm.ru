@@ -1201,6 +1201,9 @@
 .carousel-top-nav .f-carousel__nav {
   display: none
 }
+.carousel-top-nav._nav-visible .f-carousel__nav {
+  opacity: 1
+}
 .f-carousel__slide img {
   margin: 0 auto
 }

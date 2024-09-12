@@ -121,6 +121,9 @@
 .accordion__content :last-child {
   margin-bottom: 14px
 }
+.accordion_bordered .accordion__item {
+  border-top: 1px solid var(--black10)
+}
 .js-accordion.on {
   position: relative
 }
