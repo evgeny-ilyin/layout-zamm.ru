@@ -291,6 +291,11 @@
 	}
 }
 
+.bg-yellow-gray {
+	--bg-full: #{$yellow-gray};
+	background-color: $yellow-gray !important;
+}
+
 .bg-full {
 	box-shadow: 0 0 0 100vmax var(--bg-full);
 	clip-path: inset(0 -100vmax);

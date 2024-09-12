@@ -462,6 +462,36 @@
 		// }
 	}
 
+	// .btn_arrow-right
+	&_arrow-right {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 56px;
+		height: 36px;
+		padding: 0 15px;
+
+		&::after {
+			content: "";
+			display: block;
+			margin-left: 5px;
+			width: 17px;
+			height: 17px;
+			flex: 0 0 17px;
+			background-image: $svg-arrow-black;
+			background-repeat: no-repeat;
+			transition: all $transition-default;
+			margin-bottom: 1px;
+			transform: rotate(45deg);
+		}
+
+		@include on-hover {
+			&::after {
+				margin-right: -7px;
+			}
+		}
+	}
+
 	// .btn_arrow-forward
 	&_arrow-forward {
 		display: flex;

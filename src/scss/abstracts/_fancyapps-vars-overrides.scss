@@ -96,7 +96,6 @@
 	--f-button-hover-bg: #{$gray};
 	--f-button-active-bg: #{$white};
 
-	
 	.f-carousel__nav {
 		opacity: 0;
 		transition: all $transition-default;
@@ -177,6 +176,12 @@
 					border-radius: 4px;
 				}
 			}
+		}
+	}
+
+	&._nav-visible {
+		.f-carousel__nav {
+			opacity: 1;
 		}
 	}
 }

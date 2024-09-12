@@ -26,6 +26,15 @@
 		}
 	}
 
+	// .note_yellow-black
+	&_yellow-black {
+		background: $yellow-light;
+
+		&::before {
+			background: $black;
+		}
+	}
+
 	// .note_transparent
 	&_transparent {
 		background: transparent;
@@ -49,7 +58,7 @@
 		@include respond-to(lg) {
 			padding: 16px 16px 16px 32px;
 			font-size: rem(20);
-			line-height: 1;
+			line-height: 1.2;
 
 			&::before {
 				top: 16px;

@@ -96,12 +96,24 @@
 			@include respond-to(sm, "max") {
 				font-size: 9.5vw !important;
 			}
+
+			font-size: clamp(rem(32), 5vw, rem(64));
 		}
 
 		// .h2,
 		// h2 {
 		// 	margin-bottom: 24px;
 		// }
+	}
+
+	// .heading__descr
+	&__descr {
+		max-width: 500px;
+		font-size: rem(14);
+
+		@include respond-to(lg) {
+			font-size: rem(18);
+		}
 	}
 
 	// .heading__button
@@ -428,7 +440,88 @@
 		}
 	}
 
-	// &.text-white {
-	// 	text-shadow: 1px 1px 3px $black60;
-	// }
+	&._image-inside {
+		min-height: 477px;
+
+		@include respond-to(md) {
+			flex-direction: row;
+		}
+
+		.heading__left {
+			@include respond-to(md) {
+				width: 50%;
+				padding: 64px 16px 16px;
+			}
+
+			@include respond-to(xl) {
+				padding: 78px 50px 50px;
+			}
+
+			@include respond-to(xxxl) {
+				width: 750px;
+			}
+		}
+
+		.heading__right {
+			padding: 0;
+			order: 1;
+
+			@include respond-to(md) {
+				padding: 16px 16px 16px 0;
+			}
+		}
+
+		.heading__text {
+			max-width: 487px;
+			text-align: center;
+			margin-bottom: 40px;
+
+			@include respond-to(md, "max") {
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			@include respond-to(md) {
+				max-width: none;
+				text-align: left;
+			}
+
+			.h1,
+			h1 {
+				font-weight: 700;
+				font-size: clamp(rem(32), 5vw, rem(64)) !important;
+			}
+		}
+
+		.heading__button {
+			width: 100%;
+			max-width: 327px;
+			margin-top: auto;
+
+			@include respond-to(lg, "max") {
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			@include respond-to(lg) {
+				width: auto;
+			}
+
+			.btn {
+				@include respond-to(lg, "max") {
+					width: 100%;
+				}
+			}
+		}
+
+		.heading__image {
+			min-height: auto;
+
+			img {
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+			}
+		}
+	}
 }
