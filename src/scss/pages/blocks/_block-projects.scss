@@ -201,6 +201,7 @@
 	@include respond-to(md) {
 		height: 100%;
 		min-height: 244px;
+		overflow: hidden;
 	}
 
 	@include respond-to(lg) {
