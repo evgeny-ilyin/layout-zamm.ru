@@ -1,0 +1,37 @@
+<div class="content">
+	<div class="breadcrumbs">
+		<ul class="breadcrumbs__list" itemscope itemtype="https://schema.org/BreadcrumbList">
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<a href="./" title="Главная" class="breadcrumbs__link" itemprop="item">
+					<span itemprop="name">Главная</span>
+				</a>
+				<meta itemprop="position" content="1" />
+			</li>
+			<li class="breadcrumbs__item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+				<span itemprop="name">События</span>
+				<meta itemprop="position" content="2" />
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="content">
+	<div class="h1">События<svg class="h-logo">
+			<use xlink:href="#logo"></use>
+		</svg></div>
+
+	<div class="event-labels _border-top">
+		<div class="label label_yellow">Не ссылка</div>
+		<a href="javascript:void(0)" class="label label_gray label_link">Ссылка</a>
+	</div>
+</div>
+
+@@include('../../pages/blocks/block-brunch.html')
+
+<div class="content">
+	@@include('../../templates/template-events.html', {
+	"link": "event.html"
+	})
+
+	@@include('../../components/pagination-events.html')
+</div>

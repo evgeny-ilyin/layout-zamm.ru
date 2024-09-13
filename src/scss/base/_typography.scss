@@ -27,38 +27,32 @@ body {
  * Text others
  */
 h1,
-.h1,
-.h1 > * {
+.h1 {
 	@extend %h1-heading;
 }
 
 h2,
-.h2,
-.h2 > * {
+.h2 {
 	@extend %h2-heading;
 }
 
 h3,
-.h3,
-.h3 > * {
+.h3 {
 	@extend %h3-heading;
 }
 
 h4,
-.h4,
-.h4 > * {
+.h4 {
 	@extend %h4-heading;
 }
 
 h5,
-.h5,
-.h5 > * {
+.h5 {
 	@extend %h5-heading;
 }
 
 h6,
-.h6,
-.h6 > * {
+.h6 {
 	@extend %h6-heading;
 }
 
@@ -76,7 +70,26 @@ h6,
 .h6 {
 	span {
 		color: $black60;
-		// margin-left: 5px;
+	}
+}
+
+h1,
+.h1 {
+	svg.h-logo {
+		fill: $yellow;
+		width: 130px;
+		height: 25px;
+
+		@include respond-to(md) {
+			width: 135px;
+			height: 27px;
+			margin-left: 2px;
+		}
+
+		@include respond-to(lg) {
+			width: 222px;
+			height: 43px;
+		}
 	}
 }
 

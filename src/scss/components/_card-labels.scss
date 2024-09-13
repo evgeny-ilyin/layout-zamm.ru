@@ -59,6 +59,12 @@
 		color: $black;
 	}
 
+	// .label_black60
+	&_black60 {
+		background: $black60;
+		color: $white;
+	}
+
 	// .label_big
 	&_big {
 		font-size: rem(15);

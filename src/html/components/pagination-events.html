@@ -1,0 +1,32 @@
+<div class="pagination">
+	<div class="pagination__more">
+		<button class="btn btn_yellow btn_long js-load-more" data-url="https://deviart.ru/zamm/fetch-more-events.php" data-target="event-cards">
+			<span>Показать ещё</span>
+		</button>
+	</div>
+
+	<div class="pagination__pages">
+		<div class="pagination__arrow">
+			<a class="pagination__link" href="javascript:void(0)">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18">
+					<path d="M8.548 1 1 9m0 0 7.548 8M1 9h18"></path>
+				</svg>
+			</a>
+			<!-- если стрелку надо задизейблить, а не удалить — добавить к pagination__link класс is-disabled или заменить <a></a> на <span></span> -->
+		</div>
+		<ul class="pagination__list">
+			<li><a class="pagination__link is-active" href="javascript:void(0)">1</a></li>
+			<li><a class="pagination__link" href="javascript:void(0)">2</a></li>
+			<li><a class="pagination__link" href="javascript:void(0)">3</a></li>
+			<li><a class="pagination__link" href="javascript:void(0)">&hellip;</a></li>
+			<li><a class="pagination__link" href="javascript:void(0)">14</a></li>
+		</ul>
+		<div class="pagination__arrow">
+			<a class="pagination__link" href="javascript:void(0)">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 18">
+					<path d="M10.452 1 18 9m0 0-7.548 8M18 9H0"></path>
+				</svg>
+			</a>
+		</div>
+	</div>
+</div>
