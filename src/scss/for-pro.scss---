@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import "abstracts/root-vars-map";
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+
+@import "base/for-pro";
+@import "components/accordion";
+@import "components/loader";
+@import "components/svg-sprite";
+
+// 3. Base stuff
+@import "base/base";
+@import "base/typography-placeholders";
+@import "base/typography";
+@import "base/helpers";
+
+// 5. Components
+@import "components/breadcrumbs";
+@import "components/buttons";
+@import "components/form";
+@import "components/card-labels";
+@import "components/modal";
+@import "components/modal-content";
+@import "components/popup";
+@import "components/notes";
+
+// 6. Page-specific styles
+@import "pages/product-helpers";
+@import "pages/others/common-small-items";
