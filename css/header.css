@@ -366,13 +366,14 @@ svg {
   margin-bottom: 10px
 }
 .inner-page_type-2 {
-  padding: 0;
-  background: #fbf7eb
+  padding: 0
 }
 .inner-page_type-2 .inner-page__col-left {
+  background: #fbf7eb;
   padding: 64px 16px 16px
 }
 .inner-page_type-2 .inner-page__col-right {
+  background: #fbf7eb;
   margin: 0;
   padding: 16px;
   -webkit-box-flex: 1;

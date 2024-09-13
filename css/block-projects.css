@@ -337,7 +337,8 @@ body:not(.is-touch) .project._shadow-top::before {
   }
   .project {
     height: 100%;
-    min-height: 244px
+    min-height: 244px;
+    overflow: hidden
   }
   .grid-project-6 .project {
     display: none
