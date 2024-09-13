@@ -492,7 +492,6 @@ svg {
   width: 100%
 }
 .h1,
-.h1 > *,
 h1 {
   font-size: 2rem;
   line-height: .9;
@@ -501,7 +500,6 @@ h1 {
   margin-bottom: 30px
 }
 .h2,
-.h2 > *,
 h2 {
   font-size: 1.5rem;
   line-height: 1;
@@ -510,7 +508,6 @@ h2 {
   margin-bottom: 24px
 }
 .h3,
-.h3 > *,
 h3 {
   font-size: 1.25rem;
   line-height: 1;
@@ -519,7 +516,6 @@ h3 {
   margin-bottom: 16px
 }
 .h4,
-.h4 > *,
 h4 {
   font-size: 1.125rem;
   line-height: 1;
@@ -528,7 +524,6 @@ h4 {
   margin-bottom: 16px
 }
 .h5,
-.h5 > *,
 h5 {
   font-size: 1rem;
   line-height: 1.2;
@@ -537,7 +532,6 @@ h5 {
   margin-bottom: 16px
 }
 .h6,
-.h6 > *,
 h6 {
   font-size: .875rem;
   line-height: 1.2;
@@ -606,6 +600,12 @@ h4 span,
 h5 span,
 h6 span {
   color: var(--black60)
+}
+.h1 svg.h-logo,
+h1 svg.h-logo {
+  fill: var(--yellow);
+  width: 130px;
+  height: 25px
 }
 p {
   letter-spacing: -.3px;
@@ -3376,6 +3376,10 @@ input[type=file]:focus-visible ~ span {
   background: var(--white);
   color: var(--black)
 }
+.label_black60 {
+  background: var(--black60);
+  color: var(--white)
+}
 .label_big {
   font-size: .9375rem;
   font-weight: 500;
@@ -3386,6 +3390,14 @@ input[type=file]:focus-visible ~ span {
   -webkit-transform: rotate(-5deg);
   -ms-transform: rotate(-5deg);
   transform: rotate(-5deg)
+}
+.label_link {
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out
+}
+.label_link:hover {
+  background: var(--yellow)
 }
 .label-logo {
   margin-left: 8px;
@@ -4503,10 +4515,15 @@ input[type=file]:focus-visible ~ span {
     width: 100%
   }
   .h1,
-  .h1 > *,
   h1 {
     font-size: 2.5rem;
     margin-bottom: 39px
+  }
+  .h1 svg.h-logo,
+  h1 svg.h-logo {
+    width: 135px;
+    height: 27px;
+    margin-left: 2px
   }
   .block-header {
     margin-top: 50px;
@@ -4717,36 +4734,35 @@ input[type=file]:focus-visible ~ span {
     width: 100%
   }
   .h1,
-  .h1 > *,
   h1 {
     font-size: 4rem;
     font-weight: 700
   }
   .h2,
-  .h2 > *,
   h2 {
     font-size: 2.125rem
   }
   .h3,
-  .h3 > *,
   h3 {
     font-size: 1.5rem;
     letter-spacing: -.48px
   }
   .h4,
-  .h4 > *,
   h4 {
     font-size: 1.25rem
   }
   .h5,
-  .h5 > *,
   h5 {
     font-size: 1.125rem
   }
   .h6,
-  .h6 > *,
   h6 {
     font-size: 1rem
+  }
+  .h1 svg.h-logo,
+  h1 svg.h-logo {
+    width: 222px;
+    height: 43px
   }
   .block-header {
     font-size: 2.125rem
