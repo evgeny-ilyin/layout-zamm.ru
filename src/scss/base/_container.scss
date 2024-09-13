@@ -244,9 +244,9 @@
 	// .inner-page_type-2
 	&_type-2 {
 		padding: 0;
-		background: #fbf7eb;
 
 		.inner-page__col-left {
+			background: #fbf7eb;
 			padding: 64px 16px 16px;
 
 			@include respond-to(lg) {
@@ -265,6 +265,7 @@
 		}
 
 		.inner-page__col-right {
+			background: #fbf7eb;
 			margin: 0;
 			padding: 16px;
 			flex: 1 1 50%;
