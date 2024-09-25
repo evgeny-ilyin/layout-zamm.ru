@@ -1,0 +1,42 @@
+.carousel-info-model {
+	--f-carousel-dots-width: 10px;
+	--f-carousel-slide-width: 80%;
+	--f-carousel-spacing: #{$min-padding};
+
+	@include respond-to(xm) {
+		--f-carousel-spacing: #{$max-padding};
+		// --f-carousel-slide-width: calc(50% - #{$max-padding} / 2);
+		--f-carousel-slide-width: auto;
+	}
+
+	img {
+		object-fit: cover;
+		height: 240px;
+
+		@include respond-to(md) {
+			height: 240px;
+		}
+
+		@include respond-to(xxxl) {
+			height: 330px;
+		}
+	}
+
+	// .carousel-info-model__name
+	&__name {
+		color: $black-brown;
+		font-size: rem(40);
+		font-weight: 700;
+		line-height: 1.1;
+
+		svg {
+			width: 162px;
+			height: 32px;
+			fill: $yellow;
+		}
+	}
+
+	.f-carousel__dots {
+		bottom: -42px;
+	}
+}

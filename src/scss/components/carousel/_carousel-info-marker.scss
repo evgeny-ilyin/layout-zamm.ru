@@ -1,0 +1,227 @@
+.carousel-info-marker {
+	--f-carousel-dots-width: 22px;
+
+	@include respond-to(md) {
+		--f-carousel-spacing: #{$min-padding};
+		--f-carousel-slide-width: 420px;
+	}
+
+	@include respond-to(lg) {
+		// --f-carousel-slide-width: auto;
+		--f-carousel-slide-width: 390px;
+	}
+
+	@include respond-to(xl) {
+		--f-carousel-slide-width: 500px;
+	}
+
+	@include respond-to(xxl) {
+		--f-carousel-slide-width: 500px;
+	}
+
+	@include respond-to(xxxl) {
+		--f-carousel-slide-width: 560px;
+	}
+
+	// для избегания показа следующих слайдов по вертикали при загрузке страницы
+	@include respond-to(lg) {
+		// max-height: 520px;
+		// overflow: hidden;
+	}
+
+	@include respond-to(xl) {
+		// max-height: 620px;
+	}
+
+	.f-carousel__track {
+		align-items: flex-start;
+	}
+
+	.f-carousel__dots {
+		justify-content: flex-start;
+	}
+
+	.f-carousel__dot {
+		width: 16px;
+		height: 5px;
+		border-radius: 24px;
+	}
+
+	li.is-current {
+		.f-carousel__dot {
+			background-color: $black60;
+		}
+	}
+}
+
+.info-marker {
+	position: absolute;
+	z-index: 1;
+
+	&.is-active {
+		z-index: 2;
+	}
+
+	// .info-marker__btn
+	&__btn {
+		display: block;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background: $white;
+		border: 1px solid $yellow;
+		transition: all $transition-default;
+		box-shadow: 0 0 0 8px $yellow inset;
+
+		@include on-hover {
+			box-shadow: 0 0 0 5px $yellow inset;
+		}
+
+		@include when-inside(".is-active") {
+			box-shadow: 0 0 0 5px $yellow inset;
+			border: 1px solid $white;
+		}
+
+		@include on-focus-visible {
+			border-radius: 50%;
+			box-shadow: 0 0 0 5px $yellow inset;
+		}
+	}
+
+	// .info-marker__content
+	&__content {
+		color: $black-brown;
+		font-size: rem(14);
+		position: absolute;
+		z-index: -1;
+		opacity: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		bottom: 125%;
+		width: 220px;
+		left: -999em;
+		background: rgba(255, 255, 255, 0.8);
+		padding: 10px 16px;
+		// transition: opacity $transition-default;
+
+		@include when-inside(".is-active") {
+			@include respond-to(lg) {
+				left: calc((-220px + 32px) / 2);
+			}
+
+			&._hide-xm {
+				@include respond-to(xm) {
+					z-index: 1;
+					opacity: 1;
+					transition: opacity $transition-default;
+				}
+			}
+			&._hide-md {
+				@include respond-to(md) {
+					z-index: 1;
+					opacity: 1;
+					transition: opacity $transition-default;
+				}
+			}
+			&._hide-lg {
+				@include respond-to(lg) {
+					z-index: 1;
+					opacity: 1;
+					transition: opacity $transition-default;
+				}
+			}
+			&._hide-xl {
+				@include respond-to(xl) {
+					z-index: 1;
+					opacity: 1;
+					transition: opacity $transition-default;
+				}
+			}
+			&._hide-xxl {
+				@include respond-to(xxl) {
+					z-index: 1;
+					opacity: 1;
+					transition: opacity $transition-default;
+				}
+			}
+		}
+
+		@include when-inside(".popup-edge") {
+			position: relative;
+			z-index: 1;
+			opacity: 1;
+			left: 0;
+			width: 100%;
+			margin-bottom: 16px;
+			padding-right: 50px;
+		}
+	}
+
+	// .info-marker__h
+	&__h {
+		font-size: rem(16);
+		font-weight: 700;
+	}
+
+	&.is-active {
+		@include respond-to(lg) {
+			.marker-l {
+				left: 0;
+			}
+
+			.marker-r {
+				left: auto;
+				right: 0;
+			}
+
+			.marker-b {
+				bottom: auto;
+				top: 40px;
+			}
+		}
+	}
+}
+
+.info-slide {
+	// для вертикальных картинок в потоке.
+	// выше установлено --f-carousel-slide-width: auto;
+	// .info-slide__img
+	// &__img {
+	// 	img {
+	// 		width: unset;
+
+	// 		@include respond-to(lg) {
+	// 			max-height: 520px;
+	// 			object-fit: contain;
+	// 		}
+
+	// 		@include respond-to(xl) {
+	// 			max-height: 620px;
+	// 		}
+	// 	}
+	// }
+
+	// старый способ без вертикальных картинок в потоке.
+	// выше выставить (lg) --f-carousel-slide-width: 75%;
+	// .info-slide__img
+	&__img {
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			height: 144px;
+			opacity: 0.5;
+			background: linear-gradient(180deg, rgba(53, 45, 33, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}

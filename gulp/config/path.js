@@ -14,6 +14,7 @@ const jsFiles = [
 	"./src/js/product-props.js",
 	"./src/js/product-actions.js",
 	"./src/js/product-card.js",
+	"./src/js/product-card-markers.js",
 	"./src/js/cart.js",
 	"./src/js/order.js",
 	"./src/js/login.js",

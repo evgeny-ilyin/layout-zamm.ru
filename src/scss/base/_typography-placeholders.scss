@@ -26,7 +26,7 @@
 	letter-spacing: -0.68px;
 	margin-bottom: 24px;
 
-	@include respond-to(lg) {
+	@include respond-to(md) {
 		font-size: rem(34);
 	}
 }

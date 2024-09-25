@@ -123,13 +123,27 @@
 }
 
 // серые кнопки навигации в правом верхнем углу для простой галереи
-.carousel-top-nav {
+.carousel-top-nav,
+.carousel-bottom-nav {
 	--f-button-next-pos: 0;
 	--f-button-prev-pos: 0;
 	--f-button-bg: #{$gray};
+
+	&._white {
+		.f-button {
+			background: $white;
+		}
+	}
+
+	&._nav-visible {
+		.f-carousel__nav {
+			opacity: 1 !important;
+		}
+	}
 }
 
-.carousel-top-nav {
+.carousel-top-nav,
+.carousel-bottom-nav {
 	.f-carousel__nav {
 		display: none;
 
@@ -176,6 +190,24 @@
 					border-radius: 4px;
 				}
 			}
+		}
+	}
+
+	&._nav-visible {
+		.f-carousel__nav {
+			opacity: 1;
+		}
+	}
+}
+
+.carousel-bottom-nav {
+	.f-carousel__nav {
+		@include respond-to(xl) {
+			left: 0;
+			bottom: -100px;
+			top: auto;
+			right: auto;
+			width: 96px;
 		}
 	}
 

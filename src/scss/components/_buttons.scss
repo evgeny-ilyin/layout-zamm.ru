@@ -271,8 +271,13 @@
 
 	// .btn_long
 	&_long {
-		padding-left: 72px;
-		padding-right: 72px;
+		padding-left: 10%;
+		padding-right: 10%;
+
+		@include respond-to(md) {
+			padding-left: 72px;
+			padding-right: 72px;
+		}
 	}
 
 	// .btn_fit
