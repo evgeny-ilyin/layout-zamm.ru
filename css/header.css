@@ -2093,8 +2093,8 @@ body:not(.is-touch) .category__header a {
   padding-right: 61px
 }
 .btn_long {
-  padding-left: 72px;
-  padding-right: 72px
+  padding-left: 10%;
+  padding-right: 10%
 }
 .btn_fit {
   width: -webkit-fit-content;
@@ -4520,6 +4520,10 @@ input[type=file]:focus-visible ~ span {
     font-size: 2.5rem;
     margin-bottom: 39px
   }
+  .h2,
+  h2 {
+    font-size: 2.125rem
+  }
   .h1 svg.h-logo,
   h1 svg.h-logo {
     width: 135px;
@@ -4555,6 +4559,10 @@ input[type=file]:focus-visible ~ span {
   }
   .nav__icons {
     margin-right: 0
+  }
+  .btn_long {
+    padding-left: 72px;
+    padding-right: 72px
   }
   .form-item__name {
     -webkit-box-orient: horizontal;
@@ -4738,10 +4746,6 @@ input[type=file]:focus-visible ~ span {
   h1 {
     font-size: 4rem;
     font-weight: 700
-  }
-  .h2,
-  h2 {
-    font-size: 2.125rem
   }
   .h3,
   h3 {

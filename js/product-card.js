@@ -17,12 +17,13 @@ if (!window.productBlockCollapseHandler) {
 		let elRealHeight = el.scrollHeight,
 			elHeight = el.getBoundingClientRect().height,
 			isClosedClass = "is-closed",
-			isOpenedClass = "is-opened";
+			isOpenedClass = "is-opened",
+			btnLabel = (el.dataset.label ?? "Показать всё");
 
 		if (elRealHeight > elHeight) {
 			let div = document.createElement("div"),
 				btn = document.createElement("button");
-			btn.innerHTML = "<span>Показать всё</span><span>Свернуть</span>";
+			btn.innerHTML = `<span>${btnLabel}</span><span>Свернуть</span>`;
 			btn.classList.add("block-collapse__btn", "js-block-collpase", "is-closed");
 			div.classList.add("block-collapse");
 			div.appendChild(btn);
