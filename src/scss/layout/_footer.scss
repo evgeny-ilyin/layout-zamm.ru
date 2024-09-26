@@ -60,34 +60,36 @@
 		display: flex;
 		flex-direction: column;
 		margin: 25px 0 19px;
+		max-width: 1250px;
 
 		@include respond-to(md) {
 			margin: 52px 0 33px;
 		}
-		@include respond-to(lg) {
-			display: grid;
-			grid-template-columns: repeat(5, 1fr);
-		}
+
+		// @include respond-to(lg) {
+		// 	display: grid;
+		// 	grid-template-columns: repeat(5, 1fr);
+		// }
 	}
 
 	// .footer__policy
-	&__policy {
-		order: 2;
+	// &__policy {
+	// 	order: 2;
 
-		@include respond-to(lg) {
-			grid-area: 1 / 1 / 2 / 4;
-		}
-	}
+	// 	@include respond-to(lg) {
+	// 		grid-area: 1 / 1 / 2 / 4;
+	// 	}
+	// }
 
 	// .footer__subscription
-	&__subscription {
-		order: 1;
+	// &__subscription {
+	// 	order: 1;
 
-		@include respond-to(lg) {
-			grid-area: 1 / 4 / 2 / 6;
-			padding: 0 55px;
-		}
-	}
+	// 	@include respond-to(lg) {
+	// 		grid-area: 1 / 4 / 2 / 6;
+	// 		padding: 0 55px;
+	// 	}
+	// }
 }
 
 .f-menu {
