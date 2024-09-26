@@ -230,6 +230,14 @@ body:not(.is-touch) .order .product-carousel {
 		// min-height: 16px;
 	}
 
+	.article {
+		display: none;
+
+		@include respond-to(md) {
+			display: block;
+		}
+	}
+
 	.article,
 	.fav {
 		opacity: 0;
