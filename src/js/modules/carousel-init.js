@@ -87,6 +87,10 @@ if (!window.carouselsInit) {
 				Object.assign(navigation, { Navigation: { nextTpl: next, prevTpl: prev } });
 			}
 
+			if (carousel.classList.contains("carousel-bottom-nav")) {
+				Object.assign(navigation, { Navigation: { nextTpl: next, prevTpl: prev } });
+			}
+
 			Object.assign(options, autoplay, thumbs, navigation, breakpoints, on);
 
 			if (Object.keys(plugins).length > 0 && plugins.constructor === Object) {

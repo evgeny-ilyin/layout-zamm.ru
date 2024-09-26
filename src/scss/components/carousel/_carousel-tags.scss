@@ -1,0 +1,57 @@
+.tags-carousel {
+	--f-carousel-dots-width: 22px;
+	--f-carousel-slide-width: auto;
+	--f-carousel-spacing: #{$min-padding};
+	margin-bottom: 110px !important;
+
+	@include respond-to(xm) {
+		--f-carousel-spacing: #{$max-padding};
+	}
+
+
+	.f-carousel__dots {
+		margin-top: 16px !important;
+	}
+
+	.f-carousel__dot {
+		width: 16px;
+		height: 5px;
+		border-radius: 24px;
+	}
+
+	li.is-current {
+		.f-carousel__dot {
+			background-color: $black60;
+		}
+	}
+
+
+
+	.f-carousel__slide {
+		display: flex;
+		align-items: center;
+		height: 42px;
+		padding: 0 16px;
+		line-height: 1;
+		margin: 0 8px 8px 0;
+		border-radius: 60px;
+		background: $gray;
+		border: 1px solid transparent;
+		text-decoration: none;
+		white-space: nowrap;
+		transition: all $transition-default;
+	
+		@include on-hover {
+			background: #e9ebec;
+			text-shadow: none;
+		}
+	
+		&.is-active {
+			border-color: $black-real;
+			font-weight: 700;
+		}
+	}
+}
+
+
+
