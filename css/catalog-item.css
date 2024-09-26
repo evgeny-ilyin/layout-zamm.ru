@@ -214,6 +214,9 @@ body:not(.is-touch) .is-active .item__gallery-nav::before {
 .item__more {
   padding: 0 8px
 }
+.item .article {
+  display: none
+}
 .item .article,
 .item .fav {
   opacity: 0;
@@ -361,5 +364,10 @@ body:not(.is-touch) .is-active .item__gallery-nav::before {
   .item__prices {
     -ms-flex-wrap: nowrap;
     flex-wrap: nowrap
+  }
+}
+@media (min-width:768px) {
+  .item .article {
+    display: block
   }
 }

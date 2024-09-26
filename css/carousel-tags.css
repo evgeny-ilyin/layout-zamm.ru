@@ -1,0 +1,50 @@
+.tags-carousel {
+  --f-carousel-dots-width: 22px;
+  --f-carousel-slide-width: auto;
+  --f-carousel-spacing: 12px;
+  margin-bottom: 110px!important
+}
+.tags-carousel .f-carousel__dots {
+  margin-top: 16px!important
+}
+.tags-carousel .f-carousel__dot {
+  width: 16px;
+  height: 5px;
+  border-radius: 24px
+}
+.tags-carousel li.is-current .f-carousel__dot {
+  background-color: var(--black60)
+}
+.tags-carousel .f-carousel__slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 42px;
+  padding: 0 16px;
+  line-height: 1;
+  margin: 0 8px 8px 0;
+  border-radius: 60px;
+  background: var(--gray);
+  border: 1px solid transparent;
+  text-decoration: none;
+  white-space: nowrap;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out
+}
+.tags-carousel .f-carousel__slide:hover {
+  background: #e9ebec;
+  text-shadow: none
+}
+.tags-carousel .f-carousel__slide.is-active {
+  border-color: var(--black-real);
+  font-weight: 700
+}
+@media (min-width:577px) {
+  .tags-carousel {
+    --f-carousel-spacing: 16px
+  }
+}

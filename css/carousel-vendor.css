@@ -1207,16 +1207,70 @@
 .carousel-top-nav._nav-visible .f-carousel__nav {
   opacity: 1!important
 }
+.carousel-bottom-nav._nav-right .f-carousel__nav,
+.carousel-top-nav._nav-right .f-carousel__nav {
+  right: 0;
+  left: auto
+}
+.carousel-bottom-nav._nav-always-on .f-carousel__nav,
+.carousel-top-nav._nav-always-on .f-carousel__nav {
+  display: block
+}
 .carousel-bottom-nav .f-carousel__nav,
 .carousel-top-nav .f-carousel__nav {
-  display: none
+  display: none;
+  position: absolute;
+  right: 16px;
+  top: 0;
+  width: 96px
 }
-.carousel-bottom-nav._nav-visible .f-carousel__nav,
-.carousel-top-nav._nav-visible .f-carousel__nav {
-  opacity: 1
+.carousel-bottom-nav .f-carousel__nav .f-button,
+.carousel-top-nav .f-carousel__nav .f-button {
+  top: -73px!important;
+  -webkit-transform: none!important;
+  -ms-transform: none!important;
+  transform: none!important;
+  border-radius: 4px;
+  border: 1px solid transparent;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box
 }
-.carousel-bottom-nav._nav-visible .f-carousel__nav {
-  opacity: 1
+.carousel-bottom-nav .f-carousel__nav .f-button svg,
+.carousel-top-nav .f-carousel__nav .f-button svg {
+  stroke: var(--black);
+  stroke-width: 1.5px
+}
+.carousel-bottom-nav .f-carousel__nav .f-button:hover,
+.carousel-top-nav .f-carousel__nav .f-button:hover {
+  background: var(--white);
+  border: 1px solid var(--black10)
+}
+.carousel-bottom-nav .f-carousel__nav .f-button:active,
+.carousel-top-nav .f-carousel__nav .f-button:active {
+  background: var(--gray);
+  border: 1px solid var(--black60);
+  color: var(--black60)!important
+}
+.carousel-bottom-nav .f-carousel__nav .f-button:active svg,
+.carousel-top-nav .f-carousel__nav .f-button:active svg {
+  opacity: .5
+}
+.carousel-bottom-nav .f-carousel__nav .f-button:disabled,
+.carousel-top-nav .f-carousel__nav .f-button:disabled {
+  pointer-events: none
+}
+.carousel-bottom-nav .f-carousel__nav .f-button:focus-visible,
+.carousel-top-nav .f-carousel__nav .f-button:focus-visible {
+  -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
+  box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
+  border-radius: 4px
+}
+.carousel-bottom-nav .f-carousel__nav {
+  left: 0;
+  bottom: -100px;
+  top: auto;
+  right: auto;
+  width: 96px
 }
 .f-carousel__slide img {
   margin: 0 auto
@@ -1230,59 +1284,7 @@
 @media (min-width:1280px) {
   .carousel-bottom-nav .f-carousel__nav,
   .carousel-top-nav .f-carousel__nav {
-    display: block;
-    position: absolute;
-    right: 16px;
-    top: 0;
-    width: 96px
-  }
-  .carousel-bottom-nav .f-carousel__nav .f-button,
-  .carousel-top-nav .f-carousel__nav .f-button {
-    top: -73px!important;
-    -webkit-transform: none!important;
-    -ms-transform: none!important;
-    transform: none!important;
-    border-radius: 4px;
-    border: 1px solid transparent;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box
-  }
-  .carousel-bottom-nav .f-carousel__nav .f-button svg,
-  .carousel-top-nav .f-carousel__nav .f-button svg {
-    stroke: var(--black);
-    stroke-width: 1.5px
-  }
-  .carousel-bottom-nav .f-carousel__nav .f-button:hover,
-  .carousel-top-nav .f-carousel__nav .f-button:hover {
-    background: var(--white);
-    border: 1px solid var(--black10)
-  }
-  .carousel-bottom-nav .f-carousel__nav .f-button:active,
-  .carousel-top-nav .f-carousel__nav .f-button:active {
-    background: var(--gray);
-    border: 1px solid var(--black60);
-    color: var(--black60)!important
-  }
-  .carousel-bottom-nav .f-carousel__nav .f-button:active svg,
-  .carousel-top-nav .f-carousel__nav .f-button:active svg {
-    opacity: .5
-  }
-  .carousel-bottom-nav .f-carousel__nav .f-button:disabled,
-  .carousel-top-nav .f-carousel__nav .f-button:disabled {
-    pointer-events: none
-  }
-  .carousel-bottom-nav .f-carousel__nav .f-button:focus-visible,
-  .carousel-top-nav .f-carousel__nav .f-button:focus-visible {
-    -webkit-box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
-    box-shadow: 0 0 0 1px var(--black60),0 0 0 7px var(--black-real10);
-    border-radius: 4px
-  }
-  .carousel-bottom-nav .f-carousel__nav {
-    left: 0;
-    bottom: -100px;
-    top: auto;
-    right: auto;
-    width: 96px
+    display: block
   }
 }
 @media (max-width:1023px) {
