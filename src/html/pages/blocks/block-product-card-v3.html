@@ -509,7 +509,7 @@
 
 			<div class="product__purchase" data-id="product-purchase">
 				<div class="product__buy">
-					<button type="button" class="btn btn_yellow btn_wide js-add-to-cart" data-id="702736" data-url="https://deviart.ru/zamm/add-to-cart.php" data-cart="/cart/">
+					<button type="button" class="btn btn_yellow btn_wide js-add-to-cart" data-id="702736" data-url="https://deviart.ru/zamm/add-to-cart.php" data-cart="/cart/" data-multiple="2">
 						<span>В корзину</span>
 						<span>Товар в корзине</span>
 					</button>
@@ -517,7 +517,8 @@
 				<div class="product__amount">
 					<div class="amount-element">
 						<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
-						<input type="number" name="amount" min="1" max="20" step="1" value="1" aria-label="Количество" />
+						<!-- без кратности: <input type="number" name="amount" min="1" max="20" step="1" value="1" aria-label="Количество" /> -->
+						<input type="number" name="amount" min="2" max="20" step="2" value="2" readonly aria-label="Количество" />
 						<button type="button" class="js-btn-plus" aria-label="Больше"></button>
 					</div>
 				</div>
