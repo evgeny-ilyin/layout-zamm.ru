@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 	<!-- common header -->
-	<link rel="stylesheet" href="css/root-vars.css?v=20240926223224">
-	<link rel="stylesheet" href="css/fonts.css?v=20240926223224">
-	<link rel="stylesheet" href="css/header.css?v=20240926223224">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240926223224">
+	<link rel="stylesheet" href="css/root-vars.css?v=20240930114950">
+	<link rel="stylesheet" href="css/fonts.css?v=20240930114950">
+	<link rel="stylesheet" href="css/header.css?v=20240930114950">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240930114950">
 
 
 
@@ -24,14 +24,14 @@
 
 
 	<!-- product -->
-	<link rel="stylesheet" href="css/carousel-products.css?v=20240926223224">
-	<link rel="stylesheet" href="css/carousel-product-main-gallery.css?v=20240926223224">
-	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20240926223224">
-	<link rel="stylesheet" href="css/catalog-item.css?v=20240926223224">
-	<link rel="stylesheet" href="css/product-card.css?v=20240926223224">
-	<link rel="stylesheet" href="css/block-quote.css?v=20240926223224">
-	<link rel="stylesheet" href="css/carousel-info-marker.css?v=20240926223224">
-	<link rel="stylesheet" href="css/carousel-info-model.css?v=20240926223224">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20240930114950">
+	<link rel="stylesheet" href="css/carousel-product-main-gallery.css?v=20240930114950">
+	<link rel="stylesheet" href="css/carousel-gallery-thumbs.css?v=20240930114950">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20240930114950">
+	<link rel="stylesheet" href="css/product-card.css?v=20240930114950">
+	<link rel="stylesheet" href="css/block-quote.css?v=20240930114950">
+	<link rel="stylesheet" href="css/carousel-info-marker.css?v=20240930114950">
+	<link rel="stylesheet" href="css/carousel-info-model.css?v=20240930114950">
 
 
 
@@ -89,8 +89,8 @@
 
 
 	<!-- common footer -->
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20240926223224">
-	<link rel="stylesheet" href="css/footer.css?v=20240926223224">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240930114950">
+	<link rel="stylesheet" href="css/footer.css?v=20240930114950">
 
 	<title>Карточка товара v3 / 24.09.24</title>
 	<meta name="description" content="Карточка товара v3 / 24.09.24">
@@ -1143,7 +1143,7 @@
 
 					<div class="product__purchase" data-id="product-purchase">
 						<div class="product__buy">
-							<button type="button" class="btn btn_yellow btn_wide js-add-to-cart" data-id="702736" data-url="https://deviart.ru/zamm/add-to-cart.php" data-cart="/cart/">
+							<button type="button" class="btn btn_yellow btn_wide js-add-to-cart" data-id="702736" data-url="https://deviart.ru/zamm/add-to-cart.php" data-cart="/cart/" data-multiple="2">
 								<span>В корзину</span>
 								<span>Товар в корзине</span>
 							</button>
@@ -1151,7 +1151,8 @@
 						<div class="product__amount">
 							<div class="amount-element">
 								<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
-								<input type="number" name="amount" min="1" max="20" step="1" value="1" aria-label="Количество" />
+								<!-- без кратности: <input type="number" name="amount" min="1" max="20" step="1" value="1" aria-label="Количество" /> -->
+								<input type="number" name="amount" min="2" max="20" step="2" value="2" readonly aria-label="Количество" />
 								<button type="button" class="js-btn-plus" aria-label="Больше"></button>
 							</div>
 						</div>
@@ -2007,16 +2008,16 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240926223224"></script>
-	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20240926223224"></script>
-	<script src="js/carousel-init.js?v=20240926223224"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240930114950"></script>
+	<script src="js/vendors/fancyapps/carousel.thumbs.umd.js?v=20240930114950"></script>
+	<script src="js/carousel-init.js?v=20240930114950"></script>
 
-	<script src="js/common.js?v=20240926223224"></script>
-	<script src="js/tabs.js?v=20240926223224"></script>
-	<script src="js/product-actions.js?v=20240926223224"></script>
-	<script src="js/product-props.js?v=20240926223224"></script>
-	<script src="js/product-card.js?v=20240926223224"></script>
-	<script src="js/product-card-markers.js?v=20240926223224"></script>
+	<script src="js/common.js?v=20240930114950"></script>
+	<script src="js/tabs.js?v=20240930114950"></script>
+	<script src="js/product-actions.js?v=20240930114950"></script>
+	<script src="js/product-props.js?v=20240930114950"></script>
+	<script src="js/product-card.js?v=20240930114950"></script>
+	<script src="js/product-card-markers.js?v=20240930114950"></script>
 
 	<script>
 		var arFav = [11111, 33333, 999777];

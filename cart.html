@@ -7,10 +7,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
 	<!-- common header -->
-	<link rel="stylesheet" href="css/root-vars.css?v=20240926223224">
-	<link rel="stylesheet" href="css/fonts.css?v=20240926223224">
-	<link rel="stylesheet" href="css/header.css?v=20240926223224">
-	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240926223224">
+	<link rel="stylesheet" href="css/root-vars.css?v=20240930114950">
+	<link rel="stylesheet" href="css/fonts.css?v=20240930114950">
+	<link rel="stylesheet" href="css/header.css?v=20240930114950">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240930114950">
 
 
 
@@ -26,9 +26,9 @@
 
 
 	<!-- cart -->
-	<link rel="stylesheet" href="css/carousel-products.css?v=20240926223224">
-	<link rel="stylesheet" href="css/catalog-item.css?v=20240926223224">
-	<link rel="stylesheet" href="css/cart.css?v=20240926223224">
+	<link rel="stylesheet" href="css/carousel-products.css?v=20240930114950">
+	<link rel="stylesheet" href="css/catalog-item.css?v=20240930114950">
+	<link rel="stylesheet" href="css/cart.css?v=20240930114950">
 
 
 
@@ -84,8 +84,8 @@
 
 
 	<!-- common footer -->
-	<link rel="stylesheet" href="css/carousel-footer.css?v=20240926223224">
-	<link rel="stylesheet" href="css/footer.css?v=20240926223224">
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240930114950">
+	<link rel="stylesheet" href="css/footer.css?v=20240930114950">
 
 	<title>Корзина</title>
 	<meta name="description" content="Корзина">
@@ -509,7 +509,6 @@
 	</header>
 
 	<div class="container">
-
 		<div class="content order js-cart" data-id="cart-main" data-url="https://deviart.ru/zamm/fetch-cart.php">
 
 			<form action="/order/" class="form order__wrapper" method="post">
@@ -555,7 +554,8 @@
 									<div class="cart-item__actions">
 										<div class="amount-element _lg">
 											<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
-											<input type="number" name="amount15555" value="1" min="1" max="20" step="1" aria-label="Количество">
+											<!-- без кратности: <input type="number" name="amount15555" value="1" min="1" max="20" step="1" aria-label="Количество"> -->
+											<input type="number" name="amount15555" value="2" min="2" max="20" step="2" readonly aria-label="Количество">
 											<button type="button" class="js-btn-plus" aria-label="Больше"></button>
 										</div>
 										<a href="javascript:void(0)" class="btn-trash js-remove-from-cart cart-item__remove" aria-label="Удалить">
@@ -1057,16 +1057,16 @@
 	</svg>
 
 
-	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240926223224"></script>
-	<script src="js/carousel-init.js?v=20240926223224"></script>
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240930114950"></script>
+	<script src="js/carousel-init.js?v=20240930114950"></script>
 
-	<script src="js/common.js?v=20240926223224"></script>
-	<script src="js/cart.js?v=20240926223224"></script>
+	<script src="js/common.js?v=20240930114950"></script>
+	<script src="js/cart.js?v=20240930114950"></script>
 
-	<script src="js/observer.js?v=20240926223224"></script>
+	<script src="js/observer.js?v=20240930114950"></script>
 	<!-- 
-		<script src="js/product-actions.js?v=20240926223224"></script>
-		<script src="js/product-props.js?v=20240926223224"></script> 
+		<script src="js/product-actions.js?v=20240930114950"></script>
+		<script src="js/product-props.js?v=20240930114950"></script> 
 	-->
 </body>
 
