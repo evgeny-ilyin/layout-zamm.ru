@@ -1,0 +1,723 @@
+.product-model {
+	margin-top: 50px;
+	width: 100%;
+	text-align: left;
+
+	@include respond-to(lg) {
+		width: 69%;
+	}
+
+	@include respond-to(xxxl) {
+		width: 71%;
+	}
+
+	@import "components/buttons";
+}
+
+.product {
+	//! .product__equip
+	&__equip {
+		margin-bottom: 64px;
+
+		.equip {
+			// .equip__row
+			&__row {
+				display: flex;
+				flex-direction: column;
+				margin-bottom: 41px;
+
+				@include respond-to(md) {
+					flex-flow: row nowrap;
+					margin-bottom: 48px;
+				}
+
+				&:nth-child(odd) {
+					.equip__text {
+						@include respond-to(md) {
+							order: 0;
+							padding: 0 24px 0 0;
+						}
+					}
+				}
+			}
+			// .equip__img
+			&__img {
+				margin-bottom: 17px;
+
+				@include respond-to(md) {
+					width: 50%;
+					flex: 1 1 50%;
+					margin-bottom: 0;
+				}
+
+				img {
+					width: 100%;
+					height: 100%;
+					object-fit: contain;
+				}
+			}
+			// .equip__text
+			&__text {
+				order: 1;
+
+				@include respond-to(md) {
+					align-self: center;
+					padding-left: 24px;
+					width: 50%;
+					flex: 1 1 50%;
+				}
+			}
+			// .equip__note
+			&__note {
+				font-size: rem(14);
+				opacity: 0.6;
+				margin-bottom: 13px;
+			}
+			// .equip__header
+			&__header {
+				color: $black-real;
+				font-weight: 700;
+				text-transform: uppercase;
+				margin-bottom: 11px;
+			}
+			// .equip__body
+			&__body {
+				font-size: rem(14);
+				line-height: 1.3;
+			}
+
+			&._type-2 {
+				.h2,
+				h2 {
+					margin-bottom: 32px;
+				}
+
+				.equip__row {
+					margin-bottom: 20px;
+
+					&:nth-child(odd) {
+						.equip__text {
+							@include respond-to(md) {
+								order: 1;
+							}
+						}
+					}
+
+					@include respond-to(md) {
+						height: 300px;
+						margin-bottom: 0;
+					}
+
+					@include respond-to(xxxl) {
+						height: 325px;
+					}
+
+					@include respond-to(wide) {
+						height: 380px;
+					}
+				}
+
+				.equip__header {
+					font-size: rem(18);
+					text-transform: none;
+				}
+
+				.equip__text {
+					order: 0;
+				}
+			}
+		}
+	}
+
+	//! .product__text-block
+	&__text-block {
+		margin-bottom: 64px;
+
+		h1,
+		.h1 {
+			line-height: 0.9;
+			margin-bottom: 0;
+		}
+	}
+
+	//! .product__carousel-info-model
+	&__carousel-info-model {
+		margin-bottom: 125px;
+	}
+
+	//! .product__wide-image
+	&__wide-image {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 64px;
+
+		&._with-text {
+			picture,
+			img {
+				height: auto;
+				object-fit: cover;
+				min-height: 422px;
+
+				@include respond-to(md) {
+					min-height: 550px;
+				}
+			}
+		}
+
+		&._filter-blur,
+		&._filter-black {
+			position: relative;
+
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+		}
+
+		// _filter-blur
+		&._filter-blur {
+			&::before {
+				backdrop-filter: blur(4px);
+			}
+		}
+
+		// _filter-black
+		&._filter-black {
+			&::before {
+				background: rgba(0, 0, 0, 0.7);
+			}
+		}
+	}
+
+	//! .product__about-cards
+	&__about-cards {
+		display: grid;
+		gap: 10px;
+		margin-bottom: 64px;
+		grid-template-columns: 1fr;
+
+		@include respond-to(md) {
+			grid-template-columns: repeat(auto-fill, minmax(calc((100% / 3) - 10px), 1fr));
+		}
+	}
+
+	//! .product__quote
+	&__quote {
+		margin-bottom: 64px;
+	}
+
+	//! .product__about-tiles
+	&__about-tiles {
+		margin-bottom: 64px;
+	}
+
+	//! .product__about-tiles-header
+	&__about-tiles-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		margin-bottom: 32px;
+
+		& > div {
+			flex: 1 1 100%;
+			margin-bottom: 0;
+			max-width: 490px;
+
+			&:nth-child(2) {
+				flex: 0 0 auto;
+			}
+		}
+	}
+
+	//! .product__carousel-info-marker
+	&__carousel-info-marker {
+		margin-bottom: 64px;
+	}
+
+	//! .product__features-table
+	&__features-table {
+		margin-bottom: 64px;
+	}
+
+	//! .product__advices
+	&__advices {
+		max-height: 250px;
+		margin-bottom: 64px;
+	}
+}
+
+// new features table
+.f-table {
+	margin-bottom: 40px;
+}
+
+.f-row {
+	font-size: rem(14);
+	line-height: 1.3;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+	border-bottom: 1px solid $gray-dark;
+	padding: 14px 0;
+	color: $black60;
+
+	&:last-child {
+		border-bottom: 0;
+	}
+
+	& > div {
+		flex: 1 1 100%;
+
+		&:nth-child(2) {
+			color: $black;
+			text-align: right;
+			max-width: 350px;
+		}
+	}
+}
+
+.block-collapsible {
+	position: relative;
+	overflow: hidden;
+	padding-bottom: 64px !important;
+	transition: all $transition-default;
+}
+
+.block-collapse {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 64px;
+	padding: 0 16px;
+	background: $white;
+	display: flex;
+	flex-flow: row nowrap;
+
+	@include respond-to(xl) {
+		padding: 0 24px;
+	}
+
+	// @include when-inside(".product__reviews") {
+	// 	padding: 0 16px;
+	// }
+
+	&::before {
+		content: "";
+		display: block;
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 100%;
+		width: 100%;
+		height: 65px;
+		z-index: 1;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(255, 255, 255) 100%);
+
+		@include when-inside(".is-opened") {
+			background: none !important;
+		}
+	}
+
+	// .block-collapse__btn
+	&__btn {
+		width: 100%;
+		border: 0;
+		background: transparent;
+		color: $bright-blue;
+		font-weight: 700;
+		padding: 0;
+		border-top: 2px solid $black10;
+		transition: color $transition-default;
+
+		@include on-active {
+			color: $bright-blue60;
+
+			span {
+				&::after {
+					opacity: 0.6;
+				}
+			}
+		}
+
+		span {
+			position: relative;
+			display: none;
+			justify-content: center;
+			align-items: center;
+			white-space: nowrap;
+
+			& ~ span {
+				display: flex;
+			}
+
+			&::after {
+				content: "";
+				display: block;
+				height: 11px;
+				width: 11px;
+				margin-left: 4px;
+				background: $svg-angle-bright-blue center no-repeat;
+				transform: translateY(2px) rotate(-90deg);
+				transition: all $transition-default;
+			}
+		}
+
+		&.is-closed {
+			span {
+				display: flex;
+
+				& ~ span {
+					display: none;
+				}
+
+				&::after {
+					transform: translateY(0) rotate(90deg);
+				}
+			}
+		}
+	}
+
+	@include when-inside(".product__advices") {
+		padding: 0;
+
+		&::before {
+			content: "";
+			display: block;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgb(255, 255, 255) 100%);
+		}
+
+		&__btn {
+			border: 0;
+			color: $yellow;
+
+			span {
+				justify-content: flex-start;
+
+				&::after {
+					content: "";
+					display: block;
+					background-image: $svg-angle-yellow;
+				}
+			}
+		}
+	}
+}
+
+.text-over {
+	position: absolute;
+	max-width: 470px;
+	text-align: center;
+	box-sizing: content-box;
+	padding: 50px 30px;
+	z-index: 0;
+
+	span {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		color: $black;
+		z-index: -1;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 47px;
+			margin-top: 5px;
+			background: $svg-brush-1 center 0px / 100% 47px no-repeat;
+			z-index: -1;
+		}
+	}
+
+	p {
+		font-size: rem(15);
+
+		@include respond-to(md) {
+			font-size: rem(18);
+		}
+	}
+}
+
+.p-about-card {
+	color: $white;
+	letter-spacing: -0.02em;
+	position: relative;
+	overflow: hidden;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	height: 250px;
+	padding: 30px 14px;
+
+	@include respond-to(md) {
+		height: 365px;
+	}
+
+	@include respond-to(xxl) {
+		justify-content: flex-end;
+	}
+
+	@include respond-to(xxxl) {
+		height: 450px;
+	}
+
+	// .p-about-card__text
+	&__text {
+		font-size: rem(20);
+		line-height: 1;
+		font-weight: 600;
+		z-index: 1;
+		max-width: 305px;
+
+		@include respond-to(md) {
+			font-size: rem(18);
+		}
+
+		@include respond-to(xl) {
+			font-size: rem(20);
+		}
+
+		@include respond-to(xxxl) {
+			font-size: rem(24);
+		}
+
+		span {
+			display: block;
+			margin-bottom: 16px;
+			font-size: rem(34);
+
+			@include respond-to(md) {
+				font-size: rem(24);
+			}
+		}
+	}
+
+	// .p-about-card__image
+	&__image {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+
+		&::before {
+			content: "";
+			display: block;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 82.5%);
+
+			@include respond-to(xxl) {
+				background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 82.5%);
+			}
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
+.about-tiles {
+	display: grid;
+	gap: 16px 12px;
+	grid-template-columns: 1fr;
+
+	@include respond-to(md) {
+		grid-template-columns: repeat(auto-fill, minmax(calc((100% / 3) - 10px), 1fr));
+	}
+}
+
+.about-tile {
+	display: flex;
+	flex-direction: column;
+
+	// .about-tile__img
+	&__img {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img,
+		picture {
+			display: block;
+			width: 100%;
+			height: 170px;
+			object-fit: cover;
+			flex: 1 1 100%;
+
+			@include respond-to(xxxl) {
+				height: 220px;
+			}
+		}
+	}
+
+	// .about-tile__body
+	&__body {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		padding: 20px 15px 30px;
+		background: $white;
+		color: $black-brown;
+	}
+
+	// .about-tile__num
+	&__num {
+		margin-bottom: 10px;
+		font-size: rem(18);
+		font-weight: 700;
+		line-height: 1;
+
+		@include respond-to(md) {
+			font-size: rem(16);
+			margin-bottom: 13px;
+		}
+
+		@include respond-to(xl) {
+			font-size: rem(18);
+		}
+
+		@include respond-to(wide) {
+			font-size: rem(20);
+			margin-bottom: 10px;
+		}
+	}
+
+	// .about-tile__header
+	&__header {
+		margin-bottom: 7px;
+		font-size: rem(18);
+		font-weight: 700;
+		line-height: 1;
+
+		@include respond-to(md) {
+			font-size: rem(16);
+		}
+
+		@include respond-to(xl) {
+			font-size: rem(18);
+		}
+
+		@include respond-to(wide) {
+			font-size: rem(20);
+		}
+	}
+
+	// .about-tile__text
+	&__text {
+		color: $black60;
+		font-size: rem(15);
+		line-height: 1.3;
+
+		@include respond-to(md) {
+			font-size: rem(13);
+		}
+
+		@include respond-to(wide) {
+			font-size: rem(15);
+		}
+	}
+}
+
+.brush {
+	display: inline-flex;
+	align-items: center;
+	position: relative;
+	z-index: 1;
+
+	&::before {
+		position: absolute;
+		content: "";
+		display: none;
+		width: 100%;
+		height: 50px;
+		z-index: -1;
+
+		@include respond-to(md) {
+			display: block;
+		}
+	}
+
+	// .brush_1
+	&_1 {
+		&::before {
+			background: $svg-brush-1 center / auto 30px no-repeat;
+		}
+	}
+
+	// .brush_2
+	&_2 {
+		&::before {
+			background: $svg-brush-2 center / auto 45px no-repeat;
+		}
+	}
+
+	// .brush_3
+	&_3 {
+		&::before {
+			background: $svg-brush-3 center / auto 45px no-repeat;
+		}
+	}
+
+	// .brush_4
+	&_4 {
+		&::before {
+			background: $svg-brush-4 center / auto 54px no-repeat;
+		}
+	}
+
+	// .brush_5
+	&_5 {
+		&::before {
+			background: $svg-brush-5 center / auto 54px no-repeat;
+		}
+	}
+
+	// .brush_first
+	&_first,
+	&_last {
+		&::before {
+			background-position-x: 0;
+			left: -10px;
+
+			@include respond-to(xl) {
+				background-position-x: -7px;
+			}
+		}
+	}
+
+	// .brush_last
+	&_last {
+		@include respond-to(xl) {
+			padding-right: 20px;
+
+			&::before {
+				left: auto;
+				background-position-x: right;
+			}
+		}
+	}
+
+	// .brush_center
+	&_center {
+		background-position-x: 50%;
+	}
+}
