@@ -27,7 +27,8 @@
 .quote__a-photo img {
   width: 70px;
   height: 70px;
-  border-radius: 50%
+  border-radius: 50%;
+  outline: 4px solid var(--yellow)
 }
 .quote__name {
   position: relative;

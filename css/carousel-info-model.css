@@ -3,10 +3,14 @@
   --f-carousel-slide-width: 80%;
   --f-carousel-spacing: 12px
 }
+.carousel-info-model .f-progress {
+  display: none
+}
 .carousel-info-model img {
   -o-object-fit: cover;
   object-fit: cover;
-  height: 240px
+  width: auto;
+  height: 310px
 }
 .carousel-info-model__name {
   color: var(--black-brown);
@@ -30,11 +34,26 @@
 }
 @media (min-width:768px) {
   .carousel-info-model img {
-    height: 240px
+    height: 225px
+  }
+}
+@media (min-width:1024px) {
+  .carousel-info-model img {
+    height: 210px
+  }
+}
+@media (min-width:1536px) {
+  .carousel-info-model img {
+    height: 300px
   }
 }
 @media (min-width:1620px) {
   .carousel-info-model img {
-    height: 330px
+    height: 290px
+  }
+}
+@media (min-width:1920px) {
+  .carousel-info-model img {
+    height: 370px
   }
 }

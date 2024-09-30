@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+	<!-- common header -->
+	<link rel="stylesheet" href="css/root-vars.css?v=20240930221037">
+	<link rel="stylesheet" href="css/fonts.css?v=20240930221037">
+	<link rel="stylesheet" href="css/header.css?v=20240930221037">
+	<link rel="stylesheet" href="css/carousel-vendor.css?v=20240930221037">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- product-for-pro -->
+	<!-- из base взято только нужное и импортировано в for-pro-product-card.scss -->
+	<!-- components/buttons импортированы в for-pro-product-card.scss -->
+	<link rel="stylesheet" href="css/for-pro-product-card.css?v=20240930221037">
+	<link rel="stylesheet" href="css/block-quote.css?v=20240930221037">
+	<link rel="stylesheet" href="css/carousel-info-marker.css?v=20240930221037">
+	<link rel="stylesheet" href="css/carousel-info-model.css?v=20240930221037">
+
+
+	<!-- common footer -->
+	<link rel="stylesheet" href="css/carousel-footer.css?v=20240930221037">
+	<link rel="stylesheet" href="css/footer.css?v=20240930221037">
+
+	<title>Карточка товара v3 / 24.09.24</title>
+	<meta name="description" content="Карточка товара v3 / 24.09.24">
+</head>
+
+<body>
+
+	<div class="container">
+		<div class="product">
+
+			<!-- начало блока для переноса на ПРО -->
+			<div class="product-model">
+				<div class="product__carousel-info-model">
+					<div class="f-carousel carousel-info-model carousel-bottom-nav _white _nav-visible" data-carousel="carousel" data-dots-media-disable="min-width: 768px" data-options='{"center": true}'>
+						<div class="f-carousel__slide">
+							<picture>
+								<source media="(min-width: 1920px)" srcset="img/dev/carousels/model/1-1920.jpg" />
+								<source media="(min-width: 1536px)" srcset="img/dev/carousels/model/1-1536.jpg" />
+								<source media="(min-width: 1440px)" srcset="img/dev/carousels/model/1-1440.jpg" />
+								<source srcset="img/dev/carousels/model/1-320.jpg" />
+								<img src="img/dev/carousels/model/1-1920.jpg" alt="" />
+							</picture>
+						</div>
+
+						<div class="f-carousel__slide">
+							<picture>
+								<source media="(min-width: 1920px)" srcset="img/dev/carousels/model/2-1920.jpg" />
+								<source media="(min-width: 1536px)" srcset="img/dev/carousels/model/2-1536.jpg" />
+								<source media="(min-width: 1440px)" srcset="img/dev/carousels/model/2-1440.jpg" />
+								<source srcset="img/dev/carousels/model/2-320.jpg" />
+								<img src="img/dev/carousels/model/2-1920.jpg" alt="" />
+							</picture>
+						</div>
+
+						<div class="f-carousel__slide">
+							<div class="carousel-info-model__name">
+								<svg>
+									<use xlink:href="#logo"></use>
+								</svg>
+								<div>FLIP</div>
+							</div>
+						</div>
+
+						<div class="f-carousel__slide">
+							<picture>
+								<source media="(min-width: 1920px)" srcset="img/dev/carousels/model/3-1920.jpg" />
+								<source media="(min-width: 1536px)" srcset="img/dev/carousels/model/3-1536.jpg" />
+								<source media="(min-width: 1440px)" srcset="img/dev/carousels/model/3-1440.jpg" />
+								<source srcset="img/dev/carousels/model/3-320.jpg" />
+								<img src="img/dev/carousels/model/3-1920.jpg" alt="" />
+							</picture>
+						</div>
+
+						<div class="f-carousel__slide">
+							<picture>
+								<source media="(min-width: 1920px)" srcset="img/dev/carousels/model/1-1920.jpg" />
+								<source media="(min-width: 1536px)" srcset="img/dev/carousels/model/1-1536.jpg" />
+								<source media="(min-width: 1440px)" srcset="img/dev/carousels/model/1-1440.jpg" />
+								<source srcset="img/dev/carousels/model/1-320.jpg" />
+								<img src="img/dev/carousels/model/1-1920.jpg" alt="" />
+							</picture>
+						</div>
+
+						<div class="f-carousel__slide">
+							<picture>
+								<source media="(min-width: 1920px)" srcset="img/dev/carousels/model/2-1920.jpg" />
+								<source media="(min-width: 1536px)" srcset="img/dev/carousels/model/2-1536.jpg" />
+								<source media="(min-width: 1440px)" srcset="img/dev/carousels/model/2-1440.jpg" />
+								<source srcset="img/dev/carousels/model/2-320.jpg" />
+								<img src="img/dev/carousels/model/2-1920.jpg" alt="" />
+							</picture>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="product__text-block _cols-xxl">
+					<div class="col">
+						<div class="h1 text-yellow">ZAMM FLIP</div>
+						<div class="h2">Кресло с пюпитром</div>
+						<p>Cкладное кресло с пюпитром, надежной металлической конструкцией и откидываемой спинкой, сделанное из качественных материалов - ощущается монолитным, устойчивым и удобным. Идеальный спутник вашего образовательного процесса.</p>
+					</div>
+					<div class="col">
+						<div class="h3">Подход <span class="text-yellow">ZAMM</span></div>
+						<p>Мы подобрали и доработали именно те модели, которые мы считаем лучшими по качеству, удобству и внешнему виду, и напрямую работаем с производителями. Процесс отбора и тестирования - долгий и тщательный. Проводим персональный регулярный контроль качества на производствах.</p>
+					</div>
+				</div>
+
+				<div class="product__wide-image _with-text _filter-blur _filter-black">
+					<div class="text-over text-white">
+						<div class="h2">
+							Кресло с пюпитром
+							<span>ZAMM FLIP</span>
+						</div>
+						<p>Идеально подойдет для образовательных учреждений любого уровня, для конференц-залов и лекционных, для мастер-классов и любого гибкого (или гибридного) пространства, где нужно быстро сложить и переместить мебель, или нет полноразмерных столов.</p>
+					</div>
+					<img src="img/dev/product/product-card/product-about-wide-1-1920.jpg" width="1920" height="550" alt="" loading="lazy">
+				</div>
+
+				<div class="product__about-cards">
+					<div class="p-about-card">
+						<div class="p-about-card__text"><span>/01</span>Надёжная металлическая складная конструкция</div>
+						<div class="p-about-card__image">
+							<img src="img/dev/product/product-card/about-card/1-1920.jpg" width="597" height="500" alt="" loading="lazy">
+						</div>
+					</div>
+					<div class="p-about-card">
+						<div class="p-about-card__text"><span>/02</span>Устойчивый пюпитр на металлической руке</div>
+						<div class="p-about-card__image">
+							<img src="img/dev/product/product-card/about-card/2-1920.jpg" width="597" height="500" alt="" loading="lazy">
+						</div>
+					</div>
+					<div class="p-about-card">
+						<div class="p-about-card__text"><span>/03</span>Спинка откидывается под весом сидящего</div>
+						<div class="p-about-card__image">
+							<img src="img/dev/product/product-card/about-card/3-1920.jpg" width="597" height="500" alt="" loading="lazy">
+						</div>
+					</div>
+				</div>
+
+				<div class="product__equip equip _type-2">
+					<div class="h2 text-center">Особенности <span class="text-yellow">каждой детали</span></div>
+
+					<div class="equip__row">
+						<div class="equip__text">
+							<div class="equip__header brush brush_1 brush_last">Складывается и стоит без поддержки</div>
+							<div class="equip__body">
+								Он сделан из качественных материалов и у него крепкий, надежный пюпитр (столик) на металлической руке и с металлическим шарниром. Кресло ощущается монолитным - ничто нигде не скрипит и не шатается.
+							</div>
+						</div>
+						<div class="equip__img">
+							<img src="img/dev/product/product-card/flip-equip-1.png" width="500" height="380" alt="" loading="lazy" />
+						</div>
+					</div>
+
+					<div class="equip__row">
+						<div class="equip__text">
+							<div class="equip__header brush brush_2 brush_first">Устойчивый пюпитр</div>
+							<div class="equip__body">
+								На металлической руке - можно придвинуть ближе к себе для удобства при письме.
+							</div>
+						</div>
+						<div class="equip__img">
+							<img src="img/dev/product/product-card/flip-equip-2.png" width="500" height="380" alt="" loading="lazy" />
+						</div>
+					</div>
+
+					<div class="equip__row">
+						<div class="equip__text">
+							<div class="equip__header brush brush_3 brush_last">Спинка откидывается под весом сидящего</div>
+							<div class="equip__body">
+								На FLIP можно сидеть академически-прямо по время письма, а можно и откинуться назад, чтобы с комфортом слушать лектора или смотреть презентацию. Это - уникальная особенность кресла для долгих уроков или лекций и переводит кресло FLIP в совершенно иной класс, по сравнению с другими похожими креслами. Сама спинка сделана из упругой, плотной сетки, которая дает, как и у SWIFT, уверенную, но комфортную поддержку, а пластиковая рамка, благодаря своей форме, не врезается в спину сидящему.
+							</div>
+						</div>
+						<div class="equip__img">
+							<img src="img/dev/product/product-card/flip-equip-3.png" width="500" height="380" alt="" loading="lazy" />
+						</div>
+					</div>
+
+					<div class="equip__row">
+						<div class="equip__text">
+							<div class="equip__header brush brush_4 brush_last">Сиденье поднимается отдельно</div>
+							<div class="equip__body">
+								Чтобы не мешаться в проходе между рядами кресел.
+							</div>
+						</div>
+						<div class="equip__img">
+							<img src="img/dev/product/product-card/flip-equip-4.png" width="500" height="380" alt="" loading="lazy" />
+						</div>
+					</div>
+
+					<div class="equip__row">
+						<div class="equip__text">
+							<div class="equip__header brush brush_5 brush_last">Тихие колёсики</div>
+							<div class="equip__body">
+								Позволяют легко и быстро перемещать кресло. При этом, кресло устойчиво и не сдвигается под весом сидящего.
+							</div>
+						</div>
+						<div class="equip__img">
+							<img src="img/dev/product/product-card/flip-equip-5.png" width="500" height="380" alt="" loading="lazy" />
+						</div>
+					</div>
+
+				</div>
+
+				<div class="product__quote quote">
+					<div class="quote__author">
+						<div class="quote__a-photo">
+							<img src="img/dev/quote/author.jpg" width="70" height="70" alt="" loading="lazy">
+						</div>
+						<div class="quote__a-data">
+							<div class="quote__name">
+								Алексей Алимов <div class="quote__tooltip"><span>Кинезиолог — это медицинский специалист, который занимается оценкой и лечением болезней, используя различные техники и направления в физической реабилитации.</span></div>
+							</div>
+							<div class="quote__position">
+								Врач кинезиолог
+							</div>
+						</div>
+					</div>
+					<div class="quote__text">
+						В эпоху сидячих профессий, иметь возможность работать стоя — огромный плюс для здоровья и осанки, как на работе, так и дома. Это также помогает сосредоточиться на работе и вести более активный образ жизни. Сначала вы работаете стоя, а потом — начинаете чаще разминаться, держать спину прямее, появляется желание пройтись... Положительный пример заразителен для всего вашего образа жизни. Стол так же может запомнить положение сидя — пропорции тела у людей разные и общепринятые 75см могут подойти не всем — вы сможете выставить высоту, которая подойдет вам лучше для правильной, эргономичной посадки.
+					</div>
+				</div>
+
+				<div class="product__about-tiles">
+					<div class="header-wrap">
+						<div class="h2">Премиум-качество, <span class="text-yellow">комфорт</span> и забота о здоровье</div>
+						<div class="hidden-to-md">
+							<a href="javascript:void(0)" class="btn btn_yellow btn_long">Подробнее</a>
+						</div>
+					</div>
+
+					<div class="about-tiles">
+
+						<div class="about-tile">
+							<div class="about-tile__img">
+								<img src="img/dev/product/product-card/about-tile/1-pro.jpg" width="592" height="260" alt="" loading="lazy">
+							</div>
+							<div class="about-tile__body">
+								<div class="about-tile__num">/01</div>
+								<div class="about-tile__header">Надёжная металлическая складная конструкция</div>
+								<div class="about-tile__text">Стоит сам по себе в сложенном виде</div>
+							</div>
+						</div>
+						<div class="about-tile">
+							<div class="about-tile__img">
+								<img src="img/dev/product/product-card/about-tile/2-pro.jpg" width="592" height="260" alt="" loading="lazy">
+							</div>
+							<div class="about-tile__body">
+								<div class="about-tile__num">/02</div>
+								<div class="about-tile__header">Устойчивый пюпитр на металлической руке</div>
+								<div class="about-tile__text">Складывается в сторону</div>
+							</div>
+						</div>
+						<div class="about-tile">
+							<div class="about-tile__img">
+								<img src="img/dev/product/product-card/about-tile/3-pro.jpg" width="592" height="260" alt="" loading="lazy">
+							</div>
+							<div class="about-tile__body">
+								<div class="about-tile__num">/03</div>
+								<div class="about-tile__header">Спинка откидывается под весом сидящего</div>
+								<div class="about-tile__text">Встроенные пружины регулируют усилие наклона</div>
+							</div>
+						</div>
+						<div class="about-tile">
+							<div class="about-tile__img">
+								<img src="img/dev/product/product-card/about-tile/3-pro.jpg" width="592" height="260" alt="" loading="lazy">
+							</div>
+							<div class="about-tile__body">
+								<div class="about-tile__num">/04</div>
+								<div class="about-tile__header">Надёжная металлическая складная конструкция</div>
+								<div class="about-tile__text">Стоит сам по себе в сложенном виде</div>
+							</div>
+						</div>
+						<div class="about-tile">
+							<div class="about-tile__img">
+								<img src="img/dev/product/product-card/about-tile/1-pro.jpg" width="592" height="260" alt="" loading="lazy">
+							</div>
+							<div class="about-tile__body">
+								<div class="about-tile__num">/05</div>
+								<div class="about-tile__header">Устойчивый пюпитр на металлической руке</div>
+								<div class="about-tile__text">Складывается в сторону</div>
+							</div>
+						</div>
+						<div class="about-tile">
+							<div class="about-tile__img">
+								<img src="img/dev/product/product-card/about-tile/2-pro.jpg" width="592" height="260" alt="" loading="lazy">
+							</div>
+							<div class="about-tile__body">
+								<div class="about-tile__num">/06</div>
+								<div class="about-tile__header">Спинка откидывается под весом сидящего</div>
+								<div class="about-tile__text">Встроенные пружины регулируют усилие наклона</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="product__wide-image">
+					<img src="img/dev/product/product-card/product-about-wide-2-1920.jpg" width="1920" height="550" alt="" loading="lazy">
+				</div>
+
+				<div class="product__carousel-info-marker">
+					<div class="f-carousel carousel-info-marker" data-carousel="carousel" data-dots-media-disable="min-width: 1024px" data-options='{"center": true}'>
+
+						<div class="f-carousel__slide">
+							<div class="info-slide">
+
+								<div class="info-marker" style="left: 15%; top: 40%">
+									<button class="info-marker__btn js-info js-popup-show" type="button" aria-label="Деталь" data-target="info-marker__content" data-hide="lg"></button>
+									<div class="info-marker__content _hide-lg">
+										<div class="info-marker__h">Устойчивые, надежные подлокотники</div>
+										<div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam eum molestiae doloribus fugit ducimus dicta iusto, ipsum ipsa voluptatum quae ea possimus asperiores minima nisi!</div>
+									</div>
+								</div>
+
+								<div class="info-slide__img">
+									<picture>
+										<source media="(min-width: 1440px)" srcset="img/dev/carousels/info/carousel-info-1-1440.jpg" />
+										<source media="(min-width: 768px)" srcset="img/dev/carousels/info/carousel-info-1-768.webp" type="image/webp" />
+										<source media="(min-width: 577px)" srcset="img/dev/carousels/info/carousel-info-1-577.webp" type="image/webp" />
+										<source srcset="img/dev/carousels/info/carousel-info-1-320.webp" type="image/webp" />
+										<img src="img/dev/carousels/info/carousel-info-1-768.jpg" width="911" height="613" alt="" />
+									</picture>
+								</div>
+							</div>
+						</div>
+
+						<div class="f-carousel__slide">
+							<div class="info-slide">
+								<div class="info-slide__img">
+									<picture>
+										<source media="(min-width: 1440px)" srcset="img/dev/carousels/info/carousel-info-2-1440.jpg" />
+										<source media="(min-width: 768px)" srcset="img/dev/carousels/info/carousel-info-2-768.webp" type="image/webp" />
+										<source media="(min-width: 577px)" srcset="img/dev/carousels/info/carousel-info-2-577.webp" type="image/webp" />
+										<source srcset="img/dev/carousels/info/carousel-info-2-320.webp" type="image/webp" />
+										<img src="img/dev/carousels/info/carousel-info-2-768.jpg" width="911" height="613" alt="" loading="lazy" />
+									</picture>
+								</div>
+							</div>
+						</div>
+
+						<div class="f-carousel__slide">
+							<div class="info-slide">
+								<div class="info-slide__img">
+									<picture>
+										<source media="(min-width: 1440px)" srcset="img/dev/carousels/info/carousel-info-3-1440.jpg" />
+										<source media="(min-width: 768px)" srcset="img/dev/carousels/info/carousel-info-3-768.webp" type="image/webp" />
+										<source media="(min-width: 577px)" srcset="img/dev/carousels/info/carousel-info-3-577.webp" type="image/webp" />
+										<source srcset="img/dev/carousels/info/carousel-info-3-320.webp" type="image/webp" />
+										<img src="img/dev/carousels/info/carousel-info-3-768.jpg" width="911" height="613" alt="" loading="lazy" />
+									</picture>
+								</div>
+							</div>
+						</div>
+
+						<div class="f-carousel__slide">
+							<div class="info-slide">
+								<div class="info-slide__img">
+									<picture>
+										<source media="(min-width: 1440px)" srcset="img/dev/carousels/info/carousel-info-2-1440.jpg" />
+										<source media="(min-width: 768px)" srcset="img/dev/carousels/info/carousel-info-2-768.webp" type="image/webp" />
+										<source media="(min-width: 577px)" srcset="img/dev/carousels/info/carousel-info-2-577.webp" type="image/webp" />
+										<source srcset="img/dev/carousels/info/carousel-info-2-320.webp" type="image/webp" />
+										<img src="img/dev/carousels/info/carousel-info-2-768.jpg" width="911" height="613" alt="" loading="lazy" />
+									</picture>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="product__features-table">
+					<div class="h2">Характеристики</div>
+					<div class="f-table _cols-xxl">
+						<div class="f-col">
+							<div class="f-row">
+								<div>Комплект поставки</div>
+								<div>Кресло, колесики 4шт., пюпитр, комплект для сборки, инструкция</div>
+							</div>
+							<div class="f-row">
+								<div>Вес в сборе</div>
+								<div>10 кг</div>
+							</div>
+							<div class="f-row">
+								<div>Размер сиденья</div>
+								<div>46х45 см</div>
+							</div>
+							<div class="f-row">
+								<div>Максимальный вес</div>
+								<div>102 кг</div>
+							</div>
+						</div>
+						<div class="f-col">
+							<div class="f-row">
+								<div>Материал сетки</div>
+								<div>Полиэстер</div>
+							</div>
+							<div class="f-row">
+								<div>Материал ткани</div>
+								<div>Полиэстер</div>
+							</div>
+							<div class="f-row">
+								<div>Гарантия, срок службы</div>
+								<div>Гарантия 1 год, срок службы до 5 лет</div>
+							</div>
+							<div class="f-row">
+								<div>Регулировка по высоте</div>
+								<div>Фиксированная высота 45 см</div>
+							</div>
+							<div class="f-row">
+								<div>Сертификаты</div>
+								<div>BIFMA/SGS</div>
+							</div>
+						</div>
+					</div>
+					<a href="javascript:void(0)" class="btn btn_long btn_transparent btn_download center">Скачать инструкцию по сборке</a>
+				</div>
+
+				<div class="product__advices block-collapsible" data-label="Показать все советы">
+					<div class="h2"><span class="text-yellow">Советы</span> по использованию</div>
+					<div class="h3">Lorem ipsum dolor sit amet</div>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, beatae itaque. Soluta, tempore ut dignissimos aliquid debitis dicta nemo quibusdam, quas velit magni numquam suscipit quam eaque similique sed obcaecati.</p>
+					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti iusto, autem voluptas quo mollitia iste nam sed atque, provident quos vitae in et impedit explicabo earum quae hic? Beatae sunt pariatur a sit cupiditate voluptate omnis repellat, alias, itaque impedit quaerat, officia molestiae illo repellendus earum similique excepturi laudantium assumenda maxime unde. Facere assumenda expedita accusamus, dignissimos iure dolorem nemo cum molestiae voluptas, alias a, fugit ullam delectus voluptate sit quia labore nam tempore. Vel deleniti quisquam alias quos eligendi magnam sint numquam, laborum eveniet qui velit facilis maxime laudantium aliquam itaque, consequuntur nihil adipisci laboriosam veritatis! Perferendis, quas voluptas.</p>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem, beatae itaque. Soluta, tempore ut dignissimos aliquid debitis dicta nemo quibusdam, quas velit magni numquam suscipit quam eaque similique sed obcaecati.</p>
+				</div>
+
+				<div class="product__wide-image">
+					<img src="img/dev/product/product-card/product-about-wide-3-1920.jpg" width="1920" height="724" alt="" loading="lazy">
+				</div>
+			</div>
+			<!-- конец блока для переноса на ПРО -->
+
+		</div>
+	</div>
+
+	<script src="js/vendors/fancyapps/carousel.umd.js?v=20240930221037"></script>
+	<script src="js/carousel-init.js?v=20240930221037"></script>
+
+	<script src="js/product-card.js?v=20240930221037"></script>
+	<script src="js/product-card-markers.js?v=20240930221037"></script>
+
+</body>
+
+</html>
