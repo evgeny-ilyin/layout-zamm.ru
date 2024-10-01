@@ -67,6 +67,12 @@ function changeCart(cart, itemId, trigger) {
 						}
 					}
 				}
+
+				if (!isNaN(result.currentAmount) && result.currentAmount > 1) {
+					const amountInput = document.querySelector(`[data-id="${itemId}"] .amount-element input`);
+					if (!amountInput) return;
+					amountInput.value = result.currentAmount;
+				}
 			}
 
 			fetchLoader([cart], "stop");

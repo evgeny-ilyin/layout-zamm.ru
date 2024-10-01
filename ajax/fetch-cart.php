@@ -21,6 +21,7 @@ try {
 				'$total' => $total,
 				'$totaltext' => $totaltext,
 			));
+			$currentAmount = 4; // обновление кол-ва в инпуте согласно кратности. значение приходит с сервера
 
 			break;
 
@@ -79,6 +80,9 @@ try {
 
 	if ($addedId)
 		$resp['addedId'] = $addedId;
+
+	if ($currentAmount )
+		$resp['currentAmount'] = $currentAmount;
 
 
 	header('Content-Type: application/json; charset=UTF-8');

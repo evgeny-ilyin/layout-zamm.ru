@@ -65,6 +65,12 @@ function toCart(btn, trigger) {
 				target.dataset.amount = isNaN(result.amount) ? 0 : result.amount;
 
 				if (result.chunks) updateChunks(result.chunks);
+
+				if (!isNaN(result.currentAmount) && result.currentAmount > 1) {
+					const amountInput = document.querySelector(`[data-id="product-purchase"] .amount-element input`);
+					if (!amountInput) return;
+					amountInput.value = result.currentAmount;
+				}
 			}
 			btnLoader(btn, "stop");
 		} catch (e) {

@@ -5,8 +5,9 @@ try {
 	$data = $_POST;
 
 	$amount = $data['amount'];
+	$currentAmount = 8; // обновление кол-ва в инпуте согласно кратности. значение приходит с сервера
 
-	$resp = array('status' => true, 'amount' => (int)$amount);
+	$resp = array('status' => true, 'amount' => (int)$amount, 'currentAmount' => (int)$currentAmount);
 
 
 	// js eval
