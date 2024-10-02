@@ -461,6 +461,34 @@
 .product__wide-image._filter-black::before {
   background: rgba(0,0,0,.4)
 }
+.product__wide-image._on-hover {
+  position: relative
+}
+.product__wide-image._on-hover .text-over {
+  opacity: 0
+}
+.product__wide-image._on-hover::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-transition: -webkit-backdrop-filter .2s ease;
+  transition: -webkit-backdrop-filter .2s ease;
+  -o-transition: backdrop-filter .2s ease;
+  transition: backdrop-filter .2s ease;
+  transition: backdrop-filter .2s ease,-webkit-backdrop-filter .2s ease
+}
+.product__wide-image._on-hover:hover::before {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  background: rgba(0,0,0,.4)
+}
+.product__wide-image._on-hover:hover .text-over {
+  opacity: 1
+}
 .product__about-cards {
   display: -ms-grid;
   display: grid;
@@ -1071,7 +1099,10 @@
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
   padding: 50px 30px;
-  z-index: 0
+  z-index: 0;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out
 }
 .text-over span {
   position: relative;
