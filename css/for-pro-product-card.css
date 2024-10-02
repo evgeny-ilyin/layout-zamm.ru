@@ -1899,11 +1899,72 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   background-position-x: 50%
 }
 .carousel-info-model {
-  --f-carousel-slide-width: auto!important;
-  --f-carousel-slide-height: 310px!important
+  overflow: hidden
+}
+.carousel-info-model:hover .carousel-info-model-wrapper {
+  -webkit-animation-play-state: paused;
+  animation-play-state: paused
+}
+.carousel-info-model .carousel-info-model-wrapper {
+  overflow: hidden;
+  will-change: transform;
+  -webkit-animation: infScroll var(--speed) infinite linear;
+  animation: infScroll var(--speed) infinite linear;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content
+}
+@-webkit-keyframes infScroll {
+  from {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+  }
+  to {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+  }
+}
+@keyframes infScroll {
+  from {
+    -webkit-transform: translateX(0);
+    transform: translateX(0)
+  }
+  to {
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%)
+  }
+}
+.carousel-info-model picture {
+  display: block;
+  width: -webkit-max-content!important;
+  width: -moz-max-content!important;
+  width: max-content!important
 }
 .carousel-info-model img {
-  height: 100%!important
+  -o-object-fit: cover;
+  object-fit: cover;
+  height: 310px
+}
+.carousel-info-model__name {
+  color: var(--black-brown);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.1
+}
+.carousel-info-model__name svg {
+  width: 162px;
+  height: 32px;
+  fill: var(--yellow)
+}
+.carousel-info-model .f-carousel__dots {
+  bottom: -42px
 }
 .info-marker__btn {
   cursor: pointer
@@ -2050,8 +2111,8 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   .brush::before {
     display: block
   }
-  .carousel-info-model {
-    --f-carousel-slide-height: 240px!important
+  .carousel-info-model img {
+    height: 225px
   }
 }
 @media (min-width:1024px) {
@@ -2177,6 +2238,9 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
     width: 20px;
     height: 20px
   }
+  .carousel-info-model img {
+    height: 210px
+  }
 }
 @media (min-width:1280px) {
   .inner-page_type-2 .inner-page__col-left {
@@ -2252,8 +2316,8 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   .about-tile__img picture {
     height: 240px
   }
-  .carousel-info-model {
-    --f-carousel-slide-height: 340px!important
+  .carousel-info-model img {
+    height: 342px
   }
   .carousel-info-marker {
     --f-carousel-slide-width: 623px!important
@@ -2285,13 +2349,6 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   .about-tile__img picture {
     height: 260px
   }
-  .carousel-info-model {
-    --f-carousel-slide-height: 500px!important
-  }
-  .carousel-info-marker {
-    --f-carousel-slide-width: auto!important;
-    --f-carousel-slide-height: 613px!important
-  }
 }
 @media (min-width:1920px) {
   .product__equip .equip._type-2 .equip__row {
@@ -2309,6 +2366,9 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   }
   .about-tile__text {
     font-size: .9375rem
+  }
+  .carousel-info-model img {
+    height: 500px
   }
 }
 @media (max-width:1439px) {
