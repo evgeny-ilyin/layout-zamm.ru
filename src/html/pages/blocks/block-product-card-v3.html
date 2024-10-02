@@ -113,19 +113,23 @@
 		</div>
 
 		<div class="product__carousel-info-model">
-			@@include('block-product-carousel-info-model.html', {})
+			<!-- @@ include('block-product-carousel-info-model.html', {}) -->
+			@@include('block-product-carousel-info-model-2-simple.html', {})
 		</div>
 
-		<div class="product__text-block">
-			<div class="h1 text-yellow">ZAMM FLIP</div>
-			<div class="h2">Кресло с пюпитром</div>
-			<p>Cкладное кресло с пюпитром, надежной металлической конструкцией и откидываемой спинкой, сделанное из качественных материалов - ощущается монолитным, устойчивым и удобным. Идеальный спутник вашего образовательного процесса.</p>
-			<br><br>
-			<div class="h3">Подход <span class="text-yellow">ZAMM</span></div>
-			<p>Мы подобрали и доработали именно те модели, которые мы считаем лучшими по качеству, удобству и внешнему виду, и напрямую работаем с производителями. Процесс отбора и тестирования - долгий и тщательный. Проводим персональный регулярный контроль качества на производствах.</p>
+		<div class="product__text-block _cols-xxl">
+			<div class="col">
+				<div class="h1 text-yellow">ZAMM FLIP</div>
+				<div class="h2">Кресло с пюпитром</div>
+				<p>Cкладное кресло с пюпитром, надежной металлической конструкцией и откидываемой спинкой, сделанное из качественных материалов - ощущается монолитным, устойчивым и удобным. Идеальный спутник вашего образовательного процесса.</p>
+			</div>
+			<div class="col">
+				<div class="h3">Подход <span class="text-yellow">ZAMM</span></div>
+				<p>Мы подобрали и доработали именно те модели, которые мы считаем лучшими по качеству, удобству и внешнему виду, и напрямую работаем с производителями. Процесс отбора и тестирования - долгий и тщательный. Проводим персональный регулярный контроль качества на производствах.</p>
+			</div>
 		</div>
 
-		<div class="product__wide-image _with-text _filter-blur _filter-black">
+		<div class="product__wide-image _with-text _on-hover">
 			<div class="text-over text-white">
 				<div class="h2">
 					Кресло с пюпитром
@@ -138,21 +142,45 @@
 
 		<div class="product__about-cards">
 			<div class="p-about-card">
-				<div class="p-about-card__text"><span>/01</span>Надёжная металлическая складная конструкция</div>
+				<div class="p-about-card__text">
+					<span>/01</span>
+					Надёжная металлическая складная конструкция
+					<div class="p-about-hover">Стоит без поддержки в сложенном виде</div>
+				</div>
 				<div class="p-about-card__image">
-					<img src="@img/dev/product/product-card/about-card/1.jpg" width="364" height="450" alt="" loading="lazy">
+					<picture>
+						<source media="(min-width: 1024px)" srcset="@img/dev/product/product-card/about-card/1-1920.jpg">
+						<source srcset="@img/dev/product/product-card/about-card/1.jpg">
+						<img src="@img/dev/product/product-card/about-card/1-1920.jpg" width="596" height="500" alt="" loading="lazy">
+					</picture>
 				</div>
 			</div>
 			<div class="p-about-card">
-				<div class="p-about-card__text"><span>/02</span>Устойчивый пюпитр на металлической руке</div>
+				<div class="p-about-card__text">
+					<span>/02</span>
+					Устойчивый пюпитр на металлической руке
+					<div class="p-about-hover">Складывается в сторону</div>
+				</div>
 				<div class="p-about-card__image">
-					<img src="@img/dev/product/product-card/about-card/2.jpg" width="364" height="450" alt="" loading="lazy">
+					<picture>
+						<source media="(min-width: 1024px)" srcset="@img/dev/product/product-card/about-card/2-1920.jpg">
+						<source srcset="@img/dev/product/product-card/about-card/2.jpg">
+						<img src="@img/dev/product/product-card/about-card/2-1920.jpg" width="596" height="500" alt="" loading="lazy">
+					</picture>
 				</div>
 			</div>
 			<div class="p-about-card">
-				<div class="p-about-card__text"><span>/03</span>Спинка откидывается под весом сидящего</div>
+				<div class="p-about-card__text">
+					<span>/03</span>
+					Спинка откидывается под весом сидящего
+					<div class="p-about-hover">Встроенные пружины регулируют усилие наклона</div>
+				</div>
 				<div class="p-about-card__image">
-					<img src="@img/dev/product/product-card/about-card/3.jpg" width="364" height="450" alt="" loading="lazy">
+					<picture>
+						<source media="(min-width: 1024px)" srcset="@img/dev/product/product-card/about-card/3-1920.jpg">
+						<source srcset="@img/dev/product/product-card/about-card/3.jpg">
+						<img src="@img/dev/product/product-card/about-card/3-1920.jpg" width="596" height="500" alt="" loading="lazy">
+					</picture>
 				</div>
 			</div>
 		</div>
@@ -283,7 +311,7 @@
 				</div>
 				<div class="about-tile">
 					<div class="about-tile__img">
-						<img src="@img/dev/product/product-card/about-tile/3.jpg" width="365" height="220" alt="" loading="lazy">
+						<img src="@img/dev/product/product-card/about-tile/4.jpg" width="365" height="220" alt="" loading="lazy">
 					</div>
 					<div class="about-tile__body">
 						<div class="about-tile__num">/04</div>
@@ -293,7 +321,7 @@
 				</div>
 				<div class="about-tile">
 					<div class="about-tile__img">
-						<img src="@img/dev/product/product-card/about-tile/1.jpg" width="365" height="220" alt="" loading="lazy">
+						<img src="@img/dev/product/product-card/about-tile/5.jpg" width="365" height="220" alt="" loading="lazy">
 					</div>
 					<div class="about-tile__body">
 						<div class="about-tile__num">/05</div>
@@ -303,7 +331,7 @@
 				</div>
 				<div class="about-tile">
 					<div class="about-tile__img">
-						<img src="@img/dev/product/product-card/about-tile/2.jpg" width="365" height="220" alt="" loading="lazy">
+						<img src="@img/dev/product/product-card/about-tile/6.jpg" width="365" height="220" alt="" loading="lazy">
 					</div>
 					<div class="about-tile__body">
 						<div class="about-tile__num">/06</div>
@@ -518,7 +546,7 @@
 					<div class="amount-element">
 						<button type="button" class="js-btn-minus" aria-label="Меньше"></button>
 						<!-- без кратности: <input type="number" name="amount" min="1" max="20" step="1" value="1" aria-label="Количество" /> -->
-						<input type="number" name="amount" min="2" max="20" step="2" value="2" readonly aria-label="Количество" />
+						<input type="number" name="amount" min="2" max="20" step="2" value="2" aria-label="Количество" />
 						<button type="button" class="js-btn-plus" aria-label="Больше"></button>
 					</div>
 				</div>

@@ -658,12 +658,35 @@
 
 	// .product__text-block
 	&__text-block {
-		margin-bottom: 64px;
+		margin-bottom: 44px;
 
 		h1,
 		.h1 {
 			line-height: 0.9;
 			margin-bottom: 0;
+		}
+
+		p {
+			font-size: rem(16);
+		}
+
+		&._cols-xxl {
+			@include respond-to(xxl) {
+				display: flex;
+				gap: 40px 80px;
+
+				.col {
+					flex: 1 1 100%;
+
+					&:nth-child(2) {
+						margin-top: 3px;
+					}
+				}
+			}
+		}
+
+		.col {
+			margin-bottom: 20px;
 		}
 	}
 
@@ -718,7 +741,38 @@
 		// _filter-black
 		&._filter-black {
 			&::before {
-				background: rgba(0, 0, 0, 0.7);
+				background: rgba(0, 0, 0, 0.4);
+			}
+		}
+
+		// _on-hover
+		&._on-hover {
+			position: relative;
+
+			.text-over {
+				opacity: 0;
+			}
+
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				transition: backdrop-filter 0.2s ease;
+			}
+
+			@include on-hover {
+				&::before {
+					backdrop-filter: blur(4px);
+					background: rgba(0, 0, 0, 0.4);
+				}
+
+				.text-over {
+					opacity: 1;
+				}
 			}
 		}
 	}
@@ -1455,6 +1509,7 @@
 	box-sizing: content-box;
 	padding: 50px 30px;
 	z-index: 0;
+	transition: opacity $transition-default;
 
 	span {
 		position: relative;
@@ -1500,10 +1555,6 @@
 
 	@include respond-to(md) {
 		height: 365px;
-	}
-
-	@include respond-to(xxl) {
-		justify-content: flex-end;
 	}
 
 	@include respond-to(xxxl) {
@@ -1556,10 +1607,8 @@
 			width: 100%;
 			height: 100%;
 			background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 82.5%);
-
-			@include respond-to(xxl) {
-				background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 82.5%);
-			}
+			transition: backdrop-filter 0.2s ease;
+			// transition: all 0.2s ease;
 		}
 
 		img {
@@ -1567,6 +1616,40 @@
 			height: 100%;
 			object-fit: cover;
 		}
+	}
+
+	@include on-hover {
+		.p-about-card__image {
+			&::before {
+				backdrop-filter: blur(10px);
+				background: rgba(0, 0, 0, 0.7);
+			}
+		}
+
+		.p-about-hover {
+			opacity: 1;
+		}
+	}
+}
+
+.p-about-hover {
+	opacity: 0;
+	transition: all $transition-default;
+	font-size: rem(16);
+	line-height: 1.2;
+	font-weight: 500;
+	margin-top: 16px;
+
+	@include respond-to(md) {
+		font-size: rem(15);
+	}
+
+	@include respond-to(xl) {
+		font-size: rem(17);
+	}
+
+	@include respond-to(xxxl) {
+		font-size: rem(20);
 	}
 }
 
@@ -1583,6 +1666,7 @@
 .about-tile {
 	display: flex;
 	flex-direction: column;
+	box-shadow: 0 1px 31px 2px rgba(0, 0, 0, 0.06), 0 1px 12px 0 rgba(0, 0, 0, 0);
 
 	// .about-tile__img
 	&__img {

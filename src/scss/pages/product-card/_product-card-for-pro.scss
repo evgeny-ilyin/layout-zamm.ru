@@ -126,7 +126,7 @@
 
 	//! .product__text-block
 	&__text-block {
-		margin-bottom: 64px;
+		margin-bottom: 44px;
 
 		h1,
 		.h1 {
@@ -134,19 +134,27 @@
 			margin-bottom: 0;
 		}
 
+		p {
+			font-size: rem(16);
+		}
+
 		&._cols-xxl {
 			@include respond-to(xxl) {
 				display: flex;
-				gap: 40px 120px;
+				gap: 40px 80px;
 
 				.col {
 					flex: 1 1 100%;
 
 					&:nth-child(2) {
-						margin-top: 20px;
+						margin-top: 3px;
 					}
 				}
 			}
+		}
+
+		.col {
+			margin-bottom: 20px;
 		}
 	}
 
@@ -201,7 +209,38 @@
 		// _filter-black
 		&._filter-black {
 			&::before {
-				background: rgba(0, 0, 0, 0.7);
+				background: rgba(0, 0, 0, 0.4);
+			}
+		}
+
+		// _on-hover
+		&._on-hover {
+			position: relative;
+
+			.text-over {
+				opacity: 0;
+			}
+
+			&::before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				transition: backdrop-filter 0.2s ease;
+			}
+
+			@include on-hover {
+				&::before {
+					backdrop-filter: blur(4px);
+					background: rgba(0, 0, 0, 0.4);
+				}
+
+				.text-over {
+					opacity: 1;
+				}
 			}
 		}
 	}
@@ -462,6 +501,7 @@
 	box-sizing: content-box;
 	padding: 50px 30px;
 	z-index: 0;
+	transition: opacity $transition-default;
 
 	span {
 		position: relative;
@@ -509,14 +549,8 @@
 		height: 365px;
 	}
 
-	@include respond-to(xxl) {
-		justify-content: flex-end;
-		height: 520px;
-		padding: 30px;
-	}
-
 	@include respond-to(xxxl) {
-		height: 500px;
+		height: 450px;
 	}
 
 	// .p-about-card__text
@@ -565,10 +599,8 @@
 			width: 100%;
 			height: 100%;
 			background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 82.5%);
-
-			@include respond-to(xxl) {
-				background: linear-gradient(0deg, rgba(0, 0, 0, 0.7) 30%, rgba(0, 0, 0, 0) 82.5%);
-			}
+			transition: backdrop-filter 0.2s ease;
+			// transition: all 0.2s ease;
 		}
 
 		img {
@@ -576,6 +608,40 @@
 			height: 100%;
 			object-fit: cover;
 		}
+	}
+
+	@include on-hover {
+		.p-about-card__image {
+			&::before {
+				backdrop-filter: blur(10px);
+				background: rgba(0, 0, 0, 0.7);
+			}
+		}
+
+		.p-about-hover {
+			opacity: 1;
+		}
+	}
+}
+
+.p-about-hover {
+	opacity: 0;
+	transition: all $transition-default;
+	font-size: rem(16);
+	line-height: 1.2;
+	font-weight: 500;
+	margin-top: 16px;
+
+	@include respond-to(md) {
+		font-size: rem(15);
+	}
+
+	@include respond-to(xl) {
+		font-size: rem(17);
+	}
+
+	@include respond-to(xxxl) {
+		font-size: rem(20);
 	}
 }
 
@@ -592,6 +658,7 @@
 .about-tile {
 	display: flex;
 	flex-direction: column;
+	box-shadow: 0 1px 31px 2px rgba(0, 0, 0, 0.06), 0 1px 12px 0 rgba(0, 0, 0, 0);
 
 	// .about-tile__img
 	&__img {
@@ -771,35 +838,120 @@
 }
 
 .carousel-info-model {
-	--f-carousel-slide-width: auto !important;
-	--f-carousel-slide-height: 310px !important;
+	// --f-carousel-dots-width: 10px;
+	// --f-carousel-slide-width: 80%;
+	// --f-carousel-spacing: #{$min-padding};
 
-	@include respond-to(md) {
-		--f-carousel-slide-height: 240px !important;
+	// @include respond-to(xm) {
+	// 	--f-carousel-spacing: #{$max-padding};
+	// 	--f-carousel-slide-width: auto;
+	// }
+
+	// .f-progress {
+	// 	display: none;
+	// }
+
+	// бесконечный скролл
+	overflow: hidden;
+
+	@include on-hover {
+		.carousel-info-model-wrapper {
+			animation-play-state: paused;
+		}
 	}
 
-	@include respond-to(xxl) {
-		--f-carousel-slide-height: 340px !important;
+	.carousel-info-model-wrapper {
+		overflow: hidden;
+		will-change: transform;
+		animation: infScroll var(--speed) infinite linear;
+		display: flex;
+		gap: 20px;
+		justify-content: space-between;
+		width: fit-content;
 	}
 
-	@include respond-to(xxxl) {
-		--f-carousel-slide-height: 500px !important;
+	@keyframes infScroll {
+		from {
+			transform: translateX(0%);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	picture {
+		display: block;
+		width: max-content !important;
 	}
 
 	img {
-		height: 100% !important;
+		object-fit: cover;
+		// width: auto;
+		height: 310px;
+
+		@include respond-to(md) {
+			height: 225px;
+		}
+
+		@include respond-to(lg) {
+			height: 210px;
+		}
+
+		// @include respond-to(xxl2) {
+		// 	height: 300px;
+		// }
+
+		// @include respond-to(xxxl) {
+		// 	height: 290px;
+		// }
+
+		// @include respond-to(wide) {
+		// 	height: 370px;
+		// }
+
+		// for PRO:
+		@include respond-to(xxl) {
+			height: 342px;
+		}
+
+		@include respond-to(xxxl2) {
+			height: 500px;
+		}
+
+		@include respond-to(wide) {
+			height: 500px;
+		}
+	}
+
+	// .carousel-info-model__name
+	&__name {
+		color: $black-brown;
+		font-size: rem(40);
+		font-weight: 700;
+		line-height: 1.1;
+
+		svg {
+			width: 162px;
+			height: 32px;
+			fill: $yellow;
+		}
+	}
+
+	.f-carousel__dots {
+		bottom: -42px;
 	}
 }
+
 
 .carousel-info-marker {
 	@include respond-to(xxl) {
 		--f-carousel-slide-width: 623px !important;
 	}
 
-	@include respond-to(xxxl) {
-		--f-carousel-slide-width: auto !important;
-		--f-carousel-slide-height: 613px !important;
-	}
+	// @include respond-to(xxxl) {
+	// 	--f-carousel-slide-width: auto !important;
+	// 	--f-carousel-slide-height: 613px !important;
+	// }
 }
 
 .info-marker__btn {

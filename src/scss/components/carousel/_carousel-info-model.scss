@@ -1,25 +1,87 @@
 .carousel-info-model {
-	--f-carousel-dots-width: 10px;
-	--f-carousel-slide-width: 80%;
-	--f-carousel-spacing: #{$min-padding};
+	// --f-carousel-dots-width: 10px;
+	// --f-carousel-slide-width: 80%;
+	// --f-carousel-spacing: #{$min-padding};
 
-	@include respond-to(xm) {
-		--f-carousel-spacing: #{$max-padding};
-		// --f-carousel-slide-width: calc(50% - #{$max-padding} / 2);
-		--f-carousel-slide-width: auto;
+	// @include respond-to(xm) {
+	// 	--f-carousel-spacing: #{$max-padding};
+	// 	--f-carousel-slide-width: auto;
+	// }
+
+	// .f-progress {
+	// 	display: none;
+	// }
+
+	// бесконечный скролл
+	overflow: hidden;
+
+	@include on-hover {
+		.carousel-info-model-wrapper {
+			animation-play-state: paused;
+		}
+	}
+
+	.carousel-info-model-wrapper {
+		overflow: hidden;
+		will-change: transform;
+		animation: infScroll var(--speed) infinite linear;
+		display: flex;
+		gap: 20px;
+		justify-content: space-between;
+		width: fit-content;
+	}
+
+	@keyframes infScroll {
+		from {
+			transform: translateX(0%);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	picture {
+		display: block;
+		width: max-content !important;
 	}
 
 	img {
 		object-fit: cover;
-		height: 240px;
+		// width: auto;
+		height: 310px;
 
 		@include respond-to(md) {
-			height: 240px;
+			height: 225px;
+		}
+
+		@include respond-to(lg) {
+			height: 210px;
+		}
+
+		@include respond-to(xxl2) {
+			height: 300px;
 		}
 
 		@include respond-to(xxxl) {
-			height: 330px;
+			height: 290px;
 		}
+
+		@include respond-to(wide) {
+			height: 370px;
+		}
+
+		// for PRO:
+		// @include respond-to(xxl) {
+		// 	height: 342px;
+		// }
+
+		// @include respond-to(xxxl2) {
+		// 	height: 500px;
+		// }
+
+		// @include respond-to(wide) {
+		// 	height: 500px;
+		// }
 	}
 
 	// .carousel-info-model__name
