@@ -409,10 +409,18 @@
 .product__text-block .h1,
 .product__text-block h1 {
   line-height: .9;
-  margin-bottom: 0
+  margin-bottom: 0;
+  font-size: 3.125rem
+}
+.product__text-block .h3,
+.product__text-block h3 {
+  font-size: 1.875rem
+}
+.product__text-block .text-yellow {
+  text-shadow: 0 0 0,0 0 0
 }
 .product__text-block p {
-  font-size: 1rem
+  font-size: .9375rem
 }
 .product__text-block .col {
   margin-bottom: 20px
@@ -1775,7 +1783,7 @@
     flex: 1 1 100%
   }
   .product__text-block._cols-xxl .col:nth-child(2) {
-    margin-top: 3px
+    margin-top: 15px
   }
 }
 @media (min-width:1620px) {
