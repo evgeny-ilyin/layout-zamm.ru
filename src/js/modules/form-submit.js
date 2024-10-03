@@ -366,6 +366,7 @@ function showSubmitStatus(response, btn) {
 
 	if (!response.message) return;
 	status.innerHTML = response.message;
+	status.classList.add(submitStatusClass, submitConditionClass);
 
 	let statusExists = document.querySelector(`.${submitStatusClass}`);
 	statusExists ? statusExists.remove() : "";
@@ -375,16 +376,54 @@ function showSubmitStatus(response, btn) {
 			modalHeaderClass = "modal__head",
 			modalBodyClass = "modal__body";
 
-		modal.querySelectorAll(`.${modalHeaderClass}, .${modalBodyClass}`).forEach((e) => e.remove());
-
-		status.classList.add(submitStatusClass, submitConditionClass, submitReplacedClass);
-		modal.append(status);
+		if (modal) {
+			modal.querySelectorAll(`.${modalHeaderClass}, .${modalBodyClass}`).forEach((e) => e.remove());
+			status.classList.add(submitReplacedClass);
+			modal.append(status);
+		} else {
+			btn.parentElement.prepend(status);
+			response.status === true ? (btn.disabled = true) : "";
+		}
 	} else {
-		status.classList.add(submitStatusClass, submitConditionClass);
 		btn.parentElement.prepend(status);
 		response.status === true ? (btn.disabled = true) : "";
 	}
 }
+
+/* 
+v2
+function showSubmitStatus(response, btn) {
+	const status = document.createElement("div"),
+		submitStatusClass = "submit-status",
+		submitReplacedClass = "submit-status_replaced",
+		submitConditionClass = response.status === true ? "submit-status_success" : "submit-status_error";
+
+	if (!response.message) return;
+	status.innerHTML = response.message;
+	status.classList.add(submitStatusClass, submitConditionClass);
+
+	let statusExists = document.querySelector(`.${submitStatusClass}`);
+	statusExists ? statusExists.remove() : "";
+
+	if (response.hideField === true) {
+		const modal = document.querySelector(".modal"),
+			modalHeaderClass = "modal__head",
+			modalBodyClass = "modal__body",
+			form = btn.closest("form");
+
+		if (modal) {
+			modal.querySelectorAll(`.${modalHeaderClass}, .${modalBodyClass}`).forEach((e) => e.remove());
+			status.classList.add(submitReplacedClass);
+			modal.append(status);
+		} else {
+			form.parentElement.append(status);
+			form.remove();
+		}
+	} else {
+		btn.parentElement.prepend(status);
+		response.status === true ? (btn.disabled = true) : "";
+	}
+} */
 
 // Validate email
 function validateEmail(email) {
