@@ -80,6 +80,21 @@
 .quote__position {
   color: var(--black-brown70)
 }
+.quote__header {
+  font-size: 1.375rem;
+  font-weight: 600;
+  text-shadow: 0 0 0,0 0 0;
+  line-height: 1;
+  letter-spacing: -.02em;
+  margin-bottom: 19px
+}
+.quote__subheader {
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  margin-bottom: 16px
+}
 .quote__text {
   color: var(--black-brown70);
   line-height: 1.3;
@@ -103,5 +118,13 @@
 @media (min-width:1440px) {
   .quote {
     gap: 40px
+  }
+  .quote__header {
+    font-size: 1.5rem;
+    margin-bottom: 29px
+  }
+  .quote__subheader {
+    font-size: 1.5rem;
+    margin-bottom: 19px
   }
 }

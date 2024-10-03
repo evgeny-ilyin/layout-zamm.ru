@@ -1360,14 +1360,13 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   -ms-flex-order: 0;
   order: 0
 }
-.product__text-block {
-  margin-bottom: 44px
-}
-.product__text-block .h1,
-.product__text-block h1 {
+.product__text-h1 {
   line-height: .9;
   margin-bottom: 0;
   font-size: 3.125rem
+}
+.product__text-block {
+  margin-bottom: 44px
 }
 .product__text-block .h3,
 .product__text-block h3 {
@@ -1796,7 +1795,7 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
 .about-tiles {
   display: -ms-grid;
   display: grid;
-  gap: 16px 12px;
+  gap: 16px 14px;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr
 }
@@ -2311,9 +2310,6 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
     -ms-flex: 1 1 100%;
     flex: 1 1 100%
   }
-  .product__text-block._cols-xxl .col:nth-child(2) {
-    margin-top: 14px
-  }
   .f-table._cols-xxl {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2329,6 +2325,11 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   }
   .carousel-info-marker {
     --f-carousel-slide-width: 623px!important
+  }
+}
+@media (min-width:1536px) {
+  .carousel-info-model img {
+    height: 500px
   }
 }
 @media (min-width:1620px) {

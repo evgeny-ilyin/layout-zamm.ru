@@ -403,14 +403,13 @@
   -o-object-fit: cover;
   object-fit: cover
 }
-.product__text-block {
-  margin-bottom: 44px
-}
-.product__text-block .h1,
-.product__text-block h1 {
+.product__text-h1 {
   line-height: .9;
   margin-bottom: 0;
   font-size: 3.125rem
+}
+.product__text-block {
+  margin-bottom: 44px
 }
 .product__text-block .h3,
 .product__text-block h3 {
@@ -1226,7 +1225,7 @@
 .about-tiles {
   display: -ms-grid;
   display: grid;
-  gap: 16px 12px;
+  gap: 16px 14px;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr
 }
@@ -1781,9 +1780,6 @@
     -webkit-box-flex: 1;
     -ms-flex: 1 1 100%;
     flex: 1 1 100%
-  }
-  .product__text-block._cols-xxl .col:nth-child(2) {
-    margin-top: 15px
   }
 }
 @media (min-width:1620px) {
