@@ -20,6 +20,7 @@ const jsFiles = [
 	"./src/js/login.js",
 	"./src/js/yandex-map.js",
 	"./src/js/constructor-filter.js",
+	"./src/js/fancybox-init.js",
 	// "./src/js/for-pro.js",
 	// "./src/js/for-pro-form.js",
 	// "./src/js/for-pro-carousel.js",

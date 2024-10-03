@@ -13,6 +13,7 @@ function vendorJS() {
 		"node_modules/@fancyapps/ui/dist/carousel/carousel.umd.js",
 		"node_modules/@fancyapps/ui/dist/carousel/carousel.autoplay.umd.js",
 		"node_modules/@fancyapps/ui/dist/carousel/carousel.thumbs.umd.js",
+		"node_modules/@fancyapps/ui/dist/fancybox/fancybox.umd.js",
 	],
 	fancyappsDest = `${app.path.build.js}vendors/fancyapps`;
 	return app.gulp.src(fancyappsSrc).pipe(app.gulp.dest(fancyappsDest));
