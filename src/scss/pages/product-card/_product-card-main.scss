@@ -664,10 +664,26 @@
 		.h1 {
 			line-height: 0.9;
 			margin-bottom: 0;
+			font-size: rem(50);
+		}
+
+		// h2,
+		// .h2 {
+		// 	line-height: 0.9;
+		// 	margin-bottom: 0;
+		// }
+
+		h3,
+		.h3 {
+			font-size: rem(30);
+		}
+
+		.text-yellow {
+			text-shadow: $shadow-700;
 		}
 
 		p {
-			font-size: rem(16);
+			font-size: rem(15);
 		}
 
 		&._cols-xxl {
@@ -679,7 +695,7 @@
 					flex: 1 1 100%;
 
 					&:nth-child(2) {
-						margin-top: 3px;
+						margin-top: 15px;
 					}
 				}
 			}
