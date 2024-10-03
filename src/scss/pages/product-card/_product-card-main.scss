@@ -656,16 +656,23 @@
 		}
 	}
 
+	// .product__text-h1
+	&__text-h1 {
+		line-height: 0.9;
+		margin-bottom: 0;
+		font-size: rem(50);
+	}
+
 	// .product__text-block
 	&__text-block {
 		margin-bottom: 44px;
 
-		h1,
-		.h1 {
-			line-height: 0.9;
-			margin-bottom: 0;
-			font-size: rem(50);
-		}
+		// h1,
+		// .h1 {
+		// 	line-height: 0.9;
+		// 	margin-bottom: 0;
+		// 	font-size: rem(50);
+		// }
 
 		// h2,
 		// .h2 {
@@ -694,9 +701,9 @@
 				.col {
 					flex: 1 1 100%;
 
-					&:nth-child(2) {
-						margin-top: 15px;
-					}
+					// &:nth-child(2) {
+					// 	margin-top: 15px;
+					// }
 				}
 			}
 		}
@@ -1671,7 +1678,7 @@
 
 .about-tiles {
 	display: grid;
-	gap: 16px 12px;
+	gap: 16px 14px;
 	grid-template-columns: 1fr;
 
 	@include respond-to(md) {

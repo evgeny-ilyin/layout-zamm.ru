@@ -99,6 +99,38 @@
 	&__position {
 		color: $black-brown70;
 	}
+	// .quote__body
+	&__body {
+	}
+
+	// .quote__header
+	&__header {
+		font-size: rem(22);
+		font-weight: 600;
+		text-shadow: $shadow-700;
+		line-height: 1;
+		letter-spacing: -0.02em;
+		margin-bottom: 19px;
+
+		@include respond-to(xxl) {
+			font-size: rem(24);
+			margin-bottom: 29px;
+		}
+	}
+
+	// .quote__subheader
+	&__subheader {
+		font-size: rem(22);
+		font-weight: 400;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		margin-bottom: 16px;
+
+		@include respond-to(xxl) {
+			font-size: rem(24);
+			margin-bottom: 19px;
+		}
+	}
 
 	// .quote__text
 	&__text {
