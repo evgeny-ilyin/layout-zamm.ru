@@ -405,7 +405,7 @@
 }
 .product__text-h1 {
   line-height: .9;
-  margin-bottom: 0;
+  margin-bottom: 0!important;
   font-size: 3.125rem
 }
 .product__text-block {
