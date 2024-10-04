@@ -659,7 +659,7 @@
 	// .product__text-h1
 	&__text-h1 {
 		line-height: 0.9;
-		margin-bottom: 0;
+		margin-bottom: 0 !important;
 		font-size: rem(50);
 	}
 
