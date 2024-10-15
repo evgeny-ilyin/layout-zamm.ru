@@ -2415,6 +2415,176 @@ body:not(.is-touch) .category__header a {
   background-image: var(--svg-download);
   background-repeat: no-repeat
 }
+.btn_animated-pro {
+  width: 230px;
+  height: 29px;
+  font-weight: 600;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center
+}
+.btn_animated-pro svg {
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none
+}
+.btn_animated-pro:hover .btn-frame-1 svg {
+  fill: var(--yellow)
+}
+.btn_animated-pro:hover .btn-frame-2 span {
+  color: var(--yellow)
+}
+.btn_animated-pro:hover .btn-frame-3 svg .pro1 {
+  fill: var(--yellow)
+}
+.btn_animated-pro:hover .btn-frame-3 svg .pro2 {
+  fill: var(--black-brown)
+}
+.btn-frame-1,
+.btn-frame-2,
+.btn-frame-3 {
+  position: absolute;
+  -webkit-animation-duration: 7s;
+  animation-duration: 7s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-out;
+  animation-timing-function: ease-out
+}
+.btn-frame-1 {
+  -webkit-animation-name: frame-1;
+  animation-name: frame-1
+}
+.btn-frame-1 svg {
+  fill: var(--white);
+  width: 21px;
+  height: 21px
+}
+@-webkit-keyframes frame-1 {
+  0% {
+    left: -1000%
+  }
+  20% {
+    left: 20px
+  }
+  25%,
+  30% {
+    left: 10px
+  }
+  100% {
+    left: 500%
+  }
+}
+@keyframes frame-1 {
+  0% {
+    left: -1000%
+  }
+  20% {
+    left: 20px
+  }
+  25%,
+  30% {
+    left: 10px
+  }
+  100% {
+    left: 500%
+  }
+}
+.btn-frame-2 {
+  left: 0;
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  -webkit-animation-name: frame-2;
+  animation-name: frame-2
+}
+.btn-frame-2 span {
+  display: inline;
+  color: var(--white)
+}
+@-webkit-keyframes frame-2 {
+  0%,
+  20% {
+    left: 0;
+    opacity: 1
+  }
+  100%,
+  30% {
+    left: 100%
+  }
+}
+@keyframes frame-2 {
+  0%,
+  20% {
+    left: 0;
+    opacity: 1
+  }
+  100%,
+  30% {
+    left: 100%
+  }
+}
+.btn-frame-3 {
+  left: -100%;
+  width: 100%;
+  text-align: center;
+  -webkit-animation-name: frame-3;
+  animation-name: frame-3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  gap: 7px
+}
+.btn-frame-3 svg {
+  width: 99px;
+  height: 15px
+}
+.btn-frame-3 svg .pro1 {
+  fill: var(--white)
+}
+.btn-frame-3 svg .pro2 {
+  fill: var(--yellow)
+}
+@-webkit-keyframes frame-3 {
+  0%,
+  40% {
+    left: -100%
+  }
+  50%,
+  95% {
+    left: 0;
+    opacity: 1
+  }
+  100% {
+    left: 0;
+    opacity: 0
+  }
+}
+@keyframes frame-3 {
+  0%,
+  40% {
+    left: -100%
+  }
+  50%,
+  95% {
+    left: 0;
+    opacity: 1
+  }
+  100% {
+    left: 0;
+    opacity: 0
+  }
+}
 .btn-inset {
   display: -webkit-box;
   display: -ms-flexbox;
