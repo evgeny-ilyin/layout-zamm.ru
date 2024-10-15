@@ -2556,6 +2556,16 @@ body:not(.is-touch) .hover-scroll:hover::-webkit-scrollbar-thumb:hover {
   }
 }
 @media (max-width:1023px) {
+  .product-model .btn_animated-pro {
+    color: var(--yellow)!important;
+    background: var(--black);
+    margin: 0 auto
+  }
+  .product-model .btn_animated-pro:hover {
+    color: var(--black)!important;
+    background: var(--white);
+    text-shadow: none
+  }
   .is-active .product-model .js-close-search::after,
   .is-active .product-model .js-close-search::before {
     width: 25px;

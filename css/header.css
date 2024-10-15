@@ -5812,6 +5812,16 @@ input[type=file]:focus-visible ~ span {
   .link-arrow-span.js-popup-gallery .link-arrow::after {
     display: none
   }
+  .btn_animated-pro {
+    color: var(--yellow)!important;
+    background: var(--black);
+    margin: 0 auto
+  }
+  .btn_animated-pro:hover {
+    color: var(--black)!important;
+    background: var(--white);
+    text-shadow: none
+  }
   .is-active .js-close-search::after,
   .is-active .js-close-search::before {
     width: 25px;
