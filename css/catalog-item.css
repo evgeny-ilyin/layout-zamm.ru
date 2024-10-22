@@ -104,9 +104,6 @@ body:not(.is-touch) .item__gallery-wrapper {
   flex-grow: 1;
   margin-bottom: -8px
 }
-body.is-touch .item__gallery-item:not(:first-child) {
-  display: none
-}
 .item__gallery-item.is-active img {
   opacity: 1
 }
@@ -132,9 +129,7 @@ body.is-touch .item__gallery-item:not(:first-child) {
 .item__gallery-nav {
   display: block;
   position: relative;
-  height: 100%
-}
-body:not(.is-touch) .item__gallery-nav {
+  height: 100%;
   margin: 0 3px 0 0
 }
 .item__gallery-nav::before {
@@ -151,7 +146,7 @@ body:not(.is-touch) .item__gallery-nav {
   right: 0;
   bottom: 0
 }
-body:not(.is-touch) .is-active .item__gallery-nav::before {
+.is-active .item__gallery-nav::before {
   background: var(--black)
 }
 .item__info {
@@ -357,6 +352,40 @@ body:not(.is-touch) .is-active .item__gallery-nav::before {
   transition: transform .25s ease-in-out;
   transition: transform .25s ease-in-out,-webkit-transform .25s ease-in-out
 }
+.touch-nav {
+  --size: 18px;
+  position: absolute;
+  width: calc(100% + 20px);
+  top: 50%;
+  left: -10px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  z-index: 2
+}
+.touch-nav i {
+  display: block;
+  background: var(--svg-angle) center/var(--size) var(--size) no-repeat;
+  opacity: .15;
+  -webkit-transition: opacity .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out;
+  transition: opacity .25s ease-in-out;
+  padding: 12px
+}
+.touch-nav i:first-child {
+  -webkit-transform: scale(-1);
+  -ms-transform: scale(-1);
+  transform: scale(-1)
+}
+body:not(.is-touch) .touch-nav {
+  display: none
+}
 @media (min-width:577px) {
   .item__image-wrapper {
     padding-top: 320px
@@ -369,5 +398,16 @@ body:not(.is-touch) .is-active .item__gallery-nav::before {
 @media (min-width:768px) {
   .item .article {
     display: block
+  }
+  .touch-nav {
+    --size: 25px
+  }
+  .touch-nav i {
+    padding: 20px
+  }
+}
+@media (hover:none) {
+  .touch-nav i:active {
+    opacity: .6
   }
 }

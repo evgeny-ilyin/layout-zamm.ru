@@ -2416,8 +2416,10 @@ body:not(.is-touch) .category__header a {
   background-repeat: no-repeat
 }
 .btn_animated-pro {
+  --frame-bgr: var(--black);
   width: 230px;
   height: 29px;
+  font-size: .8125rem;
   font-weight: 600;
   position: relative;
   display: -webkit-box;
@@ -2426,6 +2428,9 @@ body:not(.is-touch) .category__header a {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center
+}
+.btn_animated-pro:hover {
+  --frame-bgr: var(--white)
 }
 .btn_animated-pro svg {
   -webkit-transition: none;
@@ -2453,11 +2458,17 @@ body:not(.is-touch) .category__header a {
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   -webkit-animation-timing-function: ease-out;
-  animation-timing-function: ease-out
+  animation-timing-function: ease-out;
+  background: var(--frame-bgr);
+  -webkit-transition: background .25s ease-in-out;
+  -o-transition: background .25s ease-in-out;
+  transition: background .25s ease-in-out
 }
 .btn-frame-1 {
   -webkit-animation-name: frame-1;
-  animation-name: frame-1
+  animation-name: frame-1;
+  z-index: 2;
+  background: 0 0!important
 }
 .btn-frame-1 svg {
   fill: var(--white);
@@ -2469,7 +2480,7 @@ body:not(.is-touch) .category__header a {
     left: -1000%
   }
   20% {
-    left: 20px
+    left: 15px
   }
   25%,
   30% {
@@ -2484,7 +2495,7 @@ body:not(.is-touch) .category__header a {
     left: -1000%
   }
   20% {
-    left: 20px
+    left: 15px
   }
   25%,
   30% {
@@ -2495,12 +2506,14 @@ body:not(.is-touch) .category__header a {
   }
 }
 .btn-frame-2 {
-  left: 0;
-  width: 100%;
-  text-align: center;
-  opacity: 0;
   -webkit-animation-name: frame-2;
-  animation-name: frame-2
+  animation-name: frame-2;
+  z-index: 1;
+  left: 0;
+  margin: 0 7px;
+  width: calc(100% - 14px);
+  text-align: center;
+  opacity: 0
 }
 .btn-frame-2 span {
   display: inline;
@@ -2512,9 +2525,13 @@ body:not(.is-touch) .category__header a {
     left: 0;
     opacity: 1
   }
-  100%,
+  25%,
   30% {
-    left: 100%
+    left: 5px;
+    opacity: 1
+  }
+  100% {
+    left: 500%
   }
 }
 @keyframes frame-2 {
@@ -2523,17 +2540,21 @@ body:not(.is-touch) .category__header a {
     left: 0;
     opacity: 1
   }
-  100%,
+  25%,
   30% {
-    left: 100%
+    left: 5px;
+    opacity: 1
+  }
+  100% {
+    left: 500%
   }
 }
 .btn-frame-3 {
-  left: -100%;
-  width: 100%;
-  text-align: center;
   -webkit-animation-name: frame-3;
   animation-name: frame-3;
+  left: 0;
+  width: 100%;
+  text-align: center;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2556,32 +2577,20 @@ body:not(.is-touch) .category__header a {
   fill: var(--yellow)
 }
 @-webkit-keyframes frame-3 {
-  0%,
-  40% {
-    left: -100%
-  }
   50%,
   95% {
-    left: 0;
     opacity: 1
   }
   100% {
-    left: 0;
     opacity: 0
   }
 }
 @keyframes frame-3 {
-  0%,
-  40% {
-    left: -100%
-  }
   50%,
   95% {
-    left: 0;
     opacity: 1
   }
   100% {
-    left: 0;
     opacity: 0
   }
 }
@@ -5813,13 +5822,15 @@ input[type=file]:focus-visible ~ span {
     display: none
   }
   .btn_animated-pro {
+    --frame-bgr: var(--black);
     color: var(--yellow)!important;
-    background: var(--black);
+    background: var(--frame-bgr);
     margin: 0 auto
   }
   .btn_animated-pro:hover {
+    --frame-bgr: var(--white);
     color: var(--black)!important;
-    background: var(--white);
+    background: var(--frame-bgr);
     text-shadow: none
   }
   .is-active .js-close-search::after,

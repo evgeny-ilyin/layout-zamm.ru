@@ -330,11 +330,15 @@ if (!window.catalogItemGalleriesInit) {
 if (!window.catalogItemGalleryHandler) {
 	window.catalogItemGalleryHandler = () => {
 		const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel, .showrooms"),
+			prevBtns = document.querySelectorAll(".touch-nav i.p"),
+			nextBtns = document.querySelectorAll(".touch-nav i.n"),
 			isActiveClass = "is-active";
 
 		galleryItems.forEach((el) => {
 			if (!el) return;
 			el.addEventListener("mouseover", (e) => {
+				if (document.body.classList.contains("is-touch")) return;
+
 				const item = e.target.closest(".item, .sr-card__gallery");
 				if (!item) return;
 				const gallery = item.querySelector(".item__gallery-wrapper, .sr-card__gallery-wrapper");
@@ -357,6 +361,39 @@ if (!window.catalogItemGalleryHandler) {
 				});
 			});
 		});
+
+		prevBtns.forEach((prev) => {
+			prev.addEventListener("click", (e) => {
+				touchGallery(e.target, 0);
+			});
+		});
+
+		nextBtns.forEach((next) => {
+			next.addEventListener("click", (e) => {
+				touchGallery(e.target, 1);
+			});
+		});
+
+		let getIndexInParent = (element, parent) => {
+			return [...parent.children].indexOf(element);
+		};
+
+		let touchGallery = (target, direction = 1) => {
+			let parent = target.closest(".item__image-wrapper").querySelector(".item__gallery-wrapper"),
+				active = parent.querySelector(`.${isActiveClass}`),
+				total = parent.children.length,
+				index = getIndexInParent(active, parent),
+				activeIndex = 0;
+
+			if (direction > 0) {
+				activeIndex = total == index + 1 ? 0 : index + 1;
+			} else {
+				activeIndex = index - 1 < 0 ? total - 1 : index - 1;
+			}
+
+			parent.children[index].classList.remove(isActiveClass);
+			parent.children[activeIndex].classList.add(isActiveClass);
+		};
 	};
 }
 
