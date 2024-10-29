@@ -330,12 +330,14 @@ if (!window.catalogItemGalleriesInit) {
 if (!window.catalogItemGalleryHandler) {
 	window.catalogItemGalleryHandler = () => {
 		const galleryItems = document.querySelectorAll(".catalog-items, .product-carousel, .showrooms"),
-			prevBtns = document.querySelectorAll(".touch-nav i.p"),
-			nextBtns = document.querySelectorAll(".touch-nav i.n"),
+			// кнопки для листания на мобиле
+			// prevBtns = document.querySelectorAll(".touch-nav i.p"),
+			// nextBtns = document.querySelectorAll(".touch-nav i.n"),
 			isActiveClass = "is-active";
 
 		galleryItems.forEach((el) => {
 			if (!el) return;
+
 			el.addEventListener("mouseover", (e) => {
 				if (document.body.classList.contains("is-touch")) return;
 
@@ -360,19 +362,39 @@ if (!window.catalogItemGalleryHandler) {
 					gallery.querySelector(".item__gallery-item, .js-gallery").classList.add(isActiveClass);
 				});
 			});
+
+			el.addEventListener("touchstart", handleTouchStart);
+			el.addEventListener("touchend", handleTouchEnd);
+
+			let TRESHOLD = 30,
+				startCoordX;
+
+			function handleTouchStart(e) {
+				const firstTouch = e.touches[0].clientX;
+				startCoordX = firstTouch;
+			}
+
+			function handleTouchEnd(e) {
+				if (e.target.closest(".f-carousel")) return;
+
+				const lastTouch = e.changedTouches[0].clientX;
+				if (Math.abs(startCoordX - lastTouch) < TRESHOLD) return;
+				startCoordX > lastTouch ? touchGallery(e.target, 1) : touchGallery(e.target, 0);
+			}
 		});
 
-		prevBtns.forEach((prev) => {
-			prev.addEventListener("click", (e) => {
-				touchGallery(e.target, 0);
-			});
-		});
+		// кнопки для листания на мобиле
+		// prevBtns.forEach((prev) => {
+		// 	prev.addEventListener("click", (e) => {
+		// 		touchGallery(e.target, 0);
+		// 	});
+		// });
 
-		nextBtns.forEach((next) => {
-			next.addEventListener("click", (e) => {
-				touchGallery(e.target, 1);
-			});
-		});
+		// nextBtns.forEach((next) => {
+		// 	next.addEventListener("click", (e) => {
+		// 		touchGallery(e.target, 1);
+		// 	});
+		// });
 
 		let getIndexInParent = (element, parent) => {
 			return [...parent.children].indexOf(element);
