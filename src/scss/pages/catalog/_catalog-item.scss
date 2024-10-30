@@ -106,7 +106,7 @@ body:not(.is-touch) .order .product-carousel {
 		// @include respond-to(lg, "max") {
 		@include when-inside("body.is-touch") {
 			&:not(:first-child) {
-				display: none;
+				// display: none; // swipe on touch too
 			}
 		}
 
@@ -139,10 +139,11 @@ body:not(.is-touch) .order .product-carousel {
 		display: block;
 		position: relative;
 		height: 100%;
+		margin: 0 3px 0 0;
 
 		// @include respond-to(lg) {
 		@include when-inside("body:not(.is-touch)") {
-			margin: 0 3px 0 0;
+			// margin: 0 3px 0 0; // swipe on touch too
 		}
 
 		&::before {
@@ -160,6 +161,11 @@ body:not(.is-touch) .order .product-carousel {
 			// @include respond-to(lg) {
 
 			@include when-inside("body:not(.is-touch) .is-active") {
+				// background: $black; // swipe on touch too
+			}
+
+			// swipe on touch too
+			@include when-inside(".is-active") {
 				background: $black;
 			}
 		}
@@ -379,3 +385,46 @@ body:not(.is-touch) .order .product-carousel {
 		transition: transform 0.25s ease-in-out;
 	}
 }
+
+// кнопки для листания на мобиле
+// .touch-nav {
+// 	--size: 18px;
+// 	position: absolute;
+// 	width: calc(100% + 20px);
+// 	top: 50%;
+// 	left: -10px;
+// 	transform: translateY(-50%);
+// 	display: flex;
+// 	justify-content: space-between;
+// 	z-index: 2;
+
+// 	@include respond-to(md) {
+// 		--size: 25px;
+// 	}
+
+// 	i {
+// 		display: block;
+// 		background: $svg-angle center / var(--size) var(--size) no-repeat;
+// 		opacity: 0.15;
+// 		transition: opacity $transition-default;
+// 		padding: 12px;
+
+// 		@include respond-to(md) {
+// 			padding: 20px;
+// 		}
+
+// 		@media (hover: none) {
+// 			&:active {
+// 				opacity: 0.6;
+// 			}
+// 		}
+
+// 		&:first-child {
+// 			transform: scale(-1);
+// 		}
+// 	}
+
+// 	@include when-inside("body:not(.is-touch)") {
+// 		display: none;
+// 	}
+// }
