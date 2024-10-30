@@ -654,6 +654,187 @@
 			background-repeat: no-repeat;
 		}
 	}
+
+	// .btn_animated-pro
+	&_animated-pro {
+		--frame-bgr: #{$black};
+		width: 230px;
+		height: 29px;
+		font-size: rem(13);
+		font-weight: 600;
+		position: relative;
+		display: flex;
+		align-items: center;
+
+		@include on-hover {
+			--frame-bgr: #{$white};
+		}
+
+		@include respond-to(lg, "max") {
+			--frame-bgr: #{$black};
+			color: $yellow !important;
+			background: var(--frame-bgr);
+			margin: 0 auto;
+
+			@include on-hover {
+				--frame-bgr: #{$white};
+				color: $black !important;
+				background: var(--frame-bgr);
+				text-shadow: none;
+			}
+		}
+
+		svg {
+			transition: none;
+		}
+
+		@include on-hover {
+			.btn-frame-1 {
+				svg {
+					fill: $yellow;
+				}
+			}
+
+			.btn-frame-2 {
+				span {
+					color: $yellow;
+				}
+			}
+
+			.btn-frame-3 {
+				svg {
+					.pro1 {
+						fill: $yellow;
+					}
+					.pro2 {
+						fill: $black-brown;
+					}
+				}
+			}
+		}
+	}
+}
+
+// 3 frames for .btn_animated-pro
+.btn-frame-1,
+.btn-frame-2,
+.btn-frame-3 {
+	position: absolute;
+	animation-duration: 5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+	// height: 100%;
+	background: var(--frame-bgr);
+	transition: background $transition-default;
+}
+
+.btn-frame-1 {
+	animation-name: frame-1;
+	z-index: 2;
+	background: transparent !important;
+
+	svg {
+		fill: $white;
+		width: 21px;
+		height: 21px;
+	}
+}
+
+@keyframes frame-1 {
+	0% {
+		left: -1000%;
+	}
+	40% {
+		left: 15px;
+	}
+	45%,
+	50% {
+		left: 10px;
+	}
+	100% {
+		left: 300%;
+	}
+}
+
+.btn-frame-2 {
+	animation-name: frame-2;
+	z-index: 1;
+	left: 0;
+	margin: 0 7px;
+	width: calc(100% - 14px);
+	text-align: center;
+	opacity: 0;
+
+	span {
+		display: inline;
+		color: $white;
+	}
+}
+
+@keyframes frame-2 {
+	0%,
+	40% {
+		left: 0;
+		opacity: 1;
+	}
+	45%,
+	50% {
+		left: 5px;
+		opacity: 1;
+	}
+	100% {
+		left: 300%;
+	}
+	// уход сразу при толчке от самолётика
+	// 0%,
+	// 20% {
+	// 	left: 0;
+	// 	opacity: 1;
+	// }
+	// 30%,
+	// 100% {
+	// 	left: 100%;
+	// }
+}
+
+.btn-frame-3 {
+	animation-name: frame-3;
+	// left: -100%;
+	left: 0;
+	width: 100%;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+
+	svg {
+		width: 99px;
+		height: 15px;
+
+		.pro1 {
+			fill: $white;
+		}
+		.pro2 {
+			fill: $yellow;
+		}
+	}
+}
+
+@keyframes frame-3 {
+	0%,
+	33% {
+		// left: -100%;
+	}
+	50%,
+	95% {
+		// left: 0;
+		opacity: 1;
+	}
+	100% {
+		// left: 0;
+		opacity: 0;
+	}
 }
 
 .btn-inset {
